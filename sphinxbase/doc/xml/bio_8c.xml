@@ -1,0 +1,1418 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="bio_8c" kind="file">
+    <compoundname>bio.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="assert_8h" local="no">assert.h</includes>
+    <includes refid="bio_8h" local="yes">sphinxbase/bio.h</includes>
+    <includes refid="err_8h" local="yes">sphinxbase/err.h</includes>
+    <includes refid="ckd__alloc_8h" local="yes">sphinxbase/ckd_alloc.h</includes>
+    <incdepgraph>
+      <node id="2152">
+        <label>stdarg.h</label>
+      </node>
+      <node id="2150">
+        <label>assert.h</label>
+        <link refid="assert_8h_source"/>
+      </node>
+      <node id="2159">
+        <label>errno.h</label>
+        <link refid="errno_8h_source"/>
+      </node>
+      <node id="2156">
+        <label>sphinxbase/byteorder.h</label>
+        <link refid="byteorder_8h_source"/>
+      </node>
+      <node id="2158">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2151">
+        <label>sphinxbase/bio.h</label>
+        <link refid="bio_8h"/>
+        <childnode refid="2148" relation="include">
+        </childnode>
+        <childnode refid="2152" relation="include">
+        </childnode>
+        <childnode refid="2153" relation="include">
+        </childnode>
+        <childnode refid="2154" relation="include">
+        </childnode>
+        <childnode refid="2156" relation="include">
+        </childnode>
+      </node>
+      <node id="2161">
+        <label>setjmp.h</label>
+      </node>
+      <node id="2155">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="2149">
+        <label>string.h</label>
+      </node>
+      <node id="2153">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="2154">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="2155" relation="include">
+        </childnode>
+      </node>
+      <node id="2160">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="2158" relation="include">
+        </childnode>
+        <childnode refid="2161" relation="include">
+        </childnode>
+        <childnode refid="2153" relation="include">
+        </childnode>
+        <childnode refid="2154" relation="include">
+        </childnode>
+      </node>
+      <node id="2157">
+        <label>sphinxbase/err.h</label>
+        <link refid="err_8h"/>
+        <childnode refid="2152" relation="include">
+        </childnode>
+        <childnode refid="2148" relation="include">
+        </childnode>
+        <childnode refid="2158" relation="include">
+        </childnode>
+        <childnode refid="2159" relation="include">
+        </childnode>
+        <childnode refid="2153" relation="include">
+        </childnode>
+      </node>
+      <node id="2147">
+        <label>src/libsphinxbase/util/bio.c</label>
+        <link refid="bio.c"/>
+        <childnode refid="2148" relation="include">
+        </childnode>
+        <childnode refid="2149" relation="include">
+        </childnode>
+        <childnode refid="2150" relation="include">
+        </childnode>
+        <childnode refid="2151" relation="include">
+        </childnode>
+        <childnode refid="2157" relation="include">
+        </childnode>
+        <childnode refid="2160" relation="include">
+        </childnode>
+      </node>
+      <node id="2148">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="bio_8c_1a9ed0257ff284fc897ec95752d9cad525" prot="public" static="no">
+        <name>BIO_HDRARG_MAX</name>
+        <initializer>32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="76" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bio_8c_1a8d4200036147d068229da502bd71f9aa" prot="public" static="no">
+        <name>END_COMMENT</name>
+        <initializer>&quot;*end_comment*\n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="77" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="bio_8c_1afefeb37107ebf3dfbdb03994a259df45" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void bcomment_read</definition>
+        <argsstring>(FILE *fp)</argsstring>
+        <name>bcomment_read</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="81" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="81" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a1bf01d768fc75a3b3c052830c65ecf99" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>static int32 swap_check</definition>
+        <argsstring>(FILE *fp)</argsstring>
+        <name>swap_check</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="94" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="94" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a0042fc64fda429052831a3d7d7294fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bio_hdrarg_free</definition>
+        <argsstring>(char **argname, char **argval)</argsstring>
+        <name>bio_hdrarg_free</name>
+        <param>
+          <type>char **</type>
+          <declname>argname</declname>
+          <briefdescription><para>In: Array previously returned by bio_readhdr </para></briefdescription>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argval</declname>
+          <briefdescription><para>In: Array previously returned by bio_readhdr </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Free name and value strings previously allocated and returned by bio_readhdr. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="121" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="121" bodyend="133"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="feat_8h_1a7639fbc34e3328d7e3259e61372c64b8" compoundref="lda_8c" startline="61" endline="136">feat_read_lda</referencedby>
+        <referencedby refid="bio_8h_1a7a155ff51740f1d9a31f7bb7b6e4bc3a" compoundref="bio_8c" startline="187" endline="262">bio_readhdr</referencedby>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a8ecb966e02ac9340a8a99707564f4dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 bio_writehdr_version</definition>
+        <argsstring>(FILE *fp, char *version)</argsstring>
+        <name>bio_writehdr_version</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>Output: File to write </para></briefdescription>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>version</declname>
+          <briefdescription><para>Input: A string of version </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Write a simple binary file header, containing only the version string. </para>        </briefdescription>
+        <detaileddescription>
+<para>Also write the byte order magic word. <simplesect kind="return"><para>0 if successful, -1 otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="137" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="137" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a94d9ebc4648a156fb32a021f22c20dd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 bio_writehdr</definition>
+        <argsstring>(FILE *fp,...)</argsstring>
+        <name>bio_writehdr</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+<para>Write a simple binary file header with only byte order magic word. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if successful, -1 otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="155" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="155" bodyend="183"/>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a0a3976ab5919eb9f78bcd809e0179ebd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 bio_readhdr</definition>
+        <argsstring>(FILE *fp, char ***argname, char ***argval, int32 *swap)</argsstring>
+        <name>bio_readhdr</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to read </para></briefdescription>
+        </param>
+        <param>
+          <type>char ***</type>
+          <declname>name</declname>
+          <defname>argname</defname>
+          <briefdescription><para>Out: array of argument name strings read </para></briefdescription>
+        </param>
+        <param>
+          <type>char ***</type>
+          <declname>val</declname>
+          <defname>argval</defname>
+          <briefdescription><para>Out: corresponding value strings read </para></briefdescription>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>swap</declname>
+          <briefdescription><para>Out: file needs byteswapping iff (*swap) </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Read binary file format header: has the following format. </para>        </briefdescription>
+        <detaileddescription>
+<para><preformatted>
+    s3
+    &lt;argument-name&gt; &lt;argument-value&gt;
+    &lt;argument-name&gt; &lt;argument-value&gt;
+    ...
+    endhdr
+    4-byte byte-order word used to find file byte ordering relative to host machine.
+</preformatted> Lines beginning with # are ignored. Memory for name and val allocated by this function; use bio_hdrarg_free to free them. <simplesect kind="return"><para>0 if successful, -1 otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="187" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="187" bodyend="262"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" compoundref="ckd__alloc_8h" startline="264">ckd_salloc</references>
+        <references refid="bio_8h_1adb3c858a50381aeff022ccd4271af2d9" compoundref="bio_8c" startline="121" endline="133">bio_hdrarg_free</references>
+        <referencedby refid="feat_8h_1a7639fbc34e3328d7e3259e61372c64b8" compoundref="lda_8c" startline="61" endline="136">feat_read_lda</referencedby>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1aae08a609750b3bb64d6d019ad0e2c194" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32</type>
+        <definition>static uint32 chksum_accum</definition>
+        <argsstring>(const void *buf, int32 el_sz, int32 n_el, uint32 sum)</argsstring>
+        <name>chksum_accum</name>
+        <param>
+          <type>const void *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>el_sz</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_el</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>sum</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="266" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="266" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a113ad3b7e9059ff1099a7cccd8280d2f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void swap_buf</definition>
+        <argsstring>(void *buf, int32 el_sz, int32 n_el)</argsstring>
+        <name>swap_buf</name>
+        <param>
+          <type>void *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>el_sz</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_el</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="299" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="299" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a4ca13b6d3f025e200ebf8961464b68ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 bio_fread</definition>
+        <argsstring>(void *buf, int32 el_sz, int32 n_el, FILE *fp, int32 swap, uint32 *chksum)</argsstring>
+        <name>bio_fread</name>
+        <param>
+          <type>void *</type>
+          <declname>buf</declname>
+          <briefdescription><para>In: buffer to write </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>el_sz</declname>
+          <briefdescription><para>In: element size </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_el</declname>
+          <briefdescription><para>In: number of elements </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: An input file pointer </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>swap</declname>
+          <briefdescription><para>In: Byteswap iff (swap != 0) </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In/Out: Accumulated checksum </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Like fread but perform byteswapping and accumulate checksum (the 2 extra arguments). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>unlike fread, returns -1 if required number of elements (n_el) not read; also, no byteswapping or checksum accumulation is performed in that case. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="326" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="326" bodyend="339"/>
+        <referencedby refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" compoundref="bio_8c" startline="364" endline="381">bio_fread_1d</referencedby>
+        <referencedby refid="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" compoundref="bio_8c" startline="384" endline="427">bio_fread_2d</referencedby>
+        <referencedby refid="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" compoundref="bio_8c" startline="430" endline="489">bio_fread_3d</referencedby>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a89f34b7cd35bc532ce9a42e4557e4e66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 bio_fwrite</definition>
+        <argsstring>(const void *buf, int32 el_sz, int32 n_el, FILE *fp, int32 swap, uint32 *chksum)</argsstring>
+        <name>bio_fwrite</name>
+        <param>
+          <type>const void *</type>
+          <declname>buf</declname>
+          <briefdescription><para>In: buffer to write </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>el_sz</declname>
+          <briefdescription><para>In: element size </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_el</declname>
+          <briefdescription><para>In: number of elements </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: An input file pointer </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>swap</declname>
+          <briefdescription><para>In: Byteswap iff (swap != 0) </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In/Out: Accumulated checksum </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Like fwrite but perform byteswapping and accumulate checksum (the 2 extra arguments). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of elemens written (like fwrite). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="342" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="342" bodyend="361"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="bio_8h_1a86f52de3b6076ff2ac32c8d8f5cf48fd" compoundref="bio_8c" startline="507" endline="555">bio_fwrite_3d</referencedby>
+        <referencedby refid="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" compoundref="bio_8c" startline="558" endline="589">bio_fwrite_1d</referencedby>
+        <referencedby refid="logmath_8h_1a787070f5e689878348ef219245fc7c44" compoundref="logmath_8c" startline="272" endline="332">logmath_write</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a49926d2f3e886574d2be404c56579b96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 bio_fread_1d</definition>
+        <argsstring>(void **buf, size_t el_sz, uint32 *n_el, FILE *fp, int32 sw, uint32 *ck)</argsstring>
+        <name>bio_fread_1d</name>
+        <param>
+          <type>void **</type>
+          <declname>buf</declname>
+          <briefdescription><para>Out: contains array data; allocated by this function; can be freed using ckd_free </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>el_sz</declname>
+          <briefdescription><para>In: Array element size </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>n_el</declname>
+          <briefdescription><para>Out: Number of array elements allocated/read </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to read </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>sw</declname>
+          <briefdescription><para>In: Byteswap iff (swap != 0) </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>ck</declname>
+          <briefdescription><para>In/Out: Accumulated checksum </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Read a 1-d array (fashioned after fread): </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>4-byte array size (returned in n_el)</para></listitem><listitem><para>memory allocated for the array and read (returned in buf)</para></listitem></itemizedlist>
+</para><para>Byteswapping and checksum accumulation performed as necessary. Fails fatally if expected data not read. <simplesect kind="return"><para>number of array elements allocated and read; -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="364" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="364" bodyend="381"/>
+        <references refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" compoundref="bio_8c" startline="326" endline="339">bio_fread</references>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <referencedby refid="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" compoundref="bio_8c" startline="384" endline="427">bio_fread_2d</referencedby>
+        <referencedby refid="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" compoundref="bio_8c" startline="430" endline="489">bio_fread_3d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1ae00d984c1668add2612076d110129146" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 bio_fread_2d</definition>
+        <argsstring>(void ***arr, size_t e_sz, uint32 *d1, uint32 *d2, FILE *fp, uint32 swap, uint32 *chksum)</argsstring>
+        <name>bio_fread_2d</name>
+        <param>
+          <type>void ***</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>e_sz</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>swap</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+        </param>
+        <briefdescription>
+<para>Read a 2-d matrix: </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>4-byte # rows, # columns (returned in d1, d2, d3)</para></listitem><listitem><para>memory allocated for the array and read (returned in buf)</para></listitem></itemizedlist>
+</para><para>Byteswapping and checksum accumulation performed as necessary. Fails fatally if expected data not read. <simplesect kind="return"><para>number of array elements allocated and read; -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="384" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="384" bodyend="427"/>
+        <references refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" compoundref="bio_8c" startline="326" endline="339">bio_fread</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+        <references refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" compoundref="bio_8c" startline="364" endline="381">bio_fread_1d</references>
+        <references refid="ckd__alloc_8h_1ad5d0dce212e97207af42803a3add00e1" compoundref="ckd__alloc_8h" startline="287">ckd_alloc_2d_ptr</references>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1aa3507a6efc2f6ab1030d0c5a0bce34b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 bio_fread_3d</definition>
+        <argsstring>(void ****arr, size_t e_sz, uint32 *d1, uint32 *d2, uint32 *d3, FILE *fp, uint32 swap, uint32 *chksum)</argsstring>
+        <name>bio_fread_3d</name>
+        <param>
+          <type>void ****</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>e_sz</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d3</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>swap</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+        </param>
+        <briefdescription>
+<para>Read a 3-d array (set of matrices) </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>4-byte # matrices, # rows, # columns (returned in d1, d2, d3)</para></listitem><listitem><para>memory allocated for the array and read (returned in buf)</para></listitem></itemizedlist>
+</para><para>Byteswapping and checksum accumulation performed as necessary. Fails fatally if expected data not read. <simplesect kind="return"><para>number of array elements allocated and read; -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="430" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="430" bodyend="489"/>
+        <references refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" compoundref="bio_8c" startline="326" endline="339">bio_fread</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+        <references refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" compoundref="bio_8c" startline="364" endline="381">bio_fread_1d</references>
+        <references refid="ckd__alloc_8h_1ab29a3fbbd58bc59aa2827eaeda090d06" compoundref="ckd__alloc_8h" startline="298">ckd_alloc_3d_ptr</references>
+        <referencedby refid="feat_8h_1a7639fbc34e3328d7e3259e61372c64b8" compoundref="lda_8c" startline="61" endline="136">feat_read_lda</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a53efb8bf65a4db4f7519cfadf4cce70c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bio_verify_chksum</definition>
+        <argsstring>(FILE *fp, int32 byteswap, uint32 chksum)</argsstring>
+        <name>bio_verify_chksum</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to read </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>byteswap</declname>
+          <briefdescription><para>In: Byteswap iff (swap != 0) </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In: Value to compare with checksum in file </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Read and verify checksum at the end of binary file. </para>        </briefdescription>
+        <detaileddescription>
+<para>Fails fatally if there is a mismatch. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="492" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="492" bodyend="504"/>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1acdca3413b8860257652c6d0fdca4d209" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int bio_fwrite_3d</definition>
+        <argsstring>(void ***arr, size_t e_sz, uint32 d1, uint32 d2, uint32 d3, FILE *fp, uint32 *chksum)</argsstring>
+        <name>bio_fwrite_3d</name>
+        <param>
+          <type>void ***</type>
+          <declname>arr</declname>
+          <briefdescription><para>In: Data to write </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>e_sz</declname>
+          <briefdescription><para>In: Size of the elements in bytes </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+          <briefdescription><para>In: First dimension </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d2</declname>
+          <briefdescription><para>In: Second dimension </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d3</declname>
+          <briefdescription><para>In: Third dimension </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to write to </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In/Out: Checksum accumulator </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Write a 3-d array (set of matrices). </para>        </briefdescription>
+        <detaileddescription>
+<para>Checksum accumulation performed as necessary.</para><para><simplesect kind="return"><para>number of array elements successfully written or -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="507" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="507" bodyend="555"/>
+        <references refid="bio_8h_1a144651e14134242035793d69918fd407" compoundref="bio_8c" startline="342" endline="361">bio_fwrite</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+        <references refid="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" compoundref="bio_8c" startline="558" endline="589">bio_fwrite_1d</references>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1a81c6d43a0cbb8aaaf83b3cc8a9c95f2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int bio_fwrite_1d</definition>
+        <argsstring>(void *arr, size_t e_sz, uint32 d1, FILE *fp, uint32 *chksum)</argsstring>
+        <name>bio_fwrite_1d</name>
+        <param>
+          <type>void *</type>
+          <declname>arr</declname>
+          <briefdescription><para>In: Data to write </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>e_sz</declname>
+          <briefdescription><para>In: Size of the elements in bytes </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+          <briefdescription><para>In: First dimension </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to write to </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In/Out: Checksum accumulator </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Write a 1-d array. </para>        </briefdescription>
+        <detaileddescription>
+<para>Checksum accumulation performed as necessary.</para><para><simplesect kind="return"><para>number of array elements successfully written or -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="558" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="558" bodyend="589"/>
+        <references refid="bio_8h_1a144651e14134242035793d69918fd407" compoundref="bio_8c" startline="342" endline="361">bio_fwrite</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+        <referencedby refid="bio_8h_1a86f52de3b6076ff2ac32c8d8f5cf48fd" compoundref="bio_8c" startline="507" endline="555">bio_fwrite_3d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8c_1afe3c58abf0f2584fbd49e3eae7ac4509" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16 *</type>
+        <definition>int16* bio_read_wavfile</definition>
+        <argsstring>(char const *directory, char const *filename, char const *extension, int32 header, int32 endian, int32 *nsamps)</argsstring>
+        <name>bio_read_wavfile</name>
+        <param>
+          <type>char const *</type>
+          <declname>directory</declname>
+          <briefdescription><para>In: the folder where the file is located </para></briefdescription>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>filename</declname>
+          <briefdescription><para>In: the name of the file </para></briefdescription>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>extension</declname>
+          <briefdescription><para>In: file extension </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>header</declname>
+          <briefdescription><para>In: the size of the header to skip usually 44 bytes </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>endian</declname>
+          <briefdescription><para>In: endian of the data </para></briefdescription>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>nsamps</declname>
+          <briefdescription><para>Out: number of samples read </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Read raw data from the wav file. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>pointer to the data. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" line="592" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="592" bodyend="644"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="err_8h_1ac8eb8ab6d805872c19a959bb9930fcea" compoundref="err_8h" startline="92">E_FATAL_SYSTEM</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>bio.c<sp/>--<sp/>Sphinx-3<sp/>binary<sp/>file<sp/>I/O<sp/>functions.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1996<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>$Log$</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2005/06/21<sp/><sp/>20:40:46<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>1,<sp/>Fixed<sp/>doxygen<sp/>documentation,<sp/>2,<sp/>Add<sp/>the<sp/>$<sp/>keyword.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:46<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>02-Jul-1997<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Bugfix:<sp/>Added<sp/>byteswapping<sp/>in<sp/>bio_verify_chksum().</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>18-Dec-1996<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Created.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_MSC_VER</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#pragma<sp/>warning<sp/>(disable:<sp/>4996)</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="bio_8h" kindref="compound">sphinxbase/bio.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="err_8h" kindref="compound">sphinxbase/err.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ckd__alloc_8h" kindref="compound">sphinxbase/ckd_alloc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BIO_HDRARG_MAX<sp/><sp/>32</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>END_COMMENT<sp/><sp/><sp/><sp/><sp/>&quot;*end_comment*\n&quot;</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">bcomment_read(FILE<sp/>*<sp/>fp)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>__BIGSTACKVARIABLE__<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>iline[16384];</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(fgets(iline,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(iline),<sp/>fp)<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(iline,<sp/>END_COMMENT)<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;Missing<sp/>%s<sp/>marker\n&quot;</highlight><highlight class="normal">,<sp/>END_COMMENT);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int32</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">swap_check(FILE<sp/>*<sp/>fp)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>magic;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fread(&amp;magic,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp)<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Cannot<sp/>read<sp/>BYTEORDER<sp/>MAGIC<sp/>NO.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(magic<sp/>!=<sp/>BYTE_ORDER_MAGIC)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>either<sp/>need<sp/>to<sp/>swap<sp/>or<sp/>got<sp/>bogus<sp/>magic<sp/>number<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SWAP_INT32(&amp;magic);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(magic<sp/>==<sp/>BYTE_ORDER_MAGIC)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SWAP_INT32(&amp;magic);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Bad<sp/>BYTEORDER<sp/>MAGIC<sp/>NO:<sp/>%08x,<sp/>expecting<sp/>%08x\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>magic,<sp/>BYTE_ORDER_MAGIC);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="bio_8h_1adb3c858a50381aeff022ccd4271af2d9" refkind="member"><highlight class="normal"><ref refid="bio_8h_1adb3c858a50381aeff022ccd4271af2d9" kindref="member">bio_hdrarg_free</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argname,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argval)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>i;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(argname<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>argname[i];<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(argname[i]);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(argval[i]);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(argname);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(argval);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="137" refid="bio_8h_1a9662c09be1f18377488dedb8e7ca0bfd" refkind="member"><highlight class="normal"><ref refid="bio_8h_1a9662c09be1f18377488dedb8e7ca0bfd" kindref="member">bio_writehdr_version</ref>(FILE<sp/>*<sp/>fp,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*version)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>b;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(fp,<sp/></highlight><highlight class="stringliteral">&quot;s3\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(fp,<sp/></highlight><highlight class="stringliteral">&quot;version<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>version);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(fp,<sp/></highlight><highlight class="stringliteral">&quot;endhdr\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>fflush(fp);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>b<sp/>=<sp/>(uint32)<sp/>BYTE_ORDER_MAGIC;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>fwrite(&amp;b,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>fflush(fp);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="155" refid="bio_8h_1adc41fc6124fa3e52267c0a2c1036246f" refkind="member"><highlight class="normal"><ref refid="bio_8h_1adc41fc6124fa3e52267c0a2c1036246f" kindref="member">bio_writehdr</ref>(FILE<sp/>*fp,<sp/>...)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*key;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>va_list<sp/>args;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>b;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(fp,<sp/></highlight><highlight class="stringliteral">&quot;s3\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>va_start(args,<sp/>fp);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((key<sp/>=<sp/>va_arg(args,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*))<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*val<sp/>=<sp/>va_arg(args,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(val<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Wrong<sp/>number<sp/>of<sp/>arguments\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>va_end(args);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(fp,<sp/></highlight><highlight class="stringliteral">&quot;%s<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>key,<sp/>val);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>va_end(args);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(fp,<sp/></highlight><highlight class="stringliteral">&quot;endhdr\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>fflush(fp);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>b<sp/>=<sp/>(uint32)<sp/>BYTE_ORDER_MAGIC;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fwrite(&amp;b,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp)<sp/>!=<sp/>1)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>fflush(fp);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="187" refid="bio_8h_1a7a155ff51740f1d9a31f7bb7b6e4bc3a" refkind="member"><highlight class="normal"><ref refid="bio_8h_1a7a155ff51740f1d9a31f7bb7b6e4bc3a" kindref="member">bio_readhdr</ref>(FILE<sp/>*<sp/>fp,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***argname,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***argval,<sp/>int32<sp/>*<sp/>swap)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>__BIGSTACKVARIABLE__<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>line[16384],<sp/>word[4096];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>i,<sp/>l;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>lineno;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>*argname<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(BIO_HDRARG_MAX<sp/>+<sp/>1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*));</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>*argval<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(BIO_HDRARG_MAX,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*));</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>lineno<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fgets(line,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(line),<sp/>fp)<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Premature<sp/>EOF,<sp/>line<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>lineno);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>lineno++;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((line[0]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;s&apos;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/>(line[1]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;3&apos;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/>(line[2]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>New<sp/>format<sp/>(post<sp/>Dec-1996,<sp/>including<sp/>checksums);<sp/>read<sp/>argument-value<sp/>pairs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;;)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fgets(line,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(line),<sp/>fp)<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Premature<sp/>EOF,<sp/>line<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>lineno);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lineno++;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sscanf(line,<sp/></highlight><highlight class="stringliteral">&quot;%s%n&quot;</highlight><highlight class="normal">,<sp/>word,<sp/>&amp;l)<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Header<sp/>format<sp/>error,<sp/>line<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>lineno);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(word,<sp/></highlight><highlight class="stringliteral">&quot;endhdr&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(word[0]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;#&apos;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">/*<sp/>Skip<sp/>comments<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&gt;=<sp/>BIO_HDRARG_MAX)<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">&quot;Max<sp/>arg-value<sp/>limit(%d)<sp/>exceeded;<sp/>increase<sp/>BIO_HDRARG_MAX\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BIO_HDRARG_MAX);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*argname)[i]<sp/>=<sp/><ref refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" kindref="member">ckd_salloc</ref>(word);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sscanf(line<sp/>+<sp/>l,<sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>word)<sp/>!=<sp/>1)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Multi-word<sp/>values<sp/>not<sp/>allowed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Header<sp/>format<sp/>error,<sp/>line<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>lineno);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*argval)[i]<sp/>=<sp/><ref refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" kindref="member">ckd_salloc</ref>(word);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Old<sp/>format<sp/>(without<sp/>checksums);<sp/>the<sp/>first<sp/>entry<sp/>must<sp/>be<sp/>the<sp/>version#<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sscanf(line,<sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>word)<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Header<sp/>format<sp/>error,<sp/>line<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>lineno);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*argname)[0]<sp/>=<sp/><ref refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" kindref="member">ckd_salloc</ref>(</highlight><highlight class="stringliteral">&quot;version&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*argval)[0]<sp/>=<sp/><ref refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" kindref="member">ckd_salloc</ref>(word);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bcomment_read(fp);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>(*argname)[i]<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((*swap<sp/>=<sp/>swap_check(fp))<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;swap_check<sp/>failed\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal">error_out:</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="bio_8h_1adb3c858a50381aeff022ccd4271af2d9" kindref="member">bio_hdrarg_free</ref>(*argname,<sp/>*argval);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>*argname<sp/>=<sp/>*argval<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint32</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">chksum_accum(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buf,<sp/>int32<sp/>el_sz,<sp/>int32<sp/>n_el,<sp/>uint32<sp/>sum)</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>i;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/>*i8;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/>*i16;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>*i32;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(el_sz)<sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i8<sp/>=<sp/>(uint8<sp/>*)<sp/>buf;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_el;<sp/>i++)</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum<sp/>=<sp/>(sum<sp/>&lt;&lt;<sp/>5<sp/>|<sp/>sum<sp/>&gt;&gt;<sp/>27)<sp/>+<sp/>i8[i];</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i16<sp/>=<sp/>(uint16<sp/>*)<sp/>buf;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_el;<sp/>i++)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum<sp/>=<sp/>(sum<sp/>&lt;&lt;<sp/>10<sp/>|<sp/>sum<sp/>&gt;&gt;<sp/>22)<sp/>+<sp/>i16[i];</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4:</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i32<sp/>=<sp/>(uint32<sp/>*)<sp/>buf;</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_el;<sp/>i++)</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum<sp/>=<sp/>(sum<sp/>&lt;&lt;<sp/>20<sp/>|<sp/>sum<sp/>&gt;&gt;<sp/>12)<sp/>+<sp/>i32[i];</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;Unsupported<sp/>elemsize<sp/>for<sp/>checksum:<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>el_sz);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sum;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal">swap_buf(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buf,<sp/>int32<sp/>el_sz,<sp/>int32<sp/>n_el)</highlight></codeline>
+<codeline lineno="300"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>i;</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/>*buf16;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>*buf32;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(el_sz)<sp/>{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf16<sp/>=<sp/>(uint16<sp/>*)<sp/>buf;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_el;<sp/>i++)</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SWAP_INT16(buf16<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4:</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buf32<sp/>=<sp/>(uint32<sp/>*)<sp/>buf;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_el;<sp/>i++)</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SWAP_INT32(buf32<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;Unsupported<sp/>elemsize<sp/>for<sp/>byteswapping:<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>el_sz);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="322"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="326" refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" refkind="member"><highlight class="normal"><ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buf,<sp/>int32<sp/>el_sz,<sp/>int32<sp/>n_el,<sp/>FILE<sp/>*<sp/>fp,<sp/>int32<sp/>swap,</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*<sp/>chksum)</highlight></codeline>
+<codeline lineno="328"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fread(buf,<sp/>el_sz,<sp/>n_el,<sp/>fp)<sp/>!=<sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">)<sp/>n_el)</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(swap)</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>swap_buf(buf,<sp/>el_sz,<sp/>n_el);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(chksum)</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*chksum<sp/>=<sp/>chksum_accum(buf,<sp/>el_sz,<sp/>n_el,<sp/>*chksum);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n_el;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="342" refid="bio_8h_1a144651e14134242035793d69918fd407" refkind="member"><highlight class="normal"><ref refid="bio_8h_1a144651e14134242035793d69918fd407" kindref="member">bio_fwrite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buf,<sp/>int32<sp/>el_sz,<sp/>int32<sp/>n_el,<sp/>FILE<sp/>*fp,</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>swap,<sp/>uint32<sp/>*chksum)</highlight></codeline>
+<codeline lineno="344"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(chksum)</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*chksum<sp/>=<sp/>chksum_accum(buf,<sp/>el_sz,<sp/>n_el,<sp/>*chksum);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(swap)<sp/>{</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*nbuf;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rv;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nbuf<sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(n_el,<sp/>el_sz);</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(nbuf,<sp/>buf,<sp/>n_el<sp/>*<sp/>el_sz);</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>swap_buf(nbuf,<sp/>el_sz,<sp/>n_el);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rv<sp/>=<sp/>fwrite(nbuf,<sp/>el_sz,<sp/>n_el,<sp/>fp);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(nbuf);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rv;</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fwrite(buf,<sp/>el_sz,<sp/>n_el,<sp/>fp);</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="361"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="364" refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" refkind="member"><highlight class="normal"><ref refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" kindref="member">bio_fread_1d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>el_sz,<sp/>uint32<sp/>*<sp/>n_el,<sp/>FILE<sp/>*<sp/>fp,</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>sw,<sp/>uint32<sp/>*<sp/>ck)</highlight></codeline>
+<codeline lineno="366"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>1-d<sp/>array<sp/>size<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref>(n_el,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int32),<sp/>1,<sp/>fp,<sp/>sw,<sp/>ck)<sp/>!=<sp/>1)</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;fread(arraysize)<sp/>failed\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*n_el<sp/>&lt;=<sp/>0)</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;Bad<sp/>arraysize:<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>*n_el);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Allocate<sp/>memory<sp/>for<sp/>array<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>*buf<sp/>=<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(*n_el,<sp/>el_sz);</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>array<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref>(*buf,<sp/>el_sz,<sp/>*n_el,<sp/>fp,<sp/>sw,<sp/>ck)<sp/>!=<sp/>*n_el)</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;fread(arraydata)<sp/>failed\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*n_el;</highlight></codeline>
+<codeline lineno="381"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="384" refid="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" refkind="member"><highlight class="normal"><ref refid="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" kindref="member">bio_fread_2d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>***arr,</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>e_sz,</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d1,</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d2,</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>swap,</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum)</highlight></codeline>
+<codeline lineno="391"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>l_d1,<sp/>l_d2;</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>n;</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*raw;</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref>(&amp;l_d1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>swap,<sp/>chksum);</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>read<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fread_2d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref>(&amp;l_d2,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>swap,<sp/>chksum);</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>read<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fread_2d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="417"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" kindref="member">bio_fread_1d</ref>(&amp;raw,<sp/>e_sz,<sp/>&amp;n,<sp/>fp,<sp/>swap,<sp/>chksum)<sp/>!=<sp/>n)</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="419"><highlight class="normal"></highlight></codeline>
+<codeline lineno="420"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(n<sp/>==<sp/>l_d1*l_d2);</highlight></codeline>
+<codeline lineno="421"><highlight class="normal"></highlight></codeline>
+<codeline lineno="422"><highlight class="normal"><sp/><sp/><sp/><sp/>*d1<sp/>=<sp/>l_d1;</highlight></codeline>
+<codeline lineno="423"><highlight class="normal"><sp/><sp/><sp/><sp/>*d2<sp/>=<sp/>l_d2;</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"><sp/><sp/><sp/><sp/>*arr<sp/>=<sp/><ref refid="ckd__alloc_8h_1ad5d0dce212e97207af42803a3add00e1" kindref="member">ckd_alloc_2d_ptr</ref>(l_d1,<sp/>l_d2,<sp/>raw,<sp/>e_sz);</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"></highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n;</highlight></codeline>
+<codeline lineno="427"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"></highlight></codeline>
+<codeline lineno="429"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="430" refid="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" refkind="member"><highlight class="normal"><ref refid="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" kindref="member">bio_fread_3d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>****arr,</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>e_sz,</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d1,</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d2,</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d3,</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>swap,</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum)</highlight></codeline>
+<codeline lineno="438"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>l_d1;</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>l_d2;</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>l_d3;</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>n;</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*raw;</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"></highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref>(&amp;l_d1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>swap,<sp/>chksum);</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>read<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fread_3d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref>(&amp;l_d2,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>swap,<sp/>chksum);</highlight></codeline>
+<codeline lineno="457"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="458"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>read<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="462"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fread_3d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref>(&amp;l_d3,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>swap,<sp/>chksum);</highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="469"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>read<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="470"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fread_3d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="476"><highlight class="normal"></highlight></codeline>
+<codeline lineno="477"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" kindref="member">bio_fread_1d</ref>(&amp;raw,<sp/>e_sz,<sp/>&amp;n,<sp/>fp,<sp/>swap,<sp/>chksum)<sp/>!=<sp/>n)<sp/>{</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"></highlight></codeline>
+<codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(n<sp/>==<sp/>l_d1<sp/>*<sp/>l_d2<sp/>*<sp/>l_d3);</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"></highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/>*arr<sp/>=<sp/><ref refid="ckd__alloc_8h_1ab29a3fbbd58bc59aa2827eaeda090d06" kindref="member">ckd_alloc_3d_ptr</ref>(l_d1,<sp/>l_d2,<sp/>l_d3,<sp/>raw,<sp/>e_sz);</highlight></codeline>
+<codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/>*d1<sp/>=<sp/>l_d1;</highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/>*d2<sp/>=<sp/>l_d2;</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"><sp/><sp/><sp/><sp/>*d3<sp/>=<sp/>l_d3;</highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="488"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n;</highlight></codeline>
+<codeline lineno="489"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="490"><highlight class="normal"></highlight></codeline>
+<codeline lineno="491"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="492" refid="bio_8h_1ad07e2ee9f2f01d3ff3232008098295a0" refkind="member"><highlight class="normal"><ref refid="bio_8h_1ad07e2ee9f2f01d3ff3232008098295a0" kindref="member">bio_verify_chksum</ref>(FILE<sp/>*<sp/>fp,<sp/>int32<sp/>byteswap,<sp/>uint32<sp/>chksum)</highlight></codeline>
+<codeline lineno="493"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="494"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>file_chksum;</highlight></codeline>
+<codeline lineno="495"><highlight class="normal"></highlight></codeline>
+<codeline lineno="496"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fread(&amp;file_chksum,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp)<sp/>!=<sp/>1)</highlight></codeline>
+<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;fread(chksum)<sp/>failed\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(byteswap)</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SWAP_INT32(&amp;file_chksum);</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(file_chksum<sp/>!=<sp/>chksum)</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref></highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">&quot;Checksum<sp/>error;<sp/>file-checksum<sp/>%08x,<sp/>computed<sp/>%08x\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="503"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file_chksum,<sp/>chksum);</highlight></codeline>
+<codeline lineno="504"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="505"><highlight class="normal"></highlight></codeline>
+<codeline lineno="506"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="507" refid="bio_8h_1a86f52de3b6076ff2ac32c8d8f5cf48fd" refkind="member"><highlight class="normal"><ref refid="bio_8h_1a86f52de3b6076ff2ac32c8d8f5cf48fd" kindref="member">bio_fwrite_3d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>***arr,</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>e_sz,</highlight></codeline>
+<codeline lineno="509"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>d1,</highlight></codeline>
+<codeline lineno="510"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>d2,</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>d3,</highlight></codeline>
+<codeline lineno="512"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,</highlight></codeline>
+<codeline lineno="513"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum)</highlight></codeline>
+<codeline lineno="514"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="515"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="516"><highlight class="normal"></highlight></codeline>
+<codeline lineno="517"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>write<sp/>out<sp/>first<sp/>dimension<sp/>1<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="518"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a144651e14134242035793d69918fd407" kindref="member">bio_fwrite</ref>(&amp;d1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>0,<sp/>chksum);</highlight></codeline>
+<codeline lineno="519"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="520"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="521"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>write<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="522"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="523"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="524"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fwrite_3d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="526"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="527"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="528"><highlight class="normal"></highlight></codeline>
+<codeline lineno="529"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>write<sp/>out<sp/>first<sp/>dimension<sp/>2<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="530"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a144651e14134242035793d69918fd407" kindref="member">bio_fwrite</ref>(&amp;d2,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>0,<sp/>chksum);</highlight></codeline>
+<codeline lineno="531"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="532"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>write<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="536"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fwrite_3d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="538"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="539"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="540"><highlight class="normal"></highlight></codeline>
+<codeline lineno="541"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>write<sp/>out<sp/>first<sp/>dimension<sp/>3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="542"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a144651e14134242035793d69918fd407" kindref="member">bio_fwrite</ref>(&amp;d3,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>0,<sp/>chksum);</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="544"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="545"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>write<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="546"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="547"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="548"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fwrite_3d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="551"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="552"><highlight class="normal"></highlight></codeline>
+<codeline lineno="553"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>write<sp/>out<sp/>the<sp/>data<sp/>in<sp/>the<sp/>array<sp/>as<sp/>one<sp/>big<sp/>block<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="554"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" kindref="member">bio_fwrite_1d</ref>(arr[0][0],<sp/>e_sz,<sp/>d1<sp/>*<sp/>d2<sp/>*<sp/>d3,<sp/>fp,<sp/>chksum);</highlight></codeline>
+<codeline lineno="555"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="556"><highlight class="normal"></highlight></codeline>
+<codeline lineno="557"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="558" refid="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" refkind="member"><highlight class="normal"><ref refid="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" kindref="member">bio_fwrite_1d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*arr,</highlight></codeline>
+<codeline lineno="559"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>e_sz,</highlight></codeline>
+<codeline lineno="560"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>d1,</highlight></codeline>
+<codeline lineno="561"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,</highlight></codeline>
+<codeline lineno="562"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum)</highlight></codeline>
+<codeline lineno="563"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="564"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="565"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a144651e14134242035793d69918fd407" kindref="member">bio_fwrite</ref>(&amp;d1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32),<sp/>1,<sp/>fp,<sp/>0,<sp/>chksum);</highlight></codeline>
+<codeline lineno="566"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="567"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="568"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>write<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="569"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="570"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="571"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fwrite_1d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="572"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="574"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="575"><highlight class="normal"></highlight></codeline>
+<codeline lineno="576"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/>=<sp/><ref refid="bio_8h_1a144651e14134242035793d69918fd407" kindref="member">bio_fwrite</ref>(arr,<sp/>e_sz,<sp/>d1,<sp/>fp,<sp/>0,<sp/>chksum);</highlight></codeline>
+<codeline lineno="577"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>d1)<sp/>{</highlight></codeline>
+<codeline lineno="578"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="579"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>write<sp/>complete<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="580"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="581"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="582"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;OS<sp/>error<sp/>in<sp/>bio_fwrite_1d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="583"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="584"><highlight class="normal"></highlight></codeline>
+<codeline lineno="585"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="586"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="587"><highlight class="normal"></highlight></codeline>
+<codeline lineno="588"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="589"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="590"><highlight class="normal"></highlight></codeline>
+<codeline lineno="591"><highlight class="normal">int16*</highlight></codeline>
+<codeline lineno="592" refid="bio_8h_1afb2a720bfe1c63d5280d343715292d61" refkind="member"><highlight class="normal"><ref refid="bio_8h_1afb2a720bfe1c63d5280d343715292d61" kindref="member">bio_read_wavfile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*directory,</highlight></codeline>
+<codeline lineno="593"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*filename,</highlight></codeline>
+<codeline lineno="594"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*extension,</highlight></codeline>
+<codeline lineno="595"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>header,</highlight></codeline>
+<codeline lineno="596"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>endian,</highlight></codeline>
+<codeline lineno="597"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>*nsamps)</highlight></codeline>
+<codeline lineno="598"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="599"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*uttfp;</highlight></codeline>
+<codeline lineno="600"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*inputfile;</highlight></codeline>
+<codeline lineno="601"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n,<sp/>l;</highlight></codeline>
+<codeline lineno="602"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/>*data;</highlight></codeline>
+<codeline lineno="603"><highlight class="normal"></highlight></codeline>
+<codeline lineno="604"><highlight class="normal"><sp/><sp/><sp/><sp/>n<sp/>=<sp/>strlen(extension);</highlight></codeline>
+<codeline lineno="605"><highlight class="normal"><sp/><sp/><sp/><sp/>l<sp/>=<sp/>strlen(filename);</highlight></codeline>
+<codeline lineno="606"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((n<sp/>&lt;=<sp/>l)<sp/>&amp;&amp;<sp/>(0<sp/>==<sp/>strcmp(filename<sp/>+<sp/>l<sp/>-<sp/>n,<sp/>extension)))</highlight></codeline>
+<codeline lineno="607"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>extension<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="608"><highlight class="normal"><sp/><sp/><sp/><sp/>inputfile<sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(strlen(directory)<sp/>+<sp/>l<sp/>+<sp/>n<sp/>+<sp/>2,<sp/>1);</highlight></codeline>
+<codeline lineno="609"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(directory)<sp/>{</highlight></codeline>
+<codeline lineno="610"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprintf(inputfile,<sp/></highlight><highlight class="stringliteral">&quot;%s/%s%s&quot;</highlight><highlight class="normal">,<sp/>directory,<sp/>filename,<sp/>extension);</highlight></codeline>
+<codeline lineno="611"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="612"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprintf(inputfile,<sp/></highlight><highlight class="stringliteral">&quot;%s%s&quot;</highlight><highlight class="normal">,<sp/>filename,<sp/>extension);</highlight></codeline>
+<codeline lineno="613"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="614"><highlight class="normal"></highlight></codeline>
+<codeline lineno="615"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((uttfp<sp/>=<sp/>fopen(inputfile,<sp/></highlight><highlight class="stringliteral">&quot;rb&quot;</highlight><highlight class="normal">))<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="616"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1ac8eb8ab6d805872c19a959bb9930fcea" kindref="member">E_FATAL_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>open<sp/>file<sp/>&apos;%s&apos;<sp/>for<sp/>reading&quot;</highlight><highlight class="normal">,<sp/>inputfile);</highlight></codeline>
+<codeline lineno="617"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="618"><highlight class="normal"><sp/><sp/><sp/><sp/>fseek(uttfp,<sp/>0,<sp/>SEEK_END);</highlight></codeline>
+<codeline lineno="619"><highlight class="normal"><sp/><sp/><sp/><sp/>n<sp/>=<sp/>ftell(uttfp);</highlight></codeline>
+<codeline lineno="620"><highlight class="normal"><sp/><sp/><sp/><sp/>fseek(uttfp,<sp/>0,<sp/>SEEK_SET);</highlight></codeline>
+<codeline lineno="621"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(header<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="622"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fseek(uttfp,<sp/>header,<sp/>SEEK_SET)<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="623"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>move<sp/>to<sp/>an<sp/>offset<sp/>%d<sp/>in<sp/>a<sp/>file<sp/>&apos;%s&apos;&quot;</highlight><highlight class="normal">,<sp/>header,<sp/>inputfile);</highlight></codeline>
+<codeline lineno="624"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fclose(uttfp);</highlight></codeline>
+<codeline lineno="625"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(inputfile);</highlight></codeline>
+<codeline lineno="626"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="627"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="628"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n<sp/>-=<sp/>header;</highlight></codeline>
+<codeline lineno="629"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="630"><highlight class="normal"><sp/><sp/><sp/><sp/>n<sp/>/=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int16);</highlight></codeline>
+<codeline lineno="631"><highlight class="normal"><sp/><sp/><sp/><sp/>data<sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(n,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*data));</highlight></codeline>
+<codeline lineno="632"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((l<sp/>=<sp/>fread(data,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int16),<sp/>n,<sp/>uttfp))<sp/>&lt;<sp/>n)<sp/>{</highlight></codeline>
+<codeline lineno="633"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" kindref="member">E_ERROR_SYSTEM</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>read<sp/>%d<sp/>samples<sp/>from<sp/>%s:<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>n,<sp/>inputfile,<sp/>l);</highlight></codeline>
+<codeline lineno="634"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(data);</highlight></codeline>
+<codeline lineno="635"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(inputfile);</highlight></codeline>
+<codeline lineno="636"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fclose(uttfp);</highlight></codeline>
+<codeline lineno="637"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="638"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="639"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(inputfile);</highlight></codeline>
+<codeline lineno="640"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(uttfp);</highlight></codeline>
+<codeline lineno="641"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nsamps)<sp/>*nsamps<sp/>=<sp/>n;</highlight></codeline>
+<codeline lineno="642"><highlight class="normal"></highlight></codeline>
+<codeline lineno="643"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="644"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,412 @@
+\section{src/libsphinxbase/lm/ngram\-\_\-model\-\_\-set.c File Reference}
+\label{ngram__model__set_8c}\index{src/libsphinxbase/lm/ngram\-\_\-model\-\_\-set.\-c@{src/libsphinxbase/lm/ngram\-\_\-model\-\_\-set.\-c}}
+
+
+Set of language models.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}sphinxbase/err.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sphinxbase/ckd\-\_\-alloc.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sphinxbase/strfuncs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sphinxbase/filename.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ngram\-\_\-model\-\_\-set.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-init} ({\bf cmd\-\_\-ln\-\_\-t} $\ast$config, {\bf ngram\-\_\-model\-\_\-t} $\ast$$\ast$models, char $\ast$$\ast$names, const float32 $\ast$weights, int32 n\-\_\-models)
+\begin{DoxyCompactList}\small\item\em Create a set of language models sharing a common space of word I\-Ds. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-read} ({\bf cmd\-\_\-ln\-\_\-t} $\ast$config, const char $\ast$lmctlfile, {\bf logmath\-\_\-t} $\ast$lmath)
+\begin{DoxyCompactList}\small\item\em Read a set of language models from a control file. \end{DoxyCompactList}\item 
+int32 {\bf ngram\-\_\-model\-\_\-set\-\_\-count} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base)\label{ngram__model__set_8c_afa38d4e0f6cd64cc2875000fcef487f0}
+
+\begin{DoxyCompactList}\small\item\em Returns the number of language models in a set. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-iter} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base)
+\begin{DoxyCompactList}\small\item\em Begin iterating over language models in a set. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-next} ({\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t} $\ast$itor)
+\begin{DoxyCompactList}\small\item\em Move to the next language model in a set. \end{DoxyCompactList}\item 
+void {\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-free} ({\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t} $\ast$itor)\label{ngram__model__set_8c_a532787b5b709d0c5f0ad57e3df0d1d73}
+
+\begin{DoxyCompactList}\small\item\em Finish iteration over a langauge model set. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model} ({\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t} $\ast$itor, char const $\ast$$\ast$lmname)
+\begin{DoxyCompactList}\small\item\em Get language model and associated name from an iterator. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-lookup} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Look up a language model by name from a set. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-select} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Select a single language model from a set for scoring. \end{DoxyCompactList}\item 
+const char $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-current} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base)\label{ngram__model__set_8c_a3a4f2bb40d10e9420e6291e2706b6865}
+
+\begin{DoxyCompactList}\small\item\em Get the current language model name, if any. \end{DoxyCompactList}\item 
+int32 {\bf ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base, int32 set\-\_\-wid)
+\begin{DoxyCompactList}\small\item\em Query the word-\/\-I\-D mapping for the current language model. \end{DoxyCompactList}\item 
+int32 {\bf ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base, int32 set\-\_\-wid)
+\begin{DoxyCompactList}\small\item\em Test whether a word I\-D corresponds to a known word in the current state of the language model set. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-interp} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base, const char $\ast$$\ast$names, const float32 $\ast$weights)
+\begin{DoxyCompactList}\small\item\em Set interpolation weights for a set and enables interpolation. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-add} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base, {\bf ngram\-\_\-model\-\_\-t} $\ast$model, const char $\ast$name, float32 weight, int reuse\-\_\-widmap)
+\begin{DoxyCompactList}\small\item\em Add a language model to a set. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bf ngram\-\_\-model\-\_\-set\-\_\-remove} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base, const char $\ast$name, int reuse\-\_\-widmap)
+\begin{DoxyCompactList}\small\item\em Remove a language model from a set. \end{DoxyCompactList}\item 
+void {\bf ngram\-\_\-model\-\_\-set\-\_\-map\-\_\-words} ({\bf ngram\-\_\-model\-\_\-t} $\ast$base, const char $\ast$$\ast$words, int32 n\-\_\-words)\label{ngram__model__set_8c_af3ac3bbec3eed0b9638c4e64c8b75949}
+
+\begin{DoxyCompactList}\small\item\em Set the word-\/to-\/\-I\-D mapping for this model set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Set of language models. \begin{DoxyAuthor}{Author}
+David Huggins-\/\-Daines {\tt dhuggins@cs.\-cmu.\-edu} 
+\end{DoxyAuthor}
+
+
+Definition in file {\bf ngram\-\_\-model\-\_\-set.\-c}.
+
+
+
+\subsection{Function Documentation}
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-add@{ngram\-\_\-model\-\_\-set\-\_\-add}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-add@{ngram\-\_\-model\-\_\-set\-\_\-add}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{set, }
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{model, }
+\item[{const char $\ast$}]{name, }
+\item[{float32}]{weight, }
+\item[{int}]{reuse\-\_\-widmap}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_a53071575bca9465361740c809666349d}
+
+
+Add a language model to a set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set} & The language model set to add to. \\
+\hline
+{\em model} & The language model to add. \\
+\hline
+{\em name} & The name to associate with this model. \\
+\hline
+{\em weight} & Interpolation weight for this model, relative to the uniform distribution. 1.\-0 is a safe value. \\
+\hline
+{\em reuse\-\_\-widmap} & Reuse the existing word-\/\-I\-D mapping in {\ttfamily set}. Any new words present in {\ttfamily model} will not be added to the word-\/\-I\-D mapping in this case. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 520 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ckd\-\_\-calloc\-\_\-2d, ckd\-\_\-free\-\_\-2d(), ckd\-\_\-realloc, ckd\-\_\-salloc, ngram\-\_\-model\-\_\-s\-::lmath, ngram\-\_\-model\-\_\-set\-\_\-s\-::lms, logmath\-\_\-log(), ngram\-\_\-model\-\_\-set\-\_\-s\-::lweights, ngram\-\_\-model\-\_\-set\-\_\-s\-::maphist, ngram\-\_\-model\-\_\-s\-::n, ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models, ngram\-\_\-model\-\_\-s\-::n\-\_\-words, ngram\-\_\-model\-\_\-set\-\_\-s\-::names, ngram\-\_\-wid(), ngram\-\_\-model\-\_\-set\-\_\-s\-::widmap, and ngram\-\_\-model\-\_\-s\-::word\-\_\-str.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid@{ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid@{ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid}]{\setlength{\rightskip}{0pt plus 5cm}int32 ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{set, }
+\item[{int32}]{set\-\_\-wid}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_aa6239b58f333177839a15de79bae6146}
+
+
+Query the word-\/\-I\-D mapping for the current language model. 
+
+\begin{DoxyReturn}{Returns}
+the local word I\-D in the current language model, or N\-G\-R\-A\-M\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-W\-I\-D if {\ttfamily set\-\_\-wid} is invalid or interpolation is enabled. 
+\end{DoxyReturn}
+
+
+Definition at line 456 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ngram\-\_\-model\-\_\-set\-\_\-s\-::cur, ngram\-\_\-model\-\_\-s\-::n\-\_\-words, N\-G\-R\-A\-M\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-W\-I\-D, and ngram\-\_\-model\-\_\-set\-\_\-s\-::widmap.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-init@{ngram\-\_\-model\-\_\-set\-\_\-init}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-init@{ngram\-\_\-model\-\_\-set\-\_\-init}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf cmd\-\_\-ln\-\_\-t} $\ast$}]{config, }
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$$\ast$}]{models, }
+\item[{char $\ast$$\ast$}]{names, }
+\item[{const float32 $\ast$}]{weights, }
+\item[{int32}]{n\-\_\-models}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_aa4cc619035ac8091759c07d6a3b2fb7c}
+
+
+Create a set of language models sharing a common space of word I\-Ds. 
+
+This function creates a meta-\/language model which groups together a set of language models, synchronizing word I\-Ds between them. To use this language model, you can either select a submodel to use exclusively using \doxyref{ngram\-\_\-model\-\_\-set\-\_\-select()}{p.}{ngram__model_8h_a5e7a3fd20d32783ce07b760781f658f8}, or interpolate between scores from all models. To do the latter, you can either pass a non-\/\-N\-U\-L\-L value of the {\ttfamily weights} parameter, or re-\/activate interpolation later on by calling \doxyref{ngram\-\_\-model\-\_\-set\-\_\-interp()}{p.}{ngram__model_8h_a8a4c853e77c6b48face3a781480e77d6}.
+
+In order to make this efficient, there are some restrictions on the models that can be grouped together. The most important (and currently the only) one is that they {\bfseries must} all share the same log-\/math parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & Any configuration parameters to be shared between models. \\
+\hline
+{\em models} & Array of pointers to previously created language models. \\
+\hline
+{\em names} & Array of strings to use as unique identifiers for L\-Ms. \\
+\hline
+{\em weights} & Array of weights to use in interpolating L\-Ms, or N\-U\-L\-L for no interpolation. \\
+\hline
+{\em n\-\_\-models} & Number of elements in the arrays passed to this function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ngram\-\_\-model\-\_\-set\-\_\-s\-::base, ckd\-\_\-calloc, ckd\-\_\-salloc, ngram\-\_\-model\-\_\-set\-\_\-s\-::cur, E\-\_\-\-E\-R\-R\-O\-R, ngram\-\_\-model\-\_\-s\-::lmath, ngram\-\_\-model\-\_\-set\-\_\-s\-::lms, logmath\-\_\-get\-\_\-base(), logmath\-\_\-get\-\_\-shift(), logmath\-\_\-log(), ngram\-\_\-model\-\_\-set\-\_\-s\-::lweights, ngram\-\_\-model\-\_\-set\-\_\-s\-::maphist, ngram\-\_\-model\-\_\-s\-::n, ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models, ngram\-\_\-model\-\_\-set\-\_\-s\-::names, and ngram\-\_\-model\-\_\-retain().
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-read().
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-interp@{ngram\-\_\-model\-\_\-set\-\_\-interp}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-interp@{ngram\-\_\-model\-\_\-set\-\_\-interp}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-interp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-interp (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{set, }
+\item[{const char $\ast$$\ast$}]{names, }
+\item[{const float32 $\ast$}]{weights}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_a3a926714c60e2b8308d4c88d11d17d7e}
+
+
+Set interpolation weights for a set and enables interpolation. 
+
+If {\ttfamily weights} is N\-U\-L\-L, any previously initialized set of weights will be used. If no weights were specified to \doxyref{ngram\-\_\-model\-\_\-set\-\_\-init()}{p.}{ngram__model_8h_a02310e01a48928e1d430aef0ea3c9a99}, then a uniform distribution will be used. 
+
+Definition at line 489 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ngram\-\_\-model\-\_\-set\-\_\-s\-::cur, E\-\_\-\-E\-R\-R\-O\-R, ngram\-\_\-model\-\_\-s\-::lmath, logmath\-\_\-log(), ngram\-\_\-model\-\_\-set\-\_\-s\-::lweights, ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models, and ngram\-\_\-model\-\_\-set\-\_\-s\-::names.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-iter@{ngram\-\_\-model\-\_\-set\-\_\-iter}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-iter@{ngram\-\_\-model\-\_\-set\-\_\-iter}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-iter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-iter (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_a5a1593344017a1210569beb63e4089d3}
+
+
+Begin iterating over language models in a set. 
+
+\begin{DoxyReturn}{Returns}
+iterator pointing to the first language model, or N\-U\-L\-L if no models remain. 
+\end{DoxyReturn}
+
+
+Definition at line 368 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ckd\-\_\-calloc, and ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model@{ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model@{ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t} $\ast$}]{itor, }
+\item[{char const $\ast$$\ast$}]{lmname}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_abec0455e59945b910d86c2f825ab0894}
+
+
+Get language model and associated name from an iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em itor} & the iterator \\
+\hline
+{\em lmname} & Output\-: string name associated with this language model. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Language model pointed to by this iterator. 
+\end{DoxyReturn}
+
+
+Definition at line 397 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ngram\-\_\-model\-\_\-set\-\_\-s\-::lms, and ngram\-\_\-model\-\_\-set\-\_\-s\-::names.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-next@{ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-next}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-next@{ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-next}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-t} $\ast$}]{itor}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_a13893e41e56962f6f237aa1305337b7a}
+
+
+Move to the next language model in a set. 
+
+\begin{DoxyReturn}{Returns}
+iterator pointing to the next language model, or N\-U\-L\-L if no models remain. 
+\end{DoxyReturn}
+
+
+Definition at line 381 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models, and ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-free().
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid@{ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid@{ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid}]{\setlength{\rightskip}{0pt plus 5cm}int32 ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{set, }
+\item[{int32}]{set\-\_\-wid}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_af30197146b9b2d6c143914240dee3c04}
+
+
+Test whether a word I\-D corresponds to a known word in the current state of the language model set. 
+
+\begin{DoxyReturn}{Returns}
+If there is a current language model, returns non-\/zero if {\ttfamily set\-\_\-wid} corresponds to a known word in that language model. Otherwise, returns non-\/zero if {\ttfamily set\-\_\-wid} corresponds to a known word in any language model. 
+\end{DoxyReturn}
+
+
+Definition at line 468 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ngram\-\_\-model\-\_\-set\-\_\-s\-::cur, ngram\-\_\-model\-\_\-set\-\_\-s\-::lms, ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models, ngram\-\_\-model\-\_\-s\-::n\-\_\-words, ngram\-\_\-unknown\-\_\-wid(), and ngram\-\_\-model\-\_\-set\-\_\-s\-::widmap.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-lookup@{ngram\-\_\-model\-\_\-set\-\_\-lookup}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-lookup@{ngram\-\_\-model\-\_\-set\-\_\-lookup}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{set, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_a3e06e5d47a9c35186644cc1310924630}
+
+
+Look up a language model by name from a set. 
+
+\begin{DoxyReturn}{Returns}
+language model corresponding to {\ttfamily name}, or N\-U\-L\-L if no language model by that name exists. 
+\end{DoxyReturn}
+
+
+Definition at line 405 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ngram\-\_\-model\-\_\-set\-\_\-s\-::cur, ngram\-\_\-model\-\_\-set\-\_\-s\-::lms, ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models, and ngram\-\_\-model\-\_\-set\-\_\-s\-::names.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-read@{ngram\-\_\-model\-\_\-set\-\_\-read}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-read@{ngram\-\_\-model\-\_\-set\-\_\-read}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf cmd\-\_\-ln\-\_\-t} $\ast$}]{config, }
+\item[{const char $\ast$}]{lmctlfile, }
+\item[{{\bf logmath\-\_\-t} $\ast$}]{lmath}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_a1389a90bf32110fd7e56a73b6d39fa07}
+
+
+Read a set of language models from a control file. 
+
+This file creates a language model set from a \char`\"{}control file\char`\"{} of the type used in Sphinx-\/\-I\-I and Sphinx-\/\-I\-I\-I. File format (optional stuff is indicated by enclosing in [])\-:
+
+
+\begin{DoxyPre}
+  [\{ LMClassFileName LMClassFilename ... \}]
+  TrigramLMFileName LMName [\{ LMClassName LMClassName ... \}]
+  TrigramLMFileName LMName [\{ LMClassName LMClassName ... \}]
+  ...
+(There should be whitespace around the \{ and \} delimiters.)
+\end{DoxyPre}
+
+
+This is an extension of the older format that had only Trigram\-L\-M\-Filen\-Name and L\-M\-Name pairs. The new format allows a set of L\-M\-Class files to be read in and referred to by the trigram L\-Ms.
+
+No \char`\"{}comments\char`\"{} allowed in this file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & Configuration parameters. \\
+\hline
+{\em lmctlfile} & Path to the language model control file. \\
+\hline
+{\em lmath} & Log-\/math parameters to use for probability calculations. Ownership of this object is assumed by the newly created ngram\-\_\-model\-\_\-t, and you should not attempt to free it manually. If you wish to reuse it elsewhere, you must retain it with \doxyref{logmath\-\_\-retain()}{p.}{logmath_8h_a1c1b2ba3b137a39e9e835a8f3e27d381}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+newly created language model set. 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ckd\-\_\-calloc, ckd\-\_\-free(), ckd\-\_\-salloc, E\-\_\-\-E\-R\-R\-O\-R, E\-\_\-\-E\-R\-R\-O\-R\-\_\-\-S\-Y\-S\-T\-E\-M, E\-\_\-\-I\-N\-F\-O, glist\-\_\-add\-\_\-ptr(), glist\-\_\-count(), glist\-\_\-free(), glist\-\_\-reverse(), gnode\-\_\-ptr, hash\-\_\-table\-\_\-free(), hash\-\_\-table\-\_\-lookup(), hash\-\_\-table\-\_\-new(), hash\-\_\-table\-\_\-tolist(), N\-G\-R\-A\-M\-\_\-\-A\-U\-T\-O, ngram\-\_\-model\-\_\-add\-\_\-class(), ngram\-\_\-model\-\_\-free(), ngram\-\_\-model\-\_\-read(), ngram\-\_\-model\-\_\-set\-\_\-init(), path\-\_\-is\-\_\-absolute(), string\-\_\-join(), and hash\-\_\-entry\-\_\-s\-::val.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-remove@{ngram\-\_\-model\-\_\-set\-\_\-remove}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-remove@{ngram\-\_\-model\-\_\-set\-\_\-remove}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{set, }
+\item[{const char $\ast$}]{name, }
+\item[{int}]{reuse\-\_\-widmap}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_a1fadaf8cdc6799869b74a39a8652a7e0}
+
+
+Remove a language model from a set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set} & The language model set to remove from. \\
+\hline
+{\em name} & The name associated with the model to remove. \\
+\hline
+{\em reuse\-\_\-widmap} & Reuse the existing word-\/\-I\-D mapping in {\ttfamily set}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 580 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ckd\-\_\-free(), ngram\-\_\-model\-\_\-s\-::lmath, ngram\-\_\-model\-\_\-set\-\_\-s\-::lms, ngram\-\_\-model\-\_\-s\-::log\-\_\-zero, logmath\-\_\-exp(), logmath\-\_\-log(), ngram\-\_\-model\-\_\-set\-\_\-s\-::lweights, ngram\-\_\-model\-\_\-s\-::n, ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models, ngram\-\_\-model\-\_\-s\-::n\-\_\-words, ngram\-\_\-model\-\_\-set\-\_\-s\-::names, and ngram\-\_\-model\-\_\-set\-\_\-s\-::widmap.
+
+\index{ngram\-\_\-model\-\_\-set.\-c@{ngram\-\_\-model\-\_\-set.\-c}!ngram\-\_\-model\-\_\-set\-\_\-select@{ngram\-\_\-model\-\_\-set\-\_\-select}}
+\index{ngram\-\_\-model\-\_\-set\-\_\-select@{ngram\-\_\-model\-\_\-set\-\_\-select}!ngram_model_set.c@{ngram\-\_\-model\-\_\-set.\-c}}
+\subsubsection[{ngram\-\_\-model\-\_\-set\-\_\-select}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$ ngram\-\_\-model\-\_\-set\-\_\-select (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-model\-\_\-t} $\ast$}]{set, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{ngram__model__set_8c_a2cbeda856dd655c80f8dc6ba91f5d20b}
+
+
+Select a single language model from a set for scoring. 
+
+\begin{DoxyReturn}{Returns}
+the newly selected language model, or N\-U\-L\-L if no language model by that name exists. 
+\end{DoxyReturn}
+
+
+Definition at line 428 of file ngram\-\_\-model\-\_\-set.\-c.
+
+
+
+References ngram\-\_\-model\-\_\-set\-\_\-s\-::cur, ngram\-\_\-model\-\_\-set\-\_\-s\-::lms, ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models, and ngram\-\_\-model\-\_\-set\-\_\-s\-::names.
+

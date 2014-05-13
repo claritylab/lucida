@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structps__alignment__s" kind="struct" prot="public">
+    <compoundname>ps_alignment_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structps__alignment__s_1a0c5367539e2ff9e5808672445c0a1303" prot="public" static="no" mutable="no">
+        <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+        <definition>dict2pid_t* ps_alignment_s::d2p</definition>
+        <argsstring></argsstring>
+        <name>d2p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" line="80" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structps__alignment__s_1af0a14378c50f80560198883436a84409" prot="public" static="no" mutable="no">
+        <type><ref refid="structps__alignment__vector__s" kindref="compound">ps_alignment_vector_t</ref></type>
+        <definition>ps_alignment_vector_t ps_alignment_s::word</definition>
+        <argsstring></argsstring>
+        <name>word</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" line="81" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structps__alignment__s_1aa4b417c284b9e331431ea7a433f47e19" prot="public" static="no" mutable="no">
+        <type><ref refid="structps__alignment__vector__s" kindref="compound">ps_alignment_vector_t</ref></type>
+        <definition>ps_alignment_vector_t ps_alignment_s::sseq</definition>
+        <argsstring></argsstring>
+        <name>sseq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" line="82" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structps__alignment__s_1a1a62f5fce26879f312588de04c010538" prot="public" static="no" mutable="no">
+        <type><ref refid="structps__alignment__vector__s" kindref="compound">ps_alignment_vector_t</ref></type>
+        <definition>ps_alignment_vector_t ps_alignment_s::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" line="83" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="380">
+        <label>dict_t</label>
+        <link refid="structdict__t"/>
+        <childnode refid="381" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="384" relation="usage">
+          <edgelabel>word</edgelabel>
+        </childnode>
+      </node>
+      <node id="375">
+        <label>ps_alignment_s</label>
+        <link refid="structps__alignment__s"/>
+        <childnode refid="376" relation="usage">
+          <edgelabel>sseq</edgelabel>
+          <edgelabel>word</edgelabel>
+          <edgelabel>state</edgelabel>
+        </childnode>
+        <childnode refid="378" relation="usage">
+          <edgelabel>d2p</edgelabel>
+        </childnode>
+      </node>
+      <node id="378">
+        <label>dict2pid_t</label>
+        <link refid="structdict2pid__t"/>
+        <childnode refid="379" relation="usage">
+          <edgelabel>lrssid</edgelabel>
+          <edgelabel>rssid</edgelabel>
+        </childnode>
+        <childnode refid="380" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="381" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+      </node>
+      <node id="382">
+        <label>cd_tree_s</label>
+        <link refid="structcd__tree__s"/>
+      </node>
+      <node id="384">
+        <label>dictword_t</label>
+        <link refid="structdictword__t"/>
+      </node>
+      <node id="379">
+        <label>xwdssid_t</label>
+        <link refid="structxwdssid__t"/>
+      </node>
+      <node id="383">
+        <label>mdef_entry_s</label>
+        <link refid="structmdef__entry__s"/>
+      </node>
+      <node id="377">
+        <label>ps_alignment_entry_s</label>
+        <link refid="structps__alignment__entry__s"/>
+      </node>
+      <node id="381">
+        <label>bin_mdef_s</label>
+        <link refid="structbin__mdef__s"/>
+        <childnode refid="382" relation="usage">
+          <edgelabel>cd_tree</edgelabel>
+        </childnode>
+        <childnode refid="383" relation="usage">
+          <edgelabel>phone</edgelabel>
+        </childnode>
+      </node>
+      <node id="376">
+        <label>ps_alignment_vector_s</label>
+        <link refid="structps__alignment__vector__s"/>
+        <childnode refid="377" relation="usage">
+          <edgelabel>seq</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" line="79" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_alignment.h" bodystart="79" bodyend="84"/>
+    <listofallmembers>
+      <member refid="structps__alignment__s_1a0c5367539e2ff9e5808672445c0a1303" prot="public" virt="non-virtual"><scope>ps_alignment_s</scope><name>d2p</name></member>
+      <member refid="structps__alignment__s_1aa4b417c284b9e331431ea7a433f47e19" prot="public" virt="non-virtual"><scope>ps_alignment_s</scope><name>sseq</name></member>
+      <member refid="structps__alignment__s_1a1a62f5fce26879f312588de04c010538" prot="public" virt="non-virtual"><scope>ps_alignment_s</scope><name>state</name></member>
+      <member refid="structps__alignment__s_1af0a14378c50f80560198883436a84409" prot="public" virt="non-virtual"><scope>ps_alignment_s</scope><name>word</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

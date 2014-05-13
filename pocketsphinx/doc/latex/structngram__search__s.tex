@@ -1,0 +1,472 @@
+\section{ngram\-\_\-search\-\_\-s Struct Reference}
+\label{structngram__search__s}\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}}
+
+
+N-\/\-Gram search module structure.  
+
+
+
+
+{\ttfamily \#include $<$ngram\-\_\-search.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-search\-\_\-t} {\bfseries base}\label{structngram__search__s_a572ad45de5b0f364096f0a8544fe5bf7}
+
+\item 
+ngram\-\_\-model\-\_\-t $\ast$ {\bf lmset}
+\begin{DoxyCompactList}\small\item\em Set of language models. \end{DoxyCompactList}\item 
+{\bf hmm\-\_\-context\-\_\-t} $\ast$ {\bf hmmctx}
+\begin{DoxyCompactList}\small\item\em H\-M\-M context. \end{DoxyCompactList}\item 
+uint8 {\bfseries fwdtree}\label{structngram__search__s_aca37c8278a0dacb881cc6a2b0953c076}
+
+\item 
+uint8 {\bfseries fwdflat}\label{structngram__search__s_a88358958f4f983c96034cbbd4bc8f5cd}
+
+\item 
+uint8 {\bfseries bestpath}\label{structngram__search__s_a0d1daeb151911b2243a1a91566be9063}
+
+\item 
+uint8 {\bfseries done}\label{structngram__search__s_a3c51a66cf26de3aa050b3615d14ff060}
+
+\item 
+listelem\-\_\-alloc\-\_\-t $\ast$ {\bf chan\-\_\-alloc}\label{structngram__search__s_abe9fe60f6e48b9a6e3d41856bb1dc109}
+
+\begin{DoxyCompactList}\small\item\em For chan\-\_\-t. \end{DoxyCompactList}\item 
+listelem\-\_\-alloc\-\_\-t $\ast$ {\bf root\-\_\-chan\-\_\-alloc}\label{structngram__search__s_a576470858bfa44c671f0e677902ab424}
+
+\begin{DoxyCompactList}\small\item\em For root\-\_\-chan\-\_\-t. \end{DoxyCompactList}\item 
+listelem\-\_\-alloc\-\_\-t $\ast$ {\bf latnode\-\_\-alloc}\label{structngram__search__s_a21600dc2e23744f0be9c64a4db8d7e50}
+
+\begin{DoxyCompactList}\small\item\em For latnode\-\_\-t. \end{DoxyCompactList}\item 
+{\bf root\-\_\-chan\-\_\-t} $\ast$ {\bf root\-\_\-chan}
+\begin{DoxyCompactList}\small\item\em Search structure of H\-M\-M instances. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-root\-\_\-chan\-\_\-alloc}\label{structngram__search__s_abc8a67e3f64adc470c78dfdd23be4126}
+
+\begin{DoxyCompactList}\small\item\em Number of root\-\_\-chan allocated. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-root\-\_\-chan}\label{structngram__search__s_a297d8bdb856617490ee8ccd99df70e68}
+
+\begin{DoxyCompactList}\small\item\em Number of valid root\-\_\-chan. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-nonroot\-\_\-chan}\label{structngram__search__s_a043723786367f5026dce99c261f7086d}
+
+\begin{DoxyCompactList}\small\item\em Number of valid non-\/root channels. \end{DoxyCompactList}\item 
+int32 {\bf max\-\_\-nonroot\-\_\-chan}\label{structngram__search__s_a4b2b42349e9e3df7e93b4a7d6994f63f}
+
+\begin{DoxyCompactList}\small\item\em Maximum possible number of non-\/root channels. \end{DoxyCompactList}\item 
+{\bf root\-\_\-chan\-\_\-t} $\ast$ {\bf rhmm\-\_\-1ph}\label{structngram__search__s_a1ffa3c9100252122ae8a2a713c50b527}
+
+\begin{DoxyCompactList}\small\item\em Root H\-M\-Ms for single-\/phone words. \end{DoxyCompactList}\item 
+{\bf chan\-\_\-t} $\ast$$\ast$ {\bf word\-\_\-chan}
+\begin{DoxyCompactList}\small\item\em Channels associated with a given word (only used for right contexts, single-\/phone words in fwdtree search, and word H\-M\-Ms in fwdflat search). \end{DoxyCompactList}\item 
+bitvec\-\_\-t $\ast$ {\bf word\-\_\-active}
+\begin{DoxyCompactList}\small\item\em array of active flags for all words. \end{DoxyCompactList}\item 
+int32 $\ast$ {\bf homophone\-\_\-set}
+\begin{DoxyCompactList}\small\item\em Each node in the H\-M\-M tree structure may point to a set of words whose last phone would follow that node in the tree structure (but is not included in the tree structure for reasons explained above). \end{DoxyCompactList}\item 
+int32 $\ast$ {\bf single\-\_\-phone\-\_\-wid}\label{structngram__search__s_a1157923e0060b947e05caa819c8abe2c}
+
+\begin{DoxyCompactList}\small\item\em list of single-\/phone word ids \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-1ph\-\_\-words}\label{structngram__search__s_a9168184c862d6f63bd7926e6581b25d9}
+
+\begin{DoxyCompactList}\small\item\em Number single phone words in dict (total) \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-1ph\-\_\-\-L\-Mwords}\label{structngram__search__s_a988672d895f1ee61dbf790b2065df4df}
+
+\begin{DoxyCompactList}\small\item\em Number single phone dict words also in L\-M; these come first in single\-\_\-phone\-\_\-wid. \end{DoxyCompactList}\item 
+{\bf chan\-\_\-t} $\ast$$\ast$$\ast$ {\bf active\-\_\-chan\-\_\-list}
+\begin{DoxyCompactList}\small\item\em Array of active channels for current and next frame. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-active\-\_\-chan} [2]\label{structngram__search__s_ac33f60894871671ec5c2173ca56d600f}
+
+\begin{DoxyCompactList}\small\item\em Number entries in active\-\_\-chan\-\_\-list. \end{DoxyCompactList}\item 
+int32 $\ast$$\ast$ {\bf active\-\_\-word\-\_\-list}
+\begin{DoxyCompactList}\small\item\em Array of active multi-\/phone words for current and next frame. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-active\-\_\-word} [2]\label{structngram__search__s_a5c864f1fe331fc95c04e0d87a5bdf9ee}
+
+\begin{DoxyCompactList}\small\item\em Number entries in active\-\_\-word\-\_\-list. \end{DoxyCompactList}\item 
+{\bf lastphn\-\_\-cand\-\_\-t} $\ast$ {\bfseries lastphn\-\_\-cand}\label{structngram__search__s_a82d9662cfa82599617176eb5c4e5f15f}
+
+\item 
+int32 {\bfseries n\-\_\-lastphn\-\_\-cand}\label{structngram__search__s_ad8b16d4873706ca29a6e22e2143ae896}
+
+\item 
+{\bf last\-\_\-ltrans\-\_\-t} $\ast$ {\bfseries last\-\_\-ltrans}\label{structngram__search__s_a3f1429a7dd697c6537c353f172fea97f}
+
+\item 
+int32 {\bfseries cand\-\_\-sf\-\_\-alloc}\label{structngram__search__s_ae17322f484615fa7ecb2c40ebeceecd9}
+
+\item 
+{\bf cand\-\_\-sf\-\_\-t} $\ast$ {\bfseries cand\-\_\-sf}\label{structngram__search__s_a3304d30024b83107ed8e5e2dd770334b}
+
+\item 
+{\bf bestbp\-\_\-rc\-\_\-t} $\ast$ {\bfseries bestbp\-\_\-rc}\label{structngram__search__s_a8ab80281d54e9fa14a3631cb5b5e97a7}
+
+\item 
+{\bf bptbl\-\_\-t} $\ast$ {\bfseries bp\-\_\-table}\label{structngram__search__s_a44b5476f901d827d5e6a23a5aa11eb43}
+
+\item 
+int32 {\bfseries bpidx}\label{structngram__search__s_ad72007665bf21bb12261eb63c996a987}
+
+\item 
+int32 {\bfseries bp\-\_\-table\-\_\-size}\label{structngram__search__s_ae288500a2a3db50d4454546d66c826da}
+
+\item 
+int32 $\ast$ {\bfseries bscore\-\_\-stack}\label{structngram__search__s_adbbac268728dae5771cb4400649b62e2}
+
+\item 
+int32 {\bfseries bss\-\_\-head}\label{structngram__search__s_aed45eb7f0ed7bbf266a7eb8e4acd22fa}
+
+\item 
+int32 {\bfseries bscore\-\_\-stack\-\_\-size}\label{structngram__search__s_a041e34cc7c9dab32d05b00eeb5d6d622}
+
+\item 
+int32 {\bf n\-\_\-frame\-\_\-alloc}
+\begin{DoxyCompactList}\small\item\em Number of frames allocated in bp\-\_\-table\-\_\-idx and friends. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-frame}
+\begin{DoxyCompactList}\small\item\em Number of frames actually present. \end{DoxyCompactList}\item 
+int32 $\ast$ {\bfseries bp\-\_\-table\-\_\-idx}\label{structngram__search__s_ad6c1eda51d21c066ead7d68541546485}
+
+\item 
+int32 $\ast$ {\bfseries word\-\_\-lat\-\_\-idx}\label{structngram__search__s_a175cf4fa7cffa91b1966343f5a6f6eaf}
+
+\item 
+{\bf ps\-\_\-latnode\-\_\-t} $\ast$$\ast$ {\bf frm\-\_\-wordlist}
+\begin{DoxyCompactList}\small\item\em List of active words in each frame. \end{DoxyCompactList}\item 
+int32 $\ast$ {\bf fwdflat\-\_\-wordlist}
+\begin{DoxyCompactList}\small\item\em List of active word I\-Ds for utterance. \end{DoxyCompactList}\item 
+bitvec\-\_\-t $\ast$ {\bfseries expand\-\_\-word\-\_\-flag}\label{structngram__search__s_a1daa869d11179c53eb745da36a654fb3}
+
+\item 
+int32 $\ast$ {\bfseries expand\-\_\-word\-\_\-list}\label{structngram__search__s_a4fadd755f8823c07dc5ab52f1b6d403d}
+
+\item 
+int32 {\bfseries n\-\_\-expand\-\_\-words}\label{structngram__search__s_a8a9999b6557b7c98dc03191a2d117eae}
+
+\item 
+int32 {\bfseries min\-\_\-ef\-\_\-width}\label{structngram__search__s_a88877b4dc14e04a6545c89668d8fcffc}
+
+\item 
+int32 {\bfseries max\-\_\-sf\-\_\-win}\label{structngram__search__s_a40659238fc506f7a3205eb080837008a}
+
+\item 
+float32 {\bfseries fwdflat\-\_\-fwdtree\-\_\-lw\-\_\-ratio}\label{structngram__search__s_a5772dec76068e162cebbae9f0f474aa6}
+
+\item 
+int32 {\bf best\-\_\-score}
+\begin{DoxyCompactList}\small\item\em Best Viterbi path score. \end{DoxyCompactList}\item 
+int32 {\bf last\-\_\-phone\-\_\-best\-\_\-score}
+\begin{DoxyCompactList}\small\item\em Best Viterbi path score for last phone. \end{DoxyCompactList}\item 
+int32 {\bfseries renormalized}\label{structngram__search__s_abf5988b55e39ff07d65edf61086a69da}
+
+\item 
+float32 {\bfseries bestpath\-\_\-fwdtree\-\_\-lw\-\_\-ratio}\label{structngram__search__s_a99114235f6ae8bc6d7c5849465499633}
+
+\item 
+float32 {\bf ascale}
+\begin{DoxyCompactList}\small\item\em Acoustic score scale for posterior probabilities. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-search\-\_\-stats\-\_\-t} {\bf st}
+\begin{DoxyCompactList}\small\item\em Various statistics for profiling. \end{DoxyCompactList}\item 
+ptmr\-\_\-t {\bfseries fwdtree\-\_\-perf}\label{structngram__search__s_af51ec91c4ea052252542a4ec395484d7}
+
+\item 
+ptmr\-\_\-t {\bfseries fwdflat\-\_\-perf}\label{structngram__search__s_a9af672c28dfc39bdfa5dd8e7e9e54989}
+
+\item 
+ptmr\-\_\-t {\bfseries bestpath\-\_\-perf}\label{structngram__search__s_a67d755fd060de20d50c1a2d237618917}
+
+\item 
+int32 {\bfseries n\-\_\-tot\-\_\-frame}\label{structngram__search__s_a45baee2d3862a81cc21946a9602317be}
+
+\item 
+int32 {\bfseries beam}\label{structngram__search__s_a7f93fc812f623bcad2d1d8d14724ab52}
+
+\item 
+int32 {\bfseries dynamic\-\_\-beam}\label{structngram__search__s_ae6ad22c96dc7d709f529dfaa355a47a2}
+
+\item 
+int32 {\bfseries pbeam}\label{structngram__search__s_a096243fad532d780754e64ffb0a52d9c}
+
+\item 
+int32 {\bfseries wbeam}\label{structngram__search__s_a443510527cfba0cb4010a0deb09480c2}
+
+\item 
+int32 {\bfseries lpbeam}\label{structngram__search__s_ab708267dd98bbc156038b8b99b716ee7}
+
+\item 
+int32 {\bfseries lponlybeam}\label{structngram__search__s_ab51f51a73bbce696f9ac912131db0753}
+
+\item 
+int32 {\bfseries fwdflatbeam}\label{structngram__search__s_a251365027c09b72a43a9be9a161100b0}
+
+\item 
+int32 {\bfseries fwdflatwbeam}\label{structngram__search__s_a6178f10c6de4f77ac6a660ad31fbbd77}
+
+\item 
+int32 {\bfseries fillpen}\label{structngram__search__s_a2b791bfa3cc372e30d844a687ceea3d2}
+
+\item 
+int32 {\bfseries silpen}\label{structngram__search__s_ab2cbba86475a85836abf87faee4745dc}
+
+\item 
+int32 {\bfseries wip}\label{structngram__search__s_a1e198579ab46c7de67d8b3eb1e1bf2ec}
+
+\item 
+int32 {\bfseries nwpen}\label{structngram__search__s_a194ea45ae0b6866cb0a734061c5224e8}
+
+\item 
+int32 {\bfseries pip}\label{structngram__search__s_a854e8b60f779a4201aab3788943e7f76}
+
+\item 
+int32 {\bfseries maxwpf}\label{structngram__search__s_ae40b3a2caa5bbb523cce35dda4290d02}
+
+\item 
+int32 {\bfseries maxhmmpf}\label{structngram__search__s_a75f2eeaedf27926e9d0b76a23acbc9ff}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+N-\/\-Gram search module structure. 
+
+Definition at line 197 of file ngram\-\_\-search.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!active\-\_\-chan\-\_\-list@{active\-\_\-chan\-\_\-list}}
+\index{active\-\_\-chan\-\_\-list@{active\-\_\-chan\-\_\-list}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{active\-\_\-chan\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf chan\-\_\-t}$\ast$$\ast$$\ast$ ngram\-\_\-search\-\_\-s\-::active\-\_\-chan\-\_\-list}\label{structngram__search__s_a83731bf0e2234e632c5e78f2321f5b2d}
+
+
+Array of active channels for current and next frame. 
+
+In any frame, only some H\-M\-M tree nodes are active. active\-\_\-chan\-\_\-list[f mod 2] = list of nonroot channels in the H\-M\-M tree active in frame f. 
+
+Definition at line 275 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdtree\-\_\-deinit(), and ngram\-\_\-fwdtree\-\_\-finish().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!active\-\_\-word\-\_\-list@{active\-\_\-word\-\_\-list}}
+\index{active\-\_\-word\-\_\-list@{active\-\_\-word\-\_\-list}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{active\-\_\-word\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}int32$\ast$$\ast$ ngram\-\_\-search\-\_\-s\-::active\-\_\-word\-\_\-list}\label{structngram__search__s_a5056573bf95990cc28c97a56cd76ce9a}
+
+
+Array of active multi-\/phone words for current and next frame. 
+
+Similarly to active\-\_\-chan\-\_\-list, active\-\_\-word\-\_\-list[f mod 2] = list of word ids for which active channels exist in word\-\_\-chan in frame f.
+
+Statically allocated single-\/phone words are always active and should not appear in this list. 
+
+Definition at line 287 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-search(), ngram\-\_\-fwdflat\-\_\-start(), ngram\-\_\-fwdtree\-\_\-finish(), ngram\-\_\-search\-\_\-free(), and ngram\-\_\-search\-\_\-init().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!ascale@{ascale}}
+\index{ascale@{ascale}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{ascale}]{\setlength{\rightskip}{0pt plus 5cm}float32 ngram\-\_\-search\-\_\-s\-::ascale}\label{structngram__search__s_a1e3d4b67e4b11c6c11ebe16552d53d2d}
+
+
+Acoustic score scale for posterior probabilities. 
+
+
+
+Definition at line 333 of file ngram\-\_\-search.\-h.
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!best\-\_\-score@{best\-\_\-score}}
+\index{best\-\_\-score@{best\-\_\-score}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{best\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}int32 ngram\-\_\-search\-\_\-s\-::best\-\_\-score}\label{structngram__search__s_a150d99157e2f37a6f0dbb4b02682d9c3}
+
+
+Best Viterbi path score. 
+
+
+
+Definition at line 325 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-search(), ngram\-\_\-fwdflat\-\_\-start(), ngram\-\_\-fwdtree\-\_\-search(), ngram\-\_\-fwdtree\-\_\-start(), and ngram\-\_\-search\-\_\-lattice().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!frm\-\_\-wordlist@{frm\-\_\-wordlist}}
+\index{frm\-\_\-wordlist@{frm\-\_\-wordlist}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{frm\-\_\-wordlist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-latnode\-\_\-t}$\ast$$\ast$ ngram\-\_\-search\-\_\-s\-::frm\-\_\-wordlist}\label{structngram__search__s_aa54544457c363ccccb87fc7ec63a5f3e}
+
+
+List of active words in each frame. 
+
+
+
+Definition at line 316 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-deinit(), ngram\-\_\-fwdflat\-\_\-init(), and ngram\-\_\-search\-\_\-mark\-\_\-bptable().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!fwdflat\-\_\-wordlist@{fwdflat\-\_\-wordlist}}
+\index{fwdflat\-\_\-wordlist@{fwdflat\-\_\-wordlist}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{fwdflat\-\_\-wordlist}]{\setlength{\rightskip}{0pt plus 5cm}int32$\ast$ ngram\-\_\-search\-\_\-s\-::fwdflat\-\_\-wordlist}\label{structngram__search__s_a774f1640c5ece856f4bef98d98e7c959}
+
+
+List of active word I\-Ds for utterance. 
+
+
+
+Definition at line 317 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-deinit(), ngram\-\_\-fwdflat\-\_\-init(), ngram\-\_\-fwdflat\-\_\-reinit(), and ngram\-\_\-fwdflat\-\_\-search().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!hmmctx@{hmmctx}}
+\index{hmmctx@{hmmctx}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{hmmctx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hmm\-\_\-context\-\_\-t}$\ast$ ngram\-\_\-search\-\_\-s\-::hmmctx}\label{structngram__search__s_acfbdd34e3dadbaa384818402f1dd59bf}
+
+
+H\-M\-M context. 
+
+
+
+Definition at line 200 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-search(), ngram\-\_\-search\-\_\-alloc\-\_\-all\-\_\-rc(), ngram\-\_\-search\-\_\-free(), and ngram\-\_\-search\-\_\-init().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!homophone\-\_\-set@{homophone\-\_\-set}}
+\index{homophone\-\_\-set@{homophone\-\_\-set}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{homophone\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}int32$\ast$ ngram\-\_\-search\-\_\-s\-::homophone\-\_\-set}\label{structngram__search__s_ab251bb3d0ddd33dd99ed390b61e481f2}
+
+
+Each node in the H\-M\-M tree structure may point to a set of words whose last phone would follow that node in the tree structure (but is not included in the tree structure for reasons explained above). 
+
+The channel node points to one word in this set of words. The remaining words are linked through homophone\-\_\-set[].
+
+Single-\/phone words are not represented in the H\-M\-M tree; they are kept in word\-\_\-chan.
+
+Specifically, homophone\-\_\-set[w] = wid of next word in the same set as w. 
+
+Definition at line 263 of file ngram\-\_\-search.\-h.
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!last\-\_\-phone\-\_\-best\-\_\-score@{last\-\_\-phone\-\_\-best\-\_\-score}}
+\index{last\-\_\-phone\-\_\-best\-\_\-score@{last\-\_\-phone\-\_\-best\-\_\-score}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{last\-\_\-phone\-\_\-best\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}int32 ngram\-\_\-search\-\_\-s\-::last\-\_\-phone\-\_\-best\-\_\-score}\label{structngram__search__s_a81ee45f3c184568e2b5f8b79c58e0b9e}
+
+
+Best Viterbi path score for last phone. 
+
+
+
+Definition at line 326 of file ngram\-\_\-search.\-h.
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!lmset@{lmset}}
+\index{lmset@{lmset}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{lmset}]{\setlength{\rightskip}{0pt plus 5cm}ngram\-\_\-model\-\_\-t$\ast$ ngram\-\_\-search\-\_\-s\-::lmset}\label{structngram__search__s_a6127a6d8fb53832e67456c11aa6ad9c4}
+
+
+Set of language models. 
+
+
+
+Definition at line 199 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-search\-\_\-free(), and ngram\-\_\-search\-\_\-init().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!n\-\_\-frame@{n\-\_\-frame}}
+\index{n\-\_\-frame@{n\-\_\-frame}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{n\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}int32 ngram\-\_\-search\-\_\-s\-::n\-\_\-frame}\label{structngram__search__s_a5255e56d28c239a4e1d9b1721e8a2f8d}
+
+
+Number of frames actually present. 
+
+
+
+Definition at line 308 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-search(), ngram\-\_\-fwdflat\-\_\-start(), ngram\-\_\-fwdtree\-\_\-search(), ngram\-\_\-fwdtree\-\_\-start(), ngram\-\_\-search\-\_\-find\-\_\-exit(), and ngram\-\_\-search\-\_\-lattice().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!n\-\_\-frame\-\_\-alloc@{n\-\_\-frame\-\_\-alloc}}
+\index{n\-\_\-frame\-\_\-alloc@{n\-\_\-frame\-\_\-alloc}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{n\-\_\-frame\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}int32 ngram\-\_\-search\-\_\-s\-::n\-\_\-frame\-\_\-alloc}\label{structngram__search__s_a38ea5de504b3d7ad2390a3f8966d502f}
+
+
+Number of frames allocated in bp\-\_\-table\-\_\-idx and friends. 
+
+
+
+Definition at line 307 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-init(), ngram\-\_\-search\-\_\-init(), and ngram\-\_\-search\-\_\-mark\-\_\-bptable().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!root\-\_\-chan@{root\-\_\-chan}}
+\index{root\-\_\-chan@{root\-\_\-chan}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{root\-\_\-chan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf root\-\_\-chan\-\_\-t}$\ast$ ngram\-\_\-search\-\_\-s\-::root\-\_\-chan}\label{structngram__search__s_ae1b0a51cfcddc1e4b6ac94fa1e48887a}
+
+
+Search structure of H\-M\-M instances. 
+
+The word triphone sequences (H\-M\-M instances) are transformed into tree structures, one tree per unique left triphone in the entire dictionary (actually diphone, since its left context varies dyamically during the search process). The entire set of trees of channels is allocated once and for all during initialization (since dynamic management of active C\-H\-A\-Ns is time consuming), with one exception\-: the last phones of words, that need multiple right context modelling, are not maintained in this static structure since there are too many of them and few are active at any time. Instead they are maintained as linked lists of C\-H\-A\-Ns, one list per word, and each C\-H\-A\-N in this set is allocated only on demand and freed if inactive.\-Roots of search tree. 
+
+Definition at line 231 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdtree\-\_\-finish().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!st@{st}}
+\index{st@{st}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{st}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-search\-\_\-stats\-\_\-t} ngram\-\_\-search\-\_\-s\-::st}\label{structngram__search__s_a5758d167fbb48e824a6a58186620e06d}
+
+
+Various statistics for profiling. 
+
+
+
+Definition at line 335 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-finish(), ngram\-\_\-fwdflat\-\_\-search(), ngram\-\_\-fwdflat\-\_\-start(), ngram\-\_\-fwdtree\-\_\-finish(), ngram\-\_\-fwdtree\-\_\-search(), and ngram\-\_\-fwdtree\-\_\-start().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!word\-\_\-active@{word\-\_\-active}}
+\index{word\-\_\-active@{word\-\_\-active}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{word\-\_\-active}]{\setlength{\rightskip}{0pt plus 5cm}bitvec\-\_\-t$\ast$ ngram\-\_\-search\-\_\-s\-::word\-\_\-active}\label{structngram__search__s_aeb4c98851bf9b239ca607ca59f59ff4c}
+
+
+array of active flags for all words. 
+
+
+
+Definition at line 247 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-finish(), ngram\-\_\-fwdflat\-\_\-search(), ngram\-\_\-fwdtree\-\_\-finish(), ngram\-\_\-search\-\_\-free(), and ngram\-\_\-search\-\_\-init().
+
+\index{ngram\-\_\-search\-\_\-s@{ngram\-\_\-search\-\_\-s}!word\-\_\-chan@{word\-\_\-chan}}
+\index{word\-\_\-chan@{word\-\_\-chan}!ngram_search_s@{ngram\-\_\-search\-\_\-s}}
+\subsubsection[{word\-\_\-chan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf chan\-\_\-t}$\ast$$\ast$ ngram\-\_\-search\-\_\-s\-::word\-\_\-chan}\label{structngram__search__s_a79deb7295a261cd82d2a6b48cb119e77}
+
+
+Channels associated with a given word (only used for right contexts, single-\/phone words in fwdtree search, and word H\-M\-Ms in fwdflat search). 
+
+W\-A\-R\-N\-I\-N\-G\-: For single-\/phone words and fwdflat search, this actually contains pointers to root\-\_\-chan\-\_\-t, which are allocated using root\-\_\-chan\-\_\-alloc. This is a suboptimal state of affairs. 
+
+Definition at line 246 of file ngram\-\_\-search.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdflat\-\_\-reinit(), ngram\-\_\-fwdflat\-\_\-start(), ngram\-\_\-fwdtree\-\_\-finish(), ngram\-\_\-fwdtree\-\_\-reinit(), ngram\-\_\-fwdtree\-\_\-start(), ngram\-\_\-search\-\_\-alloc\-\_\-all\-\_\-rc(), ngram\-\_\-search\-\_\-free(), ngram\-\_\-search\-\_\-free\-\_\-all\-\_\-rc(), and ngram\-\_\-search\-\_\-init().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf ngram\-\_\-search.\-h}\end{DoxyCompactItemize}

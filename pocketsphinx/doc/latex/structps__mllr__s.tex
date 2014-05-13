@@ -1,0 +1,161 @@
+\section{ps\-\_\-mllr\-\_\-s Struct Reference}
+\label{structps__mllr__s}\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}}
+
+
+Feature space linear transform structure.  
+
+
+
+
+{\ttfamily \#include $<$acmod.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf refcnt}
+\begin{DoxyCompactList}\small\item\em Reference count. \end{DoxyCompactList}\item 
+int {\bf n\-\_\-class}
+\begin{DoxyCompactList}\small\item\em Number of M\-L\-L\-R classes. \end{DoxyCompactList}\item 
+int {\bf n\-\_\-feat}
+\begin{DoxyCompactList}\small\item\em Number of feature streams. \end{DoxyCompactList}\item 
+int $\ast$ {\bf veclen}
+\begin{DoxyCompactList}\small\item\em Length of input vectors for each stream. \end{DoxyCompactList}\item 
+float32 $\ast$$\ast$$\ast$$\ast$ {\bf A}
+\begin{DoxyCompactList}\small\item\em Rotation part of mean transformations. \end{DoxyCompactList}\item 
+float32 $\ast$$\ast$$\ast$ {\bf b}
+\begin{DoxyCompactList}\small\item\em Bias part of mean transformations. \end{DoxyCompactList}\item 
+float32 $\ast$$\ast$$\ast$ {\bf h}
+\begin{DoxyCompactList}\small\item\em Diagonal transformation of variances. \end{DoxyCompactList}\item 
+int32 $\ast$ {\bf cb2mllr}
+\begin{DoxyCompactList}\small\item\em Mapping from codebooks to transformations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Feature space linear transform structure. 
+
+Definition at line 82 of file acmod.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}!A@{A}}
+\index{A@{A}!ps_mllr_s@{ps\-\_\-mllr\-\_\-s}}
+\subsubsection[{A}]{\setlength{\rightskip}{0pt plus 5cm}float32$\ast$$\ast$$\ast$$\ast$ ps\-\_\-mllr\-\_\-s\-::\-A}\label{structps__mllr__s_a4cfa5d4c6637282b947b525a673cc3d0}
+
+
+Rotation part of mean transformations. 
+
+
+
+Definition at line 87 of file acmod.\-h.
+
+
+
+Referenced by gauden\-\_\-mllr\-\_\-transform(), ps\-\_\-mllr\-\_\-free(), and ps\-\_\-mllr\-\_\-read().
+
+\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}!b@{b}}
+\index{b@{b}!ps_mllr_s@{ps\-\_\-mllr\-\_\-s}}
+\subsubsection[{b}]{\setlength{\rightskip}{0pt plus 5cm}float32$\ast$$\ast$$\ast$ ps\-\_\-mllr\-\_\-s\-::b}\label{structps__mllr__s_a65430ba654d0af5e508715de24077f2d}
+
+
+Bias part of mean transformations. 
+
+
+
+Definition at line 88 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-flags2list(), gauden\-\_\-mllr\-\_\-transform(), ps\-\_\-mllr\-\_\-free(), and ps\-\_\-mllr\-\_\-read().
+
+\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}!cb2mllr@{cb2mllr}}
+\index{cb2mllr@{cb2mllr}!ps_mllr_s@{ps\-\_\-mllr\-\_\-s}}
+\subsubsection[{cb2mllr}]{\setlength{\rightskip}{0pt plus 5cm}int32$\ast$ ps\-\_\-mllr\-\_\-s\-::cb2mllr}\label{structps__mllr__s_a745c4b69be55cef8629abab02f474bb9}
+
+
+Mapping from codebooks to transformations. 
+
+
+
+Definition at line 90 of file acmod.\-h.
+
+\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}!h@{h}}
+\index{h@{h}!ps_mllr_s@{ps\-\_\-mllr\-\_\-s}}
+\subsubsection[{h}]{\setlength{\rightskip}{0pt plus 5cm}float32$\ast$$\ast$$\ast$ ps\-\_\-mllr\-\_\-s\-::h}\label{structps__mllr__s_ae92b910e17202389aca99ee5105085b0}
+
+
+Diagonal transformation of variances. 
+
+
+
+Definition at line 89 of file acmod.\-h.
+
+
+
+Referenced by gauden\-\_\-mllr\-\_\-transform(), ps\-\_\-mllr\-\_\-free(), and ps\-\_\-mllr\-\_\-read().
+
+\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}!n\-\_\-class@{n\-\_\-class}}
+\index{n\-\_\-class@{n\-\_\-class}!ps_mllr_s@{ps\-\_\-mllr\-\_\-s}}
+\subsubsection[{n\-\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}int ps\-\_\-mllr\-\_\-s\-::n\-\_\-class}\label{structps__mllr__s_a30b9bb76c5469542d531ead4ad1bdcb1}
+
+
+Number of M\-L\-L\-R classes. 
+
+
+
+Definition at line 84 of file acmod.\-h.
+
+
+
+Referenced by ps\-\_\-mllr\-\_\-read().
+
+\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}!n\-\_\-feat@{n\-\_\-feat}}
+\index{n\-\_\-feat@{n\-\_\-feat}!ps_mllr_s@{ps\-\_\-mllr\-\_\-s}}
+\subsubsection[{n\-\_\-feat}]{\setlength{\rightskip}{0pt plus 5cm}int ps\-\_\-mllr\-\_\-s\-::n\-\_\-feat}\label{structps__mllr__s_acc9e853a333f4e79b24f3e5af0946e43}
+
+
+Number of feature streams. 
+
+
+
+Definition at line 85 of file acmod.\-h.
+
+
+
+Referenced by ps\-\_\-mllr\-\_\-free(), and ps\-\_\-mllr\-\_\-read().
+
+\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}!refcnt@{refcnt}}
+\index{refcnt@{refcnt}!ps_mllr_s@{ps\-\_\-mllr\-\_\-s}}
+\subsubsection[{refcnt}]{\setlength{\rightskip}{0pt plus 5cm}int ps\-\_\-mllr\-\_\-s\-::refcnt}\label{structps__mllr__s_ac138bd81a40d8569d795463ea1ec52bd}
+
+
+Reference count. 
+
+
+
+Definition at line 83 of file acmod.\-h.
+
+
+
+Referenced by ps\-\_\-mllr\-\_\-free(), ps\-\_\-mllr\-\_\-read(), and ps\-\_\-mllr\-\_\-retain().
+
+\index{ps\-\_\-mllr\-\_\-s@{ps\-\_\-mllr\-\_\-s}!veclen@{veclen}}
+\index{veclen@{veclen}!ps_mllr_s@{ps\-\_\-mllr\-\_\-s}}
+\subsubsection[{veclen}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ ps\-\_\-mllr\-\_\-s\-::veclen}\label{structps__mllr__s_a20fae2fc119069371464a6502e00c0e4}
+
+
+Length of input vectors for each stream. 
+
+
+
+Definition at line 86 of file acmod.\-h.
+
+
+
+Referenced by ps\-\_\-mllr\-\_\-free(), and ps\-\_\-mllr\-\_\-read().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf acmod.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,407 @@
+\section{include/sphinxbase/matrix.h File Reference}
+\label{matrix_8h}\index{include/sphinxbase/matrix.\-h@{include/sphinxbase/matrix.\-h}}
+
+
+Matrix and linear algebra functions.  
+
+
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf norm\-\_\-3d} (float32 $\ast$$\ast$$\ast$arr, uint32 d1, uint32 d2, uint32 d3)
+\begin{DoxyCompactList}\small\item\em Norm an array. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf accum\-\_\-3d} (float32 $\ast$$\ast$$\ast$out, float32 $\ast$$\ast$$\ast$in, uint32 d1, uint32 d2, uint32 d3)
+\begin{DoxyCompactList}\small\item\em Floor 3-\/d array. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf band\-\_\-nz\-\_\-1d} (float32 $\ast$v, uint32 d1, float32 band)
+\begin{DoxyCompactList}\small\item\em Ensures that non-\/zero values x such that -\/band $<$ x $<$ band, band $>$ 0 are set to -\/band if x $<$ 0 and band if x $>$ 0. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf floor\-\_\-nz\-\_\-3d} (float32 $\ast$$\ast$$\ast$m, uint32 d1, uint32 d2, uint32 d3, float32 floor)
+\begin{DoxyCompactList}\small\item\em Floor 3-\/d array. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf floor\-\_\-nz\-\_\-1d} (float32 $\ast$v, uint32 d1, float32 floor)
+\begin{DoxyCompactList}\small\item\em Floor 1-\/d array. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T float64 {\bf determinant} (float32 $\ast$$\ast$a, int32 len)
+\begin{DoxyCompactList}\small\item\em Calculate the determinant of a positive definite matrix. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf invert} (float32 $\ast$$\ast$out\-\_\-ainv, float32 $\ast$$\ast$a, int32 len)
+\begin{DoxyCompactList}\small\item\em Invert (if possible) a positive definite matrix. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf solve} (float32 $\ast$$\ast$a, float32 $\ast$b, float32 $\ast$out\-\_\-x, int32 n)
+\begin{DoxyCompactList}\small\item\em Solve (if possible) a positive-\/definite system of linear equations A\-X=B for X. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf outerproduct} (float32 $\ast$$\ast$out\-\_\-a, float32 $\ast$x, float32 $\ast$y, int32 len)
+\begin{DoxyCompactList}\small\item\em Calculate the outer product of two vectors. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf matrixmultiply} (float32 $\ast$$\ast$out\-\_\-c, float32 $\ast$$\ast$a, float32 $\ast$$\ast$b, int32 n)
+\begin{DoxyCompactList}\small\item\em Multiply C=A\-B where A and B are symmetric matrices. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf scalarmultiply} (float32 $\ast$$\ast$inout\-\_\-a, float32 x, int32 n)
+\begin{DoxyCompactList}\small\item\em Multiply a symmetric matrix by a constant in-\/place. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf matrixadd} (float32 $\ast$$\ast$inout\-\_\-a, float32 $\ast$$\ast$b, int32 n)
+\begin{DoxyCompactList}\small\item\em Add A += B. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Matrix and linear algebra functions. This file contains some basic matrix and linear algebra operations. In general these operate on positive definite matrices O\-N\-L\-Y, because all matrices we're likely to encounter are either covariance matrices or are derived from them, and therefore a non-\/positive-\/definite matrix indicates some kind of pathological condition. 
+
+Definition in file {\bf matrix.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{matrix.\-h@{matrix.\-h}!accum\-\_\-3d@{accum\-\_\-3d}}
+\index{accum\-\_\-3d@{accum\-\_\-3d}!matrix.h@{matrix.\-h}}
+\subsubsection[{accum\-\_\-3d}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void accum\-\_\-3d (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$$\ast$}]{out, }
+\item[{float32 $\ast$$\ast$$\ast$}]{in, }
+\item[{uint32}]{d1, }
+\item[{uint32}]{d2, }
+\item[{uint32}]{d3}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_abf02a99f3dac599148c0e1ee5640b568}
+
+
+Floor 3-\/d array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & output array  in input array \\
+\hline
+{\em d1} & dimension \\
+\hline
+{\em d2} & dimension \\
+\hline
+{\em d3} & dimension \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!band\-\_\-nz\-\_\-1d@{band\-\_\-nz\-\_\-1d}}
+\index{band\-\_\-nz\-\_\-1d@{band\-\_\-nz\-\_\-1d}!matrix.h@{matrix.\-h}}
+\subsubsection[{band\-\_\-nz\-\_\-1d}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void band\-\_\-nz\-\_\-1d (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{v, }
+\item[{uint32}]{d1, }
+\item[{float32}]{band}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_a859d32f6b8e86fb215f676245c8deeaf}
+
+
+Ensures that non-\/zero values x such that -\/band $<$ x $<$ band, band $>$ 0 are set to -\/band if x $<$ 0 and band if x $>$ 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & array \\
+\hline
+{\em d1} & array size \\
+\hline
+{\em band} & band value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 127 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!determinant@{determinant}}
+\index{determinant@{determinant}!matrix.h@{matrix.\-h}}
+\subsubsection[{determinant}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T float64 determinant (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$}]{a, }
+\item[{int32}]{len}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_a0c810028195f6078c9e99f3b5c29c42b}
+
+
+Calculate the determinant of a positive definite matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The input matrix, must be positive definite. \\
+\hline
+{\em len} & The dimension of the input matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The determinant of the input matrix, or -\/1.\-0 if the matrix is not positive definite.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+These can be vanishingly small hence the float64 return type. Also note that only the upper triangular portion of a is considered, therefore the check for positive-\/definiteness is not reliable. 
+\end{DoxyNote}
+
+
+Definition at line 147 of file matrix.\-c.
+
+
+
+References E\-\_\-\-F\-A\-T\-A\-L.
+
+\index{matrix.\-h@{matrix.\-h}!floor\-\_\-nz\-\_\-1d@{floor\-\_\-nz\-\_\-1d}}
+\index{floor\-\_\-nz\-\_\-1d@{floor\-\_\-nz\-\_\-1d}!matrix.h@{matrix.\-h}}
+\subsubsection[{floor\-\_\-nz\-\_\-1d}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void floor\-\_\-nz\-\_\-1d (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{v, }
+\item[{uint32}]{d1, }
+\item[{float32}]{floor}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_a0ec7000944b98cce317e0b63ce437b99}
+
+
+Floor 1-\/d array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & array \\
+\hline
+{\em d1} & dimension \\
+\hline
+{\em floor} & floor value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 114 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!floor\-\_\-nz\-\_\-3d@{floor\-\_\-nz\-\_\-3d}}
+\index{floor\-\_\-nz\-\_\-3d@{floor\-\_\-nz\-\_\-3d}!matrix.h@{matrix.\-h}}
+\subsubsection[{floor\-\_\-nz\-\_\-3d}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void floor\-\_\-nz\-\_\-3d (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$$\ast$}]{m, }
+\item[{uint32}]{d1, }
+\item[{uint32}]{d2, }
+\item[{uint32}]{d3, }
+\item[{float32}]{floor}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_a7b18b907fca64a8057f7406b8996d9c9}
+
+
+Floor 3-\/d array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & array \\
+\hline
+{\em d1} & dimension \\
+\hline
+{\em d2} & dimension \\
+\hline
+{\em d3} & dimension \\
+\hline
+{\em floor} & floor value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 96 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!invert@{invert}}
+\index{invert@{invert}!matrix.h@{matrix.\-h}}
+\subsubsection[{invert}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 invert (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$}]{out\-\_\-ainv, }
+\item[{float32 $\ast$$\ast$}]{a, }
+\item[{int32}]{len}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_aa20f437dbe9fcd6f0adda31f181bfbea}
+
+
+Invert (if possible) a positive definite matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\-\_\-ainv} & The inverse of a will be stored here. \\
+\hline
+{\em a} & The input matrix, must be positive definite. \\
+\hline
+{\em len} & The dimension of the input matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success or -\/1 for a non-\/positive-\/definite matrix.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Only the upper triangular portion of a is considered, therefore the check for positive-\/definiteness is not reliable. 
+\end{DoxyNote}
+
+
+Definition at line 153 of file matrix.\-c.
+
+
+
+References E\-\_\-\-F\-A\-T\-A\-L.
+
+\index{matrix.\-h@{matrix.\-h}!matrixadd@{matrixadd}}
+\index{matrixadd@{matrixadd}!matrix.h@{matrix.\-h}}
+\subsubsection[{matrixadd}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void matrixadd (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$}]{inout\-\_\-a, }
+\item[{float32 $\ast$$\ast$}]{b, }
+\item[{int32}]{n}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_a545d251a51cc473bad38a83b2a05f61c}
+
+
+Add A += B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inout\-\_\-a} & The A matrix to add. \\
+\hline
+{\em b} & The B matrix to add to A. \\
+\hline
+{\em n} & dimension of a and b. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 306 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!matrixmultiply@{matrixmultiply}}
+\index{matrixmultiply@{matrixmultiply}!matrix.h@{matrix.\-h}}
+\subsubsection[{matrixmultiply}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void matrixmultiply (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$}]{out\-\_\-c, }
+\item[{float32 $\ast$$\ast$}]{a, }
+\item[{float32 $\ast$$\ast$}]{b, }
+\item[{int32}]{n}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_acaaf5d2c02d9d12f10abc462ac65cde9}
+
+
+Multiply C=A\-B where A and B are symmetric matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\-\_\-c} & The output matrix C. \\
+\hline
+{\em a} & The input matrix A. \\
+\hline
+{\em b} & The input matrix B. \\
+\hline
+{\em n} & Dimensionality of A and B. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 166 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!norm\-\_\-3d@{norm\-\_\-3d}}
+\index{norm\-\_\-3d@{norm\-\_\-3d}!matrix.h@{matrix.\-h}}
+\subsubsection[{norm\-\_\-3d}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void norm\-\_\-3d (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$$\ast$}]{arr, }
+\item[{uint32}]{d1, }
+\item[{uint32}]{d2, }
+\item[{uint32}]{d3}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_af209fc89926fd184f5a02919ec7c9818}
+
+
+Norm an array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & array \\
+\hline
+{\em d1} & dimension \\
+\hline
+{\em d2} & dimension \\
+\hline
+{\em d3} & dimension \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!outerproduct@{outerproduct}}
+\index{outerproduct@{outerproduct}!matrix.h@{matrix.\-h}}
+\subsubsection[{outerproduct}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void outerproduct (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$}]{out\-\_\-a, }
+\item[{float32 $\ast$}]{x, }
+\item[{float32 $\ast$}]{y, }
+\item[{int32}]{len}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_aa2d31d63ec277fd389d4ef51d3b2bc2b}
+
+
+Calculate the outer product of two vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\-\_\-a} & A (pre-\/allocated) len x len array. The outer product will be stored here. \\
+\hline
+{\em x} & A vector of length len. \\
+\hline
+{\em y} & A vector of length len. \\
+\hline
+{\em len} & The length of the input vectors. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 278 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!scalarmultiply@{scalarmultiply}}
+\index{scalarmultiply@{scalarmultiply}!matrix.h@{matrix.\-h}}
+\subsubsection[{scalarmultiply}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void scalarmultiply (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$}]{inout\-\_\-a, }
+\item[{float32}]{x, }
+\item[{int32}]{n}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_adc8ee5f4e4792328e4f33309bc99ebfb}
+
+
+Multiply a symmetric matrix by a constant in-\/place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inout\-\_\-a} & The matrix to multiply. \\
+\hline
+{\em x} & The constant to multiply it by. \\
+\hline
+{\em n} & dimension of a. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 292 of file matrix.\-c.
+
+\index{matrix.\-h@{matrix.\-h}!solve@{solve}}
+\index{solve@{solve}!matrix.h@{matrix.\-h}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 solve (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$$\ast$}]{a, }
+\item[{float32 $\ast$}]{b, }
+\item[{float32 $\ast$}]{out\-\_\-x, }
+\item[{int32}]{n}
+\end{DoxyParamCaption}
+)}\label{matrix_8h_a174a82dac39a15828af6c87edcba3708}
+
+
+Solve (if possible) a positive-\/definite system of linear equations A\-X=B for X. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The A matrix on the left-\/hand side of the equation, must be positive-\/definite. \\
+\hline
+{\em b} & The B vector on the right-\/hand side of the equation. \\
+\hline
+{\em out\-\_\-x} & The X vector will be stored here. \\
+\hline
+{\em n} & The dimension of the A matrix (n by n) and the B and X vectors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success or -\/1 for a non-\/positive-\/definite matrix.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Only the upper triangular portion of a is considered, therefore the check for positive-\/definiteness is not reliable. 
+\end{DoxyNote}
+
+
+Definition at line 159 of file matrix.\-c.
+
+
+
+References E\-\_\-\-F\-A\-T\-A\-L.
+

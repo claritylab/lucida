@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structkws__search__s" kind="struct" prot="public">
+    <compoundname>kws_search_s</compoundname>
+    <includes refid="kws__search_8h" local="no">kws_search.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structkws__search__s_1a2fe82b392de65317a6b616681683942e" prot="public" static="no" mutable="no">
+        <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref></type>
+        <definition>ps_search_t kws_search_s::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="73" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1a0069d57702f921cbd1e2093148e7b672" prot="public" static="no" mutable="no">
+        <type><ref refid="structhmm__context__t" kindref="compound">hmm_context_t</ref> *</type>
+        <definition>hmm_context_t* kws_search_s::hmmctx</definition>
+        <argsstring></argsstring>
+        <name>hmmctx</name>
+        <briefdescription>
+<para>HMM context. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="75" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1ac7bd23ef33f85b4173a8d9a7cc9b9a32" prot="public" static="no" mutable="no">
+        <type><ref refid="structkws__detections__s" kindref="compound">kws_detections_t</ref> *</type>
+        <definition>kws_detections_t* kws_search_s::detections</definition>
+        <argsstring></argsstring>
+        <name>detections</name>
+        <briefdescription>
+<para>Keyword spotting history. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="77" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1a0eec404435d9f8ad2700487f8a178f48" prot="public" static="no" mutable="no">
+        <type><ref refid="structkws__keyword__s" kindref="compound">kws_keyword_t</ref> *</type>
+        <definition>kws_keyword_t* kws_search_s::keyphrases</definition>
+        <argsstring></argsstring>
+        <name>keyphrases</name>
+        <briefdescription>
+<para>Keyphrases to spot. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="78" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1acd47cbdc3c0708d869888b99e6f5982c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int kws_search_s::n_keyphrases</definition>
+        <argsstring></argsstring>
+        <name>n_keyphrases</name>
+        <briefdescription>
+<para>Keyphrases amount. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="79" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1a68a833afd9d01bdf4c2cc640b575eea7" prot="public" static="no" mutable="no">
+        <type><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref></type>
+        <definition>frame_idx_t kws_search_s::frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <briefdescription>
+<para>Frame index. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="80" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1a5a84597099359059301dc6124579732e" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 kws_search_s::beam</definition>
+        <argsstring></argsstring>
+        <name>beam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="82" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1a3bfc1d19e39d1cd321ce47280f1abe00" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 kws_search_s::plp</definition>
+        <argsstring></argsstring>
+        <name>plp</name>
+        <briefdescription>
+<para>Phone loop probability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="84" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1a0a04bba471516468d1b2bea14632f255" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 kws_search_s::bestscore</definition>
+        <argsstring></argsstring>
+        <name>bestscore</name>
+        <briefdescription>
+<para>For beam pruning. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="85" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1afce4456a796dbc72149d7a47159ccca9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 kws_search_s::def_threshold</definition>
+        <argsstring></argsstring>
+        <name>def_threshold</name>
+        <briefdescription>
+<para>default threshold for p(hyp)/p(altern) ratio </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="86" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1aab6e42d0c93af992c16e2a75db386df4" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 kws_search_s::n_pl</definition>
+        <argsstring></argsstring>
+        <name>n_pl</name>
+        <briefdescription>
+<para>Number of CI phones. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="88" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structkws__search__s_1a7b501f4cc5f4efb7b4ca0259afcf4e05" prot="public" static="no" mutable="no">
+        <type><ref refid="structhmm__t" kindref="compound">hmm_t</ref> *</type>
+        <definition>hmm_t* kws_search_s::pl_hmms</definition>
+        <argsstring></argsstring>
+        <name>pl_hmms</name>
+        <briefdescription>
+<para>Phone loop hmms - hmms of CI phones. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="89" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of KWS search structure. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="213">
+        <label>kws_search_s</label>
+        <link refid="structkws__search__s"/>
+        <childnode refid="214" relation="usage">
+          <edgelabel>keyphrases</edgelabel>
+        </childnode>
+        <childnode refid="215" relation="usage">
+          <edgelabel>pl_hmms</edgelabel>
+        </childnode>
+        <childnode refid="216" relation="usage">
+          <edgelabel>detections</edgelabel>
+        </childnode>
+        <childnode refid="217" relation="usage">
+          <edgelabel>hmmctx</edgelabel>
+        </childnode>
+        <childnode refid="218" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+      <node id="234">
+        <label>ps_mgau_s</label>
+        <link refid="structps__mgau__s"/>
+        <childnode refid="235" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+      </node>
+      <node id="223">
+        <label>dict_t</label>
+        <link refid="structdict__t"/>
+        <childnode refid="224" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="227" relation="usage">
+          <edgelabel>word</edgelabel>
+        </childnode>
+      </node>
+      <node id="218">
+        <label>ps_search_s</label>
+        <link refid="structps__search__s"/>
+        <childnode refid="219" relation="usage">
+          <edgelabel>last_link</edgelabel>
+        </childnode>
+        <childnode refid="222" relation="usage">
+          <edgelabel>dag</edgelabel>
+        </childnode>
+        <childnode refid="228" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+        <childnode refid="231" relation="usage">
+          <edgelabel>d2p</edgelabel>
+        </childnode>
+        <childnode refid="223" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="233" relation="usage">
+          <edgelabel>acmod</edgelabel>
+        </childnode>
+        <childnode refid="218" relation="usage">
+          <edgelabel>pls</edgelabel>
+        </childnode>
+      </node>
+      <node id="231">
+        <label>dict2pid_t</label>
+        <link refid="structdict2pid__t"/>
+        <childnode refid="232" relation="usage">
+          <edgelabel>lrssid</edgelabel>
+          <edgelabel>rssid</edgelabel>
+        </childnode>
+        <childnode refid="223" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="224" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+      </node>
+      <node id="221">
+        <label>latlink_list_s</label>
+        <link refid="structlatlink__list__s"/>
+        <childnode refid="219" relation="usage">
+          <edgelabel>link</edgelabel>
+        </childnode>
+        <childnode refid="221" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="237">
+        <label>tmat_t</label>
+        <link refid="structtmat__t"/>
+      </node>
+      <node id="225">
+        <label>cd_tree_s</label>
+        <link refid="structcd__tree__s"/>
+      </node>
+      <node id="227">
+        <label>dictword_t</label>
+        <link refid="structdictword__t"/>
+      </node>
+      <node id="232">
+        <label>xwdssid_t</label>
+        <link refid="structxwdssid__t"/>
+      </node>
+      <node id="220">
+        <label>ps_latnode_s</label>
+        <link refid="structps__latnode__s"/>
+        <childnode refid="220" relation="usage">
+          <edgelabel>alt</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="221" relation="usage">
+          <edgelabel>exits</edgelabel>
+          <edgelabel>entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="216">
+        <label>kws_detections_s</label>
+        <link refid="structkws__detections__s"/>
+      </node>
+      <node id="214">
+        <label>kws_keyword_s</label>
+        <link refid="structkws__keyword__s"/>
+        <childnode refid="215" relation="usage">
+          <edgelabel>hmms</edgelabel>
+        </childnode>
+      </node>
+      <node id="226">
+        <label>mdef_entry_s</label>
+        <link refid="structmdef__entry__s"/>
+      </node>
+      <node id="230">
+        <label>ps_segfuncs_s</label>
+        <link refid="structps__segfuncs__s"/>
+        <childnode refid="229" relation="usage">
+          <edgelabel>seg_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="235">
+        <label>ps_mgaufuncs_s</label>
+        <link refid="structps__mgaufuncs__s"/>
+      </node>
+      <node id="224">
+        <label>bin_mdef_s</label>
+        <link refid="structbin__mdef__s"/>
+        <childnode refid="225" relation="usage">
+          <edgelabel>cd_tree</edgelabel>
+        </childnode>
+        <childnode refid="226" relation="usage">
+          <edgelabel>phone</edgelabel>
+        </childnode>
+      </node>
+      <node id="215">
+        <label>hmm_t</label>
+        <link refid="structhmm__t"/>
+      </node>
+      <node id="217">
+        <label>hmm_context_t</label>
+        <link refid="structhmm__context__t"/>
+      </node>
+      <node id="229">
+        <label>ps_seg_s</label>
+        <link refid="structps__seg__s"/>
+        <childnode refid="230" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+        <childnode refid="218" relation="usage">
+          <edgelabel>search</edgelabel>
+        </childnode>
+      </node>
+      <node id="228">
+        <label>ps_searchfuncs_s</label>
+        <link refid="structps__searchfuncs__s"/>
+        <childnode refid="222" relation="usage">
+          <edgelabel>lattice</edgelabel>
+        </childnode>
+        <childnode refid="229" relation="usage">
+          <edgelabel>seg_iter</edgelabel>
+        </childnode>
+      </node>
+      <node id="222">
+        <label>ps_lattice_s</label>
+        <link refid="structps__lattice__s"/>
+        <childnode refid="220" relation="usage">
+          <edgelabel>end</edgelabel>
+          <edgelabel>nodes</edgelabel>
+          <edgelabel>start</edgelabel>
+        </childnode>
+        <childnode refid="221" relation="usage">
+          <edgelabel>q_tail</edgelabel>
+          <edgelabel>q_head</edgelabel>
+        </childnode>
+        <childnode refid="223" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="218" relation="usage">
+          <edgelabel>search</edgelabel>
+        </childnode>
+      </node>
+      <node id="233">
+        <label>acmod_s</label>
+        <link refid="structacmod__s"/>
+        <childnode refid="234" relation="usage">
+          <edgelabel>mgau</edgelabel>
+        </childnode>
+        <childnode refid="236" relation="usage">
+          <edgelabel>mllr</edgelabel>
+        </childnode>
+        <childnode refid="224" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="237" relation="usage">
+          <edgelabel>tmat</edgelabel>
+        </childnode>
+      </node>
+      <node id="236">
+        <label>ps_mllr_s</label>
+        <link refid="structps__mllr__s"/>
+      </node>
+      <node id="219">
+        <label>ps_latlink_s</label>
+        <link refid="structps__latlink__s"/>
+        <childnode refid="219" relation="usage">
+          <edgelabel>best_prev</edgelabel>
+        </childnode>
+        <childnode refid="220" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>to</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="72" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="72" bodyend="91"/>
+    <listofallmembers>
+      <member refid="structkws__search__s_1a2fe82b392de65317a6b616681683942e" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>base</name></member>
+      <member refid="structkws__search__s_1a5a84597099359059301dc6124579732e" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>beam</name></member>
+      <member refid="structkws__search__s_1a0a04bba471516468d1b2bea14632f255" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>bestscore</name></member>
+      <member refid="structkws__search__s_1afce4456a796dbc72149d7a47159ccca9" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>def_threshold</name></member>
+      <member refid="structkws__search__s_1ac7bd23ef33f85b4173a8d9a7cc9b9a32" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>detections</name></member>
+      <member refid="structkws__search__s_1a68a833afd9d01bdf4c2cc640b575eea7" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>frame</name></member>
+      <member refid="structkws__search__s_1a0069d57702f921cbd1e2093148e7b672" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>hmmctx</name></member>
+      <member refid="structkws__search__s_1a0eec404435d9f8ad2700487f8a178f48" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>keyphrases</name></member>
+      <member refid="structkws__search__s_1acd47cbdc3c0708d869888b99e6f5982c" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>n_keyphrases</name></member>
+      <member refid="structkws__search__s_1aab6e42d0c93af992c16e2a75db386df4" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>n_pl</name></member>
+      <member refid="structkws__search__s_1a7b501f4cc5f4efb7b4ca0259afcf4e05" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>pl_hmms</name></member>
+      <member refid="structkws__search__s_1a3bfc1d19e39d1cd321ce47280f1abe00" prot="public" virt="non-virtual"><scope>kws_search_s</scope><name>plp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,23 @@
+Ideas for accelerating PTM computation
+--------------------------------------
+
+First thing to note is that codebook computation now takes up the
+majority of the time spent evaluating PTMs.  So speeding up Gaussian
+evaluation is suddenly important again.
+
+Using a tighter top-N beam will speed up Gaussian computation by
+imposing a higher floor on densities, but this effect isn't worth a
+whole lot, in contrast to SC models where mixture computation rather
+than density computation is the most expensive part.
+
+This means that we should probably bring back kd-trees, although the
+implementation should be tweaked to be faster loading.
+
+Also, maybe more importantly, we can do some form of CI-GMM selection
+on the codebooks.  This won't actually work with the way the models
+are set up currently since the CI phones share the same codebook as
+the CD ones, and the goal is to prune codebooks rather than phones.
+
+But wait!  It's okay, because we still have the same top-N mechanism
+as before.  We can use those top-N scores to do early pruning of
+entire codebooks.  This ought to give us the most bang for the buck.

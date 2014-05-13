@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="bitvec_8c" kind="file">
+    <compoundname>bitvec.c</compoundname>
+    <includes refid="bitvec_8h" local="yes">sphinxbase/bitvec.h</includes>
+    <incdepgraph>
+      <node id="2164">
+        <label>sphinxbase/bitvec.h</label>
+        <link refid="bitvec_8h"/>
+        <childnode refid="2165" relation="include">
+        </childnode>
+        <childnode refid="2166" relation="include">
+        </childnode>
+        <childnode refid="2167" relation="include">
+        </childnode>
+        <childnode refid="2169" relation="include">
+        </childnode>
+      </node>
+      <node id="2170">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2171">
+        <label>setjmp.h</label>
+      </node>
+      <node id="2163">
+        <label>src/libsphinxbase/util/bitvec.c</label>
+        <link refid="bitvec.c"/>
+        <childnode refid="2164" relation="include">
+        </childnode>
+      </node>
+      <node id="2168">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="2165">
+        <label>string.h</label>
+      </node>
+      <node id="2166">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="2167">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="2168" relation="include">
+        </childnode>
+      </node>
+      <node id="2169">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="2170" relation="include">
+        </childnode>
+        <childnode refid="2171" relation="include">
+        </childnode>
+        <childnode refid="2166" relation="include">
+        </childnode>
+        <childnode refid="2167" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="bitvec_8c_1a6d10e7851d60dda304e9d89ca5fffcf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bitvec_t *</type>
+        <definition>bitvec_t* bitvec_realloc</definition>
+        <argsstring>(bitvec_t *vec, size_t old_len, size_t new_len)</argsstring>
+        <name>bitvec_realloc</name>
+        <param>
+          <type>bitvec_t *</type>
+          <declname>vec</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>old_len</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>new_len</declname>
+        </param>
+        <briefdescription>
+<para>Resize a bit vector, clear the remaining bits. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bitvec.c" line="64" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bitvec.c" bodystart="64" bodyend="77"/>
+        <references refid="bitvec_8h_1a1d82193826583f234a71cba32267d3f3" compoundref="bitvec_8h" startline="70">bitvec_size</references>
+        <references refid="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" compoundref="ckd__alloc_8h" startline="258">ckd_realloc</references>
+      </memberdef>
+      <memberdef kind="function" id="bitvec_8c_1a8c126245516041931bba3beb3d2303c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t bitvec_count_set</definition>
+        <argsstring>(bitvec_t *vec, size_t len)</argsstring>
+        <name>bitvec_count_set</name>
+        <param>
+          <type>bitvec_t *</type>
+          <declname>vec</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Return the number of bits set in the given bitvector. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the bit vector </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the length of bit vector <computeroutput>vec</computeroutput> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of bits being set in vector <computeroutput>vec</computeroutput> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bitvec.c" line="80" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bitvec.c" bodystart="80" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>bitvec.c<sp/>--<sp/>Bit<sp/>vector<sp/>type.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>bitvec.c,v<sp/>$</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2005/06/22<sp/>02:58:22<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>Added<sp/><sp/>keyword</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:48<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>05-Mar-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Started.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="bitvec_8h" kindref="compound">sphinxbase/bitvec.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">bitvec_t<sp/>*</highlight></codeline>
+<codeline lineno="64" refid="bitvec_8h_1a617e9fca97ca02a5e959f989c5c1a4e4" refkind="member"><highlight class="normal"><ref refid="bitvec_8h_1a617e9fca97ca02a5e959f989c5c1a4e4" kindref="member">bitvec_realloc</ref>(bitvec_t<sp/>*vec,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>old_len,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>new_len)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>bitvec_t<sp/>*new_vec;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>old_size<sp/>=<sp/><ref refid="bitvec_8h_1a1d82193826583f234a71cba32267d3f3" kindref="member">bitvec_size</ref>(old_len);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>new_size<sp/>=<sp/><ref refid="bitvec_8h_1a1d82193826583f234a71cba32267d3f3" kindref="member">bitvec_size</ref>(new_len);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>new_vec<sp/>=<sp/><ref refid="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" kindref="member">ckd_realloc</ref>(vec,<sp/>new_size<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(bitvec_t));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(new_size<sp/>&gt;<sp/>old_size)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memset(new_vec<sp/>+<sp/>old_size,<sp/>0,<sp/>(new_size<sp/>-<sp/>old_size)<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(bitvec_t));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>new_vec;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="bitvec_8h_1ac8eeaf487cd029e23fffe676f9a77a10" refkind="member"><highlight class="normal"><ref refid="bitvec_8h_1ac8eeaf487cd029e23fffe676f9a77a10" kindref="member">bitvec_count_set</ref>(bitvec_t<sp/>*vec,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>words,<sp/>bits,<sp/>w,<sp/>b,<sp/>n;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>bitvec_t<sp/>*v;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>words<sp/>=<sp/>len<sp/>/<sp/>BITVEC_BITS;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>bits<sp/>=<sp/>len<sp/>%<sp/>BITVEC_BITS;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>v<sp/>=<sp/>vec;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>n<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(w<sp/>=<sp/>0;<sp/>w<sp/>&lt;<sp/>words;<sp/>++w,<sp/>++v)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*v<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(b<sp/>=<sp/>0;<sp/>b<sp/>&lt;<sp/>BITVEC_BITS;<sp/>++b)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*v<sp/>&amp;<sp/>(1&lt;&lt;b))</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++n;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(b<sp/>=<sp/>0;<sp/>b<sp/>&lt;<sp/>bits;<sp/>++b)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*v<sp/>&amp;<sp/>(1&lt;&lt;b))</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++n;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bitvec.c"/>
+  </compounddef>
+</doxygen>

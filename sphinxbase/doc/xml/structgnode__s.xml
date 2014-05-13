@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structgnode__s" kind="struct" prot="public">
+    <compoundname>gnode_s</compoundname>
+    <includes refid="glist_8h" local="no">glist.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structgnode__s_1ab1a86d92c42a5b45865a1db2a511b159" prot="public" static="no" mutable="no">
+        <type><ref refid="prim__type_8h_1a98bfefef272895ed1506502cdb8c1aa3" kindref="member">anytype_t</ref></type>
+        <definition>anytype_t gnode_s::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/glist.h" line="101" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/glist.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structgnode__s_1a24798080e363f9ecf9f348022c582757" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structgnode__s" kindref="compound">gnode_s</ref> *</type>
+        <definition>struct gnode_s* gnode_s::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+<para>See <ref refid="prim__type_8h" kindref="compound">prim_type.h</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/glist.h" line="102" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/glist.h" bodystart="102" bodyend="-1"/>
+        <referencedby refid="glist_8h_1a77a9c20b7df5a289477af405ab778377" compoundref="glist_8c" startline="74" endline="82">glist_add_ptr</referencedby>
+        <referencedby refid="glist_8h_1a28adfcc24a784aaed1a0b3c4c4de4c42" compoundref="glist_8c" startline="86" endline="94">glist_add_int32</referencedby>
+        <referencedby refid="glist_8h_1aeb741d435322f34df5e5d3a99abf00de" compoundref="glist_8c" startline="98" endline="106">glist_add_uint32</referencedby>
+        <referencedby refid="glist_8h_1a4fc4db2fbebd7b659554227d411f6737" compoundref="glist_8c" startline="110" endline="118">glist_add_float32</referencedby>
+        <referencedby refid="glist_8h_1a5bdd11639ef5846abb7ceb6caf059f4e" compoundref="glist_8c" startline="122" endline="130">glist_add_float64</referencedby>
+        <referencedby refid="glist_8h_1a45380e15d2c33afc554fd60a8828580c" compoundref="glist_8c" startline="133" endline="142">glist_free</referencedby>
+        <referencedby refid="glist_8h_1aeb046e39c540d2f5f792119ea0d24c48" compoundref="glist_8c" startline="145" endline="152">glist_count</referencedby>
+        <referencedby refid="glist_8h_1a6921d6b8b11cb9e05fadeaa091e89234" compoundref="glist_8c" startline="156" endline="165">glist_tail</referencedby>
+        <referencedby refid="glist_8h_1a399a2a093c6c4ce1012762e4c25c8185" compoundref="glist_8c" startline="169" endline="183">glist_reverse</referencedby>
+        <referencedby refid="glist_8h_1a2d641da6b349c1c939e3b954382513ba" compoundref="glist_8c" startline="187" endline="197">glist_insert_ptr</referencedby>
+        <referencedby refid="glist_8h_1a327b6478ee05ac17e3c3b3189579413e" compoundref="glist_8c" startline="201" endline="211">glist_insert_int32</referencedby>
+        <referencedby refid="glist_8h_1ab7e58ee641d3648f047eef70a20a4647" compoundref="glist_8c" startline="215" endline="226">glist_insert_uint32</referencedby>
+        <referencedby refid="glist_8h_1aff08aed022168872fc9d30cd299df2ce" compoundref="glist_8c" startline="230" endline="240">glist_insert_float32</referencedby>
+        <referencedby refid="glist_8h_1a97a682e38319dd8f67765732467110f9" compoundref="glist_8c" startline="244" endline="254">glist_insert_float64</referencedby>
+        <referencedby refid="glist_8h_1a68b51aea4de463b284a19668a713d502" compoundref="glist_8c" startline="257" endline="271">gnode_free</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A node in a generic list. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="83">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="83" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="84" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="84">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/glist.h" line="100" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/glist.h" bodystart="100" bodyend="103"/>
+    <listofallmembers>
+      <member refid="structgnode__s_1ab1a86d92c42a5b45865a1db2a511b159" prot="public" virt="non-virtual"><scope>gnode_s</scope><name>data</name></member>
+      <member refid="structgnode__s_1a24798080e363f9ecf9f348022c582757" prot="public" virt="non-virtual"><scope>gnode_s</scope><name>next</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

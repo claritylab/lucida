@@ -1,0 +1,1178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="pocketsphinx__internal_8h" kind="file">
+    <compoundname>pocketsphinx_internal.h</compoundname>
+    <includes local="no">sphinxbase/cmd_ln.h</includes>
+    <includes local="no">sphinxbase/fe.h</includes>
+    <includes local="no">sphinxbase/feat.h</includes>
+    <includes local="no">sphinxbase/hash_table.h</includes>
+    <includes local="no">sphinxbase/logmath.h</includes>
+    <includes local="no">sphinxbase/profile.h</includes>
+    <includes refid="pocketsphinx_8h" local="yes">pocketsphinx.h</includes>
+    <includes refid="acmod_8h" local="yes">acmod.h</includes>
+    <includes refid="dict_8h" local="yes">dict.h</includes>
+    <includes refid="dict2pid_8h" local="yes">dict2pid.h</includes>
+    <includedby refid="ms__gauden_8h" local="yes">src/libpocketsphinx/ms_gauden.h</includedby>
+    <includedby refid="fsg__search__internal_8h" local="yes">src/libpocketsphinx/fsg_search_internal.h</includedby>
+    <includedby refid="fsg__search_8c" local="yes">src/libpocketsphinx/fsg_search.c</includedby>
+    <includedby refid="kws__detections_8h" local="yes">src/libpocketsphinx/kws_detections.h</includedby>
+    <includedby refid="kws__search_8c" local="yes">src/libpocketsphinx/kws_search.c</includedby>
+    <includedby refid="kws__search_8h" local="yes">src/libpocketsphinx/kws_search.h</includedby>
+    <includedby refid="ngram__search_8c" local="yes">src/libpocketsphinx/ngram_search.c</includedby>
+    <includedby refid="ngram__search_8h" local="yes">src/libpocketsphinx/ngram_search.h</includedby>
+    <includedby refid="phone__loop__search_8h" local="yes">src/libpocketsphinx/phone_loop_search.h</includedby>
+    <includedby refid="pocketsphinx_8c" local="yes">src/libpocketsphinx/pocketsphinx.c</includedby>
+    <includedby refid="ps__lattice_8c" local="yes">src/libpocketsphinx/ps_lattice.c</includedby>
+    <includedby refid="state__align__search_8h" local="yes">src/libpocketsphinx/state_align_search.h</includedby>
+    <incdepgraph>
+      <node id="1637">
+        <label>sphinxbase/ngram_model.h</label>
+      </node>
+      <node id="1631">
+        <label>sphinxbase/hash_table.h</label>
+      </node>
+      <node id="1649">
+        <label>tmat.h</label>
+        <link refid="tmat_8h"/>
+        <childnode refid="1635" relation="include">
+        </childnode>
+        <childnode refid="1632" relation="include">
+        </childnode>
+      </node>
+      <node id="1634">
+        <label>pocketsphinx.h</label>
+        <link refid="pocketsphinx_8h"/>
+        <childnode refid="1635" relation="include">
+        </childnode>
+        <childnode refid="1628" relation="include">
+        </childnode>
+        <childnode refid="1632" relation="include">
+        </childnode>
+        <childnode refid="1629" relation="include">
+        </childnode>
+        <childnode refid="1630" relation="include">
+        </childnode>
+        <childnode refid="1636" relation="include">
+        </childnode>
+        <childnode refid="1637" relation="include">
+        </childnode>
+        <childnode refid="1631" relation="include">
+        </childnode>
+        <childnode refid="1638" relation="include">
+        </childnode>
+        <childnode refid="1639" relation="include">
+        </childnode>
+        <childnode refid="1640" relation="include">
+        </childnode>
+        <childnode refid="1642" relation="include">
+        </childnode>
+      </node>
+      <node id="1656">
+        <label>assert.h</label>
+      </node>
+      <node id="1655">
+        <label>float.h</label>
+      </node>
+      <node id="1628">
+        <label>sphinxbase/cmd_ln.h</label>
+      </node>
+      <node id="1654">
+        <label>s3types.h</label>
+        <link refid="s3types_8h"/>
+        <childnode refid="1655" relation="include">
+        </childnode>
+        <childnode refid="1656" relation="include">
+        </childnode>
+        <childnode refid="1641" relation="include">
+        </childnode>
+        <childnode refid="1645" relation="include">
+        </childnode>
+        <childnode refid="1657" relation="include">
+        </childnode>
+      </node>
+      <node id="1629">
+        <label>sphinxbase/fe.h</label>
+      </node>
+      <node id="1651">
+        <label>sphinxbase/fixpoint.h</label>
+      </node>
+      <node id="1648">
+        <label>mdef.h</label>
+        <link refid="mdef_8h"/>
+        <childnode refid="1635" relation="include">
+        </childnode>
+        <childnode refid="1631" relation="include">
+        </childnode>
+      </node>
+      <node id="1627">
+        <label>src/libpocketsphinx/pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx_internal.h"/>
+        <childnode refid="1628" relation="include">
+        </childnode>
+        <childnode refid="1629" relation="include">
+        </childnode>
+        <childnode refid="1630" relation="include">
+        </childnode>
+        <childnode refid="1631" relation="include">
+        </childnode>
+        <childnode refid="1632" relation="include">
+        </childnode>
+        <childnode refid="1633" relation="include">
+        </childnode>
+        <childnode refid="1634" relation="include">
+        </childnode>
+        <childnode refid="1643" relation="include">
+        </childnode>
+        <childnode refid="1653" relation="include">
+        </childnode>
+        <childnode refid="1658" relation="include">
+        </childnode>
+      </node>
+      <node id="1642">
+        <label>ps_mllr.h</label>
+        <link refid="ps__mllr_8h"/>
+        <childnode refid="1641" relation="include">
+        </childnode>
+        <childnode refid="1637" relation="include">
+        </childnode>
+        <childnode refid="1638" relation="include">
+        </childnode>
+      </node>
+      <node id="1647">
+        <label>sphinxbase/mmio.h</label>
+      </node>
+      <node id="1657">
+        <label>sphinxbase/ckd_alloc.h</label>
+      </node>
+      <node id="1652">
+        <label>sphinxbase/listelem_alloc.h</label>
+      </node>
+      <node id="1638">
+        <label>pocketsphinx_export.h</label>
+        <link refid="pocketsphinx__export_8h_source"/>
+      </node>
+      <node id="1630">
+        <label>sphinxbase/feat.h</label>
+      </node>
+      <node id="1641">
+        <label>sphinxbase/prim_type.h</label>
+      </node>
+      <node id="1644">
+        <label>sphinxbase/bitvec.h</label>
+      </node>
+      <node id="1650">
+        <label>hmm.h</label>
+        <link refid="hmm_8h"/>
+        <childnode refid="1635" relation="include">
+        </childnode>
+        <childnode refid="1651" relation="include">
+        </childnode>
+        <childnode refid="1652" relation="include">
+        </childnode>
+        <childnode refid="1646" relation="include">
+        </childnode>
+      </node>
+      <node id="1643">
+        <label>acmod.h</label>
+        <link refid="acmod_8h"/>
+        <childnode refid="1635" relation="include">
+        </childnode>
+        <childnode refid="1628" relation="include">
+        </childnode>
+        <childnode refid="1632" relation="include">
+        </childnode>
+        <childnode refid="1629" relation="include">
+        </childnode>
+        <childnode refid="1630" relation="include">
+        </childnode>
+        <childnode refid="1644" relation="include">
+        </childnode>
+        <childnode refid="1645" relation="include">
+        </childnode>
+        <childnode refid="1641" relation="include">
+        </childnode>
+        <childnode refid="1642" relation="include">
+        </childnode>
+        <childnode refid="1646" relation="include">
+        </childnode>
+        <childnode refid="1649" relation="include">
+        </childnode>
+        <childnode refid="1650" relation="include">
+        </childnode>
+      </node>
+      <node id="1640">
+        <label>ps_lattice.h</label>
+        <link refid="ps__lattice_8h"/>
+        <childnode refid="1641" relation="include">
+        </childnode>
+        <childnode refid="1637" relation="include">
+        </childnode>
+        <childnode refid="1638" relation="include">
+        </childnode>
+      </node>
+      <node id="1646">
+        <label>bin_mdef.h</label>
+        <link refid="bin__mdef_8h"/>
+        <childnode refid="1647" relation="include">
+        </childnode>
+        <childnode refid="1628" relation="include">
+        </childnode>
+        <childnode refid="1638" relation="include">
+        </childnode>
+        <childnode refid="1648" relation="include">
+        </childnode>
+      </node>
+      <node id="1639">
+        <label>cmdln_macro.h</label>
+        <link refid="cmdln__macro_8h_source"/>
+        <childnode refid="1628" relation="include">
+        </childnode>
+        <childnode refid="1630" relation="include">
+        </childnode>
+        <childnode refid="1629" relation="include">
+        </childnode>
+      </node>
+      <node id="1645">
+        <label>sphinxbase/err.h</label>
+      </node>
+      <node id="1653">
+        <label>dict.h</label>
+        <link refid="dict_8h"/>
+        <childnode refid="1631" relation="include">
+        </childnode>
+        <childnode refid="1654" relation="include">
+        </childnode>
+        <childnode refid="1646" relation="include">
+        </childnode>
+        <childnode refid="1638" relation="include">
+        </childnode>
+      </node>
+      <node id="1658">
+        <label>dict2pid.h</label>
+        <link refid="dict2pid_8h"/>
+        <childnode refid="1635" relation="include">
+        </childnode>
+        <childnode refid="1632" relation="include">
+        </childnode>
+        <childnode refid="1644" relation="include">
+        </childnode>
+        <childnode refid="1654" relation="include">
+        </childnode>
+        <childnode refid="1646" relation="include">
+        </childnode>
+        <childnode refid="1653" relation="include">
+        </childnode>
+      </node>
+      <node id="1636">
+        <label>sphinxbase/fsg_model.h</label>
+      </node>
+      <node id="1632">
+        <label>sphinxbase/logmath.h</label>
+      </node>
+      <node id="1633">
+        <label>sphinxbase/profile.h</label>
+      </node>
+      <node id="1635">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1673">
+        <label>src/libpocketsphinx/fsg_search.c</label>
+        <link refid="fsg__search_8c_source"/>
+      </node>
+      <node id="1674">
+        <label>src/libpocketsphinx/pocketsphinx.c</label>
+        <link refid="pocketsphinx_8c_source"/>
+      </node>
+      <node id="1689">
+        <label>src/libpocketsphinx/state_align_search.c</label>
+        <link refid="state__align__search_8c"/>
+      </node>
+      <node id="1688">
+        <label>src/libpocketsphinx/state_align_search.h</label>
+        <link refid="state__align__search_8h"/>
+        <childnode refid="1689" relation="include">
+        </childnode>
+      </node>
+      <node id="1672">
+        <label>src/libpocketsphinx/fsg_history.c</label>
+        <link refid="fsg__history_8c_source"/>
+      </node>
+      <node id="1659">
+        <label>src/libpocketsphinx/pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx_internal.h"/>
+        <childnode refid="1660" relation="include">
+        </childnode>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1673" relation="include">
+        </childnode>
+        <childnode refid="1675" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+        <childnode refid="1677" relation="include">
+        </childnode>
+        <childnode refid="1679" relation="include">
+        </childnode>
+        <childnode refid="1680" relation="include">
+        </childnode>
+        <childnode refid="1686" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+        <childnode refid="1685" relation="include">
+        </childnode>
+        <childnode refid="1688" relation="include">
+        </childnode>
+      </node>
+      <node id="1671">
+        <label>src/libpocketsphinx/fsg_search_internal.h</label>
+        <link refid="fsg__search__internal_8h_source"/>
+        <childnode refid="1672" relation="include">
+        </childnode>
+        <childnode refid="1673" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+      </node>
+      <node id="1669">
+        <label>src/libpocketsphinx/ms_senone.c</label>
+        <link refid="ms__senone_8c_source"/>
+      </node>
+      <node id="1668">
+        <label>src/libpocketsphinx/ms_senone.h</label>
+        <link refid="ms__senone_8h"/>
+        <childnode refid="1666" relation="include">
+        </childnode>
+        <childnode refid="1669" relation="include">
+        </childnode>
+      </node>
+      <node id="1678">
+        <label>src/libpocketsphinx/kws_search.c</label>
+        <link refid="kws__search_8c_source"/>
+      </node>
+      <node id="1677">
+        <label>src/libpocketsphinx/kws_search.h</label>
+        <link refid="kws__search_8h_source"/>
+        <childnode refid="1678" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+      </node>
+      <node id="1684">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.c</label>
+        <link refid="ngram__search__fwdflat_8c"/>
+      </node>
+      <node id="1683">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.h</label>
+        <link refid="ngram__search__fwdflat_8h"/>
+        <childnode refid="1679" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+      </node>
+      <node id="1685">
+        <label>src/libpocketsphinx/ps_lattice.c</label>
+        <link refid="ps__lattice_8c"/>
+      </node>
+      <node id="1676">
+        <label>src/libpocketsphinx/kws_detections.c</label>
+        <link refid="kws__detections_8c_source"/>
+      </node>
+      <node id="1675">
+        <label>src/libpocketsphinx/kws_detections.h</label>
+        <link refid="kws__detections_8h_source"/>
+        <childnode refid="1676" relation="include">
+        </childnode>
+        <childnode refid="1677" relation="include">
+        </childnode>
+      </node>
+      <node id="1670">
+        <label>src/libpocketsphinx/ms_gauden.c</label>
+        <link refid="ms__gauden_8c_source"/>
+      </node>
+      <node id="1660">
+        <label>src/libpocketsphinx/ms_gauden.h</label>
+        <link refid="ms__gauden_8h"/>
+        <childnode refid="1661" relation="include">
+        </childnode>
+        <childnode refid="1664" relation="include">
+        </childnode>
+        <childnode refid="1666" relation="include">
+        </childnode>
+        <childnode refid="1668" relation="include">
+        </childnode>
+        <childnode refid="1670" relation="include">
+        </childnode>
+      </node>
+      <node id="1662">
+        <label>src/libpocketsphinx/acmod.c</label>
+        <link refid="acmod_8c"/>
+      </node>
+      <node id="1679">
+        <label>src/libpocketsphinx/ngram_search.c</label>
+        <link refid="ngram__search_8c"/>
+      </node>
+      <node id="1680">
+        <label>src/libpocketsphinx/ngram_search.h</label>
+        <link refid="ngram__search_8h"/>
+        <childnode refid="1679" relation="include">
+        </childnode>
+        <childnode refid="1681" relation="include">
+        </childnode>
+        <childnode refid="1683" relation="include">
+        </childnode>
+        <childnode refid="1684" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+        <childnode refid="1685" relation="include">
+        </childnode>
+      </node>
+      <node id="1663">
+        <label>src/libpocketsphinx/s2_semi_mgau.c</label>
+        <link refid="s2__semi__mgau_8c_source"/>
+      </node>
+      <node id="1661">
+        <label>src/libpocketsphinx/s2_semi_mgau.h</label>
+        <link refid="s2__semi__mgau_8h_source"/>
+        <childnode refid="1662" relation="include">
+        </childnode>
+        <childnode refid="1663" relation="include">
+        </childnode>
+      </node>
+      <node id="1687">
+        <label>src/libpocketsphinx/phone_loop_search.c</label>
+        <link refid="phone__loop__search_8c_source"/>
+      </node>
+      <node id="1686">
+        <label>src/libpocketsphinx/phone_loop_search.h</label>
+        <link refid="phone__loop__search_8h"/>
+        <childnode refid="1682" relation="include">
+        </childnode>
+        <childnode refid="1687" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+      </node>
+      <node id="1682">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.c</label>
+        <link refid="ngram__search__fwdtree_8c"/>
+      </node>
+      <node id="1681">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.h</label>
+        <link refid="ngram__search__fwdtree_8h"/>
+        <childnode refid="1679" relation="include">
+        </childnode>
+        <childnode refid="1682" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+      </node>
+      <node id="1665">
+        <label>src/libpocketsphinx/ptm_mgau.c</label>
+        <link refid="ptm__mgau_8c_source"/>
+      </node>
+      <node id="1664">
+        <label>src/libpocketsphinx/ptm_mgau.h</label>
+        <link refid="ptm__mgau_8h"/>
+        <childnode refid="1662" relation="include">
+        </childnode>
+        <childnode refid="1665" relation="include">
+        </childnode>
+      </node>
+      <node id="1667">
+        <label>src/libpocketsphinx/ms_mgau.c</label>
+        <link refid="ms__mgau_8c_source"/>
+      </node>
+      <node id="1666">
+        <label>src/libpocketsphinx/ms_mgau.h</label>
+        <link refid="ms__mgau_8h"/>
+        <childnode refid="1662" relation="include">
+        </childnode>
+        <childnode refid="1667" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structps__searchfuncs__s" prot="public">ps_searchfuncs_s</innerclass>
+    <innerclass refid="structps__search__s" prot="public">ps_search_s</innerclass>
+    <innerclass refid="structps__segfuncs__s" prot="public">ps_segfuncs_s</innerclass>
+    <innerclass refid="structps__seg__s" prot="public">ps_seg_s</innerclass>
+    <innerclass refid="structps__decoder__s" prot="public">ps_decoder_s</innerclass>
+    <innerclass refid="structps__search__iter__s" prot="public">ps_search_iter_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a27058b099b21336e1fd50299f8596171" prot="public" static="no">
+        <name>ps_search_base</name>
+        <param><defname>s</defname></param>
+        <initializer>((<ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *)s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="126" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a856f984d97ce3d4ac640f1a9061065cf" prot="public" static="no">
+        <name>ps_search_config</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;config</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="127" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a03b1edeb67c83451296c2d99b22621a9" prot="public" static="no">
+        <name>ps_search_acmod</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;acmod</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="128" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1ae2aad02cace01fbb2f345a0ead69c672" prot="public" static="no">
+        <name>ps_search_dict</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;dict</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="129" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a5c91d7c3f11ba5b938705d1fe65676f9" prot="public" static="no">
+        <name>ps_search_dict2pid</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;d2p</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="130" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a90e5addd9875c355d99208246802f7d8" prot="public" static="no">
+        <name>ps_search_dag</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;dag</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="131" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a9ae7d942e4206b4184cc073a87d2dc82" prot="public" static="no">
+        <name>ps_search_last_link</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;last_link</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="132" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1ac8707bfd426dfd0eceb1e57836c0ac91" prot="public" static="no">
+        <name>ps_search_post</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;post</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="133" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a890584ac65d28cd404d66adf631fac7c" prot="public" static="no">
+        <name>ps_search_lookahead</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;pls</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="134" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1aaba5c849ae487b5a3fff0210f4687e25" prot="public" static="no">
+        <name>ps_search_n_words</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;n_words</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="135" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a6ff1216eb4c0053ecdfe6096d79f02f7" prot="public" static="no">
+        <name>ps_search_name</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;vt-&gt;name</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="137" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1ac905db8dfa65727e787c44f40d80239c" prot="public" static="no">
+        <name>ps_search_start</name>
+        <param><defname>s</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;start))(s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="138" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a3e3be8540f1e419fe4dfa1a063c4e8be" prot="public" static="no">
+        <name>ps_search_step</name>
+        <param><defname>s</defname></param>
+        <param><defname>i</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;step))(s,i)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="139" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a52d4cf988efa2211c86a2168de346032" prot="public" static="no">
+        <name>ps_search_finish</name>
+        <param><defname>s</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;finish))(s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="140" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a071483ece6369091cc50334f5be1124b" prot="public" static="no">
+        <name>ps_search_reinit</name>
+        <param><defname>s</defname></param>
+        <param><defname>d</defname></param>
+        <param><defname>d2p</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;reinit))(s,d,d2p)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="141" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1ac5475853d99524bb4c933c42df58118b" prot="public" static="no">
+        <name>ps_search_free</name>
+        <param><defname>s</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;free))(s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="142" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1ac821fb65e0c2ef778a4b8b49ecf30e11" prot="public" static="no">
+        <name>ps_search_lattice</name>
+        <param><defname>s</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;lattice))(s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="143" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a61247136ccf60cf65c19ecc9efebcb73" prot="public" static="no">
+        <name>ps_search_hyp</name>
+        <param><defname>s</defname></param>
+        <param><defname>sc</defname></param>
+        <param><defname>final</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;hyp))(s,sc,final)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="144" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a3fb9e1a2036effd2f15cd088140c750f" prot="public" static="no">
+        <name>ps_search_prob</name>
+        <param><defname>s</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;prob))(s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="145" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a6478039ec1ab5948ff19123c4464a5a4" prot="public" static="no">
+        <name>ps_search_seg_iter</name>
+        <param><defname>s</defname></param>
+        <param><defname>sc</defname></param>
+        <initializer>(*(ps_search_base(s)-&gt;vt-&gt;seg_iter))(s,sc)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="146" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1aab989bd93fe7abcc165bc92d6ccc1bac" prot="public" static="no">
+        <name>ps_search_silence_wid</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;silence_wid</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="149" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a6dc7da2c1bc3bfb15d5fbe3618a4e3d4" prot="public" static="no">
+        <name>ps_search_start_wid</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;start_wid</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="150" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1aaeee657147579bc652c494989622f6b4" prot="public" static="no">
+        <name>ps_search_finish_wid</name>
+        <param><defname>s</defname></param>
+        <initializer>ps_search_base(s)-&gt;finish_wid</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="151" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1ae7c150fad9fc9e8a13e632a1386b8f56" prot="public" static="no">
+        <name>ps_search_seg_next</name>
+        <param><defname>seg</defname></param>
+        <initializer>(*(seg-&gt;vt-&gt;seg_next))(seg)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="195" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="pocketsphinx__internal_8h_1a38f6b225e3eace3793cdae8135b0aaab" prot="public" static="no">
+        <name>ps_search_seg_free</name>
+        <param><defname>s</defname></param>
+        <initializer>(*(seg-&gt;vt-&gt;seg_free))(seg)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="196" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" prot="public" static="no">
+        <type>struct <ref refid="structps__search__s" kindref="compound">ps_search_s</ref></type>
+        <definition>typedef struct ps_search_s ps_search_t</definition>
+        <argsstring></argsstring>
+        <name>ps_search_t</name>
+        <briefdescription>
+<para>Search algorithm structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="1310" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="pocketsphinx__internal_8h_1a0eae078e32bd5f339792884c68aad8b3" prot="public" static="no">
+        <type>struct <ref refid="structps__searchfuncs__s" kindref="compound">ps_searchfuncs_s</ref></type>
+        <definition>typedef struct ps_searchfuncs_s  ps_searchfuncs_t</definition>
+        <argsstring></argsstring>
+        <name>ps_searchfuncs_t</name>
+        <briefdescription>
+<para>V-table for search algorithm. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="pocketsphinx__internal_8h_1a08187b85c6bc5b4991632dc78e237977" prot="public" static="no">
+        <type>struct <ref refid="structps__segfuncs__s" kindref="compound">ps_segfuncs_s</ref></type>
+        <definition>typedef struct ps_segfuncs_s  ps_segfuncs_t</definition>
+        <argsstring></argsstring>
+        <name>ps_segfuncs_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="174" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="pocketsphinx__internal_8h_1ad848d8d0cf0398542bfb74a2e34dbff3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ps_search_init</definition>
+        <argsstring>(ps_search_t *search, ps_searchfuncs_t *vt, cmd_ln_t *config, acmod_t *acmod, dict_t *dict, dict2pid_t *d2p)</argsstring>
+        <name>ps_search_init</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1a0eae078e32bd5f339792884c68aad8b3" kindref="member">ps_searchfuncs_t</ref> *</type>
+          <declname>vt</declname>
+        </param>
+        <param>
+          <type>cmd_ln_t *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="structacmod__s" kindref="compound">acmod_t</ref> *</type>
+          <declname>acmod</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+          <declname>d2p</declname>
+        </param>
+        <briefdescription>
+<para>Initialize base structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="156" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx.c" bodystart="1259" bodyend="1282"/>
+        <references refid="structps__search__s_1aa51e88956bbe9c05359d32526180809b" compoundref="pocketsphinx__internal_8h" startline="106">ps_search_s::vt</references>
+        <references refid="structps__search__s_1aa6e3e18165bbc70084a06575d5703042" compoundref="pocketsphinx__internal_8h" startline="109">ps_search_s::config</references>
+        <references refid="structps__search__s_1a0fdf6fe8c4d9c28f10c48c09517c6b91" compoundref="pocketsphinx__internal_8h" startline="110">ps_search_s::acmod</references>
+        <references refid="structps__search__s_1a81b461e7ef3a080d046039e186134a15" compoundref="pocketsphinx__internal_8h" startline="112">ps_search_s::d2p</references>
+        <references refid="dict2pid_8c_1a85a8de8009445e1129766186ddaa949a" compoundref="dict2pid_8c" startline="500" endline="504">dict2pid_retain</references>
+        <references refid="structps__search__s_1a918f243fa966e72c47f697fb9e60089d" compoundref="pocketsphinx__internal_8h" startline="111">ps_search_s::dict</references>
+        <references refid="dict_8h_1a0edf70be186e8940af9d21243083cb8b" compoundref="dict_8c" startline="445" endline="449">dict_retain</references>
+        <references refid="structps__search__s_1ae1a9fa33bfc851ec91ce96870714b3cc" compoundref="pocketsphinx__internal_8h" startline="121">ps_search_s::start_wid</references>
+        <references refid="structps__search__s_1a0fb4d79f1084bdbbc0a808513f7c1ca7" compoundref="pocketsphinx__internal_8h" startline="123">ps_search_s::finish_wid</references>
+        <references refid="structps__search__s_1ab6851b4675f38ab6b3683d75521f000b" compoundref="pocketsphinx__internal_8h" startline="122">ps_search_s::silence_wid</references>
+        <references refid="structps__search__s_1ad4d98deb905bd664ec44313ea0065b1a" compoundref="pocketsphinx__internal_8h" startline="117">ps_search_s::n_words</references>
+        <references refid="dict_8h_1a361b948b42f9cfdf5c7fa9dfc8a71a94" compoundref="dict_8h" startline="154">dict_size</references>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="pocketsphinx__internal_8h_1a307801961f27bd5f4b82a3e6b83e0ca1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ps_search_base_reinit</definition>
+        <argsstring>(ps_search_t *search, dict_t *dict, dict2pid_t *d2p)</argsstring>
+        <name>ps_search_base_reinit</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+          <declname>d2p</declname>
+        </param>
+        <briefdescription>
+<para>Re-initialize base structure with new dictionary. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="163" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx.c" bodystart="1285" bodyend="1307"/>
+        <references refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" compoundref="dict_8c" startline="452" endline="480">dict_free</references>
+        <references refid="structps__search__s_1a918f243fa966e72c47f697fb9e60089d" compoundref="pocketsphinx__internal_8h" startline="111">ps_search_s::dict</references>
+        <references refid="dict2pid_8c_1a293253226550e812c448ae096b364d0d" compoundref="dict2pid_8c" startline="507" endline="530">dict2pid_free</references>
+        <references refid="structps__search__s_1a81b461e7ef3a080d046039e186134a15" compoundref="pocketsphinx__internal_8h" startline="112">ps_search_s::d2p</references>
+        <references refid="dict_8h_1a0edf70be186e8940af9d21243083cb8b" compoundref="dict_8c" startline="445" endline="449">dict_retain</references>
+        <references refid="structps__search__s_1ae1a9fa33bfc851ec91ce96870714b3cc" compoundref="pocketsphinx__internal_8h" startline="121">ps_search_s::start_wid</references>
+        <references refid="structps__search__s_1a0fb4d79f1084bdbbc0a808513f7c1ca7" compoundref="pocketsphinx__internal_8h" startline="123">ps_search_s::finish_wid</references>
+        <references refid="structps__search__s_1ab6851b4675f38ab6b3683d75521f000b" compoundref="pocketsphinx__internal_8h" startline="122">ps_search_s::silence_wid</references>
+        <references refid="structps__search__s_1ad4d98deb905bd664ec44313ea0065b1a" compoundref="pocketsphinx__internal_8h" startline="117">ps_search_s::n_words</references>
+        <references refid="dict_8h_1a361b948b42f9cfdf5c7fa9dfc8a71a94" compoundref="dict_8h" startline="154">dict_size</references>
+        <references refid="dict2pid_8c_1a85a8de8009445e1129766186ddaa949a" compoundref="dict2pid_8c" startline="500" endline="504">dict2pid_retain</references>
+      </memberdef>
+      <memberdef kind="function" id="pocketsphinx__internal_8h_1a1299496b3498166928702d0701934e50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ps_search_deinit</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>ps_search_deinit</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>De-initialize base structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="169" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx.c" bodystart="1310" bodyend="1318"/>
+        <references refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" compoundref="dict_8c" startline="452" endline="480">dict_free</references>
+        <references refid="structps__search__s_1a918f243fa966e72c47f697fb9e60089d" compoundref="pocketsphinx__internal_8h" startline="111">ps_search_s::dict</references>
+        <references refid="dict2pid_8c_1a293253226550e812c448ae096b364d0d" compoundref="dict2pid_8c" startline="507" endline="530">dict2pid_free</references>
+        <references refid="structps__search__s_1a81b461e7ef3a080d046039e186134a15" compoundref="pocketsphinx__internal_8h" startline="112">ps_search_s::d2p</references>
+        <references refid="structps__search__s_1aa398c736a887af97e42b2a562359adc3" compoundref="pocketsphinx__internal_8h" startline="113">ps_search_s::hyp_str</references>
+        <references refid="ps__lattice_8h_1a3f90e846bde47cd1acdff165b92f5c22" compoundref="ps__lattice_8c" startline="688" endline="702">ps_lattice_free</references>
+        <references refid="structps__search__s_1a897f46c55d17e817ff1364f555b31463" compoundref="pocketsphinx__internal_8h" startline="114">ps_search_s::dag</references>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Internal implementation of PocketSphinx decoder. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>David Huggins-Daines <ulink url="mailto:dhuggins@cs.cmu.edu">dhuggins@cs.cmu.edu</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2008<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor">#ifndef<sp/>__POCKETSPHINX_INTERNAL_H__</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__POCKETSPHINX_INTERNAL_H__</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined<sp/>__unix__</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined<sp/>_WIN32<sp/>||<sp/>defined<sp/>_WIN32_WCE</highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;io.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>SphinxBase<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/cmd_ln.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/fe.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/feat.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/hash_table.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/logmath.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/profile.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Local<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pocketsphinx_8h" kindref="compound">pocketsphinx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="acmod_8h" kindref="compound">acmod.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dict_8h" kindref="compound">dict.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dict2pid_8h" kindref="compound">dict2pid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Re-define<sp/>system<sp/>calls<sp/>for<sp/>Win32<sp/>to<sp/>confrom<sp/>to<sp/>POSIX<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(defined(_WIN32)<sp/>||<sp/>defined(_WIN32_WCE))<sp/>&amp;&amp;<sp/>\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>!defined(__MINGW32__)<sp/>&amp;&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>!defined(__CYGWIN__)<sp/>&amp;&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>!defined(__WINSCW__)<sp/>&amp;&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>!defined(__SYMBIAN32__)</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>stat<sp/><sp/><sp/><sp/>_stat</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>access<sp/><sp/>_access</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>S_ISDIR<sp/>_S_ISDIR</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="82" refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__search__s" kindref="compound">ps_search_s</ref><sp/><ref refid="structps__search__s" kindref="compound">ps_search_t</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="structps__searchfuncs__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__searchfuncs__s" kindref="compound">ps_searchfuncs_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>int<sp/>(*start)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>int<sp/>(*step)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_idx);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>int<sp/>(*finish)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>int<sp/>(*reinit)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search,<sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*dict,<sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*d2p);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*free)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*(*lattice)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*(*hyp)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search,<sp/>int32<sp/>*out_score,<sp/>int32<sp/>*out_is_final);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>(*prob)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__seg__s" kindref="compound">ps_seg_t</ref><sp/>*(*seg_iter)(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search,<sp/>int32<sp/>*out_score);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}<sp/><ref refid="pocketsphinx__internal_8h_1a0eae078e32bd5f339792884c68aad8b3" kindref="member">ps_searchfuncs_t</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="structps__search__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__search__s" kindref="compound">ps_search_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="106" refid="structps__search__s_1aa51e88956bbe9c05359d32526180809b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__searchfuncs__s" kindref="compound">ps_searchfuncs_t</ref><sp/>*<ref refid="structps__search__s_1aa51e88956bbe9c05359d32526180809b" kindref="member">vt</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="108" refid="structps__search__s_1a2a33b7698fb237b42e007788f65cd46c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<ref refid="structps__search__s_1a2a33b7698fb237b42e007788f65cd46c" kindref="member">pls</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109" refid="structps__search__s_1aa6e3e18165bbc70084a06575d5703042" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>cmd_ln_t<sp/>*<ref refid="structps__search__s_1aa6e3e18165bbc70084a06575d5703042" kindref="member">config</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110" refid="structps__search__s_1a0fdf6fe8c4d9c28f10c48c09517c6b91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structacmod__s" kindref="compound">acmod_t</ref><sp/>*<ref refid="structps__search__s_1a0fdf6fe8c4d9c28f10c48c09517c6b91" kindref="member">acmod</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111" refid="structps__search__s_1a918f243fa966e72c47f697fb9e60089d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*<ref refid="structps__search__s_1a918f243fa966e72c47f697fb9e60089d" kindref="member">dict</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112" refid="structps__search__s_1a81b461e7ef3a080d046039e186134a15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*<ref refid="structps__search__s_1a81b461e7ef3a080d046039e186134a15" kindref="member">d2p</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113" refid="structps__search__s_1aa398c736a887af97e42b2a562359adc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structps__search__s_1aa398c736a887af97e42b2a562359adc3" kindref="member">hyp_str</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="114" refid="structps__search__s_1a897f46c55d17e817ff1364f555b31463" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*<ref refid="structps__search__s_1a897f46c55d17e817ff1364f555b31463" kindref="member">dag</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="115" refid="structps__search__s_1aa3020ef7bd4e56713dfe2fbad52e6e4f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*<ref refid="structps__search__s_1aa3020ef7bd4e56713dfe2fbad52e6e4f" kindref="member">last_link</ref>;<sp/></highlight></codeline>
+<codeline lineno="116" refid="structps__search__s_1a721a656d0e34f7604ea8c52a1bdf14ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__search__s_1a721a656d0e34f7604ea8c52a1bdf14ff" kindref="member">post</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117" refid="structps__search__s_1ad4d98deb905bd664ec44313ea0065b1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__search__s_1ad4d98deb905bd664ec44313ea0065b1a" kindref="member">n_words</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Magical<sp/>word<sp/>IDs<sp/>that<sp/>must<sp/>exist<sp/>in<sp/>the<sp/>dictionary:<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="structps__search__s_1ae1a9fa33bfc851ec91ce96870714b3cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__search__s_1ae1a9fa33bfc851ec91ce96870714b3cc" kindref="member">start_wid</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="122" refid="structps__search__s_1ab6851b4675f38ab6b3683d75521f000b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__search__s_1ab6851b4675f38ab6b3683d75521f000b" kindref="member">silence_wid</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123" refid="structps__search__s_1a0fb4d79f1084bdbbc0a808513f7c1ca7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__search__s_1a0fb4d79f1084bdbbc0a808513f7c1ca7" kindref="member">finish_wid</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ps_search_base(s)<sp/>((ps_search_t<sp/>*)s)</highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_config(s)<sp/>ps_search_base(s)-&gt;config</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_acmod(s)<sp/>ps_search_base(s)-&gt;acmod</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_dict(s)<sp/>ps_search_base(s)-&gt;dict</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_dict2pid(s)<sp/>ps_search_base(s)-&gt;d2p</highlight></codeline>
+<codeline lineno="131"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_dag(s)<sp/>ps_search_base(s)-&gt;dag</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_last_link(s)<sp/>ps_search_base(s)-&gt;last_link</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_post(s)<sp/>ps_search_base(s)-&gt;post</highlight></codeline>
+<codeline lineno="134"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_lookahead(s)<sp/>ps_search_base(s)-&gt;pls</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_n_words(s)<sp/>ps_search_base(s)-&gt;n_words</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ps_search_name(s)<sp/>ps_search_base(s)-&gt;vt-&gt;name</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_start(s)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;start))(s)</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_step(s,i)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;step))(s,i)</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_finish(s)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;finish))(s)</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_reinit(s,d,d2p)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;reinit))(s,d,d2p)</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_free(s)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;free))(s)</highlight></codeline>
+<codeline lineno="143"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_lattice(s)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;lattice))(s)</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_hyp(s,sc,final)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;hyp))(s,sc,final)</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_prob(s)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;prob))(s)</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_seg_iter(s,sc)<sp/>(*(ps_search_base(s)-&gt;vt-&gt;seg_iter))(s,sc)</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>For<sp/>convenience...<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ps_search_silence_wid(s)<sp/>ps_search_base(s)-&gt;silence_wid</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_start_wid(s)<sp/>ps_search_base(s)-&gt;start_wid</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_finish_wid(s)<sp/>ps_search_base(s)-&gt;finish_wid</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="156"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pocketsphinx__internal_8h_1ad848d8d0cf0398542bfb74a2e34dbff3" kindref="member">ps_search_init</ref>(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search,<sp/><ref refid="structps__searchfuncs__s" kindref="compound">ps_searchfuncs_t</ref><sp/>*vt,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd_ln_t<sp/>*config,<sp/><ref refid="structacmod__s" kindref="compound">acmod_t</ref><sp/>*acmod,<sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*dict,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*d2p);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pocketsphinx__internal_8h_1a307801961f27bd5f4b82a3e6b83e0ca1" kindref="member">ps_search_base_reinit</ref>(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search,<sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*dict,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*d2p);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="pocketsphinx__internal_8h_1a1299496b3498166928702d0701934e50" kindref="member">ps_search_deinit</ref>(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="structps__segfuncs__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__segfuncs__s" kindref="compound">ps_segfuncs_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__seg__s" kindref="compound">ps_seg_t</ref><sp/>*(*seg_next)(<ref refid="structps__seg__s" kindref="compound">ps_seg_t</ref><sp/>*seg);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*seg_free)(<ref refid="structps__seg__s" kindref="compound">ps_seg_t</ref><sp/>*seg);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">}<sp/><ref refid="structps__segfuncs__s" kindref="compound">ps_segfuncs_t</ref>;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="structps__seg__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__seg__s" kindref="compound">ps_seg_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="180" refid="structps__seg__s_1a510362a2281e374c839397c3e5488515" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__segfuncs__s" kindref="compound">ps_segfuncs_t</ref><sp/>*<ref refid="structps__seg__s_1a510362a2281e374c839397c3e5488515" kindref="member">vt</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="181" refid="structps__seg__s_1a14168ddcb60e094dad36c7c920a79bb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<ref refid="structps__seg__s_1a14168ddcb60e094dad36c7c920a79bb3" kindref="member">search</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="182" refid="structps__seg__s_1a97a0dc7db931c7e3f98d23d21ce27f04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="structps__seg__s_1a97a0dc7db931c7e3f98d23d21ce27f04" kindref="member">word</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="183" refid="structps__seg__s_1a885a599726cd0efba573d106d016e6e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref><sp/><ref refid="structps__seg__s_1a885a599726cd0efba573d106d016e6e2" kindref="member">sf</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="184" refid="structps__seg__s_1ab25ecc6af8d2695c6097cf7e934eadd4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref><sp/><ref refid="structps__seg__s_1ab25ecc6af8d2695c6097cf7e934eadd4" kindref="member">ef</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="185" refid="structps__seg__s_1a6f7706ec4c0d0ec8ecafaf0f29f41f4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__seg__s_1a6f7706ec4c0d0ec8ecafaf0f29f41f4b" kindref="member">ascr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="186" refid="structps__seg__s_1a69e605f422eeed1a9c67437e8ddd8b08" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__seg__s_1a69e605f422eeed1a9c67437e8ddd8b08" kindref="member">lscr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="187" refid="structps__seg__s_1ae683244d90d0a5339930b47757778432" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__seg__s_1ae683244d90d0a5339930b47757778432" kindref="member">prob</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>This<sp/>doesn&apos;t<sp/>need<sp/>to<sp/>be<sp/>32<sp/>bits,<sp/>so<sp/>once<sp/>the<sp/>scores<sp/>above<sp/>are</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>reduced<sp/>to<sp/>16<sp/>bits<sp/>(or<sp/>less!),<sp/>this<sp/>will<sp/>be<sp/>too.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="structps__seg__s_1a4d86c21f1ed2dc3eb3b1b1b37ce9bb48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structps__seg__s_1a4d86c21f1ed2dc3eb3b1b1b37ce9bb48" kindref="member">lback</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Not<sp/>sure<sp/>if<sp/>this<sp/>should<sp/>be<sp/>here<sp/>at<sp/>all.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="structps__seg__s_1a2249c012b83c902f4f8ed8d98ded7d20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>float32<sp/><ref refid="structps__seg__s_1a2249c012b83c902f4f8ed8d98ded7d20" kindref="member">lwf</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ps_search_seg_next(seg)<sp/>(*(seg-&gt;vt-&gt;seg_next))(seg)</highlight></codeline>
+<codeline lineno="196"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ps_search_seg_free(s)<sp/>(*(seg-&gt;vt-&gt;seg_free))(seg)</highlight></codeline>
+<codeline lineno="197"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202" refid="structps__decoder__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__decoder__s" kindref="compound">ps_decoder_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Model<sp/>parameters<sp/>and<sp/>such.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="structps__decoder__s_1a0565ed97b32408bd05c8104f020cef05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>cmd_ln_t<sp/>*<ref refid="structps__decoder__s_1a0565ed97b32408bd05c8104f020cef05" kindref="member">config</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="205" refid="structps__decoder__s_1aa5ab90180288b6c9039eb86b496f76aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structps__decoder__s_1aa5ab90180288b6c9039eb86b496f76aa" kindref="member">refcount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Basic<sp/>units<sp/>of<sp/>computation.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="structps__decoder__s_1af834d2bc1d44c1d9ef607b025413a0b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structacmod__s" kindref="compound">acmod_t</ref><sp/>*<ref refid="structps__decoder__s_1af834d2bc1d44c1d9ef607b025413a0b8" kindref="member">acmod</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="209" refid="structps__decoder__s_1aef6228c17907cc1d0cef835b238b5d91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*<ref refid="structps__decoder__s_1aef6228c17907cc1d0cef835b238b5d91" kindref="member">dict</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="210" refid="structps__decoder__s_1ae6515cbc261686f3f3bbd95719f79793" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*<ref refid="structps__decoder__s_1ae6515cbc261686f3f3bbd95719f79793" kindref="member">d2p</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="211" refid="structps__decoder__s_1abd17fe329f2fb219c5a534f3217c5b95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>logmath_t<sp/>*<ref refid="structps__decoder__s_1abd17fe329f2fb219c5a534f3217c5b95" kindref="member">lmath</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Search<sp/>modules.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214" refid="structps__decoder__s_1a43bca42790684eefb8d01a0aef6fa530" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>hash_table_t<sp/>*<ref refid="structps__decoder__s_1a43bca42790684eefb8d01a0aef6fa530" kindref="member">searches</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>TODO:<sp/>Convert<sp/>this<sp/>to<sp/>a<sp/>stack<sp/>of<sp/>searches<sp/>each<sp/>with<sp/>their<sp/>own</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>lookahead<sp/>value.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217" refid="structps__decoder__s_1ad337270efc93613cf8dd7594f6515799" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<ref refid="structps__decoder__s_1ad337270efc93613cf8dd7594f6515799" kindref="member">search</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="218" refid="structps__decoder__s_1a0c6d141d7a71a1287be00a1ebcc7643d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<ref refid="structps__decoder__s_1a0c6d141d7a71a1287be00a1ebcc7643d" kindref="member">phone_loop</ref>;<sp/></highlight></codeline>
+<codeline lineno="219" refid="structps__decoder__s_1a0f0a6681ffd98af789f6bed556c814e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structps__decoder__s_1a0f0a6681ffd98af789f6bed556c814e4" kindref="member">pl_window</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Utterance-processing<sp/>related<sp/>stuff.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222" refid="structps__decoder__s_1a0f597370dd162c2799efe216c9b991fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/><ref refid="structps__decoder__s_1a0f597370dd162c2799efe216c9b991fc" kindref="member">uttno</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="223" refid="structps__decoder__s_1a0c21a99a0cb1e71cf7811f99cc17c105" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structps__decoder__s_1a0c21a99a0cb1e71cf7811f99cc17c105" kindref="member">uttid</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="224" refid="structps__decoder__s_1ab42d1d1e300d2a6df5dd3cd796a27d43" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ptmr_t<sp/><ref refid="structps__decoder__s_1ab42d1d1e300d2a6df5dd3cd796a27d43" kindref="member">perf</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="225" refid="structps__decoder__s_1a2886b321c576c7def449ebb2f37899fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/><ref refid="structps__decoder__s_1a2886b321c576c7def449ebb2f37899fd" kindref="member">n_frame</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="226" refid="structps__decoder__s_1a8bb5ef8791798b8dd9bc82b1ec016663" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="structps__decoder__s_1a8bb5ef8791798b8dd9bc82b1ec016663" kindref="member">mfclogdir</ref>;<sp/></highlight></codeline>
+<codeline lineno="227" refid="structps__decoder__s_1aa2610c52a9267ee18ca095169bf34bfd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="structps__decoder__s_1aa2610c52a9267ee18ca095169bf34bfd" kindref="member">rawlogdir</ref>;<sp/></highlight></codeline>
+<codeline lineno="228" refid="structps__decoder__s_1a0ed3476113fe3d63b13ac5e8da3f3b4f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="structps__decoder__s_1a0ed3476113fe3d63b13ac5e8da3f3b4f" kindref="member">senlogdir</ref>;<sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="structps__search__iter__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__search__iter__s" kindref="compound">ps_search_iter_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>hash_iter_t<sp/>itor;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__POCKETSPHINX_INTERNAL_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="237"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>vim:<sp/>set<sp/>ts=4<sp/>sw=4:<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h"/>
+  </compounddef>
+</doxygen>

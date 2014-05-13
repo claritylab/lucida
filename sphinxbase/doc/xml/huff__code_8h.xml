@@ -1,0 +1,515 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="huff__code_8h" kind="file">
+    <compoundname>huff_code.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includes refid="cmd__ln_8h" local="no">sphinxbase/cmd_ln.h</includes>
+    <includedby refid="huff__code_8c" local="yes">src/libsphinxbase/util/huff_code.c</includedby>
+    <incdepgraph>
+      <node id="652">
+        <label>stdarg.h</label>
+      </node>
+      <node id="646">
+        <label>include/sphinxbase/huff_code.h</label>
+        <link refid="huff_code.h"/>
+        <childnode refid="647" relation="include">
+        </childnode>
+        <childnode refid="648" relation="include">
+        </childnode>
+        <childnode refid="649" relation="include">
+        </childnode>
+        <childnode refid="651" relation="include">
+        </childnode>
+      </node>
+      <node id="650">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="648">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="649">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="650" relation="include">
+        </childnode>
+      </node>
+      <node id="651">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="647" relation="include">
+        </childnode>
+        <childnode refid="652" relation="include">
+        </childnode>
+        <childnode refid="648" relation="include">
+        </childnode>
+        <childnode refid="649" relation="include">
+        </childnode>
+      </node>
+      <node id="647">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="653">
+        <label>include/sphinxbase/huff_code.h</label>
+        <link refid="huff_code.h"/>
+        <childnode refid="654" relation="include">
+        </childnode>
+      </node>
+      <node id="654">
+        <label>src/libsphinxbase/util/huff_code.c</label>
+        <link refid="huff__code_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="huff__code_8h_1a99a5188e6a18682c96100cd5232af0f4" prot="public" static="no">
+        <type>struct <ref refid="structhuff__code__s" kindref="compound">huff_code_s</ref></type>
+        <definition>typedef struct huff_code_s huff_code_t</definition>
+        <argsstring></argsstring>
+        <name>huff_code_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="147" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="huff__code_8h_1a278b925caf4f2c93cbb63adc8f77bfa6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT huff_code_t* huff_code_build_int</definition>
+        <argsstring>(int32 const *values, int32 const *frequencies, int nvals)</argsstring>
+        <name>huff_code_build_int</name>
+        <param>
+          <type>int32 const *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int32 const *</type>
+          <declname>frequencies</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nvals</declname>
+        </param>
+        <briefdescription>
+<para>Create a codebook from 32-bit integer data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="63" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="229" bodyend="266"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="heap_8h_1a9bc21333ce58caaf58e802d8b0190efd" compoundref="heap_8c" startline="113" endline="117">heap_new</references>
+        <references refid="heap_8h_1a64bcded2de5086c5d246ff760caa74a3" compoundref="heap_8c" startline="161" endline="165">heap_insert</references>
+        <references refid="heap_8h_1ab12b1efd6392eb574d2da9c981e7320c" compoundref="heap_8c" startline="281" endline="292">heap_destroy</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="huff__code_8h_1ac8678d07a65af1963cc0b3bd8b10d646" compoundref="huff__code_8c" startline="450" endline="472">huff_code_free</references>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1af5d0c85a2ad206c277ecde2a085af790" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT huff_code_t* huff_code_build_str</definition>
+        <argsstring>(char *const *values, int32 const *frequencies, int nvals)</argsstring>
+        <name>huff_code_build_str</name>
+        <param>
+          <type>char *const *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int32 const *</type>
+          <declname>frequencies</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nvals</declname>
+        </param>
+        <briefdescription>
+<para>Create a codebook from string data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="69" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="269" bodyend="306"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="heap_8h_1a9bc21333ce58caaf58e802d8b0190efd" compoundref="heap_8c" startline="113" endline="117">heap_new</references>
+        <references refid="heap_8h_1a64bcded2de5086c5d246ff760caa74a3" compoundref="heap_8c" startline="161" endline="165">heap_insert</references>
+        <references refid="heap_8h_1ab12b1efd6392eb574d2da9c981e7320c" compoundref="heap_8c" startline="281" endline="292">heap_destroy</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="huff__code_8h_1ac8678d07a65af1963cc0b3bd8b10d646" compoundref="huff__code_8c" startline="450" endline="472">huff_code_free</references>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1a873745b79dac884cbb1b5bdf12e069e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT huff_code_t* huff_code_read</definition>
+        <argsstring>(FILE *infh)</argsstring>
+        <name>huff_code_read</name>
+        <param>
+          <type>FILE *</type>
+          <declname>infh</declname>
+        </param>
+        <briefdescription>
+<para>Read a codebook from a file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="75" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="309" bodyend="365"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="hash__table_8h_1a56d93e8c03e066b77377ac6eab50cfae" compoundref="hash__table_8c" startline="158" endline="169">hash_table_new</references>
+        <references refid="hash__table_8h_1a6f5752fadefe2662adb2c141f1511062" compoundref="hash__table_8c" startline="542" endline="552">hash_table_enter_bkey</references>
+        <references refid="pio_8h_1a11e0daa4f315d01c2e030d3a0abe702c" compoundref="pio_8c" startline="367" endline="393">fread_line</references>
+        <references refid="hash__table_8h_1aebfe63c3869c271b125a8413ee384412" compoundref="hash__table_8c" startline="508" endline="516">hash_table_enter</references>
+        <references refid="huff__code_8h_1ac8678d07a65af1963cc0b3bd8b10d646" compoundref="huff__code_8c" startline="450" endline="472">huff_code_free</references>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1a6b91641e852a8eb4c4d32f40ff6dd055" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int huff_code_write</definition>
+        <argsstring>(huff_code_t *hc, FILE *outfh)</argsstring>
+        <name>huff_code_write</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>outfh</declname>
+        </param>
+        <briefdescription>
+<para>Write a codebook to a file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="81" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="368" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1a821658831cbe9b1199c756435d0ad4aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int huff_code_dump</definition>
+        <argsstring>(huff_code_t *hc, FILE *dumpfh)</argsstring>
+        <name>huff_code_dump</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>dumpfh</declname>
+        </param>
+        <briefdescription>
+<para>Print a codebook to a file as text (for debugging) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="420" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1a26a70d1b1704f1af985e67127e622a7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT huff_code_t* huff_code_retain</definition>
+        <argsstring>(huff_code_t *hc)</argsstring>
+        <name>huff_code_retain</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <briefdescription>
+<para>Retain a pointer to a Huffman codec object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="93" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="443" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1ac8678d07a65af1963cc0b3bd8b10d646" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int huff_code_free</definition>
+        <argsstring>(huff_code_t *hc)</argsstring>
+        <name>huff_code_free</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <briefdescription>
+<para>Release a pointer to a Huffman codec object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="99" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="450" bodyend="472"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="hash__table_8h_1a0a588c22946f8cc16328973035ed19e3" compoundref="hash__table_8c" startline="695" endline="713">hash_table_free</references>
+        <referencedby refid="huff__code_8h_1a278b925caf4f2c93cbb63adc8f77bfa6" compoundref="huff__code_8c" startline="229" endline="266">huff_code_build_int</referencedby>
+        <referencedby refid="huff__code_8h_1af5d0c85a2ad206c277ecde2a085af790" compoundref="huff__code_8c" startline="269" endline="306">huff_code_build_str</referencedby>
+        <referencedby refid="huff__code_8h_1a873745b79dac884cbb1b5bdf12e069e6" compoundref="huff__code_8c" startline="309" endline="365">huff_code_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1a9698821197737e3e1be9533a3059c82c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT FILE *</type>
+        <definition>SPHINXBASE_EXPORT FILE* huff_code_attach</definition>
+        <argsstring>(huff_code_t *hc, FILE *fh, char const *mode)</argsstring>
+        <name>huff_code_attach</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fh</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Attach a Huffman codec to a file handle for input/output. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="105" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="475" bodyend="483"/>
+        <references refid="huff__code_8h_1a403f575701c1d5fd2ddef1d001cf53e3" compoundref="huff__code_8c" startline="486" endline="497">huff_code_detach</references>
+        <references refid="pio_8h_1a82e4694a4c13c96550f2410f8c63b1f5" compoundref="pio_8c" startline="538" endline="546">bit_encode_attach</references>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1a403f575701c1d5fd2ddef1d001cf53e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT FILE *</type>
+        <definition>SPHINXBASE_EXPORT FILE* huff_code_detach</definition>
+        <argsstring>(huff_code_t *hc)</argsstring>
+        <name>huff_code_detach</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <briefdescription>
+<para>Detach a Huffman codec from its file handle. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="111" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="486" bodyend="497"/>
+        <references refid="pio_8h_1a3e818645e567961225977a1923debc3d" compoundref="pio_8c" startline="607" endline="614">bit_encode_flush</references>
+        <references refid="pio_8h_1a8330637520174419771670ed740c9049" compoundref="pio_8c" startline="556" endline="565">bit_encode_free</references>
+        <referencedby refid="huff__code_8h_1a9698821197737e3e1be9533a3059c82c" compoundref="huff__code_8c" startline="475" endline="483">huff_code_attach</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1acf369555b8784eee944f7ebc97b6b825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int huff_code_encode_int</definition>
+        <argsstring>(huff_code_t *hc, int32 sym, uint32 *outcw)</argsstring>
+        <name>huff_code_encode_int</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>sym</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>outcw</declname>
+        </param>
+        <briefdescription>
+<para>Encode an integer, writing it to the file handle, if any. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="117" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="500" bodyend="513"/>
+        <references refid="hash__table_8h_1a91f5b3924c0e3a50f94c86bb5fd078e8" compoundref="hash__table_8c" startline="344" endline="362">hash_table_lookup_bkey</references>
+        <references refid="pio_8h_1ae71dedb663c8e3ae8b91dbfbc95ac420" compoundref="pio_8c" startline="595" endline="604">bit_encode_write_cw</references>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1a24fe76f501a7a0485f3e9485c60fae32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int huff_code_encode_str</definition>
+        <argsstring>(huff_code_t *hc, char const *sym, uint32 *outcw)</argsstring>
+        <name>huff_code_encode_str</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>sym</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>outcw</declname>
+        </param>
+        <briefdescription>
+<para>Encode a string, writing it to the file handle, if any. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="123" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="516" bodyend="528"/>
+        <references refid="hash__table_8h_1a9a1e5ed410eb96f514b00fdce770fbd7" compoundref="hash__table_8c" startline="309" endline="326">hash_table_lookup</references>
+        <references refid="pio_8h_1ae71dedb663c8e3ae8b91dbfbc95ac420" compoundref="pio_8c" startline="595" endline="604">bit_encode_write_cw</references>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1a9155dd07a0a24393ef0e4e66cb314140" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int huff_code_decode_int</definition>
+        <argsstring>(huff_code_t *hc, int *outval, char const **inout_data, size_t *inout_data_len, int *inout_offset)</argsstring>
+        <name>huff_code_decode_int</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>outval</declname>
+        </param>
+        <param>
+          <type>char const **</type>
+          <declname>inout_data</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>inout_data_len</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>inout_offset</declname>
+        </param>
+        <briefdescription>
+<para>Decode an integer, reading it from the file if no data given. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="129" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="612" bodyend="631"/>
+      </memberdef>
+      <memberdef kind="function" id="huff__code_8h_1aec0908ece3a695f8a3f6619d8d726e57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT char const *</type>
+        <definition>SPHINXBASE_EXPORT char const* huff_code_decode_str</definition>
+        <argsstring>(huff_code_t *hc, char const **inout_data, size_t *inout_data_len, int *inout_offset)</argsstring>
+        <name>huff_code_decode_str</name>
+        <param>
+          <type><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref> *</type>
+          <declname>hc</declname>
+        </param>
+        <param>
+          <type>char const **</type>
+          <declname>inout_data</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>inout_data_len</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>inout_offset</declname>
+        </param>
+        <briefdescription>
+<para>Decode a string, reading it from the file if no data given. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h" line="138" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/huff_code.c" bodystart="634" bodyend="651"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Huffman code and bitstream implementation. </para>    </briefdescription>
+    <detaileddescription>
+<para>This interface supports building canonical Huffman codes from string and integer values. It also provides support for encoding and decoding from strings and files, and for reading and writing codebooks from files. </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2009<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor">#ifndef<sp/>__HUFF_CODE_H__</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__HUFF_CODE_H__</highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="cmd__ln_8h" kindref="compound">sphinxbase/cmd_ln.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhuff__code__s" kindref="compound">huff_code_s</ref><sp/><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*<ref refid="huff__code_8h_1a278b925caf4f2c93cbb63adc8f77bfa6" kindref="member">huff_code_build_int</ref>(int32<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*values,<sp/>int32<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*frequencies,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nvals);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*<ref refid="huff__code_8h_1af5d0c85a2ad206c277ecde2a085af790" kindref="member">huff_code_build_str</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*values,<sp/>int32<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*frequencies,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nvals);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*<ref refid="huff__code_8h_1a873745b79dac884cbb1b5bdf12e069e6" kindref="member">huff_code_read</ref>(FILE<sp/>*infh);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="huff__code_8h_1a6b91641e852a8eb4c4d32f40ff6dd055" kindref="member">huff_code_write</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc,<sp/>FILE<sp/>*outfh);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="huff__code_8h_1a821658831cbe9b1199c756435d0ad4aa" kindref="member">huff_code_dump</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc,<sp/>FILE<sp/>*dumpfh);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*<ref refid="huff__code_8h_1a26a70d1b1704f1af985e67127e622a7b" kindref="member">huff_code_retain</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="huff__code_8h_1ac8678d07a65af1963cc0b3bd8b10d646" kindref="member">huff_code_free</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">FILE<sp/>*<ref refid="huff__code_8h_1a9698821197737e3e1be9533a3059c82c" kindref="member">huff_code_attach</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc,<sp/>FILE<sp/>*fh,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*mode);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">FILE<sp/>*<ref refid="huff__code_8h_1a403f575701c1d5fd2ddef1d001cf53e3" kindref="member">huff_code_detach</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="huff__code_8h_1acf369555b8784eee944f7ebc97b6b825" kindref="member">huff_code_encode_int</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc,<sp/>int32<sp/>sym,<sp/>uint32<sp/>*outcw);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="huff__code_8h_1a24fe76f501a7a0485f3e9485c60fae32" kindref="member">huff_code_encode_str</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*sym,<sp/>uint32<sp/>*outcw);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="huff__code_8h_1a9155dd07a0a24393ef0e4e66cb314140" kindref="member">huff_code_decode_int</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*outval,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>**inout_data,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>*inout_data_len,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*inout_offset);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="huff__code_8h_1aec0908ece3a695f8a3f6619d8d726e57" kindref="member">huff_code_decode_str</ref>(<ref refid="structhuff__code__s" kindref="compound">huff_code_t</ref><sp/>*hc,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>**inout_data,</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>*inout_data_len,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*inout_offset);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__HUFF_CODE_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/huff_code.h"/>
+  </compounddef>
+</doxygen>

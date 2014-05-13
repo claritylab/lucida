@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="byteorder_8h" kind="file">
+    <compoundname>byteorder.h</compoundname>
+    <includedby refid="bio_8h" local="no">include/sphinxbase/bio.h</includedby>
+    <includedby refid="fe__interface_8c" local="yes">src/libsphinxbase/fe/fe_interface.c</includedby>
+    <includedby refid="fe__sigproc_8c" local="yes">src/libsphinxbase/fe/fe_sigproc.c</includedby>
+    <includedby refid="ngram__model__dmp_8c" local="yes">src/libsphinxbase/lm/ngram_model_dmp.c</includedby>
+    <includedby refid="huff__code_8c" local="yes">src/libsphinxbase/util/huff_code.c</includedby>
+    <includedby refid="sphinx__pitch_8c" local="no">src/sphinx_adtools/sphinx_pitch.c</includedby>
+    <includedby refid="sphinx__fe_8c" local="no">src/sphinx_fe/sphinx_fe.c</includedby>
+    <invincdepgraph>
+      <node id="213">
+        <label>src/sphinx_cepview/main_cepview.c</label>
+        <link refid="main__cepview_8c"/>
+      </node>
+      <node id="219">
+        <label>src/sphinx_fe/sphinx_fe.c</label>
+        <link refid="sphinx__fe_8c_source"/>
+      </node>
+      <node id="207">
+        <label>include/sphinxbase/byteorder.h</label>
+        <link refid="byteorder.h"/>
+        <childnode refid="208" relation="include">
+        </childnode>
+        <childnode refid="214" relation="include">
+        </childnode>
+        <childnode refid="215" relation="include">
+        </childnode>
+        <childnode refid="216" relation="include">
+        </childnode>
+        <childnode refid="217" relation="include">
+        </childnode>
+        <childnode refid="218" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+      </node>
+      <node id="208">
+        <label>include/sphinxbase/bio.h</label>
+        <link refid="bio_8h"/>
+        <childnode refid="209" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+      </node>
+      <node id="215">
+        <label>src/libsphinxbase/fe/fe_sigproc.c</label>
+        <link refid="fe__sigproc_8c_source"/>
+      </node>
+      <node id="212">
+        <label>src/libsphinxbase/util/logmath.c</label>
+        <link refid="logmath_8c_source"/>
+      </node>
+      <node id="218">
+        <label>src/sphinx_adtools/sphinx_pitch.c</label>
+        <link refid="sphinx__pitch_8c_source"/>
+      </node>
+      <node id="209">
+        <label>src/libsphinxbase/feat/feat.c</label>
+        <link refid="feat_8c_source"/>
+      </node>
+      <node id="216">
+        <label>src/libsphinxbase/lm/ngram_model_dmp.c</label>
+        <link refid="ngram__model__dmp_8c_source"/>
+      </node>
+      <node id="214">
+        <label>src/libsphinxbase/fe/fe_interface.c</label>
+        <link refid="fe__interface_8c_source"/>
+      </node>
+      <node id="217">
+        <label>src/libsphinxbase/util/huff_code.c</label>
+        <link refid="huff__code_8c_source"/>
+      </node>
+      <node id="211">
+        <label>src/libsphinxbase/util/bio.c</label>
+        <link refid="bio_8c_source"/>
+      </node>
+      <node id="210">
+        <label>src/libsphinxbase/feat/lda.c</label>
+        <link refid="lda_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="byteorder_8h_1a1153cfe425caaaf8bb0dcdde1cf1647d" prot="public" static="no">
+        <name>SWAP_INT16</name>
+        <param><defname>x</defname></param>
+        <initializer>*(x) = ((0x00ff &amp; (*(x))&gt;&gt;8) | (0xff00 &amp; (*(x))&lt;&lt;8))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="65" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1a317af43766dc1d334185872dc4edadfd" prot="public" static="no">
+        <name>SWAP_INT32</name>
+        <param><defname>x</defname></param>
+        <initializer>*(x) = ((0x000000ff &amp; (*(x))&gt;&gt;24) | \
+				(0x0000ff00 &amp; (*(x))&gt;&gt;8) | \
+				(0x00ff0000 &amp; (*(x))&lt;&lt;8) | \
+				(0xff000000 &amp; (*(x))&lt;&lt;24))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="68" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1a04eb8ee0772c11776ae10f904fd81327" prot="public" static="no">
+        <name>SWAP_FLOAT32</name>
+        <param><defname>x</defname></param>
+        <initializer>SWAP_INT32((int32 *) x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="74" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1afe20b2916b798f8eba706aaa9ec18a58" prot="public" static="no">
+        <name>SWAP_FLOAT64</name>
+        <param><defname>x</defname></param>
+        <initializer>{ int *low = (int *) (x), *high = (int *) (x) + 1,\
+			      temp;\
+			  SWAP_INT32(low);  SWAP_INT32(high);\
+			  temp = *low; *low = *high; *high = temp;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="77" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1ac13b2fee8770797e6d2c1d1e40767368" prot="public" static="no">
+        <name>SWAP_LE_64</name>
+        <param><defname>x</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="90" column="10" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1a09957a31a7fa32f5a23634a83cce2c8d" prot="public" static="no">
+        <name>SWAP_LE_32</name>
+        <param><defname>x</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="91" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1a613b5bacfeb58a62e1a12d94b4cf35ea" prot="public" static="no">
+        <name>SWAP_LE_16</name>
+        <param><defname>x</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="92" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1ac46b497e11114c845f690e16f94bbd50" prot="public" static="no">
+        <name>SWAP_BE_64</name>
+        <param><defname>x</defname></param>
+        <initializer>SWAP_FLOAT64(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="93" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1a86f2eb7f846318b5ad87329b17fab8a2" prot="public" static="no">
+        <name>SWAP_BE_32</name>
+        <param><defname>x</defname></param>
+        <initializer>SWAP_INT32(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="94" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="byteorder_8h_1a4a51a4cc9a7e214781354dd352c79d78" prot="public" static="no">
+        <name>SWAP_BE_16</name>
+        <param><defname>x</defname></param>
+        <initializer>SWAP_INT16(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" line="95" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2001<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>byteorder.h<sp/>--<sp/>Byte<sp/>swapping<sp/>ordering<sp/>macros.</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1996<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>byteorder.h,v<sp/>$</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.8<sp/><sp/>2005/09/01<sp/>21:09:54<sp/><sp/>dhdfu</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Really,<sp/>actually,<sp/>truly<sp/>consolidate<sp/>byteswapping<sp/>operations<sp/>into</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>byteorder.h.<sp/><sp/>Where<sp/>unconditional<sp/>byteswapping<sp/>is<sp/>needed,<sp/>SWAP_INT32()</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>and<sp/>SWAP_INT16()<sp/>are<sp/>to<sp/>be<sp/>used.<sp/><sp/>The<sp/>WORDS_BIGENDIAN<sp/>macro<sp/>from</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>autoconf<sp/>controls<sp/>the<sp/>functioning<sp/>of<sp/>the<sp/>conditional<sp/>swap<sp/>macros</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>(SWAP_?[LW])<sp/>whose<sp/>names<sp/>and<sp/>semantics<sp/>have<sp/>been<sp/>regularized.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>Private,<sp/>adhoc<sp/>macros<sp/>have<sp/>been<sp/>removed.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__S2_BYTEORDER_H__</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__S2_BYTEORDER_H__<sp/><sp/><sp/><sp/><sp/><sp/>1</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Macro<sp/>to<sp/>byteswap<sp/>an<sp/>int16<sp/>variable.<sp/><sp/>x<sp/>=<sp/>ptr<sp/>to<sp/>variable<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SWAP_INT16(x)<sp/><sp/><sp/>*(x)<sp/>=<sp/>((0x00ff<sp/>&amp;<sp/>(*(x))&gt;&gt;8)<sp/>|<sp/>(0xff00<sp/>&amp;<sp/>(*(x))&lt;&lt;8))</highlight></codeline>
+<codeline lineno="66"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Macro<sp/>to<sp/>byteswap<sp/>an<sp/>int32<sp/>variable.<sp/><sp/>x<sp/>=<sp/>ptr<sp/>to<sp/>variable<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SWAP_INT32(x)<sp/><sp/><sp/>*(x)<sp/>=<sp/>((0x000000ff<sp/>&amp;<sp/>(*(x))&gt;&gt;24)<sp/>|<sp/>\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x0000ff00<sp/>&amp;<sp/>(*(x))&gt;&gt;8)<sp/>|<sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x00ff0000<sp/>&amp;<sp/>(*(x))&lt;&lt;8)<sp/>|<sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xff000000<sp/>&amp;<sp/>(*(x))&lt;&lt;24))</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Macro<sp/>to<sp/>byteswap<sp/>a<sp/>float32<sp/>variable.<sp/><sp/>x<sp/>=<sp/>ptr<sp/>to<sp/>variable<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SWAP_FLOAT32(x)<sp/>SWAP_INT32((int32<sp/>*)<sp/>x)</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Macro<sp/>to<sp/>byteswap<sp/>a<sp/>float64<sp/>variable.<sp/><sp/>x<sp/>=<sp/>ptr<sp/>to<sp/>variable<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SWAP_FLOAT64(x)<sp/>{<sp/>int<sp/>*low<sp/>=<sp/>(int<sp/>*)<sp/>(x),<sp/>*high<sp/>=<sp/>(int<sp/>*)<sp/>(x)<sp/>+<sp/>1,\</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp;\</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SWAP_INT32(low);<sp/><sp/>SWAP_INT32(high);\</highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/>*low;<sp/>*low<sp/>=<sp/>*high;<sp/>*high<sp/>=<sp/>temp;}</highlight></codeline>
+<codeline lineno="81"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WORDS_BIGENDIAN</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_BE_64(x)</highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_BE_32(x)</highlight></codeline>
+<codeline lineno="85"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_BE_16(x)</highlight></codeline>
+<codeline lineno="86"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_LE_64(x)<sp/>SWAP_FLOAT64(x)</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_LE_32(x)<sp/>SWAP_INT32(x)</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_LE_16(x)<sp/>SWAP_INT16(x)</highlight></codeline>
+<codeline lineno="89"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="90"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_LE_64(x)</highlight></codeline>
+<codeline lineno="91"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_LE_32(x)</highlight></codeline>
+<codeline lineno="92"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_LE_16(x)</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_BE_64(x)<sp/>SWAP_FLOAT64(x)</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_BE_32(x)<sp/>SWAP_INT32(x)</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SWAP_BE_16(x)<sp/>SWAP_INT16(x)</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/byteorder.h"/>
+  </compounddef>
+</doxygen>

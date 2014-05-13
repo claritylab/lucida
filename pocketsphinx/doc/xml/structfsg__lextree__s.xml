@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structfsg__lextree__s" kind="struct" prot="public">
+    <compoundname>fsg_lextree_s</compoundname>
+    <includes refid="fsg__lextree_8h" local="no">fsg_lextree.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfsg__lextree__s_1a161ff35c65373388f18e51236bf7ef5f" prot="public" static="no" mutable="no">
+        <type>fsg_model_t *</type>
+        <definition>fsg_model_t* fsg_lextree_s::fsg</definition>
+        <argsstring></argsstring>
+        <name>fsg</name>
+        <briefdescription>
+<para>The fsg for which this lextree is built. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="181" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="181" bodyend="-1"/>
+        <referencedby refid="fsg__lextree_8c_1a5c267f09b8dc214dd7deb41232d84726" compoundref="fsg__lextree_8c" startline="273" endline="282">fsg_lextree_dump</referencedby>
+        <referencedby refid="fsg__lextree_8c_1a2f1ab965df1214f4d0e2008833aa20da" compoundref="fsg__lextree_8c" startline="286" endline="302">fsg_lextree_free</referencedby>
+        <referencedby refid="fsg__lextree_8c_1a8c47b2983b3952886a4c889a711e1d65" compoundref="fsg__lextree_8c" startline="215" endline="269">fsg_lextree_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1afbbd5d59a74dfb287289aa20a9a3979a" prot="public" static="no" mutable="no">
+        <type><ref refid="structhmm__context__t" kindref="compound">hmm_context_t</ref> *</type>
+        <definition>hmm_context_t* fsg_lextree_s::ctx</definition>
+        <argsstring></argsstring>
+        <name>ctx</name>
+        <briefdescription>
+<para>HMM context structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="182" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="182" bodyend="-1"/>
+        <referencedby refid="fsg__lextree_8c_1a8c47b2983b3952886a4c889a711e1d65" compoundref="fsg__lextree_8c" startline="215" endline="269">fsg_lextree_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1abf077af1c0dd1246b2032b917bfacba5" prot="public" static="no" mutable="no">
+        <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+        <definition>dict_t* fsg_lextree_s::dict</definition>
+        <argsstring></argsstring>
+        <name>dict</name>
+        <briefdescription>
+<para>Pronunciation dictionary for this FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="183" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="183" bodyend="-1"/>
+        <referencedby refid="fsg__lextree_8c_1a8c47b2983b3952886a4c889a711e1d65" compoundref="fsg__lextree_8c" startline="215" endline="269">fsg_lextree_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1add12fb7151ebdecb74deaf6aca86d95e" prot="public" static="no" mutable="no">
+        <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+        <definition>dict2pid_t* fsg_lextree_s::d2p</definition>
+        <argsstring></argsstring>
+        <name>d2p</name>
+        <briefdescription>
+<para>Context-dependent phone mappings for this FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="184" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="184" bodyend="-1"/>
+        <referencedby refid="fsg__lextree_8c_1a8c47b2983b3952886a4c889a711e1d65" compoundref="fsg__lextree_8c" startline="215" endline="269">fsg_lextree_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1ae2c059413a1cb4cda7068ab30a7a477c" prot="public" static="no" mutable="no">
+        <type><ref refid="bin__mdef_8h_1a269082d84ae254593b79f1eafe9b2d12" kindref="member">bin_mdef_t</ref> *</type>
+        <definition>bin_mdef_t* fsg_lextree_s::mdef</definition>
+        <argsstring></argsstring>
+        <name>mdef</name>
+        <briefdescription>
+<para>Model definition (triphone mappings). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="185" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="185" bodyend="-1"/>
+        <referencedby refid="fsg__lextree_8c_1a8c47b2983b3952886a4c889a711e1d65" compoundref="fsg__lextree_8c" startline="215" endline="269">fsg_lextree_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1a0655f40ec98c9d971aba1fa8a894575d" prot="public" static="no" mutable="no">
+        <type>int16 **</type>
+        <definition>int16** fsg_lextree_s::lc</definition>
+        <argsstring></argsstring>
+        <name>lc</name>
+        <briefdescription>
+<para>Left context triphone mappings for FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="204" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="204" bodyend="-1"/>
+        <referencedby refid="fsg__lextree_8c_1a2f1ab965df1214f4d0e2008833aa20da" compoundref="fsg__lextree_8c" startline="286" endline="302">fsg_lextree_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1a307d5351803d409aa51395333294c0f1" prot="public" static="no" mutable="no">
+        <type>int16 **</type>
+        <definition>int16** fsg_lextree_s::rc</definition>
+        <argsstring></argsstring>
+        <name>rc</name>
+        <briefdescription>
+<para>Right context triphone mappings for FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="205" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="205" bodyend="-1"/>
+        <referencedby refid="fsg__lextree_8c_1a2f1ab965df1214f4d0e2008833aa20da" compoundref="fsg__lextree_8c" startline="286" endline="302">fsg_lextree_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1a12e9668f7da3b84b0b36799a631fe8d3" prot="public" static="no" mutable="no">
+        <type><ref refid="structfsg__pnode__s" kindref="compound">fsg_pnode_t</ref> **</type>
+        <definition>fsg_pnode_t** fsg_lextree_s::root</definition>
+        <argsstring></argsstring>
+        <name>root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="207" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1a430605e77e2ad3de2b5e2aa1fb7eb365" prot="public" static="no" mutable="no">
+        <type><ref refid="structfsg__pnode__s" kindref="compound">fsg_pnode_t</ref> **</type>
+        <definition>fsg_pnode_t** fsg_lextree_s::alloc_head</definition>
+        <argsstring></argsstring>
+        <name>alloc_head</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="211" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1ac55755e9f9453acab71a23a5cf3ea542" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_lextree_s::n_pnode</definition>
+        <argsstring></argsstring>
+        <name>n_pnode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="213" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1a791fcaf2440b7d90796c5e7e50a7b186" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_lextree_s::wip</definition>
+        <argsstring></argsstring>
+        <name>wip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="214" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__lextree__s_1a9e6768eff7003453759b1ade9cb50bc7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_lextree_s::pip</definition>
+        <argsstring></argsstring>
+        <name>pip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="215" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Collection of lextrees for an FSG. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="130">
+        <label>dict_t</label>
+        <link refid="structdict__t"/>
+        <childnode refid="125" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="131" relation="usage">
+          <edgelabel>word</edgelabel>
+        </childnode>
+      </node>
+      <node id="128">
+        <label>dict2pid_t</label>
+        <link refid="structdict2pid__t"/>
+        <childnode refid="129" relation="usage">
+          <edgelabel>lrssid</edgelabel>
+          <edgelabel>rssid</edgelabel>
+        </childnode>
+        <childnode refid="130" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="125" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+      </node>
+      <node id="126">
+        <label>cd_tree_s</label>
+        <link refid="structcd__tree__s"/>
+      </node>
+      <node id="131">
+        <label>dictword_t</label>
+        <link refid="structdictword__t"/>
+      </node>
+      <node id="121">
+        <label>fsg_pnode_s</label>
+        <link refid="structfsg__pnode__s"/>
+        <childnode refid="121" relation="usage">
+          <edgelabel>succ</edgelabel>
+          <edgelabel>sibling</edgelabel>
+          <edgelabel>alloc_next</edgelabel>
+        </childnode>
+        <childnode refid="122" relation="usage">
+          <edgelabel>hmm</edgelabel>
+        </childnode>
+        <childnode refid="123" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+        <childnode refid="124" relation="usage">
+          <edgelabel>ctxt</edgelabel>
+        </childnode>
+      </node>
+      <node id="129">
+        <label>xwdssid_t</label>
+        <link refid="structxwdssid__t"/>
+      </node>
+      <node id="120">
+        <label>fsg_lextree_s</label>
+        <link refid="structfsg__lextree__s"/>
+        <childnode refid="121" relation="usage">
+          <edgelabel>alloc_head</edgelabel>
+          <edgelabel>root</edgelabel>
+        </childnode>
+        <childnode refid="123" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+        <childnode refid="125" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="128" relation="usage">
+          <edgelabel>d2p</edgelabel>
+        </childnode>
+        <childnode refid="130" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+      </node>
+      <node id="127">
+        <label>mdef_entry_s</label>
+        <link refid="structmdef__entry__s"/>
+      </node>
+      <node id="124">
+        <label>fsg_pnode_ctxt_t</label>
+        <link refid="structfsg__pnode__ctxt__t"/>
+      </node>
+      <node id="125">
+        <label>bin_mdef_s</label>
+        <link refid="structbin__mdef__s"/>
+        <childnode refid="126" relation="usage">
+          <edgelabel>cd_tree</edgelabel>
+        </childnode>
+        <childnode refid="127" relation="usage">
+          <edgelabel>phone</edgelabel>
+        </childnode>
+      </node>
+      <node id="122">
+        <label>hmm_s</label>
+        <link refid="structhmm__s"/>
+        <childnode refid="123" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+      </node>
+      <node id="123">
+        <label>hmm_context_t</label>
+        <link refid="structhmm__context__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" line="180" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_lextree.h" bodystart="180" bodyend="216"/>
+    <listofallmembers>
+      <member refid="structfsg__lextree__s_1a430605e77e2ad3de2b5e2aa1fb7eb365" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>alloc_head</name></member>
+      <member refid="structfsg__lextree__s_1afbbd5d59a74dfb287289aa20a9a3979a" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>ctx</name></member>
+      <member refid="structfsg__lextree__s_1add12fb7151ebdecb74deaf6aca86d95e" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>d2p</name></member>
+      <member refid="structfsg__lextree__s_1abf077af1c0dd1246b2032b917bfacba5" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>dict</name></member>
+      <member refid="structfsg__lextree__s_1a161ff35c65373388f18e51236bf7ef5f" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>fsg</name></member>
+      <member refid="structfsg__lextree__s_1a0655f40ec98c9d971aba1fa8a894575d" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>lc</name></member>
+      <member refid="structfsg__lextree__s_1ae2c059413a1cb4cda7068ab30a7a477c" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>mdef</name></member>
+      <member refid="structfsg__lextree__s_1ac55755e9f9453acab71a23a5cf3ea542" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>n_pnode</name></member>
+      <member refid="structfsg__lextree__s_1a9e6768eff7003453759b1ade9cb50bc7" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>pip</name></member>
+      <member refid="structfsg__lextree__s_1a307d5351803d409aa51395333294c0f1" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>rc</name></member>
+      <member refid="structfsg__lextree__s_1a12e9668f7da3b84b0b36799a631fe8d3" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>root</name></member>
+      <member refid="structfsg__lextree__s_1a791fcaf2440b7d90796c5e7e50a7b186" prot="public" virt="non-virtual"><scope>fsg_lextree_s</scope><name>wip</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

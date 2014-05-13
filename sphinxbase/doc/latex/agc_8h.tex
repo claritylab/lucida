@@ -1,0 +1,217 @@
+\section{include/sphinxbase/agc.h File Reference}
+\label{agc_8h}\index{include/sphinxbase/agc.\-h@{include/sphinxbase/agc.\-h}}
+
+
+routine that implements automatic gain control  
+
+
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/fe.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf agc\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Structure holding data for doing A\-G\-C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum {\bf agc\-\_\-type\-\_\-e} {\bf agc\-\_\-type\-\_\-t}\label{agc_8h_a5524df49e0425cc6b1c002bc704a8103}
+
+\begin{DoxyCompactList}\small\item\em Types of acoustic gain control to apply to the features. \end{DoxyCompactList}\item 
+typedef struct {\bf agc\-\_\-s} {\bf agc\-\_\-t}\label{agc_8h_a4998d40c67716fdea6791f8070642dc5}
+
+\begin{DoxyCompactList}\small\item\em Structure holding data for doing A\-G\-C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf agc\-\_\-type\-\_\-e} \{ {\bfseries A\-G\-C\-\_\-\-N\-O\-N\-E} = 0, 
+{\bfseries A\-G\-C\-\_\-\-M\-A\-X}, 
+{\bfseries A\-G\-C\-\_\-\-E\-M\-A\-X}, 
+{\bfseries A\-G\-C\-\_\-\-N\-O\-I\-S\-E}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of acoustic gain control to apply to the features. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf agc\-\_\-type\-\_\-t} {\bf agc\-\_\-type\-\_\-from\-\_\-str} (const char $\ast$str)\label{agc_8h_aebd0689591488378192e13f6d2646bc1}
+
+\begin{DoxyCompactList}\small\item\em Convert string representation (from command-\/line) to agc\-\_\-type\-\_\-t. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf agc\-\_\-t} $\ast$ {\bf agc\-\_\-init} (void)\label{agc_8h_a5c7ee7b19f8dcfd0c28b4dc76a283dc7}
+
+\begin{DoxyCompactList}\small\item\em Initialize A\-G\-C structure with default values. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf agc\-\_\-free} ({\bf agc\-\_\-t} $\ast$agc)\label{agc_8h_a6a050fc4b079be05b1946636d5d7f3aa}
+
+\begin{DoxyCompactList}\small\item\em Free A\-G\-C structure. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf agc\-\_\-max} ({\bf agc\-\_\-t} $\ast$agc, mfcc\-\_\-t $\ast$$\ast$mfc, int32 n\-\_\-frame)
+\begin{DoxyCompactList}\small\item\em Apply A\-G\-C to the given mfc vectors (normalize all C0 mfc coefficients in the given input such that the max C0 value is 0, by subtracting the input max C0 from all). \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf agc\-\_\-emax} ({\bf agc\-\_\-t} $\ast$agc, mfcc\-\_\-t $\ast$$\ast$mfc, int32 n\-\_\-frame)
+\begin{DoxyCompactList}\small\item\em Apply A\-G\-C to the given block of M\-F\-C vectors. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf agc\-\_\-emax\-\_\-update} ({\bf agc\-\_\-t} $\ast$agc)
+\begin{DoxyCompactList}\small\item\em Update A\-G\-C parameters for next utterance. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T float32 {\bf agc\-\_\-emax\-\_\-get} ({\bf agc\-\_\-t} $\ast$agc)\label{agc_8h_a7b439fb5d36250d09bb9d459c1e28ba5}
+
+\begin{DoxyCompactList}\small\item\em Get the current A\-G\-C maximum estimate. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf agc\-\_\-emax\-\_\-set} ({\bf agc\-\_\-t} $\ast$agc, float32 m)\label{agc_8h_a4fd17f224b5d8f7bfcaa9389d11716eb}
+
+\begin{DoxyCompactList}\small\item\em Set the current A\-G\-C maximum estimate. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf agc\-\_\-noise} ({\bf agc\-\_\-t} $\ast$agc, mfcc\-\_\-t $\ast$$\ast$mfc, int32 n\-\_\-frame)
+\begin{DoxyCompactList}\small\item\em Apply A\-G\-C using noise threshold to the given block of M\-F\-C vectors. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T float32 {\bf agc\-\_\-get\-\_\-threshold} ({\bf agc\-\_\-t} $\ast$agc)\label{agc_8h_a77d0987174a1b3c6e8fcd63fe82f33ce}
+
+\begin{DoxyCompactList}\small\item\em Get the current A\-G\-C noise threshold. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf agc\-\_\-set\-\_\-threshold} ({\bf agc\-\_\-t} $\ast$agc, float32 threshold)\label{agc_8h_aaaa9e15f192c91ad64c343b7c6db6714}
+
+\begin{DoxyCompactList}\small\item\em Set the current A\-G\-C noise threshold. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T const char $\ast$ {\bf agc\-\_\-type\-\_\-str} [$\,$]
+\begin{DoxyCompactList}\small\item\em String representations of agc\-\_\-type\-\_\-t values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+routine that implements automatic gain control \begin{DoxyWarning}{Warning}
+This function may not be fully compatible with Sphinx\-Train's family of A\-G\-C.
+\end{DoxyWarning}
+This implements A\-G\-C. 
+
+Definition in file {\bf agc.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{agc.\-h@{agc.\-h}!agc\-\_\-emax@{agc\-\_\-emax}}
+\index{agc\-\_\-emax@{agc\-\_\-emax}!agc.h@{agc.\-h}}
+\subsubsection[{agc\-\_\-emax}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void agc\-\_\-emax (
+\begin{DoxyParamCaption}
+\item[{{\bf agc\-\_\-t} $\ast$}]{agc, }
+\item[{mfcc\-\_\-t $\ast$$\ast$}]{mfc, }
+\item[{int32}]{n\-\_\-frame}
+\end{DoxyParamCaption}
+)}\label{agc_8h_ac2cdd4c519b46824c5b28c5b769b5ecd}
+
+
+Apply A\-G\-C to the given block of M\-F\-C vectors. 
+
+Unlike \doxyref{agc\-\_\-max()}{p.}{agc_8h_a29a2a4dd80141af1c3476094c353b739} this does not require the entire utterance to be available. Call \doxyref{agc\-\_\-emax\-\_\-update()}{p.}{agc_8h_af47b6004f2f963ae0019a67450b892c2} at the end of each utterance to update the A\-G\-C parameters. 
+\begin{DoxyParams}{Parameters}
+{\em agc} & In\-: A\-G\-C structure \\
+\hline
+{\em mfc} & In/\-Out\-: mfc[f] = cepstrum vector in frame f \\
+\hline
+{\em n\-\_\-frame} & In\-: number of frames of cepstrum vectors supplied \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 142 of file agc.\-c.
+
+
+
+References agc\-\_\-s\-::max, agc\-\_\-s\-::obs\-\_\-frame, and agc\-\_\-s\-::obs\-\_\-max.
+
+\index{agc.\-h@{agc.\-h}!agc\-\_\-emax\-\_\-update@{agc\-\_\-emax\-\_\-update}}
+\index{agc\-\_\-emax\-\_\-update@{agc\-\_\-emax\-\_\-update}!agc.h@{agc.\-h}}
+\subsubsection[{agc\-\_\-emax\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void agc\-\_\-emax\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf agc\-\_\-t} $\ast$}]{agc}
+\end{DoxyParamCaption}
+)}\label{agc_8h_af47b6004f2f963ae0019a67450b892c2}
+
+
+Update A\-G\-C parameters for next utterance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agc} & In\-: A\-G\-C structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 159 of file agc.\-c.
+
+
+
+References E\-\_\-\-I\-N\-F\-O, agc\-\_\-s\-::max, agc\-\_\-s\-::obs\-\_\-frame, agc\-\_\-s\-::obs\-\_\-max, and agc\-\_\-s\-::obs\-\_\-utt.
+
+\index{agc.\-h@{agc.\-h}!agc\-\_\-max@{agc\-\_\-max}}
+\index{agc\-\_\-max@{agc\-\_\-max}!agc.h@{agc.\-h}}
+\subsubsection[{agc\-\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void agc\-\_\-max (
+\begin{DoxyParamCaption}
+\item[{{\bf agc\-\_\-t} $\ast$}]{agc, }
+\item[{mfcc\-\_\-t $\ast$$\ast$}]{mfc, }
+\item[{int32}]{n\-\_\-frame}
+\end{DoxyParamCaption}
+)}\label{agc_8h_a29a2a4dd80141af1c3476094c353b739}
+
+
+Apply A\-G\-C to the given mfc vectors (normalize all C0 mfc coefficients in the given input such that the max C0 value is 0, by subtracting the input max C0 from all). 
+
+This function operates on an entire utterance at a time. Hence, the entire utterance must be available beforehand (batchmode).
+
+Apply A\-G\-C to the given mfc vectors (normalize all C0 mfc coefficients in the given input such that the max C0 value is 0, by subtracting the input max C0 from all). 
+\begin{DoxyParams}{Parameters}
+{\em agc} & In\-: A\-G\-C structure (not used) \\
+\hline
+{\em mfc} & In/\-Out\-: mfc[f] = cepstrum vector in frame f \\
+\hline
+{\em n\-\_\-frame} & In\-: number of frames of cepstrum vectors supplied \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 109 of file agc.\-c.
+
+
+
+References E\-\_\-\-I\-N\-F\-O, agc\-\_\-s\-::obs\-\_\-frame, and agc\-\_\-s\-::obs\-\_\-max.
+
+\index{agc.\-h@{agc.\-h}!agc\-\_\-noise@{agc\-\_\-noise}}
+\index{agc\-\_\-noise@{agc\-\_\-noise}!agc.h@{agc.\-h}}
+\subsubsection[{agc\-\_\-noise}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void agc\-\_\-noise (
+\begin{DoxyParamCaption}
+\item[{{\bf agc\-\_\-t} $\ast$}]{agc, }
+\item[{mfcc\-\_\-t $\ast$$\ast$}]{mfc, }
+\item[{int32}]{n\-\_\-frame}
+\end{DoxyParamCaption}
+)}\label{agc_8h_ae65d4be1d74aea11b7e16e3777272d13}
+
+
+Apply A\-G\-C using noise threshold to the given block of M\-F\-C vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agc} & In\-: A\-G\-C structure \\
+\hline
+{\em mfc} & In/\-Out\-: mfc[f] = cepstrum vector in frame f \\
+\hline
+{\em n\-\_\-frame} & In\-: number of frames of cepstrum vectors supplied \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 180 of file agc.\-c.
+
+
+
+References E\-\_\-\-I\-N\-F\-O, and agc\-\_\-s\-::noise\-\_\-thresh.
+
+
+
+\subsection{Variable Documentation}
+\index{agc.\-h@{agc.\-h}!agc\-\_\-type\-\_\-str@{agc\-\_\-type\-\_\-str}}
+\index{agc\-\_\-type\-\_\-str@{agc\-\_\-type\-\_\-str}!agc.h@{agc.\-h}}
+\subsubsection[{agc\-\_\-type\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T const char$\ast$ agc\-\_\-type\-\_\-str[$\,$]}\label{agc_8h_a6ea1b2b3d482cf08eb36084629503c80}
+
+
+String representations of agc\-\_\-type\-\_\-t values. 
+
+
+
+Definition at line 70 of file agc.\-c.
+
+
+
+Referenced by agc\-\_\-type\-\_\-from\-\_\-str(), and feat\-\_\-init().
+

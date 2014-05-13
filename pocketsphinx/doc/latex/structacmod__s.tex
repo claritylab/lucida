@@ -1,0 +1,490 @@
+\section{acmod\-\_\-s Struct Reference}
+\label{structacmod__s}\index{acmod\-\_\-s@{acmod\-\_\-s}}
+
+
+Acoustic model structure.  
+
+
+
+
+{\ttfamily \#include $<$acmod.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+cmd\-\_\-ln\-\_\-t $\ast$ {\bf config}
+\begin{DoxyCompactList}\small\item\em Configuration. \end{DoxyCompactList}\item 
+logmath\-\_\-t $\ast$ {\bf lmath}
+\begin{DoxyCompactList}\small\item\em Log-\/math computation. \end{DoxyCompactList}\item 
+glist\-\_\-t {\bf strings}
+\begin{DoxyCompactList}\small\item\em Temporary acoustic model filenames. \end{DoxyCompactList}\item 
+fe\-\_\-t $\ast$ {\bf fe}
+\begin{DoxyCompactList}\small\item\em Acoustic feature computation. \end{DoxyCompactList}\item 
+feat\-\_\-t $\ast$ {\bf fcb}
+\begin{DoxyCompactList}\small\item\em Dynamic feature computation. \end{DoxyCompactList}\item 
+{\bf bin\-\_\-mdef\-\_\-t} $\ast$ {\bf mdef}
+\begin{DoxyCompactList}\small\item\em Model definition. \end{DoxyCompactList}\item 
+{\bf tmat\-\_\-t} $\ast$ {\bf tmat}
+\begin{DoxyCompactList}\small\item\em Transition matrices. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-mgau\-\_\-t} $\ast$ {\bf mgau}
+\begin{DoxyCompactList}\small\item\em Model parameters. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-mllr\-\_\-t} $\ast$ {\bf mllr}
+\begin{DoxyCompactList}\small\item\em Speaker transformation. \end{DoxyCompactList}\item 
+int16 $\ast$ {\bf senone\-\_\-scores}
+\begin{DoxyCompactList}\small\item\em G\-M\-M scores for current frame. \end{DoxyCompactList}\item 
+bitvec\-\_\-t $\ast$ {\bf senone\-\_\-active\-\_\-vec}
+\begin{DoxyCompactList}\small\item\em Active G\-M\-Ms in current frame. \end{DoxyCompactList}\item 
+uint8 $\ast$ {\bf senone\-\_\-active}
+\begin{DoxyCompactList}\small\item\em Array of deltas to active G\-M\-Ms. \end{DoxyCompactList}\item 
+int {\bf senscr\-\_\-frame}
+\begin{DoxyCompactList}\small\item\em Frame index for senone\-\_\-scores. \end{DoxyCompactList}\item 
+int {\bf n\-\_\-senone\-\_\-active}
+\begin{DoxyCompactList}\small\item\em Number of active G\-M\-Ms. \end{DoxyCompactList}\item 
+int {\bf log\-\_\-zero}
+\begin{DoxyCompactList}\small\item\em Zero log-\/probability value. \end{DoxyCompactList}\item 
+mfcc\-\_\-t $\ast$$\ast$ {\bf mfc\-\_\-buf}
+\begin{DoxyCompactList}\small\item\em Temporary buffer of acoustic features. \end{DoxyCompactList}\item 
+mfcc\-\_\-t $\ast$$\ast$$\ast$ {\bf feat\-\_\-buf}
+\begin{DoxyCompactList}\small\item\em Temporary buffer of dynamic features. \end{DoxyCompactList}\item 
+F\-I\-L\-E $\ast$ {\bf rawfh}
+\begin{DoxyCompactList}\small\item\em File for writing raw audio data. \end{DoxyCompactList}\item 
+F\-I\-L\-E $\ast$ {\bf mfcfh}
+\begin{DoxyCompactList}\small\item\em File for writing acoustic feature data. \end{DoxyCompactList}\item 
+F\-I\-L\-E $\ast$ {\bf senfh}
+\begin{DoxyCompactList}\small\item\em File for writing senone score data. \end{DoxyCompactList}\item 
+F\-I\-L\-E $\ast$ {\bf insenfh}
+\begin{DoxyCompactList}\small\item\em Input senone score file. \end{DoxyCompactList}\item 
+long $\ast$ {\bf framepos}
+\begin{DoxyCompactList}\small\item\em File positions of recent frames in senone file. \end{DoxyCompactList}\item 
+uint8 {\bf state}
+\begin{DoxyCompactList}\small\item\em State of utterance processing. \end{DoxyCompactList}\item 
+uint8 {\bf compallsen}\label{structacmod__s_ac08227365e3ed4354e26f013bc0df2bd}
+
+\begin{DoxyCompactList}\small\item\em Compute all senones? \end{DoxyCompactList}\item 
+uint8 {\bf grow\-\_\-feat}
+\begin{DoxyCompactList}\small\item\em Whether to grow feat\-\_\-buf. \end{DoxyCompactList}\item 
+uint8 {\bf insen\-\_\-swap}
+\begin{DoxyCompactList}\small\item\em Whether to swap input senone score. \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf output\-\_\-frame}
+\begin{DoxyCompactList}\small\item\em Index of next frame of dynamic features. \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf n\-\_\-mfc\-\_\-alloc}\label{structacmod__s_af4fa71ce8be75356a1f472959a9ff6d1}
+
+\begin{DoxyCompactList}\small\item\em Number of frames allocated in mfc\-\_\-buf. \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf n\-\_\-mfc\-\_\-frame}\label{structacmod__s_a1c5d63882997211e57ed698e33080958}
+
+\begin{DoxyCompactList}\small\item\em Number of frames active in mfc\-\_\-buf. \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf mfc\-\_\-outidx}\label{structacmod__s_afc6ef051f5de03c3f51aa740ff10a99b}
+
+\begin{DoxyCompactList}\small\item\em Start of active frames in mfc\-\_\-buf. \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf n\-\_\-feat\-\_\-alloc}\label{structacmod__s_a8269cb11354683ba83f1994b46e15466}
+
+\begin{DoxyCompactList}\small\item\em Number of frames allocated in feat\-\_\-buf. \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf n\-\_\-feat\-\_\-frame}\label{structacmod__s_a861cc097befe7e81473f0ae0972186e0}
+
+\begin{DoxyCompactList}\small\item\em Number of frames active in feat\-\_\-buf. \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf feat\-\_\-outidx}\label{structacmod__s_ae15076737bcdcbe1d5b4226f7a0b3f5b}
+
+\begin{DoxyCompactList}\small\item\em Start of active frames in feat\-\_\-buf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Acoustic model structure. 
+
+This object encapsulates all stages of acoustic processing, from raw audio input to acoustic score output. The reason for grouping all of these modules together is that they all have to \char`\"{}agree\char`\"{} in their parameterizations, and the configuration of the acoustic and dynamic feature computation is completely dependent on the parameters used to build the original acoustic model (which should by now always be specified in a feat.\-params file).
+
+Because there is not a one-\/to-\/one correspondence from blocks of input audio or frames of input features to frames of acoustic scores (due to dynamic feature calculation), results may not be immediately available after input, and the output results will not correspond to the last piece of data input.
+
+T\-O\-D\-O\-: In addition, this structure serves the purpose of queueing frames of features (and potentially also scores in the future) for asynchronous passes of recognition operating in parallel. 
+
+Definition at line 148 of file acmod.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{acmod\-\_\-s@{acmod\-\_\-s}!config@{config}}
+\index{config@{config}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{config}]{\setlength{\rightskip}{0pt plus 5cm}cmd\-\_\-ln\-\_\-t$\ast$ acmod\-\_\-s\-::config}\label{structacmod__s_a3563f4d0bdc48d3ee140b9e28806279d}
+
+
+Configuration. 
+
+
+
+Definition at line 150 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-free(), acmod\-\_\-init(), acmod\-\_\-set\-\_\-insenfh(), and acmod\-\_\-write\-\_\-senfh\-\_\-header().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!fcb@{fcb}}
+\index{fcb@{fcb}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{fcb}]{\setlength{\rightskip}{0pt plus 5cm}feat\-\_\-t$\ast$ acmod\-\_\-s\-::fcb}\label{structacmod__s_a37ec6c2b1f3ada764842e08481239b34}
+
+
+Dynamic feature computation. 
+
+
+
+Definition at line 156 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-free(), acmod\-\_\-init(), acmod\-\_\-process\-\_\-cep(), acmod\-\_\-process\-\_\-feat(), and ps\-\_\-get\-\_\-feat().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!fe@{fe}}
+\index{fe@{fe}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{fe}]{\setlength{\rightskip}{0pt plus 5cm}fe\-\_\-t$\ast$ acmod\-\_\-s\-::fe}\label{structacmod__s_a56eaceb9b6a1cbcccd09cf42cfa87231}
+
+
+Acoustic feature computation. 
+
+
+
+Definition at line 155 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-end\-\_\-utt(), acmod\-\_\-free(), acmod\-\_\-init(), acmod\-\_\-process\-\_\-raw(), acmod\-\_\-start\-\_\-utt(), ps\-\_\-get\-\_\-fe(), and ps\-\_\-get\-\_\-vad\-\_\-state().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!feat\-\_\-buf@{feat\-\_\-buf}}
+\index{feat\-\_\-buf@{feat\-\_\-buf}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{feat\-\_\-buf}]{\setlength{\rightskip}{0pt plus 5cm}mfcc\-\_\-t$\ast$$\ast$$\ast$ acmod\-\_\-s\-::feat\-\_\-buf}\label{structacmod__s_afc52cc0151f6c7e32a230576141d20a3}
+
+
+Temporary buffer of dynamic features. 
+
+
+
+Definition at line 174 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-free(), acmod\-\_\-get\-\_\-frame(), acmod\-\_\-init(), acmod\-\_\-process\-\_\-cep(), acmod\-\_\-process\-\_\-feat(), and acmod\-\_\-score().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!framepos@{framepos}}
+\index{framepos@{framepos}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{framepos}]{\setlength{\rightskip}{0pt plus 5cm}long$\ast$ acmod\-\_\-s\-::framepos}\label{structacmod__s_abfd364dafee513f523e1566bb706e48b}
+
+
+File positions of recent frames in senone file. 
+
+
+
+Definition at line 179 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-free(), acmod\-\_\-init(), acmod\-\_\-read\-\_\-scores(), and acmod\-\_\-score().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!grow\-\_\-feat@{grow\-\_\-feat}}
+\index{grow\-\_\-feat@{grow\-\_\-feat}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{grow\-\_\-feat}]{\setlength{\rightskip}{0pt plus 5cm}uint8 acmod\-\_\-s\-::grow\-\_\-feat}\label{structacmod__s_acbb3fed9495e7b80da79cb03ff3079a1}
+
+
+Whether to grow feat\-\_\-buf. 
+
+
+
+Definition at line 184 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-process\-\_\-cep(), acmod\-\_\-process\-\_\-feat(), acmod\-\_\-read\-\_\-scores(), and acmod\-\_\-set\-\_\-grow().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!insen\-\_\-swap@{insen\-\_\-swap}}
+\index{insen\-\_\-swap@{insen\-\_\-swap}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{insen\-\_\-swap}]{\setlength{\rightskip}{0pt plus 5cm}uint8 acmod\-\_\-s\-::insen\-\_\-swap}\label{structacmod__s_ae6ed7e1e5b4bec021a0ba17c0ac02bd7}
+
+
+Whether to swap input senone score. 
+
+
+
+Definition at line 185 of file acmod.\-h.
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!insenfh@{insenfh}}
+\index{insenfh@{insenfh}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{insenfh}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ acmod\-\_\-s\-::insenfh}\label{structacmod__s_ad0998a9d887db82bd684e9454c9b044e}
+
+
+Input senone score file. 
+
+
+
+Definition at line 178 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-read\-\_\-scores(), acmod\-\_\-score(), and acmod\-\_\-set\-\_\-insenfh().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!lmath@{lmath}}
+\index{lmath@{lmath}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{lmath}]{\setlength{\rightskip}{0pt plus 5cm}logmath\-\_\-t$\ast$ acmod\-\_\-s\-::lmath}\label{structacmod__s_a9de7e8ac9c0c4df3d2a9ad5406787f3c}
+
+
+Log-\/math computation. 
+
+
+
+Definition at line 151 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-init(), acmod\-\_\-write\-\_\-senfh\-\_\-header(), and ps\-\_\-lattice\-\_\-init\-\_\-search().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!log\-\_\-zero@{log\-\_\-zero}}
+\index{log\-\_\-zero@{log\-\_\-zero}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{log\-\_\-zero}]{\setlength{\rightskip}{0pt plus 5cm}int acmod\-\_\-s\-::log\-\_\-zero}\label{structacmod__s_a95d5195647b6395d95433d45e3f74d51}
+
+
+Zero log-\/probability value. 
+
+
+
+Definition at line 170 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-init().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!mdef@{mdef}}
+\index{mdef@{mdef}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{mdef}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bin\-\_\-mdef\-\_\-t}$\ast$ acmod\-\_\-s\-::mdef}\label{structacmod__s_a351548ff5547c29b4a684e10434a51dd}
+
+
+Model definition. 
+
+
+
+Definition at line 159 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-best\-\_\-score(), acmod\-\_\-clear\-\_\-active(), acmod\-\_\-flags2list(), acmod\-\_\-free(), acmod\-\_\-init(), acmod\-\_\-write\-\_\-scores(), acmod\-\_\-write\-\_\-senfh\-\_\-header(), bin\-\_\-mdef\-\_\-read\-\_\-text(), ngram\-\_\-search\-\_\-init(), ps\-\_\-add\-\_\-word(), ps\-\_\-load\-\_\-dict(), and ps\-\_\-reinit().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!mfc\-\_\-buf@{mfc\-\_\-buf}}
+\index{mfc\-\_\-buf@{mfc\-\_\-buf}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{mfc\-\_\-buf}]{\setlength{\rightskip}{0pt plus 5cm}mfcc\-\_\-t$\ast$$\ast$ acmod\-\_\-s\-::mfc\-\_\-buf}\label{structacmod__s_a5ded3dce0428a6ecba97b5d3486e7fa9}
+
+
+Temporary buffer of acoustic features. 
+
+
+
+Definition at line 173 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-end\-\_\-utt(), acmod\-\_\-free(), acmod\-\_\-init(), and acmod\-\_\-process\-\_\-raw().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!mfcfh@{mfcfh}}
+\index{mfcfh@{mfcfh}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{mfcfh}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ acmod\-\_\-s\-::mfcfh}\label{structacmod__s_a71903df6839f1f9fcfc2ef2a62a94f8e}
+
+
+File for writing acoustic feature data. 
+
+
+
+Definition at line 176 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-end\-\_\-utt(), acmod\-\_\-free(), acmod\-\_\-process\-\_\-cep(), and acmod\-\_\-set\-\_\-mfcfh().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!mgau@{mgau}}
+\index{mgau@{mgau}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{mgau}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-mgau\-\_\-t}$\ast$ acmod\-\_\-s\-::mgau}\label{structacmod__s_a023addd9fe7252d87c683e02485cdafd}
+
+
+Model parameters. 
+
+
+
+Definition at line 161 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-advance(), acmod\-\_\-free(), acmod\-\_\-rewind(), acmod\-\_\-score(), acmod\-\_\-start\-\_\-utt(), and acmod\-\_\-update\-\_\-mllr().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!mllr@{mllr}}
+\index{mllr@{mllr}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{mllr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-mllr\-\_\-t}$\ast$ acmod\-\_\-s\-::mllr}\label{structacmod__s_a4edbfa1a1324c6db27b74de7d0158e5e}
+
+
+Speaker transformation. 
+
+
+
+Definition at line 162 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-free(), and acmod\-\_\-update\-\_\-mllr().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!n\-\_\-senone\-\_\-active@{n\-\_\-senone\-\_\-active}}
+\index{n\-\_\-senone\-\_\-active@{n\-\_\-senone\-\_\-active}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{n\-\_\-senone\-\_\-active}]{\setlength{\rightskip}{0pt plus 5cm}int acmod\-\_\-s\-::n\-\_\-senone\-\_\-active}\label{structacmod__s_a5081a507e3ca6de6c5695217245dc9f9}
+
+
+Number of active G\-M\-Ms. 
+
+
+
+Definition at line 169 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-best\-\_\-score(), acmod\-\_\-clear\-\_\-active(), acmod\-\_\-flags2list(), acmod\-\_\-read\-\_\-scores(), acmod\-\_\-score(), and acmod\-\_\-start\-\_\-utt().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!output\-\_\-frame@{output\-\_\-frame}}
+\index{output\-\_\-frame@{output\-\_\-frame}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{output\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf frame\-\_\-idx\-\_\-t} acmod\-\_\-s\-::output\-\_\-frame}\label{structacmod__s_aec694af0767ac5e8f1022b6252111885}
+
+
+Index of next frame of dynamic features. 
+
+
+
+Definition at line 187 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-advance(), acmod\-\_\-flags2list(), acmod\-\_\-read\-\_\-scores(), acmod\-\_\-rewind(), acmod\-\_\-start\-\_\-utt(), ps\-\_\-end\-\_\-utt(), ps\-\_\-get\-\_\-n\-\_\-frames(), and ps\-\_\-get\-\_\-utt\-\_\-time().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!rawfh@{rawfh}}
+\index{rawfh@{rawfh}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{rawfh}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ acmod\-\_\-s\-::rawfh}\label{structacmod__s_aeac89442a04744ca607c4c66dab053e8}
+
+
+File for writing raw audio data. 
+
+
+
+Definition at line 175 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-end\-\_\-utt(), acmod\-\_\-free(), acmod\-\_\-process\-\_\-raw(), and acmod\-\_\-set\-\_\-rawfh().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!senfh@{senfh}}
+\index{senfh@{senfh}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{senfh}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ acmod\-\_\-s\-::senfh}\label{structacmod__s_aba97a9733b64074f3a4699dfbaed5ffd}
+
+
+File for writing senone score data. 
+
+
+
+Definition at line 177 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-end\-\_\-utt(), acmod\-\_\-free(), acmod\-\_\-score(), and acmod\-\_\-set\-\_\-senfh().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!senone\-\_\-active@{senone\-\_\-active}}
+\index{senone\-\_\-active@{senone\-\_\-active}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{senone\-\_\-active}]{\setlength{\rightskip}{0pt plus 5cm}uint8$\ast$ acmod\-\_\-s\-::senone\-\_\-active}\label{structacmod__s_a5c98c727daf4e6bb23534e00b30cb5c2}
+
+
+Array of deltas to active G\-M\-Ms. 
+
+
+
+Definition at line 167 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-best\-\_\-score(), acmod\-\_\-flags2list(), acmod\-\_\-free(), acmod\-\_\-init(), and acmod\-\_\-score().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!senone\-\_\-active\-\_\-vec@{senone\-\_\-active\-\_\-vec}}
+\index{senone\-\_\-active\-\_\-vec@{senone\-\_\-active\-\_\-vec}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{senone\-\_\-active\-\_\-vec}]{\setlength{\rightskip}{0pt plus 5cm}bitvec\-\_\-t$\ast$ acmod\-\_\-s\-::senone\-\_\-active\-\_\-vec}\label{structacmod__s_a4a3ad3a3dc9a7b36c024c77729012e55}
+
+
+Active G\-M\-Ms in current frame. 
+
+
+
+Definition at line 166 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-clear\-\_\-active(), acmod\-\_\-flags2list(), acmod\-\_\-free(), and acmod\-\_\-init().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!senone\-\_\-scores@{senone\-\_\-scores}}
+\index{senone\-\_\-scores@{senone\-\_\-scores}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{senone\-\_\-scores}]{\setlength{\rightskip}{0pt plus 5cm}int16$\ast$ acmod\-\_\-s\-::senone\-\_\-scores}\label{structacmod__s_aa341539b98a5b13bef8589fc8d948da8}
+
+
+G\-M\-M scores for current frame. 
+
+
+
+Definition at line 165 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-best\-\_\-score(), acmod\-\_\-free(), acmod\-\_\-init(), and acmod\-\_\-score().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!senscr\-\_\-frame@{senscr\-\_\-frame}}
+\index{senscr\-\_\-frame@{senscr\-\_\-frame}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{senscr\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}int acmod\-\_\-s\-::senscr\-\_\-frame}\label{structacmod__s_ab70ba4caf96b656936d499247e921f00}
+
+
+Frame index for senone\-\_\-scores. 
+
+
+
+Definition at line 168 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-read\-\_\-scores(), acmod\-\_\-rewind(), acmod\-\_\-score(), and acmod\-\_\-start\-\_\-utt().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!state@{state}}
+\index{state@{state}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}uint8 acmod\-\_\-s\-::state}\label{structacmod__s_a06adf606c11e6f4b9869742510a5c23b}
+
+
+State of utterance processing. 
+
+
+
+Definition at line 182 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-end\-\_\-utt(), acmod\-\_\-init(), acmod\-\_\-process\-\_\-cep(), acmod\-\_\-start\-\_\-utt(), and ps\-\_\-process\-\_\-raw().
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!strings@{strings}}
+\index{strings@{strings}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{strings}]{\setlength{\rightskip}{0pt plus 5cm}glist\-\_\-t acmod\-\_\-s\-::strings}\label{structacmod__s_a9f6b699a0fbd43cf7ababab6f0ab81be}
+
+
+Temporary acoustic model filenames. 
+
+
+
+Definition at line 152 of file acmod.\-h.
+
+\index{acmod\-\_\-s@{acmod\-\_\-s}!tmat@{tmat}}
+\index{tmat@{tmat}!acmod_s@{acmod\-\_\-s}}
+\subsubsection[{tmat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tmat\-\_\-t}$\ast$ acmod\-\_\-s\-::tmat}\label{structacmod__s_aaa3982184a49f0d61e397ba89f486259}
+
+
+Transition matrices. 
+
+
+
+Definition at line 160 of file acmod.\-h.
+
+
+
+Referenced by acmod\-\_\-free(), and ngram\-\_\-search\-\_\-init().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf acmod.\-h}\end{DoxyCompactItemize}

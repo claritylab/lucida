@@ -1,0 +1,40 @@
+\section{heapnode\-\_\-s Struct Reference}
+\label{structheapnode__s}\index{heapnode\-\_\-s@{heapnode\-\_\-s}}
+
+
+One node on the heap.  
+
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ {\bf data}\label{structheapnode__s_a2cac1684dd94b922db98de988232efeb}
+
+\begin{DoxyCompactList}\small\item\em Application data at this node. \end{DoxyCompactList}\item 
+int32 {\bf val}\label{structheapnode__s_a02a74be7915860cf3fc436d5fed6fe7d}
+
+\begin{DoxyCompactList}\small\item\em Associated with above application data; according to which heap is sorted (in ascending order) \end{DoxyCompactList}\item 
+int32 {\bfseries nl}\label{structheapnode__s_a9fd3eb832298ae9ca73896835d38e6d5}
+
+\item 
+int32 {\bf nr}\label{structheapnode__s_ab5a21ee1a48ce5359bbcca1d416a51eb}
+
+\begin{DoxyCompactList}\small\item\em \#left/right descendants of this node (for balancing heap) \end{DoxyCompactList}\item 
+struct {\bf heapnode\-\_\-s} $\ast$ {\bf l}\label{structheapnode__s_af25b6bfb16162294dd35851e04ad6c6b}
+
+\begin{DoxyCompactList}\small\item\em Root of left descendant heap. \end{DoxyCompactList}\item 
+struct {\bf heapnode\-\_\-s} $\ast$ {\bf r}\label{structheapnode__s_a92c30e27e1ccdbaea15f28aa49b0f7ea}
+
+\begin{DoxyCompactList}\small\item\em Root of right descendant heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+One node on the heap. 
+
+Definition at line 77 of file heap.\-c.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libsphinxbase/util/heap.\-c\end{DoxyCompactItemize}

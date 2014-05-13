@@ -1,0 +1,126 @@
+\section{hmm\-\_\-s Struct Reference}
+\label{structhmm__s}\index{hmm\-\_\-s@{hmm\-\_\-s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf hmm\-\_\-context\-\_\-t} $\ast$ {\bf ctx}
+\begin{DoxyCompactList}\small\item\em Shared context data for this H\-M\-M. \end{DoxyCompactList}\item 
+int32 {\bf score} [{\bf H\-M\-M\-\_\-\-M\-A\-X\-\_\-\-N\-S\-T\-A\-T\-E}]
+\begin{DoxyCompactList}\small\item\em State scores for emitting states. \end{DoxyCompactList}\item 
+int32 {\bf history} [{\bf H\-M\-M\-\_\-\-M\-A\-X\-\_\-\-N\-S\-T\-A\-T\-E}]
+\begin{DoxyCompactList}\small\item\em History indices for emitting states. \end{DoxyCompactList}\item 
+int32 {\bf out\-\_\-score}
+\begin{DoxyCompactList}\small\item\em Score for non-\/emitting exit state. \end{DoxyCompactList}\item 
+int32 {\bf out\-\_\-history}
+\begin{DoxyCompactList}\small\item\em History index for non-\/emitting exit state. \end{DoxyCompactList}\item 
+uint16 {\bf ssid}\label{structhmm__s_ad4b029868ba7dd9c27e7be2067651be6}
+
+\begin{DoxyCompactList}\small\item\em Senone sequence I\-D (for non-\/\-M\-P\-X) \end{DoxyCompactList}\item 
+uint16 {\bf senid} [{\bf H\-M\-M\-\_\-\-M\-A\-X\-\_\-\-N\-S\-T\-A\-T\-E}]\label{structhmm__s_abbe5d689b86ce9d3c5dfa2290a33285b}
+
+\begin{DoxyCompactList}\small\item\em Senone I\-Ds (non-\/\-M\-P\-X) or sequence I\-Ds (M\-P\-X) \end{DoxyCompactList}\item 
+int32 {\bf bestscore}
+\begin{DoxyCompactList}\small\item\em Best [emitting] state score in current frame (for pruning). \end{DoxyCompactList}\item 
+int16 {\bf tmatid}
+\begin{DoxyCompactList}\small\item\em Transition matrix I\-D (see \doxyref{hmm\-\_\-context\-\_\-t}{p.}{structhmm__context__t}). \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf frame}\label{structhmm__s_ab89d10923ba5a0dc14dc46d76d8daaaf}
+
+\begin{DoxyCompactList}\small\item\em Frame in which this H\-M\-M was last active; $<$0 if inactive. \end{DoxyCompactList}\item 
+uint8 {\bf mpx}\label{structhmm__s_a25329f2f580cbdbe37be29bc9c2352be}
+
+\begin{DoxyCompactList}\small\item\em Is this H\-M\-M multiplex? (hoisted for speed) \end{DoxyCompactList}\item 
+uint8 {\bf n\-\_\-emit\-\_\-state}\label{structhmm__s_a6a2b5c90489a11d79e4c65984b69bf7b}
+
+\begin{DoxyCompactList}\small\item\em Number of emitting states (hoisted for speed) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 174 of file hmm.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{hmm\-\_\-s@{hmm\-\_\-s}!bestscore@{bestscore}}
+\index{bestscore@{bestscore}!hmm_s@{hmm\-\_\-s}}
+\subsubsection[{bestscore}]{\setlength{\rightskip}{0pt plus 5cm}int32 hmm\-\_\-s\-::bestscore}\label{structhmm__s_a574850d7092b1e574addf0027b32ea61}
+
+
+Best [emitting] state score in current frame (for pruning). 
+
+
+
+Definition at line 182 of file hmm.\-h.
+
+\index{hmm\-\_\-s@{hmm\-\_\-s}!ctx@{ctx}}
+\index{ctx@{ctx}!hmm_s@{hmm\-\_\-s}}
+\subsubsection[{ctx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hmm\-\_\-context\-\_\-t}$\ast$ hmm\-\_\-s\-::ctx}\label{structhmm__s_aa47f90a8a9387d4f721cf0de9129b059}
+
+
+Shared context data for this H\-M\-M. 
+
+
+
+Definition at line 175 of file hmm.\-h.
+
+\index{hmm\-\_\-s@{hmm\-\_\-s}!history@{history}}
+\index{history@{history}!hmm_s@{hmm\-\_\-s}}
+\subsubsection[{history}]{\setlength{\rightskip}{0pt plus 5cm}int32 hmm\-\_\-s\-::history[{\bf H\-M\-M\-\_\-\-M\-A\-X\-\_\-\-N\-S\-T\-A\-T\-E}]}\label{structhmm__s_ab7be2a31a64eb152eee76b5192ad03e7}
+
+
+History indices for emitting states. 
+
+
+
+Definition at line 177 of file hmm.\-h.
+
+\index{hmm\-\_\-s@{hmm\-\_\-s}!out\-\_\-history@{out\-\_\-history}}
+\index{out\-\_\-history@{out\-\_\-history}!hmm_s@{hmm\-\_\-s}}
+\subsubsection[{out\-\_\-history}]{\setlength{\rightskip}{0pt plus 5cm}int32 hmm\-\_\-s\-::out\-\_\-history}\label{structhmm__s_a849e7be0748c36446c2f9e72088efab4}
+
+
+History index for non-\/emitting exit state. 
+
+
+
+Definition at line 179 of file hmm.\-h.
+
+\index{hmm\-\_\-s@{hmm\-\_\-s}!out\-\_\-score@{out\-\_\-score}}
+\index{out\-\_\-score@{out\-\_\-score}!hmm_s@{hmm\-\_\-s}}
+\subsubsection[{out\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}int32 hmm\-\_\-s\-::out\-\_\-score}\label{structhmm__s_a9d9c7fc2468f7725cd0d8fcc7d731f7b}
+
+
+Score for non-\/emitting exit state. 
+
+
+
+Definition at line 178 of file hmm.\-h.
+
+\index{hmm\-\_\-s@{hmm\-\_\-s}!score@{score}}
+\index{score@{score}!hmm_s@{hmm\-\_\-s}}
+\subsubsection[{score}]{\setlength{\rightskip}{0pt plus 5cm}int32 hmm\-\_\-s\-::score[{\bf H\-M\-M\-\_\-\-M\-A\-X\-\_\-\-N\-S\-T\-A\-T\-E}]}\label{structhmm__s_a5aa78f8b09547dc90d83fa1e3d8cf3c3}
+
+
+State scores for emitting states. 
+
+
+
+Definition at line 176 of file hmm.\-h.
+
+\index{hmm\-\_\-s@{hmm\-\_\-s}!tmatid@{tmatid}}
+\index{tmatid@{tmatid}!hmm_s@{hmm\-\_\-s}}
+\subsubsection[{tmatid}]{\setlength{\rightskip}{0pt plus 5cm}int16 hmm\-\_\-s\-::tmatid}\label{structhmm__s_a041bb6bd205ce1e0e5e1082d2c8a3586}
+
+
+Transition matrix I\-D (see \doxyref{hmm\-\_\-context\-\_\-t}{p.}{structhmm__context__t}). 
+
+
+
+Definition at line 183 of file hmm.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf hmm.\-h}\end{DoxyCompactItemize}

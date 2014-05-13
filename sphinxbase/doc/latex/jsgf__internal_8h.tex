@@ -1,0 +1,90 @@
+\section{src/libsphinxbase/lm/jsgf\-\_\-internal.h File Reference}
+\label{jsgf__internal_8h}\index{src/libsphinxbase/lm/jsgf\-\_\-internal.\-h@{src/libsphinxbase/lm/jsgf\-\_\-internal.\-h}}
+
+
+Internal definitions for J\-S\-G\-F grammar compiler.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/hash\-\_\-table.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/glist.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/fsg\-\_\-model.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/logmath.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/strfuncs.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/jsgf.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf jsgf\-\_\-s}
+\item 
+struct {\bf jsgf\-\_\-rule\-\_\-stack\-\_\-s}
+\item 
+struct {\bf jsgf\-\_\-rule\-\_\-s}
+\item 
+struct {\bf jsgf\-\_\-rhs\-\_\-s}
+\item 
+struct {\bf jsgf\-\_\-atom\-\_\-s}
+\item 
+struct {\bf jsgf\-\_\-link\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries Y\-Y\-\_\-\-N\-O\-\_\-\-I\-N\-P\-U\-T}~/$\ast$ Silence a compiler warning. $\ast$/\label{jsgf__internal_8h_a85523a0c7d95c059d251b4e9829947aa}
+
+\item 
+\#define {\bfseries jsgf\-\_\-atom\-\_\-is\-\_\-rule}(atom)~((atom)-\/$>$name[0] == '$<$')\label{jsgf__internal_8h_ac4452bbb59863e64d73f4fe2d6cd394f}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf jsgf\-\_\-rhs\-\_\-s} {\bfseries jsgf\-\_\-rhs\-\_\-t}\label{jsgf__internal_8h_ad8fc00ae94c7a558005de3e89c35142f}
+
+\item 
+typedef struct {\bf jsgf\-\_\-atom\-\_\-s} {\bfseries jsgf\-\_\-atom\-\_\-t}\label{jsgf__internal_8h_a439a04913bdb6a58d86ad152b952f0ee}
+
+\item 
+typedef struct {\bf jsgf\-\_\-link\-\_\-s} {\bfseries jsgf\-\_\-link\-\_\-t}\label{jsgf__internal_8h_a5b84ef71c936d856751f19992a7245eb}
+
+\item 
+typedef struct {\bf jsgf\-\_\-rule\-\_\-stack\-\_\-s} {\bfseries jsgf\-\_\-rule\-\_\-stack\-\_\-t}\label{jsgf__internal_8h_a7a1929b39761f5f252c3fb5965e9461b}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries jsgf\-\_\-add\-\_\-link} ({\bf jsgf\-\_\-t} $\ast$grammar, {\bf jsgf\-\_\-atom\-\_\-t} $\ast$atom, int from, int to)\label{jsgf__internal_8h_acb5af4a04abc56a8584eba9b937f8154}
+
+\item 
+{\bf jsgf\-\_\-atom\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-atom\-\_\-new} (char $\ast$name, float weight)\label{jsgf__internal_8h_a0e59b63784fa8761358bb2bdf568bec1}
+
+\item 
+{\bf jsgf\-\_\-atom\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-kleene\-\_\-new} ({\bf jsgf\-\_\-t} $\ast$jsgf, {\bf jsgf\-\_\-atom\-\_\-t} $\ast$atom, int plus)\label{jsgf__internal_8h_ab9dc2ab39224cda76c43822150cf7e67}
+
+\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-optional\-\_\-new} ({\bf jsgf\-\_\-t} $\ast$jsgf, {\bf jsgf\-\_\-rhs\-\_\-t} $\ast$exp)\label{jsgf__internal_8h_a4a07cb0721add8783f0ea24dfacd6c0f}
+
+\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-define\-\_\-rule} ({\bf jsgf\-\_\-t} $\ast$jsgf, char $\ast$name, {\bf jsgf\-\_\-rhs\-\_\-t} $\ast$rhs, int is\-\_\-public)\label{jsgf__internal_8h_ae7e6644fc37252110c3c0ea0edd229f7}
+
+\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-import\-\_\-rule} ({\bf jsgf\-\_\-t} $\ast$jsgf, char $\ast$name)\label{jsgf__internal_8h_afe1e47584e4dd80929552ffed77373f2}
+
+\item 
+int {\bfseries jsgf\-\_\-atom\-\_\-free} ({\bf jsgf\-\_\-atom\-\_\-t} $\ast$atom)\label{jsgf__internal_8h_a289d683bf62d1a5aaac6917fa64f54f2}
+
+\item 
+int {\bfseries jsgf\-\_\-rule\-\_\-free} ({\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule)\label{jsgf__internal_8h_af2faf6fb74ad1e4d43cf990c1bcec672}
+
+\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-rule\-\_\-retain} ({\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule)\label{jsgf__internal_8h_ad152a23eb0f0d9af8417919fc93074fd}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Internal definitions for J\-S\-G\-F grammar compiler. 
+
+Definition in file {\bf jsgf\-\_\-internal.\-h}.
+

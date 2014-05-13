@@ -1,0 +1,63 @@
+\section{trigram\-\_\-s Struct Reference}
+\label{structtrigram__s}\index{trigram\-\_\-s@{trigram\-\_\-s}}
+
+
+Trigram structure.  
+
+
+
+
+{\ttfamily \#include $<$ngram\-\_\-model\-\_\-arpa.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32 {\bf wid}
+\begin{DoxyCompactList}\small\item\em Index of unigram entry for this. \end{DoxyCompactList}\item 
+uint16 {\bf prob3}\label{structtrigram__s_a52f3fad42f7c653a469af0c1b75988a9}
+
+\begin{DoxyCompactList}\small\item\em Index into array of actual trigram probs. \end{DoxyCompactList}\item 
+uint16 {\bf wid}
+\begin{DoxyCompactList}\small\item\em Index of unigram entry for this. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Trigram structure. 
+
+On-\/disk representation of trigrams.
+
+As with bigrams, trigram prob info kept in a separate table for conserving memory space. 
+
+Definition at line 66 of file ngram\-\_\-model\-\_\-arpa.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{trigram\-\_\-s@{trigram\-\_\-s}!wid@{wid}}
+\index{wid@{wid}!trigram_s@{trigram\-\_\-s}}
+\subsubsection[{wid}]{\setlength{\rightskip}{0pt plus 5cm}uint32 trigram\-\_\-s\-::wid}\label{structtrigram__s_a492e1fedb16fa11d26a941177c1305be}
+
+
+Index of unigram entry for this. 
+
+(N\-O\-T dictionary id.) 
+
+Definition at line 67 of file ngram\-\_\-model\-\_\-arpa.\-h.
+
+\index{trigram\-\_\-s@{trigram\-\_\-s}!wid@{wid}}
+\index{wid@{wid}!trigram_s@{trigram\-\_\-s}}
+\subsubsection[{wid}]{\setlength{\rightskip}{0pt plus 5cm}uint16 trigram\-\_\-s\-::wid}\label{structtrigram__s_ad90726c9d1c5b2d564205b4feddcb674}
+
+
+Index of unigram entry for this. 
+
+(N\-O\-T dictionary id.) 
+
+Definition at line 69 of file ngram\-\_\-model\-\_\-dmp.\-h.
+
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/libsphinxbase/lm/ngram\-\_\-model\-\_\-arpa.\-h\item 
+src/libsphinxbase/lm/ngram\-\_\-model\-\_\-dmp.\-h\end{DoxyCompactItemize}

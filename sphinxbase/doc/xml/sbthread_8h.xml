@@ -1,0 +1,689 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="sbthread_8h" kind="file">
+    <compoundname>sbthread.h</compoundname>
+    <includes local="no">sphinx_config.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="cmd__ln_8h" local="no">sphinxbase/cmd_ln.h</includes>
+    <includedby refid="sbthread_8c" local="yes">src/libsphinxbase/util/sbthread.c</includedby>
+    <incdepgraph>
+      <node id="931">
+        <label>stdarg.h</label>
+      </node>
+      <node id="926">
+        <label>include/sphinxbase/sbthread.h</label>
+        <link refid="sbthread.h"/>
+        <childnode refid="927" relation="include">
+        </childnode>
+        <childnode refid="928" relation="include">
+        </childnode>
+        <childnode refid="929" relation="include">
+        </childnode>
+      </node>
+      <node id="927">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="928">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="932">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="927" relation="include">
+        </childnode>
+      </node>
+      <node id="929">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="930" relation="include">
+        </childnode>
+        <childnode refid="931" relation="include">
+        </childnode>
+        <childnode refid="928" relation="include">
+        </childnode>
+        <childnode refid="932" relation="include">
+        </childnode>
+      </node>
+      <node id="930">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="933">
+        <label>include/sphinxbase/sbthread.h</label>
+        <link refid="sbthread.h"/>
+        <childnode refid="934" relation="include">
+        </childnode>
+      </node>
+      <node id="934">
+        <label>src/libsphinxbase/util/sbthread.c</label>
+        <link refid="sbthread_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" prot="public" static="no">
+        <type>struct <ref refid="structsbthread__s" kindref="compound">sbthread_s</ref></type>
+        <definition>typedef struct sbthread_s sbthread_t</definition>
+        <argsstring></argsstring>
+        <name>sbthread_t</name>
+        <briefdescription>
+<para>Thread object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="165" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="sbthread_8h_1aad7adcc2e5f2fd6d2f429c25a52356ef" prot="public" static="no">
+        <type>struct <ref refid="structsbmsgq__s" kindref="compound">sbmsgq_s</ref></type>
+        <definition>typedef struct sbmsgq_s sbmsgq_t</definition>
+        <argsstring></argsstring>
+        <name>sbmsgq_t</name>
+        <briefdescription>
+<para>Asynchronous message queue object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="165" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="sbthread_8h_1a21bc1100c4336693a6f25cdeec40cbec" prot="public" static="no">
+        <type>struct <ref refid="structsbmtx__s" kindref="compound">sbmtx_s</ref></type>
+        <definition>typedef struct sbmtx_s sbmtx_t</definition>
+        <argsstring></argsstring>
+        <name>sbmtx_t</name>
+        <briefdescription>
+<para>Mutex (critical section) object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="165" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="sbthread_8h_1a312dae368aa1662b07f199ea802cdefa" prot="public" static="no">
+        <type>struct <ref refid="structsbevent__s" kindref="compound">sbevent_s</ref></type>
+        <definition>typedef struct sbevent_s sbevent_t</definition>
+        <argsstring></argsstring>
+        <name>sbevent_t</name>
+        <briefdescription>
+<para>Event object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="165" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="sbthread_8h_1acb30b2ddcf70058f8bd38d68920be777" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* sbthread_main)(sbthread_t *th)</definition>
+        <argsstring>)(sbthread_t *th)</argsstring>
+        <name>sbthread_main</name>
+        <briefdescription>
+<para>Entry point for a thread. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="82" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="sbthread_8h_1abfe1f703f4e17a2940c88d86d1987a8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" kindref="member">sbthread_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT sbthread_t* sbthread_start</definition>
+        <argsstring>(cmd_ln_t *config, sbthread_main func, void *arg)</argsstring>
+        <name>sbthread_start</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="sbthread_8h_1acb30b2ddcf70058f8bd38d68920be777" kindref="member">sbthread_main</ref></type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Start a new thread. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="88" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="406" bodyend="422"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="sbthread_8c_1a76852d201655b6f08ed6c35f6ebf8b4b" compoundref="sbthread_8c" startline="444" endline="462">sbmsgq_init</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="sbthread_8c_1a2b80d955dab72ff602d9048551dc7489" compoundref="sbthread_8c" startline="734" endline="739">sbthread_free</references>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a09c5c428b02b743c99d20bb2b11d964b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int sbthread_wait</definition>
+        <argsstring>(sbthread_t *th)</argsstring>
+        <name>sbthread_wait</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" kindref="member">sbthread_t</ref> *</type>
+          <declname>th</declname>
+        </param>
+        <briefdescription>
+<para>Wait for a thread to complete. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="94" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="425" bodyend="441"/>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <referencedby refid="sbthread_8c_1a2b80d955dab72ff602d9048551dc7489" compoundref="sbthread_8c" startline="734" endline="739">sbthread_free</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1aa7827b760dfa47d95141f4896698e5c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void sbthread_free</definition>
+        <argsstring>(sbthread_t *th)</argsstring>
+        <name>sbthread_free</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" kindref="member">sbthread_t</ref> *</type>
+          <declname>th</declname>
+        </param>
+        <briefdescription>
+<para>Free a thread object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="100" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="734" bodyend="739"/>
+        <references refid="sbthread_8c_1ad4cc725834be72ea986f80c4f4ecb24d" compoundref="sbthread_8c" startline="425" endline="441">sbthread_wait</references>
+        <references refid="sbthread_8c_1aa8483d06a1456207643abcfebc3b2e0a" compoundref="sbthread_8c" startline="465" endline="472">sbmsgq_free</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="sbthread_8c_1a0ba06f52feda5c218dc38373e930017c" compoundref="sbthread_8c" startline="406" endline="422">sbthread_start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1ab03c2f299f3e94b9f53aac1c1eaa0695" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT cmd_ln_t* sbthread_config</definition>
+        <argsstring>(sbthread_t *th)</argsstring>
+        <name>sbthread_config</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" kindref="member">sbthread_t</ref> *</type>
+          <declname>th</declname>
+        </param>
+        <briefdescription>
+<para>Get configuration object from a thread. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="106" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="710" bodyend="713"/>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a130f2273128498e0f1d875cf6c0c2928" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* sbthread_arg</definition>
+        <argsstring>(sbthread_t *th)</argsstring>
+        <name>sbthread_arg</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" kindref="member">sbthread_t</ref> *</type>
+          <declname>th</declname>
+        </param>
+        <briefdescription>
+<para>Get argument pointer from a thread. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="112" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="716" bodyend="719"/>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a5dfe1b7bb9c8d9aea7339e99a89307af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="sbthread_8h_1aad7adcc2e5f2fd6d2f429c25a52356ef" kindref="member">sbmsgq_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT sbmsgq_t* sbthread_msgq</definition>
+        <argsstring>(sbthread_t *th)</argsstring>
+        <name>sbthread_msgq</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" kindref="member">sbthread_t</ref> *</type>
+          <declname>th</declname>
+        </param>
+        <briefdescription>
+<para>Get message queue from a thread. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="118" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="722" bodyend="725"/>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a932830409403ab4a03f0ffefe907551e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int sbthread_send</definition>
+        <argsstring>(sbthread_t *th, size_t len, void const *data)</argsstring>
+        <name>sbthread_send</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" kindref="member">sbthread_t</ref> *</type>
+          <declname>th</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Send an asynchronous message to a thread. </para>        </briefdescription>
+        <detaileddescription>
+<para>Each thread gets a message queue by default, so this is just a wrapper around <ref refid="sbthread_8h_1ab0591b5cb626be52dd22edf8fa13a3e3" kindref="member">sbmsgq_send()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="133" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="728" bodyend="731"/>
+        <references refid="sbthread_8c_1ae6c214bf1fab2f10cb51648b7e736698" compoundref="sbthread_8c" startline="475" endline="529">sbmsgq_send</references>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a535a4d0d3f71c30f32d75b6268cc5e1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="sbthread_8h_1aad7adcc2e5f2fd6d2f429c25a52356ef" kindref="member">sbmsgq_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT sbmsgq_t* sbmsgq_init</definition>
+        <argsstring>(size_t depth)</argsstring>
+        <name>sbmsgq_init</name>
+        <param>
+          <type>size_t</type>
+          <declname>depth</declname>
+        </param>
+        <briefdescription>
+<para>Create a message queue. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Depth of the queue. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="141" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="444" bodyend="462"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="sbthread_8c_1a0ba06f52feda5c218dc38373e930017c" compoundref="sbthread_8c" startline="406" endline="422">sbthread_start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1ab1ab59934422a5fac90ce0c4b66ffcc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void sbmsgq_free</definition>
+        <argsstring>(sbmsgq_t *q)</argsstring>
+        <name>sbmsgq_free</name>
+        <param>
+          <type><ref refid="sbthread_8h_1aad7adcc2e5f2fd6d2f429c25a52356ef" kindref="member">sbmsgq_t</ref> *</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Free a message queue. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="147" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="465" bodyend="472"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="sbthread_8c_1a2b80d955dab72ff602d9048551dc7489" compoundref="sbthread_8c" startline="734" endline="739">sbthread_free</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1ab0591b5cb626be52dd22edf8fa13a3e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int sbmsgq_send</definition>
+        <argsstring>(sbmsgq_t *q, size_t len, void const *data)</argsstring>
+        <name>sbmsgq_send</name>
+        <param>
+          <type><ref refid="sbthread_8h_1aad7adcc2e5f2fd6d2f429c25a52356ef" kindref="member">sbmsgq_t</ref> *</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Post a message to a queue. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="153" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="475" bodyend="529"/>
+        <referencedby refid="sbthread_8c_1afae533b302b310a828cf2eed1f2f5995" compoundref="sbthread_8c" startline="728" endline="731">sbthread_send</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1ab3a421d172a92ef5ad371442a66767b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* sbmsgq_wait</definition>
+        <argsstring>(sbmsgq_t *q, size_t *out_len, int sec, int nsec)</argsstring>
+        <name>sbmsgq_wait</name>
+        <param>
+          <type><ref refid="sbthread_8h_1aad7adcc2e5f2fd6d2f429c25a52356ef" kindref="member">sbmsgq_t</ref> *</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>out_len</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sec</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nsec</declname>
+        </param>
+        <briefdescription>
+<para>Wait for a message from a queue. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="159" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="555" bodyend="608"/>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a28067c5be5370074d21668620a68b229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="sbthread_8h_1a21bc1100c4336693a6f25cdeec40cbec" kindref="member">sbmtx_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT sbmtx_t* sbmtx_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>sbmtx_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Create a mutex. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="165" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="671" bodyend="681"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a3b86c81160360234944737b4eab73125" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int sbmtx_trylock</definition>
+        <argsstring>(sbmtx_t *mtx)</argsstring>
+        <name>sbmtx_trylock</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a21bc1100c4336693a6f25cdeec40cbec" kindref="member">sbmtx_t</ref> *</type>
+          <declname>mtx</declname>
+        </param>
+        <briefdescription>
+<para>Try to acquire a mutex. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="171" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="684" bodyend="687"/>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a6615e839f7c8ef3ebb6b288525f002cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int sbmtx_lock</definition>
+        <argsstring>(sbmtx_t *mtx)</argsstring>
+        <name>sbmtx_lock</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a21bc1100c4336693a6f25cdeec40cbec" kindref="member">sbmtx_t</ref> *</type>
+          <declname>mtx</declname>
+        </param>
+        <briefdescription>
+<para>Acquire a mutex. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="177" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="690" bodyend="693"/>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1af65691258c916c68f1b5d000aaea233f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int sbmtx_unlock</definition>
+        <argsstring>(sbmtx_t *mtx)</argsstring>
+        <name>sbmtx_unlock</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a21bc1100c4336693a6f25cdeec40cbec" kindref="member">sbmtx_t</ref> *</type>
+          <declname>mtx</declname>
+        </param>
+        <briefdescription>
+<para>Release a mutex. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="183" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="696" bodyend="699"/>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1aa17a6a93744eb813ca80bf098c69bdba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void sbmtx_free</definition>
+        <argsstring>(sbmtx_t *mtx)</argsstring>
+        <name>sbmtx_free</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a21bc1100c4336693a6f25cdeec40cbec" kindref="member">sbmtx_t</ref> *</type>
+          <declname>mtx</declname>
+        </param>
+        <briefdescription>
+<para>Dispose of a mutex. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="189" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="702" bodyend="706"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a1b3fa1cf6b82dcd82ab8d4124ab12490" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="sbthread_8h_1a312dae368aa1662b07f199ea802cdefa" kindref="member">sbevent_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT sbevent_t* sbevent_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>sbevent_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize an event. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="195" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="611" bodyend="629"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1afe8253a0e804a019ad0d8c540eec75af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void sbevent_free</definition>
+        <argsstring>(sbevent_t *evt)</argsstring>
+        <name>sbevent_free</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a312dae368aa1662b07f199ea802cdefa" kindref="member">sbevent_t</ref> *</type>
+          <declname>evt</declname>
+        </param>
+        <briefdescription>
+<para>Free an event. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="201" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="632" bodyend="637"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1a7c01e3e70c2ab8e961d59db84aa5fa68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int sbevent_signal</definition>
+        <argsstring>(sbevent_t *evt)</argsstring>
+        <name>sbevent_signal</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a312dae368aa1662b07f199ea802cdefa" kindref="member">sbevent_t</ref> *</type>
+          <declname>evt</declname>
+        </param>
+        <briefdescription>
+<para>Signal an event. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="207" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="640" bodyend="649"/>
+      </memberdef>
+      <memberdef kind="function" id="sbthread_8h_1ac211760e4dffccf0102db65fb6f2c5b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int sbevent_wait</definition>
+        <argsstring>(sbevent_t *evt, int sec, int nsec)</argsstring>
+        <name>sbevent_wait</name>
+        <param>
+          <type><ref refid="sbthread_8h_1a312dae368aa1662b07f199ea802cdefa" kindref="member">sbevent_t</ref> *</type>
+          <declname>evt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sec</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nsec</declname>
+        </param>
+        <briefdescription>
+<para>Wait for an event to be signalled. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h" line="213" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/sbthread.c" bodystart="652" bodyend="668"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Simple portable thread functions. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>David Huggins-Daines <ulink url="mailto:dhuggins@cs.cmu.edu">dhuggins@cs.cmu.edu</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2008<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor">#ifndef<sp/>__SBTHREAD_H__</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__SBTHREAD_H__</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinx_config.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="cmd__ln_8h" kindref="compound">sphinxbase/cmd_ln.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="62" refid="sbthread_8h_1a068f6028c760eee1e4eb4655ac7e7424" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsbthread__s" kindref="compound">sbthread_s</ref><sp/><ref refid="structsbthread__s" kindref="compound">sbthread_t</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="sbthread_8h_1aad7adcc2e5f2fd6d2f429c25a52356ef" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsbmsgq__s" kindref="compound">sbmsgq_s</ref><sp/><ref refid="structsbmsgq__s" kindref="compound">sbmsgq_t</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="sbthread_8h_1a21bc1100c4336693a6f25cdeec40cbec" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsbmtx__s" kindref="compound">sbmtx_s</ref><sp/><ref refid="structsbmtx__s" kindref="compound">sbmtx_t</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="sbthread_8h_1a312dae368aa1662b07f199ea802cdefa" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structsbevent__s" kindref="compound">sbevent_s</ref><sp/><ref refid="structsbevent__s" kindref="compound">sbevent_t</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="sbthread_8h_1acb30b2ddcf70058f8bd38d68920be777" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int<sp/>(*<ref refid="sbthread_8h_1acb30b2ddcf70058f8bd38d68920be777" kindref="member">sbthread_main</ref>)(<ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*th);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*<ref refid="sbthread_8h_1abfe1f703f4e17a2940c88d86d1987a8f" kindref="member">sbthread_start</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*config,<sp/><ref refid="sbthread_8h_1acb30b2ddcf70058f8bd38d68920be777" kindref="member">sbthread_main</ref><sp/>func,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*arg);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1a09c5c428b02b743c99d20bb2b11d964b" kindref="member">sbthread_wait</ref>(<ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*th);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1aa7827b760dfa47d95141f4896698e5c5" kindref="member">sbthread_free</ref>(<ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*th);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*<ref refid="sbthread_8h_1ab03c2f299f3e94b9f53aac1c1eaa0695" kindref="member">sbthread_config</ref>(<ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*th);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="sbthread_8h_1a130f2273128498e0f1d875cf6c0c2928" kindref="member">sbthread_arg</ref>(<ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*th);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><ref refid="structsbmsgq__s" kindref="compound">sbmsgq_t</ref><sp/>*<ref refid="sbthread_8h_1a5dfe1b7bb9c8d9aea7339e99a89307af" kindref="member">sbthread_msgq</ref>(<ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*th);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1a09c5c428b02b743c99d20bb2b11d964b" kindref="member">sbthread_wait</ref>(<ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*th);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1a932830409403ab4a03f0ffefe907551e" kindref="member">sbthread_send</ref>(<ref refid="structsbthread__s" kindref="compound">sbthread_t</ref><sp/>*th,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*data);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><ref refid="structsbmsgq__s" kindref="compound">sbmsgq_t</ref><sp/>*<ref refid="sbthread_8h_1a535a4d0d3f71c30f32d75b6268cc5e1e" kindref="member">sbmsgq_init</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>depth);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1ab1ab59934422a5fac90ce0c4b66ffcc8" kindref="member">sbmsgq_free</ref>(<ref refid="structsbmsgq__s" kindref="compound">sbmsgq_t</ref><sp/>*q);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1ab0591b5cb626be52dd22edf8fa13a3e3" kindref="member">sbmsgq_send</ref>(<ref refid="structsbmsgq__s" kindref="compound">sbmsgq_t</ref><sp/>*q,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*data);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="sbthread_8h_1ab3a421d172a92ef5ad371442a66767b5" kindref="member">sbmsgq_wait</ref>(<ref refid="structsbmsgq__s" kindref="compound">sbmsgq_t</ref><sp/>*q,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>*out_len,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sec,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nsec);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><ref refid="structsbmtx__s" kindref="compound">sbmtx_t</ref><sp/>*<ref refid="sbthread_8h_1a28067c5be5370074d21668620a68b229" kindref="member">sbmtx_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1a3b86c81160360234944737b4eab73125" kindref="member">sbmtx_trylock</ref>(<ref refid="structsbmtx__s" kindref="compound">sbmtx_t</ref><sp/>*mtx);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1a6615e839f7c8ef3ebb6b288525f002cd" kindref="member">sbmtx_lock</ref>(<ref refid="structsbmtx__s" kindref="compound">sbmtx_t</ref><sp/>*mtx);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1af65691258c916c68f1b5d000aaea233f" kindref="member">sbmtx_unlock</ref>(<ref refid="structsbmtx__s" kindref="compound">sbmtx_t</ref><sp/>*mtx);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1aa17a6a93744eb813ca80bf098c69bdba" kindref="member">sbmtx_free</ref>(<ref refid="structsbmtx__s" kindref="compound">sbmtx_t</ref><sp/>*mtx);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><ref refid="structsbevent__s" kindref="compound">sbevent_t</ref><sp/>*<ref refid="sbthread_8h_1a1b3fa1cf6b82dcd82ab8d4124ab12490" kindref="member">sbevent_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1afe8253a0e804a019ad0d8c540eec75af" kindref="member">sbevent_free</ref>(<ref refid="structsbevent__s" kindref="compound">sbevent_t</ref><sp/>*evt);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1a7c01e3e70c2ab8e961d59db84aa5fa68" kindref="member">sbevent_signal</ref>(<ref refid="structsbevent__s" kindref="compound">sbevent_t</ref><sp/>*evt);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sbthread_8h_1ac211760e4dffccf0102db65fb6f2c5b3" kindref="member">sbevent_wait</ref>(<ref refid="structsbevent__s" kindref="compound">sbevent_t</ref><sp/>*evt,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sec,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nsec);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="217"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="219"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__SBTHREAD_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/sbthread.h"/>
+  </compounddef>
+</doxygen>

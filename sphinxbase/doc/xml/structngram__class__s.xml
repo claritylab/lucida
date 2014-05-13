@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structngram__class__s" kind="struct" prot="public">
+    <compoundname>ngram_class_s</compoundname>
+    <includes refid="ngram__model__internal_8h" local="no">ngram_model_internal.h</includes>
+    <innerclass refid="structngram__class__s_1_1ngram__hash__s" prot="public">ngram_class_s::ngram_hash_s</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structngram__class__s_1ab5f3cc0142c9fd91b3c3d0e59906b556" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_class_s::tag_wid</definition>
+        <argsstring></argsstring>
+        <name>tag_wid</name>
+        <briefdescription>
+<para>Base word ID for this class tag. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="84" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="84" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a6ac5799e78ea4ad82a11e2439016471e" compoundref="ngram__model_8c" startline="494" endline="521">ngram_ng_score</referencedby>
+        <referencedby refid="ngram__model_8h_1a218d8d140b93d3d8008f8933f9e04ec6" compoundref="ngram__model_8c" startline="570" endline="597">ngram_ng_prob</referencedby>
+        <referencedby refid="ngram__model_8h_1a39eabb4994cf99c4bc2116e12af0c9f1" compoundref="ngram__model_8c" startline="976" endline="1023">ngram_model_add_class_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__class__s_1a370c88602c7c1f7e3ff1a767c027f5cb" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_class_s::start_wid</definition>
+        <argsstring></argsstring>
+        <name>start_wid</name>
+        <briefdescription>
+<para>Starting base word ID for this class&apos; words. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="85" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="85" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1aec73d28e7285e539a0b44a7ac0cbe489" compoundref="ngram__model_8c" startline="254" endline="296">ngram_model_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__class__s_1af13562cbc44647435f315b18df5688dc" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_class_s::n_words</definition>
+        <argsstring></argsstring>
+        <name>n_words</name>
+        <briefdescription>
+<para>Number of base words for this class. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="86" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="86" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1aec73d28e7285e539a0b44a7ac0cbe489" compoundref="ngram__model_8c" startline="254" endline="296">ngram_model_free</referencedby>
+        <referencedby refid="ngram__model_8h_1a39eabb4994cf99c4bc2116e12af0c9f1" compoundref="ngram__model_8c" startline="976" endline="1023">ngram_model_add_class_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__class__s_1a50077f48f135f1c666745a21574e4205" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* ngram_class_s::prob1</definition>
+        <argsstring></argsstring>
+        <name>prob1</name>
+        <briefdescription>
+<para>Probability table for base words. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="87" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a39eabb4994cf99c4bc2116e12af0c9f1" compoundref="ngram__model_8c" startline="976" endline="1023">ngram_model_add_class_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__class__s_1aab28f6b41e4020455ff2484a6fa850bb" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structngram__class__s_1_1ngram__hash__s" kindref="compound">ngram_class_s::ngram_hash_s</ref> *</type>
+        <definition>struct ngram_class_s::ngram_hash_s * ngram_class_s::nword_hash</definition>
+        <argsstring></argsstring>
+        <name>nword_hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="95" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__class__s_1a7f450019eb6dc2e31b18eb3ab6009920" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_class_s::n_hash</definition>
+        <argsstring></argsstring>
+        <name>n_hash</name>
+        <briefdescription>
+<para>Number of buckets in nword_hash (power of 2) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="96" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="96" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1aec73d28e7285e539a0b44a7ac0cbe489" compoundref="ngram__model_8c" startline="254" endline="296">ngram_model_free</referencedby>
+        <referencedby refid="ngram__model_8h_1a39eabb4994cf99c4bc2116e12af0c9f1" compoundref="ngram__model_8c" startline="976" endline="1023">ngram_model_add_class_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__class__s_1a79438cd582363800bc05da31a9ca49d6" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_class_s::n_hash_inuse</definition>
+        <argsstring></argsstring>
+        <name>n_hash_inuse</name>
+        <briefdescription>
+<para>Number of words in nword_hash. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="97" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="97" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a39eabb4994cf99c4bc2116e12af0c9f1" compoundref="ngram__model_8c" startline="976" endline="1023">ngram_model_add_class_word</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of ngram_class_t. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="196">
+        <label>ngram_class_s::ngram_hash_s</label>
+        <link refid="structngram__class__s_1_1ngram__hash__s"/>
+      </node>
+      <node id="195">
+        <label>ngram_class_s</label>
+        <link refid="structngram__class__s"/>
+        <childnode refid="196" relation="usage">
+          <edgelabel>nword_hash</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="83" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="83" bodyend="98"/>
+    <listofallmembers>
+      <member refid="structngram__class__s_1a7f450019eb6dc2e31b18eb3ab6009920" prot="public" virt="non-virtual"><scope>ngram_class_s</scope><name>n_hash</name></member>
+      <member refid="structngram__class__s_1a79438cd582363800bc05da31a9ca49d6" prot="public" virt="non-virtual"><scope>ngram_class_s</scope><name>n_hash_inuse</name></member>
+      <member refid="structngram__class__s_1af13562cbc44647435f315b18df5688dc" prot="public" virt="non-virtual"><scope>ngram_class_s</scope><name>n_words</name></member>
+      <member refid="structngram__class__s_1aab28f6b41e4020455ff2484a6fa850bb" prot="public" virt="non-virtual"><scope>ngram_class_s</scope><name>nword_hash</name></member>
+      <member refid="structngram__class__s_1a50077f48f135f1c666745a21574e4205" prot="public" virt="non-virtual"><scope>ngram_class_s</scope><name>prob1</name></member>
+      <member refid="structngram__class__s_1a370c88602c7c1f7e3ff1a767c027f5cb" prot="public" virt="non-virtual"><scope>ngram_class_s</scope><name>start_wid</name></member>
+      <member refid="structngram__class__s_1ab5f3cc0142c9fd91b3c3d0e59906b556" prot="public" virt="non-virtual"><scope>ngram_class_s</scope><name>tag_wid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

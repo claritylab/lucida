@@ -1,0 +1,144 @@
+\section{src/libpocketsphinx/pocketsphinx\-\_\-internal.h File Reference}
+\label{pocketsphinx__internal_8h}\index{src/libpocketsphinx/pocketsphinx\-\_\-internal.\-h@{src/libpocketsphinx/pocketsphinx\-\_\-internal.\-h}}
+
+
+Internal implementation of Pocket\-Sphinx decoder.  
+
+
+{\ttfamily \#include $<$sphinxbase/cmd\-\_\-ln.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/fe.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/feat.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/hash\-\_\-table.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/logmath.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/profile.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pocketsphinx.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}acmod.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dict.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dict2pid.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf ps\-\_\-searchfuncs\-\_\-s}
+\begin{DoxyCompactList}\small\item\em V-\/table for search algorithm. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-search\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Base structure for search module. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-segfuncs\-\_\-s}
+\item 
+struct {\bf ps\-\_\-seg\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Base structure for hypothesis segmentation iterator. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-decoder\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Decoder object. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-search\-\_\-iter\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-base}(s)~(({\bf ps\-\_\-search\-\_\-t} $\ast$)s)\label{pocketsphinx__internal_8h_a27058b099b21336e1fd50299f8596171}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-config}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$config\label{pocketsphinx__internal_8h_a856f984d97ce3d4ac640f1a9061065cf}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-acmod}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$acmod\label{pocketsphinx__internal_8h_a03b1edeb67c83451296c2d99b22621a9}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-dict}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$dict\label{pocketsphinx__internal_8h_ae2aad02cace01fbb2f345a0ead69c672}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-dict2pid}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$d2p\label{pocketsphinx__internal_8h_a5c91d7c3f11ba5b938705d1fe65676f9}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-dag}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$dag\label{pocketsphinx__internal_8h_a90e5addd9875c355d99208246802f7d8}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-last\-\_\-link}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$last\-\_\-link\label{pocketsphinx__internal_8h_a9ae7d942e4206b4184cc073a87d2dc82}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-post}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$post\label{pocketsphinx__internal_8h_ac8707bfd426dfd0eceb1e57836c0ac91}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-lookahead}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$pls\label{pocketsphinx__internal_8h_a890584ac65d28cd404d66adf631fac7c}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-n\-\_\-words}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$n\-\_\-words\label{pocketsphinx__internal_8h_aaba5c849ae487b5a3fff0210f4687e25}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-name}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$name\label{pocketsphinx__internal_8h_a6ff1216eb4c0053ecdfe6096d79f02f7}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-start}(s)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$start))(s)\label{pocketsphinx__internal_8h_ac905db8dfa65727e787c44f40d80239c}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-step}(s, i)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$step))(s,i)\label{pocketsphinx__internal_8h_a3e3be8540f1e419fe4dfa1a063c4e8be}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-finish}(s)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$finish))(s)\label{pocketsphinx__internal_8h_a52d4cf988efa2211c86a2168de346032}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-reinit}(s, d, d2p)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$reinit))(s,d,d2p)\label{pocketsphinx__internal_8h_a071483ece6369091cc50334f5be1124b}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-free}(s)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$free))(s)\label{pocketsphinx__internal_8h_ac5475853d99524bb4c933c42df58118b}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-lattice}(s)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$lattice))(s)\label{pocketsphinx__internal_8h_ac821fb65e0c2ef778a4b8b49ecf30e11}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-hyp}(s, sc, final)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$hyp))(s,sc,final)\label{pocketsphinx__internal_8h_a61247136ccf60cf65c19ecc9efebcb73}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-prob}(s)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$prob))(s)\label{pocketsphinx__internal_8h_a3fb9e1a2036effd2f15cd088140c750f}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-seg\-\_\-iter}(s, sc)~($\ast$(ps\-\_\-search\-\_\-base(s)-\/$>$vt-\/$>$seg\-\_\-iter))(s,sc)\label{pocketsphinx__internal_8h_a6478039ec1ab5948ff19123c4464a5a4}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-silence\-\_\-wid}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$silence\-\_\-wid\label{pocketsphinx__internal_8h_aab989bd93fe7abcc165bc92d6ccc1bac}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-start\-\_\-wid}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$start\-\_\-wid\label{pocketsphinx__internal_8h_a6dc7da2c1bc3bfb15d5fbe3618a4e3d4}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-finish\-\_\-wid}(s)~ps\-\_\-search\-\_\-base(s)-\/$>$finish\-\_\-wid\label{pocketsphinx__internal_8h_aaeee657147579bc652c494989622f6b4}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-seg\-\_\-next}(seg)~($\ast$(seg-\/$>$vt-\/$>$seg\-\_\-next))(seg)\label{pocketsphinx__internal_8h_ae7c150fad9fc9e8a13e632a1386b8f56}
+
+\item 
+\#define {\bfseries ps\-\_\-search\-\_\-seg\-\_\-free}(s)~($\ast$(seg-\/$>$vt-\/$>$seg\-\_\-free))(seg)\label{pocketsphinx__internal_8h_a38f6b225e3eace3793cdae8135b0aaab}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf ps\-\_\-search\-\_\-s} {\bf ps\-\_\-search\-\_\-t}\label{pocketsphinx__internal_8h_adc3de4d62e46c5e6cb93d09fb61be8ee}
+
+\begin{DoxyCompactList}\small\item\em Search algorithm structure. \end{DoxyCompactList}\item 
+typedef struct {\bf ps\-\_\-searchfuncs\-\_\-s} {\bf ps\-\_\-searchfuncs\-\_\-t}\label{pocketsphinx__internal_8h_a0eae078e32bd5f339792884c68aad8b3}
+
+\begin{DoxyCompactList}\small\item\em V-\/table for search algorithm. \end{DoxyCompactList}\item 
+typedef struct {\bf ps\-\_\-segfuncs\-\_\-s} {\bfseries ps\-\_\-segfuncs\-\_\-t}\label{pocketsphinx__internal_8h_a08187b85c6bc5b4991632dc78e237977}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf ps\-\_\-search\-\_\-init} ({\bf ps\-\_\-search\-\_\-t} $\ast$search, {\bf ps\-\_\-searchfuncs\-\_\-t} $\ast$vt, cmd\-\_\-ln\-\_\-t $\ast$config, {\bf acmod\-\_\-t} $\ast$acmod, {\bf dict\-\_\-t} $\ast$dict, {\bf dict2pid\-\_\-t} $\ast$d2p)\label{pocketsphinx__internal_8h_ad848d8d0cf0398542bfb74a2e34dbff3}
+
+\begin{DoxyCompactList}\small\item\em Initialize base structure. \end{DoxyCompactList}\item 
+void {\bf ps\-\_\-search\-\_\-base\-\_\-reinit} ({\bf ps\-\_\-search\-\_\-t} $\ast$search, {\bf dict\-\_\-t} $\ast$dict, {\bf dict2pid\-\_\-t} $\ast$d2p)\label{pocketsphinx__internal_8h_a307801961f27bd5f4b82a3e6b83e0ca1}
+
+\begin{DoxyCompactList}\small\item\em Re-\/initialize base structure with new dictionary. \end{DoxyCompactList}\item 
+void {\bf ps\-\_\-search\-\_\-deinit} ({\bf ps\-\_\-search\-\_\-t} $\ast$search)\label{pocketsphinx__internal_8h_a1299496b3498166928702d0701934e50}
+
+\begin{DoxyCompactList}\small\item\em De-\/initialize base structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Internal implementation of Pocket\-Sphinx decoder. \begin{DoxyAuthor}{Author}
+David Huggins-\/\-Daines {\tt dhuggins@cs.\-cmu.\-edu} 
+\end{DoxyAuthor}
+
+
+Definition in file {\bf pocketsphinx\-\_\-internal.\-h}.
+

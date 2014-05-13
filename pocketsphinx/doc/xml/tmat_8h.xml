@@ -1,0 +1,525 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="tmat_8h" kind="file">
+    <compoundname>tmat.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">sphinxbase/logmath.h</includes>
+    <includedby refid="acmod_8h" local="yes">src/libpocketsphinx/acmod.h</includedby>
+    <includedby refid="tmat_8c" local="yes">src/libpocketsphinx/tmat.c</includedby>
+    <incdepgraph>
+      <node id="2119">
+        <label>src/libpocketsphinx/tmat.h</label>
+        <link refid="tmat.h"/>
+        <childnode refid="2120" relation="include">
+        </childnode>
+        <childnode refid="2121" relation="include">
+        </childnode>
+      </node>
+      <node id="2121">
+        <label>sphinxbase/logmath.h</label>
+      </node>
+      <node id="2120">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2156">
+        <label>src/libpocketsphinx/tmat.c</label>
+        <link refid="tmat_8c_source"/>
+      </node>
+      <node id="2138">
+        <label>src/libpocketsphinx/fsg_search.c</label>
+        <link refid="fsg__search_8c_source"/>
+      </node>
+      <node id="2122">
+        <label>src/libpocketsphinx/tmat.h</label>
+        <link refid="tmat.h"/>
+        <childnode refid="2123" relation="include">
+        </childnode>
+        <childnode refid="2156" relation="include">
+        </childnode>
+      </node>
+      <node id="2139">
+        <label>src/libpocketsphinx/pocketsphinx.c</label>
+        <link refid="pocketsphinx_8c_source"/>
+      </node>
+      <node id="2154">
+        <label>src/libpocketsphinx/state_align_search.c</label>
+        <link refid="state__align__search_8c"/>
+      </node>
+      <node id="2153">
+        <label>src/libpocketsphinx/state_align_search.h</label>
+        <link refid="state__align__search_8h"/>
+        <childnode refid="2154" relation="include">
+        </childnode>
+      </node>
+      <node id="2137">
+        <label>src/libpocketsphinx/fsg_history.c</label>
+        <link refid="fsg__history_8c_source"/>
+      </node>
+      <node id="2127">
+        <label>src/libpocketsphinx/pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx__internal_8h"/>
+        <childnode refid="2128" relation="include">
+        </childnode>
+        <childnode refid="2136" relation="include">
+        </childnode>
+        <childnode refid="2138" relation="include">
+        </childnode>
+        <childnode refid="2140" relation="include">
+        </childnode>
+        <childnode refid="2143" relation="include">
+        </childnode>
+        <childnode refid="2142" relation="include">
+        </childnode>
+        <childnode refid="2144" relation="include">
+        </childnode>
+        <childnode refid="2145" relation="include">
+        </childnode>
+        <childnode refid="2151" relation="include">
+        </childnode>
+        <childnode refid="2139" relation="include">
+        </childnode>
+        <childnode refid="2150" relation="include">
+        </childnode>
+        <childnode refid="2153" relation="include">
+        </childnode>
+      </node>
+      <node id="2136">
+        <label>src/libpocketsphinx/fsg_search_internal.h</label>
+        <link refid="fsg__search__internal_8h_source"/>
+        <childnode refid="2137" relation="include">
+        </childnode>
+        <childnode refid="2138" relation="include">
+        </childnode>
+        <childnode refid="2139" relation="include">
+        </childnode>
+      </node>
+      <node id="2134">
+        <label>src/libpocketsphinx/ms_senone.c</label>
+        <link refid="ms__senone_8c_source"/>
+      </node>
+      <node id="2133">
+        <label>src/libpocketsphinx/ms_senone.h</label>
+        <link refid="ms__senone_8h"/>
+        <childnode refid="2131" relation="include">
+        </childnode>
+        <childnode refid="2134" relation="include">
+        </childnode>
+      </node>
+      <node id="2143">
+        <label>src/libpocketsphinx/kws_search.c</label>
+        <link refid="kws__search_8c_source"/>
+      </node>
+      <node id="2142">
+        <label>src/libpocketsphinx/kws_search.h</label>
+        <link refid="kws__search_8h_source"/>
+        <childnode refid="2143" relation="include">
+        </childnode>
+        <childnode refid="2139" relation="include">
+        </childnode>
+      </node>
+      <node id="2149">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.c</label>
+        <link refid="ngram__search__fwdflat_8c"/>
+      </node>
+      <node id="2148">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.h</label>
+        <link refid="ngram__search__fwdflat_8h"/>
+        <childnode refid="2144" relation="include">
+        </childnode>
+        <childnode refid="2139" relation="include">
+        </childnode>
+      </node>
+      <node id="2150">
+        <label>src/libpocketsphinx/ps_lattice.c</label>
+        <link refid="ps__lattice_8c"/>
+      </node>
+      <node id="2141">
+        <label>src/libpocketsphinx/kws_detections.c</label>
+        <link refid="kws__detections_8c_source"/>
+      </node>
+      <node id="2140">
+        <label>src/libpocketsphinx/kws_detections.h</label>
+        <link refid="kws__detections_8h_source"/>
+        <childnode refid="2141" relation="include">
+        </childnode>
+        <childnode refid="2142" relation="include">
+        </childnode>
+      </node>
+      <node id="2135">
+        <label>src/libpocketsphinx/ms_gauden.c</label>
+        <link refid="ms__gauden_8c_source"/>
+      </node>
+      <node id="2128">
+        <label>src/libpocketsphinx/ms_gauden.h</label>
+        <link refid="ms__gauden_8h"/>
+        <childnode refid="2125" relation="include">
+        </childnode>
+        <childnode refid="2129" relation="include">
+        </childnode>
+        <childnode refid="2131" relation="include">
+        </childnode>
+        <childnode refid="2133" relation="include">
+        </childnode>
+        <childnode refid="2135" relation="include">
+        </childnode>
+      </node>
+      <node id="2124">
+        <label>src/libpocketsphinx/acmod.c</label>
+        <link refid="acmod_8c"/>
+      </node>
+      <node id="2144">
+        <label>src/libpocketsphinx/ngram_search.c</label>
+        <link refid="ngram__search_8c"/>
+      </node>
+      <node id="2123">
+        <label>src/libpocketsphinx/acmod.h</label>
+        <link refid="acmod_8h"/>
+        <childnode refid="2124" relation="include">
+        </childnode>
+        <childnode refid="2125" relation="include">
+        </childnode>
+        <childnode refid="2127" relation="include">
+        </childnode>
+        <childnode refid="2129" relation="include">
+        </childnode>
+        <childnode refid="2131" relation="include">
+        </childnode>
+        <childnode refid="2155" relation="include">
+        </childnode>
+      </node>
+      <node id="2145">
+        <label>src/libpocketsphinx/ngram_search.h</label>
+        <link refid="ngram__search_8h"/>
+        <childnode refid="2144" relation="include">
+        </childnode>
+        <childnode refid="2146" relation="include">
+        </childnode>
+        <childnode refid="2148" relation="include">
+        </childnode>
+        <childnode refid="2149" relation="include">
+        </childnode>
+        <childnode refid="2139" relation="include">
+        </childnode>
+        <childnode refid="2150" relation="include">
+        </childnode>
+      </node>
+      <node id="2126">
+        <label>src/libpocketsphinx/s2_semi_mgau.c</label>
+        <link refid="s2__semi__mgau_8c_source"/>
+      </node>
+      <node id="2125">
+        <label>src/libpocketsphinx/s2_semi_mgau.h</label>
+        <link refid="s2__semi__mgau_8h_source"/>
+        <childnode refid="2124" relation="include">
+        </childnode>
+        <childnode refid="2126" relation="include">
+        </childnode>
+      </node>
+      <node id="2152">
+        <label>src/libpocketsphinx/phone_loop_search.c</label>
+        <link refid="phone__loop__search_8c_source"/>
+      </node>
+      <node id="2151">
+        <label>src/libpocketsphinx/phone_loop_search.h</label>
+        <link refid="phone__loop__search_8h"/>
+        <childnode refid="2147" relation="include">
+        </childnode>
+        <childnode refid="2152" relation="include">
+        </childnode>
+        <childnode refid="2139" relation="include">
+        </childnode>
+      </node>
+      <node id="2147">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.c</label>
+        <link refid="ngram__search__fwdtree_8c"/>
+      </node>
+      <node id="2146">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.h</label>
+        <link refid="ngram__search__fwdtree_8h"/>
+        <childnode refid="2144" relation="include">
+        </childnode>
+        <childnode refid="2147" relation="include">
+        </childnode>
+        <childnode refid="2139" relation="include">
+        </childnode>
+      </node>
+      <node id="2155">
+        <label>src/libpocketsphinx/ps_mllr.c</label>
+        <link refid="ps__mllr_8c"/>
+      </node>
+      <node id="2130">
+        <label>src/libpocketsphinx/ptm_mgau.c</label>
+        <link refid="ptm__mgau_8c_source"/>
+      </node>
+      <node id="2129">
+        <label>src/libpocketsphinx/ptm_mgau.h</label>
+        <link refid="ptm__mgau_8h"/>
+        <childnode refid="2124" relation="include">
+        </childnode>
+        <childnode refid="2130" relation="include">
+        </childnode>
+      </node>
+      <node id="2132">
+        <label>src/libpocketsphinx/ms_mgau.c</label>
+        <link refid="ms__mgau_8c_source"/>
+      </node>
+      <node id="2131">
+        <label>src/libpocketsphinx/ms_mgau.h</label>
+        <link refid="ms__mgau_8h"/>
+        <childnode refid="2124" relation="include">
+        </childnode>
+        <childnode refid="2132" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structtmat__t" prot="public">tmat_t</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="tmat_8h_1a33fc2f994068e2667eb728d7118ea038" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtmat__t" kindref="compound">tmat_t</ref> *</type>
+        <definition>tmat_t* tmat_init</definition>
+        <argsstring>(char const *tmatfile, logmath_t *lmath, float64 tpfloor, int32 breport)</argsstring>
+        <name>tmat_init</name>
+        <param>
+          <type>char const *</type>
+          <declname>tmatfile</declname>
+          <briefdescription><para>In: input file </para></briefdescription>
+        </param>
+        <param>
+          <type>logmath_t *</type>
+          <declname>lmath</declname>
+          <briefdescription><para>In: log math parameters </para></briefdescription>
+        </param>
+        <param>
+          <type>float64</type>
+          <declname>tpfloor</declname>
+          <briefdescription><para>In: floor value for each non-zero transition probability </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>breport</declname>
+          <briefdescription><para>In: whether reporting the process of <ref refid="structtmat__t" kindref="compound">tmat_t</ref> </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Initialize transition matrix. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" line="120" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.c" bodystart="191" bodyend="316"/>
+        <references refid="structtmat__t_1a3633c71659e30cf23bee1f7efb4b4805" compoundref="tmat_8h" startline="113">tmat_t::n_state</references>
+        <references refid="structtmat__t_1ada644af34d54256f1574870d5f7a6788" compoundref="tmat_8h" startline="112">tmat_t::n_tmat</references>
+        <references refid="hmm_8h_1af94da16e3e5b550b9be05b0f07402cc7" compoundref="hmm_8h" startline="77">SENSCR_SHIFT</references>
+        <references refid="structtmat__t_1a9f518c96b30dab9efdb69bd779a7b5bf" compoundref="tmat_8h" startline="110">tmat_t::tp</references>
+      </memberdef>
+      <memberdef kind="function" id="tmat_8h_1af222f1a75e4bbbc76e1141ef0d0e41c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tmat_dump</definition>
+        <argsstring>(tmat_t *tmat, FILE *fp)</argsstring>
+        <name>tmat_dump</name>
+        <param>
+          <type><ref refid="structtmat__t" kindref="compound">tmat_t</ref> *</type>
+          <declname>tmat</declname>
+          <briefdescription><para>In: transition matrix </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: file pointer </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Dumping the transition matrix for debugging. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" line="130" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.c" bodystart="129" bodyend="144"/>
+        <references refid="structtmat__t_1a3633c71659e30cf23bee1f7efb4b4805" compoundref="tmat_8h" startline="113">tmat_t::n_state</references>
+        <references refid="structtmat__t_1ada644af34d54256f1574870d5f7a6788" compoundref="tmat_8h" startline="112">tmat_t::n_tmat</references>
+        <references refid="structtmat__t_1a9f518c96b30dab9efdb69bd779a7b5bf" compoundref="tmat_8h" startline="110">tmat_t::tp</references>
+      </memberdef>
+      <memberdef kind="function" id="tmat_8h_1a8f98e68e4a868728a89cf9996c48a6c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tmat_free</definition>
+        <argsstring>(tmat_t *t)</argsstring>
+        <name>tmat_free</name>
+        <param>
+          <type><ref refid="structtmat__t" kindref="compound">tmat_t</ref> *</type>
+          <declname>t</declname>
+          <briefdescription><para>In: transition matrix </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>RAH, add code to remove memory allocated by tmat_init. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" line="139" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.c" bodystart="332" bodyend="339"/>
+        <references refid="structtmat__t_1a9f518c96b30dab9efdb69bd779a7b5bf" compoundref="tmat_8h" startline="110">tmat_t::tp</references>
+        <referencedby refid="acmod_8h_1a1e3345e8ef8b060fc04e88f86e6afa4a" compoundref="acmod_8c" startline="314" endline="350">acmod_free</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="tmat_8h_1a898dd73b6f40d9323f2d6e688733a0a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tmat_report</definition>
+        <argsstring>(tmat_t *t)</argsstring>
+        <name>tmat_report</name>
+        <param>
+          <type><ref refid="structtmat__t" kindref="compound">tmat_t</ref> *</type>
+          <declname>t</declname>
+          <briefdescription><para>In: transition matrix </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Report the detail of the transition matrix structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" line="145" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.c" bodystart="319" bodyend="326"/>
+        <references refid="structtmat__t_1a3633c71659e30cf23bee1f7efb4b4805" compoundref="tmat_8h" startline="113">tmat_t::n_state</references>
+        <references refid="structtmat__t_1ada644af34d54256f1574870d5f7a6788" compoundref="tmat_8h" startline="112">tmat_t::n_tmat</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Transition matrix data structure. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>tmat.h</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1997<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>tmat.h,v<sp/>$</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.1.1.1<sp/><sp/>2006/05/23<sp/>18:45:03<sp/><sp/>dhuggins</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>re-importation</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.1<sp/><sp/>2005/09/29<sp/>21:51:19<sp/><sp/>dhuggins</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Add<sp/>support<sp/>for<sp/>Sphinx3<sp/>tmat<sp/>files.<sp/><sp/>Amazingly<sp/>enough,<sp/>it<sp/>Just<sp/>Works</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>(but<sp/>it<sp/>isn&apos;t<sp/>terribly<sp/>robust)</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.9<sp/><sp/>2005/06/21<sp/>19:23:35<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>1,<sp/>Fixed<sp/>doxygen<sp/>documentation.<sp/>2,<sp/>Added<sp/>$<sp/>keyword.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.6<sp/><sp/>2005/06/13<sp/>04:02:56<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>most<sp/>doxygen-style<sp/>documentation<sp/>under<sp/>libs3decoder.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.5<sp/><sp/>2005/05/03<sp/>04:09:09<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>Implemented<sp/>the<sp/>heart<sp/>of<sp/>word<sp/>copy<sp/>search.<sp/>For<sp/>every<sp/>ci-phone,<sp/>every<sp/>word<sp/>end,<sp/>a<sp/>tree<sp/>will<sp/>be<sp/>allocated<sp/>to<sp/>preserve<sp/>its<sp/>pathscore.<sp/><sp/>This<sp/>is<sp/>different<sp/>from<sp/>3.5<sp/>or<sp/>below,<sp/>only<sp/>the<sp/>best<sp/>score<sp/>for<sp/>a<sp/>particular<sp/>ci-phone,<sp/>regardless<sp/>of<sp/>the<sp/>word-ends<sp/>will<sp/>be<sp/>preserved<sp/>at<sp/>every<sp/>frame.<sp/><sp/>The<sp/>graph<sp/>propagation<sp/>will<sp/>not<sp/>collect<sp/>unused<sp/>word<sp/>tree<sp/>at<sp/>this<sp/>point.<sp/>srch_WST_propagate_wd_lv2<sp/>is<sp/>also<sp/>as<sp/>the<sp/>most<sp/>stupid<sp/>in<sp/>the<sp/>century.<sp/><sp/>But<sp/>well,<sp/>after<sp/>all,<sp/>everything<sp/>needs<sp/>a<sp/>start.<sp/><sp/>I<sp/>will<sp/>then<sp/>really<sp/>get<sp/>the<sp/>results<sp/>from<sp/>the<sp/>search<sp/>and<sp/>see<sp/>how<sp/>it<sp/>looks.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2005/04/21<sp/>23:50:26<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>Some<sp/>more<sp/>refactoring<sp/>on<sp/>the<sp/>how<sp/>reporting<sp/>of<sp/>structures<sp/>inside<sp/>kbcore_t<sp/>is<sp/>done,<sp/>it<sp/>is<sp/>now<sp/>50%<sp/>nice.<sp/>Also<sp/>added<sp/>class-based<sp/>LM<sp/>test<sp/>case<sp/>into<sp/>test-decode.sh.in.<sp/><sp/>At<sp/>this<sp/>moment,<sp/>everything<sp/>in<sp/>search<sp/>mode<sp/>5<sp/>is<sp/>already<sp/>done.<sp/><sp/>It<sp/>is<sp/>time<sp/>to<sp/>test<sp/>the<sp/>idea<sp/>whether<sp/>the<sp/>search<sp/>can<sp/>really<sp/>be<sp/>used.</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:47<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>20.Apr.2001<sp/><sp/>RAH<sp/>(rhoughton@mediasite.com,<sp/>ricky.houghton@cs.cmu.edu)</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>tmat_free<sp/>to<sp/>free<sp/>allocated<sp/>memory<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>29-Feb-2000<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>tmat_chk_1skip(),<sp/>and<sp/>made<sp/>tmat_chk_uppertri()<sp/>public.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>10-Dec-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>tmat_dump().</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>11-Mar-97<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Started<sp/>based<sp/>on<sp/>original<sp/>S3<sp/>implementation.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_S3_TMAT_H_</highlight></codeline>
+<codeline lineno="86"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_S3_TMAT_H_</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>System<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>SphinxBase<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/logmath.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"></highlight><highlight class="normal">}<sp/></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs<sp/>into<sp/>not<sp/>indenting<sp/>things.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="109" refid="structtmat__t" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110" refid="structtmat__t_1a9f518c96b30dab9efdb69bd779a7b5bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/>***<ref refid="structtmat__t_1a9f518c96b30dab9efdb69bd779a7b5bf" kindref="member">tp</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112" refid="structtmat__t_1ada644af34d54256f1574870d5f7a6788" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><ref refid="structtmat__t_1ada644af34d54256f1574870d5f7a6788" kindref="member">n_tmat</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113" refid="structtmat__t_1a3633c71659e30cf23bee1f7efb4b4805" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><ref refid="structtmat__t_1a3633c71659e30cf23bee1f7efb4b4805" kindref="member">n_state</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}<sp/><ref refid="structtmat__t" kindref="compound">tmat_t</ref>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><ref refid="structtmat__t" kindref="compound">tmat_t</ref><sp/>*<ref refid="tmat_8h_1a33fc2f994068e2667eb728d7118ea038" kindref="member">tmat_init</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*tmatfile,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logmath_t<sp/>*lmath,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float64<sp/>tpfloor,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>breport<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="tmat_8h_1af222f1a75e4bbbc76e1141ef0d0e41c7" kindref="member">tmat_dump</ref><sp/>(<ref refid="structtmat__t" kindref="compound">tmat_t</ref><sp/>*tmat,<sp/><sp/></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>);<sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="tmat_8h_1a8f98e68e4a868728a89cf9996c48a6c9" kindref="member">tmat_free</ref><sp/>(<ref refid="structtmat__t" kindref="compound">tmat_t</ref><sp/>*t<sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="tmat_8h_1a898dd73b6f40d9323f2d6e688733a0a5" kindref="member">tmat_report</ref>(<ref refid="structtmat__t" kindref="compound">tmat_t</ref><sp/>*t<sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"></highlight><highlight class="normal">{<sp/></highlight><highlight class="comment">/*<sp/>Stop<sp/>indent<sp/>from<sp/>complaining<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="154"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h"/>
+  </compounddef>
+</doxygen>

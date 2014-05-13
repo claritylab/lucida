@@ -1,0 +1,1491 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="s3types_8h" kind="file">
+    <compoundname>s3types.h</compoundname>
+    <includes local="no">float.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes local="no">sphinxbase/prim_type.h</includes>
+    <includes local="no">sphinxbase/err.h</includes>
+    <includes local="no">sphinxbase/ckd_alloc.h</includes>
+    <includedby refid="dict_8h" local="yes">src/libpocketsphinx/dict.h</includedby>
+    <includedby refid="dict2pid_8h" local="yes">src/libpocketsphinx/dict2pid.h</includedby>
+    <incdepgraph>
+      <node id="1976">
+        <label>assert.h</label>
+      </node>
+      <node id="1975">
+        <label>float.h</label>
+      </node>
+      <node id="1974">
+        <label>src/libpocketsphinx/s3types.h</label>
+        <link refid="s3types.h"/>
+        <childnode refid="1975" relation="include">
+        </childnode>
+        <childnode refid="1976" relation="include">
+        </childnode>
+        <childnode refid="1977" relation="include">
+        </childnode>
+        <childnode refid="1978" relation="include">
+        </childnode>
+        <childnode refid="1979" relation="include">
+        </childnode>
+      </node>
+      <node id="1979">
+        <label>sphinxbase/ckd_alloc.h</label>
+      </node>
+      <node id="1977">
+        <label>sphinxbase/prim_type.h</label>
+      </node>
+      <node id="1978">
+        <label>sphinxbase/err.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1996">
+        <label>src/libpocketsphinx/fsg_search.c</label>
+        <link refid="fsg__search_8c_source"/>
+      </node>
+      <node id="1997">
+        <label>src/libpocketsphinx/pocketsphinx.c</label>
+        <link refid="pocketsphinx_8c_source"/>
+      </node>
+      <node id="1980">
+        <label>src/libpocketsphinx/s3types.h</label>
+        <link refid="s3types.h"/>
+        <childnode refid="1981" relation="include">
+        </childnode>
+        <childnode refid="2013" relation="include">
+        </childnode>
+      </node>
+      <node id="2012">
+        <label>src/libpocketsphinx/state_align_search.c</label>
+        <link refid="state__align__search_8c"/>
+      </node>
+      <node id="2011">
+        <label>src/libpocketsphinx/state_align_search.h</label>
+        <link refid="state__align__search_8h"/>
+        <childnode refid="2012" relation="include">
+        </childnode>
+      </node>
+      <node id="1995">
+        <label>src/libpocketsphinx/fsg_history.c</label>
+        <link refid="fsg__history_8c_source"/>
+      </node>
+      <node id="2016">
+        <label>src/libpocketsphinx/fsg_history.h</label>
+        <link refid="fsg__history_8h_source"/>
+        <childnode refid="1994" relation="include">
+        </childnode>
+        <childnode refid="1995" relation="include">
+        </childnode>
+        <childnode refid="1996" relation="include">
+        </childnode>
+      </node>
+      <node id="1982">
+        <label>src/libpocketsphinx/pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx__internal_8h"/>
+        <childnode refid="1983" relation="include">
+        </childnode>
+        <childnode refid="1994" relation="include">
+        </childnode>
+        <childnode refid="1996" relation="include">
+        </childnode>
+        <childnode refid="1998" relation="include">
+        </childnode>
+        <childnode refid="2001" relation="include">
+        </childnode>
+        <childnode refid="2000" relation="include">
+        </childnode>
+        <childnode refid="2002" relation="include">
+        </childnode>
+        <childnode refid="2003" relation="include">
+        </childnode>
+        <childnode refid="2009" relation="include">
+        </childnode>
+        <childnode refid="1997" relation="include">
+        </childnode>
+        <childnode refid="2008" relation="include">
+        </childnode>
+        <childnode refid="2011" relation="include">
+        </childnode>
+      </node>
+      <node id="1994">
+        <label>src/libpocketsphinx/fsg_search_internal.h</label>
+        <link refid="fsg__search__internal_8h_source"/>
+        <childnode refid="1995" relation="include">
+        </childnode>
+        <childnode refid="1996" relation="include">
+        </childnode>
+        <childnode refid="1997" relation="include">
+        </childnode>
+      </node>
+      <node id="1992">
+        <label>src/libpocketsphinx/ms_senone.c</label>
+        <link refid="ms__senone_8c_source"/>
+      </node>
+      <node id="1991">
+        <label>src/libpocketsphinx/ms_senone.h</label>
+        <link refid="ms__senone_8h"/>
+        <childnode refid="1989" relation="include">
+        </childnode>
+        <childnode refid="1992" relation="include">
+        </childnode>
+      </node>
+      <node id="2019">
+        <label>src/libpocketsphinx/ps_alignment.c</label>
+        <link refid="ps__alignment_8c"/>
+      </node>
+      <node id="2018">
+        <label>src/libpocketsphinx/ps_alignment.h</label>
+        <link refid="ps__alignment_8h"/>
+        <childnode refid="2019" relation="include">
+        </childnode>
+        <childnode refid="2011" relation="include">
+        </childnode>
+      </node>
+      <node id="2001">
+        <label>src/libpocketsphinx/kws_search.c</label>
+        <link refid="kws__search_8c_source"/>
+      </node>
+      <node id="2000">
+        <label>src/libpocketsphinx/kws_search.h</label>
+        <link refid="kws__search_8h_source"/>
+        <childnode refid="2001" relation="include">
+        </childnode>
+        <childnode refid="1997" relation="include">
+        </childnode>
+      </node>
+      <node id="2007">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.c</label>
+        <link refid="ngram__search__fwdflat_8c"/>
+      </node>
+      <node id="2006">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.h</label>
+        <link refid="ngram__search__fwdflat_8h"/>
+        <childnode refid="2002" relation="include">
+        </childnode>
+        <childnode refid="1997" relation="include">
+        </childnode>
+      </node>
+      <node id="2008">
+        <label>src/libpocketsphinx/ps_lattice.c</label>
+        <link refid="ps__lattice_8c"/>
+      </node>
+      <node id="1999">
+        <label>src/libpocketsphinx/kws_detections.c</label>
+        <link refid="kws__detections_8c_source"/>
+      </node>
+      <node id="1998">
+        <label>src/libpocketsphinx/kws_detections.h</label>
+        <link refid="kws__detections_8h_source"/>
+        <childnode refid="1999" relation="include">
+        </childnode>
+        <childnode refid="2000" relation="include">
+        </childnode>
+      </node>
+      <node id="1993">
+        <label>src/libpocketsphinx/ms_gauden.c</label>
+        <link refid="ms__gauden_8c_source"/>
+      </node>
+      <node id="1983">
+        <label>src/libpocketsphinx/ms_gauden.h</label>
+        <link refid="ms__gauden_8h"/>
+        <childnode refid="1984" relation="include">
+        </childnode>
+        <childnode refid="1987" relation="include">
+        </childnode>
+        <childnode refid="1989" relation="include">
+        </childnode>
+        <childnode refid="1991" relation="include">
+        </childnode>
+        <childnode refid="1993" relation="include">
+        </childnode>
+      </node>
+      <node id="2017">
+        <label>src/libpocketsphinx/fsg_lextree.c</label>
+        <link refid="fsg__lextree_8c"/>
+      </node>
+      <node id="2015">
+        <label>src/libpocketsphinx/fsg_lextree.h</label>
+        <link refid="fsg__lextree_8h_source"/>
+        <childnode refid="2016" relation="include">
+        </childnode>
+        <childnode refid="1994" relation="include">
+        </childnode>
+        <childnode refid="2017" relation="include">
+        </childnode>
+        <childnode refid="1996" relation="include">
+        </childnode>
+      </node>
+      <node id="1985">
+        <label>src/libpocketsphinx/acmod.c</label>
+        <link refid="acmod_8c"/>
+      </node>
+      <node id="2002">
+        <label>src/libpocketsphinx/ngram_search.c</label>
+        <link refid="ngram__search_8c"/>
+      </node>
+      <node id="2003">
+        <label>src/libpocketsphinx/ngram_search.h</label>
+        <link refid="ngram__search_8h"/>
+        <childnode refid="2002" relation="include">
+        </childnode>
+        <childnode refid="2004" relation="include">
+        </childnode>
+        <childnode refid="2006" relation="include">
+        </childnode>
+        <childnode refid="2007" relation="include">
+        </childnode>
+        <childnode refid="1997" relation="include">
+        </childnode>
+        <childnode refid="2008" relation="include">
+        </childnode>
+      </node>
+      <node id="1986">
+        <label>src/libpocketsphinx/s2_semi_mgau.c</label>
+        <link refid="s2__semi__mgau_8c_source"/>
+      </node>
+      <node id="1984">
+        <label>src/libpocketsphinx/s2_semi_mgau.h</label>
+        <link refid="s2__semi__mgau_8h_source"/>
+        <childnode refid="1985" relation="include">
+        </childnode>
+        <childnode refid="1986" relation="include">
+        </childnode>
+      </node>
+      <node id="2010">
+        <label>src/libpocketsphinx/phone_loop_search.c</label>
+        <link refid="phone__loop__search_8c_source"/>
+      </node>
+      <node id="2009">
+        <label>src/libpocketsphinx/phone_loop_search.h</label>
+        <link refid="phone__loop__search_8h"/>
+        <childnode refid="2005" relation="include">
+        </childnode>
+        <childnode refid="2010" relation="include">
+        </childnode>
+        <childnode refid="1997" relation="include">
+        </childnode>
+      </node>
+      <node id="2020">
+        <label>src/libpocketsphinx/dict.c</label>
+        <link refid="dict_8c_source"/>
+      </node>
+      <node id="2014">
+        <label>src/libpocketsphinx/dict2pid.c</label>
+        <link refid="dict2pid_8c"/>
+      </node>
+      <node id="1981">
+        <label>src/libpocketsphinx/dict.h</label>
+        <link refid="dict_8h"/>
+        <childnode refid="1982" relation="include">
+        </childnode>
+        <childnode refid="2013" relation="include">
+        </childnode>
+        <childnode refid="2020" relation="include">
+        </childnode>
+        <childnode refid="2015" relation="include">
+        </childnode>
+        <childnode refid="2016" relation="include">
+        </childnode>
+        <childnode refid="2008" relation="include">
+        </childnode>
+      </node>
+      <node id="2013">
+        <label>src/libpocketsphinx/dict2pid.h</label>
+        <link refid="dict2pid_8h"/>
+        <childnode refid="1982" relation="include">
+        </childnode>
+        <childnode refid="2014" relation="include">
+        </childnode>
+        <childnode refid="2015" relation="include">
+        </childnode>
+        <childnode refid="2018" relation="include">
+        </childnode>
+      </node>
+      <node id="2005">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.c</label>
+        <link refid="ngram__search__fwdtree_8c"/>
+      </node>
+      <node id="2004">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.h</label>
+        <link refid="ngram__search__fwdtree_8h"/>
+        <childnode refid="2002" relation="include">
+        </childnode>
+        <childnode refid="2005" relation="include">
+        </childnode>
+        <childnode refid="1997" relation="include">
+        </childnode>
+      </node>
+      <node id="1988">
+        <label>src/libpocketsphinx/ptm_mgau.c</label>
+        <link refid="ptm__mgau_8c_source"/>
+      </node>
+      <node id="1987">
+        <label>src/libpocketsphinx/ptm_mgau.h</label>
+        <link refid="ptm__mgau_8h"/>
+        <childnode refid="1985" relation="include">
+        </childnode>
+        <childnode refid="1988" relation="include">
+        </childnode>
+      </node>
+      <node id="1990">
+        <label>src/libpocketsphinx/ms_mgau.c</label>
+        <link refid="ms__mgau_8c_source"/>
+      </node>
+      <node id="1989">
+        <label>src/libpocketsphinx/ms_mgau.h</label>
+        <link refid="ms__mgau_8h"/>
+        <childnode refid="1985" relation="include">
+        </childnode>
+        <childnode refid="1990" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="s3types_8h_1af9c51863cdbb10d58b6aad21e896666b" prot="public" static="no">
+        <name>BAD_S3CIPID</name>
+        <initializer>((<ref refid="s3types_8h_1ae5f70241ce62a79747f0611029a6409d" kindref="member">s3cipid_t</ref>) -1)</initializer>
+        <briefdescription>
+<para>Ci phone id. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="110" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="110" bodyend="-1"/>
+        <referencedby refid="dict2pid_8c_1af437f4d3a798db6828c42df69256f762" compoundref="dict2pid_8c" startline="49" endline="77">compress_table</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ad7a2359e1e705906c58fe33f9729f6ce" prot="public" static="no">
+        <name>NOT_S3CIPID</name>
+        <param><defname>p</defname></param>
+        <initializer>((p)&lt;0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="111" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1af719889a0db4f4f0b4b2ac9201bbe7cd" prot="public" static="no">
+        <name>IS_S3CIPID</name>
+        <param><defname>p</defname></param>
+        <initializer>((p)&gt;=0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="112" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a453101a056aef746b77e9768a1cb60a5" prot="public" static="no">
+        <name>MAX_S3CIPID</name>
+        <initializer>32767</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="113" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a4037acb07f1abc6c8a1aac0841556440" prot="public" static="no">
+        <name>BAD_S3PID</name>
+        <initializer>((s3pid_t) -1)</initializer>
+        <briefdescription>
+<para>Phone id (triphone or ciphone) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="118" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ae3dad97c1cf3e6347c347bf633ee27dd" prot="public" static="no">
+        <name>NOT_S3PID</name>
+        <param><defname>p</defname></param>
+        <initializer>((p)&lt;0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="119" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1afe39bcb2b878fb92ebd7b3e249304264" prot="public" static="no">
+        <name>IS_S3PID</name>
+        <param><defname>p</defname></param>
+        <initializer>((p)&gt;=0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="120" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a1141ddc85d582a6e1a1c70609baab281" prot="public" static="no">
+        <name>MAX_S3PID</name>
+        <initializer>((int32)0x7ffffffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="121" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ade0bee313d69b3d324b5622fa0507ec7" prot="public" static="no">
+        <name>BAD_S3SSID</name>
+        <initializer>((s3ssid_t) 0xffff)</initializer>
+        <briefdescription>
+<para>Senone sequence id (triphone or ciphone) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="124" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="124" bodyend="-1"/>
+        <referencedby refid="dict2pid_8c_1af437f4d3a798db6828c42df69256f762" compoundref="dict2pid_8c" startline="49" endline="77">compress_table</referencedby>
+        <referencedby refid="dict2pid_8h_1aa94120dcea4b17807576e29484b8a008" compoundref="dict2pid_8c" startline="298" endline="364">dict2pid_add_word</referencedby>
+        <referencedby refid="dict2pid_8h_1a720e15c92ef6930e722bccb014e11b7b" compoundref="dict2pid_8c" startline="367" endline="385">dict2pid_internal</referencedby>
+        <referencedby refid="dict2pid_8h_1addd541f2275b79e284575fb11b7986e1" compoundref="dict2pid_8c" startline="388" endline="497">dict2pid_build</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a970be643bdeb0467b4bab2395d76293b" prot="public" static="no">
+        <name>NOT_S3SSID</name>
+        <param><defname>p</defname></param>
+        <initializer>((p) == <ref refid="s3types_8h_1ade0bee313d69b3d324b5622fa0507ec7" kindref="member">BAD_S3SSID</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="125" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ac533a32014a94120efdce25e72250d29" prot="public" static="no">
+        <name>IS_S3SSID</name>
+        <param><defname>p</defname></param>
+        <initializer>((p) != <ref refid="s3types_8h_1ade0bee313d69b3d324b5622fa0507ec7" kindref="member">BAD_S3SSID</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="126" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a2117753e26a16eb54e65bf9eb1e7da71" prot="public" static="no">
+        <name>MAX_S3SSID</name>
+        <initializer>((s3ssid_t)0xfffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="127" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a0ffaad3d41b251f6fa9b3bf100c65e43" prot="public" static="no">
+        <name>BAD_S3TMATID</name>
+        <initializer>((s3tmatid_t) -1)</initializer>
+        <briefdescription>
+<para>Transition matrix id; there can be as many as pids. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="130" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ab264bfd7015d51a198493bfdb865f048" prot="public" static="no">
+        <name>NOT_S3TMATID</name>
+        <param><defname>t</defname></param>
+        <initializer>((t)&lt;0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="131" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a20077ac868a70e926afc38da292cc2dd" prot="public" static="no">
+        <name>IS_S3TMATID</name>
+        <param><defname>t</defname></param>
+        <initializer>((t)&gt;=0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="132" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ad2cb6136cfcdf796b0d9898dca87d78b" prot="public" static="no">
+        <name>MAX_S3TMATID</name>
+        <initializer>((int32)0x7ffffffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="133" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a5c42410b7125da611210c5a4be29898b" prot="public" static="no">
+        <name>BAD_S3WID</name>
+        <initializer>((s3wid_t) -1)</initializer>
+        <briefdescription>
+<para>Dictionary word id. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="136" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="136" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" compoundref="dict_8c" startline="80" endline="145">dict_add_word</referencedby>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1ad3729eb1a02a9a321e17933f7e90c80e" compoundref="dict_8c" startline="383" endline="393">dict_wordid</referencedby>
+        <referencedby refid="ps__lattice_8c_1aaf4a101f324943c7635746ec6ba7ab06" compoundref="ps__lattice_8c" startline="410" endline="653">ps_lattice_read</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a7b364438f577cb6720a626f4e5f9f8a9" prot="public" static="no">
+        <name>NOT_S3WID</name>
+        <param><defname>w</defname></param>
+        <initializer>((w)&lt;0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="137" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a07f5b75772f56f3de78e139e69c2daf9" prot="public" static="no">
+        <name>IS_S3WID</name>
+        <param><defname>w</defname></param>
+        <initializer>((w)&gt;=0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="138" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a7ceb7a1c017e804d3ffdb49085fb8e3f" prot="public" static="no">
+        <name>MAX_S3WID</name>
+        <initializer>((int32)0x7ffffffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="139" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a8b6ebbb3ea347c20d1bbc991086ce875" prot="public" static="no">
+        <name>BAD_S3LMWID</name>
+        <initializer>((s3lmwid_t) 0xffff)</initializer>
+        <briefdescription>
+<para>LM word id (uint16 for conserving space) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="142" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1af536b75f1ecf7640b16c92d9a4903a66" prot="public" static="no">
+        <name>NOT_S3LMWID</name>
+        <param><defname>w</defname></param>
+        <initializer>((w)==<ref refid="s3types_8h_1a8b6ebbb3ea347c20d1bbc991086ce875" kindref="member">BAD_S3LMWID</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="143" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a53085819a64792f7442b64f4a85b458e" prot="public" static="no">
+        <name>IS_S3LMWID</name>
+        <param><defname>w</defname></param>
+        <initializer>((w)!=<ref refid="s3types_8h_1a8b6ebbb3ea347c20d1bbc991086ce875" kindref="member">BAD_S3LMWID</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="144" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a7cec519530089c34bae08704d2070b14" prot="public" static="no">
+        <name>MAX_S3LMWID</name>
+        <initializer>((uint32)0xfffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="145" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a0b572de40fa56a1aef9d435112659080" prot="public" static="no">
+        <name>BAD_LMCLASSID</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="146" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1acdff89ca855bd57f8b8a07e18c8f9bb8" prot="public" static="no">
+        <name>BAD_S3LMWID32</name>
+        <initializer>((s3lmwid32_t) 0x0fffffff)</initializer>
+        <briefdescription>
+<para>LM word id (uint32 for conserving space) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="149" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a4d01f032e1b34f0804987af14ea08fba" prot="public" static="no">
+        <name>NOT_S3LMWID32</name>
+        <param><defname>w</defname></param>
+        <initializer>((w)==<ref refid="s3types_8h_1acdff89ca855bd57f8b8a07e18c8f9bb8" kindref="member">BAD_S3LMWID32</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="150" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1acb7fd59ff9048383d349f7f95f636830" prot="public" static="no">
+        <name>IS_S3LMWID32</name>
+        <param><defname>w</defname></param>
+        <initializer>((w)!=<ref refid="s3types_8h_1acdff89ca855bd57f8b8a07e18c8f9bb8" kindref="member">BAD_S3LMWID32</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="151" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a163d1619c71a872c4ebfd839cf67c60e" prot="public" static="no">
+        <name>MAX_S3LMWID32</name>
+        <initializer>((uint32)0xfffffffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="152" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ac84f2f2a422b294d90458b5330604ce3" prot="public" static="no">
+        <name>BAD_LMWID</name>
+        <param><defname>lm</defname></param>
+        <initializer>(lm-&gt;is32bits? <ref refid="s3types_8h_1acdff89ca855bd57f8b8a07e18c8f9bb8" kindref="member">BAD_S3LMWID32</ref> : <ref refid="s3types_8h_1a8b6ebbb3ea347c20d1bbc991086ce875" kindref="member">BAD_S3LMWID</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="160" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ac880fc8b5db83b81513b43ec8db121e0" prot="public" static="no">
+        <name>NOT_LMWID</name>
+        <param><defname>lm</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>(lm-&gt;is32bits? NOT_S3LMWID32(w): NOT_S3LMWID(w))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="161" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a5575e741f21ef511fd4ee70fc5cbd6b3" prot="public" static="no">
+        <name>IS_LMWID</name>
+        <param><defname>lm</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>(lm-&gt;is32bits? IS_S3LMWID32(w): IS_S3LMWID(w))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="162" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ad3a57931b80d8ac88424201e45a07ebc" prot="public" static="no">
+        <name>MAX_LMWID</name>
+        <param><defname>lm</defname></param>
+        <initializer>(lm-&gt;is32bits? MAX_S3LMWID32: MAX_S3LMWID)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="163" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a4dc7d8594d7789aef5ca7dd2ec2e6d85" prot="public" static="no">
+        <name>BAD_S3LATID</name>
+        <initializer>((s3latid_t) -1)</initializer>
+        <briefdescription>
+<para>Lattice entry id. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="166" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a2899476244b1a12c9813bb366b5061fc" prot="public" static="no">
+        <name>NOT_S3LATID</name>
+        <param><defname>l</defname></param>
+        <initializer>((l)&lt;0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="167" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ada5024b91faf1b97c7fa04adf2f51d13" prot="public" static="no">
+        <name>IS_S3LATID</name>
+        <param><defname>l</defname></param>
+        <initializer>((l)&gt;=0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="168" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1af30e82546f464c726f01cc0b17b7eebf" prot="public" static="no">
+        <name>MAX_S3LATID</name>
+        <initializer>((int32)0x7ffffffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="169" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a564e6d8072efdbd932b413007e4897c1" prot="public" static="no">
+        <name>BAD_S3FRMID</name>
+        <initializer>((s3frmid_t) -1)</initializer>
+        <briefdescription>
+<para>Frame id (must be SIGNED integer) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="172" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a7bd95ea9e40790c7d9d1917c121ed432" prot="public" static="no">
+        <name>NOT_S3FRMID</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)&lt;0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="173" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a903531cb550f4258304dac0a9fea160b" prot="public" static="no">
+        <name>IS_S3FRMID</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)&gt;=0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="174" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a10aa0ceb75567a7318108b337e8b253a" prot="public" static="no">
+        <name>MAX_S3FRMID</name>
+        <initializer>((int32)0x7ffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="175" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a072c42ea82002d9435305133750c4e2e" prot="public" static="no">
+        <name>BAD_S3SENID</name>
+        <initializer>((s3senid_t) 0xffff)</initializer>
+        <briefdescription>
+<para>Senone id. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="178" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a48cd9804ec6b0647f147d6e979f3de74" prot="public" static="no">
+        <name>NOT_S3SENID</name>
+        <param><defname>s</defname></param>
+        <initializer>((s) == <ref refid="s3types_8h_1a072c42ea82002d9435305133750c4e2e" kindref="member">BAD_S3SENID</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="179" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1aad006f5edbf6b42a4dfcc398d1403316" prot="public" static="no">
+        <name>IS_S3SENID</name>
+        <param><defname>s</defname></param>
+        <initializer>((s) != <ref refid="s3types_8h_1a072c42ea82002d9435305133750c4e2e" kindref="member">BAD_S3SENID</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="180" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ab704f3bdb72f51ccac7f7388644d37f1" prot="public" static="no">
+        <name>MAX_S3SENID</name>
+        <initializer>((int16)0x7ffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="181" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a08bccaa82b9d1990a9a98368a1091ff6" prot="public" static="no">
+        <name>BAD_S3MGAUID</name>
+        <initializer>((s3mgauid_t) -1)</initializer>
+        <briefdescription>
+<para>Mixture-gaussian codebook id. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="184" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ab1d53f52278ec85cfe171bee12695618" prot="public" static="no">
+        <name>NOT_S3MGAUID</name>
+        <param><defname>m</defname></param>
+        <initializer>((m)&lt;0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="185" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ad1e1aaef79517a20741015c485690e31" prot="public" static="no">
+        <name>IS_S3MGAUID</name>
+        <param><defname>m</defname></param>
+        <initializer>((m)&gt;=0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="186" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a85f630c5da85e5490f9b4a873f9dc187" prot="public" static="no">
+        <name>MAX_S3MGAUID</name>
+        <initializer>((int32)0x00007ffe)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="187" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a227b2026462b1665a6508388099afcfe" prot="public" static="no">
+        <name>S3_LOGPROB_ZERO</name>
+        <initializer>((int32) 0xc8000000)	/** Integer version of log of zero Approx -infinity!! */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="190" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a8d5747af7c36ef6208617e1b5db06cf0" prot="public" static="no">
+        <name>S3_LOGPROB_ZERO_F</name>
+        <initializer>((float32) -1e30)	/** Float version of log of zero Approx -infinity!! */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="191" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a610a0917725582c80011c031d1a402b8" prot="public" static="no">
+        <name>RENORM_THRESH</name>
+        <initializer>((int32) ((S3_LOGPROB_ZERO)&gt;&gt;1))       /** Bestscore getting close to 0 */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="193" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a1bb6112acd0be019c61bc87890a5e527" prot="public" static="no">
+        <name>S3_SUCCESS</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="195" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a3d4835a7a30401faf5d012927996c62a" prot="public" static="no">
+        <name>S3_ERROR</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="196" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a38d65894166f39b4000c6018be946bc5" prot="public" static="no">
+        <name>S3_WARNING</name>
+        <initializer>-2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="197" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a0aed240c1318ac601a4a35ba21c152b6" prot="public" static="no">
+        <name>MAX_N_STATE</name>
+        <initializer>20</initializer>
+        <briefdescription>
+<para>The maximum # of states for any given acoustic model. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="200" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1acfbabf70ac5778a1d060ac25b0dff433" prot="public" static="no">
+        <name>MAX_N_ATTRIB</name>
+        <initializer>5</initializer>
+        <briefdescription>
+<para>The maximum # of attributes associated with any given acoustic model. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="204" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1aa8cecfc5c5c054d2875c03e77b7be15d" prot="public" static="no">
+        <name>TRUE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="207" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1aa93f0eb578d23995850d61f7d61c55c1" prot="public" static="no">
+        <name>FALSE</name>
+        <initializer>0 /* assume that true is never defined w/o false */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="208" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a8506cbe30493f34c2e82a91572004db6" prot="public" static="no">
+        <name>IO_ELAPSED</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="212" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1aff1028519f30eb719a5b8344c317adbc" prot="public" static="no">
+        <name>UTT_ELAPSED</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="215" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a7c02eadda7025b7054a574bbd00e09d8" prot="public" static="no">
+        <name>UTT_IO_ELAPSED</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="216" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a2bebd5b021cff915ca1f5fbd14c8b713" prot="public" static="no">
+        <name>UTT_BW_ELAPSED</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="217" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1addff2fcea68aef52d64b250b009f7187" prot="public" static="no">
+        <name>TYING_NON_EMITTING</name>
+        <initializer>(0xffffffff)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="219" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a786a115928c98abbd3d4e5ac1bd6196f" prot="public" static="no">
+        <name>TYING_NO_ID</name>
+        <initializer>(0xffffffff)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="220" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1ae84b1f33bc9f68e107cbe4834cf853ca" prot="public" static="no">
+        <name>MAX_VERSION_LEN</name>
+        <initializer>128</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="222" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="s3types_8h_1a0faa13de5fe0bfac49a962ca59c3e047" prot="public" static="no">
+        <name>MEG</name>
+        <initializer>*1024*1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="224" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="s3types_8h_1ae5f70241ce62a79747f0611029a6409d" prot="public" static="no">
+        <type>int16</type>
+        <definition>typedef int16 s3cipid_t</definition>
+        <argsstring></argsstring>
+        <name>s3cipid_t</name>
+        <briefdescription>
+<para>Size definitions for more semantially meaningful units. </para>        </briefdescription>
+        <detaileddescription>
+<para>Illegal value definitions, limits, and tests for specific types. NOTE: Types will be either int32 or smaller; only smaller ones may be unsigned (i.e., no type will be uint32). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="109" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1ace0794ef7ba6d215e2688832216771b8" prot="public" static="no">
+        <type>int32</type>
+        <definition>typedef int32 s3pid_t</definition>
+        <argsstring></argsstring>
+        <name>s3pid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="117" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1afa911acbebf09269bbc7b6821aee9c1d" prot="public" static="no">
+        <type>uint16</type>
+        <definition>typedef uint16 s3ssid_t</definition>
+        <argsstring></argsstring>
+        <name>s3ssid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="123" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1a6a7df1b2c1909fbe51979dac693549c0" prot="public" static="no">
+        <type>int32</type>
+        <definition>typedef int32 s3tmatid_t</definition>
+        <argsstring></argsstring>
+        <name>s3tmatid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="129" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1a1d7fc272539abdf946c1074f9ec9a71c" prot="public" static="no">
+        <type>int32</type>
+        <definition>typedef int32 s3wid_t</definition>
+        <argsstring></argsstring>
+        <name>s3wid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="135" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1a89e3ea581c1da1df174ab36e26fc4786" prot="public" static="no">
+        <type>uint16</type>
+        <definition>typedef uint16 s3lmwid_t</definition>
+        <argsstring></argsstring>
+        <name>s3lmwid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="141" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1a7f1f08f03cf077a12500eabc6f6c509c" prot="public" static="no">
+        <type>uint32</type>
+        <definition>typedef uint32 s3lmwid32_t</definition>
+        <argsstring></argsstring>
+        <name>s3lmwid32_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="148" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1ad0b520b3256061b8113b5bd347af8351" prot="public" static="no">
+        <type>int32</type>
+        <definition>typedef int32 s3latid_t</definition>
+        <argsstring></argsstring>
+        <name>s3latid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="165" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1a29b7bbfa3ed1d10a94ecf682e05458ae" prot="public" static="no">
+        <type>int16</type>
+        <definition>typedef int16 s3frmid_t</definition>
+        <argsstring></argsstring>
+        <name>s3frmid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="171" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1a81dd5c138da323d5305623c1ce123593" prot="public" static="no">
+        <type>uint16</type>
+        <definition>typedef uint16 s3senid_t</definition>
+        <argsstring></argsstring>
+        <name>s3senid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="177" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="s3types_8h_1a8bfa16957530ae6c95f3354a3f24ab5d" prot="public" static="no">
+        <type>int16</type>
+        <definition>typedef int16 s3mgauid_t</definition>
+        <argsstring></argsstring>
+        <name>s3mgauid_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" line="183" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Size definition of semantically units. </para>    </briefdescription>
+    <detaileddescription>
+<para>Common for both s3 and s3.X decoder. </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>s3types.h<sp/>--<sp/>Types<sp/>specific<sp/>to<sp/>s3<sp/>decoder.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>s3types.h,v<sp/>$</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.16<sp/><sp/>2006/02/22<sp/>19:57:57<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>Merged<sp/>from<sp/>branch<sp/>SPHINX3_5_2_RCI_IRII_BRANCH:<sp/>Increase<sp/>the<sp/>size<sp/>of<sp/>MAX_S3CIPID<sp/>from<sp/>127<sp/>to<sp/>32767.<sp/><sp/>This<sp/>will<sp/>make<sp/>Chinese<sp/>Mandarin<sp/>setup<sp/>works.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.15.4.1<sp/><sp/>2005/10/09<sp/>19:53:09<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Changed<sp/>the<sp/>maximum<sp/>number<sp/>of<sp/>CI<sp/>PID<sp/>from<sp/>127<sp/>to<sp/>32767,<sp/>this<sp/>will<sp/>allow<sp/>us<sp/>to<sp/>take<sp/>care<sp/>of<sp/>Chinese<sp/>syllable,<sp/>Chinese<sp/>initial/final<sp/>and<sp/>even<sp/>Cantononese.<sp/><sp/>It<sp/>might<sp/>still<sp/>cause<sp/>us<sp/>problem<sp/>in<sp/>Turkish.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.15<sp/><sp/>2005/06/21<sp/>20:54:44<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>1,<sp/>Added<sp/>$<sp/>keyword.<sp/>2,<sp/>make<sp/>a<sp/>small<sp/>change<sp/>for<sp/>compilation<sp/>purpose.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.5<sp/><sp/>2005/06/16<sp/>04:59:09<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>Sphinx3<sp/>to<sp/>s3.generic,<sp/>a<sp/>gentle-refactored<sp/>version<sp/>of<sp/>Dave&apos;s<sp/>change<sp/>in<sp/>senone<sp/>scale.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2005/06/15<sp/>21:48:56<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>Sphinx3<sp/>to<sp/>s3.generic:<sp/>Changed<sp/>noinst_HEADERS<sp/>to<sp/>pkginclude_HEADERS.<sp/><sp/>This<sp/>make<sp/>all<sp/>the<sp/>headers<sp/>to<sp/>be<sp/>installed.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:47<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>13-May-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Changed<sp/>typedef<sp/>source<sp/>for<sp/>s3ssid_t<sp/>from<sp/>int32<sp/>to<sp/>s3pid_t.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Changed<sp/>s3senid_t<sp/>from<sp/>int16<sp/>to<sp/>int32<sp/>(to<sp/>conform<sp/>with<sp/>composite<sp/>senid</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>which<sp/>is<sp/>int32).</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>04-May-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>senone<sp/>sequence<sp/>ID<sp/>(s3ssid_t).</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>12-Jul-95<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Started.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_S3_S3TYPES_H_</highlight></codeline>
+<codeline lineno="82"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_S3_S3TYPES_H_</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;float.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/prim_type.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/err.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/ckd_alloc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"></highlight><highlight class="normal">}<sp/></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs<sp/>into<sp/>not<sp/>indenting<sp/>things.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="109" refid="s3types_8h_1ae5f70241ce62a79747f0611029a6409d" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int16<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="s3types_8h_1ae5f70241ce62a79747f0611029a6409d" kindref="member">s3cipid_t</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110" refid="s3types_8h_1af9c51863cdbb10d58b6aad21e896666b" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3CIPID<sp/><sp/><sp/><sp/><sp/>((s3cipid_t)<sp/>-1)</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3CIPID(p)<sp/><sp/>((p)&lt;0)</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3CIPID(p)<sp/><sp/><sp/>((p)&gt;=0)</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3CIPID<sp/><sp/><sp/><sp/><sp/>32767</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">/*#define<sp/>MAX_S3CIPID<sp/><sp/><sp/>127*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3pid_t;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="118" refid="s3types_8h_1a4037acb07f1abc6c8a1aac0841556440" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3PID<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((s3pid_t)<sp/>-1)</highlight></codeline>
+<codeline lineno="119"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3PID(p)<sp/><sp/><sp/><sp/>((p)&lt;0)</highlight></codeline>
+<codeline lineno="120"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3PID(p)<sp/><sp/><sp/><sp/><sp/>((p)&gt;=0)</highlight></codeline>
+<codeline lineno="121"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3PID<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((int32)0x7ffffffe)</highlight></codeline>
+<codeline lineno="122"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint16<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3ssid_t;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="124" refid="s3types_8h_1ade0bee313d69b3d324b5622fa0507ec7" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3SSID<sp/><sp/><sp/><sp/><sp/><sp/>((s3ssid_t)<sp/>0xffff)</highlight></codeline>
+<codeline lineno="125"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3SSID(p)<sp/><sp/><sp/>((p)<sp/>==<sp/>BAD_S3SSID)</highlight></codeline>
+<codeline lineno="126"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3SSID(p)<sp/><sp/><sp/><sp/>((p)<sp/>!=<sp/>BAD_S3SSID)</highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3SSID<sp/><sp/><sp/><sp/><sp/><sp/>((s3ssid_t)0xfffe)</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3tmatid_t;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="130" refid="s3types_8h_1a0ffaad3d41b251f6fa9b3bf100c65e43" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3TMATID<sp/><sp/><sp/><sp/>((s3tmatid_t)<sp/>-1)</highlight></codeline>
+<codeline lineno="131"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3TMATID(t)<sp/>((t)&lt;0)</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3TMATID(t)<sp/><sp/>((t)&gt;=0)</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3TMATID<sp/><sp/><sp/><sp/>((int32)0x7ffffffe)</highlight></codeline>
+<codeline lineno="134"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3wid_t;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136" refid="s3types_8h_1a5c42410b7125da611210c5a4be29898b" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3WID<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((s3wid_t)<sp/>-1)</highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3WID(w)<sp/><sp/><sp/><sp/>((w)&lt;0)</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3WID(w)<sp/><sp/><sp/><sp/><sp/>((w)&gt;=0)</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3WID<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((int32)0x7ffffffe)</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint16<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3lmwid_t;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="142" refid="s3types_8h_1a8b6ebbb3ea347c20d1bbc991086ce875" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3LMWID<sp/><sp/><sp/><sp/><sp/>((s3lmwid_t)<sp/>0xffff)</highlight></codeline>
+<codeline lineno="143"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3LMWID(w)<sp/><sp/>((w)==BAD_S3LMWID)</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3LMWID(w)<sp/><sp/><sp/>((w)!=BAD_S3LMWID)</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3LMWID<sp/><sp/><sp/><sp/><sp/>((uint32)0xfffe)</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>BAD_LMCLASSID<sp/><sp/><sp/>(-1)</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3lmwid32_t;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="149" refid="s3types_8h_1acdff89ca855bd57f8b8a07e18c8f9bb8" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3LMWID32<sp/><sp/><sp/>((s3lmwid32_t)<sp/>0x0fffffff)</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3LMWID32(w)<sp/><sp/>((w)==BAD_S3LMWID32)</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3LMWID32(w)<sp/>((w)!=BAD_S3LMWID32)</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3LMWID32<sp/><sp/><sp/>((uint32)0xfffffffe)</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Generic<sp/>macro<sp/>that<sp/>is<sp/>applicable<sp/>to<sp/>both<sp/>uint16<sp/>and<sp/>uint32</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/><sp/><sp/>Careful<sp/>with<sp/>efficiency<sp/>issue.<sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="comment"></highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/><sp/><sp/>Also,<sp/>please<sp/>don&apos;t<sp/>use<sp/>BAD_S3LATID(l);</highlight></codeline>
+<codeline lineno="158"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BAD_LMWID(lm)<sp/><sp/><sp/><sp/><sp/><sp/>(lm-&gt;is32bits?<sp/>BAD_S3LMWID32<sp/>:<sp/>BAD_S3LMWID)</highlight></codeline>
+<codeline lineno="161"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_LMWID(lm,w)<sp/><sp/><sp/><sp/>(lm-&gt;is32bits?<sp/>NOT_S3LMWID32(w):<sp/>NOT_S3LMWID(w))</highlight></codeline>
+<codeline lineno="162"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_LMWID(lm,w)<sp/><sp/><sp/><sp/><sp/>(lm-&gt;is32bits?<sp/>IS_S3LMWID32(w):<sp/>IS_S3LMWID(w))</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_LMWID(lm)<sp/><sp/><sp/><sp/><sp/><sp/>(lm-&gt;is32bits?<sp/>MAX_S3LMWID32:<sp/>MAX_S3LMWID)</highlight></codeline>
+<codeline lineno="164"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3latid_t;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166" refid="s3types_8h_1a4dc7d8594d7789aef5ca7dd2ec2e6d85" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3LATID<sp/><sp/><sp/><sp/><sp/>((s3latid_t)<sp/>-1)</highlight></codeline>
+<codeline lineno="167"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3LATID(l)<sp/><sp/>((l)&lt;0)</highlight></codeline>
+<codeline lineno="168"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3LATID(l)<sp/><sp/><sp/>((l)&gt;=0)</highlight></codeline>
+<codeline lineno="169"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3LATID<sp/><sp/><sp/><sp/><sp/>((int32)0x7ffffffe)</highlight></codeline>
+<codeline lineno="170"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int16<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3frmid_t;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="172" refid="s3types_8h_1a564e6d8072efdbd932b413007e4897c1" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3FRMID<sp/><sp/><sp/><sp/><sp/>((s3frmid_t)<sp/>-1)</highlight></codeline>
+<codeline lineno="173"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3FRMID(f)<sp/><sp/>((f)&lt;0)</highlight></codeline>
+<codeline lineno="174"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3FRMID(f)<sp/><sp/><sp/>((f)&gt;=0)</highlight></codeline>
+<codeline lineno="175"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3FRMID<sp/><sp/><sp/><sp/><sp/>((int32)0x7ffe)</highlight></codeline>
+<codeline lineno="176"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint16<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3senid_t;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="178" refid="s3types_8h_1a072c42ea82002d9435305133750c4e2e" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3SENID<sp/><sp/><sp/><sp/><sp/>((s3senid_t)<sp/>0xffff)</highlight></codeline>
+<codeline lineno="179"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3SENID(s)<sp/><sp/>((s)<sp/>==<sp/>BAD_S3SENID)</highlight></codeline>
+<codeline lineno="180"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3SENID(s)<sp/><sp/><sp/>((s)<sp/>!=<sp/>BAD_S3SENID)</highlight></codeline>
+<codeline lineno="181"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3SENID<sp/><sp/><sp/><sp/><sp/>((int16)0x7ffe)</highlight></codeline>
+<codeline lineno="182"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int16<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3mgauid_t;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="184" refid="s3types_8h_1a08bccaa82b9d1990a9a98368a1091ff6" refkind="member"><highlight class="preprocessor">#define<sp/>BAD_S3MGAUID<sp/><sp/><sp/><sp/>((s3mgauid_t)<sp/>-1)</highlight></codeline>
+<codeline lineno="185"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NOT_S3MGAUID(m)<sp/>((m)&lt;0)</highlight></codeline>
+<codeline lineno="186"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>IS_S3MGAUID(m)<sp/><sp/>((m)&gt;=0)</highlight></codeline>
+<codeline lineno="187"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MAX_S3MGAUID<sp/><sp/><sp/><sp/>((int32)0x00007ffe)</highlight></codeline>
+<codeline lineno="188"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>S3_LOGPROB_ZERO<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((int32)<sp/>0xc8000000)<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="191"><highlight class="preprocessor">#define<sp/>S3_LOGPROB_ZERO_F<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((float32)<sp/>-1e30)<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="preprocessor">#define<sp/>RENORM_THRESH<sp/><sp/><sp/><sp/><sp/>((int32)<sp/>((S3_LOGPROB_ZERO)&gt;&gt;1))<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="195"><highlight class="preprocessor">#define<sp/>S3_SUCCESS<sp/><sp/><sp/><sp/><sp/><sp/>0</highlight></codeline>
+<codeline lineno="196"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>S3_ERROR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-1</highlight></codeline>
+<codeline lineno="197"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>S3_WARNING<sp/><sp/><sp/><sp/><sp/><sp/>-2</highlight></codeline>
+<codeline lineno="198"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="200" refid="s3types_8h_1a0aed240c1318ac601a4a35ba21c152b6" refkind="member"><highlight class="preprocessor">#define<sp/>MAX_N_STATE<sp/><sp/><sp/><sp/><sp/>20</highlight></codeline>
+<codeline lineno="201"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="204" refid="s3types_8h_1acfbabf70ac5778a1d060ac25b0dff433" refkind="member"><highlight class="preprocessor">#define<sp/>MAX_N_ATTRIB<sp/><sp/><sp/><sp/>5</highlight></codeline>
+<codeline lineno="205"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>TRUE</highlight></codeline>
+<codeline lineno="207"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>TRUE<sp/><sp/>1</highlight></codeline>
+<codeline lineno="208"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>FALSE<sp/>0<sp/></highlight><highlight class="comment">/*<sp/>assume<sp/>that<sp/>true<sp/>is<sp/>never<sp/>defined<sp/>w/o<sp/>false<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="209"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="210"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Timer<sp/>for<sp/>elapsed<sp/>I/O<sp/>time<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IO_ELAPSED<sp/><sp/><sp/><sp/><sp/><sp/>0</highlight></codeline>
+<codeline lineno="213"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Timer<sp/>for<sp/>utt<sp/>processing<sp/>elapsed<sp/>time<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UTT_ELAPSED<sp/><sp/><sp/><sp/><sp/>1</highlight></codeline>
+<codeline lineno="216"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>UTT_IO_ELAPSED<sp/><sp/>2</highlight></codeline>
+<codeline lineno="217"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>UTT_BW_ELAPSED<sp/><sp/>3</highlight></codeline>
+<codeline lineno="218"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TYING_NON_EMITTING<sp/><sp/><sp/><sp/><sp/><sp/>(0xffffffff)</highlight></codeline>
+<codeline lineno="220"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>TYING_NO_ID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0xffffffff)</highlight></codeline>
+<codeline lineno="221"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_VERSION_LEN<sp/>128</highlight></codeline>
+<codeline lineno="223"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEG<sp/>*1024*1024</highlight></codeline>
+<codeline lineno="225"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="227"><highlight class="preprocessor"></highlight><highlight class="normal">{<sp/></highlight><highlight class="comment">/*<sp/>Stop<sp/>indent<sp/>from<sp/>complaining<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="229"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="230"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="232"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/s3types.h"/>
+  </compounddef>
+</doxygen>

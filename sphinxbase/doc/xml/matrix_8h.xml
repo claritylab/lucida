@@ -1,0 +1,823 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="matrix_8h" kind="file">
+    <compoundname>matrix.h</compoundname>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includedby refid="matrix_8c" local="yes">src/libsphinxbase/util/matrix.c</includedby>
+    <incdepgraph>
+      <node id="741">
+        <label>include/sphinxbase/matrix.h</label>
+        <link refid="matrix.h"/>
+        <childnode refid="742" relation="include">
+        </childnode>
+        <childnode refid="743" relation="include">
+        </childnode>
+      </node>
+      <node id="744">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="742">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="743">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="744" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="745">
+        <label>include/sphinxbase/matrix.h</label>
+        <link refid="matrix.h"/>
+        <childnode refid="746" relation="include">
+        </childnode>
+      </node>
+      <node id="746">
+        <label>src/libsphinxbase/util/matrix.c</label>
+        <link refid="matrix_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="matrix_8h_1af209fc89926fd184f5a02919ec7c9818" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void norm_3d</definition>
+        <argsstring>(float32 ***arr, uint32 d1, uint32 d2, uint32 d3)</argsstring>
+        <name>norm_3d</name>
+        <param>
+          <type>float32 ***</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d3</declname>
+        </param>
+        <briefdescription>
+<para>Norm an array. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="80" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="50" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1abf02a99f3dac599148c0e1ee5640b568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void accum_3d</definition>
+        <argsstring>(float32 ***out, float32 ***in, uint32 d1, uint32 d2, uint32 d3)</argsstring>
+        <name>accum_3d</name>
+        <param>
+          <type>float32 ***</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>float32 ***</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d3</declname>
+        </param>
+        <briefdescription>
+<para>Floor 3-d array. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output array  in input array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="91" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="78" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1a859d32f6b8e86fb215f676245c8deeaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void band_nz_1d</definition>
+        <argsstring>(float32 *v, uint32 d1, float32 band)</argsstring>
+        <name>band_nz_1d</name>
+        <param>
+          <type>float32 *</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>band</declname>
+        </param>
+        <briefdescription>
+<para>Ensures that non-zero values x such that -band &lt; x &lt; band, band &gt; 0 are set to -band if x &lt; 0 and band if x &gt; 0. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array size </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>band</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>band value </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="98" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="127" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1a7b18b907fca64a8057f7406b8996d9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void floor_nz_3d</definition>
+        <argsstring>(float32 ***m, uint32 d1, uint32 d2, uint32 d3, float32 floor)</argsstring>
+        <name>floor_nz_3d</name>
+        <param>
+          <type>float32 ***</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d3</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>floor</declname>
+        </param>
+        <briefdescription>
+<para>Floor 3-d array. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>floor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>floor value </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="108" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="96" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1a0ec7000944b98cce317e0b63ce437b99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void floor_nz_1d</definition>
+        <argsstring>(float32 *v, uint32 d1, float32 floor)</argsstring>
+        <name>floor_nz_1d</name>
+        <param>
+          <type>float32 *</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>floor</declname>
+        </param>
+        <briefdescription>
+<para>Floor 1-d array. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>floor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>floor value </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="116" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="114" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1a0c810028195f6078c9e99f3b5c29c42b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT float64</type>
+        <definition>SPHINXBASE_EXPORT float64 determinant</definition>
+        <argsstring>(float32 **a, int32 len)</argsstring>
+        <name>determinant</name>
+        <param>
+          <type>float32 **</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the determinant of a positive definite matrix. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input matrix, must be positive definite. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The dimension of the input matrix. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The determinant of the input matrix, or -1.0 if the matrix is not positive definite.</para></simplesect>
+<simplesect kind="note"><para>These can be vanishingly small hence the float64 return type. Also note that only the upper triangular portion of a is considered, therefore the check for positive-definiteness is not reliable. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="131" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="147" bodyend="151"/>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1aa20f437dbe9fcd6f0adda31f181bfbea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 invert</definition>
+        <argsstring>(float32 **out_ainv, float32 **a, int32 len)</argsstring>
+        <name>invert</name>
+        <param>
+          <type>float32 **</type>
+          <declname>out_ainv</declname>
+        </param>
+        <param>
+          <type>float32 **</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Invert (if possible) a positive definite matrix. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>out_ainv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The inverse of a will be stored here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input matrix, must be positive definite. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The dimension of the input matrix. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 for success or -1 for a non-positive-definite matrix.</para></simplesect>
+<simplesect kind="note"><para>Only the upper triangular portion of a is considered, therefore the check for positive-definiteness is not reliable. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="144" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="153" bodyend="157"/>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1a174a82dac39a15828af6c87edcba3708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 solve</definition>
+        <argsstring>(float32 **a, float32 *b, float32 *out_x, int32 n)</argsstring>
+        <name>solve</name>
+        <param>
+          <type>float32 **</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float32 *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float32 *</type>
+          <declname>out_x</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Solve (if possible) a positive-definite system of linear equations AX=B for X. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The A matrix on the left-hand side of the equation, must be positive-definite. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The B vector on the right-hand side of the equation. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The X vector will be stored here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The dimension of the A matrix (n by n) and the B and X vectors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 for success or -1 for a non-positive-definite matrix.</para></simplesect>
+<simplesect kind="note"><para>Only the upper triangular portion of a is considered, therefore the check for positive-definiteness is not reliable. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="158" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="159" bodyend="163"/>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1aa2d31d63ec277fd389d4ef51d3b2bc2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void outerproduct</definition>
+        <argsstring>(float32 **out_a, float32 *x, float32 *y, int32 len)</argsstring>
+        <name>outerproduct</name>
+        <param>
+          <type>float32 **</type>
+          <declname>out_a</declname>
+        </param>
+        <param>
+          <type>float32 *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float32 *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the outer product of two vectors. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>out_a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A (pre-allocated) len x len array. The outer product will be stored here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of length len. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of length len. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of the input vectors. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="170" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="278" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1acaaf5d2c02d9d12f10abc462ac65cde9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void matrixmultiply</definition>
+        <argsstring>(float32 **out_c, float32 **a, float32 **b, int32 n)</argsstring>
+        <name>matrixmultiply</name>
+        <param>
+          <type>float32 **</type>
+          <declname>out_c</declname>
+        </param>
+        <param>
+          <type>float32 **</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float32 **</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Multiply C=AB where A and B are symmetric matrices. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>out_c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output matrix C. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input matrix A. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input matrix B. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Dimensionality of A and B. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="180" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="166" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1adc8ee5f4e4792328e4f33309bc99ebfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void scalarmultiply</definition>
+        <argsstring>(float32 **inout_a, float32 x, int32 n)</argsstring>
+        <name>scalarmultiply</name>
+        <param>
+          <type>float32 **</type>
+          <declname>inout_a</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Multiply a symmetric matrix by a constant in-place. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inout_a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The matrix to multiply. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The constant to multiply it by. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension of a. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="191" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="292" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="matrix_8h_1a545d251a51cc473bad38a83b2a05f61c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void matrixadd</definition>
+        <argsstring>(float32 **inout_a, float32 **b, int32 n)</argsstring>
+        <name>matrixadd</name>
+        <param>
+          <type>float32 **</type>
+          <declname>inout_a</declname>
+        </param>
+        <param>
+          <type>float32 **</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Add A += B. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inout_a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The A matrix to add. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The B matrix to add to A. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dimension of a and b. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h" line="200" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/matrix.c" bodystart="306" bodyend="313"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Matrix and linear algebra functions. </para>    </briefdescription>
+    <detaileddescription>
+<para>This file contains some basic matrix and linear algebra operations. In general these operate on positive definite matrices ONLY, because all matrices we&apos;re likely to encounter are either covariance matrices or are derived from them, and therefore a non-positive-definite matrix indicates some kind of pathological condition. </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1997-2000<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights<sp/></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*********************************************************************</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>File:<sp/>matrix.h</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>Description:<sp/>Matrix<sp/>and<sp/>linear<sp/>algebra<sp/>functions</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Author:<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*********************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MATRIX_H</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MATRIX_H</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Win32/WinCE<sp/>DLL<sp/>gunk<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">SPHINXBASE_EXPORT<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="matrix_8h_1af209fc89926fd184f5a02919ec7c9818" kindref="member">norm_3d</ref>(float32<sp/>***arr,<sp/>uint32<sp/>d1,<sp/>uint32<sp/>d2,<sp/>uint32<sp/>d3);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">SPHINXBASE_EXPORT<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><ref refid="matrix_8h_1abf02a99f3dac599148c0e1ee5640b568" kindref="member">accum_3d</ref>(float32<sp/>***out,<sp/>float32<sp/>***in,<sp/>uint32<sp/>d1,<sp/>uint32<sp/>d2,<sp/>uint32<sp/>d3);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">SPHINXBASE_EXPORT<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="matrix_8h_1a859d32f6b8e86fb215f676245c8deeaf" kindref="member">band_nz_1d</ref>(float32<sp/>*v,<sp/>uint32<sp/>d1,<sp/>float32<sp/>band);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">SPHINXBASE_EXPORT<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="matrix_8h_1a7b18b907fca64a8057f7406b8996d9c9" kindref="member">floor_nz_3d</ref>(float32<sp/>***m,<sp/>uint32<sp/>d1,<sp/>uint32<sp/>d2,<sp/>uint32<sp/>d3,<sp/>float32<sp/>floor);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">SPHINXBASE_EXPORT<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="matrix_8h_1a0ec7000944b98cce317e0b63ce437b99" kindref="member">floor_nz_1d</ref>(float32<sp/>*v,<sp/>uint32<sp/>d1,<sp/>float32<sp/>floor);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">float64<sp/><ref refid="matrix_8h_1a0c810028195f6078c9e99f3b5c29c42b" kindref="member">determinant</ref>(float32<sp/>**a,<sp/>int32<sp/>len);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">int32<sp/><ref refid="matrix_8h_1aa20f437dbe9fcd6f0adda31f181bfbea" kindref="member">invert</ref>(float32<sp/>**out_ainv,<sp/>float32<sp/>**a,<sp/>int32<sp/>len);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">int32<sp/><ref refid="matrix_8h_1a174a82dac39a15828af6c87edcba3708" kindref="member">solve</ref>(float32<sp/>**a,<sp/>float32<sp/>*b,</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float32<sp/>*out_x,<sp/>int32<sp/>n);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="matrix_8h_1aa2d31d63ec277fd389d4ef51d3b2bc2b" kindref="member">outerproduct</ref>(float32<sp/>**out_a,<sp/>float32<sp/>*x,<sp/>float32<sp/>*y,<sp/>int32<sp/>len);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="matrix_8h_1acaaf5d2c02d9d12f10abc462ac65cde9" kindref="member">matrixmultiply</ref>(float32<sp/>**out_c,<sp/></highlight><highlight class="comment">/*<sp/>=<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float32<sp/>**a,<sp/></highlight><highlight class="comment">/*<sp/>*<sp/>*/</highlight><highlight class="normal"><sp/>float32<sp/>**b,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>n);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="matrix_8h_1adc8ee5f4e4792328e4f33309bc99ebfb" kindref="member">scalarmultiply</ref>(float32<sp/>**inout_a,<sp/>float32<sp/>x,<sp/>int32<sp/>n);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="matrix_8h_1a545d251a51cc473bad38a83b2a05f61c" kindref="member">matrixadd</ref>(float32<sp/>**inout_a,<sp/>float32<sp/>**b,<sp/>int32<sp/>n);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="203"><highlight class="preprocessor"></highlight><highlight class="normal">{<sp/></highlight><highlight class="comment">/*<sp/>Fool<sp/>indent.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="205"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="206"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="208"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>MATRIX_H<sp/>*/</highlight><highlight class="preprocessor"><sp/></highlight></codeline>
+<codeline lineno="210"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/>Log<sp/>record.<sp/><sp/>Maintained<sp/>by<sp/>RCS.</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>$Log$</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2004/07/21<sp/><sp/>17:46:09<sp/><sp/>egouvea</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*<sp/>Changed<sp/>the<sp/>license<sp/>terms<sp/>to<sp/>make<sp/>it<sp/>the<sp/>same<sp/>as<sp/>sphinx2<sp/>and<sp/>sphinx3.</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2001/04/05<sp/>20:02:30<sp/><sp/>awb</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/>***<sp/>empty<sp/>log<sp/>message<sp/>***</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.2<sp/><sp/>2000/09/29<sp/>22:35:12<sp/><sp/>awb</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/>***<sp/>empty<sp/>log<sp/>message<sp/>***</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.1<sp/><sp/>2000/09/24<sp/>21:38:30<sp/><sp/>awb</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/>*<sp/>***<sp/>empty<sp/>log<sp/>message<sp/>***</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.1<sp/><sp/>97/07/16<sp/><sp/>11:39:10<sp/><sp/>eht</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*<sp/>Initial<sp/>revision</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/matrix.h"/>
+  </compounddef>
+</doxygen>

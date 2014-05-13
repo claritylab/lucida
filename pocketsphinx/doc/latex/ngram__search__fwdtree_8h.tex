@@ -1,0 +1,61 @@
+\section{src/libpocketsphinx/ngram\-\_\-search\-\_\-fwdtree.h File Reference}
+\label{ngram__search__fwdtree_8h}\index{src/libpocketsphinx/ngram\-\_\-search\-\_\-fwdtree.\-h@{src/libpocketsphinx/ngram\-\_\-search\-\_\-fwdtree.\-h}}
+
+
+Lexicon tree based Viterbi search.  
+
+
+{\ttfamily \#include \char`\"{}ngram\-\_\-search.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf ngram\-\_\-fwdtree\-\_\-init} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdtree_8h_a72c89a2a1f189495abee00e1853cddcc}
+
+\begin{DoxyCompactList}\small\item\em Initialize N-\/\-Gram search for fwdtree decoding. \end{DoxyCompactList}\item 
+void {\bf ngram\-\_\-fwdtree\-\_\-deinit} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdtree_8h_a0e0e0436b30e1074114e1d37991c5d6b}
+
+\begin{DoxyCompactList}\small\item\em Release memory associated with fwdtree decoding. \end{DoxyCompactList}\item 
+int {\bf ngram\-\_\-fwdtree\-\_\-reinit} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdtree_8h_aa53827b47025d4e7a63f3ddce763d84e}
+
+\begin{DoxyCompactList}\small\item\em Rebuild search structures for updated language models. \end{DoxyCompactList}\item 
+void {\bf ngram\-\_\-fwdtree\-\_\-start} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdtree_8h_af736200cd01a5d743dbab447ecc85d08}
+
+\begin{DoxyCompactList}\small\item\em Start fwdtree decoding for an utterance. \end{DoxyCompactList}\item 
+int {\bf ngram\-\_\-fwdtree\-\_\-search} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs, int frame\-\_\-idx)
+\begin{DoxyCompactList}\small\item\em Search one frame forward in an utterance. \end{DoxyCompactList}\item 
+void {\bf ngram\-\_\-fwdtree\-\_\-finish} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdtree_8h_af32a83dbb9187542577a0c500b000840}
+
+\begin{DoxyCompactList}\small\item\em Finish fwdtree decoding for an utterance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lexicon tree based Viterbi search. 
+
+Definition in file {\bf ngram\-\_\-search\-\_\-fwdtree.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{ngram\-\_\-search\-\_\-fwdtree.\-h@{ngram\-\_\-search\-\_\-fwdtree.\-h}!ngram\-\_\-fwdtree\-\_\-search@{ngram\-\_\-fwdtree\-\_\-search}}
+\index{ngram\-\_\-fwdtree\-\_\-search@{ngram\-\_\-fwdtree\-\_\-search}!ngram_search_fwdtree.h@{ngram\-\_\-search\-\_\-fwdtree.\-h}}
+\subsubsection[{ngram\-\_\-fwdtree\-\_\-search}]{\setlength{\rightskip}{0pt plus 5cm}int ngram\-\_\-fwdtree\-\_\-search (
+\begin{DoxyParamCaption}
+\item[{{\bf ngram\-\_\-search\-\_\-t} $\ast$}]{ngs, }
+\item[{int}]{frame\-\_\-idx}
+\end{DoxyParamCaption}
+)}\label{ngram__search__fwdtree_8h_a9e2828ba0d249424a234b6cf7d3ee530}
+
+
+Search one frame forward in an utterance. 
+
+\begin{DoxyReturn}{Returns}
+Number of frames searched (either 0 or 1). 
+\end{DoxyReturn}
+
+
+Definition at line 1455 of file ngram\-\_\-search\-\_\-fwdtree.\-c.
+
+
+
+References acmod\-\_\-score(), ngram\-\_\-search\-\_\-s\-::best\-\_\-score, ngram\-\_\-search\-\_\-s\-::n\-\_\-frame, ngram\-\_\-search\-\_\-mark\-\_\-bptable(), ngram\-\_\-search\-\_\-s\-::st, and W\-O\-R\-S\-E\-\_\-\-T\-H\-A\-N.
+

@@ -1,0 +1,159 @@
+\section{phone\-\_\-loop\-\_\-search\-\_\-s Struct Reference}
+\label{structphone__loop__search__s}\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+
+
+Phone loop search structure.  
+
+
+
+
+{\ttfamily \#include $<$phone\-\_\-loop\-\_\-search.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-search\-\_\-t} {\bf base}
+\begin{DoxyCompactList}\small\item\em Base search structure. \end{DoxyCompactList}\item 
+{\bf hmm\-\_\-context\-\_\-t} $\ast$ {\bf hmmctx}
+\begin{DoxyCompactList}\small\item\em H\-M\-M context structure. \end{DoxyCompactList}\item 
+int16 {\bf frame}
+\begin{DoxyCompactList}\small\item\em Current frame being searched. \end{DoxyCompactList}\item 
+int16 {\bf n\-\_\-phones}
+\begin{DoxyCompactList}\small\item\em Size of phone array. \end{DoxyCompactList}\item 
+{\bf phone\-\_\-loop\-\_\-t} $\ast$ {\bf phones}
+\begin{DoxyCompactList}\small\item\em Array of phone arcs. \end{DoxyCompactList}\item 
+int32 {\bf best\-\_\-score}
+\begin{DoxyCompactList}\small\item\em Best Viterbi score in current frame. \end{DoxyCompactList}\item 
+int32 {\bf beam}
+\begin{DoxyCompactList}\small\item\em H\-M\-M pruning beam width. \end{DoxyCompactList}\item 
+int32 {\bf pbeam}
+\begin{DoxyCompactList}\small\item\em Phone exit pruning beam width. \end{DoxyCompactList}\item 
+int32 {\bf pip}
+\begin{DoxyCompactList}\small\item\em Phone insertion penalty (\char`\"{}language score\char`\"{}). \end{DoxyCompactList}\item 
+glist\-\_\-t {\bf renorm}
+\begin{DoxyCompactList}\small\item\em List of renormalizations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Phone loop search structure. 
+
+Definition at line 82 of file phone\-\_\-loop\-\_\-search.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!base@{base}}
+\index{base@{base}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-search\-\_\-t} phone\-\_\-loop\-\_\-search\-\_\-s\-::base}\label{structphone__loop__search__s_aea1cf9ffda814f681b57f32c1f8cc3b1}
+
+
+Base search structure. 
+
+
+
+Definition at line 83 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!beam@{beam}}
+\index{beam@{beam}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{beam}]{\setlength{\rightskip}{0pt plus 5cm}int32 phone\-\_\-loop\-\_\-search\-\_\-s\-::beam}\label{structphone__loop__search__s_a1aa6103c72ce8159bd21bfa4f97feff3}
+
+
+H\-M\-M pruning beam width. 
+
+
+
+Definition at line 90 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!best\-\_\-score@{best\-\_\-score}}
+\index{best\-\_\-score@{best\-\_\-score}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{best\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}int32 phone\-\_\-loop\-\_\-search\-\_\-s\-::best\-\_\-score}\label{structphone__loop__search__s_af6bf0231db2587a3f7ffa3f838b84db5}
+
+
+Best Viterbi score in current frame. 
+
+
+
+Definition at line 89 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!frame@{frame}}
+\index{frame@{frame}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{frame}]{\setlength{\rightskip}{0pt plus 5cm}int16 phone\-\_\-loop\-\_\-search\-\_\-s\-::frame}\label{structphone__loop__search__s_a160e5fb9670d1870e5b21379a87bace5}
+
+
+Current frame being searched. 
+
+
+
+Definition at line 85 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!hmmctx@{hmmctx}}
+\index{hmmctx@{hmmctx}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{hmmctx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hmm\-\_\-context\-\_\-t}$\ast$ phone\-\_\-loop\-\_\-search\-\_\-s\-::hmmctx}\label{structphone__loop__search__s_a67c44a95de79cb421fbeed4432686f48}
+
+
+H\-M\-M context structure. 
+
+
+
+Definition at line 84 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!n\-\_\-phones@{n\-\_\-phones}}
+\index{n\-\_\-phones@{n\-\_\-phones}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{n\-\_\-phones}]{\setlength{\rightskip}{0pt plus 5cm}int16 phone\-\_\-loop\-\_\-search\-\_\-s\-::n\-\_\-phones}\label{structphone__loop__search__s_a7844f45806d19d229504378da16bdc4c}
+
+
+Size of phone array. 
+
+
+
+Definition at line 86 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!pbeam@{pbeam}}
+\index{pbeam@{pbeam}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{pbeam}]{\setlength{\rightskip}{0pt plus 5cm}int32 phone\-\_\-loop\-\_\-search\-\_\-s\-::pbeam}\label{structphone__loop__search__s_aaace8b677a536e41bb4616e6695b11d3}
+
+
+Phone exit pruning beam width. 
+
+
+
+Definition at line 91 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!phones@{phones}}
+\index{phones@{phones}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{phones}]{\setlength{\rightskip}{0pt plus 5cm}{\bf phone\-\_\-loop\-\_\-t}$\ast$ phone\-\_\-loop\-\_\-search\-\_\-s\-::phones}\label{structphone__loop__search__s_af543cdcfbfd8d43e5beba4bd6c47fd80}
+
+
+Array of phone arcs. 
+
+
+
+Definition at line 87 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!pip@{pip}}
+\index{pip@{pip}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{pip}]{\setlength{\rightskip}{0pt plus 5cm}int32 phone\-\_\-loop\-\_\-search\-\_\-s\-::pip}\label{structphone__loop__search__s_ac979bc57a659c7853eec1854dbcbfabe}
+
+
+Phone insertion penalty (\char`\"{}language score\char`\"{}). 
+
+
+
+Definition at line 92 of file phone\-\_\-loop\-\_\-search.\-h.
+
+\index{phone\-\_\-loop\-\_\-search\-\_\-s@{phone\-\_\-loop\-\_\-search\-\_\-s}!renorm@{renorm}}
+\index{renorm@{renorm}!phone_loop_search_s@{phone\-\_\-loop\-\_\-search\-\_\-s}}
+\subsubsection[{renorm}]{\setlength{\rightskip}{0pt plus 5cm}glist\-\_\-t phone\-\_\-loop\-\_\-search\-\_\-s\-::renorm}\label{structphone__loop__search__s_a273295fbe1a22ad3ddf7db8695a394ec}
+
+
+List of renormalizations. 
+
+
+
+Definition at line 93 of file phone\-\_\-loop\-\_\-search.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf phone\-\_\-loop\-\_\-search.\-h}\end{DoxyCompactItemize}

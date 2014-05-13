@@ -1,0 +1,1427 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structngram__search__s" kind="struct" prot="public">
+    <compoundname>ngram_search_s</compoundname>
+    <includes refid="ngram__search_8h" local="no">ngram_search.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structngram__search__s_1a572ad45de5b0f364096f0a8544fe5bf7" prot="public" static="no" mutable="no">
+        <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref></type>
+        <definition>ps_search_t ngram_search_s::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="198" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a6127a6d8fb53832e67456c11aa6ad9c4" prot="public" static="no" mutable="no">
+        <type>ngram_model_t *</type>
+        <definition>ngram_model_t* ngram_search_s::lmset</definition>
+        <argsstring></argsstring>
+        <name>lmset</name>
+        <briefdescription>
+<para>Set of language models. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="199" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="199" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1acfbdd34e3dadbaa384818402f1dd59bf" prot="public" static="no" mutable="no">
+        <type><ref refid="structhmm__context__t" kindref="compound">hmm_context_t</ref> *</type>
+        <definition>hmm_context_t* ngram_search_s::hmmctx</definition>
+        <argsstring></argsstring>
+        <name>hmmctx</name>
+        <briefdescription>
+<para>HMM context. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="200" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="200" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+        <referencedby refid="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" compoundref="ngram__search_8c" startline="600" endline="646">ngram_search_alloc_all_rc</referencedby>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1aca37c8278a0dacb881cc6a2b0953c076" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 ngram_search_s::fwdtree</definition>
+        <argsstring></argsstring>
+        <name>fwdtree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="203" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a88358958f4f983c96034cbbd4bc8f5cd" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 ngram_search_s::fwdflat</definition>
+        <argsstring></argsstring>
+        <name>fwdflat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="204" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a0d1daeb151911b2243a1a91566be9063" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 ngram_search_s::bestpath</definition>
+        <argsstring></argsstring>
+        <name>bestpath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="205" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a3c51a66cf26de3aa050b3615d14ff060" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 ngram_search_s::done</definition>
+        <argsstring></argsstring>
+        <name>done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="208" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1abe9fe60f6e48b9a6e3d41856bb1dc109" prot="public" static="no" mutable="no">
+        <type>listelem_alloc_t *</type>
+        <definition>listelem_alloc_t* ngram_search_s::chan_alloc</definition>
+        <argsstring></argsstring>
+        <name>chan_alloc</name>
+        <briefdescription>
+<para>For chan_t. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="211" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="211" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+        <referencedby refid="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" compoundref="ngram__search_8c" startline="600" endline="646">ngram_search_alloc_all_rc</referencedby>
+        <referencedby refid="ngram__search_8h_1a15477192481dffcb29e9c4167eff6c3c" compoundref="ngram__search_8c" startline="649" endline="659">ngram_search_free_all_rc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a576470858bfa44c671f0e677902ab424" prot="public" static="no" mutable="no">
+        <type>listelem_alloc_t *</type>
+        <definition>listelem_alloc_t* ngram_search_s::root_chan_alloc</definition>
+        <argsstring></argsstring>
+        <name>root_chan_alloc</name>
+        <briefdescription>
+<para>For root_chan_t. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="212" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="212" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a21600dc2e23744f0be9c64a4db8d7e50" prot="public" static="no" mutable="no">
+        <type>listelem_alloc_t *</type>
+        <definition>listelem_alloc_t* ngram_search_s::latnode_alloc</definition>
+        <argsstring></argsstring>
+        <name>latnode_alloc</name>
+        <briefdescription>
+<para>For latnode_t. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="213" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="213" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ae1b0a51cfcddc1e4b6ac94fa1e48887a" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__search_8h_1aab8eee3f73f666d0e12c5b355a651cff" kindref="member">root_chan_t</ref> *</type>
+        <definition>root_chan_t* ngram_search_s::root_chan</definition>
+        <argsstring></argsstring>
+        <name>root_chan</name>
+        <briefdescription>
+<para>Search structure of HMM instances. </para>        </briefdescription>
+        <detaileddescription>
+<para>The word triphone sequences (HMM instances) are transformed into tree structures, one tree per unique left triphone in the entire dictionary (actually diphone, since its left context varies dyamically during the search process). The entire set of trees of channels is allocated once and for all during initialization (since dynamic management of active CHANs is time consuming), with one exception: the last phones of words, that need multiple right context modelling, are not maintained in this static structure since there are too many of them and few are active at any time. Instead they are maintained as linked lists of CHANs, one list per word, and each CHAN in this set is allocated only on demand and freed if inactive.Roots of search tree. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="231" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="231" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1abc8a67e3f64adc470c78dfdd23be4126" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_root_chan_alloc</definition>
+        <argsstring></argsstring>
+        <name>n_root_chan_alloc</name>
+        <briefdescription>
+<para>Number of root_chan allocated. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="232" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a297d8bdb856617490ee8ccd99df70e68" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_root_chan</definition>
+        <argsstring></argsstring>
+        <name>n_root_chan</name>
+        <briefdescription>
+<para>Number of valid root_chan. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="233" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="233" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a043723786367f5026dce99c261f7086d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_nonroot_chan</definition>
+        <argsstring></argsstring>
+        <name>n_nonroot_chan</name>
+        <briefdescription>
+<para>Number of valid non-root channels. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="234" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a4b2b42349e9e3df7e93b4a7d6994f63f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::max_nonroot_chan</definition>
+        <argsstring></argsstring>
+        <name>max_nonroot_chan</name>
+        <briefdescription>
+<para>Maximum possible number of non-root channels. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="235" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="235" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdtree_8h_1a0e0e0436b30e1074114e1d37991c5d6b" compoundref="ngram__search__fwdtree_8c" startline="425" endline="451">ngram_fwdtree_deinit</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a1ffa3c9100252122ae8a2a713c50b527" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__search_8h_1aab8eee3f73f666d0e12c5b355a651cff" kindref="member">root_chan_t</ref> *</type>
+        <definition>root_chan_t* ngram_search_s::rhmm_1ph</definition>
+        <argsstring></argsstring>
+        <name>rhmm_1ph</name>
+        <briefdescription>
+<para>Root HMMs for single-phone words. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="236" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a79deb7295a261cd82d2a6b48cb119e77" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__search_8h_1a2c5740fe4792d870b73f4100b32e9324" kindref="member">chan_t</ref> **</type>
+        <definition>chan_t** ngram_search_s::word_chan</definition>
+        <argsstring></argsstring>
+        <name>word_chan</name>
+        <briefdescription>
+<para>Channels associated with a given word (only used for right contexts, single-phone words in fwdtree search, and word HMMs in fwdflat search). </para>        </briefdescription>
+        <detaileddescription>
+<para>WARNING: For single-phone words and fwdflat search, this actually contains pointers to root_chan_t, which are allocated using root_chan_alloc. This is a suboptimal state of affairs. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="246" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="246" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1aa4879c06ddbc455a6f355084a9c574b4" compoundref="ngram__search__fwdflat_8c" startline="192" endline="221">ngram_fwdflat_reinit</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1a763c2c7aaa5d7f9c5107af73552a2149" compoundref="ngram__search__fwdflat_8c" startline="374" endline="417">ngram_fwdflat_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1aa53827b47025d4e7a63f3ddce763d84e" compoundref="ngram__search__fwdtree_8c" startline="454" endline="471">ngram_fwdtree_reinit</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af736200cd01a5d743dbab447ecc85d08" compoundref="ngram__search__fwdtree_8c" startline="474" endline="524">ngram_fwdtree_start</referencedby>
+        <referencedby refid="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" compoundref="ngram__search_8c" startline="600" endline="646">ngram_search_alloc_all_rc</referencedby>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+        <referencedby refid="ngram__search_8h_1a15477192481dffcb29e9c4167eff6c3c" compoundref="ngram__search_8c" startline="649" endline="659">ngram_search_free_all_rc</referencedby>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1aeb4c98851bf9b239ca607ca59f59ff4c" prot="public" static="no" mutable="no">
+        <type>bitvec_t *</type>
+        <definition>bitvec_t* ngram_search_s::word_active</definition>
+        <argsstring></argsstring>
+        <name>word_active</name>
+        <briefdescription>
+<para>array of active flags for all words. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="247" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="247" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1ac855cf540ac4acdfa320629720ded6fe" compoundref="ngram__search__fwdflat_8c" startline="919" endline="955">ngram_fwdflat_finish</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ab251bb3d0ddd33dd99ed390b61e481f2" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* ngram_search_s::homophone_set</definition>
+        <argsstring></argsstring>
+        <name>homophone_set</name>
+        <briefdescription>
+<para>Each node in the HMM tree structure may point to a set of words whose last phone would follow that node in the tree structure (but is not included in the tree structure for reasons explained above). </para>        </briefdescription>
+        <detaileddescription>
+<para>The channel node points to one word in this set of words. The remaining words are linked through homophone_set[].</para><para>Single-phone words are not represented in the HMM tree; they are kept in word_chan.</para><para>Specifically, homophone_set[w] = wid of next word in the same set as w. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="263" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a1157923e0060b947e05caa819c8abe2c" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* ngram_search_s::single_phone_wid</definition>
+        <argsstring></argsstring>
+        <name>single_phone_wid</name>
+        <briefdescription>
+<para>list of single-phone word ids </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="264" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="264" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1a763c2c7aaa5d7f9c5107af73552a2149" compoundref="ngram__search__fwdflat_8c" startline="374" endline="417">ngram_fwdflat_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af736200cd01a5d743dbab447ecc85d08" compoundref="ngram__search__fwdtree_8c" startline="474" endline="524">ngram_fwdtree_start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a9168184c862d6f63bd7926e6581b25d9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_1ph_words</definition>
+        <argsstring></argsstring>
+        <name>n_1ph_words</name>
+        <briefdescription>
+<para>Number single phone words in dict (total) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="265" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="265" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1a763c2c7aaa5d7f9c5107af73552a2149" compoundref="ngram__search__fwdflat_8c" startline="374" endline="417">ngram_fwdflat_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af736200cd01a5d743dbab447ecc85d08" compoundref="ngram__search__fwdtree_8c" startline="474" endline="524">ngram_fwdtree_start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a988672d895f1ee61dbf790b2065df4df" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_1ph_LMwords</definition>
+        <argsstring></argsstring>
+        <name>n_1ph_LMwords</name>
+        <briefdescription>
+<para>Number single phone dict words also in LM; these come first in single_phone_wid. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="266" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a83731bf0e2234e632c5e78f2321f5b2d" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__search_8h_1a2c5740fe4792d870b73f4100b32e9324" kindref="member">chan_t</ref> ***</type>
+        <definition>chan_t*** ngram_search_s::active_chan_list</definition>
+        <argsstring></argsstring>
+        <name>active_chan_list</name>
+        <briefdescription>
+<para>Array of active channels for current and next frame. </para>        </briefdescription>
+        <detaileddescription>
+<para>In any frame, only some HMM tree nodes are active. active_chan_list[f mod 2] = list of nonroot channels in the HMM tree active in frame f. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="275" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="275" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdtree_8h_1a0e0e0436b30e1074114e1d37991c5d6b" compoundref="ngram__search__fwdtree_8c" startline="425" endline="451">ngram_fwdtree_deinit</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ac33f60894871671ec5c2173ca56d600f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_active_chan[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>n_active_chan</name>
+        <briefdescription>
+<para>Number entries in active_chan_list. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="276" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="276" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdtree_8h_1af736200cd01a5d743dbab447ecc85d08" compoundref="ngram__search__fwdtree_8c" startline="474" endline="524">ngram_fwdtree_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a5056573bf95990cc28c97a56cd76ce9a" prot="public" static="no" mutable="no">
+        <type>int32 **</type>
+        <definition>int32** ngram_search_s::active_word_list</definition>
+        <argsstring></argsstring>
+        <name>active_word_list</name>
+        <briefdescription>
+<para>Array of active multi-phone words for current and next frame. </para>        </briefdescription>
+        <detaileddescription>
+<para>Similarly to active_chan_list, active_word_list[f mod 2] = list of word ids for which active channels exist in word_chan in frame f.</para><para>Statically allocated single-phone words are always active and should not appear in this list. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="287" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="287" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1a763c2c7aaa5d7f9c5107af73552a2149" compoundref="ngram__search__fwdflat_8c" startline="374" endline="417">ngram_fwdflat_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+        <referencedby refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</referencedby>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a5c864f1fe331fc95c04e0d87a5bdf9ee" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_active_word[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>n_active_word</name>
+        <briefdescription>
+<para>Number entries in active_word_list. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="288" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="288" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1a763c2c7aaa5d7f9c5107af73552a2149" compoundref="ngram__search__fwdflat_8c" startline="374" endline="417">ngram_fwdflat_start</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af736200cd01a5d743dbab447ecc85d08" compoundref="ngram__search__fwdtree_8c" startline="474" endline="524">ngram_fwdtree_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a82d9662cfa82599617176eb5c4e5f15f" prot="public" static="no" mutable="no">
+        <type><ref refid="structlastphn__cand__s" kindref="compound">lastphn_cand_t</ref> *</type>
+        <definition>lastphn_cand_t* ngram_search_s::lastphn_cand</definition>
+        <argsstring></argsstring>
+        <name>lastphn_cand</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="293" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ad8b16d4873706ca29a6e22e2143ae896" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_lastphn_cand</definition>
+        <argsstring></argsstring>
+        <name>n_lastphn_cand</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="294" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="294" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a3f1429a7dd697c6537c353f172fea97f" prot="public" static="no" mutable="no">
+        <type><ref refid="structlast__ltrans__t" kindref="compound">last_ltrans_t</ref> *</type>
+        <definition>last_ltrans_t* ngram_search_s::last_ltrans</definition>
+        <argsstring></argsstring>
+        <name>last_ltrans</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="295" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ae17322f484615fa7ecb2c40ebeceecd9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::cand_sf_alloc</definition>
+        <argsstring></argsstring>
+        <name>cand_sf_alloc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="296" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a3304d30024b83107ed8e5e2dd770334b" prot="public" static="no" mutable="no">
+        <type><ref refid="structcand__sf__t" kindref="compound">cand_sf_t</ref> *</type>
+        <definition>cand_sf_t* ngram_search_s::cand_sf</definition>
+        <argsstring></argsstring>
+        <name>cand_sf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="297" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="297" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a8ab80281d54e9fa14a3631cb5b5e97a7" prot="public" static="no" mutable="no">
+        <type><ref refid="structbestbp__rc__s" kindref="compound">bestbp_rc_t</ref> *</type>
+        <definition>bestbp_rc_t* ngram_search_s::bestbp_rc</definition>
+        <argsstring></argsstring>
+        <name>bestbp_rc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="298" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a44b5476f901d827d5e6a23a5aa11eb43" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__search_8h_1a81093c091a82066374627744595840e6" kindref="member">bptbl_t</ref> *</type>
+        <definition>bptbl_t* ngram_search_s::bp_table</definition>
+        <argsstring></argsstring>
+        <name>bp_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="300" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ad72007665bf21bb12261eb63c996a987" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::bpidx</definition>
+        <argsstring></argsstring>
+        <name>bpidx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="301" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ae288500a2a3db50d4454546d66c826da" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::bp_table_size</definition>
+        <argsstring></argsstring>
+        <name>bp_table_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="302" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1adbbac268728dae5771cb4400649b62e2" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* ngram_search_s::bscore_stack</definition>
+        <argsstring></argsstring>
+        <name>bscore_stack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="303" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1aed45eb7f0ed7bbf266a7eb8e4acd22fa" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::bss_head</definition>
+        <argsstring></argsstring>
+        <name>bss_head</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="304" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a041e34cc7c9dab32d05b00eeb5d6d622" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::bscore_stack_size</definition>
+        <argsstring></argsstring>
+        <name>bscore_stack_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="305" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a38ea5de504b3d7ad2390a3f8966d502f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_frame_alloc</definition>
+        <argsstring></argsstring>
+        <name>n_frame_alloc</name>
+        <briefdescription>
+<para>Number of frames allocated in bp_table_idx and friends. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="307" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="307" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1ad4b8ebd904c77f8a28f59cd5ca2c8307" compoundref="ngram__search__fwdflat_8c" startline="145" endline="166">ngram_fwdflat_init</referencedby>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+        <referencedby refid="ngram__search_8h_1a7772e007b7d7fdf437c87aeb08b59c71" compoundref="ngram__search_8c" startline="328" endline="344">ngram_search_mark_bptable</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a5255e56d28c239a4e1d9b1721e8a2f8d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_frame</definition>
+        <argsstring></argsstring>
+        <name>n_frame</name>
+        <briefdescription>
+<para>Number of frames actually present. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="308" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="308" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1a763c2c7aaa5d7f9c5107af73552a2149" compoundref="ngram__search__fwdflat_8c" startline="374" endline="417">ngram_fwdflat_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1a9e2828ba0d249424a234b6cf7d3ee530" compoundref="ngram__search__fwdtree_8c" startline="1455" endline="1496">ngram_fwdtree_search</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af736200cd01a5d743dbab447ecc85d08" compoundref="ngram__search__fwdtree_8c" startline="474" endline="524">ngram_fwdtree_start</referencedby>
+        <referencedby refid="ngram__search_8h_1ac6a01bb08e7b8d1deb39763a98148cb0" compoundref="ngram__search_8c" startline="505" endline="549">ngram_search_find_exit</referencedby>
+        <referencedby refid="ngram__search_8h_1ac30e7dec4bbfeee9f5163abf4bbd1014" compoundref="ngram__search_8c" startline="1217" endline="1404">ngram_search_lattice</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ad6c1eda51d21c066ead7d68541546485" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* ngram_search_s::bp_table_idx</definition>
+        <argsstring></argsstring>
+        <name>bp_table_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="309" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a175cf4fa7cffa91b1966343f5a6f6eaf" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* ngram_search_s::word_lat_idx</definition>
+        <argsstring></argsstring>
+        <name>word_lat_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="310" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1aa54544457c363ccccb87fc7ec63a5f3e" prot="public" static="no" mutable="no">
+        <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> **</type>
+        <definition>ps_latnode_t** ngram_search_s::frm_wordlist</definition>
+        <argsstring></argsstring>
+        <name>frm_wordlist</name>
+        <briefdescription>
+<para>List of active words in each frame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="316" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="316" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1a8faf467f90162a7273b23304fc6e8586" compoundref="ngram__search__fwdflat_8c" startline="169" endline="189">ngram_fwdflat_deinit</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1ad4b8ebd904c77f8a28f59cd5ca2c8307" compoundref="ngram__search__fwdflat_8c" startline="145" endline="166">ngram_fwdflat_init</referencedby>
+        <referencedby refid="ngram__search_8h_1a7772e007b7d7fdf437c87aeb08b59c71" compoundref="ngram__search_8c" startline="328" endline="344">ngram_search_mark_bptable</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a774f1640c5ece856f4bef98d98e7c959" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* ngram_search_s::fwdflat_wordlist</definition>
+        <argsstring></argsstring>
+        <name>fwdflat_wordlist</name>
+        <briefdescription>
+<para>List of active word IDs for utterance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="317" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="317" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1a8faf467f90162a7273b23304fc6e8586" compoundref="ngram__search__fwdflat_8c" startline="169" endline="189">ngram_fwdflat_deinit</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1ad4b8ebd904c77f8a28f59cd5ca2c8307" compoundref="ngram__search__fwdflat_8c" startline="145" endline="166">ngram_fwdflat_init</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1aa4879c06ddbc455a6f355084a9c574b4" compoundref="ngram__search__fwdflat_8c" startline="192" endline="221">ngram_fwdflat_reinit</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a1daa869d11179c53eb745da36a654fb3" prot="public" static="no" mutable="no">
+        <type>bitvec_t *</type>
+        <definition>bitvec_t* ngram_search_s::expand_word_flag</definition>
+        <argsstring></argsstring>
+        <name>expand_word_flag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="318" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a4fadd755f8823c07dc5ab52f1b6d403d" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* ngram_search_s::expand_word_list</definition>
+        <argsstring></argsstring>
+        <name>expand_word_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="319" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a8a9999b6557b7c98dc03191a2d117eae" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_expand_words</definition>
+        <argsstring></argsstring>
+        <name>n_expand_words</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="320" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a88877b4dc14e04a6545c89668d8fcffc" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::min_ef_width</definition>
+        <argsstring></argsstring>
+        <name>min_ef_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="321" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a40659238fc506f7a3205eb080837008a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::max_sf_win</definition>
+        <argsstring></argsstring>
+        <name>max_sf_win</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="322" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a5772dec76068e162cebbae9f0f474aa6" prot="public" static="no" mutable="no">
+        <type>float32</type>
+        <definition>float32 ngram_search_s::fwdflat_fwdtree_lw_ratio</definition>
+        <argsstring></argsstring>
+        <name>fwdflat_fwdtree_lw_ratio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="323" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a150d99157e2f37a6f0dbb4b02682d9c3" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::best_score</definition>
+        <argsstring></argsstring>
+        <name>best_score</name>
+        <briefdescription>
+<para>Best Viterbi path score. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="325" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="325" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1a763c2c7aaa5d7f9c5107af73552a2149" compoundref="ngram__search__fwdflat_8c" startline="374" endline="417">ngram_fwdflat_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1a9e2828ba0d249424a234b6cf7d3ee530" compoundref="ngram__search__fwdtree_8c" startline="1455" endline="1496">ngram_fwdtree_search</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af736200cd01a5d743dbab447ecc85d08" compoundref="ngram__search__fwdtree_8c" startline="474" endline="524">ngram_fwdtree_start</referencedby>
+        <referencedby refid="ngram__search_8h_1ac30e7dec4bbfeee9f5163abf4bbd1014" compoundref="ngram__search_8c" startline="1217" endline="1404">ngram_search_lattice</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a81ee45f3c184568e2b5f8b79c58e0b9e" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::last_phone_best_score</definition>
+        <argsstring></argsstring>
+        <name>last_phone_best_score</name>
+        <briefdescription>
+<para>Best Viterbi path score for last phone. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="326" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1abf5988b55e39ff07d65edf61086a69da" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::renormalized</definition>
+        <argsstring></argsstring>
+        <name>renormalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="327" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a99114235f6ae8bc6d7c5849465499633" prot="public" static="no" mutable="no">
+        <type>float32</type>
+        <definition>float32 ngram_search_s::bestpath_fwdtree_lw_ratio</definition>
+        <argsstring></argsstring>
+        <name>bestpath_fwdtree_lw_ratio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="332" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a1e3d4b67e4b11c6c11ebe16552d53d2d" prot="public" static="no" mutable="no">
+        <type>float32</type>
+        <definition>float32 ngram_search_s::ascale</definition>
+        <argsstring></argsstring>
+        <name>ascale</name>
+        <briefdescription>
+<para>Acoustic score scale for posterior probabilities. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="333" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a5758d167fbb48e824a6a58186620e06d" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__search_8h_1ae68375016e7d208d22042a7dd4a0f37c" kindref="member">ngram_search_stats_t</ref></type>
+        <definition>ngram_search_stats_t ngram_search_s::st</definition>
+        <argsstring></argsstring>
+        <name>st</name>
+        <briefdescription>
+<para>Various statistics for profiling. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="335" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="335" bodyend="-1"/>
+        <referencedby refid="ngram__search__fwdflat_8h_1ac855cf540ac4acdfa320629720ded6fe" compoundref="ngram__search__fwdflat_8c" startline="919" endline="955">ngram_fwdflat_finish</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1a763c2c7aaa5d7f9c5107af73552a2149" compoundref="ngram__search__fwdflat_8c" startline="374" endline="417">ngram_fwdflat_start</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1a9e2828ba0d249424a234b6cf7d3ee530" compoundref="ngram__search__fwdtree_8c" startline="1455" endline="1496">ngram_fwdtree_search</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af736200cd01a5d743dbab447ecc85d08" compoundref="ngram__search__fwdtree_8c" startline="474" endline="524">ngram_fwdtree_start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1af51ec91c4ea052252542a4ec395484d7" prot="public" static="no" mutable="no">
+        <type>ptmr_t</type>
+        <definition>ptmr_t ngram_search_s::fwdtree_perf</definition>
+        <argsstring></argsstring>
+        <name>fwdtree_perf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="336" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a9af672c28dfc39bdfa5dd8e7e9e54989" prot="public" static="no" mutable="no">
+        <type>ptmr_t</type>
+        <definition>ptmr_t ngram_search_s::fwdflat_perf</definition>
+        <argsstring></argsstring>
+        <name>fwdflat_perf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="337" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a67d755fd060de20d50c1a2d237618917" prot="public" static="no" mutable="no">
+        <type>ptmr_t</type>
+        <definition>ptmr_t ngram_search_s::bestpath_perf</definition>
+        <argsstring></argsstring>
+        <name>bestpath_perf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="338" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a45baee2d3862a81cc21946a9602317be" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::n_tot_frame</definition>
+        <argsstring></argsstring>
+        <name>n_tot_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="339" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a7f93fc812f623bcad2d1d8d14724ab52" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::beam</definition>
+        <argsstring></argsstring>
+        <name>beam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="342" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ae6ad22c96dc7d709f529dfaa355a47a2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::dynamic_beam</definition>
+        <argsstring></argsstring>
+        <name>dynamic_beam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="343" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a096243fad532d780754e64ffb0a52d9c" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::pbeam</definition>
+        <argsstring></argsstring>
+        <name>pbeam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="344" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a443510527cfba0cb4010a0deb09480c2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::wbeam</definition>
+        <argsstring></argsstring>
+        <name>wbeam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="345" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ab708267dd98bbc156038b8b99b716ee7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::lpbeam</definition>
+        <argsstring></argsstring>
+        <name>lpbeam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="346" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ab51f51a73bbce696f9ac912131db0753" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::lponlybeam</definition>
+        <argsstring></argsstring>
+        <name>lponlybeam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="347" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a251365027c09b72a43a9be9a161100b0" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::fwdflatbeam</definition>
+        <argsstring></argsstring>
+        <name>fwdflatbeam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="348" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a6178f10c6de4f77ac6a660ad31fbbd77" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::fwdflatwbeam</definition>
+        <argsstring></argsstring>
+        <name>fwdflatwbeam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="349" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a2b791bfa3cc372e30d844a687ceea3d2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::fillpen</definition>
+        <argsstring></argsstring>
+        <name>fillpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="350" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ab2cbba86475a85836abf87faee4745dc" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::silpen</definition>
+        <argsstring></argsstring>
+        <name>silpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="351" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a1e198579ab46c7de67d8b3eb1e1bf2ec" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::wip</definition>
+        <argsstring></argsstring>
+        <name>wip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="352" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a194ea45ae0b6866cb0a734061c5224e8" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::nwpen</definition>
+        <argsstring></argsstring>
+        <name>nwpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="353" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a854e8b60f779a4201aab3788943e7f76" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::pip</definition>
+        <argsstring></argsstring>
+        <name>pip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="354" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1ae40b3a2caa5bbb523cce35dda4290d02" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::maxwpf</definition>
+        <argsstring></argsstring>
+        <name>maxwpf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="355" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__search__s_1a75f2eeaedf27926e9d0b76a23acbc9ff" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ngram_search_s::maxhmmpf</definition>
+        <argsstring></argsstring>
+        <name>maxhmmpf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="356" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>N-Gram search module structure. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="315">
+        <label>cand_sf_t</label>
+        <link refid="structcand__sf__t"/>
+      </node>
+      <node id="311">
+        <label>ps_mgau_s</label>
+        <link refid="structps__mgau__s"/>
+        <childnode refid="312" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+      </node>
+      <node id="300">
+        <label>dict_t</label>
+        <link refid="structdict__t"/>
+        <childnode refid="301" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="304" relation="usage">
+          <edgelabel>word</edgelabel>
+        </childnode>
+      </node>
+      <node id="298">
+        <label>ps_search_s</label>
+        <link refid="structps__search__s"/>
+        <childnode refid="293" relation="usage">
+          <edgelabel>last_link</edgelabel>
+        </childnode>
+        <childnode refid="299" relation="usage">
+          <edgelabel>dag</edgelabel>
+        </childnode>
+        <childnode refid="305" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+        <childnode refid="308" relation="usage">
+          <edgelabel>d2p</edgelabel>
+        </childnode>
+        <childnode refid="300" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="310" relation="usage">
+          <edgelabel>acmod</edgelabel>
+        </childnode>
+        <childnode refid="298" relation="usage">
+          <edgelabel>pls</edgelabel>
+        </childnode>
+      </node>
+      <node id="290">
+        <label>ngram_search_stats_s</label>
+        <link refid="structngram__search__stats__s"/>
+      </node>
+      <node id="295">
+        <label>last_ltrans_t</label>
+        <link refid="structlast__ltrans__t"/>
+      </node>
+      <node id="294">
+        <label>bptbl_s</label>
+        <link refid="structbptbl__s"/>
+      </node>
+      <node id="308">
+        <label>dict2pid_t</label>
+        <link refid="structdict2pid__t"/>
+        <childnode refid="309" relation="usage">
+          <edgelabel>lrssid</edgelabel>
+          <edgelabel>rssid</edgelabel>
+        </childnode>
+        <childnode refid="300" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="301" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+      </node>
+      <node id="292">
+        <label>latlink_list_s</label>
+        <link refid="structlatlink__list__s"/>
+        <childnode refid="293" relation="usage">
+          <edgelabel>link</edgelabel>
+        </childnode>
+        <childnode refid="292" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="286">
+        <label>chan_s</label>
+        <link refid="structchan__s"/>
+        <childnode refid="286" relation="usage">
+          <edgelabel>alt</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="287" relation="usage">
+          <edgelabel>hmm</edgelabel>
+        </childnode>
+      </node>
+      <node id="314">
+        <label>tmat_t</label>
+        <link refid="structtmat__t"/>
+      </node>
+      <node id="302">
+        <label>cd_tree_s</label>
+        <link refid="structcd__tree__s"/>
+      </node>
+      <node id="297">
+        <label>root_chan_s</label>
+        <link refid="structroot__chan__s"/>
+        <childnode refid="286" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="287" relation="usage">
+          <edgelabel>hmm</edgelabel>
+        </childnode>
+      </node>
+      <node id="304">
+        <label>dictword_t</label>
+        <link refid="structdictword__t"/>
+      </node>
+      <node id="309">
+        <label>xwdssid_t</label>
+        <link refid="structxwdssid__t"/>
+      </node>
+      <node id="291">
+        <label>ps_latnode_s</label>
+        <link refid="structps__latnode__s"/>
+        <childnode refid="291" relation="usage">
+          <edgelabel>alt</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="292" relation="usage">
+          <edgelabel>exits</edgelabel>
+          <edgelabel>entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="296">
+        <label>bestbp_rc_s</label>
+        <link refid="structbestbp__rc__s"/>
+      </node>
+      <node id="303">
+        <label>mdef_entry_s</label>
+        <link refid="structmdef__entry__s"/>
+      </node>
+      <node id="289">
+        <label>lastphn_cand_s</label>
+        <link refid="structlastphn__cand__s"/>
+      </node>
+      <node id="307">
+        <label>ps_segfuncs_s</label>
+        <link refid="structps__segfuncs__s"/>
+        <childnode refid="306" relation="usage">
+          <edgelabel>seg_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="312">
+        <label>ps_mgaufuncs_s</label>
+        <link refid="structps__mgaufuncs__s"/>
+      </node>
+      <node id="301">
+        <label>bin_mdef_s</label>
+        <link refid="structbin__mdef__s"/>
+        <childnode refid="302" relation="usage">
+          <edgelabel>cd_tree</edgelabel>
+        </childnode>
+        <childnode refid="303" relation="usage">
+          <edgelabel>phone</edgelabel>
+        </childnode>
+      </node>
+      <node id="287">
+        <label>hmm_s</label>
+        <link refid="structhmm__s"/>
+        <childnode refid="288" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+      </node>
+      <node id="288">
+        <label>hmm_context_t</label>
+        <link refid="structhmm__context__t"/>
+      </node>
+      <node id="306">
+        <label>ps_seg_s</label>
+        <link refid="structps__seg__s"/>
+        <childnode refid="307" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+        <childnode refid="298" relation="usage">
+          <edgelabel>search</edgelabel>
+        </childnode>
+      </node>
+      <node id="305">
+        <label>ps_searchfuncs_s</label>
+        <link refid="structps__searchfuncs__s"/>
+        <childnode refid="299" relation="usage">
+          <edgelabel>lattice</edgelabel>
+        </childnode>
+        <childnode refid="306" relation="usage">
+          <edgelabel>seg_iter</edgelabel>
+        </childnode>
+      </node>
+      <node id="299">
+        <label>ps_lattice_s</label>
+        <link refid="structps__lattice__s"/>
+        <childnode refid="291" relation="usage">
+          <edgelabel>end</edgelabel>
+          <edgelabel>nodes</edgelabel>
+          <edgelabel>start</edgelabel>
+        </childnode>
+        <childnode refid="292" relation="usage">
+          <edgelabel>q_tail</edgelabel>
+          <edgelabel>q_head</edgelabel>
+        </childnode>
+        <childnode refid="300" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="298" relation="usage">
+          <edgelabel>search</edgelabel>
+        </childnode>
+      </node>
+      <node id="310">
+        <label>acmod_s</label>
+        <link refid="structacmod__s"/>
+        <childnode refid="311" relation="usage">
+          <edgelabel>mgau</edgelabel>
+        </childnode>
+        <childnode refid="313" relation="usage">
+          <edgelabel>mllr</edgelabel>
+        </childnode>
+        <childnode refid="301" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="314" relation="usage">
+          <edgelabel>tmat</edgelabel>
+        </childnode>
+      </node>
+      <node id="313">
+        <label>ps_mllr_s</label>
+        <link refid="structps__mllr__s"/>
+      </node>
+      <node id="293">
+        <label>ps_latlink_s</label>
+        <link refid="structps__latlink__s"/>
+        <childnode refid="293" relation="usage">
+          <edgelabel>best_prev</edgelabel>
+        </childnode>
+        <childnode refid="291" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>to</edgelabel>
+        </childnode>
+      </node>
+      <node id="285">
+        <label>ngram_search_s</label>
+        <link refid="structngram__search__s"/>
+        <childnode refid="286" relation="usage">
+          <edgelabel>word_chan</edgelabel>
+          <edgelabel>active_chan_list</edgelabel>
+        </childnode>
+        <childnode refid="289" relation="usage">
+          <edgelabel>lastphn_cand</edgelabel>
+        </childnode>
+        <childnode refid="288" relation="usage">
+          <edgelabel>hmmctx</edgelabel>
+        </childnode>
+        <childnode refid="290" relation="usage">
+          <edgelabel>st</edgelabel>
+        </childnode>
+        <childnode refid="291" relation="usage">
+          <edgelabel>frm_wordlist</edgelabel>
+        </childnode>
+        <childnode refid="294" relation="usage">
+          <edgelabel>bp_table</edgelabel>
+        </childnode>
+        <childnode refid="295" relation="usage">
+          <edgelabel>last_ltrans</edgelabel>
+        </childnode>
+        <childnode refid="296" relation="usage">
+          <edgelabel>bestbp_rc</edgelabel>
+        </childnode>
+        <childnode refid="297" relation="usage">
+          <edgelabel>rhmm_1ph</edgelabel>
+          <edgelabel>root_chan</edgelabel>
+        </childnode>
+        <childnode refid="298" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+        <childnode refid="315" relation="usage">
+          <edgelabel>cand_sf</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="197" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="197" bodyend="357"/>
+    <listofallmembers>
+      <member refid="structngram__search__s_1a83731bf0e2234e632c5e78f2321f5b2d" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>active_chan_list</name></member>
+      <member refid="structngram__search__s_1a5056573bf95990cc28c97a56cd76ce9a" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>active_word_list</name></member>
+      <member refid="structngram__search__s_1a1e3d4b67e4b11c6c11ebe16552d53d2d" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>ascale</name></member>
+      <member refid="structngram__search__s_1a572ad45de5b0f364096f0a8544fe5bf7" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>base</name></member>
+      <member refid="structngram__search__s_1a7f93fc812f623bcad2d1d8d14724ab52" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>beam</name></member>
+      <member refid="structngram__search__s_1a150d99157e2f37a6f0dbb4b02682d9c3" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>best_score</name></member>
+      <member refid="structngram__search__s_1a8ab80281d54e9fa14a3631cb5b5e97a7" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bestbp_rc</name></member>
+      <member refid="structngram__search__s_1a0d1daeb151911b2243a1a91566be9063" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bestpath</name></member>
+      <member refid="structngram__search__s_1a99114235f6ae8bc6d7c5849465499633" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bestpath_fwdtree_lw_ratio</name></member>
+      <member refid="structngram__search__s_1a67d755fd060de20d50c1a2d237618917" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bestpath_perf</name></member>
+      <member refid="structngram__search__s_1a44b5476f901d827d5e6a23a5aa11eb43" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bp_table</name></member>
+      <member refid="structngram__search__s_1ad6c1eda51d21c066ead7d68541546485" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bp_table_idx</name></member>
+      <member refid="structngram__search__s_1ae288500a2a3db50d4454546d66c826da" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bp_table_size</name></member>
+      <member refid="structngram__search__s_1ad72007665bf21bb12261eb63c996a987" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bpidx</name></member>
+      <member refid="structngram__search__s_1adbbac268728dae5771cb4400649b62e2" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bscore_stack</name></member>
+      <member refid="structngram__search__s_1a041e34cc7c9dab32d05b00eeb5d6d622" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bscore_stack_size</name></member>
+      <member refid="structngram__search__s_1aed45eb7f0ed7bbf266a7eb8e4acd22fa" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>bss_head</name></member>
+      <member refid="structngram__search__s_1a3304d30024b83107ed8e5e2dd770334b" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>cand_sf</name></member>
+      <member refid="structngram__search__s_1ae17322f484615fa7ecb2c40ebeceecd9" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>cand_sf_alloc</name></member>
+      <member refid="structngram__search__s_1abe9fe60f6e48b9a6e3d41856bb1dc109" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>chan_alloc</name></member>
+      <member refid="structngram__search__s_1a3c51a66cf26de3aa050b3615d14ff060" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>done</name></member>
+      <member refid="structngram__search__s_1ae6ad22c96dc7d709f529dfaa355a47a2" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>dynamic_beam</name></member>
+      <member refid="structngram__search__s_1a1daa869d11179c53eb745da36a654fb3" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>expand_word_flag</name></member>
+      <member refid="structngram__search__s_1a4fadd755f8823c07dc5ab52f1b6d403d" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>expand_word_list</name></member>
+      <member refid="structngram__search__s_1a2b791bfa3cc372e30d844a687ceea3d2" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fillpen</name></member>
+      <member refid="structngram__search__s_1aa54544457c363ccccb87fc7ec63a5f3e" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>frm_wordlist</name></member>
+      <member refid="structngram__search__s_1a88358958f4f983c96034cbbd4bc8f5cd" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fwdflat</name></member>
+      <member refid="structngram__search__s_1a5772dec76068e162cebbae9f0f474aa6" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fwdflat_fwdtree_lw_ratio</name></member>
+      <member refid="structngram__search__s_1a9af672c28dfc39bdfa5dd8e7e9e54989" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fwdflat_perf</name></member>
+      <member refid="structngram__search__s_1a774f1640c5ece856f4bef98d98e7c959" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fwdflat_wordlist</name></member>
+      <member refid="structngram__search__s_1a251365027c09b72a43a9be9a161100b0" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fwdflatbeam</name></member>
+      <member refid="structngram__search__s_1a6178f10c6de4f77ac6a660ad31fbbd77" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fwdflatwbeam</name></member>
+      <member refid="structngram__search__s_1aca37c8278a0dacb881cc6a2b0953c076" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fwdtree</name></member>
+      <member refid="structngram__search__s_1af51ec91c4ea052252542a4ec395484d7" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>fwdtree_perf</name></member>
+      <member refid="structngram__search__s_1acfbdd34e3dadbaa384818402f1dd59bf" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>hmmctx</name></member>
+      <member refid="structngram__search__s_1ab251bb3d0ddd33dd99ed390b61e481f2" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>homophone_set</name></member>
+      <member refid="structngram__search__s_1a3f1429a7dd697c6537c353f172fea97f" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>last_ltrans</name></member>
+      <member refid="structngram__search__s_1a81ee45f3c184568e2b5f8b79c58e0b9e" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>last_phone_best_score</name></member>
+      <member refid="structngram__search__s_1a82d9662cfa82599617176eb5c4e5f15f" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>lastphn_cand</name></member>
+      <member refid="structngram__search__s_1a21600dc2e23744f0be9c64a4db8d7e50" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>latnode_alloc</name></member>
+      <member refid="structngram__search__s_1a6127a6d8fb53832e67456c11aa6ad9c4" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>lmset</name></member>
+      <member refid="structngram__search__s_1ab708267dd98bbc156038b8b99b716ee7" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>lpbeam</name></member>
+      <member refid="structngram__search__s_1ab51f51a73bbce696f9ac912131db0753" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>lponlybeam</name></member>
+      <member refid="structngram__search__s_1a4b2b42349e9e3df7e93b4a7d6994f63f" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>max_nonroot_chan</name></member>
+      <member refid="structngram__search__s_1a40659238fc506f7a3205eb080837008a" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>max_sf_win</name></member>
+      <member refid="structngram__search__s_1a75f2eeaedf27926e9d0b76a23acbc9ff" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>maxhmmpf</name></member>
+      <member refid="structngram__search__s_1ae40b3a2caa5bbb523cce35dda4290d02" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>maxwpf</name></member>
+      <member refid="structngram__search__s_1a88877b4dc14e04a6545c89668d8fcffc" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>min_ef_width</name></member>
+      <member refid="structngram__search__s_1a988672d895f1ee61dbf790b2065df4df" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_1ph_LMwords</name></member>
+      <member refid="structngram__search__s_1a9168184c862d6f63bd7926e6581b25d9" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_1ph_words</name></member>
+      <member refid="structngram__search__s_1ac33f60894871671ec5c2173ca56d600f" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_active_chan</name></member>
+      <member refid="structngram__search__s_1a5c864f1fe331fc95c04e0d87a5bdf9ee" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_active_word</name></member>
+      <member refid="structngram__search__s_1a8a9999b6557b7c98dc03191a2d117eae" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_expand_words</name></member>
+      <member refid="structngram__search__s_1a5255e56d28c239a4e1d9b1721e8a2f8d" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_frame</name></member>
+      <member refid="structngram__search__s_1a38ea5de504b3d7ad2390a3f8966d502f" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_frame_alloc</name></member>
+      <member refid="structngram__search__s_1ad8b16d4873706ca29a6e22e2143ae896" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_lastphn_cand</name></member>
+      <member refid="structngram__search__s_1a043723786367f5026dce99c261f7086d" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_nonroot_chan</name></member>
+      <member refid="structngram__search__s_1a297d8bdb856617490ee8ccd99df70e68" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_root_chan</name></member>
+      <member refid="structngram__search__s_1abc8a67e3f64adc470c78dfdd23be4126" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_root_chan_alloc</name></member>
+      <member refid="structngram__search__s_1a45baee2d3862a81cc21946a9602317be" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>n_tot_frame</name></member>
+      <member refid="structngram__search__s_1a194ea45ae0b6866cb0a734061c5224e8" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>nwpen</name></member>
+      <member refid="structngram__search__s_1a096243fad532d780754e64ffb0a52d9c" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>pbeam</name></member>
+      <member refid="structngram__search__s_1a854e8b60f779a4201aab3788943e7f76" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>pip</name></member>
+      <member refid="structngram__search__s_1abf5988b55e39ff07d65edf61086a69da" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>renormalized</name></member>
+      <member refid="structngram__search__s_1a1ffa3c9100252122ae8a2a713c50b527" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>rhmm_1ph</name></member>
+      <member refid="structngram__search__s_1ae1b0a51cfcddc1e4b6ac94fa1e48887a" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>root_chan</name></member>
+      <member refid="structngram__search__s_1a576470858bfa44c671f0e677902ab424" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>root_chan_alloc</name></member>
+      <member refid="structngram__search__s_1ab2cbba86475a85836abf87faee4745dc" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>silpen</name></member>
+      <member refid="structngram__search__s_1a1157923e0060b947e05caa819c8abe2c" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>single_phone_wid</name></member>
+      <member refid="structngram__search__s_1a5758d167fbb48e824a6a58186620e06d" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>st</name></member>
+      <member refid="structngram__search__s_1a443510527cfba0cb4010a0deb09480c2" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>wbeam</name></member>
+      <member refid="structngram__search__s_1a1e198579ab46c7de67d8b3eb1e1bf2ec" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>wip</name></member>
+      <member refid="structngram__search__s_1aeb4c98851bf9b239ca607ca59f59ff4c" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>word_active</name></member>
+      <member refid="structngram__search__s_1a79deb7295a261cd82d2a6b48cb119e77" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>word_chan</name></member>
+      <member refid="structngram__search__s_1a175cf4fa7cffa91b1966343f5a6f6eaf" prot="public" virt="non-virtual"><scope>ngram_search_s</scope><name>word_lat_idx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

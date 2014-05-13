@@ -1,0 +1,626 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="listelem__alloc_8c" kind="file">
+    <compoundname>listelem_alloc.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="err_8h" local="yes">sphinxbase/err.h</includes>
+    <includes refid="ckd__alloc_8h" local="yes">sphinxbase/ckd_alloc.h</includes>
+    <includes refid="listelem__alloc_8h" local="yes">sphinxbase/listelem_alloc.h</includes>
+    <includes refid="glist_8h" local="yes">sphinxbase/glist.h</includes>
+    <incdepgraph>
+      <node id="2355">
+        <label>stdarg.h</label>
+      </node>
+      <node id="2356">
+        <label>errno.h</label>
+        <link refid="errno_8h_source"/>
+      </node>
+      <node id="2353">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2359">
+        <label>setjmp.h</label>
+      </node>
+      <node id="2351">
+        <label>src/libsphinxbase/util/listelem_alloc.c</label>
+        <link refid="listelem_alloc.c"/>
+        <childnode refid="2352" relation="include">
+        </childnode>
+        <childnode refid="2353" relation="include">
+        </childnode>
+        <childnode refid="2354" relation="include">
+        </childnode>
+        <childnode refid="2358" relation="include">
+        </childnode>
+        <childnode refid="2362" relation="include">
+        </childnode>
+        <childnode refid="2363" relation="include">
+        </childnode>
+      </node>
+      <node id="2361">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="2362">
+        <label>sphinxbase/listelem_alloc.h</label>
+        <link refid="listelem__alloc_8h"/>
+        <childnode refid="2353" relation="include">
+        </childnode>
+        <childnode refid="2357" relation="include">
+        </childnode>
+        <childnode refid="2360" relation="include">
+        </childnode>
+      </node>
+      <node id="2357">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="2360">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="2361" relation="include">
+        </childnode>
+      </node>
+      <node id="2363">
+        <label>sphinxbase/glist.h</label>
+        <link refid="glist_8h"/>
+        <childnode refid="2353" relation="include">
+        </childnode>
+        <childnode refid="2357" relation="include">
+        </childnode>
+        <childnode refid="2360" relation="include">
+        </childnode>
+      </node>
+      <node id="2358">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="2353" relation="include">
+        </childnode>
+        <childnode refid="2359" relation="include">
+        </childnode>
+        <childnode refid="2357" relation="include">
+        </childnode>
+        <childnode refid="2360" relation="include">
+        </childnode>
+      </node>
+      <node id="2354">
+        <label>sphinxbase/err.h</label>
+        <link refid="err_8h"/>
+        <childnode refid="2355" relation="include">
+        </childnode>
+        <childnode refid="2352" relation="include">
+        </childnode>
+        <childnode refid="2353" relation="include">
+        </childnode>
+        <childnode refid="2356" relation="include">
+        </childnode>
+        <childnode refid="2357" relation="include">
+        </childnode>
+      </node>
+      <node id="2352">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structlistelem__alloc__s" prot="public">listelem_alloc_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="listelem__alloc_8c_1ad733e804fe76c864d1c86c11cdaf7ff9" prot="public" static="no">
+        <name>MIN_ALLOC</name>
+        <initializer>50</initializer>
+        <briefdescription>
+<para>Minimum number of elements to allocate in one block. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="76" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="listelem__alloc_8c_1a56a8786884de0fef073f4bdeee7fd488" prot="public" static="no">
+        <name>BLKID_SHIFT</name>
+        <initializer>16</initializer>
+        <briefdescription>
+<para>Bit position of block number in element ID. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="77" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="listelem__alloc_8c_1a76759940ca532f953a34f261e3a8c6d5" prot="public" static="no">
+        <name>BLKID_MASK</name>
+        <initializer>((1&lt;&lt;BLKID_SHIFT)-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="78" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="listelem__alloc_8c_1aead6119df81518164c379f2a7643a8be" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void listelem_add_block</definition>
+        <argsstring>(listelem_alloc_t *list, char *caller_file, int caller_line)</argsstring>
+        <name>listelem_add_block</name>
+        <param>
+          <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+<para>Allocate a new block of elements. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="83" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="134" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="listelem__alloc_8c_1a4e1647821eca22d540c375ec695121ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+        <definition>listelem_alloc_t* listelem_alloc_init</definition>
+        <argsstring>(size_t elemsize)</argsstring>
+        <name>listelem_alloc_init</name>
+        <param>
+          <type>size_t</type>
+          <declname>elemsize</declname>
+        </param>
+        <briefdescription>
+<para>Initialize and return a list element allocator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="87" bodyend="118"/>
+        <references refid="err_8h_1aed4c99044fd3e70b7b33a0298a2279b4" compoundref="err_8h" startline="126">E_WARN</references>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" compoundref="listelem__alloc_8c" startline="66">listelem_alloc_s::freelist</references>
+        <references refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" compoundref="listelem__alloc_8c" startline="67">listelem_alloc_s::blocks</references>
+        <references refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" compoundref="listelem__alloc_8c" startline="69">listelem_alloc_s::elemsize</references>
+        <references refid="structlistelem__alloc__s_1ab96fd1e097105a34d6ae2e79ae8e2520" compoundref="listelem__alloc_8c" startline="70">listelem_alloc_s::blk_alloc</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+      </memberdef>
+      <memberdef kind="function" id="listelem__alloc_8c_1adb154769209627c2f9f77cc64b5d30ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listelem_alloc_free</definition>
+        <argsstring>(listelem_alloc_t *list)</argsstring>
+        <name>listelem_alloc_free</name>
+        <param>
+          <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>Finalize and release all memory associated with a list element allocator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="121" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="121" bodyend="131"/>
+        <references refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" compoundref="listelem__alloc_8c" startline="67">listelem_alloc_s::blocks</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="glist_8h_1ace56682f14d84cc456c805d26fd86734" compoundref="glist_8h" startline="109">gnode_ptr</references>
+        <references refid="glist_8h_1a45380e15d2c33afc554fd60a8828580c" compoundref="glist_8c" startline="133" endline="142">glist_free</references>
+        <references refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" compoundref="listelem__alloc_8c" startline="68">listelem_alloc_s::blocksize</references>
+      </memberdef>
+      <memberdef kind="function" id="listelem__alloc_8c_1afe8e977ee4b89526f2355add02552c04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* __listelem_malloc__</definition>
+        <argsstring>(listelem_alloc_t *list, char *caller_file, int caller_line)</argsstring>
+        <name>__listelem_malloc__</name>
+        <param>
+          <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="173" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="173" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="listelem__alloc_8c_1ac83e9a80a48309518824b1f623fb8990" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* __listelem_malloc_id__</definition>
+        <argsstring>(listelem_alloc_t *list, char *caller_file, int caller_line, int32 *out_id)</argsstring>
+        <name>__listelem_malloc_id__</name>
+        <param>
+          <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="190" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="190" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="listelem__alloc_8c_1a03519ff2d73f0e1fe92ed95ff3b42ad5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* listelem_get_item</definition>
+        <argsstring>(listelem_alloc_t *list, int32 id)</argsstring>
+        <name>listelem_get_item</name>
+        <param>
+          <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve a list element by its identifier. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="233" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="233" bodyend="254"/>
+        <references refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" compoundref="listelem__alloc_8c" startline="67">listelem_alloc_s::blocks</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="glist_8h_1ace56682f14d84cc456c805d26fd86734" compoundref="glist_8h" startline="109">gnode_ptr</references>
+        <references refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" compoundref="listelem__alloc_8c" startline="69">listelem_alloc_s::elemsize</references>
+      </memberdef>
+      <memberdef kind="function" id="listelem__alloc_8c_1a7e309c6fbc4ee1aa815e91f6e7823846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void __listelem_free__</definition>
+        <argsstring>(listelem_alloc_t *list, void *elem, char *caller_file, int caller_line)</argsstring>
+        <name>__listelem_free__</name>
+        <param>
+          <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>elem</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+<para>Free list element of given size. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="257" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="257" bodyend="269"/>
+        <references refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" compoundref="listelem__alloc_8c" startline="66">listelem_alloc_s::freelist</references>
+      </memberdef>
+      <memberdef kind="function" id="listelem__alloc_8c_1aaf61537cc6e9454661b9242728319574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listelem_stats</definition>
+        <argsstring>(listelem_alloc_t *list)</argsstring>
+        <name>listelem_stats</name>
+        <param>
+          <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>Print number of allocation, numer of free operation stats. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" line="273" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c" bodystart="273" bodyend="294"/>
+        <references refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" compoundref="err_8h" startline="131">E_INFO</references>
+        <references refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" compoundref="listelem__alloc_8c" startline="66">listelem_alloc_s::freelist</references>
+        <references refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" compoundref="listelem__alloc_8c" startline="69">listelem_alloc_s::elemsize</references>
+        <references refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" compoundref="listelem__alloc_8c" startline="68">listelem_alloc_s::blocksize</references>
+        <references refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" compoundref="listelem__alloc_8c" startline="67">listelem_alloc_s::blocks</references>
+        <references refid="glist_8h_1ace56682f14d84cc456c805d26fd86734" compoundref="glist_8h" startline="109">gnode_ptr</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="err_8h" kindref="compound">sphinxbase/err.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ckd__alloc_8h" kindref="compound">sphinxbase/ckd_alloc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="listelem__alloc_8h" kindref="compound">sphinxbase/listelem_alloc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="glist_8h" kindref="compound">sphinxbase/glist.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="structlistelem__alloc__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="66" refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67" refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgnode__s" kindref="compound">glist_t</ref><sp/><ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68" refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgnode__s" kindref="compound">glist_t</ref><sp/><ref refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" kindref="member">blocksize</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69" refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70" refid="structlistelem__alloc__s_1ab96fd1e097105a34d6ae2e79ae8e2520" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structlistelem__alloc__s_1ab96fd1e097105a34d6ae2e79ae8e2520" kindref="member">blk_alloc</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>n_blocks;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>n_alloc;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>n_freed;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIN_ALLOC<sp/><sp/><sp/><sp/><sp/><sp/><sp/>50<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor">#define<sp/>BLKID_SHIFT<sp/><sp/><sp/><sp/><sp/>16<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor">#define<sp/>BLKID_MASK<sp/>((1&lt;&lt;BLKID_SHIFT)-1)</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="83"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>listelem_add_block(<ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*</highlight></codeline>
+<codeline lineno="87" refid="listelem__alloc_8h_1a4b08b49eaa74cbe9a3c95170cee78de7" refkind="member"><highlight class="normal"><ref refid="listelem__alloc_8h_1a4b08b49eaa74cbe9a3c95170cee78de7" kindref="member">listelem_alloc_init</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>elemsize)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((elemsize<sp/>%<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*))<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>rounded<sp/>=<sp/>(elemsize<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<sp/>-<sp/>1)<sp/>&amp;<sp/>~(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)-1);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1aed4c99044fd3e70b7b33a0298a2279b4" kindref="member">E_WARN</ref></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">&quot;List<sp/>item<sp/>size<sp/>(%lu)<sp/>not<sp/>multiple<sp/>of<sp/>sizeof(void<sp/>*),<sp/>rounding<sp/>to<sp/>%lu\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)elemsize,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)rounded);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elemsize<sp/>=<sp/>rounded;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>list<sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*list));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref><sp/>=<sp/>elemsize;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Intent<sp/>of<sp/>this<sp/>is<sp/>to<sp/>increase<sp/>block<sp/>size<sp/>once<sp/>we<sp/>allocate</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>256KiB<sp/>(i.e.<sp/>1&lt;&lt;18).<sp/>If<sp/>somehow<sp/>the<sp/>element<sp/>size<sp/>is<sp/>big<sp/>enough</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>to<sp/>overflow<sp/>that,<sp/>just<sp/>fail,<sp/>people<sp/>should<sp/>use<sp/>malloc<sp/>anyway.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1ab96fd1e097105a34d6ae2e79ae8e2520" kindref="member">blk_alloc</ref><sp/>=<sp/>(1<sp/>&lt;&lt;<sp/>18)<sp/>/<sp/>(MIN_ALLOC<sp/>*<sp/>elemsize);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="structlistelem__alloc__s_1ab96fd1e097105a34d6ae2e79ae8e2520" kindref="member">blk_alloc</ref><sp/>&lt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Element<sp/>size<sp/>*<sp/>block<sp/>size<sp/>exceeds<sp/>256k,<sp/>use<sp/>malloc<sp/>instead.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(list);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;n_alloc<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;n_freed<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Allocate<sp/>an<sp/>initial<sp/>block<sp/>to<sp/>minimize<sp/>latency.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>listelem_add_block(list,<sp/>__FILE__,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>list;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="listelem__alloc_8h_1a94c02e93a0abaa2bd79636cbac6cced2" refkind="member"><highlight class="normal"><ref refid="listelem__alloc_8h_1a94c02e93a0abaa2bd79636cbac6cced2" kindref="member">listelem_alloc_free</ref>(<ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgnode__s" kindref="compound">gnode_t</ref><sp/>*gn;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(gn<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref>;<sp/>gn;<sp/>gn<sp/>=<sp/>gnode_next(gn))</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(<ref refid="glist_8h_1ace56682f14d84cc456c805d26fd86734" kindref="member">gnode_ptr</ref>(gn));</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="glist_8h_1a45380e15d2c33afc554fd60a8828580c" kindref="member">glist_free</ref>(list-&gt;<ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="glist_8h_1a45380e15d2c33afc554fd60a8828580c" kindref="member">glist_free</ref>(list-&gt;<ref refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" kindref="member">blocksize</ref>);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(list);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal">listelem_add_block(<ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**cpp,<sp/>*cp;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>blocksize;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>blocksize<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" kindref="member">blocksize</ref><sp/>?<sp/>gnode_int32(list-&gt;<ref refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" kindref="member">blocksize</ref>)<sp/>:<sp/>MIN_ALLOC;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Check<sp/>if<sp/>block<sp/>size<sp/>should<sp/>be<sp/>increased<sp/>(if<sp/>many<sp/>requests<sp/>for<sp/>this<sp/>size)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="structlistelem__alloc__s_1ab96fd1e097105a34d6ae2e79ae8e2520" kindref="member">blk_alloc</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>See<sp/>above.<sp/><sp/>No<sp/>sense<sp/>in<sp/>allocating<sp/>blocks<sp/>bigger<sp/>than</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>256KiB<sp/>(well,<sp/>actually,<sp/>there<sp/>might<sp/>be,<sp/>but<sp/>we&apos;ll<sp/>worry</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>about<sp/>that<sp/>later).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blocksize<sp/>&lt;&lt;=<sp/>1;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blocksize<sp/>*<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref><sp/>&gt;<sp/>(1<sp/>&lt;&lt;<sp/>18))</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blocksize<sp/>=<sp/>(1<sp/>&lt;&lt;<sp/>18)<sp/>/<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref>;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1ab96fd1e097105a34d6ae2e79ae8e2520" kindref="member">blk_alloc</ref><sp/>=<sp/>(1<sp/>&lt;&lt;<sp/>18)<sp/>/<sp/>(blocksize<sp/>*<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Allocate<sp/>block<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>cpp<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref><sp/>=</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<sp/>__ckd_calloc__(blocksize,<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref>,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>caller_file,<sp/>caller_line);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref><sp/>=<sp/><ref refid="glist_8h_1a77a9c20b7df5a289477af405ab778377" kindref="member">glist_add_ptr</ref>(list-&gt;<ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref>,<sp/>cpp);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" kindref="member">blocksize</ref><sp/>=<sp/><ref refid="glist_8h_1a28adfcc24a784aaed1a0b3c4c4de4c42" kindref="member">glist_add_int32</ref>(list-&gt;<ref refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" kindref="member">blocksize</ref>,<sp/>blocksize);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>cp<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)<sp/>cpp;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Link<sp/>up<sp/>the<sp/>blocks<sp/>via<sp/>their<sp/>first<sp/>machine<sp/>word.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>blocksize<sp/>-<sp/>1;<sp/>j<sp/>&gt;<sp/>0;<sp/>--j)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cp<sp/>+=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*cpp<sp/>=<sp/>cp;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cpp<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<sp/>cp;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Make<sp/>sure<sp/>the<sp/>last<sp/>element&apos;s<sp/>forward<sp/>pointer<sp/>is<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>*cpp<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>--list-&gt;<ref refid="structlistelem__alloc__s_1ab96fd1e097105a34d6ae2e79ae8e2520" kindref="member">blk_alloc</ref>;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>++list-&gt;n_blocks;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">__listelem_malloc__(<ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line)</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**ptr;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Allocate<sp/>a<sp/>new<sp/>block<sp/>if<sp/>list<sp/>empty<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref><sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>listelem_add_block(list,<sp/>caller_file,<sp/>caller_line);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Unlink<sp/>and<sp/>return<sp/>first<sp/>element<sp/>in<sp/>freelist<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>ptr<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref>;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref><sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<sp/>(*(list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref>));</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>(list-&gt;n_alloc)++;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)ptr;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">__listelem_malloc_id__(<ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line,<sp/>int32<sp/>*out_id)</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**ptr;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Allocate<sp/>a<sp/>new<sp/>block<sp/>if<sp/>list<sp/>empty<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref><sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>listelem_add_block(list,<sp/>caller_file,<sp/>caller_line);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Unlink<sp/>and<sp/>return<sp/>first<sp/>element<sp/>in<sp/>freelist<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>ptr<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref>;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref><sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<sp/>(*(list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref>));</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>(list-&gt;n_alloc)++;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(out_id)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>blksize,<sp/>blkidx,<sp/>ptridx;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structgnode__s" kindref="compound">gnode_t</ref><sp/>*gn,<sp/>*gn2;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**block;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gn2<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" kindref="member">blocksize</ref>;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blkidx<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(gn<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref>;<sp/>gn;<sp/>gn<sp/>=<sp/>gnode_next(gn))<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block<sp/>=<sp/><ref refid="glist_8h_1ace56682f14d84cc456c805d26fd86734" kindref="member">gnode_ptr</ref>(gn);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blksize<sp/>=<sp/>gnode_int32(gn2)<sp/>*<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref><sp/>/<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*block);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ptr<sp/>&gt;=<sp/>block<sp/>&amp;&amp;<sp/>ptr<sp/>&lt;<sp/>block<sp/>+<sp/>blksize)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gn2<sp/>=<sp/>gnode_next(gn2);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++blkidx;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gn<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>find<sp/>block<sp/>index<sp/>for<sp/>pointer<sp/>%p!\n&quot;</highlight><highlight class="normal">,<sp/>ptr);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ptridx<sp/>=<sp/>(ptr<sp/>-<sp/>block)<sp/>/<sp/>(list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref><sp/>/<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*block));</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1af46f94d0e21f22f1153f8f1cd9a372d6" kindref="member">E_DEBUG</ref>(4,(</highlight><highlight class="stringliteral">&quot;ptr<sp/>%p<sp/>block<sp/>%p<sp/>blkidx<sp/>%d<sp/>ptridx<sp/>%d\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ptr,<sp/>block,<sp/>list-&gt;n_blocks<sp/>-<sp/>blkidx<sp/>-<sp/>1,<sp/>ptridx));</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out_id<sp/>=<sp/>((list-&gt;n_blocks<sp/>-<sp/>blkidx<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>BLKID_SHIFT)<sp/>|<sp/>ptridx;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ptr;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="233" refid="listelem__alloc_8h_1a74e610ac90e2b0696b2aedef4289d8f3" refkind="member"><highlight class="normal"><ref refid="listelem__alloc_8h_1a74e610ac90e2b0696b2aedef4289d8f3" kindref="member">listelem_get_item</ref>(<ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list,<sp/>int32<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>blkidx,<sp/>ptridx,<sp/>i;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgnode__s" kindref="compound">gnode_t</ref><sp/>*gn;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>blkidx<sp/>=<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&gt;&gt;<sp/>BLKID_SHIFT)<sp/>&amp;<sp/>BLKID_MASK;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>ptridx<sp/>=<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&amp;<sp/>BLKID_MASK;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>blkidx<sp/>=<sp/>list-&gt;n_blocks<sp/>-<sp/>blkidx;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(gn<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref>;<sp/>gn;<sp/>gn<sp/>=<sp/>gnode_next(gn))<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(++i<sp/>==<sp/>blkidx)</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gn<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>find<sp/>block<sp/>index<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>blkidx);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<ref refid="glist_8h_1ace56682f14d84cc456c805d26fd86734" kindref="member">gnode_ptr</ref>(gn)</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>ptridx<sp/>*<sp/>(list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref><sp/>/<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)));</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257" refid="listelem__alloc_8h_1ab83a7a6fd086c14140ad2c8c4162709b" refkind="member"><highlight class="normal"><ref refid="listelem__alloc_8h_1ab83a7a6fd086c14140ad2c8c4162709b" kindref="member">__listelem_free__</ref>(<ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*elem,</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**cpp;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Insert<sp/>freed<sp/>item<sp/>at<sp/>head<sp/>of<sp/>list.</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>cpp<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<sp/>elem;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>*cpp<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref>;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref><sp/>=<sp/>cpp;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>(list-&gt;n_freed)++;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273" refid="listelem__alloc_8h_1a838d9361ba76a89a834a7ea6a185b57d" refkind="member"><highlight class="normal"><ref refid="listelem__alloc_8h_1a838d9361ba76a89a834a7ea6a185b57d" kindref="member">listelem_stats</ref>(<ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*list)</highlight></codeline>
+<codeline lineno="274"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgnode__s" kindref="compound">gnode_t</ref><sp/>*gn,<sp/>*gn2;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**cpp;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>n;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" kindref="member">E_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Linklist<sp/>stats:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(n<sp/>=<sp/>0,<sp/>cpp<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a2c3be8623c5bb2d4afb3ad888790a4eb" kindref="member">freelist</ref>;<sp/>cpp;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cpp<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**)<sp/>(*cpp),<sp/>n++);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" kindref="member">E_INFO</ref></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="stringliteral">&quot;elemsize<sp/>%lu,<sp/>#alloc<sp/>%lu,<sp/>#freed<sp/>%lu,<sp/>#freelist<sp/>%lu\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref>,</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)list-&gt;n_alloc,</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)list-&gt;n_freed,</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)n);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" kindref="member">E_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Allocated<sp/>blocks:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>gn2<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1ada7b3fcd2f878e67e07e4bb185bb3015" kindref="member">blocksize</ref>;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(gn<sp/>=<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a1216578b1d5416dc0a03c802cfa1def9" kindref="member">blocks</ref>;<sp/>gn;<sp/>gn<sp/>=<sp/>gnode_next(gn))<sp/>{</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" kindref="member">E_INFO</ref>(</highlight><highlight class="stringliteral">&quot;%p<sp/>(%d<sp/>*<sp/>%d<sp/>bytes)\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="glist_8h_1ace56682f14d84cc456c805d26fd86734" kindref="member">gnode_ptr</ref>(gn),<sp/>gnode_int32(gn2),<sp/>list-&gt;<ref refid="structlistelem__alloc__s_1a9e27c7163c45a43f8dfd667cbc014f49" kindref="member">elemsize</ref>);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gn2<sp/>=<sp/>gnode_next(gn2);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/listelem_alloc.c"/>
+  </compounddef>
+</doxygen>

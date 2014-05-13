@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structjsgf__rule__stack__s" kind="struct" prot="public">
+    <compoundname>jsgf_rule_stack_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjsgf__rule__stack__s_1a5fd5facd2b790c949ef2efa80b07148a" prot="public" static="no" mutable="no">
+        <type><ref refid="structjsgf__rule__s" kindref="compound">jsgf_rule_t</ref> *</type>
+        <definition>jsgf_rule_t* jsgf_rule_stack_s::rule</definition>
+        <argsstring></argsstring>
+        <name>rule</name>
+        <briefdescription>
+<para>The rule being expanded. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="88" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__rule__stack__s_1a56107dc6cc50d45a5c1811785e8169b7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int jsgf_rule_stack_s::entry</definition>
+        <argsstring></argsstring>
+        <name>entry</name>
+        <briefdescription>
+<para>The entry-state for this expansion. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="89" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="135">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="135" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="136" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="136">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="132">
+        <label>jsgf_rule_stack_s</label>
+        <link refid="structjsgf__rule__stack__s"/>
+        <childnode refid="133" relation="usage">
+          <edgelabel>rule</edgelabel>
+        </childnode>
+      </node>
+      <node id="133">
+        <label>jsgf_rule_s</label>
+        <link refid="structjsgf__rule__s"/>
+        <childnode refid="134" relation="usage">
+          <edgelabel>rhs</edgelabel>
+        </childnode>
+      </node>
+      <node id="134">
+        <label>jsgf_rhs_s</label>
+        <link refid="structjsgf__rhs__s"/>
+        <childnode refid="134" relation="usage">
+          <edgelabel>alt</edgelabel>
+        </childnode>
+        <childnode refid="135" relation="usage">
+          <edgelabel>atoms</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="87" bodyend="90"/>
+    <listofallmembers>
+      <member refid="structjsgf__rule__stack__s_1a56107dc6cc50d45a5c1811785e8169b7" prot="public" virt="non-virtual"><scope>jsgf_rule_stack_s</scope><name>entry</name></member>
+      <member refid="structjsgf__rule__stack__s_1a5fd5facd2b790c949ef2efa80b07148a" prot="public" virt="non-virtual"><scope>jsgf_rule_stack_s</scope><name>rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

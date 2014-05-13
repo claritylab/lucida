@@ -1,0 +1,147 @@
+\section{src/libpocketsphinx/tmat.h File Reference}
+\label{tmat_8h}\index{src/libpocketsphinx/tmat.\-h@{src/libpocketsphinx/tmat.\-h}}
+
+
+Transition matrix data structure.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/logmath.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf tmat\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Transition matrix data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf tmat\-\_\-t} $\ast$ {\bf tmat\-\_\-init} (char const $\ast$tmatfile, logmath\-\_\-t $\ast$lmath, float64 tpfloor, int32 breport)
+\begin{DoxyCompactList}\small\item\em Initialize transition matrix. \end{DoxyCompactList}\item 
+void {\bf tmat\-\_\-dump} ({\bf tmat\-\_\-t} $\ast$tmat, F\-I\-L\-E $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Dumping the transition matrix for debugging. \end{DoxyCompactList}\item 
+void {\bf tmat\-\_\-free} ({\bf tmat\-\_\-t} $\ast$t)
+\begin{DoxyCompactList}\small\item\em R\-A\-H, add code to remove memory allocated by tmat\-\_\-init. \end{DoxyCompactList}\item 
+void {\bf tmat\-\_\-report} ({\bf tmat\-\_\-t} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Report the detail of the transition matrix structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Transition matrix data structure. 
+
+Definition in file {\bf tmat.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{tmat.\-h@{tmat.\-h}!tmat\-\_\-dump@{tmat\-\_\-dump}}
+\index{tmat\-\_\-dump@{tmat\-\_\-dump}!tmat.h@{tmat.\-h}}
+\subsubsection[{tmat\-\_\-dump}]{\setlength{\rightskip}{0pt plus 5cm}void tmat\-\_\-dump (
+\begin{DoxyParamCaption}
+\item[{{\bf tmat\-\_\-t} $\ast$}]{tmat, }
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{tmat_8h_af222f1a75e4bbbc76e1141ef0d0e41c7}
+
+
+Dumping the transition matrix for debugging. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tmat} & In\-: transition matrix \\
+\hline
+{\em fp} & In\-: file pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file tmat.\-c.
+
+
+
+References tmat\-\_\-t\-::n\-\_\-state, tmat\-\_\-t\-::n\-\_\-tmat, and tmat\-\_\-t\-::tp.
+
+\index{tmat.\-h@{tmat.\-h}!tmat\-\_\-free@{tmat\-\_\-free}}
+\index{tmat\-\_\-free@{tmat\-\_\-free}!tmat.h@{tmat.\-h}}
+\subsubsection[{tmat\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void tmat\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf tmat\-\_\-t} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}\label{tmat_8h_a8f98e68e4a868728a89cf9996c48a6c9}
+
+
+R\-A\-H, add code to remove memory allocated by tmat\-\_\-init. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & In\-: transition matrix \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 332 of file tmat.\-c.
+
+
+
+References tmat\-\_\-t\-::tp.
+
+
+
+Referenced by acmod\-\_\-free().
+
+\index{tmat.\-h@{tmat.\-h}!tmat\-\_\-init@{tmat\-\_\-init}}
+\index{tmat\-\_\-init@{tmat\-\_\-init}!tmat.h@{tmat.\-h}}
+\subsubsection[{tmat\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tmat\-\_\-t}$\ast$ tmat\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{tmatfile, }
+\item[{logmath\-\_\-t $\ast$}]{lmath, }
+\item[{float64}]{tpfloor, }
+\item[{int32}]{breport}
+\end{DoxyParamCaption}
+)}\label{tmat_8h_a33fc2f994068e2667eb728d7118ea038}
+
+
+Initialize transition matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tmatfile} & In\-: input file \\
+\hline
+{\em lmath} & In\-: log math parameters \\
+\hline
+{\em tpfloor} & In\-: floor value for each non-\/zero transition probability \\
+\hline
+{\em breport} & In\-: whether reporting the process of \doxyref{tmat\-\_\-t}{p.}{structtmat__t} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 191 of file tmat.\-c.
+
+
+
+References tmat\-\_\-t\-::n\-\_\-state, tmat\-\_\-t\-::n\-\_\-tmat, S\-E\-N\-S\-C\-R\-\_\-\-S\-H\-I\-F\-T, and tmat\-\_\-t\-::tp.
+
+\index{tmat.\-h@{tmat.\-h}!tmat\-\_\-report@{tmat\-\_\-report}}
+\index{tmat\-\_\-report@{tmat\-\_\-report}!tmat.h@{tmat.\-h}}
+\subsubsection[{tmat\-\_\-report}]{\setlength{\rightskip}{0pt plus 5cm}void tmat\-\_\-report (
+\begin{DoxyParamCaption}
+\item[{{\bf tmat\-\_\-t} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}\label{tmat_8h_a898dd73b6f40d9323f2d6e688733a0a5}
+
+
+Report the detail of the transition matrix structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & In\-: transition matrix \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 319 of file tmat.\-c.
+
+
+
+References tmat\-\_\-t\-::n\-\_\-state, and tmat\-\_\-t\-::n\-\_\-tmat.
+

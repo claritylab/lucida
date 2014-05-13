@@ -1,0 +1,8 @@
+#!/bin/sh
+. ../testfuncs.sh
+
+set -e
+testname=`basename $0 .test`
+./cmdln_parse_multiple -a 42 -d 4.5 > $testname.out 2>/dev/null
+compare_table defaults $testname.out $tests/unit/test_cmdln/$testname.res
+rm -f $testname.out

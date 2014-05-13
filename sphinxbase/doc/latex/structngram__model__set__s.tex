@@ -1,0 +1,165 @@
+\section{ngram\-\_\-model\-\_\-set\-\_\-s Struct Reference}
+\label{structngram__model__set__s}\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+
+
+Subclass of ngram\-\_\-model for grouping language models.  
+
+
+
+
+{\ttfamily \#include $<$ngram\-\_\-model\-\_\-set.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ngram\-\_\-model\-\_\-t} {\bf base}
+\begin{DoxyCompactList}\small\item\em Base ngram\-\_\-model\-\_\-t structure. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-models}
+\begin{DoxyCompactList}\small\item\em Number of models in this set. \end{DoxyCompactList}\item 
+int32 {\bf cur}
+\begin{DoxyCompactList}\small\item\em Currently selected model, or -\/1 for none. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$$\ast$ {\bf lms}
+\begin{DoxyCompactList}\small\item\em Language models in this set. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ {\bf names}
+\begin{DoxyCompactList}\small\item\em Names for language models. \end{DoxyCompactList}\item 
+int32 $\ast$ {\bf lweights}
+\begin{DoxyCompactList}\small\item\em Log interpolation weights. \end{DoxyCompactList}\item 
+int32 $\ast$$\ast$ {\bf widmap}
+\begin{DoxyCompactList}\small\item\em Word I\-D mapping for submodels. \end{DoxyCompactList}\item 
+int32 $\ast$ {\bf maphist}
+\begin{DoxyCompactList}\small\item\em Word I\-D mapping for N-\/\-Gram history. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Subclass of ngram\-\_\-model for grouping language models. 
+
+Definition at line 51 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}!base@{base}}
+\index{base@{base}!ngram_model_set_s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+\subsubsection[{base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t} ngram\-\_\-model\-\_\-set\-\_\-s\-::base}\label{structngram__model__set__s_a3b88f17aa148ceac4f32dd4cbf5f4f81}
+
+
+Base ngram\-\_\-model\-\_\-t structure. 
+
+
+
+Definition at line 52 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-init().
+
+\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}!cur@{cur}}
+\index{cur@{cur}!ngram_model_set_s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+\subsubsection[{cur}]{\setlength{\rightskip}{0pt plus 5cm}int32 ngram\-\_\-model\-\_\-set\-\_\-s\-::cur}\label{structngram__model__set__s_a031e7d7dcf1667f69e1cb980f45623cb}
+
+
+Currently selected model, or -\/1 for none. 
+
+
+
+Definition at line 55 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-current(), ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid(), ngram\-\_\-model\-\_\-set\-\_\-init(), ngram\-\_\-model\-\_\-set\-\_\-interp(), ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid(), ngram\-\_\-model\-\_\-set\-\_\-lookup(), and ngram\-\_\-model\-\_\-set\-\_\-select().
+
+\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}!lms@{lms}}
+\index{lms@{lms}!ngram_model_set_s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+\subsubsection[{lms}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ngram\-\_\-model\-\_\-t}$\ast$$\ast$ ngram\-\_\-model\-\_\-set\-\_\-s\-::lms}\label{structngram__model__set__s_a862d4c4feb5a903101f4a0fdc5ba8a62}
+
+
+Language models in this set. 
+
+
+
+Definition at line 56 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-add(), ngram\-\_\-model\-\_\-set\-\_\-init(), ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model(), ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid(), ngram\-\_\-model\-\_\-set\-\_\-lookup(), ngram\-\_\-model\-\_\-set\-\_\-map\-\_\-words(), ngram\-\_\-model\-\_\-set\-\_\-remove(), and ngram\-\_\-model\-\_\-set\-\_\-select().
+
+\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}!lweights@{lweights}}
+\index{lweights@{lweights}!ngram_model_set_s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+\subsubsection[{lweights}]{\setlength{\rightskip}{0pt plus 5cm}int32$\ast$ ngram\-\_\-model\-\_\-set\-\_\-s\-::lweights}\label{structngram__model__set__s_a11068bb0029c788c506bec4507dd6d23}
+
+
+Log interpolation weights. 
+
+
+
+Definition at line 58 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-add(), ngram\-\_\-model\-\_\-set\-\_\-init(), ngram\-\_\-model\-\_\-set\-\_\-interp(), and ngram\-\_\-model\-\_\-set\-\_\-remove().
+
+\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}!maphist@{maphist}}
+\index{maphist@{maphist}!ngram_model_set_s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+\subsubsection[{maphist}]{\setlength{\rightskip}{0pt plus 5cm}int32$\ast$ ngram\-\_\-model\-\_\-set\-\_\-s\-::maphist}\label{structngram__model__set__s_af34ca232338c2d8c7dc8d13869ac09fd}
+
+
+Word I\-D mapping for N-\/\-Gram history. 
+
+
+
+Definition at line 60 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-add(), and ngram\-\_\-model\-\_\-set\-\_\-init().
+
+\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}!n\-\_\-models@{n\-\_\-models}}
+\index{n\-\_\-models@{n\-\_\-models}!ngram_model_set_s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+\subsubsection[{n\-\_\-models}]{\setlength{\rightskip}{0pt plus 5cm}int32 ngram\-\_\-model\-\_\-set\-\_\-s\-::n\-\_\-models}\label{structngram__model__set__s_a6c28858d5631a9c9dbc7b2c9583f5c5a}
+
+
+Number of models in this set. 
+
+
+
+Definition at line 54 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-add(), ngram\-\_\-model\-\_\-set\-\_\-count(), ngram\-\_\-model\-\_\-set\-\_\-init(), ngram\-\_\-model\-\_\-set\-\_\-interp(), ngram\-\_\-model\-\_\-set\-\_\-iter(), ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-next(), ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid(), ngram\-\_\-model\-\_\-set\-\_\-lookup(), ngram\-\_\-model\-\_\-set\-\_\-map\-\_\-words(), ngram\-\_\-model\-\_\-set\-\_\-remove(), and ngram\-\_\-model\-\_\-set\-\_\-select().
+
+\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}!names@{names}}
+\index{names@{names}!ngram_model_set_s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+\subsubsection[{names}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ ngram\-\_\-model\-\_\-set\-\_\-s\-::names}\label{structngram__model__set__s_aff5e13c45decde4c5bf30d8aa2b1c7d9}
+
+
+Names for language models. 
+
+
+
+Definition at line 57 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-add(), ngram\-\_\-model\-\_\-set\-\_\-current(), ngram\-\_\-model\-\_\-set\-\_\-init(), ngram\-\_\-model\-\_\-set\-\_\-interp(), ngram\-\_\-model\-\_\-set\-\_\-iter\-\_\-model(), ngram\-\_\-model\-\_\-set\-\_\-lookup(), ngram\-\_\-model\-\_\-set\-\_\-remove(), and ngram\-\_\-model\-\_\-set\-\_\-select().
+
+\index{ngram\-\_\-model\-\_\-set\-\_\-s@{ngram\-\_\-model\-\_\-set\-\_\-s}!widmap@{widmap}}
+\index{widmap@{widmap}!ngram_model_set_s@{ngram\-\_\-model\-\_\-set\-\_\-s}}
+\subsubsection[{widmap}]{\setlength{\rightskip}{0pt plus 5cm}int32$\ast$$\ast$ ngram\-\_\-model\-\_\-set\-\_\-s\-::widmap}\label{structngram__model__set__s_addebde44e2b7aa22dd82032c316fc962}
+
+
+Word I\-D mapping for submodels. 
+
+
+
+Definition at line 59 of file ngram\-\_\-model\-\_\-set.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-set\-\_\-add(), ngram\-\_\-model\-\_\-set\-\_\-current\-\_\-wid(), ngram\-\_\-model\-\_\-set\-\_\-known\-\_\-wid(), ngram\-\_\-model\-\_\-set\-\_\-map\-\_\-words(), and ngram\-\_\-model\-\_\-set\-\_\-remove().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libsphinxbase/lm/{\bf ngram\-\_\-model\-\_\-set.\-h}\end{DoxyCompactItemize}

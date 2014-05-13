@@ -1,0 +1,1 @@
+SUBDIRS = hmm lm

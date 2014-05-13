@@ -1,0 +1,655 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="kws__search_8h" kind="file">
+    <compoundname>kws_search.h</compoundname>
+    <includes local="no">sphinxbase/glist.h</includes>
+    <includes local="no">sphinxbase/cmd_ln.h</includes>
+    <includes refid="pocketsphinx__internal_8h" local="yes">pocketsphinx_internal.h</includes>
+    <includes refid="kws__detections_8h" local="yes">kws_detections.h</includes>
+    <includes refid="hmm_8h" local="yes">hmm.h</includes>
+    <includedby refid="kws__search_8c" local="yes">src/libpocketsphinx/kws_search.c</includedby>
+    <includedby refid="pocketsphinx_8c" local="yes">src/libpocketsphinx/pocketsphinx.c</includedby>
+    <incdepgraph>
+      <node id="947">
+        <label>sphinxbase/ngram_model.h</label>
+      </node>
+      <node id="941">
+        <label>sphinxbase/hash_table.h</label>
+      </node>
+      <node id="959">
+        <label>tmat.h</label>
+        <link refid="tmat_8h"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="942" relation="include">
+        </childnode>
+      </node>
+      <node id="944">
+        <label>pocketsphinx.h</label>
+        <link refid="pocketsphinx_8h"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="942" relation="include">
+        </childnode>
+        <childnode refid="939" relation="include">
+        </childnode>
+        <childnode refid="940" relation="include">
+        </childnode>
+        <childnode refid="946" relation="include">
+        </childnode>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="941" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="950" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+      </node>
+      <node id="966">
+        <label>assert.h</label>
+      </node>
+      <node id="965">
+        <label>float.h</label>
+      </node>
+      <node id="937">
+        <label>sphinxbase/cmd_ln.h</label>
+      </node>
+      <node id="964">
+        <label>s3types.h</label>
+        <link refid="s3types_8h"/>
+        <childnode refid="965" relation="include">
+        </childnode>
+        <childnode refid="966" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="955" relation="include">
+        </childnode>
+        <childnode refid="967" relation="include">
+        </childnode>
+      </node>
+      <node id="939">
+        <label>sphinxbase/fe.h</label>
+      </node>
+      <node id="961">
+        <label>sphinxbase/fixpoint.h</label>
+      </node>
+      <node id="958">
+        <label>mdef.h</label>
+        <link refid="mdef_8h"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="941" relation="include">
+        </childnode>
+      </node>
+      <node id="938">
+        <label>pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx__internal_8h"/>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="939" relation="include">
+        </childnode>
+        <childnode refid="940" relation="include">
+        </childnode>
+        <childnode refid="941" relation="include">
+        </childnode>
+        <childnode refid="942" relation="include">
+        </childnode>
+        <childnode refid="943" relation="include">
+        </childnode>
+        <childnode refid="944" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+        <childnode refid="963" relation="include">
+        </childnode>
+        <childnode refid="968" relation="include">
+        </childnode>
+      </node>
+      <node id="952">
+        <label>ps_mllr.h</label>
+        <link refid="ps__mllr_8h"/>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+      </node>
+      <node id="957">
+        <label>sphinxbase/mmio.h</label>
+      </node>
+      <node id="967">
+        <label>sphinxbase/ckd_alloc.h</label>
+      </node>
+      <node id="962">
+        <label>sphinxbase/listelem_alloc.h</label>
+      </node>
+      <node id="948">
+        <label>pocketsphinx_export.h</label>
+        <link refid="pocketsphinx__export_8h_source"/>
+      </node>
+      <node id="940">
+        <label>sphinxbase/feat.h</label>
+      </node>
+      <node id="935">
+        <label>src/libpocketsphinx/kws_search.h</label>
+        <link refid="kws_search.h"/>
+        <childnode refid="936" relation="include">
+        </childnode>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="938" relation="include">
+        </childnode>
+        <childnode refid="969" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+      </node>
+      <node id="951">
+        <label>sphinxbase/prim_type.h</label>
+      </node>
+      <node id="954">
+        <label>sphinxbase/bitvec.h</label>
+      </node>
+      <node id="960">
+        <label>hmm.h</label>
+        <link refid="hmm_8h"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="961" relation="include">
+        </childnode>
+        <childnode refid="962" relation="include">
+        </childnode>
+        <childnode refid="956" relation="include">
+        </childnode>
+      </node>
+      <node id="969">
+        <label>kws_detections.h</label>
+        <link refid="kws__detections_8h_source"/>
+        <childnode refid="936" relation="include">
+        </childnode>
+        <childnode refid="938" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+      </node>
+      <node id="953">
+        <label>acmod.h</label>
+        <link refid="acmod_8h"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="942" relation="include">
+        </childnode>
+        <childnode refid="939" relation="include">
+        </childnode>
+        <childnode refid="940" relation="include">
+        </childnode>
+        <childnode refid="954" relation="include">
+        </childnode>
+        <childnode refid="955" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="956" relation="include">
+        </childnode>
+        <childnode refid="959" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+      </node>
+      <node id="950">
+        <label>ps_lattice.h</label>
+        <link refid="ps__lattice_8h"/>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+      </node>
+      <node id="956">
+        <label>bin_mdef.h</label>
+        <link refid="bin__mdef_8h"/>
+        <childnode refid="957" relation="include">
+        </childnode>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="958" relation="include">
+        </childnode>
+      </node>
+      <node id="949">
+        <label>cmdln_macro.h</label>
+        <link refid="cmdln__macro_8h_source"/>
+        <childnode refid="937" relation="include">
+        </childnode>
+        <childnode refid="940" relation="include">
+        </childnode>
+        <childnode refid="939" relation="include">
+        </childnode>
+      </node>
+      <node id="955">
+        <label>sphinxbase/err.h</label>
+      </node>
+      <node id="963">
+        <label>dict.h</label>
+        <link refid="dict_8h"/>
+        <childnode refid="941" relation="include">
+        </childnode>
+        <childnode refid="964" relation="include">
+        </childnode>
+        <childnode refid="956" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+      </node>
+      <node id="968">
+        <label>dict2pid.h</label>
+        <link refid="dict2pid_8h"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="942" relation="include">
+        </childnode>
+        <childnode refid="954" relation="include">
+        </childnode>
+        <childnode refid="964" relation="include">
+        </childnode>
+        <childnode refid="956" relation="include">
+        </childnode>
+        <childnode refid="963" relation="include">
+        </childnode>
+      </node>
+      <node id="946">
+        <label>sphinxbase/fsg_model.h</label>
+      </node>
+      <node id="942">
+        <label>sphinxbase/logmath.h</label>
+      </node>
+      <node id="943">
+        <label>sphinxbase/profile.h</label>
+      </node>
+      <node id="945">
+        <label>stdio.h</label>
+      </node>
+      <node id="936">
+        <label>sphinxbase/glist.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="972">
+        <label>src/libpocketsphinx/pocketsphinx.c</label>
+        <link refid="pocketsphinx_8c_source"/>
+      </node>
+      <node id="971">
+        <label>src/libpocketsphinx/kws_search.c</label>
+        <link refid="kws__search_8c_source"/>
+      </node>
+      <node id="970">
+        <label>src/libpocketsphinx/kws_search.h</label>
+        <link refid="kws_search.h"/>
+        <childnode refid="971" relation="include">
+        </childnode>
+        <childnode refid="972" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structkws__seg__s" prot="public">kws_seg_s</innerclass>
+    <innerclass refid="structkws__keyword__s" prot="public">kws_keyword_s</innerclass>
+    <innerclass refid="structkws__search__s" prot="public">kws_search_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="kws__search_8h_1a7d06275982b40e13177ed2ff7b74326a" prot="public" static="no">
+        <name>hmm_is_active</name>
+        <param><defname>hmm</defname></param>
+        <initializer>(hmm.frame &gt; 0)</initializer>
+        <briefdescription>
+<para>Access macros. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="67" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="kws__search_8h_1a7607d98f470b86bad7f13e12db3ed175" prot="public" static="no">
+        <type>struct <ref refid="structkws__seg__s" kindref="compound">kws_seg_s</ref></type>
+        <definition>typedef struct kws_seg_s  kws_seg_t</definition>
+        <argsstring></argsstring>
+        <name>kws_seg_t</name>
+        <briefdescription>
+<para>Segmentation &quot;iterator&quot; for KWS history. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="57" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="kws__search_8h_1a4adae3cae27c1b44a699a879e0f01023" prot="public" static="no">
+        <type>struct <ref refid="structkws__keyword__s" kindref="compound">kws_keyword_s</ref></type>
+        <definition>typedef struct kws_keyword_s  kws_keyword_t</definition>
+        <argsstring></argsstring>
+        <name>kws_keyword_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="64" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="kws__search_8h_1aa15dcfb339e553f65cdcae290fa1620b" prot="public" static="no">
+        <type>struct <ref refid="structkws__search__s" kindref="compound">kws_search_s</ref></type>
+        <definition>typedef struct kws_search_s  kws_search_t</definition>
+        <argsstring></argsstring>
+        <name>kws_search_t</name>
+        <briefdescription>
+<para>Implementation of KWS search structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="91" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="kws__search_8h_1a40c22fe88766e449999b4f90f9140a1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+        <definition>ps_search_t* kws_search_init</definition>
+        <argsstring>(const char *keyphrase, const char *keyfile, cmd_ln_t *config, acmod_t *acmod, dict_t *dict, dict2pid_t *d2p)</argsstring>
+        <name>kws_search_init</name>
+        <param>
+          <type>const char *</type>
+          <declname>keyphrase</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>keyfile</declname>
+        </param>
+        <param>
+          <type>cmd_ln_t *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="structacmod__s" kindref="compound">acmod_t</ref> *</type>
+          <declname>acmod</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+          <declname>d2p</declname>
+        </param>
+        <briefdescription>
+<para>Create, initialize and return a search module. </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets keywords either from keyphrase or from a keyphrase file. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="97" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.c" bodystart="389" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="kws__search_8h_1af23b055fdf85644155c36ff02baadce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void kws_search_free</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>kws_search_free</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>Deallocate search structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="106" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.c" bodystart="450" bodyend="466"/>
+      </memberdef>
+      <memberdef kind="function" id="kws__search_8h_1a00071d6b8a8a84640e4331e46dabfb0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int kws_search_reinit</definition>
+        <argsstring>(ps_search_t *kwss, dict_t *dict, dict2pid_t *d2p)</argsstring>
+        <name>kws_search_reinit</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>kwss</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+          <declname>d2p</declname>
+        </param>
+        <briefdescription>
+<para>Update KWS search module for new key phrase. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="111" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.c" bodystart="469" bodyend="569"/>
+      </memberdef>
+      <memberdef kind="function" id="kws__search_8h_1af4651ed00382982eb2f239f8a627d3b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int kws_search_start</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>kws_search_start</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>Prepare the KWS search structure for beginning decoding of the next utterance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="117" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.c" bodystart="572" bodyend="588"/>
+      </memberdef>
+      <memberdef kind="function" id="kws__search_8h_1a039625a2045a2a69dc47e5459c7c56ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int kws_search_step</definition>
+        <argsstring>(ps_search_t *search, int frame_idx)</argsstring>
+        <name>kws_search_step</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_idx</declname>
+        </param>
+        <briefdescription>
+<para>Step one frame forward through the Viterbi search. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="122" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.c" bodystart="591" bodyend="615"/>
+      </memberdef>
+      <memberdef kind="function" id="kws__search_8h_1af623deeb7a93a9fe73f2cc247cfc827d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int kws_search_finish</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>kws_search_finish</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>Windup and clean the KWS search structure after utterance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="127" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.c" bodystart="618" bodyend="622"/>
+      </memberdef>
+      <memberdef kind="function" id="kws__search_8h_1a172c3e5d8b8615a140cdb6ec3c5cdae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char const *</type>
+        <definition>char const* kws_search_hyp</definition>
+        <argsstring>(ps_search_t *search, int32 *out_score, int32 *out_is_final)</argsstring>
+        <name>kws_search_hyp</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_score</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_is_final</declname>
+        </param>
+        <briefdescription>
+<para>Get hypothesis string from the KWS search. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="132" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.c" bodystart="625" bodyend="637"/>
+      </memberdef>
+      <memberdef kind="function" id="kws__search_8h_1aa5d2224550b432788a612e46925fc1e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* kws_search_get_keywords</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>kws_search_get_keywords</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>Get active keyphrases. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h" line="137" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.c" bodystart="640" bodyend="664"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2013<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>kws_search.h<sp/>--<sp/>Search<sp/>structures<sp/>for<sp/>keyword<sp/>spotting.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__KWS_SEARCH_H__</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__KWS_SEARCH_H__</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>SphinxBase<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/glist.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/cmd_ln.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Local<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pocketsphinx__internal_8h" kindref="compound">pocketsphinx_internal.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;kws_detections.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="hmm_8h" kindref="compound">hmm.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="structkws__seg__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structkws__seg__s" kindref="compound">kws_seg_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="55" refid="structkws__seg__s_1ab8b059f475f5e64301195cf9816bde2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__seg__s" kindref="compound">ps_seg_t</ref><sp/><ref refid="structkws__seg__s_1ab8b059f475f5e64301195cf9816bde2a" kindref="member">base</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56" refid="structkws__seg__s_1a5de99d98b2be6e0348033c9fc05ec139" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>gnode_t<sp/>*<ref refid="structkws__seg__s_1a5de99d98b2be6e0348033c9fc05ec139" kindref="member">detection</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}<sp/><ref refid="structkws__seg__s" kindref="compound">kws_seg_t</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structkws__keyword__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structkws__keyword__s" kindref="compound">kws_keyword_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>word;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>threshold;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structhmm__t" kindref="compound">hmm_t</ref>*<sp/>hmms;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_hmms;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}<sp/><ref refid="structkws__keyword__s" kindref="compound">kws_keyword_t</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor">#define<sp/>hmm_is_active(hmm)<sp/>(hmm.frame<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="72" refid="structkws__search__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structkws__search__s" kindref="compound">kws_search_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>base;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="structkws__search__s_1a0069d57702f921cbd1e2093148e7b672" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structhmm__context__t" kindref="compound">hmm_context_t</ref><sp/>*<ref refid="structkws__search__s_1a0069d57702f921cbd1e2093148e7b672" kindref="member">hmmctx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77" refid="structkws__search__s_1ac7bd23ef33f85b4173a8d9a7cc9b9a32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structkws__detections__s" kindref="compound">kws_detections_t</ref><sp/>*<ref refid="structkws__search__s_1ac7bd23ef33f85b4173a8d9a7cc9b9a32" kindref="member">detections</ref>;<sp/></highlight></codeline>
+<codeline lineno="78" refid="structkws__search__s_1a0eec404435d9f8ad2700487f8a178f48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structkws__keyword__s" kindref="compound">kws_keyword_t</ref>*<sp/><ref refid="structkws__search__s_1a0eec404435d9f8ad2700487f8a178f48" kindref="member">keyphrases</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79" refid="structkws__search__s_1acd47cbdc3c0708d869888b99e6f5982c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structkws__search__s_1acd47cbdc3c0708d869888b99e6f5982c" kindref="member">n_keyphrases</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80" refid="structkws__search__s_1a68a833afd9d01bdf4c2cc640b575eea7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref><sp/><ref refid="structkws__search__s_1a68a833afd9d01bdf4c2cc640b575eea7" kindref="member">frame</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>beam;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="structkws__search__s_1a3bfc1d19e39d1cd321ce47280f1abe00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structkws__search__s_1a3bfc1d19e39d1cd321ce47280f1abe00" kindref="member">plp</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85" refid="structkws__search__s_1a0a04bba471516468d1b2bea14632f255" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structkws__search__s_1a0a04bba471516468d1b2bea14632f255" kindref="member">bestscore</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86" refid="structkws__search__s_1afce4456a796dbc72149d7a47159ccca9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structkws__search__s_1afce4456a796dbc72149d7a47159ccca9" kindref="member">def_threshold</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88" refid="structkws__search__s_1aab6e42d0c93af992c16e2a75db386df4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structkws__search__s_1aab6e42d0c93af992c16e2a75db386df4" kindref="member">n_pl</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89" refid="structkws__search__s_1a7b501f4cc5f4efb7b4ca0259afcf4e05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structhmm__t" kindref="compound">hmm_t</ref><sp/>*<ref refid="structkws__search__s_1a7b501f4cc5f4efb7b4ca0259afcf4e05" kindref="member">pl_hmms</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}<sp/><ref refid="structkws__search__s" kindref="compound">kws_search_t</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*kws_search_init(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*keyphrase,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*keyfile,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd_ln_t<sp/>*<sp/>config,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structacmod__s" kindref="compound">acmod_t</ref><sp/>*<sp/>acmod,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*<sp/>dict,<sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*<sp/>d2p);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>kws_search_free(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<sp/>search);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kws_search_reinit(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<sp/>kwss,<sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*<sp/>dict,<sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*<sp/>d2p);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kws_search_start(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<sp/>search);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kws_search_step(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<sp/>search,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_idx);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kws_search_finish(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<sp/>search);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*kws_search_hyp(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<sp/>search,<sp/>int32<sp/>*<sp/>out_score,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>*<sp/>out_is_final);</highlight></codeline>
+<codeline lineno="137"><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>kws_search_get_keywords(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<sp/>search);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>__KWS_SEARCH_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/kws_search.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,664 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="fsg__search__internal_8h" kind="file">
+    <compoundname>fsg_search_internal.h</compoundname>
+    <includes local="no">sphinxbase/glist.h</includes>
+    <includes local="no">sphinxbase/cmd_ln.h</includes>
+    <includes local="no">sphinxbase/fsg_model.h</includes>
+    <includes refid="pocketsphinx__internal_8h" local="yes">pocketsphinx_internal.h</includes>
+    <includes refid="hmm_8h" local="yes">hmm.h</includes>
+    <includes refid="fsg__history_8h" local="yes">fsg_history.h</includes>
+    <includes refid="fsg__lextree_8h" local="yes">fsg_lextree.h</includes>
+    <includedby refid="fsg__history_8c" local="yes">src/libpocketsphinx/fsg_history.c</includedby>
+    <includedby refid="fsg__search_8c" local="yes">src/libpocketsphinx/fsg_search.c</includedby>
+    <includedby refid="pocketsphinx_8c" local="yes">src/libpocketsphinx/pocketsphinx.c</includedby>
+    <incdepgraph>
+      <node id="721">
+        <label>sphinxbase/ngram_model.h</label>
+      </node>
+      <node id="716">
+        <label>sphinxbase/hash_table.h</label>
+      </node>
+      <node id="733">
+        <label>tmat.h</label>
+        <link refid="tmat_8h"/>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="717" relation="include">
+        </childnode>
+      </node>
+      <node id="719">
+        <label>pocketsphinx.h</label>
+        <link refid="pocketsphinx_8h"/>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="714" relation="include">
+        </childnode>
+        <childnode refid="715" relation="include">
+        </childnode>
+        <childnode refid="712" relation="include">
+        </childnode>
+        <childnode refid="721" relation="include">
+        </childnode>
+        <childnode refid="716" relation="include">
+        </childnode>
+        <childnode refid="722" relation="include">
+        </childnode>
+        <childnode refid="723" relation="include">
+        </childnode>
+        <childnode refid="724" relation="include">
+        </childnode>
+        <childnode refid="726" relation="include">
+        </childnode>
+      </node>
+      <node id="740">
+        <label>assert.h</label>
+      </node>
+      <node id="739">
+        <label>float.h</label>
+      </node>
+      <node id="711">
+        <label>sphinxbase/cmd_ln.h</label>
+      </node>
+      <node id="738">
+        <label>s3types.h</label>
+        <link refid="s3types_8h"/>
+        <childnode refid="739" relation="include">
+        </childnode>
+        <childnode refid="740" relation="include">
+        </childnode>
+        <childnode refid="725" relation="include">
+        </childnode>
+        <childnode refid="729" relation="include">
+        </childnode>
+        <childnode refid="741" relation="include">
+        </childnode>
+      </node>
+      <node id="714">
+        <label>sphinxbase/fe.h</label>
+      </node>
+      <node id="735">
+        <label>sphinxbase/fixpoint.h</label>
+      </node>
+      <node id="732">
+        <label>mdef.h</label>
+        <link refid="mdef_8h"/>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="716" relation="include">
+        </childnode>
+      </node>
+      <node id="743">
+        <label>fsg_history.h</label>
+        <link refid="fsg__history_8h_source"/>
+        <childnode refid="725" relation="include">
+        </childnode>
+        <childnode refid="712" relation="include">
+        </childnode>
+        <childnode refid="744" relation="include">
+        </childnode>
+        <childnode refid="745" relation="include">
+        </childnode>
+        <childnode refid="737" relation="include">
+        </childnode>
+      </node>
+      <node id="713">
+        <label>pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx__internal_8h"/>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="714" relation="include">
+        </childnode>
+        <childnode refid="715" relation="include">
+        </childnode>
+        <childnode refid="716" relation="include">
+        </childnode>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="718" relation="include">
+        </childnode>
+        <childnode refid="719" relation="include">
+        </childnode>
+        <childnode refid="727" relation="include">
+        </childnode>
+        <childnode refid="737" relation="include">
+        </childnode>
+        <childnode refid="742" relation="include">
+        </childnode>
+      </node>
+      <node id="726">
+        <label>ps_mllr.h</label>
+        <link refid="ps__mllr_8h"/>
+        <childnode refid="725" relation="include">
+        </childnode>
+        <childnode refid="721" relation="include">
+        </childnode>
+        <childnode refid="722" relation="include">
+        </childnode>
+      </node>
+      <node id="731">
+        <label>sphinxbase/mmio.h</label>
+      </node>
+      <node id="709">
+        <label>src/libpocketsphinx/fsg_search_internal.h</label>
+        <link refid="fsg_search_internal.h"/>
+        <childnode refid="710" relation="include">
+        </childnode>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="712" relation="include">
+        </childnode>
+        <childnode refid="713" relation="include">
+        </childnode>
+        <childnode refid="734" relation="include">
+        </childnode>
+        <childnode refid="743" relation="include">
+        </childnode>
+        <childnode refid="745" relation="include">
+        </childnode>
+      </node>
+      <node id="741">
+        <label>sphinxbase/ckd_alloc.h</label>
+      </node>
+      <node id="736">
+        <label>sphinxbase/listelem_alloc.h</label>
+      </node>
+      <node id="722">
+        <label>pocketsphinx_export.h</label>
+        <link refid="pocketsphinx__export_8h_source"/>
+      </node>
+      <node id="715">
+        <label>sphinxbase/feat.h</label>
+      </node>
+      <node id="725">
+        <label>sphinxbase/prim_type.h</label>
+      </node>
+      <node id="728">
+        <label>sphinxbase/bitvec.h</label>
+      </node>
+      <node id="734">
+        <label>hmm.h</label>
+        <link refid="hmm_8h"/>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="735" relation="include">
+        </childnode>
+        <childnode refid="736" relation="include">
+        </childnode>
+        <childnode refid="730" relation="include">
+        </childnode>
+      </node>
+      <node id="744">
+        <label>blkarray_list.h</label>
+        <link refid="blkarray__list_8h_source"/>
+        <childnode refid="725" relation="include">
+        </childnode>
+      </node>
+      <node id="745">
+        <label>fsg_lextree.h</label>
+        <link refid="fsg__lextree_8h_source"/>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="712" relation="include">
+        </childnode>
+        <childnode refid="734" relation="include">
+        </childnode>
+        <childnode refid="737" relation="include">
+        </childnode>
+        <childnode refid="742" relation="include">
+        </childnode>
+      </node>
+      <node id="727">
+        <label>acmod.h</label>
+        <link refid="acmod_8h"/>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="714" relation="include">
+        </childnode>
+        <childnode refid="715" relation="include">
+        </childnode>
+        <childnode refid="728" relation="include">
+        </childnode>
+        <childnode refid="729" relation="include">
+        </childnode>
+        <childnode refid="725" relation="include">
+        </childnode>
+        <childnode refid="726" relation="include">
+        </childnode>
+        <childnode refid="730" relation="include">
+        </childnode>
+        <childnode refid="733" relation="include">
+        </childnode>
+        <childnode refid="734" relation="include">
+        </childnode>
+      </node>
+      <node id="724">
+        <label>ps_lattice.h</label>
+        <link refid="ps__lattice_8h"/>
+        <childnode refid="725" relation="include">
+        </childnode>
+        <childnode refid="721" relation="include">
+        </childnode>
+        <childnode refid="722" relation="include">
+        </childnode>
+      </node>
+      <node id="730">
+        <label>bin_mdef.h</label>
+        <link refid="bin__mdef_8h"/>
+        <childnode refid="731" relation="include">
+        </childnode>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="722" relation="include">
+        </childnode>
+        <childnode refid="732" relation="include">
+        </childnode>
+      </node>
+      <node id="723">
+        <label>cmdln_macro.h</label>
+        <link refid="cmdln__macro_8h_source"/>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="715" relation="include">
+        </childnode>
+        <childnode refid="714" relation="include">
+        </childnode>
+      </node>
+      <node id="729">
+        <label>sphinxbase/err.h</label>
+      </node>
+      <node id="737">
+        <label>dict.h</label>
+        <link refid="dict_8h"/>
+        <childnode refid="716" relation="include">
+        </childnode>
+        <childnode refid="738" relation="include">
+        </childnode>
+        <childnode refid="730" relation="include">
+        </childnode>
+        <childnode refid="722" relation="include">
+        </childnode>
+      </node>
+      <node id="742">
+        <label>dict2pid.h</label>
+        <link refid="dict2pid_8h"/>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="728" relation="include">
+        </childnode>
+        <childnode refid="738" relation="include">
+        </childnode>
+        <childnode refid="730" relation="include">
+        </childnode>
+        <childnode refid="737" relation="include">
+        </childnode>
+      </node>
+      <node id="712">
+        <label>sphinxbase/fsg_model.h</label>
+      </node>
+      <node id="717">
+        <label>sphinxbase/logmath.h</label>
+      </node>
+      <node id="718">
+        <label>sphinxbase/profile.h</label>
+      </node>
+      <node id="720">
+        <label>stdio.h</label>
+      </node>
+      <node id="710">
+        <label>sphinxbase/glist.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="748">
+        <label>src/libpocketsphinx/fsg_search.c</label>
+        <link refid="fsg__search_8c_source"/>
+      </node>
+      <node id="749">
+        <label>src/libpocketsphinx/pocketsphinx.c</label>
+        <link refid="pocketsphinx_8c_source"/>
+      </node>
+      <node id="747">
+        <label>src/libpocketsphinx/fsg_history.c</label>
+        <link refid="fsg__history_8c_source"/>
+      </node>
+      <node id="746">
+        <label>src/libpocketsphinx/fsg_search_internal.h</label>
+        <link refid="fsg_search_internal.h"/>
+        <childnode refid="747" relation="include">
+        </childnode>
+        <childnode refid="748" relation="include">
+        </childnode>
+        <childnode refid="749" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structfsg__seg__s" prot="public">fsg_seg_s</innerclass>
+    <innerclass refid="structfsg__search__s" prot="public">fsg_search_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="fsg__search__internal_8h_1aea189184e7869c9da9bd77d3b011e559" prot="public" static="no">
+        <name>fsg_search_frame</name>
+        <param><defname>s</defname></param>
+        <initializer>((s)-&gt;frame)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="106" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="fsg__search__internal_8h_1a6e43170bf2050801da2bd816ed0b66dd" prot="public" static="no">
+        <type>struct <ref refid="structfsg__seg__s" kindref="compound">fsg_seg_s</ref></type>
+        <definition>typedef struct fsg_seg_s  fsg_seg_t</definition>
+        <argsstring></argsstring>
+        <name>fsg_seg_t</name>
+        <briefdescription>
+<para>Segmentation &quot;iterator&quot; for FSG history. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="63" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fsg__search__internal_8h_1a2682a1a9b5edc7592882a91eecc574a4" prot="public" static="no">
+        <type>struct <ref refid="structfsg__search__s" kindref="compound">fsg_search_s</ref></type>
+        <definition>typedef struct fsg_search_s  fsg_search_t</definition>
+        <argsstring></argsstring>
+        <name>fsg_search_t</name>
+        <briefdescription>
+<para>Implementation of FSG search (and &quot;FSG set&quot;) structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="103" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="fsg__search__internal_8h_1ab10f779955f231d62e52e0912bbc2a15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+        <definition>ps_search_t* fsg_search_init</definition>
+        <argsstring>(fsg_model_t *fsg, cmd_ln_t *config, acmod_t *acmod, dict_t *dict, dict2pid_t *d2p)</argsstring>
+        <name>fsg_search_init</name>
+        <param>
+          <type>fsg_model_t *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>cmd_ln_t *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="structacmod__s" kindref="compound">acmod_t</ref> *</type>
+          <declname>acmod</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+          <declname>d2p</declname>
+        </param>
+        <briefdescription>
+<para>Create, initialize and return a search module. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="111" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search.c" bodystart="179" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__search__internal_8h_1ad91ddd650a83267d358b64aa5b6c6dc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fsg_search_free</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>fsg_search_free</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>Deallocate search structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="120" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search.c" bodystart="254" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__search__internal_8h_1a6be9be78bae86648860de0a82da0b093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int fsg_search_reinit</definition>
+        <argsstring>(ps_search_t *fsgs, dict_t *dict, dict2pid_t *d2p)</argsstring>
+        <name>fsg_search_reinit</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>fsgs</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+          <declname>d2p</declname>
+        </param>
+        <briefdescription>
+<para>Update FSG search module for new or updated FSGs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="125" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search.c" bodystart="271" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__search__internal_8h_1a6b8ee3b617bbafce3a5e6130cc0b4d7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int fsg_search_start</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>fsg_search_start</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>Prepare the FSG search structure for beginning decoding of the next utterance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="131" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search.c" bodystart="758" bodyend="806"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__search__internal_8h_1aac409939ff29de466887055f50e34266" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int fsg_search_step</definition>
+        <argsstring>(ps_search_t *search, int frame_idx)</argsstring>
+        <name>fsg_search_step</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_idx</declname>
+        </param>
+        <briefdescription>
+<para>Step one frame forward through the Viterbi search. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="136" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search.c" bodystart="675" bodyend="749"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__search__internal_8h_1ac606357e94f5dfe895b915fc0214df02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int fsg_search_finish</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>fsg_search_finish</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>Windup and clean the FSG search structure after utterance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="141" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search.c" bodystart="812" bodyend="846"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__search__internal_8h_1a6313817ada4d9d888e02d06e37b566e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char const *</type>
+        <definition>char const* fsg_search_hyp</definition>
+        <argsstring>(ps_search_t *search, int32 *out_score, int32 *out_is_final)</argsstring>
+        <name>fsg_search_hyp</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_score</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_is_final</declname>
+        </param>
+        <briefdescription>
+<para>Get hypothesis string from the FSG search. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="146" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search.c" bodystart="947" bodyend="1027"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>fsg_search_internal.h<sp/>--<sp/>Search<sp/>structures<sp/>for<sp/>FSG<sp/>decoding.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__S2_FSG_SEARCH_H__</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__S2_FSG_SEARCH_H__</highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>SphinxBase<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/glist.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/cmd_ln.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/fsg_model.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Local<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pocketsphinx__internal_8h" kindref="compound">pocketsphinx_internal.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="hmm_8h" kindref="compound">hmm.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;fsg_history.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;fsg_lextree.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="structfsg__seg__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfsg__seg__s" kindref="compound">fsg_seg_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="59" refid="structfsg__seg__s_1a9f977be4814ec887aadb3cea35f96bab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__seg__s" kindref="compound">ps_seg_t</ref><sp/><ref refid="structfsg__seg__s_1a9f977be4814ec887aadb3cea35f96bab" kindref="member">base</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="60" refid="structfsg__seg__s_1ae41fbe837c6c921133c91453c58ba68e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structfsg__hist__entry__s" kindref="compound">fsg_hist_entry_t</ref><sp/>**<ref refid="structfsg__seg__s_1ae41fbe837c6c921133c91453c58ba68e" kindref="member">hist</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61" refid="structfsg__seg__s_1aca806a5b88f77803fff4c4c984034515" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><ref refid="structfsg__seg__s_1aca806a5b88f77803fff4c4c984034515" kindref="member">n_hist</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="62" refid="structfsg__seg__s_1a4b5e46bf79915c97845974e80355ebbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><ref refid="structfsg__seg__s_1a4b5e46bf79915c97845974e80355ebbe" kindref="member">cur</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}<sp/><ref refid="structfsg__seg__s" kindref="compound">fsg_seg_t</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="structfsg__search__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfsg__search__s" kindref="compound">fsg_search_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>base;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="structfsg__search__s_1a7407bdf5f311caf9d46817b3387b798c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structhmm__context__t" kindref="compound">hmm_context_t</ref><sp/>*<ref refid="structfsg__search__s_1a7407bdf5f311caf9d46817b3387b798c" kindref="member">hmmctx</ref>;<sp/></highlight></codeline>
+<codeline lineno="73" refid="structfsg__search__s_1ab1877ffe7d77ddb79bab53fb95577946" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>fsg_model_t<sp/>*<ref refid="structfsg__search__s_1ab1877ffe7d77ddb79bab53fb95577946" kindref="member">fsg</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74" refid="structfsg__search__s_1ac2c756ff6c1a2f1059011756d22441f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfsg__lextree__s" kindref="compound">fsg_lextree_s</ref><sp/>*<ref refid="structfsg__search__s_1ac2c756ff6c1a2f1059011756d22441f8" kindref="member">lextree</ref>;</highlight></codeline>
+<codeline lineno="76" refid="structfsg__search__s_1abc949ccaab380bcf5b452d1cac54469b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfsg__history__s" kindref="compound">fsg_history_s</ref><sp/>*<ref refid="structfsg__search__s_1abc949ccaab380bcf5b452d1cac54469b" kindref="member">history</ref>;</highlight></codeline>
+<codeline lineno="78" refid="structfsg__search__s_1a318ff42978c1e645f01962345ac08215" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>glist_t<sp/><ref refid="structfsg__search__s_1a318ff42978c1e645f01962345ac08215" kindref="member">pnode_active</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79" refid="structfsg__search__s_1aa2dfc00e1f34041dacd9572b0d659775" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>glist_t<sp/><ref refid="structfsg__search__s_1aa2dfc00e1f34041dacd9572b0d659775" kindref="member">pnode_active_next</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="81" refid="structfsg__search__s_1a0cdf7dc3d3eed0d37f46cb71fdea206e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__search__s_1a0cdf7dc3d3eed0d37f46cb71fdea206e" kindref="member">beam_orig</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82" refid="structfsg__search__s_1a7cdf0ab2591b95d89940d51e3ab01529" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__search__s_1a7cdf0ab2591b95d89940d51e3ab01529" kindref="member">pbeam_orig</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="83" refid="structfsg__search__s_1a7f3ecc2f769143e42ed958744478db3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__search__s_1a7f3ecc2f769143e42ed958744478db3c" kindref="member">wbeam_orig</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84" refid="structfsg__search__s_1a8e86d9f82189f8429d71ee2f67ecaaa2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>float32<sp/><ref refid="structfsg__search__s_1a8e86d9f82189f8429d71ee2f67ecaaa2" kindref="member">beam_factor</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="87" refid="structfsg__search__s_1af28ddecbb5115a50712c61f8a72dcf51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>beam,<sp/>pbeam,<sp/><ref refid="structfsg__search__s_1af28ddecbb5115a50712c61f8a72dcf51" kindref="member">wbeam</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88" refid="structfsg__search__s_1ae9ddc3b50d0f164926392f8ab4b019a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>lw,<sp/>pip,<sp/><ref refid="structfsg__search__s_1ae9ddc3b50d0f164926392f8ab4b019a0" kindref="member">wip</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90" refid="structfsg__search__s_1acdac4164d14d531b14c11a823dd22893" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref><sp/><ref refid="structfsg__search__s_1acdac4164d14d531b14c11a823dd22893" kindref="member">frame</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91" refid="structfsg__search__s_1a5139d7ab35ae18407e06e78e1778f857" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92" refid="structfsg__search__s_1aba7eff57919c5a1de55eab3a62ff055a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/><ref refid="structfsg__search__s_1aba7eff57919c5a1de55eab3a62ff055a" kindref="member">bestpath</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94" refid="structfsg__search__s_1a4d13fff2e14882b0125386fc27a4097f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>float32<sp/><ref refid="structfsg__search__s_1a4d13fff2e14882b0125386fc27a4097f" kindref="member">ascale</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96" refid="structfsg__search__s_1a52880ad440412d76f7aae7e05977ba4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__search__s_1a52880ad440412d76f7aae7e05977ba4b" kindref="member">bestscore</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97" refid="structfsg__search__s_1a24d59609008ac132dca256d36a89f9c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__search__s_1a24d59609008ac132dca256d36a89f9c8" kindref="member">bpidx_start</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99" refid="structfsg__search__s_1a709277a80e9418ecc3e63296f8eb6bbf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>ascr,<sp/><ref refid="structfsg__search__s_1a709277a80e9418ecc3e63296f8eb6bbf" kindref="member">lscr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101" refid="structfsg__search__s_1a7e3d7375b4a33af339e8b55885677faa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__search__s_1a7e3d7375b4a33af339e8b55885677faa" kindref="member">n_hmm_eval</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102" refid="structfsg__search__s_1a56494e3b30d0c66367c7ef055b8addb2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__search__s_1a56494e3b30d0c66367c7ef055b8addb2" kindref="member">n_sen_eval</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}<sp/><ref refid="structfsg__search__s" kindref="compound">fsg_search_t</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Access<sp/>macros<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>fsg_search_frame(s)<sp/><sp/><sp/><sp/><sp/>((s)-&gt;frame)</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*fsg_search_init(fsg_model_t<sp/>*fsg,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd_ln_t<sp/>*config,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structacmod__s" kindref="compound">acmod_t</ref><sp/>*acmod,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*dict,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*d2p);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_search_free(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_search_reinit(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*fsgs,<sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*dict,<sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*d2p);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_search_start(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_search_step(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_idx);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_search_finish(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*fsg_search_hyp(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search,<sp/>int32<sp/>*out_score,<sp/>int32<sp/>*out_is_final);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h"/>
+  </compounddef>
+</doxygen>

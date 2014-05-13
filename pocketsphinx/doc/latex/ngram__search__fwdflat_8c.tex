@@ -1,0 +1,51 @@
+\section{src/libpocketsphinx/ngram\-\_\-search\-\_\-fwdflat.c File Reference}
+\label{ngram__search__fwdflat_8c}\index{src/libpocketsphinx/ngram\-\_\-search\-\_\-fwdflat.\-c@{src/libpocketsphinx/ngram\-\_\-search\-\_\-fwdflat.\-c}}
+
+
+Flat lexicon search.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/ckd\-\_\-alloc.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/listelem\-\_\-alloc.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/err.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ngram\-\_\-search.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ps\-\_\-lattice\-\_\-internal.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries \-\_\-\-\_\-\-C\-H\-A\-N\-\_\-\-D\-U\-M\-P\-\_\-\-\_\-}~0\label{ngram__search__fwdflat_8c_a58360b0a332f35742f89edce94c649aa}
+
+\item 
+\#define {\bfseries chan\-\_\-v\-\_\-eval}(chan)~{\bf hmm\-\_\-vit\-\_\-eval}(\&(chan)-\/$>$hmm)\label{ngram__search__fwdflat_8c_a268c1fbc6483e1ab06c007222f08d9ad}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf ngram\-\_\-fwdflat\-\_\-init} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdflat_8c_ad4b8ebd904c77f8a28f59cd5ca2c8307}
+
+\begin{DoxyCompactList}\small\item\em Initialize N-\/\-Gram search for fwdflat decoding. \end{DoxyCompactList}\item 
+void {\bf ngram\-\_\-fwdflat\-\_\-deinit} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdflat_8c_a8faf467f90162a7273b23304fc6e8586}
+
+\begin{DoxyCompactList}\small\item\em Release memory associated with fwdflat decoding. \end{DoxyCompactList}\item 
+int {\bf ngram\-\_\-fwdflat\-\_\-reinit} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdflat_8c_aa4879c06ddbc455a6f355084a9c574b4}
+
+\begin{DoxyCompactList}\small\item\em Rebuild search structures for updated language models. \end{DoxyCompactList}\item 
+void {\bf ngram\-\_\-fwdflat\-\_\-start} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdflat_8c_a763c2c7aaa5d7f9c5107af73552a2149}
+
+\begin{DoxyCompactList}\small\item\em Start fwdflat decoding for an utterance. \end{DoxyCompactList}\item 
+int {\bf ngram\-\_\-fwdflat\-\_\-search} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs, int frame\-\_\-idx)\label{ngram__search__fwdflat_8c_ae77ef21ae92dbcc4b14f40469fbd4307}
+
+\begin{DoxyCompactList}\small\item\em Search one frame forward in an utterance. \end{DoxyCompactList}\item 
+void {\bf ngram\-\_\-fwdflat\-\_\-finish} ({\bf ngram\-\_\-search\-\_\-t} $\ast$ngs)\label{ngram__search__fwdflat_8c_ac855cf540ac4acdfa320629720ded6fe}
+
+\begin{DoxyCompactList}\small\item\em Finish fwdflat decoding for an utterance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Flat lexicon search. 
+
+Definition in file {\bf ngram\-\_\-search\-\_\-fwdflat.\-c}.
+

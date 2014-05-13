@@ -1,0 +1,858 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="ad_8h" kind="file">
+    <compoundname>ad.h</compoundname>
+    <includes local="no">sphinx_config.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includedby refid="cont__ad_8h" local="no">include/sphinxbase/cont_ad.h</includedby>
+    <includedby refid="ad__alsa_8c" local="yes">src/libsphinxad/ad_alsa.c</includedby>
+    <includedby refid="ad__base_8c" local="yes">src/libsphinxad/ad_base.c</includedby>
+    <includedby refid="ad__jack_8c" local="yes">src/libsphinxad/ad_jack.c</includedby>
+    <includedby refid="ad__oss_8c" local="yes">src/libsphinxad/ad_oss.c</includedby>
+    <includedby refid="ad__pulse_8c" local="yes">src/libsphinxad/ad_pulse.c</includedby>
+    <includedby refid="cont__ad__base_8c" local="yes">src/libsphinxad/cont_ad_base.c</includedby>
+    <includedby refid="play__win32_8c" local="yes">src/libsphinxad/play_win32.c</includedby>
+    <includedby refid="rec__win32_8c" local="yes">src/libsphinxad/rec_win32.c</includedby>
+    <includedby refid="cont__adseg_8c" local="no">src/sphinx_adtools/cont_adseg.c</includedby>
+    <includedby refid="cont__fileseg_8c" local="no">src/sphinx_adtools/cont_fileseg.c</includedby>
+    <includedby refid="cont__seg_8c" local="no">src/sphinx_adtools/cont_seg.c</includedby>
+    <incdepgraph>
+      <node id="143">
+        <label>include/sphinxbase/ad.h</label>
+        <link refid="ad.h"/>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+      </node>
+      <node id="144">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="145">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="146">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="144" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="158">
+        <label>src/libsphinxad/rec_win32.c</label>
+        <link refid="rec__win32_8c_source"/>
+      </node>
+      <node id="147">
+        <label>include/sphinxbase/ad.h</label>
+        <link refid="ad.h"/>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+      </node>
+      <node id="153">
+        <label>src/libsphinxad/ad_base.c</label>
+        <link refid="ad__base_8c_source"/>
+      </node>
+      <node id="155">
+        <label>src/libsphinxad/ad_oss.c</label>
+        <link refid="ad__oss_8c_source"/>
+      </node>
+      <node id="150">
+        <label>src/sphinx_adtools/cont_adseg.c</label>
+        <link refid="cont__adseg_8c_source"/>
+      </node>
+      <node id="154">
+        <label>src/libsphinxad/ad_jack.c</label>
+        <link refid="ad__jack_8c_source"/>
+      </node>
+      <node id="152">
+        <label>src/libsphinxad/ad_alsa.c</label>
+        <link refid="ad__alsa_8c_source"/>
+      </node>
+      <node id="157">
+        <label>src/libsphinxad/play_win32.c</label>
+        <link refid="play__win32_8c_source"/>
+      </node>
+      <node id="151">
+        <label>src/sphinx_adtools/cont_fileseg.c</label>
+        <link refid="cont__fileseg_8c_source"/>
+      </node>
+      <node id="156">
+        <label>src/libsphinxad/ad_pulse.c</label>
+        <link refid="ad__pulse_8c_source"/>
+      </node>
+      <node id="148">
+        <label>include/sphinxbase/cont_ad.h</label>
+        <link refid="cont__ad_8h"/>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+      </node>
+      <node id="149">
+        <label>src/libsphinxad/cont_ad_base.c</label>
+        <link refid="cont__ad__base_8c_source"/>
+      </node>
+      <node id="159">
+        <label>src/sphinx_adtools/cont_seg.c</label>
+        <link refid="cont__seg_8c_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structad__rec__t" prot="public">ad_rec_t</innerclass>
+    <innerclass refid="structad__play__t" prot="public">ad_play_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="ad_8h_1a21e7cf6f08592c2fa2f78eb069f0e161" prot="public" static="no">
+        <name>AD_SAMPLE_SIZE</name>
+        <initializer>(sizeof(int16))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="140" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ad_8h_1af6fb753bcfbd8dedec800ba4d0fb8546" prot="public" static="no">
+        <name>DEFAULT_SAMPLES_PER_SEC</name>
+        <initializer>16000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="141" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ad_8h_1a8d1358baba080a2f6b0d350928af7a89" prot="public" static="no">
+        <name>AD_OK</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="144" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ad_8h_1a8aa969c2d485c3c17cf9abfd1bb88bdd" prot="public" static="no">
+        <name>AD_EOF</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="145" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ad_8h_1ad75f71249c0e72e6867599af315fe27d" prot="public" static="no">
+        <name>AD_ERR_GEN</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="146" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ad_8h_1a7ac31adbbd108d40792fc6ba3d14929f" prot="public" static="no">
+        <name>AD_ERR_NOT_OPEN</name>
+        <initializer>-2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="147" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ad_8h_1abdeca1c656c9ed4699402adb3556ae39" prot="public" static="no">
+        <name>AD_ERR_WAVE</name>
+        <initializer>-3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="148" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ad_8h_1a84cb8bbda8042a324f49102bc200cc54" prot="public" static="no">
+        <name>DEFAULT_DEVICE</name>
+        <initializer>NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="254" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ad_8h_1a43f66257a2457d6c711dc5c694bfc02f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT ad_rec_t* ad_open_dev</definition>
+        <argsstring>(const char *dev, int32 samples_per_sec)</argsstring>
+        <name>ad_open_dev</name>
+        <param>
+          <type>const char *</type>
+          <declname>dev</declname>
+          <briefdescription><para>Device name (platform-specific) </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>samples_per_sec</declname>
+          <briefdescription><para>Samples per second </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Open a specific audio device for recording. </para>        </briefdescription>
+        <detaileddescription>
+<para>The device is opened in non-blocking mode and placed in idle state.</para><para><simplesect kind="return"><para>pointer to read-only <ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref> structure if successful, NULL otherwise. The return value to be used as the first argument to other recording functions. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="274" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/ad_alsa.c" bodystart="252" bodyend="287"/>
+        <references refid="structad__rec__t_1ade5a608978908d87deea7fa9827f8510" compoundref="ad_8h" startline="257">ad_rec_t::bps</references>
+        <references refid="structad__rec__t_1ac8ccccdc755f68cb4ad24007b36d6c8a" compoundref="ad_8h" startline="256">ad_rec_t::sps</references>
+        <referencedby refid="ad_8h_1a71b4eec805fbe5c398ea0897816de6f0" compoundref="ad__alsa_8c" startline="290" endline="293">ad_open_sps</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a71b4eec805fbe5c398ea0897816de6f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT ad_rec_t* ad_open_sps</definition>
+        <argsstring>(int32 samples_per_sec)</argsstring>
+        <name>ad_open_sps</name>
+        <param>
+          <type>int32</type>
+          <declname>samples_per_sec</declname>
+          <briefdescription><para>Samples per second </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Open the default audio device with a given sampling rate. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="283" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/ad_alsa.c" bodystart="290" bodyend="293"/>
+        <references refid="ad_8h_1a43f66257a2457d6c711dc5c694bfc02f" compoundref="ad__alsa_8c" startline="252" endline="287">ad_open_dev</references>
+        <referencedby refid="ad_8h_1a3def0da951e840fb4c72ef9259540686" compoundref="ad__alsa_8c" startline="296" endline="299">ad_open</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a3def0da951e840fb4c72ef9259540686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT ad_rec_t* ad_open</definition>
+        <argsstring>(void)</argsstring>
+        <name>ad_open</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Open the default audio device. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="292" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/ad_alsa.c" bodystart="296" bodyend="299"/>
+        <references refid="ad_8h_1a71b4eec805fbe5c398ea0897816de6f0" compoundref="ad__alsa_8c" startline="290" endline="293">ad_open_sps</references>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a9cb212b93cb439ba04dec2109ca043ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 ad_start_rec</definition>
+        <argsstring>(ad_rec_t *)</argsstring>
+        <name>ad_start_rec</name>
+        <param>
+          <type><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="307" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/ad_alsa.c" bodystart="320" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a20fb285a5f93e172f6a6e04359216aa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 ad_stop_rec</definition>
+        <argsstring>(ad_rec_t *)</argsstring>
+        <name>ad_stop_rec</name>
+        <param>
+          <type><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="312" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/ad_alsa.c" bodystart="347" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a6bcf3ed5e9d0c2d51086cae93bc3b3fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 ad_close</definition>
+        <argsstring>(ad_rec_t *)</argsstring>
+        <name>ad_close</name>
+        <param>
+          <type><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="317" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/ad_alsa.c" bodystart="303" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1ad4a5f4ab5267003169f6d3e15e54f697" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 ad_read</definition>
+        <argsstring>(ad_rec_t *, int16 *buf, int32 max)</argsstring>
+        <name>ad_read</name>
+        <param>
+          <type><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref> *</type>
+        </param>
+        <param>
+          <type>int16 *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="326" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/ad_alsa.c" bodystart="369" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a89f8a1820e1c5ea658e692d2d15a7315" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structad__play__t" kindref="compound">ad_play_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT ad_play_t* ad_open_play_sps</definition>
+        <argsstring>(int32 samples_per_sec)</argsstring>
+        <name>ad_open_play_sps</name>
+        <param>
+          <type>int32</type>
+          <declname>samples_per_sec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="355" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/play_win32.c" bodystart="246" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a859bfe925f634f6bb3faa1a52c013388" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structad__play__t" kindref="compound">ad_play_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT ad_play_t* ad_open_play</definition>
+        <argsstring>(void)</argsstring>
+        <name>ad_open_play</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="358" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/play_win32.c" bodystart="299" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a899e10aaecde4ab33b9849ed7bb9fb73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 ad_start_play</definition>
+        <argsstring>(ad_play_t *)</argsstring>
+        <name>ad_start_play</name>
+        <param>
+          <type><ref refid="structad__play__t" kindref="compound">ad_play_t</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="361" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/play_win32.c" bodystart="323" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a823c2efb2892ff2c9b112ffcda58ce17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 ad_stop_play</definition>
+        <argsstring>(ad_play_t *)</argsstring>
+        <name>ad_stop_play</name>
+        <param>
+          <type><ref refid="structad__play__t" kindref="compound">ad_play_t</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="364" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/play_win32.c" bodystart="340" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1aa65454c205e3f573f4f3433a6a044448" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 ad_close_play</definition>
+        <argsstring>(ad_play_t *)</argsstring>
+        <name>ad_close_play</name>
+        <param>
+          <type><ref refid="structad__play__t" kindref="compound">ad_play_t</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="367" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/play_win32.c" bodystart="306" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1aea278a0c26051f4fe011778f225ea9c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 ad_write</definition>
+        <argsstring>(ad_play_t *, int16 *buf, int32 len)</argsstring>
+        <name>ad_write</name>
+        <param>
+          <type><ref refid="structad__play__t" kindref="compound">ad_play_t</ref> *</type>
+        </param>
+        <param>
+          <type>int16 *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Queue a block of audio samples for playback. </para>        </briefdescription>
+        <detaileddescription>
+<para>Write the next block of [len] samples from rawbuf to the A/D device for playback. The device may queue less than len samples, possibly 0, since it is non-blocking. The application should resubmit the remaining data to be played. Return value: # samples accepted for playback; -1 if error. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="379" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxad/play_win32.c" bodystart="373" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="ad_8h_1a7eab4d2f35d221c569b85d4240b83600" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ad_mu2li</definition>
+        <argsstring>(int16 *outbuf, unsigned char *inbuf, int32 n_samp)</argsstring>
+        <name>ad_mu2li</name>
+        <param>
+          <type>int16 *</type>
+          <declname>outbuf</declname>
+        </param>
+        <param>
+          <type>unsigned char *</type>
+          <declname>inbuf</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_samp</declname>
+        </param>
+        <briefdescription>
+<para>Convert mu-law data to int16 linear PCM format. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h" line="388" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>generic live audio interface for recording and playback </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>ad.h<sp/>--<sp/>generic<sp/>live<sp/>audio<sp/>interface<sp/>for<sp/>recording<sp/>and<sp/>playback</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1996<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>ad.h,v<sp/>$</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.8<sp/><sp/>2005/06/22<sp/>08:00:06<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>Completed<sp/>all<sp/>doxygen<sp/>documentation<sp/>on<sp/>file<sp/>description<sp/>for<sp/>libs3decoder/libutil/libs3audio<sp/>and<sp/>programs.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.7<sp/><sp/>2004/12/14<sp/>00:39:49<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>add<sp/>&lt;s3types.h&gt;<sp/>to<sp/>the<sp/>code,<sp/>change<sp/>some<sp/>comments<sp/>to<sp/>doxygen<sp/>style</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.6<sp/><sp/>2004/12/06<sp/>11:17:55<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>Update<sp/>the<sp/>copyright<sp/>information<sp/>of<sp/>ad.h,<sp/>*sigh*<sp/>start<sp/>to<sp/>feel<sp/>tired<sp/>of<sp/>updating<sp/>documentation<sp/>system.<sp/><sp/>Anyone<sp/>who<sp/>has<sp/>time,<sp/>please<sp/>take<sp/>up<sp/>libs3audio.<sp/>That<sp/>is<sp/>the<sp/>last<sp/>place<sp/>which<sp/>is<sp/>undocumented</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.5<sp/><sp/>2004/07/23<sp/>23:44:46<sp/><sp/>egouvea</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>Changed<sp/>the<sp/>cygwin<sp/>code<sp/>to<sp/>use<sp/>the<sp/>same<sp/>audio<sp/>files<sp/>as<sp/>the<sp/>MS<sp/>Visual<sp/>code,<sp/>removed<sp/>unused<sp/>variables<sp/>from<sp/>fe_interface.c</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2004/02/29<sp/>23:48:31<sp/><sp/>egouvea</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>Updated<sp/>configure.in<sp/>to<sp/>the<sp/>recent<sp/>automake/autoconf,<sp/>fixed<sp/>win32</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>references<sp/>in<sp/>audio<sp/>files.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2002/11/10<sp/>19:27:38<sp/><sp/>egouvea</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>references<sp/>to<sp/>sun&apos;s<sp/>implementation<sp/>of<sp/>audio<sp/>interface,</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>referring<sp/>to<sp/>the<sp/>correct<sp/>.h<sp/>file,<sp/>and<sp/>replacing<sp/>sun4<sp/>with<sp/>sunos.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.2<sp/><sp/>2001/12/11<sp/>04:40:55<sp/><sp/>lenzo</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>License<sp/>cleanup.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.1.1.1<sp/><sp/>2001/12/03<sp/>16:01:45<sp/><sp/>egouvea</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>Initial<sp/>import<sp/>of<sp/>sphinx3</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.1.1.1<sp/><sp/>2001/01/17<sp/>05:17:14<sp/><sp/>ricky</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>Initial<sp/>Import<sp/>of<sp/>the<sp/>s3.3<sp/>decoder,<sp/>has<sp/>working<sp/>decodeaudiofile,<sp/>s3.3_live</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>19-Jan-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>AD_<sp/>return<sp/>codes.<sp/><sp/>Added<sp/>ad_open_sps_bufsize(),<sp/>and</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ad_rec_t.n_buf.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*<sp/>17-Apr-98<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>ad_open_play_sps().</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*<sp/>07-Mar-98<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>ad_open_sps().</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>10-Jun-96<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>ad_wbuf_t,<sp/>ad_rec_t,<sp/>and<sp/>ad_play_t<sp/>types,<sp/>and<sp/>augmented<sp/>all</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>recording<sp/>functions<sp/>with<sp/>ad_rec_t,<sp/>and<sp/>playback<sp/>functions<sp/>with</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ad_play_t.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*<sp/>06-Jun-96<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Created.</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor">#ifndef<sp/>_AD_H_</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_AD_H_</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinx_config.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined<sp/>(__CYGWIN__)</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;w32api/windows.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;w32api/mmsystem.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>(defined(WIN32)<sp/>&amp;&amp;<sp/>!defined(GNUWINCE))<sp/>||<sp/>defined(_WIN32_WCE)</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;windows.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mmsystem.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(AD_BACKEND_JACK)</highlight></codeline>
+<codeline lineno="115"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;jack/jack.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;jack/ringbuffer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>HAVE_SAMPLERATE_H</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;samplerate.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="120"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#elif<sp/>defined(AD_BACKEND_PULSEAUDIO)</highlight></codeline>
+<codeline lineno="121"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;pulse/pulseaudio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pulse/simple.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(AD_BACKEND_ALSA)</highlight></codeline>
+<codeline lineno="124"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;alsa/asoundlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="126"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Win32/WinCE<sp/>DLL<sp/>gunk<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AD_SAMPLE_SIZE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(sizeof(int16))</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_SAMPLES_PER_SEC<sp/>16000</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Return<sp/>codes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AD_OK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>AD_EOF<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-1</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>AD_ERR_GEN<sp/><sp/><sp/><sp/><sp/><sp/>-1</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>AD_ERR_NOT_OPEN<sp/>-2</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>AD_ERR_WAVE<sp/><sp/><sp/><sp/><sp/>-3</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/><sp/>(defined(WIN32)<sp/>||<sp/>defined(AD_BACKEND_WIN32))<sp/>&amp;&amp;<sp/>!defined(GNUWINCE)</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>HGLOBAL<sp/>h_whdr;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>LPWAVEHDR<sp/>p_whdr;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>HGLOBAL<sp/>h_buf;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>LPSTR<sp/>p_buf;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">}<sp/>ad_wbuf_t;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="159"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>------------<sp/>RECORDING<sp/>--------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*<sp/>NOTE:<sp/>ad_rec_t<sp/>and<sp/>ad_play_t<sp/>are<sp/>READ-ONLY<sp/>structures<sp/>for<sp/>the<sp/>user.</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(defined(WIN32)<sp/>||<sp/>defined(AD_BACKEND_WIN32))<sp/>&amp;&amp;<sp/>!defined(GNUWINCE)</highlight></codeline>
+<codeline lineno="168"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_DEVICE<sp/>(char*)DEV_MAPPER</highlight></codeline>
+<codeline lineno="170"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="174"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">ad_rec_s<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>HWAVEIN<sp/>h_wavein;<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>&quot;HANDLE&quot;<sp/>to<sp/>the<sp/>audio<sp/>input<sp/>device<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>ad_wbuf_t<sp/>*wi_buf;<sp/><sp/></highlight><highlight class="comment">/*<sp/>Recording<sp/>buffers<sp/>provided<sp/>to<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_buf;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>#Recording<sp/>buffers<sp/>provided<sp/>to<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>opened;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Flag;<sp/>A/D<sp/>opened<sp/>for<sp/>recording<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>recording;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>curbuf;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Current<sp/>buffer<sp/>with<sp/>data<sp/>for<sp/>application<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>curoff;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Start<sp/>of<sp/>data<sp/>for<sp/>application<sp/>in<sp/>curbuf<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>curlen;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>#samples<sp/>of<sp/>data<sp/>from<sp/>curoff<sp/>in<sp/>curbuf<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>lastbuf;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Last<sp/>buffer<sp/>containing<sp/>data<sp/>after<sp/>recording<sp/>stopped<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sps;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Samples/sec<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bps;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Bytes/sample<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}<sp/><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref>;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(AD_BACKEND_OSS)</highlight></codeline>
+<codeline lineno="189"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_DEVICE<sp/>&quot;/dev/dsp&quot;</highlight></codeline>
+<codeline lineno="191"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="195"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>dspFD;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Audio<sp/>device<sp/>descriptor<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>recording;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sps;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Samples/sec<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bps;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Bytes/sample<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">}<sp/><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref>;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(AD_BACKEND_PULSEAUDIO)</highlight></codeline>
+<codeline lineno="203"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_DEVICE<sp/>NULL</highlight></codeline>
+<codeline lineno="205"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>pa_simple*<sp/>pa;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>recording;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sps;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bps;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}<sp/><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref>;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(AD_BACKEND_ALSA)</highlight></codeline>
+<codeline lineno="214"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_DEVICE<sp/>&quot;default&quot;</highlight></codeline>
+<codeline lineno="216"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>snd_pcm_t<sp/>*dspH;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>recording;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sps;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bps;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">}<sp/><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref>;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(AD_BACKEND_JACK)</highlight></codeline>
+<codeline lineno="224"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>jack_client_t<sp/>*client;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>jack_port_t<sp/>*input_port;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>jack_port_t<sp/>*output_port;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>jack_ringbuffer_t*<sp/>rbuffer;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>jack_default_audio_sample_t*<sp/>sample_buffer;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>recording;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sps;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bps;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>HAVE_SAMPLERATE_H</highlight></codeline>
+<codeline lineno="235"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/>SRC_STATE<sp/>*resample_state;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>jack_default_audio_sample_t<sp/>*resample_buffer;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="238"><highlight class="preprocessor"></highlight><highlight class="normal">}<sp/><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref>;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(AD_BACKEND_S60)</highlight></codeline>
+<codeline lineno="241"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">ad_rec_s<sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>recorder;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>recording;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sps;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bps;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal">}<sp/><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref>;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*ad_open_sps_bufsize<sp/>(int32<sp/>samples_per_sec,<sp/>int32<sp/>bufsize_msec);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="253"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_DEVICE<sp/>NULL</highlight></codeline>
+<codeline lineno="255" refid="structad__rec__t" refkind="compound"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="256" refid="structad__rec__t_1ac8ccccdc755f68cb4ad24007b36d6c8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structad__rec__t_1ac8ccccdc755f68cb4ad24007b36d6c8a" kindref="member">sps</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="257" refid="structad__rec__t_1ade5a608978908d87deea7fa9827f8510" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structad__rec__t_1ade5a608978908d87deea7fa9827f8510" kindref="member">bps</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="258"><highlight class="normal">}<sp/><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="262"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*<ref refid="ad_8h_1a43f66257a2457d6c711dc5c694bfc02f" kindref="member">ad_open_dev</ref><sp/>(</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*dev,<sp/></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>samples_per_sec<sp/></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*<ref refid="ad_8h_1a71b4eec805fbe5c398ea0897816de6f0" kindref="member">ad_open_sps</ref><sp/>(</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>samples_per_sec<sp/></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*<ref refid="ad_8h_1a3def0da951e840fb4c72ef9259540686" kindref="member">ad_open</ref><sp/>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(WIN32)<sp/>&amp;&amp;<sp/>!defined(GNUWINCE)</highlight></codeline>
+<codeline lineno="296"><highlight class="preprocessor"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="297"><highlight class="comment"><sp/>*<sp/>Like<sp/>ad_open_sps<sp/>but<sp/>specifies<sp/>buffering<sp/>required<sp/>within<sp/>driver.<sp/><sp/>This<sp/>function<sp/>is</highlight></codeline>
+<codeline lineno="298"><highlight class="comment"><sp/>*<sp/>useful<sp/>if<sp/>the<sp/>default<sp/>(5000<sp/>msec<sp/>worth)<sp/>is<sp/>too<sp/>small<sp/>and<sp/>results<sp/>in<sp/>loss<sp/>of<sp/>data.</highlight></codeline>
+<codeline lineno="299"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*ad_open_sps_bufsize<sp/>(int32<sp/>samples_per_sec,<sp/>int32<sp/>bufsize_msec);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="303"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Start<sp/>audio<sp/>recording.<sp/><sp/>Return<sp/>value:<sp/>0<sp/>if<sp/>successful,<sp/>&lt;0<sp/>otherwise<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">int32<sp/>ad_start_rec<sp/>(<ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Stop<sp/>audio<sp/>recording.<sp/><sp/>Return<sp/>value:<sp/>0<sp/>if<sp/>successful,<sp/>&lt;0<sp/>otherwise<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="312"><highlight class="normal">int32<sp/>ad_stop_rec<sp/>(<ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Close<sp/>the<sp/>recording<sp/>device.<sp/><sp/>Return<sp/>value:<sp/>0<sp/>if<sp/>successful,<sp/>&lt;0<sp/>otherwise<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="317"><highlight class="normal">int32<sp/>ad_close<sp/>(<ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/>*<sp/>Read<sp/>next<sp/>block<sp/>of<sp/>audio<sp/>samples<sp/>while<sp/>recording;<sp/>read<sp/>upto<sp/>max<sp/>samples<sp/>into<sp/>buf.</highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/>*<sp/>Return<sp/>value:<sp/>#<sp/>samples<sp/>actually<sp/>read<sp/>(could<sp/>be<sp/>0<sp/>since<sp/>non-blocking);<sp/>-1<sp/>if<sp/>not</highlight></codeline>
+<codeline lineno="323"><highlight class="comment"><sp/>*<sp/>recording<sp/>and<sp/>no<sp/>more<sp/>samples<sp/>remaining<sp/>to<sp/>be<sp/>read<sp/>from<sp/>most<sp/>recent<sp/>recording.</highlight></codeline>
+<codeline lineno="324"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="326"><highlight class="normal">int32<sp/>ad_read<sp/>(<ref refid="structad__rec__t" kindref="compound">ad_rec_t</ref><sp/>*,<sp/>int16<sp/>*buf,<sp/>int32<sp/>max);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>------<sp/>PLAYBACK;<sp/>SIMILAR<sp/>TO<sp/>RECORDING<sp/>-------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(WIN32)<sp/>&amp;&amp;<sp/>!defined(GNUWINCE)</highlight></codeline>
+<codeline lineno="332"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>HWAVEOUT<sp/>h_waveout;<sp/></highlight><highlight class="comment">/*<sp/>&quot;HANDLE&quot;<sp/>to<sp/>the<sp/>audio<sp/>output<sp/>device<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/>ad_wbuf_t<sp/>*wo_buf;<sp/><sp/></highlight><highlight class="comment">/*<sp/>Playback<sp/>buffers<sp/>given<sp/>to<sp/>the<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>opened;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Flag;<sp/>A/D<sp/>opened<sp/>for<sp/>playback<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>playing;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*busy;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>flags<sp/>[N_WO_BUF]<sp/>indicating<sp/>whether<sp/>given<sp/>to<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>nxtbuf;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Next<sp/>buffer<sp/>[0..N_WO_BUF-1]<sp/>to<sp/>be<sp/>used<sp/>for<sp/>playback<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sps;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Samples/sec<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bps;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Bytes/sample<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal">}<sp/><ref refid="structad__play__t" kindref="compound">ad_play_t</ref>;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="345"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="346" refid="structad__play__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sps;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Samples/sec<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bps;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Bytes/sample<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal">}<sp/><ref refid="structad__play__t" kindref="compound">ad_play_t</ref>;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Dummy<sp/>definition<sp/>for<sp/>systems<sp/>without<sp/>A/D<sp/>stuff<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="352"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><ref refid="structad__play__t" kindref="compound">ad_play_t</ref><sp/>*ad_open_play_sps<sp/>(int32<sp/>samples_per_sec);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><ref refid="structad__play__t" kindref="compound">ad_play_t</ref><sp/>*ad_open_play<sp/>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="360"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="361"><highlight class="normal">int32<sp/>ad_start_play<sp/>(<ref refid="structad__play__t" kindref="compound">ad_play_t</ref><sp/>*);</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="364"><highlight class="normal">int32<sp/>ad_stop_play<sp/>(<ref refid="structad__play__t" kindref="compound">ad_play_t</ref><sp/>*);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="367"><highlight class="normal">int32<sp/>ad_close_play<sp/>(<ref refid="structad__play__t" kindref="compound">ad_play_t</ref><sp/>*);</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="379"><highlight class="normal">int32<sp/><ref refid="ad_8h_1aea278a0c26051f4fe011778f225ea9c4" kindref="member">ad_write</ref><sp/>(<ref refid="structad__play__t" kindref="compound">ad_play_t</ref><sp/>*,<sp/>int16<sp/>*buf,<sp/>int32<sp/>len);</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight></codeline>
+<codeline lineno="381"><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>------<sp/>MISCELLANEOUS<sp/>-------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ad_8h_1a7eab4d2f35d221c569b85d4240b83600" kindref="member">ad_mu2li</ref><sp/>(int16<sp/>*outbuf,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Out:<sp/>PCM<sp/>data<sp/>placed<sp/>here<sp/>(allocated<sp/>by<sp/>user)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*inbuf,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In:<sp/>Input<sp/>buffer<sp/>with<sp/>mulaw<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>n_samp);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In:<sp/>#Samples<sp/>in<sp/>inbuf<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="392"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="393"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="395"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="396"><highlight class="normal"></highlight></codeline>
+<codeline lineno="397"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ad.h"/>
+  </compounddef>
+</doxygen>

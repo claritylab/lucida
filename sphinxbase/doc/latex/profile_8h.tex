@@ -1,0 +1,349 @@
+\section{include/sphinxbase/profile.h File Reference}
+\label{profile_8h}\index{include/sphinxbase/profile.\-h@{include/sphinxbase/profile.\-h}}
+
+
+Implementation of profiling, include counting , timing, cpu clock checking.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf pctr\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Generic event counter for profiling. \end{DoxyCompactList}\item 
+struct {\bf ptmr\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Generic timer structures and functions for coarse-\/grained performance measurements using standard system calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf pctr\-\_\-t} $\ast$ {\bf pctr\-\_\-new} (char $\ast$name)
+\begin{DoxyCompactList}\small\item\em operations of \doxyref{pctr\-\_\-t}{p.}{structpctr__t} \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf pctr\-\_\-reset} ({\bf pctr\-\_\-t} $\ast$ctr)
+\begin{DoxyCompactList}\small\item\em Reset a counter. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf pctr\-\_\-print} (F\-I\-L\-E $\ast$fp, {\bf pctr\-\_\-t} $\ast$ctr)
+\begin{DoxyCompactList}\small\item\em Print a counter. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf pctr\-\_\-increment} ({\bf pctr\-\_\-t} $\ast$ctr, int32 inc)
+\begin{DoxyCompactList}\small\item\em Increment a counter. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf pctr\-\_\-free} ({\bf pctr\-\_\-t} $\ast$ctr)
+\begin{DoxyCompactList}\small\item\em Free the counter. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ptmr\-\_\-start} ({\bf ptmr\-\_\-t} $\ast$tmr)
+\begin{DoxyCompactList}\small\item\em Start timing using tmr. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ptmr\-\_\-stop} ({\bf ptmr\-\_\-t} $\ast$tmr)
+\begin{DoxyCompactList}\small\item\em Stop timing and accumulate tmr-\/$>$\{t\-\_\-cpu, t\-\_\-elapsed, t\-\_\-tot\-\_\-cpu, t\-\_\-tot\-\_\-elapsed\}. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ptmr\-\_\-reset} ({\bf ptmr\-\_\-t} $\ast$tmr)
+\begin{DoxyCompactList}\small\item\em Reset tmr-\/$>$\{t\-\_\-cpu, t\-\_\-elapsed\} to 0.\-0. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ptmr\-\_\-init} ({\bf ptmr\-\_\-t} $\ast$tmr)
+\begin{DoxyCompactList}\small\item\em Reset tmr-\/$>$\{t\-\_\-cpu, t\-\_\-elapsed, t\-\_\-tot\-\_\-cpu, t\-\_\-tot\-\_\-elapsed\} to 0.\-0. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ptmr\-\_\-reset\-\_\-all} ({\bf ptmr\-\_\-t} $\ast$tmr)
+\begin{DoxyCompactList}\small\item\em Reset t\-\_\-cpu, t\-\_\-elapsed of all timer modules in array tmr[] to 0.\-0. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ptmr\-\_\-print\-\_\-all} (F\-I\-L\-E $\ast$fp, {\bf ptmr\-\_\-t} $\ast$tmr, float64 norm)
+\begin{DoxyCompactList}\small\item\em Print t\-\_\-cpu for all timer modules in tmr[], normalized by norm (i.\-e., t\-\_\-cpu/norm). \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf host\-\_\-pclk} (int32 dummy)
+\begin{DoxyCompactList}\small\item\em Return the processor clock speed (in M\-Hz); only available on some machines (Alphas). \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bfseries host\-\_\-endian} (void)\label{profile_8h_aa23a14aa8ae716d64e632d61b1c2ed77}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of profiling, include counting , timing, cpu clock checking. Currently, function host\-\_\-endian is also in this function. It is not documented. 
+
+Definition in file {\bf profile.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{profile.\-h@{profile.\-h}!host\-\_\-pclk@{host\-\_\-pclk}}
+\index{host\-\_\-pclk@{host\-\_\-pclk}!profile.h@{profile.\-h}}
+\subsubsection[{host\-\_\-pclk}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 host\-\_\-pclk (
+\begin{DoxyParamCaption}
+\item[{int32}]{dummy}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a4315a0c6da4e9d3ef3c0ce264620ce28}
+
+
+Return the processor clock speed (in M\-Hz); only available on some machines (Alphas). 
+
+The dummy argument can be any integer value. \index{profile.\-h@{profile.\-h}!pctr\-\_\-free@{pctr\-\_\-free}}
+\index{pctr\-\_\-free@{pctr\-\_\-free}!profile.h@{profile.\-h}}
+\subsubsection[{pctr\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void pctr\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf pctr\-\_\-t} $\ast$}]{ctr}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a90821b8f5c4593ead9f8ebea8ca6994c}
+
+
+Free the counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctr} & A pointer of a counter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 140 of file profile.\-c.
+
+
+
+References ckd\-\_\-free(), and pctr\-\_\-t\-::name.
+
+\index{profile.\-h@{profile.\-h}!pctr\-\_\-increment@{pctr\-\_\-increment}}
+\index{pctr\-\_\-increment@{pctr\-\_\-increment}!profile.h@{profile.\-h}}
+\subsubsection[{pctr\-\_\-increment}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void pctr\-\_\-increment (
+\begin{DoxyParamCaption}
+\item[{{\bf pctr\-\_\-t} $\ast$}]{ctr, }
+\item[{int32}]{inc}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a29e1c5d5f5b462d24a84204e532943fa}
+
+
+Increment a counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctr} & A pointer of a counter \\
+\hline
+{\em inc} & The increment of the counter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 126 of file profile.\-c.
+
+
+
+References pctr\-\_\-t\-::count.
+
+\index{profile.\-h@{profile.\-h}!pctr\-\_\-new@{pctr\-\_\-new}}
+\index{pctr\-\_\-new@{pctr\-\_\-new}!profile.h@{profile.\-h}}
+\subsubsection[{pctr\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf pctr\-\_\-t}$\ast$ pctr\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{profile_8h_acc5bd9ca1cc61377433a308b082d34b8}
+
+
+operations of \doxyref{pctr\-\_\-t}{p.}{structpctr__t} 
+
+Initialize a counter \begin{DoxyReturn}{Returns}
+an initialized counter 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the counter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file profile.\-c.
+
+
+
+References ckd\-\_\-calloc, ckd\-\_\-salloc, pctr\-\_\-t\-::count, and pctr\-\_\-t\-::name.
+
+\index{profile.\-h@{profile.\-h}!pctr\-\_\-print@{pctr\-\_\-print}}
+\index{pctr\-\_\-print@{pctr\-\_\-print}!profile.h@{profile.\-h}}
+\subsubsection[{pctr\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void pctr\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf pctr\-\_\-t} $\ast$}]{ctr}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a4333e06af6db1fd806846c9f9b1f3f78}
+
+
+Print a counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & A file pointer \\
+\hline
+{\em ctr} & A pointer of a counter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file profile.\-c.
+
+
+
+References pctr\-\_\-t\-::count, and pctr\-\_\-t\-::name.
+
+\index{profile.\-h@{profile.\-h}!pctr\-\_\-reset@{pctr\-\_\-reset}}
+\index{pctr\-\_\-reset@{pctr\-\_\-reset}!profile.h@{profile.\-h}}
+\subsubsection[{pctr\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void pctr\-\_\-reset (
+\begin{DoxyParamCaption}
+\item[{{\bf pctr\-\_\-t} $\ast$}]{ctr}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a7d072965099f09c49a58e3fd422c48f4}
+
+
+Reset a counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctr} & A pointer of a counter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file profile.\-c.
+
+
+
+References pctr\-\_\-t\-::count.
+
+\index{profile.\-h@{profile.\-h}!ptmr\-\_\-init@{ptmr\-\_\-init}}
+\index{ptmr\-\_\-init@{ptmr\-\_\-init}!profile.h@{profile.\-h}}
+\subsubsection[{ptmr\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void ptmr\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf ptmr\-\_\-t} $\ast$}]{tmr}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a5260d9143ed28fa82c2ab410abce6749}
+
+
+Reset tmr-\/$>$\{t\-\_\-cpu, t\-\_\-elapsed, t\-\_\-tot\-\_\-cpu, t\-\_\-tot\-\_\-elapsed\} to 0.\-0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tmr} & The timer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 265 of file profile.\-c.
+
+
+
+References ptmr\-\_\-t\-::t\-\_\-cpu, ptmr\-\_\-t\-::t\-\_\-elapsed, ptmr\-\_\-t\-::t\-\_\-tot\-\_\-cpu, and ptmr\-\_\-t\-::t\-\_\-tot\-\_\-elapsed.
+
+\index{profile.\-h@{profile.\-h}!ptmr\-\_\-print\-\_\-all@{ptmr\-\_\-print\-\_\-all}}
+\index{ptmr\-\_\-print\-\_\-all@{ptmr\-\_\-print\-\_\-all}!profile.h@{profile.\-h}}
+\subsubsection[{ptmr\-\_\-print\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void ptmr\-\_\-print\-\_\-all (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf ptmr\-\_\-t} $\ast$}]{tmr, }
+\item[{float64}]{norm}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a08a625009ff1a5e2ee8aa02b53009f66}
+
+
+Print t\-\_\-cpu for all timer modules in tmr[], normalized by norm (i.\-e., t\-\_\-cpu/norm). 
+
+The array should be terminated with a sentinel with .name = N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em fp} & The file pointer \\
+\hline
+{\em tmr} & The timer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 283 of file profile.\-c.
+
+
+
+References ptmr\-\_\-t\-::name, and ptmr\-\_\-t\-::t\-\_\-cpu.
+
+\index{profile.\-h@{profile.\-h}!ptmr\-\_\-reset@{ptmr\-\_\-reset}}
+\index{ptmr\-\_\-reset@{ptmr\-\_\-reset}!profile.h@{profile.\-h}}
+\subsubsection[{ptmr\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void ptmr\-\_\-reset (
+\begin{DoxyParamCaption}
+\item[{{\bf ptmr\-\_\-t} $\ast$}]{tmr}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a32b1bf9f877946fb455c493a6aa3613f}
+
+
+Reset tmr-\/$>$\{t\-\_\-cpu, t\-\_\-elapsed\} to 0.\-0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tmr} & The timer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 257 of file profile.\-c.
+
+
+
+References ptmr\-\_\-t\-::t\-\_\-cpu, and ptmr\-\_\-t\-::t\-\_\-elapsed.
+
+
+
+Referenced by ptmr\-\_\-reset\-\_\-all().
+
+\index{profile.\-h@{profile.\-h}!ptmr\-\_\-reset\-\_\-all@{ptmr\-\_\-reset\-\_\-all}}
+\index{ptmr\-\_\-reset\-\_\-all@{ptmr\-\_\-reset\-\_\-all}!profile.h@{profile.\-h}}
+\subsubsection[{ptmr\-\_\-reset\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void ptmr\-\_\-reset\-\_\-all (
+\begin{DoxyParamCaption}
+\item[{{\bf ptmr\-\_\-t} $\ast$}]{tmr}
+\end{DoxyParamCaption}
+)}\label{profile_8h_a0aaa0953b76ae8c9947d6d982bbbd4a7}
+
+
+Reset t\-\_\-cpu, t\-\_\-elapsed of all timer modules in array tmr[] to 0.\-0. 
+
+The array should be terminated with a sentinel with .name = N\-U\-L\-L. 
+\begin{DoxyParams}{Parameters}
+{\em tmr} & The timer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 275 of file profile.\-c.
+
+
+
+References ptmr\-\_\-t\-::name, and ptmr\-\_\-reset().
+
+\index{profile.\-h@{profile.\-h}!ptmr\-\_\-start@{ptmr\-\_\-start}}
+\index{ptmr\-\_\-start@{ptmr\-\_\-start}!profile.h@{profile.\-h}}
+\subsubsection[{ptmr\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void ptmr\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{{\bf ptmr\-\_\-t} $\ast$}]{tmr}
+\end{DoxyParamCaption}
+)}\label{profile_8h_aada447eb3dc8c9ffb17fd7331ae671e7}
+
+
+Start timing using tmr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tmr} & The timer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 178 of file profile.\-c.
+
+
+
+References ptmr\-\_\-t\-::start\-\_\-cpu, and ptmr\-\_\-t\-::start\-\_\-elapsed.
+
+\index{profile.\-h@{profile.\-h}!ptmr\-\_\-stop@{ptmr\-\_\-stop}}
+\index{ptmr\-\_\-stop@{ptmr\-\_\-stop}!profile.h@{profile.\-h}}
+\subsubsection[{ptmr\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void ptmr\-\_\-stop (
+\begin{DoxyParamCaption}
+\item[{{\bf ptmr\-\_\-t} $\ast$}]{tmr}
+\end{DoxyParamCaption}
+)}\label{profile_8h_ade42334cf2db0bc8858ff966e55a4ffb}
+
+
+Stop timing and accumulate tmr-\/$>$\{t\-\_\-cpu, t\-\_\-elapsed, t\-\_\-tot\-\_\-cpu, t\-\_\-tot\-\_\-elapsed\}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tmr} & The timer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file profile.\-c.
+
+
+
+References ptmr\-\_\-t\-::start\-\_\-cpu, ptmr\-\_\-t\-::start\-\_\-elapsed, ptmr\-\_\-t\-::t\-\_\-cpu, ptmr\-\_\-t\-::t\-\_\-elapsed, ptmr\-\_\-t\-::t\-\_\-tot\-\_\-cpu, and ptmr\-\_\-t\-::t\-\_\-tot\-\_\-elapsed.
+

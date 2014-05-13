@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structbin__mdef__s" kind="struct" prot="public">
+    <compoundname>bin_mdef_s</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structbin__mdef__s_1aecae45462313d38bc6474d8ee57fe9f3" prot="public" static="no">
+        <name>@4</name>
+        <enumvalue id="structbin__mdef__s_1aecae45462313d38bc6474d8ee57fe9f3a87ded4d6c818772fc5d9a2696a38e620" prot="public">
+          <name>BIN_MDEF_FROM_TEXT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structbin__mdef__s_1aecae45462313d38bc6474d8ee57fe9f3a832cc7a92860d9e41e4c26528e4e4cb5" prot="public">
+          <name>BIN_MDEF_IN_MEMORY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structbin__mdef__s_1aecae45462313d38bc6474d8ee57fe9f3a25126c7750c22f5b33793c46584bcd66" prot="public">
+          <name>BIN_MDEF_ON_DISK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Allocation mode for this object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="145" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="145" bodyend="145"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structbin__mdef__s_1a35282c2ff4e75fd87186e38dbf14e7f1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int bin_mdef_s::refcnt</definition>
+        <argsstring></argsstring>
+        <name>refcnt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="121" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a84d5f7acc6d85ba8c7611945f9c5e4e7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_ciphone</definition>
+        <argsstring></argsstring>
+        <name>n_ciphone</name>
+        <briefdescription>
+<para>Number of base (CI) phones. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="122" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="122" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1af592f710731474b77166a29530716672" compoundref="bin__mdef_8c" startline="691" endline="711">bin_mdef_ciphone_id</referencedby>
+        <referencedby refid="bin__mdef_8h_1af437f39a8a9b52dd3187f7f0fc098cab" compoundref="bin__mdef_8c" startline="714" endline="734">bin_mdef_ciphone_id_nocase</referencedby>
+        <referencedby refid="dict2pid_8h_1aa94120dcea4b17807576e29484b8a008" compoundref="dict2pid_8c" startline="298" endline="364">dict2pid_add_word</referencedby>
+        <referencedby refid="dict2pid_8h_1addd541f2275b79e284575fb11b7986e1" compoundref="dict2pid_8c" startline="388" endline="497">dict2pid_build</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1ad746dbb3f8108f575a95182f96b4b18f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_phone</definition>
+        <argsstring></argsstring>
+        <name>n_phone</name>
+        <briefdescription>
+<para>Number of base (CI) phones + (CD) triphones. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="123" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="123" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a2ad87254182be424ac6ff1234274f134" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_emit_state</definition>
+        <argsstring></argsstring>
+        <name>n_emit_state</name>
+        <briefdescription>
+<para>Number of emitting states per phone (0 for heterogeneous) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="124" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="124" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1ad7c318d6db85fd4b8ac13a81c145bbb8" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_ci_sen</definition>
+        <argsstring></argsstring>
+        <name>n_ci_sen</name>
+        <briefdescription>
+<para>Number of CI senones; these are the first. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="125" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="125" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a3d1c202165d8e5e153a73d708ca28109" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_sen</definition>
+        <argsstring></argsstring>
+        <name>n_sen</name>
+        <briefdescription>
+<para>Number of senones (CI+CD) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="126" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="126" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a979557ad4f8369e84d93f633512345ca" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_tmat</definition>
+        <argsstring></argsstring>
+        <name>n_tmat</name>
+        <briefdescription>
+<para>Number of transition matrices. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="127" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="127" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1ab9dad211cbc12eb6f848482bcf78d47f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_sseq</definition>
+        <argsstring></argsstring>
+        <name>n_sseq</name>
+        <briefdescription>
+<para>Number of unique senone sequences. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="128" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="128" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="dict2pid_8h_1a32320cd5d020620ac913b46bafeb5cae" compoundref="dict2pid_8c" startline="538" endline="578">dict2pid_dump</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a31b5cda5136c6f72816da8889719bfe2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_ctx</definition>
+        <argsstring></argsstring>
+        <name>n_ctx</name>
+        <briefdescription>
+<para>Number of phones of context. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="129" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="129" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1ad625c3c55d5f42ed275b8b5638a6d80b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 bin_mdef_s::n_cd_tree</definition>
+        <argsstring></argsstring>
+        <name>n_cd_tree</name>
+        <briefdescription>
+<para>Number of nodes in cd_tree (below) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="130" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="130" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a9071b7698132c1c2ce92a6f742e1c82f" prot="public" static="no" mutable="no">
+        <type>int16</type>
+        <definition>int16 bin_mdef_s::sil</definition>
+        <argsstring></argsstring>
+        <name>sil</name>
+        <briefdescription>
+<para>CI phone ID for silence. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="131" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="131" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1a99cd766df3a6a74eab9e316586189d54" compoundref="bin__mdef_8c" startline="745" endline="811">bin_mdef_phone_id</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a3358a80c50bf3f62417596553adf9c5e" prot="public" static="no" mutable="no">
+        <type>mmio_file_t *</type>
+        <definition>mmio_file_t* bin_mdef_s::filemap</definition>
+        <argsstring></argsstring>
+        <name>filemap</name>
+        <briefdescription>
+<para>File map for this file (if any) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="133" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="133" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1afdd0df913746b0656186fc8c3e8a9206" prot="public" static="no" mutable="no">
+        <type>char **</type>
+        <definition>char** bin_mdef_s::ciname</definition>
+        <argsstring></argsstring>
+        <name>ciname</name>
+        <briefdescription>
+<para>CI phone names. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="134" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="134" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1af592f710731474b77166a29530716672" compoundref="bin__mdef_8c" startline="691" endline="711">bin_mdef_ciphone_id</referencedby>
+        <referencedby refid="bin__mdef_8h_1af437f39a8a9b52dd3187f7f0fc098cab" compoundref="bin__mdef_8c" startline="714" endline="734">bin_mdef_ciphone_id_nocase</referencedby>
+        <referencedby refid="bin__mdef_8h_1a9498ffff0caf3965060b8a549348be9b" compoundref="bin__mdef_8c" startline="737" endline="742">bin_mdef_ciphone_str</referencedby>
+        <referencedby refid="bin__mdef_8h_1a99cd766df3a6a74eab9e316586189d54" compoundref="bin__mdef_8c" startline="745" endline="811">bin_mdef_phone_id</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a0642be2bb56149689ad3fc1dad1e5d55" prot="public" static="no" mutable="no">
+        <type><ref refid="bin__mdef_8h_1a8cf08e6d9d721c8cf5911f2c3f722645" kindref="member">cd_tree_t</ref> *</type>
+        <definition>cd_tree_t* bin_mdef_s::cd_tree</definition>
+        <argsstring></argsstring>
+        <name>cd_tree</name>
+        <briefdescription>
+<para>Tree mapping CD phones to phone IDs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="135" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="135" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1a99cd766df3a6a74eab9e316586189d54" compoundref="bin__mdef_8c" startline="745" endline="811">bin_mdef_phone_id</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a2c73ae900d198460a30bce4f641d8398" prot="public" static="no" mutable="no">
+        <type><ref refid="bin__mdef_8h_1a424238fea86ab5ecfc89ca0cc885ad38" kindref="member">mdef_entry_t</ref> *</type>
+        <definition>mdef_entry_t* bin_mdef_s::phone</definition>
+        <argsstring></argsstring>
+        <name>phone</name>
+        <briefdescription>
+<para>All phone structures. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="136" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="136" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1a99cd766df3a6a74eab9e316586189d54" compoundref="bin__mdef_8c" startline="745" endline="811">bin_mdef_phone_id</referencedby>
+        <referencedby refid="bin__mdef_8h_1a35d0676dd56e11508c62e84947901503" compoundref="bin__mdef_8c" startline="868" endline="887">bin_mdef_phone_str</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1acb58480658812de7a357dcbd25ad7b41" prot="public" static="no" mutable="no">
+        <type>uint16 **</type>
+        <definition>uint16** bin_mdef_s::sseq</definition>
+        <argsstring></argsstring>
+        <name>sseq</name>
+        <briefdescription>
+<para>Unique senone sequences (2D array built at load time) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="137" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="137" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+        <referencedby refid="dict2pid_8h_1a32320cd5d020620ac913b46bafeb5cae" compoundref="dict2pid_8c" startline="538" endline="578">dict2pid_dump</referencedby>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1ab534bbd280015795b8e8ca4e296f4946" prot="public" static="no" mutable="no">
+        <type>uint8 *</type>
+        <definition>uint8* bin_mdef_s::sseq_len</definition>
+        <argsstring></argsstring>
+        <name>sseq_len</name>
+        <briefdescription>
+<para>Number of states in each sseq (NULL for homogeneous) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="138" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="138" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a982b8e598afed47805fab1509e8fc4bb" compoundref="bin__mdef_8c" startline="522" endline="603">bin_mdef_write</referencedby>
+        <referencedby refid="bin__mdef_8h_1af89d79226df33947019efcfe7377d586" compoundref="bin__mdef_8c" startline="606" endline="688">bin_mdef_write_text</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1ad5e814ffa116c85d46359e3ffd40bff7" prot="public" static="no" mutable="no">
+        <type>int16 *</type>
+        <definition>int16* bin_mdef_s::cd2cisen</definition>
+        <argsstring></argsstring>
+        <name>cd2cisen</name>
+        <briefdescription>
+<para>Parent CI-senone id for each senone. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="141" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="141" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1a457e5352e52a57de5d1536bcd6b331a9" prot="public" static="no" mutable="no">
+        <type>int16 *</type>
+        <definition>int16* bin_mdef_s::sen2cimap</definition>
+        <argsstring></argsstring>
+        <name>sen2cimap</name>
+        <briefdescription>
+<para>Parent CI-phone for each senone (CI or CD) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="142" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="142" bodyend="-1"/>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+        <referencedby refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structbin__mdef__s_1ab8d852b6cc4f9899da72da03d1607c92" prot="public" static="no" mutable="no">
+        <type>enum bin_mdef_s::@4</type>
+        <definition>enum bin_mdef_s::@4  bin_mdef_s::alloc_mode</definition>
+        <argsstring></argsstring>
+        <name>alloc_mode</name>
+        <briefdescription>
+<para>Allocation mode for this object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="145" column="1"/>
+        <referencedby refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</referencedby>
+        <referencedby refid="bin__mdef_8h_1a3930ae6b3309a615335585db4b46306f" compoundref="bin__mdef_8c" startline="323" endline="519">bin_mdef_read</referencedby>
+        <referencedby refid="bin__mdef_8h_1a00dab94d45d1adc5f7778fd1e2398031" compoundref="bin__mdef_8c" startline="66" endline="262">bin_mdef_read_text</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="35">
+        <label>cd_tree_s</label>
+        <link refid="structcd__tree__s"/>
+      </node>
+      <node id="36">
+        <label>mdef_entry_s</label>
+        <link refid="structmdef__entry__s"/>
+      </node>
+      <node id="34">
+        <label>bin_mdef_s</label>
+        <link refid="structbin__mdef__s"/>
+        <childnode refid="35" relation="usage">
+          <edgelabel>cd_tree</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>phone</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" line="120" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/bin_mdef.h" bodystart="120" bodyend="146"/>
+    <listofallmembers>
+      <member refid="structbin__mdef__s_1ab8d852b6cc4f9899da72da03d1607c92" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>alloc_mode</name></member>
+      <member refid="structbin__mdef__s_1aecae45462313d38bc6474d8ee57fe9f3a87ded4d6c818772fc5d9a2696a38e620" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>BIN_MDEF_FROM_TEXT</name></member>
+      <member refid="structbin__mdef__s_1aecae45462313d38bc6474d8ee57fe9f3a832cc7a92860d9e41e4c26528e4e4cb5" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>BIN_MDEF_IN_MEMORY</name></member>
+      <member refid="structbin__mdef__s_1aecae45462313d38bc6474d8ee57fe9f3a25126c7750c22f5b33793c46584bcd66" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>BIN_MDEF_ON_DISK</name></member>
+      <member refid="structbin__mdef__s_1ad5e814ffa116c85d46359e3ffd40bff7" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>cd2cisen</name></member>
+      <member refid="structbin__mdef__s_1a0642be2bb56149689ad3fc1dad1e5d55" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>cd_tree</name></member>
+      <member refid="structbin__mdef__s_1afdd0df913746b0656186fc8c3e8a9206" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>ciname</name></member>
+      <member refid="structbin__mdef__s_1a3358a80c50bf3f62417596553adf9c5e" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>filemap</name></member>
+      <member refid="structbin__mdef__s_1ad625c3c55d5f42ed275b8b5638a6d80b" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_cd_tree</name></member>
+      <member refid="structbin__mdef__s_1ad7c318d6db85fd4b8ac13a81c145bbb8" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_ci_sen</name></member>
+      <member refid="structbin__mdef__s_1a84d5f7acc6d85ba8c7611945f9c5e4e7" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_ciphone</name></member>
+      <member refid="structbin__mdef__s_1a31b5cda5136c6f72816da8889719bfe2" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_ctx</name></member>
+      <member refid="structbin__mdef__s_1a2ad87254182be424ac6ff1234274f134" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_emit_state</name></member>
+      <member refid="structbin__mdef__s_1ad746dbb3f8108f575a95182f96b4b18f" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_phone</name></member>
+      <member refid="structbin__mdef__s_1a3d1c202165d8e5e153a73d708ca28109" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_sen</name></member>
+      <member refid="structbin__mdef__s_1ab9dad211cbc12eb6f848482bcf78d47f" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_sseq</name></member>
+      <member refid="structbin__mdef__s_1a979557ad4f8369e84d93f633512345ca" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>n_tmat</name></member>
+      <member refid="structbin__mdef__s_1a2c73ae900d198460a30bce4f641d8398" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>phone</name></member>
+      <member refid="structbin__mdef__s_1a35282c2ff4e75fd87186e38dbf14e7f1" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>refcnt</name></member>
+      <member refid="structbin__mdef__s_1a457e5352e52a57de5d1536bcd6b331a9" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>sen2cimap</name></member>
+      <member refid="structbin__mdef__s_1a9071b7698132c1c2ce92a6f742e1c82f" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>sil</name></member>
+      <member refid="structbin__mdef__s_1acb58480658812de7a357dcbd25ad7b41" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>sseq</name></member>
+      <member refid="structbin__mdef__s_1ab534bbd280015795b8e8ca4e296f4946" prot="public" virt="non-virtual"><scope>bin_mdef_s</scope><name>sseq_len</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

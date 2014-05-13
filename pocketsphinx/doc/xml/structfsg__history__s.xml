@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structfsg__history__s" kind="struct" prot="public">
+    <compoundname>fsg_history_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfsg__history__s_1a94e0017e3a659d1dbd6be4909d7f0d3a" prot="public" static="no" mutable="no">
+        <type>fsg_model_t *</type>
+        <definition>fsg_model_t* fsg_history_s::fsg</definition>
+        <argsstring></argsstring>
+        <name>fsg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" line="144" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__history__s_1a4f67554340da492c054cccf64adb44ca" prot="public" static="no" mutable="no">
+        <type><ref refid="structblkarray__list__s" kindref="compound">blkarray_list_t</ref> *</type>
+        <definition>blkarray_list_t* fsg_history_s::entries</definition>
+        <argsstring></argsstring>
+        <name>entries</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" line="145" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__history__s_1a45d7ce088233dd4f262d641b7dc7a6b1" prot="public" static="no" mutable="no">
+        <type>glist_t **</type>
+        <definition>glist_t** fsg_history_s::frame_entries</definition>
+        <argsstring></argsstring>
+        <name>frame_entries</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" line="147" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__history__s_1a23223dcf3542fb87e1c176223aaa4f7d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsg_history_s::n_ciphone</definition>
+        <argsstring></argsstring>
+        <name>n_ciphone</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" line="148" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="118">
+        <label>blkarray_list_s</label>
+        <link refid="structblkarray__list__s"/>
+      </node>
+      <node id="117">
+        <label>fsg_history_s</label>
+        <link refid="structfsg__history__s"/>
+        <childnode refid="118" relation="usage">
+          <edgelabel>entries</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" line="143" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_history.h" bodystart="143" bodyend="149"/>
+    <listofallmembers>
+      <member refid="structfsg__history__s_1a4f67554340da492c054cccf64adb44ca" prot="public" virt="non-virtual"><scope>fsg_history_s</scope><name>entries</name></member>
+      <member refid="structfsg__history__s_1a45d7ce088233dd4f262d641b7dc7a6b1" prot="public" virt="non-virtual"><scope>fsg_history_s</scope><name>frame_entries</name></member>
+      <member refid="structfsg__history__s_1a94e0017e3a659d1dbd6be4909d7f0d3a" prot="public" virt="non-virtual"><scope>fsg_history_s</scope><name>fsg</name></member>
+      <member refid="structfsg__history__s_1a23223dcf3542fb87e1c176223aaa4f7d" prot="public" virt="non-virtual"><scope>fsg_history_s</scope><name>n_ciphone</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

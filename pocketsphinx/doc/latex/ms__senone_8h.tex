@@ -1,0 +1,130 @@
+\section{src/libpocketsphinx/ms\-\_\-senone.h File Reference}
+\label{ms__senone_8h}\index{src/libpocketsphinx/ms\-\_\-senone.\-h@{src/libpocketsphinx/ms\-\_\-senone.\-h}}
+
+
+(Sphinx 3.\-0 specific) multiple streams senones.  
+
+
+{\ttfamily \#include $<$sphinxbase/err.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/ckd\-\_\-alloc.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/cmd\-\_\-ln.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/logmath.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ms\-\_\-gauden.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bin\-\_\-mdef.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf senone\-\_\-t}
+\begin{DoxyCompactList}\small\item\em 8-\/bit senone P\-D\-F structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8 {\bf senprob\-\_\-t}\label{ms__senone_8h_af5f6b21f81649ae1d6ce57f5564d3be0}
+
+\begin{DoxyCompactList}\small\item\em Senone logs3-\/probs, truncated to 8 bits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf senone\-\_\-t} $\ast$ {\bf senone\-\_\-init} ({\bf gauden\-\_\-t} $\ast$g, char const $\ast$mixwfile, char const $\ast$mgau\-\_\-mapfile, float32 mixwfloor, logmath\-\_\-t $\ast$lmath, {\bf bin\-\_\-mdef\-\_\-t} $\ast$mdef)
+\begin{DoxyCompactList}\small\item\em Load a set of senones (mixing weights and mixture gaussian codebook mappings) from the given files. \end{DoxyCompactList}\item 
+void {\bf senone\-\_\-free} ({\bf senone\-\_\-t} $\ast$s)
+\begin{DoxyCompactList}\small\item\em Release memory allocated by senone\-\_\-init. \end{DoxyCompactList}\item 
+int32 {\bf senone\-\_\-eval} ({\bf senone\-\_\-t} $\ast$s, int id, {\bf gauden\-\_\-dist\-\_\-t} $\ast$$\ast$dist, int n\-\_\-top)
+\begin{DoxyCompactList}\small\item\em Evaluate the score for the given senone wrt to the given top N gaussian codewords. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+(Sphinx 3.\-0 specific) multiple streams senones. used with \doxyref{ms\-\_\-gauden.\-h}{p.}{ms__gauden_8h} In Sphinx 3.\-0 family of tools, ms\-\_\-senone is used to combine the Gaussian scores. Its existence is crucial in Sphinx 3.\-0 because 3.\-0 supports both S\-C\-H\-M\-M and C\-D\-H\-M\-M. There are optimization scheme for S\-C\-H\-M\-M (e.\-g. compute the top-\/\-N Gaussian) that is applicable to S\-C\-H\-M\-M than C\-D\-H\-M\-M. This is wrapped in senone\-\_\-eval\-\_\-all. 
+
+Definition in file {\bf ms\-\_\-senone.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{ms\-\_\-senone.\-h@{ms\-\_\-senone.\-h}!senone\-\_\-eval@{senone\-\_\-eval}}
+\index{senone\-\_\-eval@{senone\-\_\-eval}!ms_senone.h@{ms\-\_\-senone.\-h}}
+\subsubsection[{senone\-\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}int32 senone\-\_\-eval (
+\begin{DoxyParamCaption}
+\item[{{\bf senone\-\_\-t} $\ast$}]{s, }
+\item[{int}]{id, }
+\item[{{\bf gauden\-\_\-dist\-\_\-t} $\ast$$\ast$}]{dist, }
+\item[{int}]{n\-\_\-top}
+\end{DoxyParamCaption}
+)}\label{ms__senone_8h_a0ef3f343c1f7a9504a1ceda2d7383000}
+
+
+Evaluate the score for the given senone wrt to the given top N gaussian codewords. 
+
+\begin{DoxyReturn}{Returns}
+senone score (in logs3 domain). 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & In\-: senone for which score desired \\
+\hline
+{\em dist} & In\-: top N codewords and densities for all features, to be combined into senone score. I\-E, dist[f][i] = i-\/th best $<$codeword,density$>$ for feaure f \\
+\hline
+{\em n\-\_\-top} & In\-: Length of dist[f], for each f \\
+\hline
+\end{DoxyParams}
+\index{ms\-\_\-senone.\-h@{ms\-\_\-senone.\-h}!senone\-\_\-free@{senone\-\_\-free}}
+\index{senone\-\_\-free@{senone\-\_\-free}!ms_senone.h@{ms\-\_\-senone.\-h}}
+\subsubsection[{senone\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void senone\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf senone\-\_\-t} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{ms__senone_8h_a86881df5bbbd615e2cd8171e3b086fa6}
+
+
+Release memory allocated by senone\-\_\-init. 
+
+In\-: The \doxyref{senone\-\_\-t}{p.}{structsenone__t} to free 
+
+Definition at line 341 of file ms\-\_\-senone.\-c.
+
+
+
+References senone\-\_\-t\-::featscr, senone\-\_\-t\-::lmath, senone\-\_\-t\-::mgau, and senone\-\_\-t\-::pdf.
+
+\index{ms\-\_\-senone.\-h@{ms\-\_\-senone.\-h}!senone\-\_\-init@{senone\-\_\-init}}
+\index{senone\-\_\-init@{senone\-\_\-init}!ms_senone.h@{ms\-\_\-senone.\-h}}
+\subsubsection[{senone\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf senone\-\_\-t}$\ast$ senone\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{{\bf gauden\-\_\-t} $\ast$}]{g, }
+\item[{char const $\ast$}]{mixwfile, }
+\item[{char const $\ast$}]{mgau\-\_\-mapfile, }
+\item[{float32}]{mixwfloor, }
+\item[{logmath\-\_\-t $\ast$}]{lmath, }
+\item[{{\bf bin\-\_\-mdef\-\_\-t} $\ast$}]{mdef}
+\end{DoxyParamCaption}
+)}\label{ms__senone_8h_a757e0e72a8e5db3c69611f83143b8887}
+
+
+Load a set of senones (mixing weights and mixture gaussian codebook mappings) from the given files. 
+
+Normalize weights for each codebook, apply the given floor, convert P\-D\-F values to logs3 domain and quantize to 8-\/bits. \begin{DoxyReturn}{Returns}
+pointer to senone structure created. Caller M\-U\-S\-T N\-O\-T change its contents. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em g} & In\-: codebooks \\
+\hline
+{\em mixwfile} & In\-: mixing weights file \\
+\hline
+{\em mgau\-\_\-mapfile} & In\-: file specifying mapping from each senone to mixture gaussian codebook. If N\-U\-L\-L all senones map to codebook 0 \\
+\hline
+{\em mixwfloor} & In\-: Floor value for senone weights \\
+\hline
+{\em lmath} & In\-: log math computation \\
+\hline
+{\em mdef} & In\-: model definition \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 275 of file ms\-\_\-senone.\-c.
+
+
+
+References senone\-\_\-t\-::featscr, senone\-\_\-t\-::lmath, senone\-\_\-t\-::mgau, senone\-\_\-t\-::mixwfloor, senone\-\_\-t\-::n\-\_\-gauden, gauden\-\_\-t\-::n\-\_\-mgau, senone\-\_\-t\-::n\-\_\-sen, and S\-E\-N\-S\-C\-R\-\_\-\-S\-H\-I\-F\-T.
+

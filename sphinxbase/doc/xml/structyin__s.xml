@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structyin__s" kind="struct" prot="public">
+    <compoundname>yin_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structyin__s_1a25a7e0400397ab1fcbf82f4d0568722a" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 yin_s::frame_size</definition>
+        <argsstring></argsstring>
+        <name>frame_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="51" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1a8cca938167af6b504458ff9578420afd" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 yin_s::search_threshold</definition>
+        <argsstring></argsstring>
+        <name>search_threshold</name>
+        <briefdescription>
+<para>Size of analysis frame. </para>        </briefdescription>
+        <detaileddescription>
+<para>Threshold for finding period, in Q15 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="52" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="52" bodyend="-1"/>
+        <referencedby refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" compoundref="yin_8c" startline="130" endline="146">yin_init</referencedby>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+        <referencedby refid="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" compoundref="yin_8c" startline="194" endline="218">yin_write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1a208dfba1535fdd31962e687d82913dfd" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 yin_s::search_range</definition>
+        <argsstring></argsstring>
+        <name>search_range</name>
+        <briefdescription>
+<para>Range around best local estimate to search, in Q15. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="53" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="53" bodyend="-1"/>
+        <referencedby refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" compoundref="yin_8c" startline="130" endline="146">yin_init</referencedby>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1af4f11d14a36bbdc19863fa8335237423" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 yin_s::nfr</definition>
+        <argsstring></argsstring>
+        <name>nfr</name>
+        <briefdescription>
+<para>Number of frames read so far. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="54" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="54" bodyend="-1"/>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+        <referencedby refid="yin_8c_1aedb765d2c9f8f9d96f90b4971ed0f649" compoundref="yin_8c" startline="157" endline="162">yin_start</referencedby>
+        <referencedby refid="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" compoundref="yin_8c" startline="194" endline="218">yin_write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char yin_s::wsize</definition>
+        <argsstring></argsstring>
+        <name>wsize</name>
+        <briefdescription>
+<para>Size of smoothing window. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="56" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="56" bodyend="-1"/>
+        <referencedby refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" compoundref="yin_8c" startline="130" endline="146">yin_init</referencedby>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+        <referencedby refid="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" compoundref="yin_8c" startline="194" endline="218">yin_write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1a18481851da6db4df2a469b80c2c5704e" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char yin_s::wstart</definition>
+        <argsstring></argsstring>
+        <name>wstart</name>
+        <briefdescription>
+<para>First frame in window. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="57" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="57" bodyend="-1"/>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+        <referencedby refid="yin_8c_1aedb765d2c9f8f9d96f90b4971ed0f649" compoundref="yin_8c" startline="157" endline="162">yin_start</referencedby>
+        <referencedby refid="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" compoundref="yin_8c" startline="194" endline="218">yin_write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char yin_s::wcur</definition>
+        <argsstring></argsstring>
+        <name>wcur</name>
+        <briefdescription>
+<para>Current frame of analysis. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="58" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="58" bodyend="-1"/>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char yin_s::endut</definition>
+        <argsstring></argsstring>
+        <name>endut</name>
+        <briefdescription>
+<para>Hoch Hech! Are we at the utterance end? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="59" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="59" bodyend="-1"/>
+        <referencedby refid="yin_8c_1aedb765d2c9f8f9d96f90b4971ed0f649" compoundref="yin_8c" startline="157" endline="162">yin_start</referencedby>
+        <referencedby refid="yin_8c_1abfe51d8b596f85941831b2727e49c181" compoundref="yin_8c" startline="165" endline="168">yin_end</referencedby>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" prot="public" static="no" mutable="no">
+        <type>fixed32 **</type>
+        <definition>fixed32** yin_s::diff_window</definition>
+        <argsstring></argsstring>
+        <name>diff_window</name>
+        <briefdescription>
+<para>Window of difference function outputs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="61" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="61" bodyend="-1"/>
+        <referencedby refid="yin_8c_1a98f2ed13316b8ab9bf93feb4b6d3e7bd" compoundref="yin_8c" startline="149" endline="154">yin_free</referencedby>
+        <referencedby refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" compoundref="yin_8c" startline="130" endline="146">yin_init</referencedby>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+        <referencedby refid="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" compoundref="yin_8c" startline="194" endline="218">yin_write</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" prot="public" static="no" mutable="no">
+        <type>uint16 *</type>
+        <definition>uint16* yin_s::period_window</definition>
+        <argsstring></argsstring>
+        <name>period_window</name>
+        <briefdescription>
+<para>Window of best period estimates. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="62" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="62" bodyend="-1"/>
+        <referencedby refid="yin_8c_1a98f2ed13316b8ab9bf93feb4b6d3e7bd" compoundref="yin_8c" startline="149" endline="154">yin_free</referencedby>
+        <referencedby refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" compoundref="yin_8c" startline="130" endline="146">yin_init</referencedby>
+        <referencedby refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" compoundref="yin_8c" startline="221" endline="321">yin_read</referencedby>
+        <referencedby refid="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" compoundref="yin_8c" startline="194" endline="218">yin_write</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="50" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="50" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" prot="public" virt="non-virtual"><scope>yin_s</scope><name>diff_window</name></member>
+      <member refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" prot="public" virt="non-virtual"><scope>yin_s</scope><name>endut</name></member>
+      <member refid="structyin__s_1a25a7e0400397ab1fcbf82f4d0568722a" prot="public" virt="non-virtual"><scope>yin_s</scope><name>frame_size</name></member>
+      <member refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" prot="public" virt="non-virtual"><scope>yin_s</scope><name>nfr</name></member>
+      <member refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" prot="public" virt="non-virtual"><scope>yin_s</scope><name>period_window</name></member>
+      <member refid="structyin__s_1a208dfba1535fdd31962e687d82913dfd" prot="public" virt="non-virtual"><scope>yin_s</scope><name>search_range</name></member>
+      <member refid="structyin__s_1a8cca938167af6b504458ff9578420afd" prot="public" virt="non-virtual"><scope>yin_s</scope><name>search_threshold</name></member>
+      <member refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" prot="public" virt="non-virtual"><scope>yin_s</scope><name>wcur</name></member>
+      <member refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" prot="public" virt="non-virtual"><scope>yin_s</scope><name>wsize</name></member>
+      <member refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" prot="public" virt="non-virtual"><scope>yin_s</scope><name>wstart</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

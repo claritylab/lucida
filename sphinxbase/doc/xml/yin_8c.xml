@@ -1,0 +1,652 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="yin_8c" kind="file">
+    <compoundname>yin.c</compoundname>
+    <includes refid="prim__type_8h" local="yes">sphinxbase/prim_type.h</includes>
+    <includes refid="ckd__alloc_8h" local="yes">sphinxbase/ckd_alloc.h</includes>
+    <includes refid="fixpoint_8h" local="yes">sphinxbase/fixpoint.h</includes>
+    <includes refid="yin_8h" local="yes">sphinxbase/yin.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="1639">
+        <label>src/libsphinxbase/fe/yin.c</label>
+        <link refid="yin.c"/>
+        <childnode refid="1640" relation="include">
+        </childnode>
+        <childnode refid="1642" relation="include">
+        </childnode>
+        <childnode refid="1646" relation="include">
+        </childnode>
+        <childnode refid="1648" relation="include">
+        </childnode>
+        <childnode refid="1649" relation="include">
+        </childnode>
+      </node>
+      <node id="1643">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1644">
+        <label>setjmp.h</label>
+      </node>
+      <node id="1647">
+        <label>limits.h</label>
+      </node>
+      <node id="1641">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="1646">
+        <label>sphinxbase/fixpoint.h</label>
+        <link refid="fixpoint_8h_source"/>
+        <childnode refid="1647" relation="include">
+        </childnode>
+        <childnode refid="1645" relation="include">
+        </childnode>
+        <childnode refid="1640" relation="include">
+        </childnode>
+      </node>
+      <node id="1645">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="1640">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="1641" relation="include">
+        </childnode>
+      </node>
+      <node id="1648">
+        <label>sphinxbase/yin.h</label>
+        <link refid="yin_8h"/>
+        <childnode refid="1645" relation="include">
+        </childnode>
+        <childnode refid="1640" relation="include">
+        </childnode>
+      </node>
+      <node id="1642">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="1643" relation="include">
+        </childnode>
+        <childnode refid="1644" relation="include">
+        </childnode>
+        <childnode refid="1645" relation="include">
+        </childnode>
+        <childnode refid="1640" relation="include">
+        </childnode>
+      </node>
+      <node id="1649">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structyin__s" prot="public">yin_s</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="yin_8c_1a168c841266daa7c7ad123149f0579e5e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void cmn_diff</definition>
+        <argsstring>(int16 const *signal, int32 *out_diff, int ndiff)</argsstring>
+        <name>cmn_diff</name>
+        <param>
+          <type>int16 const *</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_diff</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ndiff</declname>
+        </param>
+        <briefdescription>
+<para>The core of YIN: cumulative mean normalized difference function. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="69" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="69" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="yin_8h_1a69a22f00f601c099b232e01b94704c2c" kindref="member">yin_t</ref> *</type>
+        <definition>yin_t* yin_init</definition>
+        <argsstring>(int frame_size, float search_threshold, float search_range, int smooth_window)</argsstring>
+        <name>yin_init</name>
+        <param>
+          <type>int</type>
+          <declname>frame_size</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>search_threshold</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>search_range</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>smooth_window</declname>
+        </param>
+        <briefdescription>
+<para>Initialize moving-window pitch estimation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="130" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="130" bodyend="146"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="structyin__s_1a8cca938167af6b504458ff9578420afd" compoundref="yin_8c" startline="52">yin_s::search_threshold</references>
+        <references refid="structyin__s_1a208dfba1535fdd31962e687d82913dfd" compoundref="yin_8c" startline="53">yin_s::search_range</references>
+        <references refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" compoundref="yin_8c" startline="56">yin_s::wsize</references>
+        <references refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" compoundref="yin_8c" startline="61">yin_s::diff_window</references>
+        <references refid="ckd__alloc_8h_1a949e7b50fcd9697b1563fa57f50e9c4f" compoundref="ckd__alloc_8h" startline="270">ckd_calloc_2d</references>
+        <references refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" compoundref="yin_8c" startline="62">yin_s::period_window</references>
+      </memberdef>
+      <memberdef kind="function" id="yin_8c_1a98f2ed13316b8ab9bf93feb4b6d3e7bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yin_free</definition>
+        <argsstring>(yin_t *pe)</argsstring>
+        <name>yin_free</name>
+        <param>
+          <type><ref refid="yin_8h_1a69a22f00f601c099b232e01b94704c2c" kindref="member">yin_t</ref> *</type>
+          <declname>pe</declname>
+        </param>
+        <briefdescription>
+<para>Free a moving-window pitch estimator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="149" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="149" bodyend="154"/>
+        <references refid="ckd__alloc_8h_1a8246c071ac12e98b7e1df9fe6da15aef" compoundref="ckd__alloc_8c" startline="255" endline="261">ckd_free_2d</references>
+        <references refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" compoundref="yin_8c" startline="61">yin_s::diff_window</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" compoundref="yin_8c" startline="62">yin_s::period_window</references>
+      </memberdef>
+      <memberdef kind="function" id="yin_8c_1aedb765d2c9f8f9d96f90b4971ed0f649" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yin_start</definition>
+        <argsstring>(yin_t *pe)</argsstring>
+        <name>yin_start</name>
+        <param>
+          <type><ref refid="yin_8h_1a69a22f00f601c099b232e01b94704c2c" kindref="member">yin_t</ref> *</type>
+          <declname>pe</declname>
+        </param>
+        <briefdescription>
+<para>Start processing an utterance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="157" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="157" bodyend="162"/>
+        <references refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" compoundref="yin_8c" startline="57">yin_s::wstart</references>
+        <references refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" compoundref="yin_8c" startline="59">yin_s::endut</references>
+        <references refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" compoundref="yin_8c" startline="54">yin_s::nfr</references>
+      </memberdef>
+      <memberdef kind="function" id="yin_8c_1abfe51d8b596f85941831b2727e49c181" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yin_end</definition>
+        <argsstring>(yin_t *pe)</argsstring>
+        <name>yin_end</name>
+        <param>
+          <type><ref refid="yin_8h_1a69a22f00f601c099b232e01b94704c2c" kindref="member">yin_t</ref> *</type>
+          <declname>pe</declname>
+        </param>
+        <briefdescription>
+<para>Mark the end of an utterance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="165" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="165" bodyend="168"/>
+        <references refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" compoundref="yin_8c" startline="59">yin_s::endut</references>
+      </memberdef>
+      <memberdef kind="function" id="yin_8c_1a3befedc0027bb60c5c4b571a6a5c2e03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int thresholded_search</definition>
+        <argsstring>(int32 *diff_window, fixed32 threshold, int start, int end)</argsstring>
+        <name>thresholded_search</name>
+        <param>
+          <type>int32 *</type>
+          <declname>diff_window</declname>
+        </param>
+        <param>
+          <type>fixed32</type>
+          <declname>threshold</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="171" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="171" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yin_write</definition>
+        <argsstring>(yin_t *pe, int16 const *frame)</argsstring>
+        <name>yin_write</name>
+        <param>
+          <type><ref refid="yin_8h_1a69a22f00f601c099b232e01b94704c2c" kindref="member">yin_t</ref> *</type>
+          <declname>pe</declname>
+        </param>
+        <param>
+          <type>int16 const *</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Feed a frame of data to the pitch estimator. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch estimator. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame of <computeroutput>frame_size</computeroutput> (see <ref refid="yin_8h_1afc3a955f8d2215ed3d660737643c4f32" kindref="member">yin_init()</ref>) samples of audio data. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="194" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="194" bodyend="218"/>
+        <references refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" compoundref="yin_8c" startline="61">yin_s::diff_window</references>
+        <references refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" compoundref="yin_8c" startline="54">yin_s::nfr</references>
+        <references refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" compoundref="yin_8c" startline="62">yin_s::period_window</references>
+        <references refid="structyin__s_1a8cca938167af6b504458ff9578420afd" compoundref="yin_8c" startline="52">yin_s::search_threshold</references>
+        <references refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" compoundref="yin_8c" startline="56">yin_s::wsize</references>
+        <references refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" compoundref="yin_8c" startline="57">yin_s::wstart</references>
+      </memberdef>
+      <memberdef kind="function" id="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yin_read</definition>
+        <argsstring>(yin_t *pe, uint16 *out_period, uint16 *out_bestdiff)</argsstring>
+        <name>yin_read</name>
+        <param>
+          <type><ref refid="yin_8h_1a69a22f00f601c099b232e01b94704c2c" kindref="member">yin_t</ref> *</type>
+          <declname>pe</declname>
+        </param>
+        <param>
+          <type>uint16 *</type>
+          <declname>out_period</declname>
+        </param>
+        <param>
+          <type>uint16 *</type>
+          <declname>out_bestdiff</declname>
+        </param>
+        <briefdescription>
+<para>Read a raw estimated pitch value from the pitch estimator. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch estimator. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output: an estimate of the period (<emphasis>not</emphasis> the pitch) of the signal in samples. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_bestdiff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output: the minimum normalized difference value associated with <computeroutput>*out_pitch</computeroutput>, in Q15 format (i.e. scaled by 32768). This can be interpreted as one minus the probability of voicing. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Non-zero if enough data was avaliable to return a pitch estimate, zero otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" line="221" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c" bodystart="221" bodyend="321"/>
+        <references refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" compoundref="yin_8c" startline="61">yin_s::diff_window</references>
+        <references refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" compoundref="yin_8c" startline="59">yin_s::endut</references>
+        <references refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" compoundref="yin_8c" startline="54">yin_s::nfr</references>
+        <references refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" compoundref="yin_8c" startline="62">yin_s::period_window</references>
+        <references refid="structyin__s_1a208dfba1535fdd31962e687d82913dfd" compoundref="yin_8c" startline="53">yin_s::search_range</references>
+        <references refid="structyin__s_1a8cca938167af6b504458ff9578420afd" compoundref="yin_8c" startline="52">yin_s::search_threshold</references>
+        <references refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" compoundref="yin_8c" startline="58">yin_s::wcur</references>
+        <references refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" compoundref="yin_8c" startline="56">yin_s::wsize</references>
+        <references refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" compoundref="yin_8c" startline="57">yin_s::wstart</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of pitch extraction. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>David Huggins-Daines <ulink url="mailto:dhuggins@cs.cmu.edu">dhuggins@cs.cmu.edu</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2008<sp/>Beyond<sp/>Access,<sp/>Inc.<sp/><sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>BEYOND<sp/>ACCESS,<sp/>INC.<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/>ANY</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>BEYOND<sp/>ACCESS,<sp/>INC.<sp/><sp/>NOR</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="comment">/*<sp/>This<sp/>implements<sp/>part<sp/>of<sp/>the<sp/>YIN<sp/>algorithm:</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>&quot;YIN,<sp/>a<sp/>fundamental<sp/>frequency<sp/>estimator<sp/>for<sp/>speech<sp/>and<sp/>music&quot;.</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>Alain<sp/>de<sp/>Cheveigné<sp/>and<sp/>Hideki<sp/>Kawahara.<sp/><sp/>Journal<sp/>of<sp/>the<sp/>Acoustical</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>Society<sp/>of<sp/>America,<sp/>111<sp/>(4),<sp/>April<sp/>2002.</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ckd__alloc_8h" kindref="compound">sphinxbase/ckd_alloc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sphinxbase/fixpoint.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="yin_8h" kindref="compound">sphinxbase/yin.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="structyin__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structyin__s" kindref="compound">yin_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/>frame_size;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52" refid="structyin__s_1a8cca938167af6b504458ff9578420afd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structyin__s_1a8cca938167af6b504458ff9578420afd" kindref="member">search_threshold</ref>;<sp/></highlight></codeline>
+<codeline lineno="53" refid="structyin__s_1a208dfba1535fdd31962e687d82913dfd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structyin__s_1a208dfba1535fdd31962e687d82913dfd" kindref="member">search_range</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54" refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" kindref="member">nfr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56" refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57" refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58" refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59" refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" kindref="member">endut</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61" refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>fixed32<sp/>**<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="62" refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/>*<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">cmn_diff(int16<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*signal,<sp/>int32<sp/>*out_diff,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ndiff)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32<sp/>cum,<sp/>cshift;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>t,<sp/>tscale;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>out_diff[0]<sp/>=<sp/>32768;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>cum<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>cshift<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Determine<sp/>how<sp/>many<sp/>bits<sp/>we<sp/>can<sp/>scale<sp/>t<sp/>up<sp/>by<sp/>below.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(tscale<sp/>=<sp/>0;<sp/>tscale<sp/>&lt;<sp/>32;<sp/>++tscale)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ndiff<sp/>&amp;<sp/>(1&lt;&lt;(31-tscale)))</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>--tscale;<sp/></highlight><highlight class="comment">/*<sp/>Avoid<sp/>teh<sp/>overflowz.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>printf(&quot;tscale<sp/>is<sp/>%d<sp/>(ndiff<sp/>-<sp/>1)<sp/>&lt;&lt;<sp/>tscale<sp/>is<sp/>%d\n&quot;,</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tscale,<sp/>(ndiff-1)<sp/>&lt;&lt;<sp/>tscale);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Somewhat<sp/>elaborate<sp/>block<sp/>floating<sp/>point<sp/>implementation.</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>The<sp/>fp<sp/>implementation<sp/>of<sp/>this<sp/>is<sp/>really<sp/>a<sp/>lot<sp/>simpler.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(t<sp/>=<sp/>1;<sp/>t<sp/>&lt;<sp/>ndiff;<sp/>++t)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>dd,<sp/>dshift,<sp/>norm;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dd<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dshift<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>ndiff;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>diff<sp/>=<sp/>signal[j]<sp/>-<sp/>signal[t<sp/>+<sp/>j];</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Guard<sp/>against<sp/>overflows.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dd<sp/>&gt;<sp/>(1UL&lt;&lt;tscale))<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dd<sp/>&gt;&gt;=<sp/>1;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++dshift;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dd<sp/>+=<sp/>(diff<sp/>*<sp/>diff)<sp/>&gt;&gt;<sp/>dshift;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Make<sp/>sure<sp/>the<sp/>diffs<sp/>and<sp/>cum<sp/>are<sp/>shifted<sp/>to<sp/>the<sp/>same</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>scaling<sp/>factor<sp/>(usually<sp/>dshift<sp/>will<sp/>be<sp/>zero)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dshift<sp/>&gt;<sp/>cshift)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cum<sp/>+=<sp/>dd<sp/>&lt;&lt;<sp/>(dshift-cshift);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cum<sp/>+=<sp/>dd<sp/>&gt;&gt;<sp/>(cshift-dshift);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Guard<sp/>against<sp/>overflows<sp/>and<sp/>also<sp/>ensure<sp/>that<sp/>(t&lt;&lt;tscale)<sp/>&gt;<sp/>cum.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(cum<sp/>&gt;<sp/>(1UL&lt;&lt;tscale))<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cum<sp/>&gt;&gt;=<sp/>1;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++cshift;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Avoid<sp/>divide-by-zero!<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cum<sp/>==<sp/>0)<sp/>cum<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Calculate<sp/>the<sp/>normalizer<sp/>in<sp/>high<sp/>precision.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>norm<sp/>=<sp/>(t<sp/>&lt;&lt;<sp/>tscale)<sp/>/<sp/>cum;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Do<sp/>a<sp/>long<sp/>multiply<sp/>and<sp/>shift<sp/>down<sp/>to<sp/>Q15.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out_diff[t]<sp/>=<sp/>(int32)(((</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)dd<sp/>*<sp/>norm)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>(tscale<sp/>-<sp/>15<sp/>+<sp/>cshift<sp/>-<sp/>dshift));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>printf(&quot;dd<sp/>%d<sp/>cshift<sp/>%d<sp/>dshift<sp/>%d<sp/>scaledt<sp/>%d<sp/>cum<sp/>%d<sp/>norm<sp/>%d<sp/>cmn<sp/>%d\n&quot;,</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dd,<sp/>cshift,<sp/>dshift,<sp/>(t&lt;&lt;tscale),<sp/>cum,<sp/>norm,<sp/>out_diff[t]);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><ref refid="structyin__s" kindref="compound">yin_t</ref><sp/>*</highlight></codeline>
+<codeline lineno="130" refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" refkind="member"><highlight class="normal"><ref refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" kindref="member">yin_init</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_size,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>search_threshold,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>search_range,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>smooth_window)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structyin__s" kindref="compound">yin_t</ref><sp/>*pe;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>pe<sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*pe));</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;frame_size<sp/>=<sp/>frame_size;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a8cca938167af6b504458ff9578420afd" kindref="member">search_threshold</ref><sp/>=<sp/>(uint16)(search_threshold<sp/>*<sp/>32768);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a208dfba1535fdd31962e687d82913dfd" kindref="member">search_range</ref><sp/>=<sp/>(uint16)(search_range<sp/>*<sp/>32768);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref><sp/>=<sp/>smooth_window<sp/>*<sp/>2<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref><sp/>=<sp/><ref refid="ckd__alloc_8h_1a949e7b50fcd9697b1563fa57f50e9c4f" kindref="member">ckd_calloc_2d</ref>(pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pe-&gt;frame_size<sp/>/<sp/>2,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(**pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref><sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pe;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="yin_8c_1a98f2ed13316b8ab9bf93feb4b6d3e7bd" refkind="member"><highlight class="normal"><ref refid="yin_8c_1a98f2ed13316b8ab9bf93feb4b6d3e7bd" kindref="member">yin_free</ref>(<ref refid="structyin__s" kindref="compound">yin_t</ref><sp/>*pe)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a8246c071ac12e98b7e1df9fe6da15aef" kindref="member">ckd_free_2d</ref>(pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(pe);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157" refid="yin_8c_1aedb765d2c9f8f9d96f90b4971ed0f649" refkind="member"><highlight class="normal"><ref refid="yin_8c_1aedb765d2c9f8f9d96f90b4971ed0f649" kindref="member">yin_start</ref>(<ref refid="structyin__s" kindref="compound">yin_t</ref><sp/>*pe)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>circular<sp/>window<sp/>pointers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref><sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" kindref="member">endut</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" kindref="member">nfr</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="yin_8c_1abfe51d8b596f85941831b2727e49c181" refkind="member"><highlight class="normal"><ref refid="yin_8c_1abfe51d8b596f85941831b2727e49c181" kindref="member">yin_end</ref>(<ref refid="structyin__s" kindref="compound">yin_t</ref><sp/>*pe)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" kindref="member">endut</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal">thresholded_search(int32<sp/>*diff_window,<sp/>fixed32<sp/>threshold,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>start,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>end)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>min,<sp/>argmin;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>min<sp/>=<sp/>INT_MAX;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>argmin<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>start;<sp/>i<sp/>&lt;<sp/>end;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>diff<sp/>=<sp/>diff_window[i];</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diff<sp/>&lt;<sp/>threshold)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>min<sp/>=<sp/>diff;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>argmin<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diff<sp/>&lt;<sp/>min)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>min<sp/>=<sp/>diff;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>argmin<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>argmin;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194" refid="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" refkind="member"><highlight class="normal"><ref refid="yin_8c_1ae272b1d9ce8ad45f69eb8b5f98f305b6" kindref="member">yin_write</ref>(<ref refid="structyin__s" kindref="compound">yin_t</ref><sp/>*pe,<sp/>int16<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*frame)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>outptr,<sp/>difflen;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Rotate<sp/>the<sp/>window<sp/>one<sp/>frame<sp/>forward.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>++pe-&gt;<ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref>;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Fill<sp/>in<sp/>the<sp/>frame<sp/>before<sp/>wstart.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>outptr<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref><sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Wrap<sp/>around<sp/>the<sp/>window<sp/>pointer.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pe-&gt;<ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref><sp/>==<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Now<sp/>calculate<sp/>normalized<sp/>difference<sp/>function.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>difflen<sp/>=<sp/>pe-&gt;frame_size<sp/>/<sp/>2;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>cmn_diff(frame,<sp/>pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>[outptr],<sp/>difflen);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Find<sp/>the<sp/>first<sp/>point<sp/>under<sp/>threshold.<sp/><sp/>If<sp/>not<sp/>found,<sp/>then</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>use<sp/>the<sp/>absolute<sp/>minimum.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>[outptr]</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>thresholded_search(pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>[outptr],</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a8cca938167af6b504458ff9578420afd" kindref="member">search_threshold</ref>,<sp/>0,<sp/>difflen);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Increment<sp/>total<sp/>number<sp/>of<sp/>frames.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>++pe-&gt;<ref refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" kindref="member">nfr</ref>;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" refkind="member"><highlight class="normal"><ref refid="yin_8c_1a5d4ceba1aed1fcc8e10f6408a271b294" kindref="member">yin_read</ref>(<ref refid="structyin__s" kindref="compound">yin_t</ref><sp/>*pe,<sp/>uint16<sp/>*out_period,<sp/>uint16<sp/>*out_bestdiff)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>wstart,<sp/>wlen,<sp/>half_wsize,<sp/>i;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>best,<sp/>best_diff,<sp/>search_width,<sp/>low_period,<sp/>high_period;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>half_wsize<sp/>=<sp/>(pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>-1)/2;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Without<sp/>any<sp/>smoothing,<sp/>just<sp/>return<sp/>the<sp/>current<sp/>value<sp/>(don&apos;t</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>need<sp/>to<sp/>do<sp/>anything<sp/>to<sp/>the<sp/>current<sp/>poitner<sp/>either).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(half_wsize<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pe-&gt;<ref refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" kindref="member">endut</ref>)</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out_period<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>[0];</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out_bestdiff<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>[0][pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>[0]];</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>We<sp/>can&apos;t<sp/>do<sp/>anything<sp/>unless<sp/>we<sp/>have<sp/>at<sp/>least<sp/>(wsize-1)/2<sp/>+<sp/>1</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>frames,<sp/>unless<sp/>we&apos;re<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the<sp/>utterance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pe-&gt;<ref refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" kindref="member">endut</ref><sp/>==<sp/>0<sp/>&amp;&amp;<sp/>pe-&gt;<ref refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" kindref="member">nfr</ref><sp/>&lt;<sp/>half_wsize<sp/>+<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Don&apos;t<sp/>increment<sp/>the<sp/>current<sp/>pointer<sp/>either.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Establish<sp/>the<sp/>smoothing<sp/>window.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>End<sp/>of<sp/>utterance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pe-&gt;<ref refid="structyin__s_1a61ca0fc8444a1bdde10aca37dc9f0f56" kindref="member">endut</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>We<sp/>are<sp/>done<sp/>(no<sp/>more<sp/>data)<sp/>when<sp/>pe-&gt;wcur<sp/>=<sp/>pe-&gt;wstart.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref><sp/>==<sp/>pe-&gt;<ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref>)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>I.e.<sp/>pe-&gt;wcur<sp/>(circular<sp/>minus)<sp/>half_wsize.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wstart<sp/>=<sp/>(pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref><sp/>+<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref><sp/>-<sp/>half_wsize)<sp/>%<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Number<sp/>of<sp/>frames<sp/>from<sp/>wstart<sp/>up<sp/>to<sp/>pe-&gt;wstart.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wlen<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref><sp/>-<sp/>wstart;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(wlen<sp/>&lt;<sp/>0)<sp/>wlen<sp/>+=<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*printf(&quot;ENDUT!<sp/>&quot;);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Beginning<sp/>of<sp/>utterance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pe-&gt;<ref refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" kindref="member">nfr</ref><sp/>&lt;<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wstart<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wlen<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1af4f11d14a36bbdc19863fa8335237423" kindref="member">nfr</ref>;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Normal<sp/>case,<sp/>it<sp/>is<sp/>what<sp/>it<sp/>is.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wstart<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a18481851da6db4df2a469b80c2c5704e" kindref="member">wstart</ref>;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wlen<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Now<sp/>(finally)<sp/>look<sp/>for<sp/>the<sp/>best<sp/>local<sp/>estimate.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>printf(&quot;Searching<sp/>for<sp/>local<sp/>estimate<sp/>in<sp/>%d<sp/>frames<sp/>around<sp/>%d\n&quot;,</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wlen,<sp/>pe-&gt;nfr<sp/>+<sp/>1<sp/>-<sp/>wlen);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>best<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>[pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref>];</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>best_diff<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>[pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref>][best];</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>wlen;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>wstart<sp/>+<sp/>i;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>diff;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>j<sp/>%=<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>diff<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>[j][pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>[j]];</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>printf(&quot;%.2f,%.2f<sp/>&quot;,<sp/>1.0<sp/>-<sp/>(double)diff/32768,</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pe-&gt;period_window[j]<sp/>?<sp/>8000.0/pe-&gt;period_window[j]<sp/>:<sp/>8000.0);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diff<sp/>&lt;<sp/>best_diff)<sp/>{</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>best_diff<sp/>=<sp/>diff;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>best<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>[j];</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>printf(&quot;best:<sp/>%.2f,<sp/>%.2f\n&quot;,<sp/>1.0<sp/>-<sp/>(double)best_diff/32768,</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>best<sp/>?<sp/>8000.0/best<sp/>:<sp/>8000.0);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>it&apos;s<sp/>the<sp/>same<sp/>as<sp/>the<sp/>current<sp/>one<sp/>then<sp/>return<sp/>it.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(best<sp/>==<sp/>pe-&gt;<ref refid="structyin__s_1a1928cec127e250f6cd15249085bc9fc8" kindref="member">period_window</ref>[pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref>])<sp/>{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Increment<sp/>the<sp/>current<sp/>pointer.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(++pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref><sp/>==<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>)</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out_period<sp/>=<sp/>best;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out_bestdiff<sp/>=<sp/>best_diff;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Otherwise,<sp/>redo<sp/>the<sp/>search<sp/>inside<sp/>a<sp/>narrower<sp/>range.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>search_width<sp/>=<sp/>best<sp/>*<sp/>pe-&gt;<ref refid="structyin__s_1a208dfba1535fdd31962e687d82913dfd" kindref="member">search_range</ref><sp/>/<sp/>32768;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>printf(&quot;Search<sp/>width<sp/>=<sp/>%d<sp/>*<sp/>%.2f<sp/>=<sp/>%d\n&quot;,</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>best,<sp/>(double)pe-&gt;search_range/32768,<sp/>search_width);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(search_width<sp/>==<sp/>0)<sp/>search_width<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>low_period<sp/>=<sp/>best<sp/>-<sp/>search_width;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/>high_period<sp/>=<sp/>best<sp/>+<sp/>search_width;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(low_period<sp/>&lt;<sp/>0)<sp/>low_period<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(high_period<sp/>&gt;<sp/>pe-&gt;frame_size<sp/>/<sp/>2)<sp/>high_period<sp/>=<sp/>pe-&gt;frame_size<sp/>/<sp/>2;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>printf(&quot;Searching<sp/>from<sp/>%d<sp/>to<sp/>%d\n&quot;,<sp/>low_period,<sp/>high_period);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>best<sp/>=<sp/>thresholded_search(pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>[pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref>],</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1a8cca938167af6b504458ff9578420afd" kindref="member">search_threshold</ref>,</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>low_period,<sp/>high_period);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>best_diff<sp/>=<sp/>pe-&gt;<ref refid="structyin__s_1a932e8441ff0aa6b9b37f5055c97a4d11" kindref="member">diff_window</ref>[pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref>][best];</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(out_period)</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out_period<sp/>=<sp/>(best<sp/>&gt;<sp/>65535)<sp/>?<sp/>65535<sp/>:<sp/>best;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(out_bestdiff)</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out_bestdiff<sp/>=<sp/>(best_diff<sp/>&gt;<sp/>65535)<sp/>?<sp/>65535<sp/>:<sp/>best_diff;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Increment<sp/>the<sp/>current<sp/>pointer.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(++pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref><sp/>==<sp/>pe-&gt;<ref refid="structyin__s_1a024d8e9d70f94a7f62457154fb5a4b03" kindref="member">wsize</ref>)</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pe-&gt;<ref refid="structyin__s_1ab79376deb3761d5d3ae72f727ac25660" kindref="member">wcur</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/yin.c"/>
+  </compounddef>
+</doxygen>

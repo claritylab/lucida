@@ -1,0 +1,12 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Grammar for Hello World example
+ */
+
+grammar polite;
+
+public <startPolite> = [please | kindly | could you | oh mighty computer];
+public <endPolite> = [please | thanks | thank you];
+
+public <allPolite> = (<startPolite> | <endPolite>)*;

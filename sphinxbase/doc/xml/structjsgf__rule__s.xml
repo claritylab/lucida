@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structjsgf__rule__s" kind="struct" prot="public">
+    <compoundname>jsgf_rule_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjsgf__rule__s_1aeb4c05f6daa425a37d362e2c6de1228e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int jsgf_rule_s::refcnt</definition>
+        <argsstring></argsstring>
+        <name>refcnt</name>
+        <briefdescription>
+<para>Reference count. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="93" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__rule__s_1a1b1de5afa4c0f27df4e8d51ebc47ca92" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* jsgf_rule_s::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>Rule name (NULL for an alternation/grouping) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="94" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="94" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a94a20b28b8bb3a179e567caec972d002" compoundref="jsgf_8c" startline="507" endline="510">jsgf_rule_name</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__rule__s_1a36478d9850594d6a201c6724ec1f1fa4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int jsgf_rule_s::is_public</definition>
+        <argsstring></argsstring>
+        <name>is_public</name>
+        <briefdescription>
+<para>Is this rule marked &apos;public&apos;? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="95" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="95" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a49d5d9f6c1edda3bb087545ecfa21809" compoundref="jsgf_8c" startline="513" endline="516">jsgf_rule_public</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__rule__s_1a6923b74ad72f8b663cc00dfa99490981" prot="public" static="no" mutable="no">
+        <type><ref refid="structjsgf__rhs__s" kindref="compound">jsgf_rhs_t</ref> *</type>
+        <definition>jsgf_rhs_t* jsgf_rule_s::rhs</definition>
+        <argsstring></argsstring>
+        <name>rhs</name>
+        <briefdescription>
+<para>Expansion. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="96" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="129">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="129" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="130" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="130">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="127">
+        <label>jsgf_rule_s</label>
+        <link refid="structjsgf__rule__s"/>
+        <childnode refid="128" relation="usage">
+          <edgelabel>rhs</edgelabel>
+        </childnode>
+      </node>
+      <node id="128">
+        <label>jsgf_rhs_s</label>
+        <link refid="structjsgf__rhs__s"/>
+        <childnode refid="128" relation="usage">
+          <edgelabel>alt</edgelabel>
+        </childnode>
+        <childnode refid="129" relation="usage">
+          <edgelabel>atoms</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="92" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="92" bodyend="97"/>
+    <listofallmembers>
+      <member refid="structjsgf__rule__s_1a36478d9850594d6a201c6724ec1f1fa4" prot="public" virt="non-virtual"><scope>jsgf_rule_s</scope><name>is_public</name></member>
+      <member refid="structjsgf__rule__s_1a1b1de5afa4c0f27df4e8d51ebc47ca92" prot="public" virt="non-virtual"><scope>jsgf_rule_s</scope><name>name</name></member>
+      <member refid="structjsgf__rule__s_1aeb4c05f6daa425a37d362e2c6de1228e" prot="public" virt="non-virtual"><scope>jsgf_rule_s</scope><name>refcnt</name></member>
+      <member refid="structjsgf__rule__s_1a6923b74ad72f8b663cc00dfa99490981" prot="public" virt="non-virtual"><scope>jsgf_rule_s</scope><name>rhs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

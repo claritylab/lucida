@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structlatlink__list__s" kind="struct" prot="public">
+    <compoundname>latlink_list_s</compoundname>
+    <includes refid="ps__lattice__internal_8h" local="no">ps_lattice_internal.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlatlink__list__s_1accd8f5fdb23871b66b81c830e3808068" prot="public" static="no" mutable="no">
+        <type><ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+        <definition>ps_latlink_t* latlink_list_s::link</definition>
+        <argsstring></argsstring>
+        <name>link</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" line="54" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlatlink__list__s_1a17b319bb0f536542267496afecc8de10" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structlatlink__list__s" kindref="compound">latlink_list_s</ref> *</type>
+        <definition>struct latlink_list_s* latlink_list_s::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" line="55" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Linked list of DAG link pointers. </para>    </briefdescription>
+    <detaileddescription>
+<para>Because the same link structure is used for forward and reverse links, as well as for the agenda used in bestpath search, we can&apos;t store the list pointer inside latlink_t. We could use glist_t here, but it wastes 4 bytes per entry on 32-bit machines. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="265">
+        <label>latlink_list_s</label>
+        <link refid="structlatlink__list__s"/>
+        <childnode refid="266" relation="usage">
+          <edgelabel>link</edgelabel>
+        </childnode>
+        <childnode refid="265" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="267">
+        <label>ps_latnode_s</label>
+        <link refid="structps__latnode__s"/>
+        <childnode refid="267" relation="usage">
+          <edgelabel>alt</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="265" relation="usage">
+          <edgelabel>exits</edgelabel>
+          <edgelabel>entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="266">
+        <label>ps_latlink_s</label>
+        <link refid="structps__latlink__s"/>
+        <childnode refid="266" relation="usage">
+          <edgelabel>best_prev</edgelabel>
+        </childnode>
+        <childnode refid="267" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>to</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" line="53" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" bodystart="53" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structlatlink__list__s_1accd8f5fdb23871b66b81c830e3808068" prot="public" virt="non-virtual"><scope>latlink_list_s</scope><name>link</name></member>
+      <member refid="structlatlink__list__s_1a17b319bb0f536542267496afecc8de10" prot="public" virt="non-virtual"><scope>latlink_list_s</scope><name>next</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

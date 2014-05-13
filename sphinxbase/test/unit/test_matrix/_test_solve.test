@@ -1,0 +1,7 @@
+#!/bin/sh
+. ../testfuncs.sh
+
+set -e
+./test_solve > _test_solve.out
+compare_table solve _test_solve.out $tests/unit/test_matrix/_test_solve.res
+rm -f _test_solve.out

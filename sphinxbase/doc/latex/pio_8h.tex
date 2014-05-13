@@ -1,0 +1,311 @@
+\section{include/sphinxbase/pio.h File Reference}
+\label{pio_8h}\index{include/sphinxbase/pio.\-h@{include/sphinxbase/pio.\-h}}
+
+
+file I\-O related operations.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf lineiter\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Line iterator for files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries myfopen}(file, mode)~{\bf \-\_\-myfopen}((file),(mode),\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-,\-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{pio_8h_a96b37e449c7f8698fcfafac1c46cebb2}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf lineiter\-\_\-t} {\bf lineiter\-\_\-t}\label{pio_8h_a3437935bf372acd79fa68b8f9754fa69}
+
+\begin{DoxyCompactList}\small\item\em Line iterator for files. \end{DoxyCompactList}\item 
+typedef struct {\bf bit\-\_\-encode\-\_\-s} {\bf bit\-\_\-encode\-\_\-t}\label{pio_8h_ae72c3bec19638da72dad3849f75c0cd9}
+
+\begin{DoxyCompactList}\small\item\em Bitstream encoder -\/ for writing compressed files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T F\-I\-L\-E $\ast$ {\bf fopen\-\_\-comp} (const char $\ast$file, const char $\ast$mode, int32 $\ast$ispipe)
+\begin{DoxyCompactList}\small\item\em Like fopen, but use popen and zcat if it is determined that \char`\"{}file\char`\"{} is compressed (i.\-e., has a .z, .Z, .gz, or .G\-Z extension). \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf fclose\-\_\-comp} (F\-I\-L\-E $\ast$fp, int32 ispipe)
+\begin{DoxyCompactList}\small\item\em Close a file opened using fopen\-\_\-comp. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T F\-I\-L\-E $\ast$ {\bf fopen\-\_\-compchk} (const char $\ast$file, int32 $\ast$ispipe)
+\begin{DoxyCompactList}\small\item\em Open a file for reading, but if file not present try to open compressed version (if file is uncompressed, and vice versa). \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T F\-I\-L\-E $\ast$ {\bf \-\_\-myfopen} (const char $\ast$file, const char $\ast$mode, const char $\ast$pgm, int32 line)\label{pio_8h_aa22301f25d56be607c9ff45f2c935b14}
+
+\begin{DoxyCompactList}\small\item\em Wrapper around fopen to check for failure and E\-\_\-\-F\-A\-T\-A\-L if failed. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf fread\-\_\-retry} (void $\ast$pointer, int32 size, int32 num\-\_\-items, F\-I\-L\-E $\ast$stream)
+\begin{DoxyCompactList}\small\item\em N\-F\-S file reads seem to fail now and then. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T char $\ast$ {\bf fread\-\_\-line} (F\-I\-L\-E $\ast$stream, size\-\_\-t $\ast$out\-\_\-len)
+\begin{DoxyCompactList}\small\item\em Read a line of arbitrary length from a file and return it as a newly allocated string. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf lineiter\-\_\-t} $\ast$ {\bf lineiter\-\_\-start} (F\-I\-L\-E $\ast$fh)\label{pio_8h_a22d0125ab198f02f8bbe543417d99566}
+
+\begin{DoxyCompactList}\small\item\em Start reading lines from a file. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf lineiter\-\_\-t} $\ast$ {\bf lineiter\-\_\-start\-\_\-clean} (F\-I\-L\-E $\ast$fh)\label{pio_8h_a45ce4c15a564179e9148445fe44ac482}
+
+\begin{DoxyCompactList}\small\item\em Start reading lines from a file, skip comments and trim lines. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf lineiter\-\_\-t} $\ast$ {\bf lineiter\-\_\-next} ({\bf lineiter\-\_\-t} $\ast$li)\label{pio_8h_aff8df0b6928746d61b3520555263f71e}
+
+\begin{DoxyCompactList}\small\item\em Move to the next line in the file. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf lineiter\-\_\-free} ({\bf lineiter\-\_\-t} $\ast$li)\label{pio_8h_a3f80e5d4d666426cef229dd41237d9cf}
+
+\begin{DoxyCompactList}\small\item\em Stop reading lines from a file. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf lineiter\-\_\-lineno} ({\bf lineiter\-\_\-t} $\ast$li)\label{pio_8h_a7d612f02b2077ffb11cc37c3522b10d7}
+
+\begin{DoxyCompactList}\small\item\em Returns current line number. \end{DoxyCompactList}\item 
+{\bf bit\-\_\-encode\-\_\-t} $\ast$ {\bf bit\-\_\-encode\-\_\-attach} (F\-I\-L\-E $\ast$outfh)\label{pio_8h_a82e4694a4c13c96550f2410f8c63b1f5}
+
+\begin{DoxyCompactList}\small\item\em Attach bitstream encoder to a file. \end{DoxyCompactList}\item 
+{\bf bit\-\_\-encode\-\_\-t} $\ast$ {\bf bit\-\_\-encode\-\_\-retain} ({\bf bit\-\_\-encode\-\_\-t} $\ast$be)\label{pio_8h_ada6d9bb75e08493cde00d396dae088f1}
+
+\begin{DoxyCompactList}\small\item\em Retain pointer to a bit encoder. \end{DoxyCompactList}\item 
+int {\bf bit\-\_\-encode\-\_\-free} ({\bf bit\-\_\-encode\-\_\-t} $\ast$be)
+\begin{DoxyCompactList}\small\item\em Release pointer to a bit encoder. \end{DoxyCompactList}\item 
+int {\bf bit\-\_\-encode\-\_\-write} ({\bf bit\-\_\-encode\-\_\-t} $\ast$be, unsigned char const $\ast$bits, int nbits)\label{pio_8h_a59d83bd5850d9ec58175c566d6d48f71}
+
+\begin{DoxyCompactList}\small\item\em Write bits to encoder. \end{DoxyCompactList}\item 
+int {\bf bit\-\_\-encode\-\_\-write\-\_\-cw} ({\bf bit\-\_\-encode\-\_\-t} $\ast$be, uint32 codeword, int nbits)\label{pio_8h_ae71dedb663c8e3ae8b91dbfbc95ac420}
+
+\begin{DoxyCompactList}\small\item\em Write lowest-\/order bits of codeword to encoder. \end{DoxyCompactList}\item 
+int {\bf bit\-\_\-encode\-\_\-flush} ({\bf bit\-\_\-encode\-\_\-t} $\ast$be)\label{pio_8h_a3e818645e567961225977a1923debc3d}
+
+\begin{DoxyCompactList}\small\item\em Flush any unwritten bits, zero-\/padding if necessary. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf stat\-\_\-retry} (const char $\ast$file, struct stat $\ast$statbuf)
+\begin{DoxyCompactList}\small\item\em There is no bitstream decoder, because a stream abstraction is too slow. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf stat\-\_\-mtime} (const char $\ast$file)\label{pio_8h_a289e3a1582ab60563ae0689979992669}
+
+\begin{DoxyCompactList}\small\item\em Return time of last modification for the given file, or -\/1 if stat fails. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf build\-\_\-directory} (const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Create a directory and all of its parent directories, as needed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+file I\-O related operations. Custom fopen with error checking is implemented. fopen\-\_\-comp can open a file with .z, .Z, .gz or .G\-Z extension
+
+W\-A\-R\-N\-I\-N\-G\-: Usage of stat\-\_\-retry will results in 100s of waiting time if the file doesn't exist. 
+
+Definition in file {\bf pio.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{pio.\-h@{pio.\-h}!bit\-\_\-encode\-\_\-free@{bit\-\_\-encode\-\_\-free}}
+\index{bit\-\_\-encode\-\_\-free@{bit\-\_\-encode\-\_\-free}!pio.h@{pio.\-h}}
+\subsubsection[{bit\-\_\-encode\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}int bit\-\_\-encode\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf bit\-\_\-encode\-\_\-t} $\ast$}]{be}
+\end{DoxyParamCaption}
+)}\label{pio_8h_a8330637520174419771670ed740c9049}
+
+
+Release pointer to a bit encoder. 
+
+Note that this does N\-O\-T flush any leftover bits. 
+
+Definition at line 556 of file pio.\-c.
+
+
+
+References ckd\-\_\-free().
+
+
+
+Referenced by huff\-\_\-code\-\_\-detach().
+
+\index{pio.\-h@{pio.\-h}!build\-\_\-directory@{build\-\_\-directory}}
+\index{build\-\_\-directory@{build\-\_\-directory}!pio.h@{pio.\-h}}
+\subsubsection[{build\-\_\-directory}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int build\-\_\-directory (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}\label{pio_8h_a6df697b8a08cd4d11fe7b864dcb99012}
+
+
+Create a directory and all of its parent directories, as needed. 
+
+\begin{DoxyReturn}{Returns}
+0 on success, $<$0 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 653 of file pio.\-c.
+
+
+
+References E\-\_\-\-E\-R\-R\-O\-R.
+
+\index{pio.\-h@{pio.\-h}!fclose\-\_\-comp@{fclose\-\_\-comp}}
+\index{fclose\-\_\-comp@{fclose\-\_\-comp}!pio.h@{pio.\-h}}
+\subsubsection[{fclose\-\_\-comp}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void fclose\-\_\-comp (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int32}]{ispipe}
+\end{DoxyParamCaption}
+)}\label{pio_8h_a87592c3a2d0a00eed9eda014950beb65}
+
+
+Close a file opened using fopen\-\_\-comp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & In\-: File pointer to be closed \\
+\hline
+{\em ispipe} & In\-: ispipe argument that was returned by the corresponding \doxyref{fopen\-\_\-comp()}{p.}{pio_8h_aa3d71506049eb49cf03eff1b89ef281f} call \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 175 of file pio.\-c.
+
+\index{pio.\-h@{pio.\-h}!fopen\-\_\-comp@{fopen\-\_\-comp}}
+\index{fopen\-\_\-comp@{fopen\-\_\-comp}!pio.h@{pio.\-h}}
+\subsubsection[{fopen\-\_\-comp}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T F\-I\-L\-E$\ast$ fopen\-\_\-comp (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{file, }
+\item[{const char $\ast$}]{mode, }
+\item[{int32 $\ast$}]{ispipe}
+\end{DoxyParamCaption}
+)}\label{pio_8h_aa3d71506049eb49cf03eff1b89ef281f}
+
+
+Like fopen, but use popen and zcat if it is determined that \char`\"{}file\char`\"{} is compressed (i.\-e., has a .z, .Z, .gz, or .G\-Z extension). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & In\-: File to be opened \\
+\hline
+{\em mode} & In\-: \char`\"{}r\char`\"{} or \char`\"{}w\char`\"{}, as with normal fopen \\
+\hline
+{\em ispipe} & Out\-: On return $\ast$ispipe is T\-R\-U\-E iff file was opened via a pipe \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file pio.\-c.
+
+
+
+References ckd\-\_\-free(), E\-\_\-\-E\-R\-R\-O\-R, E\-\_\-\-E\-R\-R\-O\-R\-\_\-\-S\-Y\-S\-T\-E\-M, E\-\_\-\-F\-A\-T\-A\-L, and string\-\_\-join().
+
+
+
+Referenced by fopen\-\_\-compchk().
+
+\index{pio.\-h@{pio.\-h}!fopen\-\_\-compchk@{fopen\-\_\-compchk}}
+\index{fopen\-\_\-compchk@{fopen\-\_\-compchk}!pio.h@{pio.\-h}}
+\subsubsection[{fopen\-\_\-compchk}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T F\-I\-L\-E$\ast$ fopen\-\_\-compchk (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{file, }
+\item[{int32 $\ast$}]{ispipe}
+\end{DoxyParamCaption}
+)}\label{pio_8h_addfd26392f118f811584721b8d4854ce}
+
+
+Open a file for reading, but if file not present try to open compressed version (if file is uncompressed, and vice versa). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & In\-: File to be opened \\
+\hline
+{\em ispipe} & Out\-: On return $\ast$ispipe is T\-R\-U\-E iff file was opened via a pipe \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 192 of file pio.\-c.
+
+
+
+References ckd\-\_\-calloc, ckd\-\_\-free(), E\-\_\-\-W\-A\-R\-N, and fopen\-\_\-comp().
+
+\index{pio.\-h@{pio.\-h}!fread\-\_\-line@{fread\-\_\-line}}
+\index{fread\-\_\-line@{fread\-\_\-line}!pio.h@{pio.\-h}}
+\subsubsection[{fread\-\_\-line}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T char$\ast$ fread\-\_\-line (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{stream, }
+\item[{size\-\_\-t $\ast$}]{out\-\_\-len}
+\end{DoxyParamCaption}
+)}\label{pio_8h_a11e0daa4f315d01c2e030d3a0abe702c}
+
+
+Read a line of arbitrary length from a file and return it as a newly allocated string. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use line iterators instead.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The file handle to read from. \\
+\hline
+{\em out\-\_\-len} & Output\-: if not N\-U\-L\-L, length of the string read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+allocated string containing the line, or N\-U\-L\-L on error or E\-O\-F. 
+\end{DoxyReturn}
+
+
+Definition at line 367 of file pio.\-c.
+
+
+
+References ckd\-\_\-malloc, and ckd\-\_\-realloc.
+
+
+
+Referenced by huff\-\_\-code\-\_\-read().
+
+\index{pio.\-h@{pio.\-h}!fread\-\_\-retry@{fread\-\_\-retry}}
+\index{fread\-\_\-retry@{fread\-\_\-retry}!pio.h@{pio.\-h}}
+\subsubsection[{fread\-\_\-retry}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 fread\-\_\-retry (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{pointer, }
+\item[{int32}]{size, }
+\item[{int32}]{num\-\_\-items, }
+\item[{F\-I\-L\-E $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{pio_8h_a601277430d3221bf1906bb879ae26d3e}
+
+
+N\-F\-S file reads seem to fail now and then. 
+
+Use the following functions in place of the regular fread. It retries failed freads several times and quits only if all of them fail. Be aware, however, that even normal failures such as attempting to read beyond E\-O\-F will trigger such retries, wasting about a minute in retries. Arguments identical to regular fread. 
+
+Definition at line 398 of file pio.\-c.
+
+
+
+References E\-\_\-\-E\-R\-R\-O\-R\-\_\-\-S\-Y\-S\-T\-E\-M.
+
+\index{pio.\-h@{pio.\-h}!stat\-\_\-retry@{stat\-\_\-retry}}
+\index{stat\-\_\-retry@{stat\-\_\-retry}!pio.h@{pio.\-h}}
+\subsubsection[{stat\-\_\-retry}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 stat\-\_\-retry (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{file, }
+\item[{struct stat $\ast$}]{statbuf}
+\end{DoxyParamCaption}
+)}\label{pio_8h_a0ba35509687e80ee65ba731c7cfcad9b}
+
+
+There is no bitstream decoder, because a stream abstraction is too slow. 
+
+Instead we read blocks of bits and treat them as bitvectors. Like fread\-\_\-retry, but for stat. Arguments identical to regular stat. Return value\-: 0 if successful, -\/1 if stat failed several attempts. 
+
+Definition at line 480 of file pio.\-c.
+
+
+
+References E\-\_\-\-E\-R\-R\-O\-R\-\_\-\-S\-Y\-S\-T\-E\-M.
+
+
+
+Referenced by stat\-\_\-mtime().
+

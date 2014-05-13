@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structfsg__model__s" kind="struct" prot="public">
+    <compoundname>fsg_model_s</compoundname>
+    <includes refid="fsg__model_8h" local="no">fsg_model.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfsg__model__s_1af329127556a42f6ea3b27f41a99a0b17" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsg_model_s::refcount</definition>
+        <argsstring></argsstring>
+        <name>refcount</name>
+        <briefdescription>
+<para>Reference count. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="92" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1ab23ae2c362f1a3b18bbe135b97dfb467" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* fsg_model_s::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>A unique string identifier for this FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="93" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1a99ed2894f7690a960d11e1590d11a6b9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_model_s::n_word</definition>
+        <argsstring></argsstring>
+        <name>n_word</name>
+        <briefdescription>
+<para>Number of unique words in this FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="94" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1a329ae88c26111df8cd64657b46b9108f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_model_s::n_word_alloc</definition>
+        <argsstring></argsstring>
+        <name>n_word_alloc</name>
+        <briefdescription>
+<para>Number of words allocated in vocab. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="95" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1a6bbfce2d672624d792ff964200a64031" prot="public" static="no" mutable="no">
+        <type>char **</type>
+        <definition>char** fsg_model_s::vocab</definition>
+        <argsstring></argsstring>
+        <name>vocab</name>
+        <briefdescription>
+<para>Vocabulary for this FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="96" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1ab5709e67c1b7506ab024f2060d50331c" prot="public" static="no" mutable="no">
+        <type>bitvec_t *</type>
+        <definition>bitvec_t* fsg_model_s::silwords</definition>
+        <argsstring></argsstring>
+        <name>silwords</name>
+        <briefdescription>
+<para>Indicates which words are silence/fillers. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="97" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1adb51d840853d7ef3315bd833cddeb748" prot="public" static="no" mutable="no">
+        <type>bitvec_t *</type>
+        <definition>bitvec_t* fsg_model_s::altwords</definition>
+        <argsstring></argsstring>
+        <name>altwords</name>
+        <briefdescription>
+<para>Indicates which words are pronunciation alternates. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="98" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1ab0b22dadb593ee1901829f89c4a47fe2" prot="public" static="no" mutable="no">
+        <type><ref refid="logmath_8h_1ae613aa7db1dd40ff56a80a7dadb22cc8" kindref="member">logmath_t</ref> *</type>
+        <definition>logmath_t* fsg_model_s::lmath</definition>
+        <argsstring></argsstring>
+        <name>lmath</name>
+        <briefdescription>
+<para>Pointer to log math computation object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="99" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1a80cdb0b5e7463221ce14135c9f5a3b01" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_model_s::n_state</definition>
+        <argsstring></argsstring>
+        <name>n_state</name>
+        <briefdescription>
+<para>number of states in FSG </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="100" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1a4ff49da3938ecc236d45a68d009f97b9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_model_s::start_state</definition>
+        <argsstring></argsstring>
+        <name>start_state</name>
+        <briefdescription>
+<para>Must be in the range [0..n_state-1]. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="101" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1ada19c76db4f1fc89c8b5cd674ec865da" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_model_s::final_state</definition>
+        <argsstring></argsstring>
+        <name>final_state</name>
+        <briefdescription>
+<para>Must be in the range [0..n_state-1]. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="102" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1aeaff529953d494b9891dbc0fdac8e97f" prot="public" static="no" mutable="no">
+        <type>float32</type>
+        <definition>float32 fsg_model_s::lw</definition>
+        <argsstring></argsstring>
+        <name>lw</name>
+        <briefdescription>
+<para>Language weight that&apos;s been applied to transition logprobs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="103" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1ac5cd4b72818b7a9f2dc543d6a6ac9cc7" prot="public" static="no" mutable="no">
+        <type><ref refid="structtrans__list__s" kindref="compound">trans_list_t</ref> *</type>
+        <definition>trans_list_t* fsg_model_s::trans</definition>
+        <argsstring></argsstring>
+        <name>trans</name>
+        <briefdescription>
+<para>Transitions out of each state, if any. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="105" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__model__s_1ac4e2a36305bbe62a5c7468588eb058b1" prot="public" static="no" mutable="no">
+        <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+        <definition>listelem_alloc_t* fsg_model_s::link_alloc</definition>
+        <argsstring></argsstring>
+        <name>link_alloc</name>
+        <briefdescription>
+<para>Allocator for FSG links. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="106" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Word level FSG definition. </para>    </briefdescription>
+    <detaileddescription>
+<para>States are simply integers 0..n_state-1. A transition emits a word and has a given probability of being taken. There can also be null or epsilon transitions, with no associated emitted word. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="72">
+        <label>fsg_model_s</label>
+        <link refid="structfsg__model__s"/>
+        <childnode refid="73" relation="usage">
+          <edgelabel>trans</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>link_alloc</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>lmath</edgelabel>
+        </childnode>
+      </node>
+      <node id="73">
+        <label>trans_list_s</label>
+        <link refid="structtrans__list__s"/>
+        <childnode refid="74" relation="usage">
+          <edgelabel>trans</edgelabel>
+          <edgelabel>null_trans</edgelabel>
+        </childnode>
+      </node>
+      <node id="77">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="77" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="78">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="75">
+        <label>hash_entry_s</label>
+        <link refid="structhash__entry__s"/>
+        <childnode refid="75" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="74">
+        <label>hash_table_t</label>
+        <link refid="structhash__table__t"/>
+        <childnode refid="75" relation="usage">
+          <edgelabel>table</edgelabel>
+        </childnode>
+      </node>
+      <node id="76">
+        <label>listelem_alloc_s</label>
+        <link refid="structlistelem__alloc__s"/>
+        <childnode refid="77" relation="usage">
+          <edgelabel>blocks</edgelabel>
+          <edgelabel>blocksize</edgelabel>
+        </childnode>
+      </node>
+      <node id="79">
+        <label>logmath_s</label>
+        <link refid="structlogmath__s"/>
+        <childnode refid="80" relation="usage">
+          <edgelabel>t</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>filemap</edgelabel>
+        </childnode>
+      </node>
+      <node id="80">
+        <label>logadd_s</label>
+        <link refid="structlogadd__s"/>
+      </node>
+      <node id="81">
+        <label>mmio_file_s</label>
+        <link refid="structmmio__file__s"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="91" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="91" bodyend="107"/>
+    <listofallmembers>
+      <member refid="structfsg__model__s_1adb51d840853d7ef3315bd833cddeb748" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>altwords</name></member>
+      <member refid="structfsg__model__s_1ada19c76db4f1fc89c8b5cd674ec865da" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>final_state</name></member>
+      <member refid="structfsg__model__s_1ac4e2a36305bbe62a5c7468588eb058b1" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>link_alloc</name></member>
+      <member refid="structfsg__model__s_1ab0b22dadb593ee1901829f89c4a47fe2" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>lmath</name></member>
+      <member refid="structfsg__model__s_1aeaff529953d494b9891dbc0fdac8e97f" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>lw</name></member>
+      <member refid="structfsg__model__s_1a80cdb0b5e7463221ce14135c9f5a3b01" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>n_state</name></member>
+      <member refid="structfsg__model__s_1a99ed2894f7690a960d11e1590d11a6b9" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>n_word</name></member>
+      <member refid="structfsg__model__s_1a329ae88c26111df8cd64657b46b9108f" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>n_word_alloc</name></member>
+      <member refid="structfsg__model__s_1ab23ae2c362f1a3b18bbe135b97dfb467" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>name</name></member>
+      <member refid="structfsg__model__s_1af329127556a42f6ea3b27f41a99a0b17" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>refcount</name></member>
+      <member refid="structfsg__model__s_1ab5709e67c1b7506ab024f2060d50331c" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>silwords</name></member>
+      <member refid="structfsg__model__s_1a4ff49da3938ecc236d45a68d009f97b9" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>start_state</name></member>
+      <member refid="structfsg__model__s_1ac5cd4b72818b7a9f2dc543d6a6ac9cc7" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>trans</name></member>
+      <member refid="structfsg__model__s_1a6bbfce2d672624d792ff964200a64031" prot="public" virt="non-virtual"><scope>fsg_model_s</scope><name>vocab</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

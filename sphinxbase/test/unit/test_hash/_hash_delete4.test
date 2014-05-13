@@ -1,0 +1,7 @@
+#!/bin/sh
+. ../testfuncs.sh
+
+set -e
+./deletehash -hmmdump > _hash_delete4.out 2>&1 
+compare_table delete4 _hash_delete4.out $tests/unit/test_hash/_hash_delete4.res
+rm -f _hash_delete4.out

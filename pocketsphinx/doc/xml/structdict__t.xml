@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structdict__t" kind="struct" prot="public">
+    <compoundname>dict_t</compoundname>
+    <includes refid="dict_8h" local="no">dict.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structdict__t_1a5fab69be1205a6c84ec93a4b08924d3c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dict_t::refcnt</definition>
+        <argsstring></argsstring>
+        <name>refcnt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="80" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1a3a01eb5a3ebda5652d434be26e0cfdd2" prot="public" static="no" mutable="no">
+        <type><ref refid="bin__mdef_8h_1a269082d84ae254593b79f1eafe9b2d12" kindref="member">bin_mdef_t</ref> *</type>
+        <definition>bin_mdef_t* dict_t::mdef</definition>
+        <argsstring></argsstring>
+        <name>mdef</name>
+        <briefdescription>
+<para>Model definition used for phone IDs; NULL if none used. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="81" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="81" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a8587d077f5303554df0e26a181bfb0bf" compoundref="dict_8c" startline="69" endline="76">dict_ciphone_str</referencedby>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" compoundref="dict_8c" startline="452" endline="480">dict_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1a9e6636bbe45936a03381fea430addd31" prot="public" static="no" mutable="no">
+        <type><ref refid="structdictword__t" kindref="compound">dictword_t</ref> *</type>
+        <definition>dictword_t* dict_t::word</definition>
+        <argsstring></argsstring>
+        <name>word</name>
+        <briefdescription>
+<para>Array of entries in dictionary. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="82" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="82" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a8587d077f5303554df0e26a181bfb0bf" compoundref="dict_8c" startline="69" endline="76">dict_ciphone_str</referencedby>
+        <referencedby refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" compoundref="dict_8c" startline="80" endline="145">dict_add_word</referencedby>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" compoundref="dict_8c" startline="452" endline="480">dict_free</referencedby>
+        <referencedby refid="dict2pid_8h_1aa77890032a2c171ed9944b1d81fd5cb0" compoundref="dict2pid_8c" startline="204" endline="226">get_rc_nssid</referencedby>
+        <referencedby refid="dict2pid_8h_1a34aca68c98588e7e1a3f0e6d0800e1bf" compoundref="dict2pid_8c" startline="229" endline="250">dict2pid_get_rcmap</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1a7205aae4fbeef3aaa53f94b6af529af2" prot="public" static="no" mutable="no">
+        <type>hash_table_t *</type>
+        <definition>hash_table_t* dict_t::ht</definition>
+        <argsstring></argsstring>
+        <name>ht</name>
+        <briefdescription>
+<para>Hash table for mapping word strings to word ids. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="83" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="83" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" compoundref="dict_8c" startline="80" endline="145">dict_add_word</referencedby>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1ad3729eb1a02a9a321e17933f7e90c80e" compoundref="dict_8c" startline="383" endline="393">dict_wordid</referencedby>
+        <referencedby refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" compoundref="dict_8c" startline="452" endline="480">dict_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1af6142600cef73f846b58ba9bc36b02ac" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 dict_t::max_words</definition>
+        <argsstring></argsstring>
+        <name>max_words</name>
+        <briefdescription>
+<para>#Entries allocated in dict, including empty slots </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="84" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="84" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" compoundref="dict_8c" startline="80" endline="145">dict_add_word</referencedby>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1a41cca433a75fd2663bee115296639666" compoundref="dict_8c" startline="483" endline="489">dict_report</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1af00f60319a7025361e291af5addb6b31" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 dict_t::n_word</definition>
+        <argsstring></argsstring>
+        <name>n_word</name>
+        <briefdescription>
+<para>#Occupied entries in dict; ie, excluding empty slots </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="85" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="85" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" compoundref="dict_8c" startline="80" endline="145">dict_add_word</referencedby>
+        <referencedby refid="dict_8h_1a4bfa8e3b7b9ff30165375d1c97bb04b8" compoundref="dict_8c" startline="221" endline="248">dict_write</referencedby>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" compoundref="dict_8c" startline="452" endline="480">dict_free</referencedby>
+        <referencedby refid="dict_8h_1a41cca433a75fd2663bee115296639666" compoundref="dict_8c" startline="483" endline="489">dict_report</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1abd48fdafaaa68a8df2fd82163c51a95c" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 dict_t::filler_start</definition>
+        <argsstring></argsstring>
+        <name>filler_start</name>
+        <briefdescription>
+<para>First filler word id (read from filler dict) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="86" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="86" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</referencedby>
+        <referencedby refid="dict_8h_1ad2eba4ca92dd1a3721608e003d95d8c1" compoundref="dict_8c" startline="411" endline="422">dict_real_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1a77c6692e56308968804add1292275cb7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 dict_t::filler_end</definition>
+        <argsstring></argsstring>
+        <name>filler_end</name>
+        <briefdescription>
+<para>Last filler word id (read from filler dict) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="87" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1a22bc6c52ce9e04c4f3f7d0ba1972ee51" prot="public" static="no" mutable="no">
+        <type>s3wid_t</type>
+        <definition>s3wid_t dict_t::startwid</definition>
+        <argsstring></argsstring>
+        <name>startwid</name>
+        <briefdescription>
+<para>FOR INTERNAL-USE ONLY. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="88" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="88" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</referencedby>
+        <referencedby refid="dict_8h_1ad2eba4ca92dd1a3721608e003d95d8c1" compoundref="dict_8c" startline="411" endline="422">dict_real_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1a3875be5336e2d9888f6d5cb83ded82c5" prot="public" static="no" mutable="no">
+        <type>s3wid_t</type>
+        <definition>s3wid_t dict_t::finishwid</definition>
+        <argsstring></argsstring>
+        <name>finishwid</name>
+        <briefdescription>
+<para>FOR INTERNAL-USE ONLY. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="89" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="89" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</referencedby>
+        <referencedby refid="dict_8h_1ad2eba4ca92dd1a3721608e003d95d8c1" compoundref="dict_8c" startline="411" endline="422">dict_real_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1aad07b22b94c360923f151c02890f6e68" prot="public" static="no" mutable="no">
+        <type>s3wid_t</type>
+        <definition>s3wid_t dict_t::silwid</definition>
+        <argsstring></argsstring>
+        <name>silwid</name>
+        <briefdescription>
+<para>FOR INTERNAL-USE ONLY. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="90" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="90" bodyend="-1"/>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structdict__t_1a2240400afe39fbee593ff7e33f97008c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int dict_t::nocase</definition>
+        <argsstring></argsstring>
+        <name>nocase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="91" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>a structure for a dictionary. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="104">
+        <label>dict_t</label>
+        <link refid="structdict__t"/>
+        <childnode refid="105" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="108" relation="usage">
+          <edgelabel>word</edgelabel>
+        </childnode>
+      </node>
+      <node id="106">
+        <label>cd_tree_s</label>
+        <link refid="structcd__tree__s"/>
+      </node>
+      <node id="108">
+        <label>dictword_t</label>
+        <link refid="structdictword__t"/>
+      </node>
+      <node id="107">
+        <label>mdef_entry_s</label>
+        <link refid="structmdef__entry__s"/>
+      </node>
+      <node id="105">
+        <label>bin_mdef_s</label>
+        <link refid="structbin__mdef__s"/>
+        <childnode refid="106" relation="usage">
+          <edgelabel>cd_tree</edgelabel>
+        </childnode>
+        <childnode refid="107" relation="usage">
+          <edgelabel>phone</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="79" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="79" bodyend="92"/>
+    <listofallmembers>
+      <member refid="structdict__t_1a77c6692e56308968804add1292275cb7" prot="public" virt="non-virtual"><scope>dict_t</scope><name>filler_end</name></member>
+      <member refid="structdict__t_1abd48fdafaaa68a8df2fd82163c51a95c" prot="public" virt="non-virtual"><scope>dict_t</scope><name>filler_start</name></member>
+      <member refid="structdict__t_1a3875be5336e2d9888f6d5cb83ded82c5" prot="public" virt="non-virtual"><scope>dict_t</scope><name>finishwid</name></member>
+      <member refid="structdict__t_1a7205aae4fbeef3aaa53f94b6af529af2" prot="public" virt="non-virtual"><scope>dict_t</scope><name>ht</name></member>
+      <member refid="structdict__t_1af6142600cef73f846b58ba9bc36b02ac" prot="public" virt="non-virtual"><scope>dict_t</scope><name>max_words</name></member>
+      <member refid="structdict__t_1a3a01eb5a3ebda5652d434be26e0cfdd2" prot="public" virt="non-virtual"><scope>dict_t</scope><name>mdef</name></member>
+      <member refid="structdict__t_1af00f60319a7025361e291af5addb6b31" prot="public" virt="non-virtual"><scope>dict_t</scope><name>n_word</name></member>
+      <member refid="structdict__t_1a2240400afe39fbee593ff7e33f97008c" prot="public" virt="non-virtual"><scope>dict_t</scope><name>nocase</name></member>
+      <member refid="structdict__t_1a5fab69be1205a6c84ec93a4b08924d3c" prot="public" virt="non-virtual"><scope>dict_t</scope><name>refcnt</name></member>
+      <member refid="structdict__t_1aad07b22b94c360923f151c02890f6e68" prot="public" virt="non-virtual"><scope>dict_t</scope><name>silwid</name></member>
+      <member refid="structdict__t_1a22bc6c52ce9e04c4f3f7d0ba1972ee51" prot="public" virt="non-virtual"><scope>dict_t</scope><name>startwid</name></member>
+      <member refid="structdict__t_1a9e6636bbe45936a03381fea430addd31" prot="public" virt="non-virtual"><scope>dict_t</scope><name>word</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

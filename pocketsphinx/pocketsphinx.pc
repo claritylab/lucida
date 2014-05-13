@@ -1,0 +1,16 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+libs= -lsphinxbase
+datarootdir=${prefix}/share
+modeldir=${datarootdir}/pocketsphinx/model
+
+Name: PocketSphinx
+Description: Lightweight speech recognition system
+Version: 5prealpha
+URL: http://cmusphinx.sourceforge.net/
+Requires: sphinxbase >= 5prealpha
+Libs: -L${libdir} -lpocketsphinx
+Libs.private: ${libs} -lm
+Cflags: -I${includedir} -I${includedir}/sphinxbase -I${includedir}/pocketsphinx

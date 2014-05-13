@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structchan__s" kind="struct" prot="public">
+    <compoundname>chan_s</compoundname>
+    <includes refid="ngram__search_8h" local="no">ngram_search.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structchan__s_1a742d6a125ac468b95a1ddd880a956e35" prot="public" static="no" mutable="no">
+        <type><ref refid="structhmm__t" kindref="compound">hmm_t</ref></type>
+        <definition>hmm_t chan_s::hmm</definition>
+        <argsstring></argsstring>
+        <name>hmm</name>
+        <briefdescription>
+<para>Basic HMM structure. </para>        </briefdescription>
+        <detaileddescription>
+<para>This <emphasis>must</emphasis> be first in the structure because chan_t and root_chan_t are sometimes used interchangeably </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="65" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="65" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" compoundref="ngram__search_8c" startline="600" endline="646">ngram_search_alloc_all_rc</referencedby>
+        <referencedby refid="ngram__search_8h_1a15477192481dffcb29e9c4167eff6c3c" compoundref="ngram__search_8c" startline="649" endline="659">ngram_search_free_all_rc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structchan__s_1a260b68eff64150d0ae9ce4db7feb1300" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structchan__s" kindref="compound">chan_s</ref> *</type>
+        <definition>struct chan_s* chan_s::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+<para>first descendant of this channel; or, in the case of the last phone of a word, the next alternative right context channel </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="68" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="68" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" compoundref="ngram__search_8c" startline="600" endline="646">ngram_search_alloc_all_rc</referencedby>
+        <referencedby refid="ngram__search_8h_1a15477192481dffcb29e9c4167eff6c3c" compoundref="ngram__search_8c" startline="649" endline="659">ngram_search_free_all_rc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structchan__s_1a52e85d037ca3a8b21ff1eed1d469ca15" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structchan__s" kindref="compound">chan_s</ref> *</type>
+        <definition>struct chan_s* chan_s::alt</definition>
+        <argsstring></argsstring>
+        <name>alt</name>
+        <briefdescription>
+<para>sibling; i.e., next descendant of parent HMM </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="71" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchan__s_1a33da51d8524073abc792519d0738ca0b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 chan_s::ciphone</definition>
+        <argsstring></argsstring>
+        <name>ciphone</name>
+        <briefdescription>
+<para>ciphone for this node </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="73" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" compoundref="ngram__search_8c" startline="600" endline="646">ngram_search_alloc_all_rc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structchan__s_1a136796f6a13c0d6989120f9aa25b85f1" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 chan_s::penult_phn_wid</definition>
+        <argsstring></argsstring>
+        <name>penult_phn_wid</name>
+        <briefdescription>
+<para>list of words whose last phone follows this one; this field indicates the first of the list; the rest must be built up in a separate array. </para>        </briefdescription>
+        <detaileddescription>
+<para>Used only within HMM tree. -1 if none </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="75" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchan__s_1acf84a2fa662e7ff626769e7d8152a608" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 chan_s::rc_id</definition>
+        <argsstring></argsstring>
+        <name>rc_id</name>
+        <briefdescription>
+<para>right-context id for last phone of words </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="79" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="79" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" compoundref="ngram__search_8c" startline="600" endline="646">ngram_search_alloc_all_rc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structchan__s_1a8c60fed876760c48952eb19e8dae41a8" prot="public" static="no" mutable="no">
+        <type>union chan_s::@6</type>
+        <definition>union chan_s::@6  chan_s::info</definition>
+        <argsstring></argsstring>
+        <name>info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="80" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lexical tree node data type. </para>    </briefdescription>
+    <detaileddescription>
+<para>Not the first HMM for words, which multiplex HMMs based on different left contexts. This structure is used both in the dynamic HMM tree structure and in the per-word last-phone right context fanout. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="68">
+        <label>chan_s</label>
+        <link refid="structchan__s"/>
+        <childnode refid="68" relation="usage">
+          <edgelabel>alt</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="69" relation="usage">
+          <edgelabel>hmm</edgelabel>
+        </childnode>
+      </node>
+      <node id="69">
+        <label>hmm_s</label>
+        <link refid="structhmm__s"/>
+        <childnode refid="70" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+      </node>
+      <node id="70">
+        <label>hmm_context_t</label>
+        <link refid="structhmm__context__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="64" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="64" bodyend="81"/>
+    <listofallmembers>
+      <member refid="structchan__s_1a52e85d037ca3a8b21ff1eed1d469ca15" prot="public" virt="non-virtual"><scope>chan_s</scope><name>alt</name></member>
+      <member refid="structchan__s_1a33da51d8524073abc792519d0738ca0b" prot="public" virt="non-virtual"><scope>chan_s</scope><name>ciphone</name></member>
+      <member refid="structchan__s_1a742d6a125ac468b95a1ddd880a956e35" prot="public" virt="non-virtual"><scope>chan_s</scope><name>hmm</name></member>
+      <member refid="structchan__s_1a8c60fed876760c48952eb19e8dae41a8" prot="public" virt="non-virtual"><scope>chan_s</scope><name>info</name></member>
+      <member refid="structchan__s_1a260b68eff64150d0ae9ce4db7feb1300" prot="public" virt="non-virtual"><scope>chan_s</scope><name>next</name></member>
+      <member refid="structchan__s_1a136796f6a13c0d6989120f9aa25b85f1" prot="public" virt="non-virtual"><scope>chan_s</scope><name>penult_phn_wid</name></member>
+      <member refid="structchan__s_1acf84a2fa662e7ff626769e7d8152a608" prot="public" virt="non-virtual"><scope>chan_s</scope><name>rc_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

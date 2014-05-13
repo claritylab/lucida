@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="ngram__model__dmp_8h" kind="file">
+    <compoundname>ngram_model_dmp.h</compoundname>
+    <includes refid="mmio_8h" local="yes">sphinxbase/mmio.h</includes>
+    <includes refid="ngram__model__internal_8h" local="yes">ngram_model_internal.h</includes>
+    <includes refid="lm3g__model_8h" local="yes">lm3g_model.h</includes>
+    <includedby refid="ngram__model__dmp_8c" local="yes">src/libsphinxbase/lm/ngram_model_dmp.c</includedby>
+    <incdepgraph>
+      <node id="2050">
+        <label>stdarg.h</label>
+      </node>
+      <node id="2059">
+        <label>lm3g_model.h</label>
+        <link refid="lm3g__model_8h_source"/>
+        <childnode refid="2060" relation="include">
+        </childnode>
+        <childnode refid="2048" relation="include">
+        </childnode>
+      </node>
+      <node id="2058">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2049">
+        <label>sphinxbase/ngram_model.h</label>
+        <link refid="ngram__model_8h"/>
+        <childnode refid="2050" relation="include">
+        </childnode>
+        <childnode refid="2047" relation="include">
+        </childnode>
+        <childnode refid="2051" relation="include">
+        </childnode>
+        <childnode refid="2053" relation="include">
+        </childnode>
+        <childnode refid="2055" relation="include">
+        </childnode>
+        <childnode refid="2046" relation="include">
+        </childnode>
+      </node>
+      <node id="2048">
+        <label>ngram_model_internal.h</label>
+        <link refid="ngram__model__internal_8h_source"/>
+        <childnode refid="2049" relation="include">
+        </childnode>
+        <childnode refid="2056" relation="include">
+        </childnode>
+      </node>
+      <node id="2046">
+        <label>sphinxbase/mmio.h</label>
+        <link refid="mmio_8h"/>
+        <childnode refid="2047" relation="include">
+        </childnode>
+      </node>
+      <node id="2052">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="2060">
+        <label>sphinxbase/listelem_alloc.h</label>
+        <link refid="listelem__alloc_8h"/>
+        <childnode refid="2058" relation="include">
+        </childnode>
+        <childnode refid="2047" relation="include">
+        </childnode>
+        <childnode refid="2051" relation="include">
+        </childnode>
+      </node>
+      <node id="2047">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="2051">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="2052" relation="include">
+        </childnode>
+      </node>
+      <node id="2053">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="2054" relation="include">
+        </childnode>
+        <childnode refid="2050" relation="include">
+        </childnode>
+        <childnode refid="2047" relation="include">
+        </childnode>
+        <childnode refid="2051" relation="include">
+        </childnode>
+      </node>
+      <node id="2045">
+        <label>src/libsphinxbase/lm/ngram_model_dmp.h</label>
+        <link refid="ngram_model_dmp.h"/>
+        <childnode refid="2046" relation="include">
+        </childnode>
+        <childnode refid="2048" relation="include">
+        </childnode>
+        <childnode refid="2059" relation="include">
+        </childnode>
+      </node>
+      <node id="2055">
+        <label>sphinxbase/logmath.h</label>
+        <link refid="logmath_8h"/>
+        <childnode refid="2047" relation="include">
+        </childnode>
+        <childnode refid="2051" relation="include">
+        </childnode>
+        <childnode refid="2053" relation="include">
+        </childnode>
+      </node>
+      <node id="2056">
+        <label>sphinxbase/hash_table.h</label>
+        <link refid="hash__table_8h"/>
+        <childnode refid="2047" relation="include">
+        </childnode>
+        <childnode refid="2051" relation="include">
+        </childnode>
+        <childnode refid="2057" relation="include">
+        </childnode>
+      </node>
+      <node id="2057">
+        <label>sphinxbase/glist.h</label>
+        <link refid="glist_8h"/>
+        <childnode refid="2058" relation="include">
+        </childnode>
+        <childnode refid="2047" relation="include">
+        </childnode>
+        <childnode refid="2051" relation="include">
+        </childnode>
+      </node>
+      <node id="2054">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2062">
+        <label>src/libsphinxbase/lm/ngram_model_dmp.c</label>
+        <link refid="ngram__model__dmp_8c_source"/>
+      </node>
+      <node id="2061">
+        <label>src/libsphinxbase/lm/ngram_model_dmp.h</label>
+        <link refid="ngram_model_dmp.h"/>
+        <childnode refid="2062" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structbigram__s" prot="public">bigram_s</innerclass>
+    <innerclass refid="structtrigram__s" prot="public">trigram_s</innerclass>
+    <innerclass refid="structngram__model__dmp__s" prot="public">ngram_model_dmp_s</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="ngram__model__dmp_8h_1ab91b3e70038137a5a3d090189ef8f5f1" prot="public" static="no">
+        <type>struct <ref refid="structngram__model__dmp__s" kindref="compound">ngram_model_dmp_s</ref></type>
+        <definition>typedef struct ngram_model_dmp_s  ngram_model_dmp_t</definition>
+        <argsstring></argsstring>
+        <name>ngram_model_dmp_t</name>
+        <briefdescription>
+<para>Subclass of ngram_model for DMP file reading. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" line="80" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ngram__model__dmp_8h_1a28a2d280f99797a5d6c0259758c4af77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structngram__model__dmp__s" kindref="compound">ngram_model_dmp_t</ref> *</type>
+        <definition>ngram_model_dmp_t* ngram_model_dmp_build</definition>
+        <argsstring>(ngram_model_t *base)</argsstring>
+        <name>ngram_model_dmp_build</name>
+        <param>
+          <type><ref refid="ngram__model_8h_1afaaf0c00e20056d97efcd97e4cae4ea7" kindref="member">ngram_model_t</ref> *</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+<para>Construct a DMP format model from a generic base model. </para>        </briefdescription>
+        <detaileddescription>
+<para>Note: If base is already a DMP format model, this just calls <ref refid="ngram__model_8h_1a046e6ff8cd8787e412400534a9649a81" kindref="member">ngram_model_retain()</ref>, and any changes will also be made in the base model. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" line="89" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.c" bodystart="476" bodyend="646"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2007<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>\file<sp/>ngram_model_dmp.h<sp/>DMP<sp/>format<sp/>for<sp/>N-Gram<sp/>models</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>Author:<sp/>David<sp/>Huggins-Daines<sp/>&lt;dhuggins@cs.cmu.edu&gt;</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__NGRAM_MODEL_DMP_H__</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__NGRAM_MODEL_DMP_H__</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mmio_8h" kindref="compound">sphinxbase/mmio.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ngram_model_internal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lm3g_model.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbigram__s" kindref="compound">bigram_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="55" refid="structbigram__s_1ab35dcd789b6ff87406b516493cf97854" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structbigram__s_1ab35dcd789b6ff87406b516493cf97854" kindref="member">wid</ref>;<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structbigram__s_1a769b8a54f864ac4844e37cfa17ed1af0" kindref="member">prob2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structbigram__s_1a410991054e81251285cbc209964cdaf4" kindref="member">bo_wt2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structbigram__s_1a11c1cb1d7c40de624f09c372b36a6857" kindref="member">trigrams</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtrigram__s" kindref="compound">trigram_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="69" refid="structtrigram__s_1ad90726c9d1c5b2d564205b4feddcb674" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structtrigram__s_1ad90726c9d1c5b2d564205b4feddcb674" kindref="member">wid</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16<sp/><ref refid="structtrigram__s_1a52f3fad42f7c653a469af0c1b75988a9" kindref="member">prob3</ref>;<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="structngram__model__dmp__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structngram__model__dmp__s" kindref="compound">ngram_model_dmp_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="77" refid="structngram__model__dmp__s_1afd4571dc9702255aed667b5de62e5332" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structngram__model__s" kindref="compound">ngram_model_t</ref><sp/><ref refid="structngram__model__dmp__s_1afd4571dc9702255aed667b5de62e5332" kindref="member">base</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="78" refid="structngram__model__dmp__s_1af889dddcba4b473e782f4a5a11ca47bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref><sp/><ref refid="structngram__model__dmp__s_1af889dddcba4b473e782f4a5a11ca47bd" kindref="member">lm3g</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79" refid="structngram__model__dmp__s_1ae86e39a2c9e3078f0d9cffc6cf384702" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structmmio__file__s" kindref="compound">mmio_file_t</ref><sp/>*<ref refid="structngram__model__dmp__s_1ae86e39a2c9e3078f0d9cffc6cf384702" kindref="member">dump_mmap</ref>;<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}<sp/><ref refid="structngram__model__dmp__s" kindref="compound">ngram_model_dmp_t</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><ref refid="structngram__model__dmp__s" kindref="compound">ngram_model_dmp_t</ref><sp/>*ngram_model_dmp_build(<ref refid="structngram__model__s" kindref="compound">ngram_model_t</ref><sp/>*base);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/><sp/>__NGRAM_MODEL_DMP_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h"/>
+  </compounddef>
+</doxygen>

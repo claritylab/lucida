@@ -1,0 +1,29 @@
+.TH SPHINX_FE 1 "2007-08-27"
+.SH NAME
+sphinx_fe \- Convert audio files to acoustic feature files
+.SH SYNOPSIS
+.B sphinx_fe
+[\fI options \fR]...
+.SH DESCRIPTION
+.PP
+This program converts audio files (in either Microsoft WAV, NIST
+Sphere, or raw format) to acoustic feature files for input to
+batch-mode speech recognition.  The resulting files are also useful
+for various other things.  A list of options follows:
+.\" ### ARGUMENTS ###
+.PP
+Currently the only kind of features supported are MFCCs (mel-frequency
+cepstral coefficients).  There are numerous options which control the
+properties of the output features.  It is \fBVERY\fR important that
+you document the specific set of flags used to create any given set of
+feature files, since this information is \fBNOT\fR recorded in the
+files themselves, and any mismatch between the parameters used to
+extract features for recognition and those used to extract features
+for training will cause recognition to fail.
+.SH AUTHOR
+Written by numerous people at CMU from 1994 onwards.  This manual page
+by David Huggins-Daines <dhuggins@cs.cmu.edu>
+.SH COPYRIGHT
+Copyright \(co 1994-2007 Carnegie Mellon University.  See the file
+\fICOPYING\fR included with this package for more information.
+.br

@@ -1,0 +1,23 @@
+.TH SPHINX_CONT_ADSEG 1 "2008-05-12"
+.SH NAME
+sphinx_cont_adseg \- Read audio from the audio device and segment it
+.SH SYNOPSIS
+.B sphinx_cont_adseg
+.I sampling-rate
+.I silence-threshold
+.SH DESCRIPTION
+.PP
+This program reads audio from the system audio device and segments it
+into individual non-silence regions.  The argument
+.I sampling-rate
+is the sampling rate to read audio at (e.g. 16000), while the argument
+.I silence-threshold
+is the number of seconds to wait before deciding that a non-silence
+region is done (e.g. 1.0).
+.SH AUTHOR
+Written by M. K. Ravishankar <rkm@cs.cmu.edu>.  This manual page
+by David Huggins-Daines <dhuggins@cs.cmu.edu>
+.SH COPYRIGHT
+Copyright \(co 1999-2001 Carnegie Mellon University.  See the file
+\fICOPYING\fR included with this package for more information.
+.br

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structjsgf__link__s" kind="struct" prot="public">
+    <compoundname>jsgf_link_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjsgf__link__s_1a140a7cfbe76100928b9c7ea052435ca5" prot="public" static="no" mutable="no">
+        <type><ref refid="structjsgf__atom__s" kindref="compound">jsgf_atom_t</ref> *</type>
+        <definition>jsgf_atom_t* jsgf_link_s::atom</definition>
+        <argsstring></argsstring>
+        <name>atom</name>
+        <briefdescription>
+<para>Name, tags, weight. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="111" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__link__s_1a02f9b2bc3b98e802164e80d051923bb3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int jsgf_link_s::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <briefdescription>
+<para>From state. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="112" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__link__s_1a9da8ad9d87149f0cfca6ca815c581717" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int jsgf_link_s::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <briefdescription>
+<para>To state. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="113" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="120">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="120" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="121" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="118">
+        <label>jsgf_link_s</label>
+        <link refid="structjsgf__link__s"/>
+        <childnode refid="119" relation="usage">
+          <edgelabel>atom</edgelabel>
+        </childnode>
+      </node>
+      <node id="121">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="119">
+        <label>jsgf_atom_s</label>
+        <link refid="structjsgf__atom__s"/>
+        <childnode refid="120" relation="usage">
+          <edgelabel>tags</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="110" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="110" bodyend="114"/>
+    <listofallmembers>
+      <member refid="structjsgf__link__s_1a140a7cfbe76100928b9c7ea052435ca5" prot="public" virt="non-virtual"><scope>jsgf_link_s</scope><name>atom</name></member>
+      <member refid="structjsgf__link__s_1a02f9b2bc3b98e802164e80d051923bb3" prot="public" virt="non-virtual"><scope>jsgf_link_s</scope><name>from</name></member>
+      <member refid="structjsgf__link__s_1a9da8ad9d87149f0cfca6ca815c581717" prot="public" virt="non-virtual"><scope>jsgf_link_s</scope><name>to</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="tied__mgau__common_8h" kind="file">
+    <compoundname>tied_mgau_common.h</compoundname>
+    <includes local="no">sphinxbase/logmath.h</includes>
+    <includes local="no">sphinxbase/fixpoint.h</includes>
+    <includedby refid="ptm__mgau_8c" local="yes">src/libpocketsphinx/ptm_mgau.c</includedby>
+    <includedby refid="s2__semi__mgau_8c" local="yes">src/libpocketsphinx/s2_semi_mgau.c</includedby>
+    <incdepgraph>
+      <node id="2095">
+        <label>sphinxbase/fixpoint.h</label>
+      </node>
+      <node id="2093">
+        <label>src/libpocketsphinx/tied_mgau_common.h</label>
+        <link refid="tied_mgau_common.h"/>
+        <childnode refid="2094" relation="include">
+        </childnode>
+        <childnode refid="2095" relation="include">
+        </childnode>
+      </node>
+      <node id="2094">
+        <label>sphinxbase/logmath.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2098">
+        <label>src/libpocketsphinx/s2_semi_mgau.c</label>
+        <link refid="s2__semi__mgau_8c_source"/>
+      </node>
+      <node id="2096">
+        <label>src/libpocketsphinx/tied_mgau_common.h</label>
+        <link refid="tied_mgau_common.h"/>
+        <childnode refid="2097" relation="include">
+        </childnode>
+        <childnode refid="2098" relation="include">
+        </childnode>
+      </node>
+      <node id="2097">
+        <label>src/libpocketsphinx/ptm_mgau.c</label>
+        <link refid="ptm__mgau_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="tied__mgau__common_8h_1a6b148848668aa5ddeb21f9e5726f8205" prot="public" static="no">
+        <name>MGAU_MIXW_VERSION</name>
+        <initializer>&quot;1.0&quot;   /* Sphinx-3 file format version for mixw */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="49" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1a14319cfdc013dfddf30896654b6e6500" prot="public" static="no">
+        <name>MGAU_PARAM_VERSION</name>
+        <initializer>&quot;1.0&quot;   /* Sphinx-3 file format version for mean/var */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="50" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1a655c84af1b0034986ff56e12e84f983d" prot="public" static="no">
+        <name>NONE</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="51" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1a9512d04e0db6aa7d0c857071935df145" prot="public" static="no">
+        <name>WORST_DIST</name>
+        <initializer>(int32)(0x80000000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="52" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1a740dfe5b30e702ba8b2ec7426bd4d57e" prot="public" static="no">
+        <name>GMMSUB</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>((a)-(b))</initializer>
+        <briefdescription>
+<para>Subtract GMM component b (assumed to be positive) and saturate. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="62" column="10" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1a1f6b744cf1ced48452fcb90b5b0ccde2" prot="public" static="no">
+        <name>GMMADD</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>((a)+(b))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="63" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1a3acffbd305ee72dcd4593c0d8af64a4f" prot="public" static="no">
+        <name>MIN</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>((a) &lt; (b) ? (a) : (b))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="67" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1a8be78151b3b0ce922541c2755b14ebf1" prot="public" static="no">
+        <name>LOGMATH_INLINE</name>
+        <initializer>static</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="76" column="10" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1ad739d757ed78293c18dc2386fd3b750e" prot="public" static="no">
+        <name>MAX_NEG_MIXW</name>
+        <initializer>159</initializer>
+        <briefdescription>
+<para>Maximum negated mixture weight value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="82" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="tied__mgau__common_8h_1a965d50d73044c3f2dc2589662fd2e89e" prot="public" static="no">
+        <name>MAX_NEG_ASCR</name>
+        <initializer>96</initializer>
+        <briefdescription>
+<para>Maximum negated acoustic score value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="83" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="tied__mgau__common_8h_1a947ea19b4351ecbf70330e089994c3a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LOGMATH_INLINE int</type>
+        <definition>LOGMATH_INLINE int fast_logmath_add</definition>
+        <argsstring>(logmath_t *lmath, int mlx, int mly)</argsstring>
+        <name>fast_logmath_add</name>
+        <param>
+          <type>logmath_t *</type>
+          <declname>lmath</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mlx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mly</declname>
+        </param>
+        <briefdescription>
+<para>Quickly log-add two negated log probabilities. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lmath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The log-math object </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mlx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A negative log probability (0 &lt; mlx &lt; 255) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mly</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A negative log probability (0 &lt; mly &lt; 255) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>-log(exp(-mlx)+exp(-mly))</para></simplesect>
+We can do some extra-fast log addition since we know that mixw+ascr is always less than 256 and hence x-y is also always less than 256. This relies on some cooperation from logmath_t which will never produce a logmath table smaller than 256 entries.</para><para>Note that the parameters are <emphasis>negated</emphasis> log probabilities (and hence, are positive numbers), as is the return value. This is the key to the &quot;fastness&quot; of this function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" line="103" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h" bodystart="103" bodyend="119"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Common code shared between SC and PTM (tied-state) models. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2010<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor">#ifndef<sp/>__TIED_MGAU_COMMON_H__</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__TIED_MGAU_COMMON_H__</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/logmath.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/fixpoint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MGAU_MIXW_VERSION<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;1.0&quot;<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Sphinx-3<sp/>file<sp/>format<sp/>version<sp/>for<sp/>mixw<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MGAU_PARAM_VERSION<sp/><sp/><sp/><sp/><sp/><sp/>&quot;1.0&quot;<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Sphinx-3<sp/>file<sp/>format<sp/>version<sp/>for<sp/>mean/var<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="51"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-1</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>WORST_DIST<sp/><sp/><sp/><sp/><sp/><sp/>(int32)(0x80000000)</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor">#ifdef<sp/>FIXED_POINT</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>GMMSUB(a,b)<sp/>\</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(((a)-(b)<sp/>&gt;<sp/>a)<sp/>?<sp/>(INT_MIN)<sp/>:<sp/>((a)-(b)))</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor">#define<sp/>GMMADD(a,b)<sp/>\</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(((a)+(b)<sp/>&lt;<sp/>a)<sp/>?<sp/>(INT_MAX)<sp/>:<sp/>((a)+(b)))</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="62" refid="tied__mgau__common_8h_1a740dfe5b30e702ba8b2ec7426bd4d57e" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>GMMSUB(a,b)<sp/>((a)-(b))</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>GMMADD(a,b)<sp/>((a)+(b))</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MIN</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MIN(a,b)<sp/>((a)<sp/>&lt;<sp/>(b)<sp/>?<sp/>(a)<sp/>:<sp/>(b))</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__STDC_VERSION__)<sp/>&amp;&amp;<sp/>(__STDC_VERSION__<sp/>&gt;=<sp/>199901L)</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LOGMATH_INLINE<sp/>static<sp/>inline</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#elif<sp/>defined(_MSC_VER)</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LOGMATH_INLINE<sp/>__inline</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>LOGMATH_INLINE<sp/>static</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Allocate<sp/>0..159<sp/>for<sp/>negated<sp/>quantized<sp/>mixture<sp/>weights<sp/>and<sp/>0..96<sp/>for</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>negated<sp/>normalized<sp/>acoustic<sp/>scores,<sp/>so<sp/>that<sp/>the<sp/>combination<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>two<sp/>(for<sp/>a<sp/>single<sp/>mixture)<sp/>can<sp/>never<sp/>exceed<sp/>255.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="tied__mgau__common_8h_1ad739d757ed78293c18dc2386fd3b750e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_NEG_MIXW<sp/>159<sp/></highlight></codeline>
+<codeline lineno="83" refid="tied__mgau__common_8h_1a965d50d73044c3f2dc2589662fd2e89e" refkind="member"><highlight class="preprocessor">#define<sp/>MAX_NEG_ASCR<sp/>96<sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor">LOGMATH_INLINE<sp/>int</highlight></codeline>
+<codeline lineno="103" refid="tied__mgau__common_8h_1a947ea19b4351ecbf70330e089994c3a1" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"><ref refid="tied__mgau__common_8h_1a947ea19b4351ecbf70330e089994c3a1" kindref="member">fast_logmath_add</ref>(logmath_t<sp/>*lmath,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mlx,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mly)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>logadd_t<sp/>*t<sp/>=<sp/>LOGMATH_TABLE(lmath);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d,<sp/>r;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>d<sp/>must<sp/>be<sp/>positive,<sp/>obviously.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mlx<sp/>&gt;<sp/>mly)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d<sp/>=<sp/>(mlx<sp/>-<sp/>mly);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>mly;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d<sp/>=<sp/>(mly<sp/>-<sp/>mlx);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>mlx;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>r<sp/>-<sp/>(((uint8<sp/>*)t-&gt;table)[d]);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__TIED_MGAU_COMMON_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tied_mgau_common.h"/>
+  </compounddef>
+</doxygen>

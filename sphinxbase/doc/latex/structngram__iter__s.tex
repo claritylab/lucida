@@ -1,0 +1,69 @@
+\section{ngram\-\_\-iter\-\_\-s Struct Reference}
+\label{structngram__iter__s}\index{ngram\-\_\-iter\-\_\-s@{ngram\-\_\-iter\-\_\-s}}
+
+
+Base iterator structure for N-\/grams.  
+
+
+
+
+{\ttfamily \#include $<$ngram\-\_\-model\-\_\-internal.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ngram\-\_\-model\-\_\-t} $\ast$ {\bfseries model}\label{structngram__iter__s_a6d8dff08c934f9153cffe70fd4961ec9}
+
+\item 
+int32 $\ast$ {\bf wids}
+\begin{DoxyCompactList}\small\item\em Scratch space for word I\-Ds. \end{DoxyCompactList}\item 
+int16 {\bf m}
+\begin{DoxyCompactList}\small\item\em Order of history. \end{DoxyCompactList}\item 
+int16 {\bf successor}\label{structngram__iter__s_a7802a7883b1cc246b1bff629cd2cfb08}
+
+\begin{DoxyCompactList}\small\item\em Is this a successor iterator? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base iterator structure for N-\/grams. 
+
+Definition at line 193 of file ngram\-\_\-model\-\_\-internal.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{ngram\-\_\-iter\-\_\-s@{ngram\-\_\-iter\-\_\-s}!m@{m}}
+\index{m@{m}!ngram_iter_s@{ngram\-\_\-iter\-\_\-s}}
+\subsubsection[{m}]{\setlength{\rightskip}{0pt plus 5cm}int16 ngram\-\_\-iter\-\_\-s\-::m}\label{structngram__iter__s_a80bce30ba5b180f85ca84d7288715858}
+
+
+Order of history. 
+
+
+
+Definition at line 196 of file ngram\-\_\-model\-\_\-internal.\-h.
+
+
+
+Referenced by ngram\-\_\-iter\-\_\-successors().
+
+\index{ngram\-\_\-iter\-\_\-s@{ngram\-\_\-iter\-\_\-s}!wids@{wids}}
+\index{wids@{wids}!ngram_iter_s@{ngram\-\_\-iter\-\_\-s}}
+\subsubsection[{wids}]{\setlength{\rightskip}{0pt plus 5cm}int32$\ast$ ngram\-\_\-iter\-\_\-s\-::wids}\label{structngram__iter__s_a1362ebe2dcf1c441929c845fc97958cb}
+
+
+Scratch space for word I\-Ds. 
+
+
+
+Definition at line 195 of file ngram\-\_\-model\-\_\-internal.\-h.
+
+
+
+Referenced by ngram\-\_\-iter\-\_\-free().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libsphinxbase/lm/ngram\-\_\-model\-\_\-internal.\-h\end{DoxyCompactItemize}

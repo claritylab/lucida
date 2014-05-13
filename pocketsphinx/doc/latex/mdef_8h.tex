@@ -1,0 +1,506 @@
+\section{src/libpocketsphinx/mdef.h File Reference}
+\label{mdef_8h}\index{src/libpocketsphinx/mdef.\-h@{src/libpocketsphinx/mdef.\-h}}
+
+
+Model definition.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/hash\-\_\-table.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf ciphone\-\_\-t}
+\begin{DoxyCompactList}\small\item\em C\-I phone information. \end{DoxyCompactList}\item 
+struct {\bf phone\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Triphone information, including base phones as a subset. \end{DoxyCompactList}\item 
+struct {\bf ph\-\_\-rc\-\_\-s}
+\item 
+struct {\bf ph\-\_\-lc\-\_\-s}
+\item 
+struct {\bf mdef\-\_\-t}
+\begin{DoxyCompactList}\small\item\em The main model definition structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf N\-\_\-\-W\-O\-R\-D\-\_\-\-P\-O\-S\-N}~4\label{mdef_8h_ac271413770c3e95b993b856967b61487}
+
+\begin{DoxyCompactList}\small\item\em total \# of word positions (excluding undefined) \end{DoxyCompactList}\item 
+\#define {\bf W\-P\-O\-S\-\_\-\-N\-A\-M\-E}~\char`\"{}ibesu\char`\"{}\label{mdef_8h_a89ef0442ded2ff90176ba6d02563923d}
+
+\begin{DoxyCompactList}\small\item\em Printable code for each word position above. \end{DoxyCompactList}\item 
+\#define {\bf S3\-\_\-\-S\-I\-L\-E\-N\-C\-E\-\_\-\-C\-I\-P\-H\-O\-N\-E}~\char`\"{}S\-I\-L\char`\"{}\label{mdef_8h_a87b279af2566a60666495e16d09a8aee}
+
+\begin{DoxyCompactList}\small\item\em Hard-\/coded silence C\-I phone name. \end{DoxyCompactList}\item 
+\#define {\bf mdef\-\_\-is\-\_\-fillerphone}(m, p)~((m)-\/$>$ciphone[p].filler)\label{mdef_8h_aa75eb2e79e7b9a3c8f4ab3722b997b83}
+
+\begin{DoxyCompactList}\small\item\em Access macros; not meant for arbitrary use. \end{DoxyCompactList}\item 
+\#define {\bfseries mdef\-\_\-n\-\_\-ciphone}(m)~((m)-\/$>$n\-\_\-ciphone)\label{mdef_8h_a93926cad5a753339ed8e3dd65be33ee7}
+
+\item 
+\#define {\bfseries mdef\-\_\-n\-\_\-phone}(m)~((m)-\/$>$n\-\_\-phone)\label{mdef_8h_a39673ae552a7b3f777e7891b19eef91c}
+
+\item 
+\#define {\bfseries mdef\-\_\-n\-\_\-sseq}(m)~((m)-\/$>$n\-\_\-sseq)\label{mdef_8h_ab0ff23744c11412bf5c8f392b1dd3ff3}
+
+\item 
+\#define {\bfseries mdef\-\_\-n\-\_\-emit\-\_\-state}(m)~((m)-\/$>$n\-\_\-emit\-\_\-state)\label{mdef_8h_ac333147a77ef083afe5db31af9c743ca}
+
+\item 
+\#define {\bfseries mdef\-\_\-n\-\_\-sen}(m)~((m)-\/$>$n\-\_\-sen)\label{mdef_8h_a6dc091ff16b4198af78583a243354c3d}
+
+\item 
+\#define {\bfseries mdef\-\_\-n\-\_\-tmat}(m)~((m)-\/$>$n\-\_\-tmat)\label{mdef_8h_ab9e86b3579c2d7ea0836e21afab519c4}
+
+\item 
+\#define {\bfseries mdef\-\_\-pid2ssid}(m, p)~((m)-\/$>$phone[p].ssid)\label{mdef_8h_abb0000ac304bec78f21cb64be7083530}
+
+\item 
+\#define {\bfseries mdef\-\_\-pid2tmatid}(m, p)~((m)-\/$>$phone[p].tmat)\label{mdef_8h_aacb8b60ea0e4a8648be4cc3b196dff1c}
+
+\item 
+\#define {\bfseries mdef\-\_\-silphone}(m)~((m)-\/$>$sil)\label{mdef_8h_a918da7f9bc2808c57ed5ed916a00e375}
+
+\item 
+\#define {\bfseries mdef\-\_\-sen2cimap}(m)~((m)-\/$>$sen2cimap)\label{mdef_8h_aeb116821c5048af4af53565252aa9e8f}
+
+\item 
+\#define {\bfseries mdef\-\_\-sseq2sen}(m, ss, pos)~((m)-\/$>$sseq[ss][pos])\label{mdef_8h_a8f05f4b2bd264a9e3be296e6f3fa40df}
+
+\item 
+\#define {\bfseries mdef\-\_\-pid2ci}(m, p)~((m)-\/$>$phone[p].ci)\label{mdef_8h_a4d873373adc8f8eac706eaa033d6fc0e}
+
+\item 
+\#define {\bfseries mdef\-\_\-cd2cisen}(m)~((m)-\/$>$cd2cisen)\label{mdef_8h_a8e2bac0eaa3e3a89c4482bf2332728e1}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf ph\-\_\-rc\-\_\-s} {\bfseries ph\-\_\-rc\-\_\-t}\label{mdef_8h_aaed9796f885acce1a3f7b7fbb412fe0e}
+
+\item 
+typedef struct {\bf ph\-\_\-lc\-\_\-s} {\bfseries ph\-\_\-lc\-\_\-t}\label{mdef_8h_aab5ed563060c703a3dec9349c6fb1b17}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf word\-\_\-posn\-\_\-t} \{ \\*
+{\bf W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-I\-N\-T\-E\-R\-N\-A\-L} = 0, 
+{\bf W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-B\-E\-G\-I\-N} = 1, 
+{\bf W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-E\-N\-D} = 2, 
+{\bf W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-S\-I\-N\-G\-L\-E} = 3, 
+\\*
+{\bf W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Union of different type of word position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf mdef\-\_\-t} $\ast$ {\bf mdef\-\_\-init} (char $\ast$mdeffile, int breport)
+\begin{DoxyCompactList}\small\item\em Initialize the phone structure from the given model definition file. \end{DoxyCompactList}\item 
+int {\bf mdef\-\_\-ciphone\-\_\-id} ({\bf mdef\-\_\-t} $\ast$m, char $\ast$ciphone)
+\begin{DoxyCompactList}\small\item\em Get the ciphone id given a string name. \end{DoxyCompactList}\item 
+const char $\ast$ {\bf mdef\-\_\-ciphone\-\_\-str} ({\bf mdef\-\_\-t} $\ast$m, int ci)
+\begin{DoxyCompactList}\small\item\em Get the phone string given the ci phone id. \end{DoxyCompactList}\item 
+int {\bf mdef\-\_\-is\-\_\-ciphone} ({\bf mdef\-\_\-t} $\ast$m, int p)
+\begin{DoxyCompactList}\small\item\em Decide whether the phone is ci phone. \end{DoxyCompactList}\item 
+int {\bf mdef\-\_\-is\-\_\-cisenone} ({\bf mdef\-\_\-t} $\ast$m, int s)
+\begin{DoxyCompactList}\small\item\em Decide whether the senone is a senone for a ci phone, or a ci senone. \end{DoxyCompactList}\item 
+int {\bf mdef\-\_\-phone\-\_\-id} ({\bf mdef\-\_\-t} $\ast$m, int b, int l, int r, {\bf word\-\_\-posn\-\_\-t} pos)
+\begin{DoxyCompactList}\small\item\em Decide the phone id given the left, right and base phones. \end{DoxyCompactList}\item 
+int {\bf mdef\-\_\-phone\-\_\-str} ({\bf mdef\-\_\-t} $\ast$m, int pid, char $\ast$buf)
+\begin{DoxyCompactList}\small\item\em Create a phone string for the given phone (base or triphone) id in the given buf. \end{DoxyCompactList}\item 
+int {\bf mdef\-\_\-hmm\-\_\-cmp} ({\bf mdef\-\_\-t} $\ast$m, int p1, int p2)
+\begin{DoxyCompactList}\small\item\em Compare the underlying H\-M\-Ms for two given phones (i.\-e., compare the two transition matrix I\-Ds and the individual state(senone) I\-Ds). \end{DoxyCompactList}\item 
+void {\bf mdef\-\_\-report} ({\bf mdef\-\_\-t} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Report the model definition's parameters. \end{DoxyCompactList}\item 
+void {\bf mdef\-\_\-free\-\_\-recursive\-\_\-lc} ({\bf ph\-\_\-lc\-\_\-t} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em R\-A\-H, For freeing memory. \end{DoxyCompactList}\item 
+void {\bf mdef\-\_\-free\-\_\-recursive\-\_\-rc} ({\bf ph\-\_\-rc\-\_\-t} $\ast$rc)
+\item 
+void {\bf mdef\-\_\-free} ({\bf mdef\-\_\-t} $\ast$mdef)
+\begin{DoxyCompactList}\small\item\em Free an \doxyref{mdef\-\_\-t}{p.}{structmdef__t}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Model definition. 
+
+Definition in file {\bf mdef.\-h}.
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{mdef.\-h@{mdef.\-h}!word\-\_\-posn\-\_\-t@{word\-\_\-posn\-\_\-t}}
+\index{word\-\_\-posn\-\_\-t@{word\-\_\-posn\-\_\-t}!mdef.h@{mdef.\-h}}
+\subsubsection[{word\-\_\-posn\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf word\-\_\-posn\-\_\-t}}\label{mdef_8h_a71b2bcae7b6e79bad584cc5500b20e8f}
+
+
+Union of different type of word position. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-I\-N\-T\-E\-R\-N\-A\-L@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-I\-N\-T\-E\-R\-N\-A\-L}!mdef.\-h@{mdef.\-h}}\index{mdef.\-h@{mdef.\-h}!W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-I\-N\-T\-E\-R\-N\-A\-L@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-I\-N\-T\-E\-R\-N\-A\-L}}\item[{\em 
+W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-I\-N\-T\-E\-R\-N\-A\-L\label{mdef_8h_a71b2bcae7b6e79bad584cc5500b20e8fa034bedf5019d94429746634bc0d37464}
+}]Internal phone of word. \index{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-B\-E\-G\-I\-N@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-B\-E\-G\-I\-N}!mdef.\-h@{mdef.\-h}}\index{mdef.\-h@{mdef.\-h}!W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-B\-E\-G\-I\-N@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-B\-E\-G\-I\-N}}\item[{\em 
+W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-B\-E\-G\-I\-N\label{mdef_8h_a71b2bcae7b6e79bad584cc5500b20e8fa8ca058a8d25d38d074e028460833c8a9}
+}]Beginning phone of word. \index{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-E\-N\-D@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-E\-N\-D}!mdef.\-h@{mdef.\-h}}\index{mdef.\-h@{mdef.\-h}!W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-E\-N\-D@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-E\-N\-D}}\item[{\em 
+W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-E\-N\-D\label{mdef_8h_a71b2bcae7b6e79bad584cc5500b20e8fa85b62e42f20399f933b33099290989c3}
+}]Ending phone of word. \index{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-S\-I\-N\-G\-L\-E@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-S\-I\-N\-G\-L\-E}!mdef.\-h@{mdef.\-h}}\index{mdef.\-h@{mdef.\-h}!W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-S\-I\-N\-G\-L\-E@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-S\-I\-N\-G\-L\-E}}\item[{\em 
+W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-S\-I\-N\-G\-L\-E\label{mdef_8h_a71b2bcae7b6e79bad584cc5500b20e8fa34f808e43d8f6e9312054f34a8bd74ac}
+}]Single phone word (i.\-e. begin \& end) \index{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D}!mdef.\-h@{mdef.\-h}}\index{mdef.\-h@{mdef.\-h}!W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D@{W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D}}\item[{\em 
+W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D\label{mdef_8h_a71b2bcae7b6e79bad584cc5500b20e8fa6b0544f6dcc29f8f4f46de22f28ff9b6}
+}]Undefined value, used for initial conditions, etc. \end{description}
+\end{Desc}
+
+
+Definition at line 75 of file mdef.\-h.
+
+
+
+\subsection{Function Documentation}
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-ciphone\-\_\-id@{mdef\-\_\-ciphone\-\_\-id}}
+\index{mdef\-\_\-ciphone\-\_\-id@{mdef\-\_\-ciphone\-\_\-id}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-ciphone\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int mdef\-\_\-ciphone\-\_\-id (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{m, }
+\item[{char $\ast$}]{ciphone}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_aa2c122222a6c9826f16df4644eb6cfd1}
+
+
+Get the ciphone id given a string name. 
+
+\begin{DoxyReturn}{Returns}
+ciphone id for the given ciphone string name 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & In\-: Model structure being queried \\
+\hline
+{\em ciphone} & In\-: ciphone for which id wanted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 176 of file mdef.\-c.
+
+
+
+References mdef\-\_\-t\-::ciphone\-\_\-ht.
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-ciphone\-\_\-str@{mdef\-\_\-ciphone\-\_\-str}}
+\index{mdef\-\_\-ciphone\-\_\-str@{mdef\-\_\-ciphone\-\_\-str}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-ciphone\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ mdef\-\_\-ciphone\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{m, }
+\item[{int}]{ci}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_a445bee881e1af552b1bc33c3d4d3e6f3}
+
+
+Get the phone string given the ci phone id. 
+
+\begin{DoxyReturn}{Returns}
+\-: R\-E\-A\-D-\/\-O\-N\-L\-Y ciphone string name for the given ciphone id 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & In\-: Model structure being queried \\
+\hline
+{\em ci} & In\-: ciphone id for which name wanted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 186 of file mdef.\-c.
+
+
+
+References mdef\-\_\-t\-::ciphone, and ciphone\-\_\-t\-::name.
+
+
+
+Referenced by mdef\-\_\-phone\-\_\-str().
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-free@{mdef\-\_\-free}}
+\index{mdef\-\_\-free@{mdef\-\_\-free}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void mdef\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{mdef}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_a38d2a4b150ecb10a3c80f3504cfdc63d}
+
+
+Free an \doxyref{mdef\-\_\-t}{p.}{structmdef__t}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mdef} & In \-: The model definition \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 719 of file mdef.\-c.
+
+
+
+References mdef\-\_\-t\-::cd2cisen, mdef\-\_\-t\-::ciphone, mdef\-\_\-t\-::ciphone\-\_\-ht, mdef\-\_\-free\-\_\-recursive\-\_\-lc(), mdef\-\_\-free\-\_\-recursive\-\_\-rc(), mdef\-\_\-t\-::n\-\_\-ciphone, N\-\_\-\-W\-O\-R\-D\-\_\-\-P\-O\-S\-N, ciphone\-\_\-t\-::name, mdef\-\_\-t\-::phone, mdef\-\_\-t\-::sen2cimap, mdef\-\_\-t\-::sseq, and mdef\-\_\-t\-::wpos\-\_\-ci\-\_\-lclist.
+
+
+
+Referenced by bin\-\_\-mdef\-\_\-read\-\_\-text().
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-free\-\_\-recursive\-\_\-lc@{mdef\-\_\-free\-\_\-recursive\-\_\-lc}}
+\index{mdef\-\_\-free\-\_\-recursive\-\_\-lc@{mdef\-\_\-free\-\_\-recursive\-\_\-lc}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-free\-\_\-recursive\-\_\-lc}]{\setlength{\rightskip}{0pt plus 5cm}void mdef\-\_\-free\-\_\-recursive\-\_\-lc (
+\begin{DoxyParamCaption}
+\item[{{\bf ph\-\_\-lc\-\_\-t} $\ast$}]{lc}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_a237854c5a842ee89a099209014a68eba}
+
+
+R\-A\-H, For freeing memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & In\-: A list of left context \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 687 of file mdef.\-c.
+
+
+
+References mdef\-\_\-free\-\_\-recursive\-\_\-rc().
+
+
+
+Referenced by mdef\-\_\-free().
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-free\-\_\-recursive\-\_\-rc@{mdef\-\_\-free\-\_\-recursive\-\_\-rc}}
+\index{mdef\-\_\-free\-\_\-recursive\-\_\-rc@{mdef\-\_\-free\-\_\-recursive\-\_\-rc}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-free\-\_\-recursive\-\_\-rc}]{\setlength{\rightskip}{0pt plus 5cm}void mdef\-\_\-free\-\_\-recursive\-\_\-rc (
+\begin{DoxyParamCaption}
+\item[{{\bf ph\-\_\-rc\-\_\-t} $\ast$}]{rc}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_ab8db39894feff4c891bc062eae5ea6dd}
+
+\begin{DoxyParams}{Parameters}
+{\em rc} & In\-: A list of right context \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 702 of file mdef.\-c.
+
+
+
+Referenced by mdef\-\_\-free(), and mdef\-\_\-free\-\_\-recursive\-\_\-lc().
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-hmm\-\_\-cmp@{mdef\-\_\-hmm\-\_\-cmp}}
+\index{mdef\-\_\-hmm\-\_\-cmp@{mdef\-\_\-hmm\-\_\-cmp}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-hmm\-\_\-cmp}]{\setlength{\rightskip}{0pt plus 5cm}int mdef\-\_\-hmm\-\_\-cmp (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{m, }
+\item[{int}]{p1, }
+\item[{int}]{p2}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_a49424df076ebbabc5c8e34bd9db54616}
+
+
+Compare the underlying H\-M\-Ms for two given phones (i.\-e., compare the two transition matrix I\-Ds and the individual state(senone) I\-Ds). 
+
+\begin{DoxyReturn}{Returns}
+0 iff the H\-M\-Ms are identical, -\/1 otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & In\-: Model being queried \\
+\hline
+{\em p1} & In\-: One of the two triphones being compared \\
+\hline
+{\em p2} & In\-: One of the two triphones being compared \\
+\hline
+\end{DoxyParams}
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-init@{mdef\-\_\-init}}
+\index{mdef\-\_\-init@{mdef\-\_\-init}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mdef\-\_\-t}$\ast$ mdef\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{mdeffile, }
+\item[{int}]{breport}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_a8f2fb119373324175bf82ad2c403e2be}
+
+
+Initialize the phone structure from the given model definition file. 
+
+It should be treated as a R\-E\-A\-D-\/\-O\-N\-L\-Y structure. \begin{DoxyReturn}{Returns}
+pointer to the phone structure created. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em mdeffile} & In\-: Model definition file \\
+\hline
+{\em breport} & In\-: whether to report the progress or not \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by bin\-\_\-mdef\-\_\-read\-\_\-text().
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-is\-\_\-ciphone@{mdef\-\_\-is\-\_\-ciphone}}
+\index{mdef\-\_\-is\-\_\-ciphone@{mdef\-\_\-is\-\_\-ciphone}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-is\-\_\-ciphone}]{\setlength{\rightskip}{0pt plus 5cm}int mdef\-\_\-is\-\_\-ciphone (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{m, }
+\item[{int}]{p}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_a9e3f89c3fe09a235beafe056be18c6ce}
+
+
+Decide whether the phone is ci phone. 
+
+\begin{DoxyReturn}{Returns}
+1 if given triphone argument is a ciphone, 0 if not, -\/1 if error 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & In\-: Model structure being queried \\
+\hline
+{\em p} & In\-: triphone id being queried \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 251 of file mdef.\-c.
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-is\-\_\-cisenone@{mdef\-\_\-is\-\_\-cisenone}}
+\index{mdef\-\_\-is\-\_\-cisenone@{mdef\-\_\-is\-\_\-cisenone}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-is\-\_\-cisenone}]{\setlength{\rightskip}{0pt plus 5cm}int mdef\-\_\-is\-\_\-cisenone (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{m, }
+\item[{int}]{s}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_ab6d74ce89ba1f174789a8c5a4add9946}
+
+
+Decide whether the senone is a senone for a ci phone, or a ci senone. 
+
+\begin{DoxyReturn}{Returns}
+1 if a given senone is a ci senone 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & In\-: Model structure being queried \\
+\hline
+{\em s} & In\-: senone id being queried \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 260 of file mdef.\-c.
+
+
+
+References mdef\-\_\-t\-::cd2cisen, and mdef\-\_\-t\-::n\-\_\-sen.
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-phone\-\_\-id@{mdef\-\_\-phone\-\_\-id}}
+\index{mdef\-\_\-phone\-\_\-id@{mdef\-\_\-phone\-\_\-id}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-phone\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int mdef\-\_\-phone\-\_\-id (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{m, }
+\item[{int}]{b, }
+\item[{int}]{l, }
+\item[{int}]{r, }
+\item[{{\bf word\-\_\-posn\-\_\-t}}]{pos}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_a34cafc86f7db4e18389556c8eaca5f02}
+
+
+Decide the phone id given the left, right and base phones. 
+
+\begin{DoxyReturn}{Returns}
+\-: phone id for the given constituents if found, else B\-A\-D\-\_\-\-S3\-P\-I\-D 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & In\-: Model structure being queried \\
+\hline
+{\em b} & In\-: base ciphone id \\
+\hline
+{\em l} & In\-: left context ciphone id \\
+\hline
+{\em r} & In\-: right context ciphone id \\
+\hline
+{\em pos} & In\-: Word position \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 219 of file mdef.\-c.
+
+
+
+References mdef\-\_\-t\-::ciphone, ciphone\-\_\-t\-::filler, N\-\_\-\-W\-O\-R\-D\-\_\-\-P\-O\-S\-N, mdef\-\_\-t\-::sil, and mdef\-\_\-t\-::wpos\-\_\-ci\-\_\-lclist.
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-phone\-\_\-str@{mdef\-\_\-phone\-\_\-str}}
+\index{mdef\-\_\-phone\-\_\-str@{mdef\-\_\-phone\-\_\-str}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-phone\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}int mdef\-\_\-phone\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{m, }
+\item[{int}]{pid, }
+\item[{char $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_a2e23174c9285fbb98f60670644c89712}
+
+
+Create a phone string for the given phone (base or triphone) id in the given buf. 
+
+\begin{DoxyReturn}{Returns}
+0 if successful, -\/1 if error. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & In\-: Model structure being queried \\
+\hline
+{\em pid} & In\-: phone id being queried \\
+\hline
+{\em buf} & Out\-: On return, buf has the string \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 196 of file mdef.\-c.
+
+
+
+References mdef\-\_\-ciphone\-\_\-str(), mdef\-\_\-t\-::phone, phone\-\_\-t\-::rc, phone\-\_\-t\-::wpos, and W\-P\-O\-S\-\_\-\-N\-A\-M\-E.
+
+\index{mdef.\-h@{mdef.\-h}!mdef\-\_\-report@{mdef\-\_\-report}}
+\index{mdef\-\_\-report@{mdef\-\_\-report}!mdef.h@{mdef.\-h}}
+\subsubsection[{mdef\-\_\-report}]{\setlength{\rightskip}{0pt plus 5cm}void mdef\-\_\-report (
+\begin{DoxyParamCaption}
+\item[{{\bf mdef\-\_\-t} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\label{mdef_8h_ad6748527975b2653049b80dabfaa69f1}
+
+
+Report the model definition's parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & In\-: model definition structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 664 of file mdef.\-c.
+
+
+
+References mdef\-\_\-t\-::n\-\_\-ci\-\_\-sen, mdef\-\_\-t\-::n\-\_\-ciphone, mdef\-\_\-t\-::n\-\_\-emit\-\_\-state, mdef\-\_\-t\-::n\-\_\-phone, mdef\-\_\-t\-::n\-\_\-sen, and mdef\-\_\-t\-::n\-\_\-sseq.
+

@@ -1,0 +1,513 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="profile_8h" kind="file">
+    <compoundname>profile.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includedby refid="profile_8c" local="yes">src/libsphinxbase/util/profile.c</includedby>
+    <incdepgraph>
+      <node id="919">
+        <label>include/sphinxbase/profile.h</label>
+        <link refid="profile.h"/>
+        <childnode refid="920" relation="include">
+        </childnode>
+        <childnode refid="921" relation="include">
+        </childnode>
+        <childnode refid="922" relation="include">
+        </childnode>
+      </node>
+      <node id="923">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="921">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="922">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="923" relation="include">
+        </childnode>
+      </node>
+      <node id="920">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="924">
+        <label>include/sphinxbase/profile.h</label>
+        <link refid="profile.h"/>
+        <childnode refid="925" relation="include">
+        </childnode>
+      </node>
+      <node id="925">
+        <label>src/libsphinxbase/util/profile.c</label>
+        <link refid="profile_8c_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structpctr__t" prot="public">pctr_t</innerclass>
+    <innerclass refid="structptmr__t" prot="public">ptmr_t</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="profile_8h_1acc5bd9ca1cc61377433a308b082d34b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structpctr__t" kindref="compound">pctr_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT pctr_t* pctr_new</definition>
+        <argsstring>(char *name)</argsstring>
+        <name>pctr_new</name>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+          <briefdescription><para>The name of the counter </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>operations of <ref refid="structpctr__t" kindref="compound">pctr_t</ref> </para>        </briefdescription>
+        <detaileddescription>
+<para>Initialize a counter <simplesect kind="return"><para>an initialized counter </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="116" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="107" bodyend="116"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" compoundref="ckd__alloc_8h" startline="264">ckd_salloc</references>
+        <references refid="structpctr__t_1adc5e6467eceb66d4f56a20514d06eb55" compoundref="profile_8h" startline="104">pctr_t::count</references>
+        <references refid="structpctr__t_1a9674298e968c73272d477593c7b41ed5" compoundref="profile_8h" startline="101">pctr_t::name</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a7d072965099f09c49a58e3fd422c48f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void pctr_reset</definition>
+        <argsstring>(pctr_t *ctr)</argsstring>
+        <name>pctr_reset</name>
+        <param>
+          <type><ref refid="structpctr__t" kindref="compound">pctr_t</ref> *</type>
+          <declname>ctr</declname>
+          <briefdescription><para>A pointer of a counter </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Reset a counter. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="125" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="119" bodyend="122"/>
+        <references refid="structpctr__t_1adc5e6467eceb66d4f56a20514d06eb55" compoundref="profile_8h" startline="104">pctr_t::count</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a4333e06af6db1fd806846c9f9b1f3f78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void pctr_print</definition>
+        <argsstring>(FILE *fp, pctr_t *ctr)</argsstring>
+        <name>pctr_print</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>A file pointer </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="structpctr__t" kindref="compound">pctr_t</ref> *</type>
+          <declname>ctr</declname>
+          <briefdescription><para>A pointer of a counter </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Print a counter. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="132" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="133" bodyend="137"/>
+        <references refid="structpctr__t_1adc5e6467eceb66d4f56a20514d06eb55" compoundref="profile_8h" startline="104">pctr_t::count</references>
+        <references refid="structpctr__t_1a9674298e968c73272d477593c7b41ed5" compoundref="profile_8h" startline="101">pctr_t::name</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a29e1c5d5f5b462d24a84204e532943fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void pctr_increment</definition>
+        <argsstring>(pctr_t *ctr, int32 inc)</argsstring>
+        <name>pctr_increment</name>
+        <param>
+          <type><ref refid="structpctr__t" kindref="compound">pctr_t</ref> *</type>
+          <declname>ctr</declname>
+          <briefdescription><para>A pointer of a counter </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>inc</declname>
+          <briefdescription><para>The increment of the counter </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Increment a counter. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="140" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="126" bodyend="130"/>
+        <references refid="structpctr__t_1adc5e6467eceb66d4f56a20514d06eb55" compoundref="profile_8h" startline="104">pctr_t::count</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a90821b8f5c4593ead9f8ebea8ca6994c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void pctr_free</definition>
+        <argsstring>(pctr_t *ctr)</argsstring>
+        <name>pctr_free</name>
+        <param>
+          <type><ref refid="structpctr__t" kindref="compound">pctr_t</ref> *</type>
+          <declname>ctr</declname>
+          <briefdescription><para>A pointer of a counter </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Free the counter. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="148" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="140" bodyend="147"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="structpctr__t_1a9674298e968c73272d477593c7b41ed5" compoundref="profile_8h" startline="101">pctr_t::name</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1aada447eb3dc8c9ffb17fd7331ae671e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ptmr_start</definition>
+        <argsstring>(ptmr_t *tmr)</argsstring>
+        <name>ptmr_start</name>
+        <param>
+          <type><ref refid="structptmr__t" kindref="compound">ptmr_t</ref> *</type>
+          <declname>tmr</declname>
+          <briefdescription><para>The timer </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Start timing using tmr. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="172" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="178" bodyend="208"/>
+        <references refid="structptmr__t_1a85c0c5f0e321cf11fb478b92a05223e8" compoundref="profile_8h" startline="164">ptmr_t::start_cpu</references>
+        <references refid="structptmr__t_1a1702b16a6c6bcb82f6c636f5e68af188" compoundref="profile_8h" startline="165">ptmr_t::start_elapsed</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1ade42334cf2db0bc8858ff966e55a4ffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ptmr_stop</definition>
+        <argsstring>(ptmr_t *tmr)</argsstring>
+        <name>ptmr_stop</name>
+        <param>
+          <type><ref refid="structptmr__t" kindref="compound">ptmr_t</ref> *</type>
+          <declname>tmr</declname>
+          <briefdescription><para>The timer </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Stop timing and accumulate tmr-&gt;{t_cpu, t_elapsed, t_tot_cpu, t_tot_elapsed}. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="177" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="212" bodyend="253"/>
+        <references refid="structptmr__t_1a85c0c5f0e321cf11fb478b92a05223e8" compoundref="profile_8h" startline="164">ptmr_t::start_cpu</references>
+        <references refid="structptmr__t_1a1702b16a6c6bcb82f6c636f5e68af188" compoundref="profile_8h" startline="165">ptmr_t::start_elapsed</references>
+        <references refid="structptmr__t_1acbd784f7332329999925d396deae3a5d" compoundref="profile_8h" startline="160">ptmr_t::t_cpu</references>
+        <references refid="structptmr__t_1a743fce329d82fd7a9130cba5bbccd991" compoundref="profile_8h" startline="161">ptmr_t::t_elapsed</references>
+        <references refid="structptmr__t_1a301d13acc21718143b8b39b7af8b6677" compoundref="profile_8h" startline="162">ptmr_t::t_tot_cpu</references>
+        <references refid="structptmr__t_1a2dc87aa035c8eb542279ca4496dd76f1" compoundref="profile_8h" startline="163">ptmr_t::t_tot_elapsed</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a32b1bf9f877946fb455c493a6aa3613f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ptmr_reset</definition>
+        <argsstring>(ptmr_t *tmr)</argsstring>
+        <name>ptmr_reset</name>
+        <param>
+          <type><ref refid="structptmr__t" kindref="compound">ptmr_t</ref> *</type>
+          <declname>tmr</declname>
+          <briefdescription><para>The timer </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Reset tmr-&gt;{t_cpu, t_elapsed} to 0.0. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="182" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="257" bodyend="261"/>
+        <references refid="structptmr__t_1acbd784f7332329999925d396deae3a5d" compoundref="profile_8h" startline="160">ptmr_t::t_cpu</references>
+        <references refid="structptmr__t_1a743fce329d82fd7a9130cba5bbccd991" compoundref="profile_8h" startline="161">ptmr_t::t_elapsed</references>
+        <referencedby refid="profile_8h_1a0aaa0953b76ae8c9947d6d982bbbd4a7" compoundref="profile_8c" startline="275" endline="279">ptmr_reset_all</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a5260d9143ed28fa82c2ab410abce6749" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ptmr_init</definition>
+        <argsstring>(ptmr_t *tmr)</argsstring>
+        <name>ptmr_init</name>
+        <param>
+          <type><ref refid="structptmr__t" kindref="compound">ptmr_t</ref> *</type>
+          <declname>tmr</declname>
+          <briefdescription><para>The timer </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Reset tmr-&gt;{t_cpu, t_elapsed, t_tot_cpu, t_tot_elapsed} to 0.0. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="188" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="265" bodyend="271"/>
+        <references refid="structptmr__t_1acbd784f7332329999925d396deae3a5d" compoundref="profile_8h" startline="160">ptmr_t::t_cpu</references>
+        <references refid="structptmr__t_1a743fce329d82fd7a9130cba5bbccd991" compoundref="profile_8h" startline="161">ptmr_t::t_elapsed</references>
+        <references refid="structptmr__t_1a301d13acc21718143b8b39b7af8b6677" compoundref="profile_8h" startline="162">ptmr_t::t_tot_cpu</references>
+        <references refid="structptmr__t_1a2dc87aa035c8eb542279ca4496dd76f1" compoundref="profile_8h" startline="163">ptmr_t::t_tot_elapsed</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a0aaa0953b76ae8c9947d6d982bbbd4a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ptmr_reset_all</definition>
+        <argsstring>(ptmr_t *tmr)</argsstring>
+        <name>ptmr_reset_all</name>
+        <param>
+          <type><ref refid="structptmr__t" kindref="compound">ptmr_t</ref> *</type>
+          <declname>tmr</declname>
+          <briefdescription><para>The timer </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Reset t_cpu, t_elapsed of all timer modules in array tmr[] to 0.0. </para>        </briefdescription>
+        <detaileddescription>
+<para>The array should be terminated with a sentinel with .name = NULL. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="197" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="275" bodyend="279"/>
+        <references refid="structptmr__t_1a73b51c5a047300d77b3a82a7dcaf44f1" compoundref="profile_8h" startline="158">ptmr_t::name</references>
+        <references refid="profile_8h_1a32b1bf9f877946fb455c493a6aa3613f" compoundref="profile_8c" startline="257" endline="261">ptmr_reset</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a08a625009ff1a5e2ee8aa02b53009f66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ptmr_print_all</definition>
+        <argsstring>(FILE *fp, ptmr_t *tmr, float64 norm)</argsstring>
+        <name>ptmr_print_all</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>The file pointer </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="structptmr__t" kindref="compound">ptmr_t</ref> *</type>
+          <declname>tmr</declname>
+          <briefdescription><para>The timer </para></briefdescription>
+        </param>
+        <param>
+          <type>float64</type>
+          <declname>norm</declname>
+        </param>
+        <briefdescription>
+<para>Print t_cpu for all timer modules in tmr[], normalized by norm (i.e., t_cpu/norm). </para>        </briefdescription>
+        <detaileddescription>
+<para>The array should be terminated with a sentinel with .name = NULL. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="205" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="283" bodyend="290"/>
+        <references refid="structptmr__t_1a73b51c5a047300d77b3a82a7dcaf44f1" compoundref="profile_8h" startline="158">ptmr_t::name</references>
+        <references refid="structptmr__t_1acbd784f7332329999925d396deae3a5d" compoundref="profile_8h" startline="160">ptmr_t::t_cpu</references>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1a4315a0c6da4e9d3ef3c0ce264620ce28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 host_pclk</definition>
+        <argsstring>(int32 dummy)</argsstring>
+        <name>host_pclk</name>
+        <param>
+          <type>int32</type>
+          <declname>dummy</declname>
+        </param>
+        <briefdescription>
+<para>Return the processor clock speed (in MHz); only available on some machines (Alphas). </para>        </briefdescription>
+        <detaileddescription>
+<para>The dummy argument can be any integer value. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="216" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="profile_8h_1aa23a14aa8ae716d64e632d61b1c2ed77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 host_endian</definition>
+        <argsstring>(void)</argsstring>
+        <name>host_endian</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h" line="225" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/profile.c" bodystart="294" bodyend="338"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of profiling, include counting , timing, cpu clock checking. </para>    </briefdescription>
+    <detaileddescription>
+<para>Currently, function host_endian is also in this function. It is not documented. </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2001<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>profile.h<sp/>--<sp/>For<sp/>timing<sp/>and<sp/>event<sp/>counting.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>profile.h,v<sp/>$</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.10<sp/><sp/>2005/06/22<sp/>03:10:59<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>1,<sp/>Fixed<sp/>doxygen<sp/>documentation,<sp/>2,<sp/>Added<sp/><sp/>keyword.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.5<sp/><sp/>2005/06/15<sp/>04:21:47<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>1,<sp/>Fixed<sp/>doxygen-documentation,<sp/>2,<sp/>Add<sp/><sp/>keyword<sp/>such<sp/>that<sp/>changes<sp/>will<sp/>be<sp/>logged<sp/>into<sp/>a<sp/>file.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2005/04/25<sp/>19:22:48<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>Refactor<sp/>out<sp/>the<sp/>code<sp/>of<sp/>rescoring<sp/>from<sp/>lexical<sp/>tree.<sp/>Potentially<sp/>we<sp/>want<sp/>to<sp/>turn<sp/>off<sp/>the<sp/>rescoring<sp/>if<sp/>we<sp/>need.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:48<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>11-Mar-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>ptmr_init().</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>19-Jun-97<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Created<sp/>from<sp/>earlier<sp/>Sphinx-3<sp/>version.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_LIBUTIL_PROFILE_H_</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_LIBUTIL_PROFILE_H_</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="normal">}<sp/></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs<sp/>into<sp/>not<sp/>indenting<sp/>things.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Win32/WinCE<sp/>DLL<sp/>gunk<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="structpctr__t" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101" refid="structpctr__t_1a9674298e968c73272d477593c7b41ed5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structpctr__t_1a9674298e968c73272d477593c7b41ed5" kindref="member">name</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104" refid="structpctr__t_1adc5e6467eceb66d4f56a20514d06eb55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structpctr__t_1adc5e6467eceb66d4f56a20514d06eb55" kindref="member">count</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}<sp/><ref refid="structpctr__t" kindref="compound">pctr_t</ref>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><ref refid="structpctr__t" kindref="compound">pctr_t</ref>*<sp/><ref refid="profile_8h_1acc5bd9ca1cc61377433a308b082d34b8" kindref="member">pctr_new</ref><sp/>(</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1a7d072965099f09c49a58e3fd422c48f4" kindref="member">pctr_reset</ref><sp/>(<ref refid="structpctr__t" kindref="compound">pctr_t</ref><sp/>*ctr<sp/><sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1a4333e06af6db1fd806846c9f9b1f3f78" kindref="member">pctr_print</ref>(FILE<sp/>*fp,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structpctr__t" kindref="compound">pctr_t</ref><sp/>*ctr<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1a29e1c5d5f5b462d24a84204e532943fa" kindref="member">pctr_increment</ref><sp/>(<ref refid="structpctr__t" kindref="compound">pctr_t</ref><sp/>*ctr,<sp/></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>inc<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1a90821b8f5c4593ead9f8ebea8ca6994c" kindref="member">pctr_free</ref>(<ref refid="structpctr__t" kindref="compound">pctr_t</ref>*<sp/>ctr<sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157" refid="structptmr__t" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="158" refid="structptmr__t_1a73b51c5a047300d77b3a82a7dcaf44f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structptmr__t_1a73b51c5a047300d77b3a82a7dcaf44f1" kindref="member">name</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="160" refid="structptmr__t_1acbd784f7332329999925d396deae3a5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float64<sp/><ref refid="structptmr__t_1acbd784f7332329999925d396deae3a5d" kindref="member">t_cpu</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="161" refid="structptmr__t_1a743fce329d82fd7a9130cba5bbccd991" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float64<sp/><ref refid="structptmr__t_1a743fce329d82fd7a9130cba5bbccd991" kindref="member">t_elapsed</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="162" refid="structptmr__t_1a301d13acc21718143b8b39b7af8b6677" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float64<sp/><ref refid="structptmr__t_1a301d13acc21718143b8b39b7af8b6677" kindref="member">t_tot_cpu</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163" refid="structptmr__t_1a2dc87aa035c8eb542279ca4496dd76f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float64<sp/><ref refid="structptmr__t_1a2dc87aa035c8eb542279ca4496dd76f1" kindref="member">t_tot_elapsed</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="164" refid="structptmr__t_1a85c0c5f0e321cf11fb478b92a05223e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float64<sp/><ref refid="structptmr__t_1a85c0c5f0e321cf11fb478b92a05223e8" kindref="member">start_cpu</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="165" refid="structptmr__t_1a1702b16a6c6bcb82f6c636f5e68af188" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float64<sp/><ref refid="structptmr__t_1a1702b16a6c6bcb82f6c636f5e68af188" kindref="member">start_elapsed</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}<sp/><ref refid="structptmr__t" kindref="compound">ptmr_t</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1aada447eb3dc8c9ffb17fd7331ae671e7" kindref="member">ptmr_start</ref><sp/>(<ref refid="structptmr__t" kindref="compound">ptmr_t</ref><sp/>*tmr<sp/></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1ade42334cf2db0bc8858ff966e55a4ffb" kindref="member">ptmr_stop</ref><sp/>(<ref refid="structptmr__t" kindref="compound">ptmr_t</ref><sp/>*tmr<sp/><sp/></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1a32b1bf9f877946fb455c493a6aa3613f" kindref="member">ptmr_reset</ref><sp/>(<ref refid="structptmr__t" kindref="compound">ptmr_t</ref><sp/>*tmr<sp/><sp/></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1a5260d9143ed28fa82c2ab410abce6749" kindref="member">ptmr_init</ref><sp/>(<ref refid="structptmr__t" kindref="compound">ptmr_t</ref><sp/>*tmr<sp/></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1a0aaa0953b76ae8c9947d6d982bbbd4a7" kindref="member">ptmr_reset_all</ref><sp/>(<ref refid="structptmr__t" kindref="compound">ptmr_t</ref><sp/>*tmr<sp/></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="profile_8h_1a08a625009ff1a5e2ee8aa02b53009f66" kindref="member">ptmr_print_all</ref><sp/>(FILE<sp/>*fp,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structptmr__t" kindref="compound">ptmr_t</ref><sp/>*tmr,<sp/></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float64<sp/>norm</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">int32<sp/><ref refid="profile_8h_1a4315a0c6da4e9d3ef3c0ce264620ce28" kindref="member">host_pclk</ref><sp/>(int32<sp/>dummy);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>Check<sp/>the<sp/>native<sp/>byte-ordering<sp/>of<sp/>the<sp/>machine<sp/>by<sp/>writing<sp/>a<sp/>magic</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/>number<sp/>to<sp/>a<sp/>temporary<sp/>file<sp/>and<sp/>reading<sp/>it<sp/>back.<sp/><sp/>*<sp/>Return<sp/>value:</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/>0<sp/>if<sp/>BIG-ENDIAN,<sp/>1<sp/>if<sp/>LITTLE-ENDIAN,<sp/>-1<sp/>if<sp/>error.<sp/><sp/></highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="225"><highlight class="normal">int32<sp/>host_endian<sp/>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="228"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="230"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/profile.h"/>
+  </compounddef>
+</doxygen>

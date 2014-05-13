@@ -1,0 +1,166 @@
+\section{include/sphinxbase/cmn.h File Reference}
+\label{cmn_8h}\index{include/sphinxbase/cmn.\-h@{include/sphinxbase/cmn.\-h}}
+
+
+Apply Cepstral Mean Normalization (C\-M\-N) to the set of input mfc frames.  
+
+
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/fe.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf cmn\-\_\-t}
+\begin{DoxyCompactList}\small\item\em wrapper of operation of the cepstral mean normalization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries C\-M\-N\-\_\-\-W\-I\-N\-\_\-\-H\-W\-M}~800     /$\ast$ \#frames after which window shifted $\ast$/\label{cmn_8h_abbf37b74032c295136b4b299ecfcedae}
+
+\item 
+\#define {\bfseries C\-M\-N\-\_\-\-W\-I\-N}~500\label{cmn_8h_a500dafed8351d334da9290ec4f3f6ab3}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum {\bf cmn\-\_\-type\-\_\-e} {\bf cmn\-\_\-type\-\_\-t}\label{cmn_8h_a9384c411b10e9db9745cfb550a5c7652}
+
+\begin{DoxyCompactList}\small\item\em Types of cepstral mean normalization to apply to the features. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf cmn\-\_\-type\-\_\-e} \{ {\bfseries C\-M\-N\-\_\-\-N\-O\-N\-E} = 0, 
+{\bfseries C\-M\-N\-\_\-\-C\-U\-R\-R\-E\-N\-T}, 
+{\bfseries C\-M\-N\-\_\-\-P\-R\-I\-O\-R}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of cepstral mean normalization to apply to the features. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf cmn\-\_\-type\-\_\-t} {\bf cmn\-\_\-type\-\_\-from\-\_\-str} (const char $\ast$str)\label{cmn_8h_acf5e65a03a0d74630add4a400fed0ce8}
+
+\begin{DoxyCompactList}\small\item\em Convert string representation (from command-\/line) to cmn\-\_\-type\-\_\-t. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf cmn\-\_\-t} $\ast$ {\bfseries cmn\-\_\-init} (int32 veclen)\label{cmn_8h_a7ba6ce5489afce232b9bb61bd2ebd20f}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf cmn} ({\bf cmn\-\_\-t} $\ast$cmn, mfcc\-\_\-t $\ast$$\ast$mfc, int32 varnorm, int32 n\-\_\-frame)
+\begin{DoxyCompactList}\small\item\em C\-M\-N for the whole sentence. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf cmn\-\_\-prior} ({\bf cmn\-\_\-t} $\ast${\bf cmn}, mfcc\-\_\-t $\ast$$\ast$incep, int32 varnorm, int32 nfr)
+\begin{DoxyCompactList}\small\item\em C\-M\-N for one block of data, using prior mean. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf cmn\-\_\-prior\-\_\-update} ({\bf cmn\-\_\-t} $\ast${\bf cmn})\label{cmn_8h_aae61df2ec71082520669fc63d94bb1ef}
+
+\begin{DoxyCompactList}\small\item\em Update prior mean based on observed data. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf cmn\-\_\-prior\-\_\-set} ({\bf cmn\-\_\-t} $\ast${\bf cmn}, mfcc\-\_\-t const $\ast$vec)\label{cmn_8h_a0f6f70d51143d6a33130650b8d4758ab}
+
+\begin{DoxyCompactList}\small\item\em Set the prior mean. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf cmn\-\_\-prior\-\_\-get} ({\bf cmn\-\_\-t} $\ast${\bf cmn}, mfcc\-\_\-t $\ast$vec)\label{cmn_8h_a4f624f5b805288f66fa05b79b1e4f383}
+
+\begin{DoxyCompactList}\small\item\em Get the prior mean. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bfseries cmn\-\_\-free} ({\bf cmn\-\_\-t} $\ast${\bf cmn})\label{cmn_8h_a0f70f378107e3d4e861e39d4f76d8d50}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T const char $\ast$ {\bf cmn\-\_\-type\-\_\-str} [$\,$]
+\begin{DoxyCompactList}\small\item\em String representations of cmn\-\_\-type\-\_\-t values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Apply Cepstral Mean Normalization (C\-M\-N) to the set of input mfc frames. By subtractingthe mean of the input from each frame. C0 is also included in this process. This function operates on an entire utterance at a time. Hence, the entire utterance must be available beforehand (batchmode). 
+
+Definition in file {\bf cmn.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{cmn.\-h@{cmn.\-h}!cmn@{cmn}}
+\index{cmn@{cmn}!cmn.h@{cmn.\-h}}
+\subsubsection[{cmn}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void cmn (
+\begin{DoxyParamCaption}
+\item[{{\bf cmn\-\_\-t} $\ast$}]{cmn, }
+\item[{mfcc\-\_\-t $\ast$$\ast$}]{mfc, }
+\item[{int32}]{varnorm, }
+\item[{int32}]{n\-\_\-frame}
+\end{DoxyParamCaption}
+)}\label{cmn_8h_accf10de8ef4d98b4bf591529cf16565e}
+
+
+C\-M\-N for the whole sentence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmn} & In/\-Out\-: cmn normalization, which contains the cmn\-\_\-mean and cmn\-\_\-var) \\
+\hline
+{\em mfc} & In/\-Out\-: mfc[f] = mfc vector in frame f \\
+\hline
+{\em varnorm} & In\-: if not F\-A\-L\-S\-E, variance normalize the input vectors to have unit variance (along each dimension independently); Irrelevant if no cmn is performed \\
+\hline
+{\em n\-\_\-frame} & In\-: Number of frames of mfc vectors \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 150 of file cmn.\-c.
+
+
+
+References cmn\-\_\-t\-::cmn\-\_\-mean, cmn\-\_\-t\-::cmn\-\_\-var, E\-\_\-\-I\-N\-F\-O, E\-\_\-\-I\-N\-F\-O\-C\-O\-N\-T, and cmn\-\_\-t\-::veclen.
+
+
+
+Referenced by feat\-\_\-init().
+
+\index{cmn.\-h@{cmn.\-h}!cmn\-\_\-prior@{cmn\-\_\-prior}}
+\index{cmn\-\_\-prior@{cmn\-\_\-prior}!cmn.h@{cmn.\-h}}
+\subsubsection[{cmn\-\_\-prior}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void cmn\-\_\-prior (
+\begin{DoxyParamCaption}
+\item[{{\bf cmn\-\_\-t} $\ast$}]{cmn, }
+\item[{mfcc\-\_\-t $\ast$$\ast$}]{incep, }
+\item[{int32}]{varnorm, }
+\item[{int32}]{nfr}
+\end{DoxyParamCaption}
+)}\label{cmn_8h_aa622cf1b6a1b9a9bffd8f60b903bfc42}
+
+
+C\-M\-N for one block of data, using prior mean. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmn} & In/\-Out\-: cmn normalization, which contains the cmn\-\_\-mean and cmn\-\_\-var) \\
+\hline
+{\em incep} & In/\-Out\-: mfc[f] = mfc vector in frame f \\
+\hline
+{\em varnorm} & This flag should always be 0 for live \\
+\hline
+{\em nfr} & Number of incoming frames \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file cmn\-\_\-prior.\-c.
+
+
+
+References cmn\-\_\-t\-::cmn\-\_\-mean, E\-\_\-\-F\-A\-T\-A\-L, cmn\-\_\-t\-::nframe, cmn\-\_\-t\-::sum, and cmn\-\_\-t\-::veclen.
+
+
+
+\subsection{Variable Documentation}
+\index{cmn.\-h@{cmn.\-h}!cmn\-\_\-type\-\_\-str@{cmn\-\_\-type\-\_\-str}}
+\index{cmn\-\_\-type\-\_\-str@{cmn\-\_\-type\-\_\-str}!cmn.h@{cmn.\-h}}
+\subsubsection[{cmn\-\_\-type\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T const char$\ast$ cmn\-\_\-type\-\_\-str[$\,$]}\label{cmn_8h_ae2ab0bad7168386076c43fc2a421867f}
+
+
+String representations of cmn\-\_\-type\-\_\-t values. 
+
+
+
+Definition at line 110 of file cmn.\-c.
+
+
+
+Referenced by cmn\-\_\-type\-\_\-from\-\_\-str(), and feat\-\_\-init().
+

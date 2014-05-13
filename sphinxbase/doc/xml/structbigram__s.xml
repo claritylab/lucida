@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structbigram__s" kind="struct" prot="public">
+    <compoundname>bigram_s</compoundname>
+    <includes refid="ngram__model__arpa_8h" local="no">ngram_model_arpa.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structbigram__s_1af66faad954d56f5ceaf6ba47cdcd9b1f" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 bigram_s::wid</definition>
+        <argsstring></argsstring>
+        <name>wid</name>
+        <briefdescription>
+<para>Index of unigram entry for this. </para>        </briefdescription>
+        <detaileddescription>
+<para>(NOT dictionary id.) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="53" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbigram__s_1a769b8a54f864ac4844e37cfa17ed1af0" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 bigram_s::prob2</definition>
+        <argsstring></argsstring>
+        <name>prob2</name>
+        <briefdescription>
+<para>Index into array of actual bigram probs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="54" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbigram__s_1a410991054e81251285cbc209964cdaf4" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 bigram_s::bo_wt2</definition>
+        <argsstring></argsstring>
+        <name>bo_wt2</name>
+        <briefdescription>
+<para>Index into array of actual bigram backoff wts. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="55" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbigram__s_1a11c1cb1d7c40de624f09c372b36a6857" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 bigram_s::trigrams</definition>
+        <argsstring></argsstring>
+        <name>trigrams</name>
+        <briefdescription>
+<para>Index of 1st entry in lm_t.trigrams[], RELATIVE TO its segment base (see above) </para>        </briefdescription>
+        <detaileddescription>
+<para>Index of 1st entry in lm_t.trigrams[], RELATIVE TO its segment base (see <ref refid="lm3g__model_8h_source" kindref="compound">lm3g_model.h</ref>) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="56" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structbigram__s_1ab35dcd789b6ff87406b516493cf97854" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 bigram_s::wid</definition>
+        <argsstring></argsstring>
+        <name>wid</name>
+        <briefdescription>
+<para>Index of unigram entry for this. </para>        </briefdescription>
+        <detaileddescription>
+<para>(NOT dictionary id.) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" line="55" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Bigram structure. </para>    </briefdescription>
+    <detaileddescription>
+<para>On-disk representation of bigrams. </para>    </detaileddescription>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="52" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="52" bodyend="58"/>
+    <listofallmembers>
+      <member refid="structbigram__s_1a410991054e81251285cbc209964cdaf4" prot="public" virt="non-virtual"><scope>bigram_s</scope><name>bo_wt2</name></member>
+      <member refid="structbigram__s_1a769b8a54f864ac4844e37cfa17ed1af0" prot="public" virt="non-virtual"><scope>bigram_s</scope><name>prob2</name></member>
+      <member refid="structbigram__s_1a11c1cb1d7c40de624f09c372b36a6857" prot="public" virt="non-virtual"><scope>bigram_s</scope><name>trigrams</name></member>
+      <member refid="structbigram__s_1af66faad954d56f5ceaf6ba47cdcd9b1f" prot="public" virt="non-virtual"><scope>bigram_s</scope><name>wid</name></member>
+      <member refid="structbigram__s_1ab35dcd789b6ff87406b516493cf97854" prot="public" virt="non-virtual"><scope>bigram_s</scope><name>wid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

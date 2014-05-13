@@ -1,0 +1,78 @@
+\section{dict2pid\-\_\-t Struct Reference}
+\label{structdict2pid__t}\index{dict2pid\-\_\-t@{dict2pid\-\_\-t}}
+
+
+Building composite triphone (as well as word internal triphones) with the dictionary.  
+
+
+
+
+{\ttfamily \#include $<$dict2pid.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries refcount}\label{structdict2pid__t_a70dc55b59deb6324c1ef2733b1b25ef1}
+
+\item 
+{\bf bin\-\_\-mdef\-\_\-t} $\ast$ {\bf mdef}
+\begin{DoxyCompactList}\small\item\em Model definition, used to generate internal ssids on the fly. \end{DoxyCompactList}\item 
+{\bf dict\-\_\-t} $\ast$ {\bf dict}
+\begin{DoxyCompactList}\small\item\em Dictionary this table refers to. \end{DoxyCompactList}\item 
+s3ssid\-\_\-t $\ast$$\ast$$\ast$ {\bf ldiph\-\_\-lc}\label{structdict2pid__t_a609288c1f4cee2ea2e82bc5e391b894a}
+
+\begin{DoxyCompactList}\small\item\em For multi-\/phone words, [base][rc][lc] -\/$>$ ssid; filled out for word-\/initial base x rc combinations in current vocabulary. \end{DoxyCompactList}\item 
+{\bf xwdssid\-\_\-t} $\ast$$\ast$ {\bf rssid}\label{structdict2pid__t_a2cf69a0437b33969d54ef2ae669b90aa}
+
+\begin{DoxyCompactList}\small\item\em Right context state sequence id table First dimension\-: base phone, Second dimension\-: left context. \end{DoxyCompactList}\item 
+s3ssid\-\_\-t $\ast$$\ast$$\ast$ {\bf lrdiph\-\_\-rc}\label{structdict2pid__t_a4eec4de961e2374a6a4c06bb9dde39d8}
+
+\begin{DoxyCompactList}\small\item\em For single-\/phone words, [base][lc][rc] -\/$>$ ssid; filled out for single-\/phone base x lc combinations in current vocabulary. \end{DoxyCompactList}\item 
+{\bf xwdssid\-\_\-t} $\ast$$\ast$ {\bf lrssid}\label{structdict2pid__t_a6c1de8a269f6ff37dce3dd8cbec4235a}
+
+\begin{DoxyCompactList}\small\item\em Left-\/\-Right context state sequence id table First dimension\-: base phone, Second dimension\-: left context. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Building composite triphone (as well as word internal triphones) with the dictionary. 
+
+Definition at line 148 of file dict2pid.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{dict2pid\-\_\-t@{dict2pid\-\_\-t}!dict@{dict}}
+\index{dict@{dict}!dict2pid_t@{dict2pid\-\_\-t}}
+\subsubsection[{dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dict\-\_\-t}$\ast$ dict2pid\-\_\-t\-::dict}\label{structdict2pid__t_ae1fecad64884980e9d8355844abc3512}
+
+
+Dictionary this table refers to. 
+
+
+
+Definition at line 153 of file dict2pid.\-h.
+
+
+
+Referenced by dict2pid\-\_\-add\-\_\-word(), dict2pid\-\_\-build(), dict2pid\-\_\-dump(), dict2pid\-\_\-free(), dict2pid\-\_\-get\-\_\-rcmap(), dict2pid\-\_\-internal(), get\-\_\-rc\-\_\-nssid(), ps\-\_\-alignment\-\_\-populate(), and ps\-\_\-alignment\-\_\-populate\-\_\-ci().
+
+\index{dict2pid\-\_\-t@{dict2pid\-\_\-t}!mdef@{mdef}}
+\index{mdef@{mdef}!dict2pid_t@{dict2pid\-\_\-t}}
+\subsubsection[{mdef}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bin\-\_\-mdef\-\_\-t}$\ast$ dict2pid\-\_\-t\-::mdef}\label{structdict2pid__t_ab0dcb283a0cf5ad40836bc418fd535b3}
+
+
+Model definition, used to generate internal ssids on the fly. 
+
+
+
+Definition at line 151 of file dict2pid.\-h.
+
+
+
+Referenced by dict2pid\-\_\-add\-\_\-word(), dict2pid\-\_\-build(), dict2pid\-\_\-dump(), dict2pid\-\_\-free(), dict2pid\-\_\-internal(), ps\-\_\-alignment\-\_\-populate(), and ps\-\_\-alignment\-\_\-populate\-\_\-ci().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf dict2pid.\-h}\end{DoxyCompactItemize}

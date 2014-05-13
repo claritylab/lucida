@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structjsgf__s" kind="struct" prot="public">
+    <compoundname>jsgf_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjsgf__s_1ad459d19b47134a9670ffa4e8c466c0df" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* jsgf_s::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <briefdescription>
+<para>JSGF version (from header) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="70" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="70" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1ac7cba2982a4c14503afbe1df5f208002" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* jsgf_s::charset</definition>
+        <argsstring></argsstring>
+        <name>charset</name>
+        <briefdescription>
+<para>JSGF charset (default UTF-8) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="71" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1a0423fa12efb23c307765d7d010908e0f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* jsgf_s::locale</definition>
+        <argsstring></argsstring>
+        <name>locale</name>
+        <briefdescription>
+<para>JSGF locale (default C) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="72" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="72" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1ab418c438a9c7f7e8aee029f006897656" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* jsgf_s::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>Grammar name. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="73" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+        <referencedby refid="jsgf_8c_1a5c84e0a3cebe022d4f7ab8b204c8da43" compoundref="jsgf_8c" startline="237" endline="240">jsgf_grammar_name</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1af257160279ab56ffca65966aeac18ef9" prot="public" static="no" mutable="no">
+        <type><ref refid="structhash__table__t" kindref="compound">hash_table_t</ref> *</type>
+        <definition>hash_table_t* jsgf_s::rules</definition>
+        <argsstring></argsstring>
+        <name>rules</name>
+        <briefdescription>
+<para>Defined or imported rules in this grammar. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="75" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="75" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a18fc91b6b6e79fb183147502df372b5e" compoundref="jsgf_8c" startline="497" endline="504">jsgf_get_rule</referencedby>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+        <referencedby refid="jsgf_8c_1a2f4a4ef97090210de6c73361de1d9561" compoundref="jsgf_8c" startline="83" endline="126">jsgf_grammar_new</referencedby>
+        <referencedby refid="jsgf_8c_1afd426d7e3799f54b4d5c0acff7684233" compoundref="jsgf_8c" startline="491" endline="494">jsgf_rule_iter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1a7efd071684d4ef7f077b0b06ce7bbc78" prot="public" static="no" mutable="no">
+        <type><ref refid="structhash__table__t" kindref="compound">hash_table_t</ref> *</type>
+        <definition>hash_table_t* jsgf_s::imports</definition>
+        <argsstring></argsstring>
+        <name>imports</name>
+        <briefdescription>
+<para>Pointers to imported grammars. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="76" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="76" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+        <referencedby refid="jsgf_8c_1a2f4a4ef97090210de6c73361de1d9561" compoundref="jsgf_8c" startline="83" endline="126">jsgf_grammar_new</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1af05b28c1350c76d64539403791522128" prot="public" static="no" mutable="no">
+        <type><ref refid="structjsgf__s" kindref="compound">jsgf_t</ref> *</type>
+        <definition>jsgf_t* jsgf_s::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <briefdescription>
+<para>Parent grammar (if this is an imported one) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="77" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="77" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a2f4a4ef97090210de6c73361de1d9561" compoundref="jsgf_8c" startline="83" endline="126">jsgf_grammar_new</referencedby>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1aabb207f0909c661a831e5f931dd9f60e" prot="public" static="no" mutable="no">
+        <type><ref refid="structgnode__s" kindref="compound">glist_t</ref></type>
+        <definition>glist_t jsgf_s::searchpath</definition>
+        <argsstring></argsstring>
+        <name>searchpath</name>
+        <briefdescription>
+<para>List of directories to search for grammars. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="78" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="78" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+        <referencedby refid="jsgf_8c_1a2f4a4ef97090210de6c73361de1d9561" compoundref="jsgf_8c" startline="83" endline="126">jsgf_grammar_new</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1a380c1b82e1bd776438303159e5129773" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int jsgf_s::nstate</definition>
+        <argsstring></argsstring>
+        <name>nstate</name>
+        <briefdescription>
+<para>Number of generated states. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="81" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1a6ee31bac19680f01c413969a75ad838a" prot="public" static="no" mutable="no">
+        <type><ref refid="structgnode__s" kindref="compound">glist_t</ref></type>
+        <definition>glist_t jsgf_s::links</definition>
+        <argsstring></argsstring>
+        <name>links</name>
+        <briefdescription>
+<para>Generated FSG links. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="82" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="82" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__s_1a0980112df6f2f591e64158266eb04b69" prot="public" static="no" mutable="no">
+        <type><ref refid="structgnode__s" kindref="compound">glist_t</ref></type>
+        <definition>glist_t jsgf_s::rulestack</definition>
+        <argsstring></argsstring>
+        <name>rulestack</name>
+        <briefdescription>
+<para>Stack of currently expanded rules. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="83" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="139">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="139" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="140" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="140">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="142">
+        <label>hash_entry_s</label>
+        <link refid="structhash__entry__s"/>
+        <childnode refid="142" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="138">
+        <label>jsgf_s</label>
+        <link refid="structjsgf__s"/>
+        <childnode refid="139" relation="usage">
+          <edgelabel>searchpath</edgelabel>
+          <edgelabel>links</edgelabel>
+          <edgelabel>rulestack</edgelabel>
+        </childnode>
+        <childnode refid="141" relation="usage">
+          <edgelabel>rules</edgelabel>
+          <edgelabel>imports</edgelabel>
+        </childnode>
+        <childnode refid="138" relation="usage">
+          <edgelabel>parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="141">
+        <label>hash_table_t</label>
+        <link refid="structhash__table__t"/>
+        <childnode refid="142" relation="usage">
+          <edgelabel>table</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="69" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="69" bodyend="84"/>
+    <listofallmembers>
+      <member refid="structjsgf__s_1ac7cba2982a4c14503afbe1df5f208002" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>charset</name></member>
+      <member refid="structjsgf__s_1a7efd071684d4ef7f077b0b06ce7bbc78" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>imports</name></member>
+      <member refid="structjsgf__s_1a6ee31bac19680f01c413969a75ad838a" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>links</name></member>
+      <member refid="structjsgf__s_1a0423fa12efb23c307765d7d010908e0f" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>locale</name></member>
+      <member refid="structjsgf__s_1ab418c438a9c7f7e8aee029f006897656" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>name</name></member>
+      <member refid="structjsgf__s_1a380c1b82e1bd776438303159e5129773" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>nstate</name></member>
+      <member refid="structjsgf__s_1af05b28c1350c76d64539403791522128" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>parent</name></member>
+      <member refid="structjsgf__s_1af257160279ab56ffca65966aeac18ef9" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>rules</name></member>
+      <member refid="structjsgf__s_1a0980112df6f2f591e64158266eb04b69" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>rulestack</name></member>
+      <member refid="structjsgf__s_1aabb207f0909c661a831e5f931dd9f60e" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>searchpath</name></member>
+      <member refid="structjsgf__s_1ad459d19b47134a9670ffa4e8c466c0df" prot="public" virt="non-virtual"><scope>jsgf_s</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

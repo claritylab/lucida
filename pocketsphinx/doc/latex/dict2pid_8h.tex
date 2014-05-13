@@ -1,0 +1,232 @@
+\section{src/libpocketsphinx/dict2pid.h File Reference}
+\label{dict2pid_8h}\index{src/libpocketsphinx/dict2pid.\-h@{src/libpocketsphinx/dict2pid.\-h}}
+
+
+Building triphones for a dictionary.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/logmath.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/bitvec.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}s3types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bin\-\_\-mdef.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dict.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf xwdssid\-\_\-t}
+\begin{DoxyCompactList}\small\item\em cross word triphone model structure \end{DoxyCompactList}\item 
+struct {\bf dict2pid\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Building composite triphone (as well as word internal triphones) with the dictionary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf dict2pid\-\_\-rssid}(d, ci, lc)~(\&(d)-\/$>$rssid[ci][lc])\label{dict2pid_8h_a453a98931cad95a19b4c4ab770fc79f1}
+
+\begin{DoxyCompactList}\small\item\em Access macros; not designed for arbitrary use. \end{DoxyCompactList}\item 
+\#define {\bfseries dict2pid\-\_\-ldiph\-\_\-lc}(d, b, r, l)~((d)-\/$>$ldiph\-\_\-lc[b][r][l])\label{dict2pid_8h_af4c6cb32b7fcc477bb2ab7676985d364}
+
+\item 
+\#define {\bfseries dict2pid\-\_\-lrdiph\-\_\-rc}(d, b, l, r)~((d)-\/$>$lrdiph\-\_\-rc[b][l][r])\label{dict2pid_8h_ab39429fde9a1d45e075d746f1511042e}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf dict2pid\-\_\-t} $\ast$ {\bf dict2pid\-\_\-build} ({\bf bin\-\_\-mdef\-\_\-t} $\ast$mdef, {\bf dict\-\_\-t} $\ast$dict)
+\begin{DoxyCompactList}\small\item\em Build the dict2pid structure for the given model/dictionary. \end{DoxyCompactList}\item 
+{\bf dict2pid\-\_\-t} $\ast$ {\bf dict2pid\-\_\-retain} ({\bf dict2pid\-\_\-t} $\ast$d2p)\label{dict2pid_8h_a85a8de8009445e1129766186ddaa949a}
+
+\begin{DoxyCompactList}\small\item\em Retain a pointer to dict2pid. \end{DoxyCompactList}\item 
+int {\bf dict2pid\-\_\-free} ({\bf dict2pid\-\_\-t} $\ast$d2p)
+\begin{DoxyCompactList}\small\item\em Free the memory dict2pid structure. \end{DoxyCompactList}\item 
+s3ssid\-\_\-t {\bf dict2pid\-\_\-internal} ({\bf dict2pid\-\_\-t} $\ast$d2p, int32 wid, int pos)\label{dict2pid_8h_a720e15c92ef6930e722bccb014e11b7b}
+
+\begin{DoxyCompactList}\small\item\em Return the senone sequence I\-D for the given word position. \end{DoxyCompactList}\item 
+int {\bf dict2pid\-\_\-add\-\_\-word} ({\bf dict2pid\-\_\-t} $\ast$d2p, int32 wid)\label{dict2pid_8h_aa94120dcea4b17807576e29484b8a008}
+
+\begin{DoxyCompactList}\small\item\em Add a word to the dict2pid structure (after adding it to dict). \end{DoxyCompactList}\item 
+void {\bf dict2pid\-\_\-dump} (F\-I\-L\-E $\ast$fp, {\bf dict2pid\-\_\-t} $\ast$d2p)
+\begin{DoxyCompactList}\small\item\em For debugging. \end{DoxyCompactList}\item 
+void {\bf dict2pid\-\_\-report} ({\bf dict2pid\-\_\-t} $\ast$d2p)
+\begin{DoxyCompactList}\small\item\em Report a dict2pid data structure. \end{DoxyCompactList}\item 
+int32 {\bf get\-\_\-rc\-\_\-nssid} ({\bf dict2pid\-\_\-t} $\ast$d2p, s3wid\-\_\-t w)
+\begin{DoxyCompactList}\small\item\em Get number of rc. \end{DoxyCompactList}\item 
+{\bf s3cipid\-\_\-t} $\ast$ {\bf dict2pid\-\_\-get\-\_\-rcmap} ({\bf dict2pid\-\_\-t} $\ast$d2p, s3wid\-\_\-t w)
+\begin{DoxyCompactList}\small\item\em Get R\-C map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Building triphones for a dictionary. This is one of the more complicated parts of a cross-\/word triphone model decoder. The first and last phones of each word get their left and right contexts, respectively, from other words. For single-\/phone words, both its contexts are from other words, simultaneously. As these words are not known beforehand, life gets complicated. 
+
+Definition in file {\bf dict2pid.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{dict2pid.\-h@{dict2pid.\-h}!dict2pid\-\_\-build@{dict2pid\-\_\-build}}
+\index{dict2pid\-\_\-build@{dict2pid\-\_\-build}!dict2pid.h@{dict2pid.\-h}}
+\subsubsection[{dict2pid\-\_\-build}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dict2pid\-\_\-t}$\ast$ dict2pid\-\_\-build (
+\begin{DoxyParamCaption}
+\item[{{\bf bin\-\_\-mdef\-\_\-t} $\ast$}]{mdef, }
+\item[{{\bf dict\-\_\-t} $\ast$}]{dict}
+\end{DoxyParamCaption}
+)}\label{dict2pid_8h_addd541f2275b79e284575fb11b7986e1}
+
+
+Build the dict2pid structure for the given model/dictionary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mdef} & A model definition \\
+\hline
+{\em dict} & An initialized dictionary \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 388 of file dict2pid.\-c.
+
+
+
+References B\-A\-D\-\_\-\-S3\-S\-S\-I\-D, bin\-\_\-mdef\-\_\-ciphone\-\_\-str(), bin\-\_\-mdef\-\_\-retain(), dict2pid\-\_\-t\-::dict, dict2pid\-\_\-report(), dict\-\_\-pron, dict\-\_\-retain(), dict\-\_\-size, dict2pid\-\_\-t\-::ldiph\-\_\-lc, dict2pid\-\_\-t\-::lrdiph\-\_\-rc, dict2pid\-\_\-t\-::mdef, bin\-\_\-mdef\-\_\-s\-::n\-\_\-ciphone, W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-B\-E\-G\-I\-N, and W\-O\-R\-D\-\_\-\-P\-O\-S\-N\-\_\-\-E\-N\-D.
+
+
+
+Referenced by ps\-\_\-load\-\_\-dict(), and ps\-\_\-reinit().
+
+\index{dict2pid.\-h@{dict2pid.\-h}!dict2pid\-\_\-dump@{dict2pid\-\_\-dump}}
+\index{dict2pid\-\_\-dump@{dict2pid\-\_\-dump}!dict2pid.h@{dict2pid.\-h}}
+\subsubsection[{dict2pid\-\_\-dump}]{\setlength{\rightskip}{0pt plus 5cm}void dict2pid\-\_\-dump (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf dict2pid\-\_\-t} $\ast$}]{d2p}
+\end{DoxyParamCaption}
+)}\label{dict2pid_8h_a32320cd5d020620ac913b46bafeb5cae}
+
+
+For debugging. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & In\-: a file pointer \\
+\hline
+{\em d2p} & In\-: a \doxyref{dict2pid\-\_\-t}{p.}{structdict2pid__t} structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 538 of file dict2pid.\-c.
+
+
+
+References bin\-\_\-mdef\-\_\-ciphone\-\_\-str(), dict2pid\-\_\-t\-::dict, dict2pid\-\_\-internal(), dict\-\_\-size, dict2pid\-\_\-t\-::ldiph\-\_\-lc, dict2pid\-\_\-t\-::mdef, bin\-\_\-mdef\-\_\-s\-::n\-\_\-sseq, and bin\-\_\-mdef\-\_\-s\-::sseq.
+
+\index{dict2pid.\-h@{dict2pid.\-h}!dict2pid\-\_\-free@{dict2pid\-\_\-free}}
+\index{dict2pid\-\_\-free@{dict2pid\-\_\-free}!dict2pid.h@{dict2pid.\-h}}
+\subsubsection[{dict2pid\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}int dict2pid\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf dict2pid\-\_\-t} $\ast$}]{d2p}
+\end{DoxyParamCaption}
+)}\label{dict2pid_8h_a293253226550e812c448ae096b364d0d}
+
+
+Free the memory dict2pid structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d2p} & In\-: the d2p \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 507 of file dict2pid.\-c.
+
+
+
+References bin\-\_\-mdef\-\_\-free(), dict2pid\-\_\-t\-::dict, dict\-\_\-free(), dict2pid\-\_\-t\-::ldiph\-\_\-lc, dict2pid\-\_\-t\-::lrdiph\-\_\-rc, dict2pid\-\_\-t\-::lrssid, dict2pid\-\_\-t\-::mdef, and dict2pid\-\_\-t\-::rssid.
+
+
+
+Referenced by ps\-\_\-alignment\-\_\-free(), ps\-\_\-free(), ps\-\_\-load\-\_\-dict(), ps\-\_\-reinit(), ps\-\_\-search\-\_\-base\-\_\-reinit(), and ps\-\_\-search\-\_\-deinit().
+
+\index{dict2pid.\-h@{dict2pid.\-h}!dict2pid\-\_\-get\-\_\-rcmap@{dict2pid\-\_\-get\-\_\-rcmap}}
+\index{dict2pid\-\_\-get\-\_\-rcmap@{dict2pid\-\_\-get\-\_\-rcmap}!dict2pid.h@{dict2pid.\-h}}
+\subsubsection[{dict2pid\-\_\-get\-\_\-rcmap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf s3cipid\-\_\-t}$\ast$ dict2pid\-\_\-get\-\_\-rcmap (
+\begin{DoxyParamCaption}
+\item[{{\bf dict2pid\-\_\-t} $\ast$}]{d2p, }
+\item[{s3wid\-\_\-t}]{w}
+\end{DoxyParamCaption}
+)}\label{dict2pid_8h_a34aca68c98588e7e1a3f0e6d0800e1bf}
+
+
+Get R\-C map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d2p} & In\-: a dict2pid \\
+\hline
+{\em w} & In\-: a wid \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 229 of file dict2pid.\-c.
+
+
+
+References xwdssid\-\_\-t\-::cimap, dictword\-\_\-t\-::ciphone, dict2pid\-\_\-t\-::dict, dict2pid\-\_\-t\-::lrssid, dictword\-\_\-t\-::pronlen, dict2pid\-\_\-t\-::rssid, and dict\-\_\-t\-::word.
+
+\index{dict2pid.\-h@{dict2pid.\-h}!dict2pid\-\_\-report@{dict2pid\-\_\-report}}
+\index{dict2pid\-\_\-report@{dict2pid\-\_\-report}!dict2pid.h@{dict2pid.\-h}}
+\subsubsection[{dict2pid\-\_\-report}]{\setlength{\rightskip}{0pt plus 5cm}void dict2pid\-\_\-report (
+\begin{DoxyParamCaption}
+\item[{{\bf dict2pid\-\_\-t} $\ast$}]{d2p}
+\end{DoxyParamCaption}
+)}\label{dict2pid_8h_a36c486f1ac64991c95c4c0ef75ceaa46}
+
+
+Report a dict2pid data structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d2p} & In\-: a \doxyref{dict2pid\-\_\-t}{p.}{structdict2pid__t} structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 533 of file dict2pid.\-c.
+
+
+
+Referenced by dict2pid\-\_\-build().
+
+\index{dict2pid.\-h@{dict2pid.\-h}!get\-\_\-rc\-\_\-nssid@{get\-\_\-rc\-\_\-nssid}}
+\index{get\-\_\-rc\-\_\-nssid@{get\-\_\-rc\-\_\-nssid}!dict2pid.h@{dict2pid.\-h}}
+\subsubsection[{get\-\_\-rc\-\_\-nssid}]{\setlength{\rightskip}{0pt plus 5cm}int32 get\-\_\-rc\-\_\-nssid (
+\begin{DoxyParamCaption}
+\item[{{\bf dict2pid\-\_\-t} $\ast$}]{d2p, }
+\item[{s3wid\-\_\-t}]{w}
+\end{DoxyParamCaption}
+)}\label{dict2pid_8h_aa77890032a2c171ed9944b1d81fd5cb0}
+
+
+Get number of rc. 
+
+Get number of rc.
+
+I doubt whether it is correct because the compressed map has not been checked. 
+\begin{DoxyParams}{Parameters}
+{\em d2p} & In\-: a dict2pid \\
+\hline
+{\em w} & In\-: a wid \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 204 of file dict2pid.\-c.
+
+
+
+References dictword\-\_\-t\-::ciphone, dict2pid\-\_\-t\-::dict, dict2pid\-\_\-t\-::lrssid, xwdssid\-\_\-t\-::n\-\_\-ssid, dictword\-\_\-t\-::pronlen, dict2pid\-\_\-t\-::rssid, and dict\-\_\-t\-::word.
+

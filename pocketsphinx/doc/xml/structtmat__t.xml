@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structtmat__t" kind="struct" prot="public">
+    <compoundname>tmat_t</compoundname>
+    <includes refid="tmat_8h" local="no">tmat.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtmat__t_1a9f518c96b30dab9efdb69bd779a7b5bf" prot="public" static="no" mutable="no">
+        <type>uint8 ***</type>
+        <definition>uint8*** tmat_t::tp</definition>
+        <argsstring></argsstring>
+        <name>tp</name>
+        <briefdescription>
+<para>The transition matrices; kept in the same scale as acoustic scores; tp[tmatid][from-state][to-state]. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" line="110" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" bodystart="110" bodyend="-1"/>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+        <referencedby refid="tmat_8h_1af222f1a75e4bbbc76e1141ef0d0e41c7" compoundref="tmat_8c" startline="129" endline="144">tmat_dump</referencedby>
+        <referencedby refid="tmat_8h_1a33fc2f994068e2667eb728d7118ea038" compoundref="tmat_8c" startline="191" endline="316">tmat_init</referencedby>
+        <referencedby refid="tmat_8h_1a8f98e68e4a868728a89cf9996c48a6c9" compoundref="tmat_8c" startline="332" endline="339">tmat_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtmat__t_1ada644af34d54256f1574870d5f7a6788" prot="public" static="no" mutable="no">
+        <type>int16</type>
+        <definition>int16 tmat_t::n_tmat</definition>
+        <argsstring></argsstring>
+        <name>n_tmat</name>
+        <briefdescription>
+<para>Number matrices. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" line="112" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" bodystart="112" bodyend="-1"/>
+        <referencedby refid="tmat_8h_1af222f1a75e4bbbc76e1141ef0d0e41c7" compoundref="tmat_8c" startline="129" endline="144">tmat_dump</referencedby>
+        <referencedby refid="tmat_8h_1a33fc2f994068e2667eb728d7118ea038" compoundref="tmat_8c" startline="191" endline="316">tmat_init</referencedby>
+        <referencedby refid="tmat_8h_1a898dd73b6f40d9323f2d6e688733a0a5" compoundref="tmat_8c" startline="319" endline="326">tmat_report</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structtmat__t_1a3633c71659e30cf23bee1f7efb4b4805" prot="public" static="no" mutable="no">
+        <type>int16</type>
+        <definition>int16 tmat_t::n_state</definition>
+        <argsstring></argsstring>
+        <name>n_state</name>
+        <briefdescription>
+<para>Number source states in matrix (only the emitting states); Number destination states = n_state+1, it includes the exit state. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" line="113" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" bodystart="113" bodyend="-1"/>
+        <referencedby refid="tmat_8h_1af222f1a75e4bbbc76e1141ef0d0e41c7" compoundref="tmat_8c" startline="129" endline="144">tmat_dump</referencedby>
+        <referencedby refid="tmat_8h_1a33fc2f994068e2667eb728d7118ea038" compoundref="tmat_8c" startline="191" endline="316">tmat_init</referencedby>
+        <referencedby refid="tmat_8h_1a898dd73b6f40d9323f2d6e688733a0a5" compoundref="tmat_8c" startline="319" endline="326">tmat_report</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Transition matrix data structure. </para>    </briefdescription>
+    <detaileddescription>
+<para>All phone HMMs are assumed to have the same topology. </para>    </detaileddescription>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" line="109" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/tmat.h" bodystart="109" bodyend="115"/>
+    <listofallmembers>
+      <member refid="structtmat__t_1a3633c71659e30cf23bee1f7efb4b4805" prot="public" virt="non-virtual"><scope>tmat_t</scope><name>n_state</name></member>
+      <member refid="structtmat__t_1ada644af34d54256f1574870d5f7a6788" prot="public" virt="non-virtual"><scope>tmat_t</scope><name>n_tmat</name></member>
+      <member refid="structtmat__t_1a9f518c96b30dab9efdb69bd779a7b5bf" prot="public" virt="non-virtual"><scope>tmat_t</scope><name>tp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,576 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="cmn_8h" kind="file">
+    <compoundname>cmn.h</compoundname>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includes refid="fe_8h" local="no">sphinxbase/fe.h</includes>
+    <includedby refid="feat_8h" local="no">include/sphinxbase/feat.h</includedby>
+    <includedby refid="cmn_8c" local="yes">src/libsphinxbase/feat/cmn.c</includedby>
+    <includedby refid="cmn__prior_8c" local="yes">src/libsphinxbase/feat/cmn_prior.c</includedby>
+    <includedby refid="feat_8c" local="yes">src/libsphinxbase/feat/feat.c</includedby>
+    <incdepgraph>
+      <node id="363">
+        <label>stdarg.h</label>
+      </node>
+      <node id="365">
+        <label>limits.h</label>
+      </node>
+      <node id="359">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="364">
+        <label>sphinxbase/fixpoint.h</label>
+        <link refid="fixpoint_8h_source"/>
+        <childnode refid="365" relation="include">
+        </childnode>
+        <childnode refid="357" relation="include">
+        </childnode>
+        <childnode refid="358" relation="include">
+        </childnode>
+      </node>
+      <node id="357">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="358">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="359" relation="include">
+        </childnode>
+      </node>
+      <node id="361">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="362" relation="include">
+        </childnode>
+        <childnode refid="363" relation="include">
+        </childnode>
+        <childnode refid="357" relation="include">
+        </childnode>
+        <childnode refid="358" relation="include">
+        </childnode>
+      </node>
+      <node id="360">
+        <label>sphinxbase/fe.h</label>
+        <link refid="fe_8h_source"/>
+        <childnode refid="357" relation="include">
+        </childnode>
+        <childnode refid="361" relation="include">
+        </childnode>
+        <childnode refid="364" relation="include">
+        </childnode>
+      </node>
+      <node id="356">
+        <label>include/sphinxbase/cmn.h</label>
+        <link refid="cmn.h"/>
+        <childnode refid="357" relation="include">
+        </childnode>
+        <childnode refid="358" relation="include">
+        </childnode>
+        <childnode refid="360" relation="include">
+        </childnode>
+      </node>
+      <node id="362">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="367">
+        <label>include/sphinxbase/feat.h</label>
+        <link refid="feat_8h"/>
+        <childnode refid="368" relation="include">
+        </childnode>
+        <childnode refid="369" relation="include">
+        </childnode>
+      </node>
+      <node id="371">
+        <label>src/libsphinxbase/feat/cmn_prior.c</label>
+        <link refid="cmn__prior_8c_source"/>
+      </node>
+      <node id="370">
+        <label>src/libsphinxbase/feat/cmn.c</label>
+        <link refid="cmn_8c_source"/>
+      </node>
+      <node id="368">
+        <label>src/libsphinxbase/feat/feat.c</label>
+        <link refid="feat_8c_source"/>
+      </node>
+      <node id="366">
+        <label>include/sphinxbase/cmn.h</label>
+        <link refid="cmn.h"/>
+        <childnode refid="367" relation="include">
+        </childnode>
+        <childnode refid="370" relation="include">
+        </childnode>
+        <childnode refid="371" relation="include">
+        </childnode>
+        <childnode refid="368" relation="include">
+        </childnode>
+      </node>
+      <node id="369">
+        <label>src/libsphinxbase/feat/lda.c</label>
+        <link refid="lda_8c_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structcmn__t" prot="public">cmn_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="cmn_8h_1abbf37b74032c295136b4b299ecfcedae" prot="public" static="no">
+        <name>CMN_WIN_HWM</name>
+        <initializer>800     /* #frames after which window shifted */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="151" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmn_8h_1a500dafed8351d334da9290ec4f3f6ab3" prot="public" static="no">
+        <name>CMN_WIN</name>
+        <initializer>500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="152" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="cmn_8h_1a5bb134416e9e63a317eac20b0102bd59" prot="public" static="no">
+        <name>cmn_type_e</name>
+        <enumvalue id="cmn_8h_1a5bb134416e9e63a317eac20b0102bd59abae6d62380ce6ff3b64d5b54967ebb5c" prot="public">
+          <name>CMN_NONE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cmn_8h_1a5bb134416e9e63a317eac20b0102bd59a75df00476ffc3f3e3e182f11f64a99ec" prot="public">
+          <name>CMN_CURRENT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="cmn_8h_1a5bb134416e9e63a317eac20b0102bd59aeff89be6638ffa69cc96ef83d410b66d" prot="public">
+          <name>CMN_PRIOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of cepstral mean normalization to apply to the features. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="110" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" bodystart="110" bodyend="114"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="cmn_8h_1a9384c411b10e9db9745cfb550a5c7652" prot="public" static="no">
+        <type>enum <ref refid="cmn_8h_1a5bb134416e9e63a317eac20b0102bd59" kindref="member">cmn_type_e</ref></type>
+        <definition>typedef enum cmn_type_e  cmn_type_t</definition>
+        <argsstring></argsstring>
+        <name>cmn_type_t</name>
+        <briefdescription>
+<para>Types of cepstral mean normalization to apply to the features. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="114" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" prot="public" static="no" mutable="no">
+        <type>SPHINXBASE_EXPORT const char *</type>
+        <definition>SPHINXBASE_EXPORT const char* cmn_type_str[]</definition>
+        <argsstring>[]</argsstring>
+        <name>cmn_type_str</name>
+        <briefdescription>
+<para>String representations of cmn_type_t values. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="118" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="110" bodyend="-1"/>
+        <referencedby refid="cmn_8h_1acf5e65a03a0d74630add4a400fed0ce8" compoundref="cmn_8c" startline="118" endline="128">cmn_type_from_str</referencedby>
+        <referencedby refid="feat_8h_1a7a5e2e02e99e368e1e9e3b1ded35e3dc" compoundref="feat_8c" startline="705" endline="891">feat_init</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="cmn_8h_1acf5e65a03a0d74630add4a400fed0ce8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="cmn_8h_1a9384c411b10e9db9745cfb550a5c7652" kindref="member">cmn_type_t</ref></type>
+        <definition>SPHINXBASE_EXPORT cmn_type_t cmn_type_from_str</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>cmn_type_from_str</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Convert string representation (from command-line) to cmn_type_t. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="122" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="118" bodyend="128"/>
+        <references refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" compoundref="cmn_8c" startline="110">cmn_type_str</references>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8h_1a7ba6ce5489afce232b9bb61bd2ebd20f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT cmn_t* cmn_init</definition>
+        <argsstring>(int32 veclen)</argsstring>
+        <name>cmn_init</name>
+        <param>
+          <type>int32</type>
+          <declname>veclen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="137" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="131" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmn</definition>
+        <argsstring>(cmn_t *cmn, mfcc_t **mfc, int32 varnorm, int32 n_frame)</argsstring>
+        <name>cmn</name>
+        <param>
+          <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+          <declname>cmn</declname>
+          <briefdescription><para>In/Out: cmn normalization, which contains the cmn_mean and cmn_var) </para></briefdescription>
+        </param>
+        <param>
+          <type>mfcc_t **</type>
+          <declname>mfc</declname>
+          <briefdescription><para>In/Out: mfc[f] = mfc vector in frame f </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>varnorm</declname>
+          <briefdescription><para>In: if not FALSE, variance normalize the input vectors to have unit variance (along each dimension independently); Irrelevant if no cmn is performed </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_frame</declname>
+          <briefdescription><para>In: Number of frames of mfc vectors </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>CMN for the whole sentence. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="143" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="150" bodyend="210"/>
+        <references refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" compoundref="cmn_8h" startline="129">cmn_t::cmn_mean</references>
+        <references refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" compoundref="cmn_8h" startline="130">cmn_t::cmn_var</references>
+        <references refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" compoundref="err_8h" startline="131">E_INFO</references>
+        <references refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" compoundref="err_8h" startline="136">E_INFOCONT</references>
+        <references refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" compoundref="cmn_8h" startline="133">cmn_t::veclen</references>
+        <referencedby refid="feat_8h_1a7a5e2e02e99e368e1e9e3b1ded35e3dc" compoundref="feat_8c" startline="705" endline="891">feat_init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8h_1aa622cf1b6a1b9a9bffd8f60b903bfc42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmn_prior</definition>
+        <argsstring>(cmn_t *cmn, mfcc_t **incep, int32 varnorm, int32 nfr)</argsstring>
+        <name>cmn_prior</name>
+        <param>
+          <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+          <declname>cmn</declname>
+          <briefdescription><para>In/Out: cmn normalization, which contains the cmn_mean and cmn_var) </para></briefdescription>
+        </param>
+        <param>
+          <type>mfcc_t **</type>
+          <declname>incep</declname>
+          <briefdescription><para>In/Out: mfc[f] = mfc vector in frame f </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>varnorm</declname>
+          <briefdescription><para>This flag should always be 0 for live </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>nfr</declname>
+          <briefdescription><para>Number of incoming frames </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>CMN for one block of data, using prior mean. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="158" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn_prior.c" bodystart="156" bodyend="178"/>
+        <references refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" compoundref="cmn_8h" startline="129">cmn_t::cmn_mean</references>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+        <references refid="structcmn__t_1a456cc3313e93fa3057b658fef64a0c53" compoundref="cmn_8h" startline="132">cmn_t::nframe</references>
+        <references refid="structcmn__t_1adb70819b1ca822d5a4ee6dc94b3b48e7" compoundref="cmn_8h" startline="131">cmn_t::sum</references>
+        <references refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" compoundref="cmn_8h" startline="133">cmn_t::veclen</references>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8h_1aae61df2ec71082520669fc63d94bb1ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmn_prior_update</definition>
+        <argsstring>(cmn_t *cmn)</argsstring>
+        <name>cmn_prior_update</name>
+        <param>
+          <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+          <declname>cmn</declname>
+        </param>
+        <briefdescription>
+<para>Update prior mean based on observed data. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="169" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn_prior.c" bodystart="123" bodyend="153"/>
+        <references refid="structcmn__t_1a456cc3313e93fa3057b658fef64a0c53" compoundref="cmn_8h" startline="132">cmn_t::nframe</references>
+        <references refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" compoundref="err_8h" startline="131">E_INFO</references>
+        <references refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" compoundref="cmn_8h" startline="133">cmn_t::veclen</references>
+        <references refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" compoundref="err_8h" startline="136">E_INFOCONT</references>
+        <references refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" compoundref="cmn_8h" startline="129">cmn_t::cmn_mean</references>
+        <references refid="structcmn__t_1adb70819b1ca822d5a4ee6dc94b3b48e7" compoundref="cmn_8h" startline="131">cmn_t::sum</references>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8h_1a0f6f70d51143d6a33130650b8d4758ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmn_prior_set</definition>
+        <argsstring>(cmn_t *cmn, mfcc_t const *vec)</argsstring>
+        <name>cmn_prior_set</name>
+        <param>
+          <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+          <declname>cmn</declname>
+        </param>
+        <param>
+          <type>mfcc_t const *</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+<para>Set the prior mean. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="175" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn_prior.c" bodystart="62" bodyend="81"/>
+        <references refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" compoundref="err_8h" startline="131">E_INFO</references>
+        <references refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" compoundref="cmn_8h" startline="133">cmn_t::veclen</references>
+        <references refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" compoundref="err_8h" startline="136">E_INFOCONT</references>
+        <references refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" compoundref="cmn_8h" startline="129">cmn_t::cmn_mean</references>
+        <references refid="structcmn__t_1adb70819b1ca822d5a4ee6dc94b3b48e7" compoundref="cmn_8h" startline="131">cmn_t::sum</references>
+        <references refid="structcmn__t_1a456cc3313e93fa3057b658fef64a0c53" compoundref="cmn_8h" startline="132">cmn_t::nframe</references>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8h_1a4f624f5b805288f66fa05b79b1e4f383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmn_prior_get</definition>
+        <argsstring>(cmn_t *cmn, mfcc_t *vec)</argsstring>
+        <name>cmn_prior_get</name>
+        <param>
+          <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+          <declname>cmn</declname>
+        </param>
+        <param>
+          <type>mfcc_t *</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+<para>Get the prior mean. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="181" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn_prior.c" bodystart="84" bodyend="91"/>
+        <references refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" compoundref="cmn_8h" startline="133">cmn_t::veclen</references>
+        <references refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" compoundref="cmn_8h" startline="129">cmn_t::cmn_mean</references>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8h_1a0f70f378107e3d4e861e39d4f76d8d50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmn_free</definition>
+        <argsstring>(cmn_t *cmn)</argsstring>
+        <name>cmn_free</name>
+        <param>
+          <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+          <declname>cmn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h" line="185" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="216" bodyend="230"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Apply Cepstral Mean Normalization (CMN) to the set of input mfc frames. </para>    </briefdescription>
+    <detaileddescription>
+<para>By subtractingthe mean of the input from each frame. C0 is also included in this process. This function operates on an entire utterance at a time. Hence, the entire utterance must be available beforehand (batchmode). </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>cmn.h<sp/>--<sp/>Various<sp/>forms<sp/>of<sp/>cepstral<sp/>mean<sp/>normalization</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>$Log$</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.1<sp/><sp/>2006/04/05<sp/><sp/>20:27:30<sp/><sp/>dhdfu</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>A<sp/>Great<sp/>Reorganzation<sp/>of<sp/>header<sp/>files<sp/>and<sp/>executables</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.13<sp/><sp/>2006/02/23<sp/>03:48:27<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Resolved<sp/>conflict<sp/>in<sp/>cmn.h</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.12<sp/><sp/>2006/02/22<sp/>23:43:55<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>Merged<sp/>from<sp/>the<sp/>branch<sp/>SPHINX3_5_2_RCI_IRII_BRANCH:<sp/>Put<sp/>data<sp/>structure<sp/>into<sp/>the<sp/>cmn_t<sp/>structure.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.11.4.2<sp/><sp/>2005/10/17<sp/>04:45:57<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>Free<sp/>stuffs<sp/>in<sp/>cmn<sp/>and<sp/>feat<sp/>corectly.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.11.4.1<sp/><sp/>2005/07/05<sp/>06:25:08<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>dox-doc.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.11<sp/><sp/>2005/06/21<sp/>19:28:00<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>1,<sp/>Fixed<sp/>doxygen<sp/>documentation.<sp/>2,<sp/>Added<sp/>$<sp/>keyword.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2005/06/13<sp/>04:02:56<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>most<sp/>doxygen-style<sp/>documentation<sp/>under<sp/>libs3decoder.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:46<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>20.Apr.2001<sp/><sp/>RAH<sp/>(rhoughton@mediasite.com,<sp/>ricky.houghton@cs.cmu.edu)</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>cmn_free()<sp/>and<sp/>moved<sp/>*mean<sp/>and<sp/>*var<sp/>out<sp/>global<sp/>space<sp/>and<sp/>named<sp/>them<sp/>cmn_mean<sp/>and<sp/>cmn_var</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*<sp/>28-Apr-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Copied<sp/>from<sp/>previous<sp/>version.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_S3_CMN_H_</highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_S3_CMN_H_</highlight></codeline>
+<codeline lineno="85"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Win32/WinCE<sp/>DLL<sp/>gunk<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/fe.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="92"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="110" refid="cmn_8h_1a5bb134416e9e63a317eac20b0102bd59" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="cmn_8h_1a5bb134416e9e63a317eac20b0102bd59" kindref="member">cmn_type_e</ref><sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>CMN_NONE<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>CMN_CURRENT,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>CMN_PRIOR</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}<sp/><ref refid="cmn_8h_1a9384c411b10e9db9745cfb550a5c7652" kindref="member">cmn_type_t</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" kindref="member">cmn_type_str</ref>[];</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><ref refid="cmn_8h_1a9384c411b10e9db9745cfb550a5c7652" kindref="member">cmn_type_t</ref><sp/><ref refid="cmn_8h_1acf5e65a03a0d74630add4a400fed0ce8" kindref="member">cmn_type_from_str</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="structcmn__t" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="129" refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>mfcc_t<sp/>*<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="130" refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>mfcc_t<sp/>*<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="131" refid="structcmn__t_1adb70819b1ca822d5a4ee6dc94b3b48e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>mfcc_t<sp/>*<ref refid="structcmn__t_1adb70819b1ca822d5a4ee6dc94b3b48e7" kindref="member">sum</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="132" refid="structcmn__t_1a456cc3313e93fa3057b658fef64a0c53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structcmn__t_1a456cc3313e93fa3057b658fef64a0c53" kindref="member">nframe</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="133" refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}<sp/><ref refid="structcmn__t" kindref="compound">cmn_t</ref>;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><ref refid="structcmn__t" kindref="compound">cmn_t</ref>*<sp/>cmn_init(int32<sp/>veclen);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref><sp/>(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*<ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mfcc_t<sp/>**mfc,<sp/></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>varnorm,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>n_frame<sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMN_WIN_HWM<sp/><sp/><sp/><sp/><sp/>800<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>#frames<sp/>after<sp/>which<sp/>window<sp/>shifted<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CMN_WIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>500</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmn_8h_1aa622cf1b6a1b9a9bffd8f60b903bfc42" kindref="member">cmn_prior</ref>(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*<ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mfcc_t<sp/>**incep,<sp/><sp/></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>varnorm,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>nfr<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmn_8h_1aae61df2ec71082520669fc63d94bb1ef" kindref="member">cmn_prior_update</ref>(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*<ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmn_8h_1a0f6f70d51143d6a33130650b8d4758ab" kindref="member">cmn_prior_set</ref>(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*<ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>,<sp/>mfcc_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*vec);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmn_8h_1a4f624f5b805288f66fa05b79b1e4f383" kindref="member">cmn_prior_get</ref>(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*<ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>,<sp/>mfcc_t<sp/>*vec);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>RAH,<sp/>free<sp/>previously<sp/>allocated<sp/>memory<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>cmn_free<sp/>(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*<ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="188"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="190"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmn.h"/>
+  </compounddef>
+</doxygen>

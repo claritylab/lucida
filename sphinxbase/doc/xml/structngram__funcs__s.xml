@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structngram__funcs__s" kind="struct" prot="public">
+    <compoundname>ngram_funcs_s</compoundname>
+    <includes refid="ngram__model__internal_8h" local="no">ngram_model_internal.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structngram__funcs__s_1a4211130880131f38e16022985816952f" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* ngram_funcs_s::free)(ngram_model_t *model)</definition>
+        <argsstring>)(ngram_model_t *model)</argsstring>
+        <name>free</name>
+        <briefdescription>
+<para>Implementation-specific function for freeing an ngram_model_t. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="114" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="114" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1aec73d28e7285e539a0b44a7ac0cbe489" compoundref="ngram__model_8c" startline="254" endline="296">ngram_model_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1abfd7e53c672aef5a34ec5114ec475916" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* ngram_funcs_s::apply_weights)(ngram_model_t *model, float32 lw, float32 wip, float32 uw)</definition>
+        <argsstring>)(ngram_model_t *model, float32 lw, float32 wip, float32 uw)</argsstring>
+        <name>apply_weights</name>
+        <briefdescription>
+<para>Implementation-specific function for applying language model weights. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="118" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="118" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1aa4b8d7c1f3d873b8458c0cfee13af4da" compoundref="ngram__model_8c" startline="477" endline="481">ngram_model_apply_weights</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1a81b0c7948179c2572fb274401b82278e" prot="public" static="no" mutable="no">
+        <type>int32(*</type>
+        <definition>int32(* ngram_funcs_s::score)(ngram_model_t *model, int32 wid, int32 *history, int32 n_hist, int32 *n_used)</definition>
+        <argsstring>)(ngram_model_t *model, int32 wid, int32 *history, int32 n_hist, int32 *n_used)</argsstring>
+        <name>score</name>
+        <briefdescription>
+<para>Implementation-specific function for querying language model score. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="125" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="125" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a6ac5799e78ea4ad82a11e2439016471e" compoundref="ngram__model_8c" startline="494" endline="521">ngram_ng_score</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1a2a64c66491914168bd830237cc93b16c" prot="public" static="no" mutable="no">
+        <type>int32(*</type>
+        <definition>int32(* ngram_funcs_s::raw_score)(ngram_model_t *model, int32 wid, int32 *history, int32 n_hist, int32 *n_used)</definition>
+        <argsstring>)(ngram_model_t *model, int32 wid, int32 *history, int32 n_hist, int32 *n_used)</argsstring>
+        <name>raw_score</name>
+        <briefdescription>
+<para>Implementation-specific function for querying raw language model probability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="134" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="134" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a218d8d140b93d3d8008f8933f9e04ec6" compoundref="ngram__model_8c" startline="570" endline="597">ngram_ng_prob</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1a6d553c95c7f4da4993f2b9df757ac016" prot="public" static="no" mutable="no">
+        <type>int32(*</type>
+        <definition>int32(* ngram_funcs_s::add_ug)(ngram_model_t *model, int32 wid, int32 lweight)</definition>
+        <argsstring>)(ngram_model_t *model, int32 wid, int32 lweight)</argsstring>
+        <name>add_ug</name>
+        <briefdescription>
+<para>Implementation-specific function for adding unigrams. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function updates the internal structures of a language model to add the given unigram with the given weight (defined as a log-factor applied to the uniform distribution). This includes reallocating or otherwise resizing the set of unigrams.</para><para><simplesect kind="return"><para>The language model score (not raw log-probability) of the new word, or 0 for failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="150" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="150" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a38e034d58ee0d6a4c0dd6f852cb71c3c" compoundref="ngram__model_8c" startline="853" endline="876">ngram_model_add_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1a7abf2864db9c8e8d1d5909ea92144ffe" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* ngram_funcs_s::flush)(ngram_model_t *model)</definition>
+        <argsstring>)(ngram_model_t *model)</argsstring>
+        <name>flush</name>
+        <briefdescription>
+<para>Implementation-specific function for purging N-Gram cache. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="155" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="155" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a8304f56d82278824b0a94c254d7235aa" compoundref="ngram__model_8c" startline="247" endline="251">ngram_model_flush</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1a8148f132a986660ff500e46f9b2ea1c1" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__model_8h_1ac7de090a02fa12a8bba84abb4d5236aa" kindref="member">ngram_iter_t</ref> *(*</type>
+        <definition>ngram_iter_t*(* ngram_funcs_s::iter)(ngram_model_t *model, int32 wid, int32 *history, int32 n_hist)</definition>
+        <argsstring>)(ngram_model_t *model, int32 wid, int32 *history, int32 n_hist)</argsstring>
+        <name>iter</name>
+        <briefdescription>
+<para>Implementation-specific function for iterating. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="160" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="160" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a461c6e5914ce463422dfeaeee377e024" compoundref="ngram__model_8c" startline="751" endline="758">ngram_ng_iter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1a3a264fcbdbe8b4b342c533af090cfe8f" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__model_8h_1ac7de090a02fa12a8bba84abb4d5236aa" kindref="member">ngram_iter_t</ref> *(*</type>
+        <definition>ngram_iter_t*(* ngram_funcs_s::mgrams)(ngram_model_t *model, int32 m)</definition>
+        <argsstring>)(ngram_model_t *model, int32 m)</argsstring>
+        <name>mgrams</name>
+        <briefdescription>
+<para>Implementation-specific function for iterating. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="165" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="165" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a12683dda2253dc45680102f02fbdb1e2" compoundref="ngram__model_8c" startline="709" endline="719">ngram_model_mgrams</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1af83b5620eb7bc37984ad522b66e266ad" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__model_8h_1ac7de090a02fa12a8bba84abb4d5236aa" kindref="member">ngram_iter_t</ref> *(*</type>
+        <definition>ngram_iter_t*(* ngram_funcs_s::successors)(ngram_iter_t *itor)</definition>
+        <argsstring>)(ngram_iter_t *itor)</argsstring>
+        <name>successors</name>
+        <briefdescription>
+<para>Implementation-specific function for iterating. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="170" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="170" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1ae85f41e2defc5b65b12026d29cd4fdaa" compoundref="ngram__model_8c" startline="761" endline="767">ngram_iter_successors</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1ac515e6ad9a1afbda6b74e8204fd460b5" prot="public" static="no" mutable="no">
+        <type>int32 const *(*</type>
+        <definition>int32 const*(* ngram_funcs_s::iter_get)(ngram_iter_t *itor, int32 *out_score, int32 *out_bowt)</definition>
+        <argsstring>)(ngram_iter_t *itor, int32 *out_score, int32 *out_bowt)</argsstring>
+        <name>iter_get</name>
+        <briefdescription>
+<para>Implementation-specific function for iterating. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="175" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="175" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a240c738781daa226a2fc13395dbdb514" compoundref="ngram__model_8c" startline="770" endline="775">ngram_iter_get</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1a57777056985f8adc3494e859c1102f3e" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__model_8h_1ac7de090a02fa12a8bba84abb4d5236aa" kindref="member">ngram_iter_t</ref> *(*</type>
+        <definition>ngram_iter_t*(* ngram_funcs_s::iter_next)(ngram_iter_t *itor)</definition>
+        <argsstring>)(ngram_iter_t *itor)</argsstring>
+        <name>iter_next</name>
+        <briefdescription>
+<para>Implementation-specific function for iterating. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="182" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="182" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1a3a2b285c01393b3ebddaec1fefed11a4" compoundref="ngram__model_8c" startline="778" endline="781">ngram_iter_next</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__funcs__s_1ad7031e996c16516cf7f52e7a4adee4bb" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* ngram_funcs_s::iter_free)(ngram_iter_t *itor)</definition>
+        <argsstring>)(ngram_iter_t *itor)</argsstring>
+        <name>iter_free</name>
+        <briefdescription>
+<para>Implementation-specific function for iterating. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="187" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="187" bodyend="-1"/>
+        <referencedby refid="ngram__model_8h_1ac9f746c8a5db78ef8b2fb7c312be4a22" compoundref="ngram__model_8c" startline="784" endline="788">ngram_iter_free</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation-specific functions for operating on ngram_model_t objects. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="198">
+        <label>ngram_funcs_s</label>
+        <link refid="structngram__funcs__s"/>
+        <childnode refid="199" relation="usage">
+          <edgelabel>mgrams</edgelabel>
+          <edgelabel>iter_next</edgelabel>
+          <edgelabel>successors</edgelabel>
+          <edgelabel>iter</edgelabel>
+        </childnode>
+      </node>
+      <node id="207">
+        <label>ngram_class_s::ngram_hash_s</label>
+        <link refid="structngram__class__s_1_1ngram__hash__s"/>
+      </node>
+      <node id="202">
+        <label>hash_entry_s</label>
+        <link refid="structhash__entry__s"/>
+        <childnode refid="202" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="201">
+        <label>hash_table_t</label>
+        <link refid="structhash__table__t"/>
+        <childnode refid="202" relation="usage">
+          <edgelabel>table</edgelabel>
+        </childnode>
+      </node>
+      <node id="199">
+        <label>ngram_iter_s</label>
+        <link refid="structngram__iter__s"/>
+        <childnode refid="200" relation="usage">
+          <edgelabel>model</edgelabel>
+        </childnode>
+      </node>
+      <node id="206">
+        <label>ngram_class_s</label>
+        <link refid="structngram__class__s"/>
+        <childnode refid="207" relation="usage">
+          <edgelabel>nword_hash</edgelabel>
+        </childnode>
+      </node>
+      <node id="203">
+        <label>logmath_s</label>
+        <link refid="structlogmath__s"/>
+        <childnode refid="204" relation="usage">
+          <edgelabel>t</edgelabel>
+        </childnode>
+        <childnode refid="205" relation="usage">
+          <edgelabel>filemap</edgelabel>
+        </childnode>
+      </node>
+      <node id="204">
+        <label>logadd_s</label>
+        <link refid="structlogadd__s"/>
+      </node>
+      <node id="205">
+        <label>mmio_file_s</label>
+        <link refid="structmmio__file__s"/>
+      </node>
+      <node id="200">
+        <label>ngram_model_s</label>
+        <link refid="structngram__model__s"/>
+        <childnode refid="201" relation="usage">
+          <edgelabel>wid</edgelabel>
+        </childnode>
+        <childnode refid="203" relation="usage">
+          <edgelabel>lmath</edgelabel>
+        </childnode>
+        <childnode refid="198" relation="usage">
+          <edgelabel>funcs</edgelabel>
+        </childnode>
+        <childnode refid="206" relation="usage">
+          <edgelabel>classes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" line="110" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h" bodystart="110" bodyend="188"/>
+    <listofallmembers>
+      <member refid="structngram__funcs__s_1a6d553c95c7f4da4993f2b9df757ac016" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>add_ug</name></member>
+      <member refid="structngram__funcs__s_1abfd7e53c672aef5a34ec5114ec475916" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>apply_weights</name></member>
+      <member refid="structngram__funcs__s_1a7abf2864db9c8e8d1d5909ea92144ffe" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>flush</name></member>
+      <member refid="structngram__funcs__s_1a4211130880131f38e16022985816952f" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>free</name></member>
+      <member refid="structngram__funcs__s_1a8148f132a986660ff500e46f9b2ea1c1" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>iter</name></member>
+      <member refid="structngram__funcs__s_1ad7031e996c16516cf7f52e7a4adee4bb" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>iter_free</name></member>
+      <member refid="structngram__funcs__s_1ac515e6ad9a1afbda6b74e8204fd460b5" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>iter_get</name></member>
+      <member refid="structngram__funcs__s_1a57777056985f8adc3494e859c1102f3e" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>iter_next</name></member>
+      <member refid="structngram__funcs__s_1a3a264fcbdbe8b4b342c533af090cfe8f" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>mgrams</name></member>
+      <member refid="structngram__funcs__s_1a2a64c66491914168bd830237cc93b16c" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>raw_score</name></member>
+      <member refid="structngram__funcs__s_1a81b0c7948179c2572fb274401b82278e" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>score</name></member>
+      <member refid="structngram__funcs__s_1af83b5620eb7bc37984ad522b66e266ad" prot="public" virt="non-virtual"><scope>ngram_funcs_s</scope><name>successors</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

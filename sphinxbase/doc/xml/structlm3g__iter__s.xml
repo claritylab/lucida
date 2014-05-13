@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structlm3g__iter__s" kind="struct" prot="public">
+    <compoundname>lm3g_iter_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlm3g__iter__s_1ae24753ad344180c9b3a6162444ecbc3c" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__model_8h_1ac7de090a02fa12a8bba84abb4d5236aa" kindref="member">ngram_iter_t</ref></type>
+        <definition>ngram_iter_t lm3g_iter_s::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" line="281" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__iter__s_1a8a4ce73a4ae6d75de2682c84ae345b1b" prot="public" static="no" mutable="no">
+        <type><ref refid="structunigram__s" kindref="compound">unigram_t</ref> *</type>
+        <definition>unigram_t* lm3g_iter_s::ug</definition>
+        <argsstring></argsstring>
+        <name>ug</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" line="282" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__iter__s_1a484e0af0540b59dced50e8f39a7bf691" prot="public" static="no" mutable="no">
+        <type><ref refid="structbigram__s" kindref="compound">bigram_t</ref> *</type>
+        <definition>bigram_t* lm3g_iter_s::bg</definition>
+        <argsstring></argsstring>
+        <name>bg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" line="283" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__iter__s_1af8d3b111d9a5f98c1e2830866c72658a" prot="public" static="no" mutable="no">
+        <type><ref refid="structtrigram__s" kindref="compound">trigram_t</ref> *</type>
+        <definition>trigram_t* lm3g_iter_s::tg</definition>
+        <argsstring></argsstring>
+        <name>tg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" line="284" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="153">
+        <label>lmprob_t</label>
+        <link refid="unionlmprob__t"/>
+      </node>
+      <node id="151">
+        <label>trigram_s</label>
+        <link refid="structtrigram__s"/>
+      </node>
+      <node id="162">
+        <label>ngram_funcs_s</label>
+        <link refid="structngram__funcs__s"/>
+        <childnode refid="155" relation="usage">
+          <edgelabel>mgrams</edgelabel>
+          <edgelabel>iter_next</edgelabel>
+          <edgelabel>successors</edgelabel>
+          <edgelabel>iter</edgelabel>
+        </childnode>
+      </node>
+      <node id="152">
+        <label>unigram_s</label>
+        <link refid="structunigram__s"/>
+        <childnode refid="153" relation="usage">
+          <edgelabel>bo_wt1</edgelabel>
+          <edgelabel>prob1</edgelabel>
+        </childnode>
+      </node>
+      <node id="154">
+        <label>bigram_s</label>
+        <link refid="structbigram__s"/>
+      </node>
+      <node id="150">
+        <label>lm3g_iter_s</label>
+        <link refid="structlm3g__iter__s"/>
+        <childnode refid="151" relation="usage">
+          <edgelabel>tg</edgelabel>
+        </childnode>
+        <childnode refid="152" relation="usage">
+          <edgelabel>ug</edgelabel>
+        </childnode>
+        <childnode refid="154" relation="usage">
+          <edgelabel>bg</edgelabel>
+        </childnode>
+        <childnode refid="155" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+      <node id="164">
+        <label>ngram_class_s::ngram_hash_s</label>
+        <link refid="structngram__class__s_1_1ngram__hash__s"/>
+      </node>
+      <node id="158">
+        <label>hash_entry_s</label>
+        <link refid="structhash__entry__s"/>
+        <childnode refid="158" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="157">
+        <label>hash_table_t</label>
+        <link refid="structhash__table__t"/>
+        <childnode refid="158" relation="usage">
+          <edgelabel>table</edgelabel>
+        </childnode>
+      </node>
+      <node id="155">
+        <label>ngram_iter_s</label>
+        <link refid="structngram__iter__s"/>
+        <childnode refid="156" relation="usage">
+          <edgelabel>model</edgelabel>
+        </childnode>
+      </node>
+      <node id="163">
+        <label>ngram_class_s</label>
+        <link refid="structngram__class__s"/>
+        <childnode refid="164" relation="usage">
+          <edgelabel>nword_hash</edgelabel>
+        </childnode>
+      </node>
+      <node id="159">
+        <label>logmath_s</label>
+        <link refid="structlogmath__s"/>
+        <childnode refid="160" relation="usage">
+          <edgelabel>t</edgelabel>
+        </childnode>
+        <childnode refid="161" relation="usage">
+          <edgelabel>filemap</edgelabel>
+        </childnode>
+      </node>
+      <node id="160">
+        <label>logadd_s</label>
+        <link refid="structlogadd__s"/>
+      </node>
+      <node id="161">
+        <label>mmio_file_s</label>
+        <link refid="structmmio__file__s"/>
+      </node>
+      <node id="156">
+        <label>ngram_model_s</label>
+        <link refid="structngram__model__s"/>
+        <childnode refid="157" relation="usage">
+          <edgelabel>wid</edgelabel>
+        </childnode>
+        <childnode refid="159" relation="usage">
+          <edgelabel>lmath</edgelabel>
+        </childnode>
+        <childnode refid="162" relation="usage">
+          <edgelabel>funcs</edgelabel>
+        </childnode>
+        <childnode refid="163" relation="usage">
+          <edgelabel>classes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" line="280" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c" bodystart="280" bodyend="285"/>
+    <listofallmembers>
+      <member refid="structlm3g__iter__s_1ae24753ad344180c9b3a6162444ecbc3c" prot="public" virt="non-virtual"><scope>lm3g_iter_s</scope><name>base</name></member>
+      <member refid="structlm3g__iter__s_1a484e0af0540b59dced50e8f39a7bf691" prot="public" virt="non-virtual"><scope>lm3g_iter_s</scope><name>bg</name></member>
+      <member refid="structlm3g__iter__s_1af8d3b111d9a5f98c1e2830866c72658a" prot="public" virt="non-virtual"><scope>lm3g_iter_s</scope><name>tg</name></member>
+      <member refid="structlm3g__iter__s_1a8a4ce73a4ae6d75de2682c84ae345b1b" prot="public" virt="non-virtual"><scope>lm3g_iter_s</scope><name>ug</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

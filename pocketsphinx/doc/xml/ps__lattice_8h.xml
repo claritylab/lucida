@@ -1,0 +1,1817 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="ps__lattice_8h" kind="file">
+    <compoundname>ps_lattice.h</compoundname>
+    <includes local="no">sphinxbase/prim_type.h</includes>
+    <includes local="no">sphinxbase/ngram_model.h</includes>
+    <includes refid="pocketsphinx__export_8h" local="no">pocketsphinx_export.h</includes>
+    <includedby refid="pocketsphinx_8h" local="no">include/pocketsphinx.h</includedby>
+    <incdepgraph>
+      <node id="137">
+        <label>sphinxbase/ngram_model.h</label>
+      </node>
+      <node id="138">
+        <label>pocketsphinx_export.h</label>
+        <link refid="pocketsphinx__export_8h_source"/>
+      </node>
+      <node id="136">
+        <label>sphinxbase/prim_type.h</label>
+      </node>
+      <node id="135">
+        <label>include/ps_lattice.h</label>
+        <link refid="ps_lattice.h"/>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="155">
+        <label>src/libpocketsphinx/fsg_search.c</label>
+        <link refid="fsg__search_8c_source"/>
+      </node>
+      <node id="140">
+        <label>include/pocketsphinx.h</label>
+        <link refid="pocketsphinx_8h"/>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="156">
+        <label>src/libpocketsphinx/pocketsphinx.c</label>
+        <link refid="pocketsphinx_8c_source"/>
+      </node>
+      <node id="171">
+        <label>src/libpocketsphinx/state_align_search.c</label>
+        <link refid="state__align__search_8c"/>
+      </node>
+      <node id="170">
+        <label>src/libpocketsphinx/state_align_search.h</label>
+        <link refid="state__align__search_8h"/>
+        <childnode refid="171" relation="include">
+        </childnode>
+      </node>
+      <node id="154">
+        <label>src/libpocketsphinx/fsg_history.c</label>
+        <link refid="fsg__history_8c_source"/>
+      </node>
+      <node id="141">
+        <label>src/libpocketsphinx/pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx__internal_8h"/>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="162" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+      </node>
+      <node id="153">
+        <label>src/libpocketsphinx/fsg_search_internal.h</label>
+        <link refid="fsg__search__internal_8h_source"/>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="151">
+        <label>src/libpocketsphinx/ms_senone.c</label>
+        <link refid="ms__senone_8c_source"/>
+      </node>
+      <node id="150">
+        <label>src/libpocketsphinx/ms_senone.h</label>
+        <link refid="ms__senone_8h"/>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+      </node>
+      <node id="160">
+        <label>src/libpocketsphinx/kws_search.c</label>
+        <link refid="kws__search_8c_source"/>
+      </node>
+      <node id="159">
+        <label>src/libpocketsphinx/kws_search.h</label>
+        <link refid="kws__search_8h_source"/>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="166">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.c</label>
+        <link refid="ngram__search__fwdflat_8c"/>
+      </node>
+      <node id="165">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.h</label>
+        <link refid="ngram__search__fwdflat_8h"/>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="167">
+        <label>src/libpocketsphinx/ps_lattice.c</label>
+        <link refid="ps__lattice_8c"/>
+      </node>
+      <node id="158">
+        <label>src/libpocketsphinx/kws_detections.c</label>
+        <link refid="kws__detections_8c_source"/>
+      </node>
+      <node id="157">
+        <label>src/libpocketsphinx/kws_detections.h</label>
+        <link refid="kws__detections_8h_source"/>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+      </node>
+      <node id="152">
+        <label>src/libpocketsphinx/ms_gauden.c</label>
+        <link refid="ms__gauden_8c_source"/>
+      </node>
+      <node id="142">
+        <label>src/libpocketsphinx/ms_gauden.h</label>
+        <link refid="ms__gauden_8h"/>
+        <childnode refid="143" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+      </node>
+      <node id="144">
+        <label>src/libpocketsphinx/acmod.c</label>
+        <link refid="acmod_8c"/>
+      </node>
+      <node id="161">
+        <label>src/libpocketsphinx/ngram_search.c</label>
+        <link refid="ngram__search_8c"/>
+      </node>
+      <node id="139">
+        <label>include/ps_lattice.h</label>
+        <link refid="ps_lattice.h"/>
+        <childnode refid="140" relation="include">
+        </childnode>
+      </node>
+      <node id="162">
+        <label>src/libpocketsphinx/ngram_search.h</label>
+        <link refid="ngram__search_8h"/>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="163" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>src/libpocketsphinx/s2_semi_mgau.c</label>
+        <link refid="s2__semi__mgau_8c_source"/>
+      </node>
+      <node id="143">
+        <label>src/libpocketsphinx/s2_semi_mgau.h</label>
+        <link refid="s2__semi__mgau_8h_source"/>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+      </node>
+      <node id="169">
+        <label>src/libpocketsphinx/phone_loop_search.c</label>
+        <link refid="phone__loop__search_8c_source"/>
+      </node>
+      <node id="168">
+        <label>src/libpocketsphinx/phone_loop_search.h</label>
+        <link refid="phone__loop__search_8h"/>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="164">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.c</label>
+        <link refid="ngram__search__fwdtree_8c"/>
+      </node>
+      <node id="163">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.h</label>
+        <link refid="ngram__search__fwdtree_8h"/>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="147">
+        <label>src/libpocketsphinx/ptm_mgau.c</label>
+        <link refid="ptm__mgau_8c_source"/>
+      </node>
+      <node id="146">
+        <label>src/libpocketsphinx/ptm_mgau.h</label>
+        <link refid="ptm__mgau_8h"/>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+      </node>
+      <node id="149">
+        <label>src/libpocketsphinx/ms_mgau.c</label>
+        <link refid="ms__mgau_8c_source"/>
+      </node>
+      <node id="148">
+        <label>src/libpocketsphinx/ms_mgau.h</label>
+        <link refid="ms__mgau_8h"/>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" prot="public" static="no">
+        <type>struct <ref refid="structps__lattice__s" kindref="compound">ps_lattice_s</ref></type>
+        <definition>typedef struct ps_lattice_s ps_lattice_t</definition>
+        <argsstring></argsstring>
+        <name>ps_lattice_t</name>
+        <briefdescription>
+<para>Word graph structure used in bestpath/nbest search. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="798" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" prot="public" static="no">
+        <type>struct <ref refid="structps__latnode__s" kindref="compound">ps_latnode_s</ref></type>
+        <definition>typedef struct ps_latnode_s ps_latnode_t</definition>
+        <argsstring></argsstring>
+        <name>ps_latnode_t</name>
+        <briefdescription>
+<para>DAG nodes. </para>        </briefdescription>
+        <detaileddescription>
+<para>A node corresponds to a number of hypothesized instances of a word which all share the same starting point. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="798" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ps__lattice_8h_1afd06dd0a4f63e1b1912c1a53b6a75de6" prot="public" static="no">
+        <type>struct <ref refid="structps__latnode__s" kindref="compound">ps_latnode_s</ref></type>
+        <definition>typedef struct ps_latnode_s ps_latnode_iter_t</definition>
+        <argsstring></argsstring>
+        <name>ps_latnode_iter_t</name>
+        <briefdescription>
+<para>Iterator over DAG nodes. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="798" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" prot="public" static="no">
+        <type>struct <ref refid="structps__latlink__s" kindref="compound">ps_latlink_s</ref></type>
+        <definition>typedef struct ps_latlink_s ps_latlink_t</definition>
+        <argsstring></argsstring>
+        <name>ps_latlink_t</name>
+        <briefdescription>
+<para>Links between DAG nodes. </para>        </briefdescription>
+        <detaileddescription>
+<para>A link corresponds to a single hypothesized instance of a word with a given start and end point. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="798" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ps__lattice_8h_1a3a6312ccf7e1697399822c47a99c4645" prot="public" static="no">
+        <type>struct <ref refid="structlatlink__list__s" kindref="compound">latlink_list_s</ref></type>
+        <definition>typedef struct latlink_list_s ps_latlink_iter_t</definition>
+        <argsstring></argsstring>
+        <name>ps_latlink_iter_t</name>
+        <briefdescription>
+<para>Iterator over DAG links. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="798" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ps__lattice_8h_1a26f4a34c81b112109621b7ecacd57ee0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_lattice_t* ps_lattice_read</definition>
+        <argsstring>(struct ps_decoder_s *ps, char const *file)</argsstring>
+        <name>ps_lattice_read</name>
+        <param>
+          <type>struct <ref refid="structps__decoder__s" kindref="compound">ps_decoder_s</ref> *</type>
+          <declname>ps</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Read a lattice from a file on disk. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoder to use for processing this lattice, or NULL. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path to lattice file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Newly created lattice, or NULL for failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="94" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="410" bodyend="653"/>
+        <references refid="s3types_8h_1a5c42410b7125da611210c5a4be29898b" compoundref="s3types_8h" startline="136">BAD_S3WID</references>
+        <references refid="structps__latnode__s_1ae3b3dc7d14347e6380859c74b9a02589" compoundref="ps__lattice__internal_8h" startline="116">ps_latnode_s::basewid</references>
+        <references refid="structps__search__s_1aa6e3e18165bbc70084a06575d5703042" compoundref="pocketsphinx__internal_8h" startline="109">ps_search_s::config</references>
+        <references refid="structps__decoder__s_1a0565ed97b32408bd05c8104f020cef05" compoundref="pocketsphinx__internal_8h" startline="204">ps_decoder_s::config</references>
+        <references refid="structps__lattice__s_1a71865c59fae65743ef3c6b5aceb17da6" compoundref="ps__lattice__internal_8h" startline="66">ps_lattice_s::dict</references>
+        <references refid="structps__decoder__s_1aef6228c17907cc1d0cef835b238b5d91" compoundref="pocketsphinx__internal_8h" startline="209">ps_decoder_s::dict</references>
+        <references refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" compoundref="dict_8c" startline="80" endline="145">dict_add_word</references>
+        <references refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</references>
+        <references refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</references>
+        <references refid="dict_8h_1a0edf70be186e8940af9d21243083cb8b" compoundref="dict_8c" startline="445" endline="449">dict_retain</references>
+        <references refid="dict_8h_1a3a128531ae9c077be9882119ed05fe3a" compoundref="dict_8c" startline="426" endline="442">dict_word2basestr</references>
+        <references refid="dict_8h_1ad3729eb1a02a9a321e17933f7e90c80e" compoundref="dict_8c" startline="383" endline="393">dict_wordid</references>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__latnode__s_1a051a7eed31e29dd75151d1b34cc4eefa" compoundref="ps__lattice__internal_8h" startline="130">ps_latnode_s::entries</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__latnode__s_1a584ee5a303355d851ac903718998df14" compoundref="ps__lattice__internal_8h" startline="118">ps_latnode_s::fef</references>
+        <references refid="structps__lattice__s_1a5159a2ff1e03a7c9782854bc67e56530" compoundref="ps__lattice__internal_8h" startline="68">ps_lattice_s::frate</references>
+        <references refid="structps__latnode__s_1a78243b37753f7a209c15d6adf98ee3f7" compoundref="ps__lattice__internal_8h" startline="114">ps_latnode_s::id</references>
+        <references refid="structps__lattice__s_1afa8ca535dc8bf2cc656f6ad477e13b9f" compoundref="ps__lattice__internal_8h" startline="81">ps_lattice_s::latlink_alloc</references>
+        <references refid="structps__lattice__s_1a8e9cfaf92f9a3588d018578854c61e88" compoundref="ps__lattice__internal_8h" startline="82">ps_lattice_s::latlink_list_alloc</references>
+        <references refid="structps__lattice__s_1a14e4e87550647d5119cd1cc48ff4f3f1" compoundref="ps__lattice__internal_8h" startline="80">ps_lattice_s::latnode_alloc</references>
+        <references refid="structps__latnode__s_1a5c7b9114d131151d6ce85228ea9f829d" compoundref="ps__lattice__internal_8h" startline="119">ps_latnode_s::lef</references>
+        <references refid="structps__lattice__s_1a28f4ff5039e0961d57331d2605801010" compoundref="ps__lattice__internal_8h" startline="64">ps_lattice_s::lmath</references>
+        <references refid="structps__decoder__s_1abd17fe329f2fb219c5a534f3217c5b95" compoundref="pocketsphinx__internal_8h" startline="211">ps_decoder_s::lmath</references>
+        <references refid="structps__lattice__s_1a3a997dc60d28b84d5bfc01f9ce25a891" compoundref="ps__lattice__internal_8h" startline="74">ps_lattice_s::n_frames</references>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+        <references refid="ps__lattice_8c_1a9b40adaa059978fe33959d59da1b6919" compoundref="ps__lattice_8c" startline="106" endline="140">ps_lattice_bypass_fillers</references>
+        <references refid="ps__lattice_8c_1a6da4e36322aaab4d2ebe812bee9a4439" compoundref="ps__lattice_8c" startline="197" endline="230">ps_lattice_delete_unreachable</references>
+        <references refid="ps__lattice_8c_1a4dd3235b91f1c7202127893203c6d2a0" compoundref="ps__lattice_8c" startline="65" endline="103">ps_lattice_link</references>
+        <references refid="structps__latnode__s_1af9c4c69f5f85bbc36818357a52432565" compoundref="ps__lattice__internal_8h" startline="121">ps_latnode_s::reachable</references>
+        <references refid="structps__lattice__s_1a6d66b392dec016b3304da2f53be17dd1" compoundref="ps__lattice__internal_8h" startline="62">ps_lattice_s::refcount</references>
+        <references refid="structps__lattice__s_1a9ebaeb7be7a83980569f0c544eb6babb" compoundref="ps__lattice__internal_8h" startline="65">ps_lattice_s::search</references>
+        <references refid="structps__decoder__s_1ad337270efc93613cf8dd7594f6515799" compoundref="pocketsphinx__internal_8h" startline="217">ps_decoder_s::search</references>
+        <references refid="structps__latnode__s_1a4171e956043e7856c04d84498f16cf29" compoundref="ps__lattice__internal_8h" startline="120">ps_latnode_s::sf</references>
+        <references refid="structps__lattice__s_1acd3f3ab2649f649ba33bf2a422cf12b8" compoundref="ps__lattice__internal_8h" startline="67">ps_lattice_s::silence</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <references refid="structps__latnode__s_1afd85dbd410d6e6d970c73088bc6fb97e" compoundref="ps__lattice__internal_8h" startline="115">ps_latnode_s::wid</references>
+        <references refid="hmm_8h_1aa930fb8fb6fce7f34bcf4018b81d7066" compoundref="hmm_8h" startline="104">WORSE_THAN</references>
+        <references refid="hmm_8h_1a833f100ee293ad0f1c03f2a5ef9be77a" compoundref="hmm_8h" startline="88">WORST_SCORE</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a9efc5f2836e2a0bd5d58326303516df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_lattice_t* ps_lattice_retain</definition>
+        <argsstring>(ps_lattice_t *dag)</argsstring>
+        <name>ps_lattice_retain</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <briefdescription>
+<para>Retain a lattice. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function retains ownership of a lattice for the caller, preventing it from being freed automatically. You must call <ref refid="ps__lattice_8h_1a3f90e846bde47cd1acdff165b92f5c22" kindref="member">ps_lattice_free()</ref> to free it after having called this function.</para><para><simplesect kind="return"><para>pointer to the retained lattice. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="107" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="681" bodyend="685"/>
+        <references refid="structps__lattice__s_1a6d66b392dec016b3304da2f53be17dd1" compoundref="ps__lattice__internal_8h" startline="62">ps_lattice_s::refcount</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a3f90e846bde47cd1acdff165b92f5c22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int</type>
+        <definition>POCKETSPHINX_EXPORT int ps_lattice_free</definition>
+        <argsstring>(ps_lattice_t *dag)</argsstring>
+        <name>ps_lattice_free</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <briefdescription>
+<para>Free a lattice. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>new reference count (0 if dag was freed) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="115" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="688" bodyend="702"/>
+        <references refid="structps__lattice__s_1a71865c59fae65743ef3c6b5aceb17da6" compoundref="ps__lattice__internal_8h" startline="66">ps_lattice_s::dict</references>
+        <references refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" compoundref="dict_8c" startline="452" endline="480">dict_free</references>
+        <references refid="structps__lattice__s_1ac3844c69f8393b607047bd9b302b979a" compoundref="ps__lattice__internal_8h" startline="78">ps_lattice_s::hyp_str</references>
+        <references refid="structps__lattice__s_1afa8ca535dc8bf2cc656f6ad477e13b9f" compoundref="ps__lattice__internal_8h" startline="81">ps_lattice_s::latlink_alloc</references>
+        <references refid="structps__lattice__s_1a8e9cfaf92f9a3588d018578854c61e88" compoundref="ps__lattice__internal_8h" startline="82">ps_lattice_s::latlink_list_alloc</references>
+        <references refid="structps__lattice__s_1a14e4e87550647d5119cd1cc48ff4f3f1" compoundref="ps__lattice__internal_8h" startline="80">ps_lattice_s::latnode_alloc</references>
+        <references refid="structps__lattice__s_1a28f4ff5039e0961d57331d2605801010" compoundref="ps__lattice__internal_8h" startline="64">ps_lattice_s::lmath</references>
+        <references refid="structps__lattice__s_1a6d66b392dec016b3304da2f53be17dd1" compoundref="ps__lattice__internal_8h" startline="62">ps_lattice_s::refcount</references>
+        <referencedby refid="ngram__search_8h_1ac30e7dec4bbfeee9f5163abf4bbd1014" compoundref="ngram__search_8c" startline="1217" endline="1404">ngram_search_lattice</referencedby>
+        <referencedby refid="pocketsphinx__internal_8h_1a1299496b3498166928702d0701934e50" compoundref="pocketsphinx_8c" startline="1310" endline="1318">ps_search_deinit</referencedby>
+        <referencedby refid="pocketsphinx_8h_1a0b70e54570e21ad3a784b40071818579" compoundref="pocketsphinx_8c" startline="811" endline="891">ps_start_utt</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a3f2e2b88d0aa80346cc64d2b7934b863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int</type>
+        <definition>POCKETSPHINX_EXPORT int ps_lattice_write</definition>
+        <argsstring>(ps_lattice_t *dag, char const *filename)</argsstring>
+        <name>ps_lattice_write</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Write a lattice to disk. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 for success, &lt;0 on failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="123" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="233" bodyend="290"/>
+        <references refid="structps__latlink__s_1ae8a94ce1afb49292b044a0d4ba42b46d" compoundref="ps__lattice__internal_8h" startline="100">ps_latlink_s::ascr</references>
+        <references refid="hmm_8h_1a2874ab52613ff781c96f570ec0eb0d98" compoundref="hmm_8h" startline="99">BETTER_THAN</references>
+        <references refid="structps__lattice__s_1a71865c59fae65743ef3c6b5aceb17da6" compoundref="ps__lattice__internal_8h" startline="66">ps_lattice_s::dict</references>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__latnode__s_1a584ee5a303355d851ac903718998df14" compoundref="ps__lattice__internal_8h" startline="118">ps_latnode_s::fef</references>
+        <references refid="structps__latnode__s_1a78243b37753f7a209c15d6adf98ee3f7" compoundref="ps__lattice__internal_8h" startline="114">ps_latnode_s::id</references>
+        <references refid="structps__latnode__s_1a5c7b9114d131151d6ce85228ea9f829d" compoundref="ps__lattice__internal_8h" startline="119">ps_latnode_s::lef</references>
+        <references refid="structps__lattice__s_1a28f4ff5039e0961d57331d2605801010" compoundref="ps__lattice__internal_8h" startline="64">ps_lattice_s::lmath</references>
+        <references refid="structps__lattice__s_1a3a997dc60d28b84d5bfc01f9ce25a891" compoundref="ps__lattice__internal_8h" startline="74">ps_lattice_s::n_frames</references>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+        <references refid="structps__latnode__s_1a50d14c033652a4fb387f76881df1c3f6" compoundref="ps__lattice__internal_8h" startline="122">ps_latnode_s::node_id</references>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+        <references refid="hmm_8h_1af94da16e3e5b550b9be05b0f07402cc7" compoundref="hmm_8h" startline="77">SENSCR_SHIFT</references>
+        <references refid="structps__latnode__s_1a4171e956043e7856c04d84498f16cf29" compoundref="ps__lattice__internal_8h" startline="120">ps_latnode_s::sf</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+        <references refid="structps__latnode__s_1afd85dbd410d6e6d970c73088bc6fb97e" compoundref="ps__lattice__internal_8h" startline="115">ps_latnode_s::wid</references>
+        <references refid="hmm_8h_1aa930fb8fb6fce7f34bcf4018b81d7066" compoundref="hmm_8h" startline="104">WORSE_THAN</references>
+        <references refid="hmm_8h_1a833f100ee293ad0f1c03f2a5ef9be77a" compoundref="hmm_8h" startline="88">WORST_SCORE</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1aefd25c0f49a0d70f999187a26fa2ff06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int</type>
+        <definition>POCKETSPHINX_EXPORT int ps_lattice_write_htk</definition>
+        <argsstring>(ps_lattice_t *dag, char const *filename)</argsstring>
+        <name>ps_lattice_write_htk</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Write a lattice to disk in HTK format. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 for success, &lt;0 on failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="131" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="293" bodyend="370"/>
+        <references refid="structps__latlink__s_1ad2f031d271f1d875223aae33116d3f40" compoundref="ps__lattice__internal_8h" startline="103">ps_latlink_s::alpha</references>
+        <references refid="structps__latlink__s_1ae8a94ce1afb49292b044a0d4ba42b46d" compoundref="ps__lattice__internal_8h" startline="100">ps_latlink_s::ascr</references>
+        <references refid="structps__latlink__s_1a4c27cd5d4f514832d3d46993e2ee87df" compoundref="ps__lattice__internal_8h" startline="104">ps_latlink_s::beta</references>
+        <references refid="hmm_8h_1a2874ab52613ff781c96f570ec0eb0d98" compoundref="hmm_8h" startline="99">BETTER_THAN</references>
+        <references refid="structps__lattice__s_1a71865c59fae65743ef3c6b5aceb17da6" compoundref="ps__lattice__internal_8h" startline="66">ps_lattice_s::dict</references>
+        <references refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</references>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__lattice__s_1a5159a2ff1e03a7c9782854bc67e56530" compoundref="ps__lattice__internal_8h" startline="68">ps_lattice_s::frate</references>
+        <references refid="structps__latnode__s_1a78243b37753f7a209c15d6adf98ee3f7" compoundref="ps__lattice__internal_8h" startline="114">ps_latnode_s::id</references>
+        <references refid="structps__lattice__s_1a28f4ff5039e0961d57331d2605801010" compoundref="ps__lattice__internal_8h" startline="64">ps_lattice_s::lmath</references>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+        <references refid="structps__lattice__s_1a68c3259613a16628e1dd2e8147705d8e" compoundref="ps__lattice__internal_8h" startline="77">ps_lattice_s::norm</references>
+        <references refid="structps__latnode__s_1af9c4c69f5f85bbc36818357a52432565" compoundref="ps__lattice__internal_8h" startline="121">ps_latnode_s::reachable</references>
+        <references refid="hmm_8h_1af94da16e3e5b550b9be05b0f07402cc7" compoundref="hmm_8h" startline="77">SENSCR_SHIFT</references>
+        <references refid="structps__latnode__s_1a4171e956043e7856c04d84498f16cf29" compoundref="ps__lattice__internal_8h" startline="120">ps_latnode_s::sf</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+        <references refid="structps__latnode__s_1afd85dbd410d6e6d970c73088bc6fb97e" compoundref="ps__lattice__internal_8h" startline="115">ps_latnode_s::wid</references>
+        <references refid="hmm_8h_1aa930fb8fb6fce7f34bcf4018b81d7066" compoundref="hmm_8h" startline="104">WORSE_THAN</references>
+        <references refid="hmm_8h_1a833f100ee293ad0f1c03f2a5ef9be77a" compoundref="hmm_8h" startline="88">WORST_SCORE</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a5c9d9171c9846c46c107bfe41a9120cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT logmath_t *</type>
+        <definition>POCKETSPHINX_EXPORT logmath_t* ps_lattice_get_logmath</definition>
+        <argsstring>(ps_lattice_t *dag)</argsstring>
+        <name>ps_lattice_get_logmath</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <briefdescription>
+<para>Get the log-math computation object for this lattice. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The log-math object for this lattice. The lattice retains ownership of this pointer, so you should not attempt to free it manually. Use logmath_retain() if you wish to reuse it elsewhere. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="142" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="705" bodyend="708"/>
+        <references refid="structps__lattice__s_1a28f4ff5039e0961d57331d2605801010" compoundref="ps__lattice__internal_8h" startline="64">ps_lattice_s::lmath</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1aaf073a0617c446aa5424513f7c1045b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1afd06dd0a4f63e1b1912c1a53b6a75de6" kindref="member">ps_latnode_iter_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latnode_iter_t* ps_latnode_iter</definition>
+        <argsstring>(ps_lattice_t *dag)</argsstring>
+        <name>ps_latnode_iter</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <briefdescription>
+<para>Start iterating over nodes in the lattice. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>No particular order of traversal is guaranteed, and you should not depend on this.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to iterate over. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Iterator over lattice nodes. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="155" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="711" bodyend="714"/>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a48aaf30b9396b38ccaf3a1b6e9225a01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1afd06dd0a4f63e1b1912c1a53b6a75de6" kindref="member">ps_latnode_iter_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latnode_iter_t* ps_latnode_iter_next</definition>
+        <argsstring>(ps_latnode_iter_t *itor)</argsstring>
+        <name>ps_latnode_iter_next</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1afd06dd0a4f63e1b1912c1a53b6a75de6" kindref="member">ps_latnode_iter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Move to next node in iteration. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>itor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node iterator. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Updated node iterator, or NULL if finished </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="163" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="717" bodyend="720"/>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1ae9a6464b83d37bfa2ce570206eff6aad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT void</type>
+        <definition>POCKETSPHINX_EXPORT void ps_latnode_iter_free</definition>
+        <argsstring>(ps_latnode_iter_t *itor)</argsstring>
+        <name>ps_latnode_iter_free</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1afd06dd0a4f63e1b1912c1a53b6a75de6" kindref="member">ps_latnode_iter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Stop iterating over nodes. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>itor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node iterator. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="170" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="723" bodyend="726"/>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a591bd15a350284b938deb84242736acc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latnode_t* ps_latnode_iter_node</definition>
+        <argsstring>(ps_latnode_iter_t *itor)</argsstring>
+        <name>ps_latnode_iter_node</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1afd06dd0a4f63e1b1912c1a53b6a75de6" kindref="member">ps_latnode_iter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Get node from iterator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="176" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="729" bodyend="732"/>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a42bd0fbfe8b0cab1a9a7e799a3fc30a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int</type>
+        <definition>POCKETSPHINX_EXPORT int ps_latnode_times</definition>
+        <argsstring>(ps_latnode_t *node, int16 *out_fef, int16 *out_lef)</argsstring>
+        <name>ps_latnode_times</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>int16 *</type>
+          <declname>out_fef</declname>
+        </param>
+        <param>
+          <type>int16 *</type>
+          <declname>out_lef</declname>
+        </param>
+        <briefdescription>
+<para>Get start and end time range for a node. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node inquired about. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_fef</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output: End frame of first exit from this node. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_lef</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output: End frame of last exit from this node. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Start frame for all edges exiting this node. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="187" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="735" bodyend="740"/>
+        <references refid="structps__latnode__s_1a584ee5a303355d851ac903718998df14" compoundref="ps__lattice__internal_8h" startline="118">ps_latnode_s::fef</references>
+        <references refid="structps__latnode__s_1a5c7b9114d131151d6ce85228ea9f829d" compoundref="ps__lattice__internal_8h" startline="119">ps_latnode_s::lef</references>
+        <references refid="structps__latnode__s_1a4171e956043e7856c04d84498f16cf29" compoundref="ps__lattice__internal_8h" startline="120">ps_latnode_s::sf</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a54888a8a7379c5c63613504b9a847ea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT char const *</type>
+        <definition>POCKETSPHINX_EXPORT char const* ps_latnode_word</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latnode_t *node)</argsstring>
+        <name>ps_latnode_word</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Get word string for this node. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to which node belongs. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node inquired about. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Word string for this node (possibly a pronunciation variant). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="197" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="743" bodyend="746"/>
+        <references refid="structps__lattice__s_1a71865c59fae65743ef3c6b5aceb17da6" compoundref="ps__lattice__internal_8h" startline="66">ps_lattice_s::dict</references>
+        <references refid="structps__latnode__s_1afd85dbd410d6e6d970c73088bc6fb97e" compoundref="ps__lattice__internal_8h" startline="115">ps_latnode_s::wid</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a0b3b6a843b49deab080bf1c6e99c875d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT char const *</type>
+        <definition>POCKETSPHINX_EXPORT char const* ps_latnode_baseword</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latnode_t *node)</argsstring>
+        <name>ps_latnode_baseword</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Get base word string for this node. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to which node belongs. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node inquired about. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Base word string for this node. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="207" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="749" bodyend="752"/>
+        <references refid="structps__latnode__s_1ae3b3dc7d14347e6380859c74b9a02589" compoundref="ps__lattice__internal_8h" startline="116">ps_latnode_s::basewid</references>
+        <references refid="structps__lattice__s_1a71865c59fae65743ef3c6b5aceb17da6" compoundref="ps__lattice__internal_8h" startline="66">ps_lattice_s::dict</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a13fb923cd41fae910457df2643e58738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a3a6312ccf7e1697399822c47a99c4645" kindref="member">ps_latlink_iter_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_iter_t* ps_latnode_exits</definition>
+        <argsstring>(ps_latnode_t *node)</argsstring>
+        <name>ps_latnode_exits</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Iterate over exits from this node. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node inquired about. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Iterator over exit links from this node. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="216" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="772" bodyend="775"/>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a16ad0cfb8d4b02f9cf90a8b52756a7f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a3a6312ccf7e1697399822c47a99c4645" kindref="member">ps_latlink_iter_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_iter_t* ps_latnode_entries</definition>
+        <argsstring>(ps_latnode_t *node)</argsstring>
+        <name>ps_latnode_entries</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Iterate over entries to this node. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node inquired about. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Iterator over entry links to this node. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="225" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="778" bodyend="781"/>
+        <references refid="structps__latnode__s_1a051a7eed31e29dd75151d1b34cc4eefa" compoundref="ps__lattice__internal_8h" startline="130">ps_latnode_s::entries</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a68253946c2405d7f9090de7530f33b9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int32</type>
+        <definition>POCKETSPHINX_EXPORT int32 ps_latnode_prob</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latnode_t *node, ps_latlink_t **out_link)</argsstring>
+        <name>ps_latnode_prob</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> **</type>
+          <declname>out_link</declname>
+        </param>
+        <briefdescription>
+<para>Get best posterior probability and associated acoustic score from a lattice node. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to which node belongs. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node inquired about. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_link</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output: exit link with highest posterior probability </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Posterior probability of the best link exiting this node. Log is expressed in the log-base used in the decoder. To convert to linear floating-point, use logmath_exp(ps_lattice_get_logmath(), pprob). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="239" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="755" bodyend="769"/>
+        <references refid="structps__latlink__s_1ad2f031d271f1d875223aae33116d3f40" compoundref="ps__lattice__internal_8h" startline="103">ps_latlink_s::alpha</references>
+        <references refid="structps__latlink__s_1a4c27cd5d4f514832d3d46993e2ee87df" compoundref="ps__lattice__internal_8h" startline="104">ps_latlink_s::beta</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__lattice__s_1a28f4ff5039e0961d57331d2605801010" compoundref="ps__lattice__internal_8h" startline="64">ps_lattice_s::lmath</references>
+        <references refid="structps__lattice__s_1a68c3259613a16628e1dd2e8147705d8e" compoundref="ps__lattice__internal_8h" startline="77">ps_lattice_s::norm</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1af737b31c2570d321c26a79b5002f2ba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a3a6312ccf7e1697399822c47a99c4645" kindref="member">ps_latlink_iter_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_iter_t* ps_latlink_iter_next</definition>
+        <argsstring>(ps_latlink_iter_t *itor)</argsstring>
+        <name>ps_latlink_iter_next</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a3a6312ccf7e1697399822c47a99c4645" kindref="member">ps_latlink_iter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Get next link from a lattice link iterator. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>itor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Iterator. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Updated iterator, or NULL if finished. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="249" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="784" bodyend="787"/>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1aa19aaa4a38a922ff28fe071f69b8272d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT void</type>
+        <definition>POCKETSPHINX_EXPORT void ps_latlink_iter_free</definition>
+        <argsstring>(ps_latlink_iter_t *itor)</argsstring>
+        <name>ps_latlink_iter_free</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a3a6312ccf7e1697399822c47a99c4645" kindref="member">ps_latlink_iter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Stop iterating over links. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>itor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Link iterator. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="256" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="790" bodyend="793"/>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1aec0e905415e724e6d6eed9b12c2f8584" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_t* ps_latlink_iter_link</definition>
+        <argsstring>(ps_latlink_iter_t *itor)</argsstring>
+        <name>ps_latlink_iter_link</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a3a6312ccf7e1697399822c47a99c4645" kindref="member">ps_latlink_iter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Get link from iterator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="262" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="796" bodyend="799"/>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1aef48bb18865b449e69316ed5959eae9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int</type>
+        <definition>POCKETSPHINX_EXPORT int ps_latlink_times</definition>
+        <argsstring>(ps_latlink_t *link, int16 *out_sf)</argsstring>
+        <name>ps_latlink_times</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+          <declname>link</declname>
+        </param>
+        <param>
+          <type>int16 *</type>
+          <declname>out_sf</declname>
+        </param>
+        <briefdescription>
+<para>Get start and end times from a lattice link. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>these are <bold>inclusive</bold> - i.e. the last frame of this word is ef, not ef-1.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>link</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Link inquired about. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_sf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output: (optional) start frame of this link. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>End frame of this link. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="275" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="802" bodyend="813"/>
+        <references refid="structps__latlink__s_1a59e2bf9a1c0dd6ce4ac76a17c58fbe36" compoundref="ps__lattice__internal_8h" startline="102">ps_latlink_s::ef</references>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+        <references refid="structps__latnode__s_1a4171e956043e7856c04d84498f16cf29" compoundref="ps__lattice__internal_8h" startline="120">ps_latnode_s::sf</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a7344aa4fdb94a3a0af47901cb77185ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latnode_t* ps_latlink_nodes</definition>
+        <argsstring>(ps_latlink_t *link, ps_latnode_t **out_src)</argsstring>
+        <name>ps_latlink_nodes</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+          <declname>link</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> **</type>
+          <declname>out_src</declname>
+        </param>
+        <briefdescription>
+<para>Get destination and source nodes from a lattice link. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>link</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Link inquired about </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output: (optional) source node. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>destination node </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="285" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="816" bodyend="820"/>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a04c080f501883fe5d4c5500afb28e53a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT char const *</type>
+        <definition>POCKETSPHINX_EXPORT char const* ps_latlink_word</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latlink_t *link)</argsstring>
+        <name>ps_latlink_word</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+          <declname>link</declname>
+        </param>
+        <briefdescription>
+<para>Get word string from a lattice link. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to which node belongs. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>link</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Link inquired about </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Word string for this link (possibly a pronunciation variant). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="295" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="823" bodyend="828"/>
+        <references refid="structps__lattice__s_1a71865c59fae65743ef3c6b5aceb17da6" compoundref="ps__lattice__internal_8h" startline="66">ps_lattice_s::dict</references>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+        <references refid="structps__latnode__s_1afd85dbd410d6e6d970c73088bc6fb97e" compoundref="ps__lattice__internal_8h" startline="115">ps_latnode_s::wid</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a392d98f9dc8fdae7f1092dced0738a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT char const *</type>
+        <definition>POCKETSPHINX_EXPORT char const* ps_latlink_baseword</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latlink_t *link)</argsstring>
+        <name>ps_latlink_baseword</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+          <declname>link</declname>
+        </param>
+        <briefdescription>
+<para>Get base word string from a lattice link. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to which node belongs. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>link</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Link inquired about </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Base word string for this link </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="305" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="831" bodyend="836"/>
+        <references refid="structps__latnode__s_1ae3b3dc7d14347e6380859c74b9a02589" compoundref="ps__lattice__internal_8h" startline="116">ps_latnode_s::basewid</references>
+        <references refid="structps__lattice__s_1a71865c59fae65743ef3c6b5aceb17da6" compoundref="ps__lattice__internal_8h" startline="66">ps_lattice_s::dict</references>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a8f37d188bd1dff70293adebdb2453ab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_t* ps_latlink_pred</definition>
+        <argsstring>(ps_latlink_t *link)</argsstring>
+        <name>ps_latlink_pred</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+          <declname>link</declname>
+        </param>
+        <briefdescription>
+<para>Get predecessor link in best path. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>link</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Link inquired about </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Best previous link from bestpath search, if any. Otherwise NULL </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="314" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="839" bodyend="842"/>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1aa393fbcf215acc8116e18aac2847cc59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int32</type>
+        <definition>POCKETSPHINX_EXPORT int32 ps_latlink_prob</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latlink_t *link, int32 *out_ascr)</argsstring>
+        <name>ps_latlink_prob</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+          <declname>link</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_ascr</declname>
+        </param>
+        <briefdescription>
+<para>Get acoustic score and posterior probability from a lattice link. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to which node belongs. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>link</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Link inquired about </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_ascr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output: (optional) acoustic score. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Posterior probability for this link. Log is expressed in the log-base used in the decoder. To convert to linear floating-point, use logmath_exp(ps_lattice_get_logmath(), pprob). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="327" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="845" bodyend="850"/>
+        <references refid="structps__latlink__s_1ad2f031d271f1d875223aae33116d3f40" compoundref="ps__lattice__internal_8h" startline="103">ps_latlink_s::alpha</references>
+        <references refid="structps__latlink__s_1ae8a94ce1afb49292b044a0d4ba42b46d" compoundref="ps__lattice__internal_8h" startline="100">ps_latlink_s::ascr</references>
+        <references refid="structps__latlink__s_1a4c27cd5d4f514832d3d46993e2ee87df" compoundref="ps__lattice__internal_8h" startline="104">ps_latlink_s::beta</references>
+        <references refid="structps__lattice__s_1a68c3259613a16628e1dd2e8147705d8e" compoundref="ps__lattice__internal_8h" startline="77">ps_lattice_s::norm</references>
+        <references refid="hmm_8h_1af94da16e3e5b550b9be05b0f07402cc7" compoundref="hmm_8h" startline="77">SENSCR_SHIFT</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a4aaae70904361b23a78cdcb632c298c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT void</type>
+        <definition>POCKETSPHINX_EXPORT void ps_lattice_link</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latnode_t *from, ps_latnode_t *to, int32 score, int32 ef)</argsstring>
+        <name>ps_lattice_link</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>ef</declname>
+        </param>
+        <briefdescription>
+<para>Create a directed link between &quot;from&quot; and &quot;to&quot; nodes, but if a link already exists, choose one with the best link_scr. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="334" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="65" bodyend="103"/>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+        <references refid="structps__lattice__s_1afa8ca535dc8bf2cc656f6ad477e13b9f" compoundref="ps__lattice__internal_8h" startline="81">ps_lattice_s::latlink_alloc</references>
+        <references refid="structps__lattice__s_1a8e9cfaf92f9a3588d018578854c61e88" compoundref="ps__lattice__internal_8h" startline="82">ps_lattice_s::latlink_list_alloc</references>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+        <references refid="structps__latlink__s_1ae8a94ce1afb49292b044a0d4ba42b46d" compoundref="ps__lattice__internal_8h" startline="100">ps_latlink_s::ascr</references>
+        <references refid="structps__latlink__s_1a59e2bf9a1c0dd6ce4ac76a17c58fbe36" compoundref="ps__lattice__internal_8h" startline="102">ps_latlink_s::ef</references>
+        <references refid="structps__latnode__s_1a051a7eed31e29dd75151d1b34cc4eefa" compoundref="ps__lattice__internal_8h" startline="130">ps_latnode_s::entries</references>
+        <references refid="hmm_8h_1a2874ab52613ff781c96f570ec0eb0d98" compoundref="hmm_8h" startline="99">BETTER_THAN</references>
+        <referencedby refid="ngram__search_8h_1ac30e7dec4bbfeee9f5163abf4bbd1014" compoundref="ngram__search_8c" startline="1217" endline="1404">ngram_search_lattice</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1a9b40adaa059978fe33959d59da1b6919" compoundref="ps__lattice_8c" startline="106" endline="140">ps_lattice_bypass_fillers</referencedby>
+        <referencedby refid="ps__lattice_8c_1aaf4a101f324943c7635746ec6ba7ab06" compoundref="ps__lattice_8c" startline="410" endline="653">ps_lattice_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a997fce2eb1eaf316d463ddfb3d8395b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_t* ps_lattice_traverse_edges</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latnode_t *start, ps_latnode_t *end)</argsstring>
+        <name>ps_lattice_traverse_edges</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+<para>Start a forward traversal of edges in a word graph. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>A keen eye will notice an inconsistency in this API versus other types of iterators in PocketSphinx. The reason for this is that the traversal algorithm is much more efficient when it is able to modify the lattice structure. Therefore, to avoid giving the impression that multiple traversals are possible at once, no separate iterator structure is provided.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to be traversed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Start node (source) of traversal. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>End node (goal) of traversal. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>First link in traversal. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="353" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="1114" bodyend="1137"/>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__latnode__s_1a74ba4cfd8ebbb73772b8377d4517d9c0" compoundref="ps__lattice__internal_8h" startline="125">ps_latnode_s::fanin</references>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+        <references refid="ps__lattice_8c_1ad128ca75e8bc7ca4ba41094fb5b68ee9" compoundref="ps__lattice_8c" startline="1106" endline="1111">ps_lattice_delq</references>
+        <references refid="ps__lattice_8c_1a04896ebe0e2592bc7950d413b5d5c52e" compoundref="ps__lattice_8c" startline="1077" endline="1086">ps_lattice_pushq</references>
+        <references refid="ps__lattice_8c_1a8ab5c5bbbcf02a087a81232476dbd2a3" compoundref="ps__lattice_8c" startline="1140" endline="1168">ps_lattice_traverse_next</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+        <referencedby refid="ps__lattice_8c_1a0cc8e4824f4f23ecbf511b0bb096a3ea" compoundref="ps__lattice_8c" startline="1238" endline="1370">ps_lattice_bestpath</referencedby>
+        <referencedby refid="ps__lattice_8c_1a54c24dc8436c39d0ccc044f7b0ef8f3a" compoundref="ps__lattice_8c" startline="1477" endline="1518">ps_lattice_posterior_prune</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a2682f3cbbb4e6aee040fbe570ca983a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_t* ps_lattice_traverse_next</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latnode_t *end)</argsstring>
+        <name>ps_lattice_traverse_next</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+<para>Get the next link in forward traversal. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to be traversed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>End node (goal) of traversal. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Next link in traversal. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="363" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="1140" bodyend="1168"/>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__latnode__s_1a74ba4cfd8ebbb73772b8377d4517d9c0" compoundref="ps__lattice__internal_8h" startline="125">ps_latnode_s::fanin</references>
+        <references refid="ps__lattice_8c_1ad128ca75e8bc7ca4ba41094fb5b68ee9" compoundref="ps__lattice_8c" startline="1106" endline="1111">ps_lattice_delq</references>
+        <references refid="ps__lattice_8c_1a481c4d941368597e11b0af4709bd03b0" compoundref="ps__lattice_8c" startline="1089" endline="1103">ps_lattice_popq</references>
+        <references refid="ps__lattice_8c_1a04896ebe0e2592bc7950d413b5d5c52e" compoundref="ps__lattice_8c" startline="1077" endline="1086">ps_lattice_pushq</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+        <referencedby refid="ps__lattice_8c_1a0cc8e4824f4f23ecbf511b0bb096a3ea" compoundref="ps__lattice_8c" startline="1238" endline="1370">ps_lattice_bestpath</referencedby>
+        <referencedby refid="ps__lattice_8c_1a54c24dc8436c39d0ccc044f7b0ef8f3a" compoundref="ps__lattice_8c" startline="1477" endline="1518">ps_lattice_posterior_prune</referencedby>
+        <referencedby refid="ps__lattice_8c_1a3bd22d7b0561c81f874c115a200e84b9" compoundref="ps__lattice_8c" startline="1114" endline="1137">ps_lattice_traverse_edges</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1ad712e99a75ab8e9eb2f636aac8d5e2cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_t* ps_lattice_reverse_edges</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latnode_t *start, ps_latnode_t *end)</argsstring>
+        <name>ps_lattice_reverse_edges</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+<para>Start a reverse traversal of edges in a word graph. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>See <ref refid="ps__lattice_8h_1a997fce2eb1eaf316d463ddfb3d8395b8" kindref="member">ps_lattice_traverse_edges()</ref> for why this API is the way it is.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to be traversed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Start node (goal) of traversal. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>End node (source) of traversal. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>First link in traversal. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="376" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="1171" bodyend="1193"/>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__latnode__s_1a051a7eed31e29dd75151d1b34cc4eefa" compoundref="ps__lattice__internal_8h" startline="130">ps_latnode_s::entries</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__latnode__s_1a74ba4cfd8ebbb73772b8377d4517d9c0" compoundref="ps__lattice__internal_8h" startline="125">ps_latnode_s::fanin</references>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+        <references refid="ps__lattice_8c_1ad128ca75e8bc7ca4ba41094fb5b68ee9" compoundref="ps__lattice_8c" startline="1106" endline="1111">ps_lattice_delq</references>
+        <references refid="ps__lattice_8c_1a04896ebe0e2592bc7950d413b5d5c52e" compoundref="ps__lattice_8c" startline="1077" endline="1086">ps_lattice_pushq</references>
+        <references refid="ps__lattice_8c_1a7a6e0cb0510310b13fd4286cf8f48792" compoundref="ps__lattice_8c" startline="1196" endline="1224">ps_lattice_reverse_next</references>
+        <referencedby refid="ps__lattice_8c_1aafee8a8325301db72711a3680bc385c6" compoundref="ps__lattice_8c" startline="1408" endline="1474">ps_lattice_posterior</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1ae94a8b82335f782370faa66bb4801c72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_t* ps_lattice_reverse_next</definition>
+        <argsstring>(ps_lattice_t *dag, ps_latnode_t *start)</argsstring>
+        <name>ps_lattice_reverse_next</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+<para>Get the next link in reverse traversal. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lattice to be traversed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Start node (goal) of traversal. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Next link in traversal. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="386" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="1196" bodyend="1224"/>
+        <references refid="structps__latnode__s_1a051a7eed31e29dd75151d1b34cc4eefa" compoundref="ps__lattice__internal_8h" startline="130">ps_latnode_s::entries</references>
+        <references refid="structps__latnode__s_1a74ba4cfd8ebbb73772b8377d4517d9c0" compoundref="ps__lattice__internal_8h" startline="125">ps_latnode_s::fanin</references>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+        <references refid="ps__lattice_8c_1ad128ca75e8bc7ca4ba41094fb5b68ee9" compoundref="ps__lattice_8c" startline="1106" endline="1111">ps_lattice_delq</references>
+        <references refid="ps__lattice_8c_1a481c4d941368597e11b0af4709bd03b0" compoundref="ps__lattice_8c" startline="1089" endline="1103">ps_lattice_popq</references>
+        <references refid="ps__lattice_8c_1a04896ebe0e2592bc7950d413b5d5c52e" compoundref="ps__lattice_8c" startline="1077" endline="1086">ps_lattice_pushq</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <referencedby refid="ps__lattice_8c_1aafee8a8325301db72711a3680bc385c6" compoundref="ps__lattice_8c" startline="1408" endline="1474">ps_lattice_posterior</referencedby>
+        <referencedby refid="ps__lattice_8c_1a33e1a31ff250c7e7d555e179e2693f5d" compoundref="ps__lattice_8c" startline="1171" endline="1193">ps_lattice_reverse_edges</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1af19b8f0749af01d4874595e80fc612ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT <ref refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" kindref="member">ps_latlink_t</ref> *</type>
+        <definition>POCKETSPHINX_EXPORT ps_latlink_t* ps_lattice_bestpath</definition>
+        <argsstring>(ps_lattice_t *dag, ngram_model_t *lmset, float32 lwf, float32 ascale)</argsstring>
+        <name>ps_lattice_bestpath</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type>ngram_model_t *</type>
+          <declname>lmset</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>lwf</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>ascale</declname>
+        </param>
+        <briefdescription>
+<para>Do N-Gram based best-path search on a word graph. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function calculates both the best path as well as the forward probability used in confidence estimation.</para><para><simplesect kind="return"><para>Final link in best path, NULL on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="397" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="1238" bodyend="1370"/>
+        <references refid="structps__latlink__s_1ad2f031d271f1d875223aae33116d3f40" compoundref="ps__lattice__internal_8h" startline="103">ps_latlink_s::alpha</references>
+        <references refid="structps__latlink__s_1ae8a94ce1afb49292b044a0d4ba42b46d" compoundref="ps__lattice__internal_8h" startline="100">ps_latlink_s::ascr</references>
+        <references refid="structps__latnode__s_1ae3b3dc7d14347e6380859c74b9a02589" compoundref="ps__lattice__internal_8h" startline="116">ps_latnode_s::basewid</references>
+        <references refid="hmm_8h_1a2874ab52613ff781c96f570ec0eb0d98" compoundref="hmm_8h" startline="99">BETTER_THAN</references>
+        <references refid="structps__search__s_1a918f243fa966e72c47f697fb9e60089d" compoundref="pocketsphinx__internal_8h" startline="111">ps_search_s::dict</references>
+        <references refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</references>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__latnode__s_1a051a7eed31e29dd75151d1b34cc4eefa" compoundref="ps__lattice__internal_8h" startline="130">ps_latnode_s::entries</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__lattice__s_1aba113d4134c72d7405423c77bcc1247e" compoundref="ps__lattice__internal_8h" startline="76">ps_lattice_s::final_node_ascr</references>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+        <references refid="structps__latnode__s_1a5c7b9114d131151d6ce85228ea9f829d" compoundref="ps__lattice__internal_8h" startline="119">ps_latnode_s::lef</references>
+        <references refid="structps__lattice__s_1a28f4ff5039e0961d57331d2605801010" compoundref="ps__lattice__internal_8h" startline="64">ps_lattice_s::lmath</references>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+        <references refid="structps__lattice__s_1a68c3259613a16628e1dd2e8147705d8e" compoundref="ps__lattice__internal_8h" startline="77">ps_lattice_s::norm</references>
+        <references refid="structps__latlink__s_1a704fcfbdb57b1461325544c782289599" compoundref="ps__lattice__internal_8h" startline="101">ps_latlink_s::path_scr</references>
+        <references refid="ps__lattice_8c_1a3bd22d7b0561c81f874c115a200e84b9" compoundref="ps__lattice_8c" startline="1114" endline="1137">ps_lattice_traverse_edges</references>
+        <references refid="ps__lattice_8c_1a8ab5c5bbbcf02a087a81232476dbd2a3" compoundref="ps__lattice_8c" startline="1140" endline="1168">ps_lattice_traverse_next</references>
+        <references refid="structps__lattice__s_1a9ebaeb7be7a83980569f0c544eb6babb" compoundref="ps__lattice__internal_8h" startline="65">ps_lattice_s::search</references>
+        <references refid="hmm_8h_1af94da16e3e5b550b9be05b0f07402cc7" compoundref="hmm_8h" startline="77">SENSCR_SHIFT</references>
+        <references refid="structps__latnode__s_1a4171e956043e7856c04d84498f16cf29" compoundref="ps__lattice__internal_8h" startline="120">ps_latnode_s::sf</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+        <references refid="structps__latnode__s_1afd85dbd410d6e6d970c73088bc6fb97e" compoundref="ps__lattice__internal_8h" startline="115">ps_latnode_s::wid</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a8c5c6ef260ab006099ab34d09b5b1d06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int32</type>
+        <definition>POCKETSPHINX_EXPORT int32 ps_lattice_posterior</definition>
+        <argsstring>(ps_lattice_t *dag, ngram_model_t *lmset, float32 ascale)</argsstring>
+        <name>ps_lattice_posterior</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type>ngram_model_t *</type>
+          <declname>lmset</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>ascale</declname>
+        </param>
+        <briefdescription>
+<para>Calculate link posterior probabilities on a word graph. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function assumes that bestpath search has already been done.</para><para><simplesect kind="return"><para>Posterior probability of the utterance as a whole. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="408" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="1408" bodyend="1474"/>
+        <references refid="structps__latlink__s_1ae8a94ce1afb49292b044a0d4ba42b46d" compoundref="ps__lattice__internal_8h" startline="100">ps_latlink_s::ascr</references>
+        <references refid="structps__latnode__s_1ae3b3dc7d14347e6380859c74b9a02589" compoundref="ps__lattice__internal_8h" startline="116">ps_latnode_s::basewid</references>
+        <references refid="structps__latlink__s_1a4c27cd5d4f514832d3d46993e2ee87df" compoundref="ps__lattice__internal_8h" startline="104">ps_latlink_s::beta</references>
+        <references refid="hmm_8h_1a2874ab52613ff781c96f570ec0eb0d98" compoundref="hmm_8h" startline="99">BETTER_THAN</references>
+        <references refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</references>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__lattice__s_1aba113d4134c72d7405423c77bcc1247e" compoundref="ps__lattice__internal_8h" startline="76">ps_lattice_s::final_node_ascr</references>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+        <references refid="structps__lattice__s_1a28f4ff5039e0961d57331d2605801010" compoundref="ps__lattice__internal_8h" startline="64">ps_lattice_s::lmath</references>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+        <references refid="structps__lattice__s_1a68c3259613a16628e1dd2e8147705d8e" compoundref="ps__lattice__internal_8h" startline="77">ps_lattice_s::norm</references>
+        <references refid="structps__latlink__s_1a704fcfbdb57b1461325544c782289599" compoundref="ps__lattice__internal_8h" startline="101">ps_latlink_s::path_scr</references>
+        <references refid="ps__lattice_8c_1a33e1a31ff250c7e7d555e179e2693f5d" compoundref="ps__lattice_8c" startline="1171" endline="1193">ps_lattice_reverse_edges</references>
+        <references refid="ps__lattice_8c_1a7a6e0cb0510310b13fd4286cf8f48792" compoundref="ps__lattice_8c" startline="1196" endline="1224">ps_lattice_reverse_next</references>
+        <references refid="structps__lattice__s_1a9ebaeb7be7a83980569f0c544eb6babb" compoundref="ps__lattice__internal_8h" startline="65">ps_lattice_s::search</references>
+        <references refid="hmm_8h_1af94da16e3e5b550b9be05b0f07402cc7" compoundref="hmm_8h" startline="77">SENSCR_SHIFT</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a30d83a5fd158d2acaa5107be7a09ed09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int32</type>
+        <definition>POCKETSPHINX_EXPORT int32 ps_lattice_posterior_prune</definition>
+        <argsstring>(ps_lattice_t *dag, int32 beam)</argsstring>
+        <name>ps_lattice_posterior_prune</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>beam</declname>
+        </param>
+        <briefdescription>
+<para>Prune all links (and associated nodes) below a certain posterior probability. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function assumes that <ref refid="ps__lattice_8h_1a8c5c6ef260ab006099ab34d09b5b1d06" kindref="member">ps_lattice_posterior()</ref> has already been called.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>beam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum posterior probability for links. This is expressed in the log-base used in the decoder. To convert from linear floating-point, use logmath_log(ps_lattice_get_logmath(), prob). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>number of arcs removed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="423" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="1477" bodyend="1518"/>
+        <references refid="structps__latlink__s_1ad2f031d271f1d875223aae33116d3f40" compoundref="ps__lattice__internal_8h" startline="103">ps_latlink_s::alpha</references>
+        <references refid="structps__latlink__s_1a4c27cd5d4f514832d3d46993e2ee87df" compoundref="ps__lattice__internal_8h" startline="104">ps_latlink_s::beta</references>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__latnode__s_1a051a7eed31e29dd75151d1b34cc4eefa" compoundref="ps__lattice__internal_8h" startline="130">ps_latnode_s::entries</references>
+        <references refid="structps__latnode__s_1a5232eefbc6e800b77e7a3c8ee3f4135d" compoundref="ps__lattice__internal_8h" startline="129">ps_latnode_s::exits</references>
+        <references refid="structps__latlink__s_1ab0912c26d1472b4c5c07042c19ffb979" compoundref="ps__lattice__internal_8h" startline="97">ps_latlink_s::from</references>
+        <references refid="structps__lattice__s_1afa8ca535dc8bf2cc656f6ad477e13b9f" compoundref="ps__lattice__internal_8h" startline="81">ps_lattice_s::latlink_alloc</references>
+        <references refid="structps__lattice__s_1a8e9cfaf92f9a3588d018578854c61e88" compoundref="ps__lattice__internal_8h" startline="82">ps_lattice_s::latlink_list_alloc</references>
+        <references refid="structps__lattice__s_1a68c3259613a16628e1dd2e8147705d8e" compoundref="ps__lattice__internal_8h" startline="77">ps_lattice_s::norm</references>
+        <references refid="ps__lattice_8c_1a6da4e36322aaab4d2ebe812bee9a4439" compoundref="ps__lattice_8c" startline="197" endline="230">ps_lattice_delete_unreachable</references>
+        <references refid="ps__lattice_8c_1a3bd22d7b0561c81f874c115a200e84b9" compoundref="ps__lattice_8c" startline="1114" endline="1137">ps_lattice_traverse_edges</references>
+        <references refid="ps__lattice_8c_1a8ab5c5bbbcf02a087a81232476dbd2a3" compoundref="ps__lattice_8c" startline="1140" endline="1168">ps_lattice_traverse_next</references>
+        <references refid="structps__latnode__s_1af9c4c69f5f85bbc36818357a52432565" compoundref="ps__lattice__internal_8h" startline="121">ps_latnode_s::reachable</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <references refid="structps__latlink__s_1a782a15b1aeabf68983ca521e51f2c1e1" compoundref="ps__lattice__internal_8h" startline="98">ps_latlink_s::to</references>
+      </memberdef>
+      <memberdef kind="function" id="ps__lattice_8h_1a44a196a35a8aeb044251c6c152034c90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int</type>
+        <definition>POCKETSPHINX_EXPORT int ps_lattice_n_frames</definition>
+        <argsstring>(ps_lattice_t *dag)</argsstring>
+        <name>ps_lattice_n_frames</name>
+        <param>
+          <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+          <declname>dag</declname>
+        </param>
+        <briefdescription>
+<para>Get the number of frames in the lattice. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The lattice in question. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of frames in this lattice. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h" line="443" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice.c" bodystart="656" bodyend="659"/>
+        <references refid="structps__lattice__s_1a3a997dc60d28b84d5bfc01f9ce25a891" compoundref="ps__lattice__internal_8h" startline="74">ps_lattice_s::n_frames</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Word graph search. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2008<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor">#ifndef<sp/>__PS_LATTICE_H__</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__PS_LATTICE_H__</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>SphinxBase<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/prim_type.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/ngram_model.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>PocketSphinx<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pocketsphinx_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__lattice__s" kindref="compound">ps_lattice_s</ref><sp/><ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__latnode__s" kindref="compound">ps_latnode_s</ref><sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="ps__lattice_8h_1afd06dd0a4f63e1b1912c1a53b6a75de6" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__latnode__s" kindref="compound">ps_latnode_s</ref><sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_iter_t</ref>;<sp/></highlight><highlight class="comment">/*<sp/>pay<sp/>no<sp/>attention<sp/>to<sp/>the<sp/>man<sp/>behind<sp/>the<sp/>curtain<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="ps__lattice_8h_1a58ba3066b0b611f07c7ae57d77f8e776" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__latlink__s" kindref="compound">ps_latlink_s</ref><sp/><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="ps__lattice_8h_1a3a6312ccf7e1697399822c47a99c4645" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlatlink__list__s" kindref="compound">latlink_list_s</ref><sp/><ref refid="structlatlink__list__s" kindref="compound">ps_latlink_iter_t</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Forward<sp/>declaration<sp/>needed<sp/>to<sp/>avoid<sp/>circular<sp/>includes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structps__decoder__s" kindref="compound">ps_decoder_s</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*<ref refid="ps__lattice_8h_1a26f4a34c81b112109621b7ecacd57ee0" kindref="member">ps_lattice_read</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structps__decoder__s" kindref="compound">ps_decoder_s</ref><sp/>*ps,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*file);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*<ref refid="ps__lattice_8h_1a9efc5f2836e2a0bd5d58326303516df5" kindref="member">ps_lattice_retain</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1a3f90e846bde47cd1acdff165b92f5c22" kindref="member">ps_lattice_free</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1a3f2e2b88d0aa80346cc64d2b7934b863" kindref="member">ps_lattice_write</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*filename);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1aefd25c0f49a0d70f999187a26fa2ff06" kindref="member">ps_lattice_write_htk</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*filename);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">logmath_t<sp/>*<ref refid="ps__lattice_8h_1a5c9d9171c9846c46c107bfe41a9120cf" kindref="member">ps_lattice_get_logmath</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><ref refid="structps__latnode__s" kindref="compound">ps_latnode_iter_t</ref><sp/>*<ref refid="ps__lattice_8h_1aaf073a0617c446aa5424513f7c1045b8" kindref="member">ps_latnode_iter</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><ref refid="structps__latnode__s" kindref="compound">ps_latnode_iter_t</ref><sp/>*<ref refid="ps__lattice_8h_1a48aaf30b9396b38ccaf3a1b6e9225a01" kindref="member">ps_latnode_iter_next</ref>(<ref refid="structps__latnode__s" kindref="compound">ps_latnode_iter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1ae9a6464b83d37bfa2ce570206eff6aad" kindref="member">ps_latnode_iter_free</ref>(<ref refid="structps__latnode__s" kindref="compound">ps_latnode_iter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*<ref refid="ps__lattice_8h_1a591bd15a350284b938deb84242736acc" kindref="member">ps_latnode_iter_node</ref>(<ref refid="structps__latnode__s" kindref="compound">ps_latnode_iter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1a42bd0fbfe8b0cab1a9a7e799a3fc30a2" kindref="member">ps_latnode_times</ref>(<ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*node,<sp/>int16<sp/>*out_fef,<sp/>int16<sp/>*out_lef);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="ps__lattice_8h_1a54888a8a7379c5c63613504b9a847ea3" kindref="member">ps_latnode_word</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*node);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="ps__lattice_8h_1a0b3b6a843b49deab080bf1c6e99c875d" kindref="member">ps_latnode_baseword</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*node);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><ref refid="structlatlink__list__s" kindref="compound">ps_latlink_iter_t</ref><sp/>*<ref refid="ps__lattice_8h_1a13fb923cd41fae910457df2643e58738" kindref="member">ps_latnode_exits</ref>(<ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*node);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><ref refid="structlatlink__list__s" kindref="compound">ps_latlink_iter_t</ref><sp/>*<ref refid="ps__lattice_8h_1a16ad0cfb8d4b02f9cf90a8b52756a7f7" kindref="member">ps_latnode_entries</ref>(<ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*node);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">int32<sp/><ref refid="ps__lattice_8h_1a68253946c2405d7f9090de7530f33b9d" kindref="member">ps_latnode_prob</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*node,</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>**out_link);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><ref refid="structlatlink__list__s" kindref="compound">ps_latlink_iter_t</ref><sp/>*<ref refid="ps__lattice_8h_1af737b31c2570d321c26a79b5002f2ba7" kindref="member">ps_latlink_iter_next</ref>(<ref refid="structlatlink__list__s" kindref="compound">ps_latlink_iter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1aa19aaa4a38a922ff28fe071f69b8272d" kindref="member">ps_latlink_iter_free</ref>(<ref refid="structlatlink__list__s" kindref="compound">ps_latlink_iter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*<ref refid="ps__lattice_8h_1aec0e905415e724e6d6eed9b12c2f8584" kindref="member">ps_latlink_iter_link</ref>(<ref refid="structlatlink__list__s" kindref="compound">ps_latlink_iter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1aef48bb18865b449e69316ed5959eae9f" kindref="member">ps_latlink_times</ref>(<ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*link,<sp/>int16<sp/>*out_sf);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*<ref refid="ps__lattice_8h_1a7344aa4fdb94a3a0af47901cb77185ed" kindref="member">ps_latlink_nodes</ref>(<ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*link,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>**out_src);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="ps__lattice_8h_1a04c080f501883fe5d4c5500afb28e53a" kindref="member">ps_latlink_word</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*link);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="ps__lattice_8h_1a392d98f9dc8fdae7f1092dced0738a43" kindref="member">ps_latlink_baseword</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*link);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*<ref refid="ps__lattice_8h_1a8f37d188bd1dff70293adebdb2453ab4" kindref="member">ps_latlink_pred</ref>(<ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*link);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">int32<sp/><ref refid="ps__lattice_8h_1aa393fbcf215acc8116e18aac2847cc59" kindref="member">ps_latlink_prob</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*link,<sp/>int32<sp/>*out_ascr);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1a4aaae70904361b23a78cdcb632c298c4" kindref="member">ps_lattice_link</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*from,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*to,</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>score,<sp/>int32<sp/>ef);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*<ref refid="ps__lattice_8h_1a997fce2eb1eaf316d463ddfb3d8395b8" kindref="member">ps_lattice_traverse_edges</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*start,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*end);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*<ref refid="ps__lattice_8h_1a2682f3cbbb4e6aee040fbe570ca983a9" kindref="member">ps_lattice_traverse_next</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*end);</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*<ref refid="ps__lattice_8h_1ad712e99a75ab8e9eb2f636aac8d5e2cb" kindref="member">ps_lattice_reverse_edges</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*start,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*end);</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="385"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*<ref refid="ps__lattice_8h_1ae94a8b82335f782370faa66bb4801c72" kindref="member">ps_lattice_reverse_next</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>*start);</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"></highlight></codeline>
+<codeline lineno="396"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><ref refid="structps__latlink__s" kindref="compound">ps_latlink_t</ref><sp/>*<ref refid="ps__lattice_8h_1af19b8f0749af01d4874595e80fc612ba" kindref="member">ps_lattice_bestpath</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/>ngram_model_t<sp/>*lmset,</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float32<sp/>lwf,<sp/>float32<sp/>ascale);</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"></highlight></codeline>
+<codeline lineno="407"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="408"><highlight class="normal">int32<sp/><ref refid="ps__lattice_8h_1a8c5c6ef260ab006099ab34d09b5b1d06" kindref="member">ps_lattice_posterior</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/>ngram_model_t<sp/>*lmset,</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float32<sp/>ascale);</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"></highlight></codeline>
+<codeline lineno="422"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="423"><highlight class="normal">int32<sp/><ref refid="ps__lattice_8h_1a30d83a5fd158d2acaa5107be7a09ed09" kindref="member">ps_lattice_posterior_prune</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/>int32<sp/>beam);</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"></highlight></codeline>
+<codeline lineno="425"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>NOT_IMPLEMENTED_YET</highlight></codeline>
+<codeline lineno="426"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="432"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="433"><highlight class="normal">int32<sp/>ps_lattice_ngram_expand(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag,<sp/>ngram_model_t<sp/>*lm);</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="435"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="442"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ps__lattice_8h_1a44a196a35a8aeb044251c6c152034c90" kindref="member">ps_lattice_n_frames</ref>(<ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*dag);</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"></highlight></codeline>
+<codeline lineno="445"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__PS_LATTICE_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/include/ps_lattice.h"/>
+  </compounddef>
+</doxygen>

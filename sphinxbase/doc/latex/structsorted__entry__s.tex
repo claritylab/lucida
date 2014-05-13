@@ -1,0 +1,60 @@
+\section{sorted\-\_\-entry\-\_\-s Struct Reference}
+\label{structsorted__entry__s}\index{sorted\-\_\-entry\-\_\-s@{sorted\-\_\-entry\-\_\-s}}
+
+
+Bigram probs and bo-\/wts, and trigram probs are kept in separate tables rather than within the bigram\-\_\-t and trigram\-\_\-t structures.  
+
+
+
+
+{\ttfamily \#include $<$lm3g\-\_\-model.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf lmprob\-\_\-t} {\bf val}\label{structsorted__entry__s_a7bfd6c0c9c7240695a5909044177122f}
+
+\begin{DoxyCompactList}\small\item\em value being kept in this node \end{DoxyCompactList}\item 
+uint32 {\bf lower}
+\begin{DoxyCompactList}\small\item\em index of another entry. \end{DoxyCompactList}\item 
+uint32 {\bf higher}
+\begin{DoxyCompactList}\small\item\em index of another entry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Bigram probs and bo-\/wts, and trigram probs are kept in separate tables rather than within the bigram\-\_\-t and trigram\-\_\-t structures. 
+
+These tables hold unique prob and bo-\/wt values. The following tree structure is used to construct these tables of unique values. Whenever a new value is read from the L\-M file, the sorted tree structure is searched to see if the value already exists, and inserted if not found. 
+
+Definition at line 68 of file lm3g\-\_\-model.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{sorted\-\_\-entry\-\_\-s@{sorted\-\_\-entry\-\_\-s}!higher@{higher}}
+\index{higher@{higher}!sorted_entry_s@{sorted\-\_\-entry\-\_\-s}}
+\subsubsection[{higher}]{\setlength{\rightskip}{0pt plus 5cm}uint32 sorted\-\_\-entry\-\_\-s\-::higher}\label{structsorted__entry__s_a0b7f0225403703a4daa3780593db7237}
+
+
+index of another entry. 
+
+All descendants down this path have their val $>$ this node's val 0 =$>$ no son exists (0 is root index) 
+
+Definition at line 73 of file lm3g\-\_\-model.\-h.
+
+\index{sorted\-\_\-entry\-\_\-s@{sorted\-\_\-entry\-\_\-s}!lower@{lower}}
+\index{lower@{lower}!sorted_entry_s@{sorted\-\_\-entry\-\_\-s}}
+\subsubsection[{lower}]{\setlength{\rightskip}{0pt plus 5cm}uint32 sorted\-\_\-entry\-\_\-s\-::lower}\label{structsorted__entry__s_a248960abac597c0f615ab01822f6d559}
+
+
+index of another entry. 
+
+All descendants down this path have their val $<$ this node's val. 0 =$>$ no son exists (0 is root index) 
+
+Definition at line 70 of file lm3g\-\_\-model.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libsphinxbase/lm/lm3g\-\_\-model.\-h\end{DoxyCompactItemize}

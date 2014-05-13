@@ -1,0 +1,59 @@
+\section{hash\-\_\-entry\-\_\-s Struct Reference}
+\label{structhash__entry__s}\index{hash\-\_\-entry\-\_\-s@{hash\-\_\-entry\-\_\-s}}
+
+
+A note by A\-R\-C\-H\-A\-N at 20050510\-: Technically what we use is so-\/called \char`\"{}hash table with buckets\char`\"{} which is very nice way to deal with external hashing.  
+
+
+
+
+{\ttfamily \#include $<$hash\-\_\-table.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ {\bfseries key}\label{structhash__entry__s_a2566ac1233761789585363a283385321}
+
+\item 
+size\-\_\-t {\bf len}
+\begin{DoxyCompactList}\small\item\em Key string, N\-U\-L\-L if this is an empty slot. \end{DoxyCompactList}\item 
+void $\ast$ {\bf val}\label{structhash__entry__s_a0d57012963084fed93886681108aa636}
+
+\begin{DoxyCompactList}\small\item\em Key-\/length; the key string does not have to be a C-\/style N\-U\-L\-L terminated string; it can have arbitrary binary bytes. \end{DoxyCompactList}\item 
+struct {\bf hash\-\_\-entry\-\_\-s} $\ast$ {\bf next}\label{structhash__entry__s_aa855ac854b9c36cf23f60d9ac8093e7f}
+
+\begin{DoxyCompactList}\small\item\em Value associated with above key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A note by A\-R\-C\-H\-A\-N at 20050510\-: Technically what we use is so-\/called \char`\"{}hash table with buckets\char`\"{} which is very nice way to deal with external hashing. 
+
+There are definitely better ways to do internal hashing (i.\-e. when everything is stored in the memory.) In Sphinx 3, this is a reasonable practice because hash table is only used in lookup in initialization or in lookups which is not critical for speed. Another note by A\-R\-C\-H\-A\-N at 20050703\-: To use this data structure properly, it is very important to realize that the users are required to handle memory allocation of the C-\/style keys. The hash table will not make a copy of the memory allocated for any of the C-\/style key. It will not allocate memory for it. It will not delete memory for it. As a result, the following code sniplet will cause memory leak.
+
+while (1)\{ str=(char$\ast$)\doxyref{ckd\-\_\-calloc(str\-\_\-length,sizeof(char$\ast$))}{p.}{ckd__alloc_8h_aa00ef21903bc4f8a972488417adc8d2e} if(hash\-\_\-enter(ht,str,id)!=id)\{ printf(\char`\"{}fail to add key str \%s with val id \%d\textbackslash{}n\char`\"{},str,id)\} \} A note by dhuggins on 20061010\-: Changed this to use void $\ast$ instead of int32 as the value type, so that arbitrary objects can be inserted into a hash table (in a way that won't crash on 64-\/bit machines ;) The hash table structures. Each hash table is identified by a \doxyref{hash\-\_\-table\-\_\-t}{p.}{structhash__table__t} structure. hash\-\_\-table\-\_\-t.\-table is pre-\/allocated for a user-\/controlled max size, and is initially empty. As new entries are created (using hash\-\_\-enter()), the empty entries get filled. If multiple keys hash to the same entry, new entries are allocated and linked together in a linear list. 
+
+Definition at line 149 of file hash\-\_\-table.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{hash\-\_\-entry\-\_\-s@{hash\-\_\-entry\-\_\-s}!len@{len}}
+\index{len@{len}!hash_entry_s@{hash\-\_\-entry\-\_\-s}}
+\subsubsection[{len}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t hash\-\_\-entry\-\_\-s\-::len}\label{structhash__entry__s_af1ec5f16059ced6d9a8ae4d36ca7e2b3}
+
+
+Key string, N\-U\-L\-L if this is an empty slot. 
+
+N\-O\-T\-E that the key must not be changed once the entry has been made. 
+
+Definition at line 153 of file hash\-\_\-table.\-h.
+
+
+
+Referenced by hash\-\_\-table\-\_\-display().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/sphinxbase/{\bf hash\-\_\-table.\-h}\end{DoxyCompactItemize}

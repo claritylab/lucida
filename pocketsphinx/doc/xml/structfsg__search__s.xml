@@ -1,0 +1,665 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structfsg__search__s" kind="struct" prot="public">
+    <compoundname>fsg_search_s</compoundname>
+    <includes refid="fsg__search__internal_8h" local="no">fsg_search_internal.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfsg__search__s_1a75f0e3fd5396d62616b9f84eab7ea355" prot="public" static="no" mutable="no">
+        <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref></type>
+        <definition>ps_search_t fsg_search_s::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="69" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a7407bdf5f311caf9d46817b3387b798c" prot="public" static="no" mutable="no">
+        <type><ref refid="structhmm__context__t" kindref="compound">hmm_context_t</ref> *</type>
+        <definition>hmm_context_t* fsg_search_s::hmmctx</definition>
+        <argsstring></argsstring>
+        <name>hmmctx</name>
+        <briefdescription>
+<para>HMM context. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="71" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1ab1877ffe7d77ddb79bab53fb95577946" prot="public" static="no" mutable="no">
+        <type>fsg_model_t *</type>
+        <definition>fsg_model_t* fsg_search_s::fsg</definition>
+        <argsstring></argsstring>
+        <name>fsg</name>
+        <briefdescription>
+<para>FSG model. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="73" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1ac2c756ff6c1a2f1059011756d22441f8" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structfsg__lextree__s" kindref="compound">fsg_lextree_s</ref> *</type>
+        <definition>struct fsg_lextree_s* fsg_search_s::lextree</definition>
+        <argsstring></argsstring>
+        <name>lextree</name>
+        <briefdescription>
+<para>Lextree structure for the currently active FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="74" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1abc949ccaab380bcf5b452d1cac54469b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structfsg__history__s" kindref="compound">fsg_history_s</ref> *</type>
+        <definition>struct fsg_history_s* fsg_search_s::history</definition>
+        <argsstring></argsstring>
+        <name>history</name>
+        <briefdescription>
+<para>For storing the Viterbi search history. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="76" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a318ff42978c1e645f01962345ac08215" prot="public" static="no" mutable="no">
+        <type>glist_t</type>
+        <definition>glist_t fsg_search_s::pnode_active</definition>
+        <argsstring></argsstring>
+        <name>pnode_active</name>
+        <briefdescription>
+<para>Those active in this frame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="78" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1aa2dfc00e1f34041dacd9572b0d659775" prot="public" static="no" mutable="no">
+        <type>glist_t</type>
+        <definition>glist_t fsg_search_s::pnode_active_next</definition>
+        <argsstring></argsstring>
+        <name>pnode_active_next</name>
+        <briefdescription>
+<para>Those activated for the next frame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="79" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a0cdf7dc3d3eed0d37f46cb71fdea206e" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::beam_orig</definition>
+        <argsstring></argsstring>
+        <name>beam_orig</name>
+        <briefdescription>
+<para>Global pruning threshold. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="81" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a7cdf0ab2591b95d89940d51e3ab01529" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::pbeam_orig</definition>
+        <argsstring></argsstring>
+        <name>pbeam_orig</name>
+        <briefdescription>
+<para>Pruning threshold for phone transition. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="82" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a7f3ecc2f769143e42ed958744478db3c" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::wbeam_orig</definition>
+        <argsstring></argsstring>
+        <name>wbeam_orig</name>
+        <briefdescription>
+<para>Pruning threshold for word exit. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="83" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a8e86d9f82189f8429d71ee2f67ecaaa2" prot="public" static="no" mutable="no">
+        <type>float32</type>
+        <definition>float32 fsg_search_s::beam_factor</definition>
+        <argsstring></argsstring>
+        <name>beam_factor</name>
+        <briefdescription>
+<para>Dynamic/adaptive factor (&lt;=1) applied to above beams to determine actual effective beams. </para>        </briefdescription>
+        <detaileddescription>
+<para>For implementing absolute pruning. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="84" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a1dbc28682f610fef5b79fd8a182f4395" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::beam</definition>
+        <argsstring></argsstring>
+        <name>beam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a373ffd62c4bcb07a6f28378ea33161e1" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::pbeam</definition>
+        <argsstring></argsstring>
+        <name>pbeam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1af28ddecbb5115a50712c61f8a72dcf51" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::wbeam</definition>
+        <argsstring></argsstring>
+        <name>wbeam</name>
+        <briefdescription>
+<para>Effective beams after applying beam_factor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a77c1f7f228ca66e48fb05e1ac2b2714a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::lw</definition>
+        <argsstring></argsstring>
+        <name>lw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="88" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a2163d2c02c2dfe84a83c10fdb2d330a3" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::pip</definition>
+        <argsstring></argsstring>
+        <name>pip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="88" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1ae9ddc3b50d0f164926392f8ab4b019a0" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::wip</definition>
+        <argsstring></argsstring>
+        <name>wip</name>
+        <briefdescription>
+<para>Language weights. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="88" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1acdac4164d14d531b14c11a823dd22893" prot="public" static="no" mutable="no">
+        <type><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref></type>
+        <definition>frame_idx_t fsg_search_s::frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <briefdescription>
+<para>Current frame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="90" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a5139d7ab35ae18407e06e78e1778f857" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 fsg_search_s::final</definition>
+        <argsstring></argsstring>
+        <name>final</name>
+        <briefdescription>
+<para>Decoding is finished for this utterance. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="91" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1aba7eff57919c5a1de55eab3a62ff055a" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 fsg_search_s::bestpath</definition>
+        <argsstring></argsstring>
+        <name>bestpath</name>
+        <briefdescription>
+<para>Whether to run bestpath search and confidence annotation at end. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="92" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a4d13fff2e14882b0125386fc27a4097f" prot="public" static="no" mutable="no">
+        <type>float32</type>
+        <definition>float32 fsg_search_s::ascale</definition>
+        <argsstring></argsstring>
+        <name>ascale</name>
+        <briefdescription>
+<para>Acoustic score scale for posterior probabilities. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="94" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a52880ad440412d76f7aae7e05977ba4b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::bestscore</definition>
+        <argsstring></argsstring>
+        <name>bestscore</name>
+        <briefdescription>
+<para>For beam pruning. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="96" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a24d59609008ac132dca256d36a89f9c8" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::bpidx_start</definition>
+        <argsstring></argsstring>
+        <name>bpidx_start</name>
+        <briefdescription>
+<para>First history entry index this frame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="97" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1aac3c130a5777edd2a227fd064eaefbf2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::ascr</definition>
+        <argsstring></argsstring>
+        <name>ascr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="99" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a709277a80e9418ecc3e63296f8eb6bbf" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::lscr</definition>
+        <argsstring></argsstring>
+        <name>lscr</name>
+        <briefdescription>
+<para>Total acoustic and lm score for utt. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="99" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a7e3d7375b4a33af339e8b55885677faa" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::n_hmm_eval</definition>
+        <argsstring></argsstring>
+        <name>n_hmm_eval</name>
+        <briefdescription>
+<para>Total HMMs evaluated this utt. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="101" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfsg__search__s_1a56494e3b30d0c66367c7ef055b8addb2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 fsg_search_s::n_sen_eval</definition>
+        <argsstring></argsstring>
+        <name>n_sen_eval</name>
+        <briefdescription>
+<para>Total senones evaluated this utt. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="102" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of FSG search (and &quot;FSG set&quot;) structure. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="164">
+        <label>ps_mgau_s</label>
+        <link refid="structps__mgau__s"/>
+        <childnode refid="165" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+      </node>
+      <node id="153">
+        <label>dict_t</label>
+        <link refid="structdict__t"/>
+        <childnode refid="148" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="154" relation="usage">
+          <edgelabel>word</edgelabel>
+        </childnode>
+      </node>
+      <node id="155">
+        <label>ps_search_s</label>
+        <link refid="structps__search__s"/>
+        <childnode refid="156" relation="usage">
+          <edgelabel>last_link</edgelabel>
+        </childnode>
+        <childnode refid="159" relation="usage">
+          <edgelabel>dag</edgelabel>
+        </childnode>
+        <childnode refid="160" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+        <childnode refid="151" relation="usage">
+          <edgelabel>d2p</edgelabel>
+        </childnode>
+        <childnode refid="153" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="163" relation="usage">
+          <edgelabel>acmod</edgelabel>
+        </childnode>
+        <childnode refid="155" relation="usage">
+          <edgelabel>pls</edgelabel>
+        </childnode>
+      </node>
+      <node id="151">
+        <label>dict2pid_t</label>
+        <link refid="structdict2pid__t"/>
+        <childnode refid="152" relation="usage">
+          <edgelabel>lrssid</edgelabel>
+          <edgelabel>rssid</edgelabel>
+        </childnode>
+        <childnode refid="153" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="148" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+      </node>
+      <node id="158">
+        <label>latlink_list_s</label>
+        <link refid="structlatlink__list__s"/>
+        <childnode refid="156" relation="usage">
+          <edgelabel>link</edgelabel>
+        </childnode>
+        <childnode refid="158" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="167">
+        <label>tmat_t</label>
+        <link refid="structtmat__t"/>
+      </node>
+      <node id="149">
+        <label>cd_tree_s</label>
+        <link refid="structcd__tree__s"/>
+      </node>
+      <node id="154">
+        <label>dictword_t</label>
+        <link refid="structdictword__t"/>
+      </node>
+      <node id="145">
+        <label>fsg_pnode_s</label>
+        <link refid="structfsg__pnode__s"/>
+        <childnode refid="145" relation="usage">
+          <edgelabel>succ</edgelabel>
+          <edgelabel>sibling</edgelabel>
+          <edgelabel>alloc_next</edgelabel>
+        </childnode>
+        <childnode refid="146" relation="usage">
+          <edgelabel>hmm</edgelabel>
+        </childnode>
+        <childnode refid="143" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+        <childnode refid="147" relation="usage">
+          <edgelabel>ctxt</edgelabel>
+        </childnode>
+      </node>
+      <node id="152">
+        <label>xwdssid_t</label>
+        <link refid="structxwdssid__t"/>
+      </node>
+      <node id="157">
+        <label>ps_latnode_s</label>
+        <link refid="structps__latnode__s"/>
+        <childnode refid="157" relation="usage">
+          <edgelabel>alt</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="158" relation="usage">
+          <edgelabel>exits</edgelabel>
+          <edgelabel>entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="142">
+        <label>blkarray_list_s</label>
+        <link refid="structblkarray__list__s"/>
+      </node>
+      <node id="141">
+        <label>fsg_history_s</label>
+        <link refid="structfsg__history__s"/>
+        <childnode refid="142" relation="usage">
+          <edgelabel>entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="144">
+        <label>fsg_lextree_s</label>
+        <link refid="structfsg__lextree__s"/>
+        <childnode refid="145" relation="usage">
+          <edgelabel>alloc_head</edgelabel>
+          <edgelabel>root</edgelabel>
+        </childnode>
+        <childnode refid="143" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+        <childnode refid="148" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="151" relation="usage">
+          <edgelabel>d2p</edgelabel>
+        </childnode>
+        <childnode refid="153" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+      </node>
+      <node id="150">
+        <label>mdef_entry_s</label>
+        <link refid="structmdef__entry__s"/>
+      </node>
+      <node id="162">
+        <label>ps_segfuncs_s</label>
+        <link refid="structps__segfuncs__s"/>
+        <childnode refid="161" relation="usage">
+          <edgelabel>seg_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="147">
+        <label>fsg_pnode_ctxt_t</label>
+        <link refid="structfsg__pnode__ctxt__t"/>
+      </node>
+      <node id="165">
+        <label>ps_mgaufuncs_s</label>
+        <link refid="structps__mgaufuncs__s"/>
+      </node>
+      <node id="148">
+        <label>bin_mdef_s</label>
+        <link refid="structbin__mdef__s"/>
+        <childnode refid="149" relation="usage">
+          <edgelabel>cd_tree</edgelabel>
+        </childnode>
+        <childnode refid="150" relation="usage">
+          <edgelabel>phone</edgelabel>
+        </childnode>
+      </node>
+      <node id="146">
+        <label>hmm_s</label>
+        <link refid="structhmm__s"/>
+        <childnode refid="143" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+      </node>
+      <node id="143">
+        <label>hmm_context_t</label>
+        <link refid="structhmm__context__t"/>
+      </node>
+      <node id="161">
+        <label>ps_seg_s</label>
+        <link refid="structps__seg__s"/>
+        <childnode refid="162" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+        <childnode refid="155" relation="usage">
+          <edgelabel>search</edgelabel>
+        </childnode>
+      </node>
+      <node id="160">
+        <label>ps_searchfuncs_s</label>
+        <link refid="structps__searchfuncs__s"/>
+        <childnode refid="159" relation="usage">
+          <edgelabel>lattice</edgelabel>
+        </childnode>
+        <childnode refid="161" relation="usage">
+          <edgelabel>seg_iter</edgelabel>
+        </childnode>
+      </node>
+      <node id="159">
+        <label>ps_lattice_s</label>
+        <link refid="structps__lattice__s"/>
+        <childnode refid="157" relation="usage">
+          <edgelabel>end</edgelabel>
+          <edgelabel>nodes</edgelabel>
+          <edgelabel>start</edgelabel>
+        </childnode>
+        <childnode refid="158" relation="usage">
+          <edgelabel>q_tail</edgelabel>
+          <edgelabel>q_head</edgelabel>
+        </childnode>
+        <childnode refid="153" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="155" relation="usage">
+          <edgelabel>search</edgelabel>
+        </childnode>
+      </node>
+      <node id="163">
+        <label>acmod_s</label>
+        <link refid="structacmod__s"/>
+        <childnode refid="164" relation="usage">
+          <edgelabel>mgau</edgelabel>
+        </childnode>
+        <childnode refid="166" relation="usage">
+          <edgelabel>mllr</edgelabel>
+        </childnode>
+        <childnode refid="148" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="167" relation="usage">
+          <edgelabel>tmat</edgelabel>
+        </childnode>
+      </node>
+      <node id="166">
+        <label>ps_mllr_s</label>
+        <link refid="structps__mllr__s"/>
+      </node>
+      <node id="156">
+        <label>ps_latlink_s</label>
+        <link refid="structps__latlink__s"/>
+        <childnode refid="156" relation="usage">
+          <edgelabel>best_prev</edgelabel>
+        </childnode>
+        <childnode refid="157" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>to</edgelabel>
+        </childnode>
+      </node>
+      <node id="140">
+        <label>fsg_search_s</label>
+        <link refid="structfsg__search__s"/>
+        <childnode refid="141" relation="usage">
+          <edgelabel>history</edgelabel>
+        </childnode>
+        <childnode refid="143" relation="usage">
+          <edgelabel>hmmctx</edgelabel>
+        </childnode>
+        <childnode refid="144" relation="usage">
+          <edgelabel>lextree</edgelabel>
+        </childnode>
+        <childnode refid="155" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" line="68" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/fsg_search_internal.h" bodystart="68" bodyend="103"/>
+    <listofallmembers>
+      <member refid="structfsg__search__s_1a4d13fff2e14882b0125386fc27a4097f" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>ascale</name></member>
+      <member refid="structfsg__search__s_1aac3c130a5777edd2a227fd064eaefbf2" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>ascr</name></member>
+      <member refid="structfsg__search__s_1a75f0e3fd5396d62616b9f84eab7ea355" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>base</name></member>
+      <member refid="structfsg__search__s_1a1dbc28682f610fef5b79fd8a182f4395" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>beam</name></member>
+      <member refid="structfsg__search__s_1a8e86d9f82189f8429d71ee2f67ecaaa2" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>beam_factor</name></member>
+      <member refid="structfsg__search__s_1a0cdf7dc3d3eed0d37f46cb71fdea206e" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>beam_orig</name></member>
+      <member refid="structfsg__search__s_1aba7eff57919c5a1de55eab3a62ff055a" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>bestpath</name></member>
+      <member refid="structfsg__search__s_1a52880ad440412d76f7aae7e05977ba4b" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>bestscore</name></member>
+      <member refid="structfsg__search__s_1a24d59609008ac132dca256d36a89f9c8" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>bpidx_start</name></member>
+      <member refid="structfsg__search__s_1a5139d7ab35ae18407e06e78e1778f857" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>final</name></member>
+      <member refid="structfsg__search__s_1acdac4164d14d531b14c11a823dd22893" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>frame</name></member>
+      <member refid="structfsg__search__s_1ab1877ffe7d77ddb79bab53fb95577946" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>fsg</name></member>
+      <member refid="structfsg__search__s_1abc949ccaab380bcf5b452d1cac54469b" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>history</name></member>
+      <member refid="structfsg__search__s_1a7407bdf5f311caf9d46817b3387b798c" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>hmmctx</name></member>
+      <member refid="structfsg__search__s_1ac2c756ff6c1a2f1059011756d22441f8" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>lextree</name></member>
+      <member refid="structfsg__search__s_1a709277a80e9418ecc3e63296f8eb6bbf" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>lscr</name></member>
+      <member refid="structfsg__search__s_1a77c1f7f228ca66e48fb05e1ac2b2714a" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>lw</name></member>
+      <member refid="structfsg__search__s_1a7e3d7375b4a33af339e8b55885677faa" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>n_hmm_eval</name></member>
+      <member refid="structfsg__search__s_1a56494e3b30d0c66367c7ef055b8addb2" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>n_sen_eval</name></member>
+      <member refid="structfsg__search__s_1a373ffd62c4bcb07a6f28378ea33161e1" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>pbeam</name></member>
+      <member refid="structfsg__search__s_1a7cdf0ab2591b95d89940d51e3ab01529" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>pbeam_orig</name></member>
+      <member refid="structfsg__search__s_1a2163d2c02c2dfe84a83c10fdb2d330a3" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>pip</name></member>
+      <member refid="structfsg__search__s_1a318ff42978c1e645f01962345ac08215" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>pnode_active</name></member>
+      <member refid="structfsg__search__s_1aa2dfc00e1f34041dacd9572b0d659775" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>pnode_active_next</name></member>
+      <member refid="structfsg__search__s_1af28ddecbb5115a50712c61f8a72dcf51" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>wbeam</name></member>
+      <member refid="structfsg__search__s_1a7f3ecc2f769143e42ed958744478db3c" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>wbeam_orig</name></member>
+      <member refid="structfsg__search__s_1ae9ddc3b50d0f164926392f8ab4b019a0" prot="public" virt="non-virtual"><scope>fsg_search_s</scope><name>wip</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

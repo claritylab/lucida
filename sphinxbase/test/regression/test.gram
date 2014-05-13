@@ -1,0 +1,36 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Grammar for Hello World example
+ */
+
+grammar test;
+
+import <polite.startPolite>;
+import <polite.endPolite>;
+
+
+public <rightRecursion> = <action> | (<action> and <rightRecursion> ) ;
+<action> = stop | start;
+
+
+public <nestedRightRecursion> = something | <Y> ;
+<Y> = another | <nestedRightRecursion> ;
+
+
+public <kleene> = <polite>* don't crash;
+<polite> =  please | kindly | oh mighty computer;
+
+
+public <nulltest> = <ones> <twos> <threes>;
+
+<ones> = <NULL> (one [and] one);
+<twos> = <NULL> (two [and] two);
+<threes> = <NULL> (three [and] three);
+
+
+
+public <command> = <startPolite> <caction> <endPolite>;
+
+<caction> = go* | stop+;
+

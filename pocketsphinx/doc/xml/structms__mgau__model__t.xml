@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structms__mgau__model__t" kind="struct" prot="public">
+    <compoundname>ms_mgau_model_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structms__mgau__model__t_1a7cf0c4a3c033912a8ab28eb5924fb892" prot="public" static="no" mutable="no">
+        <type><ref refid="acmod_8h_1ab7a75abad7044b2ab494823d2ae8bbd4" kindref="member">ps_mgau_t</ref></type>
+        <definition>ps_mgau_t ms_mgau_model_t::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" line="115" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structms__mgau__model__t_1a91027cdb757280ac557668068e6f1b07" prot="public" static="no" mutable="no">
+        <type><ref refid="structgauden__t" kindref="compound">gauden_t</ref> *</type>
+        <definition>gauden_t* ms_mgau_model_t::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+<para>The codebook. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" line="116" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structms__mgau__model__t_1a551527ce9cd5702d854a1a5600122985" prot="public" static="no" mutable="no">
+        <type><ref refid="structsenone__t" kindref="compound">senone_t</ref> *</type>
+        <definition>senone_t* ms_mgau_model_t::s</definition>
+        <argsstring></argsstring>
+        <name>s</name>
+        <briefdescription>
+<para>The senone. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" line="117" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structms__mgau__model__t_1a0a67ef79bd74c55734b0944f0d61b668" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ms_mgau_model_t::topn</definition>
+        <argsstring></argsstring>
+        <name>topn</name>
+        <briefdescription>
+<para>Top-n gaussian will be computed. </para>        </briefdescription>
+        <detaileddescription>
+<para>Intermediate used in computation </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" line="118" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structms__mgau__model__t_1a07276348bcc1352e45ce61201112fbfa" prot="public" static="no" mutable="no">
+        <type><ref refid="structgauden__dist__t" kindref="compound">gauden_dist_t</ref> ***</type>
+        <definition>gauden_dist_t*** ms_mgau_model_t::dist</definition>
+        <argsstring></argsstring>
+        <name>dist</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" line="121" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structms__mgau__model__t_1a1b012fcae279fb82fbb8ec2c11570e89" prot="public" static="no" mutable="no">
+        <type>uint8 *</type>
+        <definition>uint8* ms_mgau_model_t::mgau_active</definition>
+        <argsstring></argsstring>
+        <name>mgau_active</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" line="122" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structms__mgau__model__t_1a7ce63c2b0f68a738da9bd3c137c8d0a5" prot="public" static="no" mutable="no">
+        <type>cmd_ln_t *</type>
+        <definition>cmd_ln_t* ms_mgau_model_t::config</definition>
+        <argsstring></argsstring>
+        <name>config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" line="123" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="277">
+        <label>ps_mgau_s</label>
+        <link refid="structps__mgau__s"/>
+        <childnode refid="278" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+      </node>
+      <node id="279">
+        <label>gauden_dist_t</label>
+        <link refid="structgauden__dist__t"/>
+      </node>
+      <node id="278">
+        <label>ps_mgaufuncs_s</label>
+        <link refid="structps__mgaufuncs__s"/>
+      </node>
+      <node id="281">
+        <label>senone_t</label>
+        <link refid="structsenone__t"/>
+      </node>
+      <node id="276">
+        <label>ms_mgau_model_t</label>
+        <link refid="structms__mgau__model__t"/>
+        <childnode refid="277" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+        <childnode refid="279" relation="usage">
+          <edgelabel>dist</edgelabel>
+        </childnode>
+        <childnode refid="280" relation="usage">
+          <edgelabel>g</edgelabel>
+        </childnode>
+        <childnode refid="281" relation="usage">
+          <edgelabel>s</edgelabel>
+        </childnode>
+      </node>
+      <node id="280">
+        <label>gauden_t</label>
+        <link refid="structgauden__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" line="114" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ms_mgau.h" bodystart="114" bodyend="124"/>
+    <listofallmembers>
+      <member refid="structms__mgau__model__t_1a7cf0c4a3c033912a8ab28eb5924fb892" prot="public" virt="non-virtual"><scope>ms_mgau_model_t</scope><name>base</name></member>
+      <member refid="structms__mgau__model__t_1a7ce63c2b0f68a738da9bd3c137c8d0a5" prot="public" virt="non-virtual"><scope>ms_mgau_model_t</scope><name>config</name></member>
+      <member refid="structms__mgau__model__t_1a07276348bcc1352e45ce61201112fbfa" prot="public" virt="non-virtual"><scope>ms_mgau_model_t</scope><name>dist</name></member>
+      <member refid="structms__mgau__model__t_1a91027cdb757280ac557668068e6f1b07" prot="public" virt="non-virtual"><scope>ms_mgau_model_t</scope><name>g</name></member>
+      <member refid="structms__mgau__model__t_1a1b012fcae279fb82fbb8ec2c11570e89" prot="public" virt="non-virtual"><scope>ms_mgau_model_t</scope><name>mgau_active</name></member>
+      <member refid="structms__mgau__model__t_1a551527ce9cd5702d854a1a5600122985" prot="public" virt="non-virtual"><scope>ms_mgau_model_t</scope><name>s</name></member>
+      <member refid="structms__mgau__model__t_1a0a67ef79bd74c55734b0944f0d61b668" prot="public" virt="non-virtual"><scope>ms_mgau_model_t</scope><name>topn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

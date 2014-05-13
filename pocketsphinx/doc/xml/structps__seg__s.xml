@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structps__seg__s" kind="struct" prot="public">
+    <compoundname>ps_seg_s</compoundname>
+    <includes refid="pocketsphinx__internal_8h" local="no">pocketsphinx_internal.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structps__seg__s_1a510362a2281e374c839397c3e5488515" prot="public" static="no" mutable="no">
+        <type><ref refid="structps__segfuncs__s" kindref="compound">ps_segfuncs_t</ref> *</type>
+        <definition>ps_segfuncs_t* ps_seg_s::vt</definition>
+        <argsstring></argsstring>
+        <name>vt</name>
+        <briefdescription>
+<para>V-table of seg methods. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="180" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="180" bodyend="-1"/>
+        <referencedby refid="ps__lattice__internal_8h_1afedbc5558c18f7d029e84a4e27e38187" compoundref="ps__lattice_8c" startline="1029" endline="1062">ps_lattice_seg_iter</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1ac8e3dff7276c03c93377d0cb79fbdbd7" compoundref="ps__lattice_8c" startline="1851" endline="1875">ps_astar_seg_iter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1a14168ddcb60e094dad36c7c920a79bb3" prot="public" static="no" mutable="no">
+        <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+        <definition>ps_search_t* ps_seg_s::search</definition>
+        <argsstring></argsstring>
+        <name>search</name>
+        <briefdescription>
+<para>Search object from whence this came. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="181" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="181" bodyend="-1"/>
+        <referencedby refid="ps__lattice__internal_8h_1afedbc5558c18f7d029e84a4e27e38187" compoundref="ps__lattice_8c" startline="1029" endline="1062">ps_lattice_seg_iter</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1ac8e3dff7276c03c93377d0cb79fbdbd7" compoundref="ps__lattice_8c" startline="1851" endline="1875">ps_astar_seg_iter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1a97a0dc7db931c7e3f98d23d21ce27f04" prot="public" static="no" mutable="no">
+        <type>char const *</type>
+        <definition>char const* ps_seg_s::word</definition>
+        <argsstring></argsstring>
+        <name>word</name>
+        <briefdescription>
+<para>Word string (pointer into dictionary hash) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="182" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="182" bodyend="-1"/>
+        <referencedby refid="pocketsphinx_8h_1a8a4fed34b58885627b53e99e90514169" compoundref="pocketsphinx_8c" startline="1117" endline="1120">ps_seg_word</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1a885a599726cd0efba573d106d016e6e2" prot="public" static="no" mutable="no">
+        <type><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref></type>
+        <definition>frame_idx_t ps_seg_s::sf</definition>
+        <argsstring></argsstring>
+        <name>sf</name>
+        <briefdescription>
+<para>Start frame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="183" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="183" bodyend="-1"/>
+        <referencedby refid="pocketsphinx_8h_1a045a044726b816678965514f2ee7d8c7" compoundref="pocketsphinx_8c" startline="1123" endline="1127">ps_seg_frames</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1ab25ecc6af8d2695c6097cf7e934eadd4" prot="public" static="no" mutable="no">
+        <type><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref></type>
+        <definition>frame_idx_t ps_seg_s::ef</definition>
+        <argsstring></argsstring>
+        <name>ef</name>
+        <briefdescription>
+<para>End frame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="184" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="184" bodyend="-1"/>
+        <referencedby refid="pocketsphinx_8h_1a045a044726b816678965514f2ee7d8c7" compoundref="pocketsphinx_8c" startline="1123" endline="1127">ps_seg_frames</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1a6f7706ec4c0d0ec8ecafaf0f29f41f4b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ps_seg_s::ascr</definition>
+        <argsstring></argsstring>
+        <name>ascr</name>
+        <briefdescription>
+<para>Acoustic score. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="185" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="185" bodyend="-1"/>
+        <referencedby refid="pocketsphinx_8h_1adfd45d93c3fc9de6b7be89d5417f6abb" compoundref="pocketsphinx_8c" startline="1130" endline="1136">ps_seg_prob</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1a69e605f422eeed1a9c67437e8ddd8b08" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ps_seg_s::lscr</definition>
+        <argsstring></argsstring>
+        <name>lscr</name>
+        <briefdescription>
+<para>Language model score. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="186" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="186" bodyend="-1"/>
+        <referencedby refid="pocketsphinx_8h_1adfd45d93c3fc9de6b7be89d5417f6abb" compoundref="pocketsphinx_8c" startline="1130" endline="1136">ps_seg_prob</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1ae683244d90d0a5339930b47757778432" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ps_seg_s::prob</definition>
+        <argsstring></argsstring>
+        <name>prob</name>
+        <briefdescription>
+<para>Log posterior probability. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="187" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="187" bodyend="-1"/>
+        <referencedby refid="pocketsphinx_8h_1adfd45d93c3fc9de6b7be89d5417f6abb" compoundref="pocketsphinx_8c" startline="1130" endline="1136">ps_seg_prob</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1a4d86c21f1ed2dc3eb3b1b1b37ce9bb48" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ps_seg_s::lback</definition>
+        <argsstring></argsstring>
+        <name>lback</name>
+        <briefdescription>
+<para>Language model backoff. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="190" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="190" bodyend="-1"/>
+        <referencedby refid="pocketsphinx_8h_1adfd45d93c3fc9de6b7be89d5417f6abb" compoundref="pocketsphinx_8c" startline="1130" endline="1136">ps_seg_prob</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__seg__s_1a2249c012b83c902f4f8ed8d98ded7d20" prot="public" static="no" mutable="no">
+        <type>float32</type>
+        <definition>float32 ps_seg_s::lwf</definition>
+        <argsstring></argsstring>
+        <name>lwf</name>
+        <briefdescription>
+<para>Language weight factor (for second-pass searches) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="192" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="192" bodyend="-1"/>
+        <referencedby refid="ps__lattice__internal_8h_1afedbc5558c18f7d029e84a4e27e38187" compoundref="ps__lattice_8c" startline="1029" endline="1062">ps_lattice_seg_iter</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1ac8e3dff7276c03c93377d0cb79fbdbd7" compoundref="ps__lattice_8c" startline="1851" endline="1875">ps_astar_seg_iter</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base structure for hypothesis segmentation iterator. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="535">
+        <label>ps_mgau_s</label>
+        <link refid="structps__mgau__s"/>
+        <childnode refid="536" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+      </node>
+      <node id="526">
+        <label>dict_t</label>
+        <link refid="structdict__t"/>
+        <childnode refid="527" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="530" relation="usage">
+          <edgelabel>word</edgelabel>
+        </childnode>
+      </node>
+      <node id="521">
+        <label>ps_search_s</label>
+        <link refid="structps__search__s"/>
+        <childnode refid="522" relation="usage">
+          <edgelabel>last_link</edgelabel>
+        </childnode>
+        <childnode refid="525" relation="usage">
+          <edgelabel>dag</edgelabel>
+        </childnode>
+        <childnode refid="531" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+        <childnode refid="532" relation="usage">
+          <edgelabel>d2p</edgelabel>
+        </childnode>
+        <childnode refid="526" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="534" relation="usage">
+          <edgelabel>acmod</edgelabel>
+        </childnode>
+        <childnode refid="521" relation="usage">
+          <edgelabel>pls</edgelabel>
+        </childnode>
+      </node>
+      <node id="532">
+        <label>dict2pid_t</label>
+        <link refid="structdict2pid__t"/>
+        <childnode refid="533" relation="usage">
+          <edgelabel>lrssid</edgelabel>
+          <edgelabel>rssid</edgelabel>
+        </childnode>
+        <childnode refid="526" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="527" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+      </node>
+      <node id="524">
+        <label>latlink_list_s</label>
+        <link refid="structlatlink__list__s"/>
+        <childnode refid="522" relation="usage">
+          <edgelabel>link</edgelabel>
+        </childnode>
+        <childnode refid="524" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="538">
+        <label>tmat_t</label>
+        <link refid="structtmat__t"/>
+      </node>
+      <node id="528">
+        <label>cd_tree_s</label>
+        <link refid="structcd__tree__s"/>
+      </node>
+      <node id="530">
+        <label>dictword_t</label>
+        <link refid="structdictword__t"/>
+      </node>
+      <node id="533">
+        <label>xwdssid_t</label>
+        <link refid="structxwdssid__t"/>
+      </node>
+      <node id="523">
+        <label>ps_latnode_s</label>
+        <link refid="structps__latnode__s"/>
+        <childnode refid="523" relation="usage">
+          <edgelabel>alt</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="524" relation="usage">
+          <edgelabel>exits</edgelabel>
+          <edgelabel>entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="529">
+        <label>mdef_entry_s</label>
+        <link refid="structmdef__entry__s"/>
+      </node>
+      <node id="520">
+        <label>ps_segfuncs_s</label>
+        <link refid="structps__segfuncs__s"/>
+        <childnode refid="519" relation="usage">
+          <edgelabel>seg_next</edgelabel>
+        </childnode>
+      </node>
+      <node id="536">
+        <label>ps_mgaufuncs_s</label>
+        <link refid="structps__mgaufuncs__s"/>
+      </node>
+      <node id="527">
+        <label>bin_mdef_s</label>
+        <link refid="structbin__mdef__s"/>
+        <childnode refid="528" relation="usage">
+          <edgelabel>cd_tree</edgelabel>
+        </childnode>
+        <childnode refid="529" relation="usage">
+          <edgelabel>phone</edgelabel>
+        </childnode>
+      </node>
+      <node id="519">
+        <label>ps_seg_s</label>
+        <link refid="structps__seg__s"/>
+        <childnode refid="520" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+        <childnode refid="521" relation="usage">
+          <edgelabel>search</edgelabel>
+        </childnode>
+      </node>
+      <node id="531">
+        <label>ps_searchfuncs_s</label>
+        <link refid="structps__searchfuncs__s"/>
+        <childnode refid="525" relation="usage">
+          <edgelabel>lattice</edgelabel>
+        </childnode>
+        <childnode refid="519" relation="usage">
+          <edgelabel>seg_iter</edgelabel>
+        </childnode>
+      </node>
+      <node id="525">
+        <label>ps_lattice_s</label>
+        <link refid="structps__lattice__s"/>
+        <childnode refid="523" relation="usage">
+          <edgelabel>end</edgelabel>
+          <edgelabel>nodes</edgelabel>
+          <edgelabel>start</edgelabel>
+        </childnode>
+        <childnode refid="524" relation="usage">
+          <edgelabel>q_tail</edgelabel>
+          <edgelabel>q_head</edgelabel>
+        </childnode>
+        <childnode refid="526" relation="usage">
+          <edgelabel>dict</edgelabel>
+        </childnode>
+        <childnode refid="521" relation="usage">
+          <edgelabel>search</edgelabel>
+        </childnode>
+      </node>
+      <node id="534">
+        <label>acmod_s</label>
+        <link refid="structacmod__s"/>
+        <childnode refid="535" relation="usage">
+          <edgelabel>mgau</edgelabel>
+        </childnode>
+        <childnode refid="537" relation="usage">
+          <edgelabel>mllr</edgelabel>
+        </childnode>
+        <childnode refid="527" relation="usage">
+          <edgelabel>mdef</edgelabel>
+        </childnode>
+        <childnode refid="538" relation="usage">
+          <edgelabel>tmat</edgelabel>
+        </childnode>
+      </node>
+      <node id="537">
+        <label>ps_mllr_s</label>
+        <link refid="structps__mllr__s"/>
+      </node>
+      <node id="522">
+        <label>ps_latlink_s</label>
+        <link refid="structps__latlink__s"/>
+        <childnode refid="522" relation="usage">
+          <edgelabel>best_prev</edgelabel>
+        </childnode>
+        <childnode refid="523" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>to</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" line="179" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/pocketsphinx_internal.h" bodystart="179" bodyend="193"/>
+    <listofallmembers>
+      <member refid="structps__seg__s_1a6f7706ec4c0d0ec8ecafaf0f29f41f4b" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>ascr</name></member>
+      <member refid="structps__seg__s_1ab25ecc6af8d2695c6097cf7e934eadd4" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>ef</name></member>
+      <member refid="structps__seg__s_1a4d86c21f1ed2dc3eb3b1b1b37ce9bb48" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>lback</name></member>
+      <member refid="structps__seg__s_1a69e605f422eeed1a9c67437e8ddd8b08" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>lscr</name></member>
+      <member refid="structps__seg__s_1a2249c012b83c902f4f8ed8d98ded7d20" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>lwf</name></member>
+      <member refid="structps__seg__s_1ae683244d90d0a5339930b47757778432" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>prob</name></member>
+      <member refid="structps__seg__s_1a14168ddcb60e094dad36c7c920a79bb3" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>search</name></member>
+      <member refid="structps__seg__s_1a885a599726cd0efba573d106d016e6e2" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>sf</name></member>
+      <member refid="structps__seg__s_1a510362a2281e374c839397c3e5488515" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>vt</name></member>
+      <member refid="structps__seg__s_1a97a0dc7db931c7e3f98d23d21ce27f04" prot="public" virt="non-virtual"><scope>ps_seg_s</scope><name>word</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

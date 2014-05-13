@@ -1,0 +1,249 @@
+\section{ps\-\_\-search\-\_\-s Struct Reference}
+\label{structps__search__s}\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}}
+
+
+Base structure for search module.  
+
+
+
+
+{\ttfamily \#include $<$pocketsphinx\-\_\-internal.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-searchfuncs\-\_\-t} $\ast$ {\bf vt}
+\begin{DoxyCompactList}\small\item\em V-\/table of search methods. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-search\-\_\-t} $\ast$ {\bf pls}
+\begin{DoxyCompactList}\small\item\em Phoneme loop for lookahead. \end{DoxyCompactList}\item 
+cmd\-\_\-ln\-\_\-t $\ast$ {\bf config}
+\begin{DoxyCompactList}\small\item\em Configuration. \end{DoxyCompactList}\item 
+{\bf acmod\-\_\-t} $\ast$ {\bf acmod}
+\begin{DoxyCompactList}\small\item\em Acoustic model. \end{DoxyCompactList}\item 
+{\bf dict\-\_\-t} $\ast$ {\bf dict}
+\begin{DoxyCompactList}\small\item\em Pronunciation dictionary. \end{DoxyCompactList}\item 
+{\bf dict2pid\-\_\-t} $\ast$ {\bf d2p}
+\begin{DoxyCompactList}\small\item\em Dictionary to senone mappings. \end{DoxyCompactList}\item 
+char $\ast$ {\bf hyp\-\_\-str}
+\begin{DoxyCompactList}\small\item\em Current hypothesis string. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-lattice\-\_\-t} $\ast$ {\bf dag}
+\begin{DoxyCompactList}\small\item\em Current hypothesis word graph. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-latlink\-\_\-t} $\ast$ {\bf last\-\_\-link}
+\begin{DoxyCompactList}\small\item\em Final link in best path. \end{DoxyCompactList}\item 
+int32 {\bf post}
+\begin{DoxyCompactList}\small\item\em Utterance posterior probability. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-words}\label{structps__search__s_ad4d98deb905bd664ec44313ea0065b1a}
+
+\begin{DoxyCompactList}\small\item\em Number of words known to search (may be less than in the dictionary) \end{DoxyCompactList}\item 
+int32 {\bf start\-\_\-wid}
+\begin{DoxyCompactList}\small\item\em Start word I\-D. \end{DoxyCompactList}\item 
+int32 {\bf silence\-\_\-wid}
+\begin{DoxyCompactList}\small\item\em Silence word I\-D. \end{DoxyCompactList}\item 
+int32 {\bf finish\-\_\-wid}
+\begin{DoxyCompactList}\small\item\em Finish word I\-D. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base structure for search module. 
+
+Definition at line 105 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!acmod@{acmod}}
+\index{acmod@{acmod}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{acmod}]{\setlength{\rightskip}{0pt plus 5cm}{\bf acmod\-\_\-t}$\ast$ ps\-\_\-search\-\_\-s\-::acmod}\label{structps__search__s_a0fdf6fe8c4d9c28f10c48c09517c6b91}
+
+
+Acoustic model. 
+
+
+
+Definition at line 110 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-lattice\-\_\-init\-\_\-search(), and ps\-\_\-search\-\_\-init().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!config@{config}}
+\index{config@{config}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{config}]{\setlength{\rightskip}{0pt plus 5cm}cmd\-\_\-ln\-\_\-t$\ast$ ps\-\_\-search\-\_\-s\-::config}\label{structps__search__s_aa6e3e18165bbc70084a06575d5703042}
+
+
+Configuration. 
+
+
+
+Definition at line 109 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-lattice\-\_\-init\-\_\-search(), ps\-\_\-lattice\-\_\-read(), and ps\-\_\-search\-\_\-init().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!d2p@{d2p}}
+\index{d2p@{d2p}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{d2p}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dict2pid\-\_\-t}$\ast$ ps\-\_\-search\-\_\-s\-::d2p}\label{structps__search__s_a81b461e7ef3a080d046039e186134a15}
+
+
+Dictionary to senone mappings. 
+
+
+
+Definition at line 112 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-search\-\_\-base\-\_\-reinit(), ps\-\_\-search\-\_\-deinit(), and ps\-\_\-search\-\_\-init().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!dag@{dag}}
+\index{dag@{dag}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{dag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-lattice\-\_\-t}$\ast$ ps\-\_\-search\-\_\-s\-::dag}\label{structps__search__s_a897f46c55d17e817ff1364f555b31463}
+
+
+Current hypothesis word graph. 
+
+
+
+Definition at line 114 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ngram\-\_\-search\-\_\-lattice(), ps\-\_\-search\-\_\-deinit(), and ps\-\_\-start\-\_\-utt().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!dict@{dict}}
+\index{dict@{dict}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dict\-\_\-t}$\ast$ ps\-\_\-search\-\_\-s\-::dict}\label{structps__search__s_a918f243fa966e72c47f697fb9e60089d}
+
+
+Pronunciation dictionary. 
+
+
+
+Definition at line 111 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ngram\-\_\-search\-\_\-lattice(), ps\-\_\-lattice\-\_\-bestpath(), ps\-\_\-lattice\-\_\-init\-\_\-search(), ps\-\_\-search\-\_\-base\-\_\-reinit(), ps\-\_\-search\-\_\-deinit(), and ps\-\_\-search\-\_\-init().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!finish\-\_\-wid@{finish\-\_\-wid}}
+\index{finish\-\_\-wid@{finish\-\_\-wid}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{finish\-\_\-wid}]{\setlength{\rightskip}{0pt plus 5cm}int32 ps\-\_\-search\-\_\-s\-::finish\-\_\-wid}\label{structps__search__s_a0fb4d79f1084bdbbc0a808513f7c1ca7}
+
+
+Finish word I\-D. 
+
+
+
+Definition at line 123 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-search\-\_\-base\-\_\-reinit(), and ps\-\_\-search\-\_\-init().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!hyp\-\_\-str@{hyp\-\_\-str}}
+\index{hyp\-\_\-str@{hyp\-\_\-str}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{hyp\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ ps\-\_\-search\-\_\-s\-::hyp\-\_\-str}\label{structps__search__s_aa398c736a887af97e42b2a562359adc3}
+
+
+Current hypothesis string. 
+
+
+
+Definition at line 113 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ngram\-\_\-fwdtree\-\_\-start(), ngram\-\_\-search\-\_\-bp\-\_\-hyp(), ps\-\_\-search\-\_\-deinit(), and ps\-\_\-start\-\_\-utt().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!last\-\_\-link@{last\-\_\-link}}
+\index{last\-\_\-link@{last\-\_\-link}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{last\-\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-latlink\-\_\-t}$\ast$ ps\-\_\-search\-\_\-s\-::last\-\_\-link}\label{structps__search__s_aa3020ef7bd4e56713dfe2fbad52e6e4f}
+
+
+Final link in best path. 
+
+
+
+Definition at line 115 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-start\-\_\-utt().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!pls@{pls}}
+\index{pls@{pls}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{pls}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-search\-\_\-t}$\ast$ ps\-\_\-search\-\_\-s\-::pls}\label{structps__search__s_a2a33b7698fb237b42e007788f65cd46c}
+
+
+Phoneme loop for lookahead. 
+
+
+
+Definition at line 108 of file pocketsphinx\-\_\-internal.\-h.
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!post@{post}}
+\index{post@{post}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{post}]{\setlength{\rightskip}{0pt plus 5cm}int32 ps\-\_\-search\-\_\-s\-::post}\label{structps__search__s_a721a656d0e34f7604ea8c52a1bdf14ff}
+
+
+Utterance posterior probability. 
+
+
+
+Definition at line 116 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-start\-\_\-utt().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!silence\-\_\-wid@{silence\-\_\-wid}}
+\index{silence\-\_\-wid@{silence\-\_\-wid}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{silence\-\_\-wid}]{\setlength{\rightskip}{0pt plus 5cm}int32 ps\-\_\-search\-\_\-s\-::silence\-\_\-wid}\label{structps__search__s_ab6851b4675f38ab6b3683d75521f000b}
+
+
+Silence word I\-D. 
+
+
+
+Definition at line 122 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-search\-\_\-base\-\_\-reinit(), and ps\-\_\-search\-\_\-init().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!start\-\_\-wid@{start\-\_\-wid}}
+\index{start\-\_\-wid@{start\-\_\-wid}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{start\-\_\-wid}]{\setlength{\rightskip}{0pt plus 5cm}int32 ps\-\_\-search\-\_\-s\-::start\-\_\-wid}\label{structps__search__s_ae1a9fa33bfc851ec91ce96870714b3cc}
+
+
+Start word I\-D. 
+
+
+
+Definition at line 121 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-search\-\_\-base\-\_\-reinit(), and ps\-\_\-search\-\_\-init().
+
+\index{ps\-\_\-search\-\_\-s@{ps\-\_\-search\-\_\-s}!vt@{vt}}
+\index{vt@{vt}!ps_search_s@{ps\-\_\-search\-\_\-s}}
+\subsubsection[{vt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-searchfuncs\-\_\-t}$\ast$ ps\-\_\-search\-\_\-s\-::vt}\label{structps__search__s_aa51e88956bbe9c05359d32526180809b}
+
+
+V-\/table of search methods. 
+
+
+
+Definition at line 106 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-search\-\_\-init().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf pocketsphinx\-\_\-internal.\-h}\end{DoxyCompactItemize}

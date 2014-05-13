@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="strfuncs_8h" kind="file">
+    <compoundname>strfuncs.h</compoundname>
+    <includes local="no">stdarg.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includedby refid="fe__noise_8c" local="yes">src/libsphinxbase/fe/fe_noise.c</includedby>
+    <includedby refid="fe__warp__affine_8c" local="yes">src/libsphinxbase/fe/fe_warp_affine.c</includedby>
+    <includedby refid="fe__warp__inverse__linear_8c" local="yes">src/libsphinxbase/fe/fe_warp_inverse_linear.c</includedby>
+    <includedby refid="fe__warp__piecewise__linear_8c" local="yes">src/libsphinxbase/fe/fe_warp_piecewise_linear.c</includedby>
+    <includedby refid="fsg__model_8c" local="yes">src/libsphinxbase/lm/fsg_model.c</includedby>
+    <includedby refid="jsgf_8c" local="yes">src/libsphinxbase/lm/jsgf.c</includedby>
+    <includedby refid="jsgf__internal_8h" local="no">src/libsphinxbase/lm/jsgf_internal.h</includedby>
+    <includedby refid="ngram__model_8c" local="yes">src/libsphinxbase/lm/ngram_model.c</includedby>
+    <includedby refid="ngram__model__arpa_8c" local="yes">src/libsphinxbase/lm/ngram_model_arpa.c</includedby>
+    <includedby refid="ngram__model__set_8c" local="yes">src/libsphinxbase/lm/ngram_model_set.c</includedby>
+    <includedby refid="cmd__ln_8c" local="yes">src/libsphinxbase/util/cmd_ln.c</includedby>
+    <includedby refid="logmath_8c" local="yes">src/libsphinxbase/util/logmath.c</includedby>
+    <includedby refid="pio_8c" local="yes">src/libsphinxbase/util/pio.c</includedby>
+    <includedby refid="strfuncs_8c" local="yes">src/libsphinxbase/util/strfuncs.c</includedby>
+    <includedby refid="sphinx__pitch_8c" local="no">src/sphinx_adtools/sphinx_pitch.c</includedby>
+    <includedby refid="main__cepview_8c" local="no">src/sphinx_cepview/main_cepview.c</includedby>
+    <includedby refid="sphinx__fe_8c" local="no">src/sphinx_fe/sphinx_fe.c</includedby>
+    <includedby refid="main_8c" local="no">src/sphinx_jsgf2fsg/main.c</includedby>
+    <includedby refid="sphinx__lm__convert_8c" local="no">src/sphinx_lmtools/sphinx_lm_convert.c</includedby>
+    <includedby refid="sphinx__lm__eval_8c" local="no">src/sphinx_lmtools/sphinx_lm_eval.c</includedby>
+    <incdepgraph>
+      <node id="1051">
+        <label>stdarg.h</label>
+      </node>
+      <node id="1050">
+        <label>include/sphinxbase/strfuncs.h</label>
+        <link refid="strfuncs.h"/>
+        <childnode refid="1051" relation="include">
+        </childnode>
+        <childnode refid="1052" relation="include">
+        </childnode>
+        <childnode refid="1053" relation="include">
+        </childnode>
+      </node>
+      <node id="1054">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="1052">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="1053">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="1054" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1067">
+        <label>src/libsphinxbase/lm/ngram_model_set.c</label>
+        <link refid="ngram__model__set_8c"/>
+      </node>
+      <node id="1073">
+        <label>src/sphinx_cepview/main_cepview.c</label>
+        <link refid="main__cepview_8c"/>
+      </node>
+      <node id="1077">
+        <label>src/sphinx_lmtools/sphinx_lm_eval.c</label>
+        <link refid="sphinx__lm__eval_8c"/>
+      </node>
+      <node id="1063">
+        <label>src/libsphinxbase/lm/jsgf_parser.c</label>
+        <link refid="jsgf__parser_8c_source"/>
+      </node>
+      <node id="1074">
+        <label>src/sphinx_fe/sphinx_fe.c</label>
+        <link refid="sphinx__fe_8c_source"/>
+      </node>
+      <node id="1057">
+        <label>src/libsphinxbase/fe/fe_warp_affine.c</label>
+        <link refid="fe__warp__affine_8c_source"/>
+      </node>
+      <node id="1060">
+        <label>src/libsphinxbase/lm/fsg_model.c</label>
+        <link refid="fsg__model_8c_source"/>
+      </node>
+      <node id="1059">
+        <label>src/libsphinxbase/fe/fe_warp_piecewise_linear.c</label>
+        <link refid="fe__warp__piecewise__linear_8c_source"/>
+      </node>
+      <node id="1071">
+        <label>src/libsphinxbase/util/strfuncs.c</label>
+        <link refid="strfuncs_8c_source"/>
+      </node>
+      <node id="1058">
+        <label>src/libsphinxbase/fe/fe_warp_inverse_linear.c</label>
+        <link refid="fe__warp__inverse__linear_8c_source"/>
+      </node>
+      <node id="1055">
+        <label>include/sphinxbase/strfuncs.h</label>
+        <link refid="strfuncs.h"/>
+        <childnode refid="1056" relation="include">
+        </childnode>
+        <childnode refid="1057" relation="include">
+        </childnode>
+        <childnode refid="1058" relation="include">
+        </childnode>
+        <childnode refid="1059" relation="include">
+        </childnode>
+        <childnode refid="1060" relation="include">
+        </childnode>
+        <childnode refid="1061" relation="include">
+        </childnode>
+        <childnode refid="1062" relation="include">
+        </childnode>
+        <childnode refid="1065" relation="include">
+        </childnode>
+        <childnode refid="1066" relation="include">
+        </childnode>
+        <childnode refid="1067" relation="include">
+        </childnode>
+        <childnode refid="1068" relation="include">
+        </childnode>
+        <childnode refid="1069" relation="include">
+        </childnode>
+        <childnode refid="1070" relation="include">
+        </childnode>
+        <childnode refid="1071" relation="include">
+        </childnode>
+        <childnode refid="1072" relation="include">
+        </childnode>
+        <childnode refid="1073" relation="include">
+        </childnode>
+        <childnode refid="1074" relation="include">
+        </childnode>
+        <childnode refid="1075" relation="include">
+        </childnode>
+        <childnode refid="1076" relation="include">
+        </childnode>
+        <childnode refid="1077" relation="include">
+        </childnode>
+      </node>
+      <node id="1069">
+        <label>src/libsphinxbase/util/logmath.c</label>
+        <link refid="logmath_8c_source"/>
+      </node>
+      <node id="1072">
+        <label>src/sphinx_adtools/sphinx_pitch.c</label>
+        <link refid="sphinx__pitch_8c_source"/>
+      </node>
+      <node id="1075">
+        <label>src/sphinx_jsgf2fsg/main.c</label>
+        <link refid="main_8c_source"/>
+      </node>
+      <node id="1062">
+        <label>src/libsphinxbase/lm/jsgf_internal.h</label>
+        <link refid="jsgf__internal_8h"/>
+        <childnode refid="1061" relation="include">
+        </childnode>
+        <childnode refid="1063" relation="include">
+        </childnode>
+        <childnode refid="1064" relation="include">
+        </childnode>
+      </node>
+      <node id="1070">
+        <label>src/libsphinxbase/util/pio.c</label>
+        <link refid="pio_8c_source"/>
+      </node>
+      <node id="1068">
+        <label>src/libsphinxbase/util/cmd_ln.c</label>
+        <link refid="cmd__ln_8c_source"/>
+      </node>
+      <node id="1061">
+        <label>src/libsphinxbase/lm/jsgf.c</label>
+        <link refid="jsgf_8c"/>
+      </node>
+      <node id="1065">
+        <label>src/libsphinxbase/lm/ngram_model.c</label>
+        <link refid="ngram__model_8c_source"/>
+      </node>
+      <node id="1076">
+        <label>src/sphinx_lmtools/sphinx_lm_convert.c</label>
+        <link refid="sphinx__lm__convert_8c"/>
+      </node>
+      <node id="1066">
+        <label>src/libsphinxbase/lm/ngram_model_arpa.c</label>
+        <link refid="ngram__model__arpa_8c_source"/>
+      </node>
+      <node id="1064">
+        <label>src/libsphinxbase/lm/jsgf_scanner.c</label>
+        <link refid="jsgf__scanner_8c_source"/>
+      </node>
+      <node id="1056">
+        <label>src/libsphinxbase/fe/fe_noise.c</label>
+        <link refid="fe__noise_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9" prot="public" static="no">
+        <name>string_edge_e</name>
+        <enumvalue id="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a5e4d73e6ca445be10fa48351b9571125" prot="public">
+          <name>STRING_START</name>
+          <briefdescription>
+<para>Beginning of string. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a11f31598e50bf3cf1d0aa97d967bb9b9" prot="public">
+          <name>STRING_END</name>
+          <briefdescription>
+<para>End of string. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a4fcbb0fe16fa4aa48723ba3ba10c26dd" prot="public">
+          <name>STRING_BOTH</name>
+          <briefdescription>
+<para>Both ends of string. </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Which end of a string to operate on for <ref refid="strfuncs_8h_1ac36a095632a4f16cf4e0fbcdb01de5ad" kindref="member">string_trim()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h" line="70" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h" bodystart="70" bodyend="74"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="strfuncs_8h_1a317522f23d291311e366de34ef86b777" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT char *</type>
+        <definition>SPHINXBASE_EXPORT char* string_join</definition>
+        <argsstring>(const char *base,...)</argsstring>
+        <name>string_join</name>
+        <param>
+          <type>const char *</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+<para>Concatenate a NULL-terminated argument list of strings, returning a newly allocated string. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h" line="65" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/strfuncs.c" bodystart="62" bodyend="86"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <referencedby refid="ngram__model__set_8c_1a1389a90bf32110fd7e56a73b6d39fa07" compoundref="ngram__model__set_8c" startline="182" endline="358">ngram_model_set_read</referencedby>
+        <referencedby refid="pio_8h_1aa3d71506049eb49cf03eff1b89ef281f" compoundref="pio_8c" startline="98" endline="171">fopen_comp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="strfuncs_8h_1ac36a095632a4f16cf4e0fbcdb01de5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT char *</type>
+        <definition>SPHINXBASE_EXPORT char* string_trim</definition>
+        <argsstring>(char *string, enum string_edge_e which)</argsstring>
+        <name>string_trim</name>
+        <param>
+          <type>char *</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>enum <ref refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9" kindref="member">string_edge_e</ref></type>
+          <declname>which</declname>
+        </param>
+        <briefdescription>
+<para>Remove whitespace from a string, modifying it in-place. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>string to trim, contents will be modified. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>one of STRING_START, STRING_END, or STRING_BOTH. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h" line="83" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/strfuncs.c" bodystart="89" bodyend="112"/>
+        <references refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a4fcbb0fe16fa4aa48723ba3ba10c26dd" compoundref="strfuncs_8h" startline="73">STRING_BOTH</references>
+        <references refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a11f31598e50bf3cf1d0aa97d967bb9b9" compoundref="strfuncs_8h" startline="72">STRING_END</references>
+        <references refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a5e4d73e6ca445be10fa48351b9571125" compoundref="strfuncs_8h" startline="71">STRING_START</references>
+        <referencedby refid="pio_8h_1aff8df0b6928746d61b3520555263f71e" compoundref="pio_8c" startline="338" endline="350">lineiter_next</referencedby>
+        <referencedby refid="pio_8h_1a45ce4c15a564179e9148445fe44ac482" compoundref="pio_8c" startline="279" endline="297">lineiter_start_clean</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="strfuncs_8h_1ab708351fe7308551632a782bfad75a1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT double</type>
+        <definition>SPHINXBASE_EXPORT double atof_c</definition>
+        <argsstring>(char const *str)</argsstring>
+        <name>atof_c</name>
+        <param>
+          <type>char const *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Locale independent version of atof(). </para>        </briefdescription>
+        <detaileddescription>
+<para>This function behaves like atof() in the &quot;C&quot; locale. Switching locale in a threaded program is extremely uncool, therefore we need this since we pass floats as strings in 1000 different places. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h" line="93" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/strfuncs.c" bodystart="56" bodyend="59"/>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="strfuncs_8h_1aab1bdad6b50285de4b7cd042f67314dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT uint32</type>
+        <definition>SPHINXBASE_EXPORT uint32 utf8_decode</definition>
+        <argsstring>(uint32 *state, uint32 *codep, uint32 *byte)</argsstring>
+        <name>utf8_decode</name>
+        <param>
+          <type>uint32 *</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>codep</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h" line="96" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="strfuncs_8h_1a5b520fdebcca599db86faaf75a82173f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 str2words</definition>
+        <argsstring>(char *line, char **wptr, int32 n_wptr)</argsstring>
+        <name>str2words</name>
+        <param>
+          <type>char *</type>
+          <declname>line</declname>
+          <briefdescription><para>In/Out: line to be parsed. This string will be modified! (NUL characters inserted at word boundaries) </para></briefdescription>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>wptr</declname>
+          <briefdescription><para>In/Out: Array of pointers to words found in line. The array must be allocated by the caller. It may be NULL in which case the number of words will be counted. This allows you to allcate it to the proper size, e.g.:</para><para>n = str2words(line, NULL, 0); wptr = <ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc(n, sizeof(*wptr))</ref>; str2words(line, wptr, n); </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_wptr</declname>
+          <briefdescription><para>In: Size of wptr array, ignored if wptr == NULL </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Convert a line to an array of &quot;words&quot;, based on whitespace separators. </para>        </briefdescription>
+        <detaileddescription>
+<para>A word is a string with no whitespace chars in it. Note that the string line is modified as a result: NULL chars are placed after every word in the line. Return value: No. of words found; -1 if no. of words in line exceeds n_wptr. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h" line="109" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/strfuncs.c" bodystart="115" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="strfuncs_8h_1a41d9a59e4326b545bf1282401319f553" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 nextword</definition>
+        <argsstring>(char *line, const char *delim, char **word, char *delimfound)</argsstring>
+        <name>nextword</name>
+        <param>
+          <type>char *</type>
+          <declname>line</declname>
+          <briefdescription><para>Input: String being searched for next word. Will be modified by this function (NUL characters inserted) </para></briefdescription>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>delim</declname>
+          <briefdescription><para>Input: A word, if found, must be delimited at either end by a character from this string (or at the end by the NULL char) </para></briefdescription>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>word</declname>
+          <briefdescription><para>Output: *word = ptr within line to beginning of first word, if found. Delimiter at the end of word replaced with the NULL char. </para></briefdescription>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>delimfound</declname>
+          <briefdescription><para>Output: *delimfound = original delimiter found at the end of the word. (This way, the caller can restore the delimiter, preserving the original string.) </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Yet another attempt at a clean &quot;next-word-in-string&quot; function. </para>        </briefdescription>
+        <detaileddescription>
+<para>See arguments below. <simplesect kind="return"><para>Length of word returned, or -1 if nothing found. This allows you to scan through a line:</para></simplesect>
+<preformatted>
+while ((n = nextword(line, delim, &amp;word, &amp;delimfound)) &gt;= 0) {
+    ... do something with word ..
+    word[n] = delimfound;
+    line = word + n;
+}
+</preformatted> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h" line="143" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/strfuncs.c" bodystart="158" bodyend="186"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Miscellaneous useful string functions. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1995-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor">#ifndef<sp/>__SB_STRFUNCS_H__</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__SB_STRFUNCS_H__</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Win32/WinCE<sp/>DLL<sp/>gunk<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="strfuncs_8h_1a317522f23d291311e366de34ef86b777" kindref="member">string_join</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*base,<sp/>...);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9" kindref="member">string_edge_e</ref><sp/>{</highlight></codeline>
+<codeline lineno="71" refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a5e4d73e6ca445be10fa48351b9571125" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a5e4d73e6ca445be10fa48351b9571125" kindref="member">STRING_START</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72" refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a11f31598e50bf3cf1d0aa97d967bb9b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a11f31598e50bf3cf1d0aa97d967bb9b9" kindref="member">STRING_END</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73" refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a4fcbb0fe16fa4aa48723ba3ba10c26dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9a4fcbb0fe16fa4aa48723ba3ba10c26dd" kindref="member">STRING_BOTH</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="strfuncs_8h_1ac36a095632a4f16cf4e0fbcdb01de5ad" kindref="member">string_trim</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="strfuncs_8h_1ab5c9ca15770a4bd3047705762b815df9" kindref="member">string_edge_e</ref><sp/>which);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="strfuncs_8h_1ab708351fe7308551632a782bfad75a1e" kindref="member">atof_c</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">uint32<sp/>utf8_decode(uint32<sp/>*state,<sp/>uint32<sp/>*codep,<sp/>uint32<sp/>*byte);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>FIXME:<sp/>Both<sp/>of<sp/>these<sp/>string<sp/>splitting<sp/>functions<sp/>basically<sp/>suck.<sp/><sp/>I</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>have<sp/>attempted<sp/>to<sp/>fix<sp/>them<sp/>as<sp/>best<sp/>I<sp/>can.<sp/><sp/>(dhuggins@cs,<sp/>20070808)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">int32<sp/><ref refid="strfuncs_8h_1a5b520fdebcca599db86faaf75a82173f" kindref="member">str2words</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*line,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**wptr,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>n_wptr<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">int32<sp/><ref refid="strfuncs_8h_1a41d9a59e4326b545bf1282401319f553" kindref="member">nextword</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*line,<sp/></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*delim,<sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**word,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*delimfound<sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="157"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="159"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__SB_STRFUNCS_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/strfuncs.h"/>
+  </compounddef>
+</doxygen>

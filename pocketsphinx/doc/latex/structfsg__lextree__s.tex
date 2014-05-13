@@ -1,0 +1,163 @@
+\section{fsg\-\_\-lextree\-\_\-s Struct Reference}
+\label{structfsg__lextree__s}\index{fsg\-\_\-lextree\-\_\-s@{fsg\-\_\-lextree\-\_\-s}}
+
+
+Collection of lextrees for an F\-S\-G.  
+
+
+
+
+{\ttfamily \#include $<$fsg\-\_\-lextree.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+fsg\-\_\-model\-\_\-t $\ast$ {\bf fsg}
+\begin{DoxyCompactList}\small\item\em The fsg for which this lextree is built. \end{DoxyCompactList}\item 
+{\bf hmm\-\_\-context\-\_\-t} $\ast$ {\bf ctx}
+\begin{DoxyCompactList}\small\item\em H\-M\-M context structure. \end{DoxyCompactList}\item 
+{\bf dict\-\_\-t} $\ast$ {\bf dict}
+\begin{DoxyCompactList}\small\item\em Pronunciation dictionary for this F\-S\-G. \end{DoxyCompactList}\item 
+{\bf dict2pid\-\_\-t} $\ast$ {\bf d2p}
+\begin{DoxyCompactList}\small\item\em Context-\/dependent phone mappings for this F\-S\-G. \end{DoxyCompactList}\item 
+{\bf bin\-\_\-mdef\-\_\-t} $\ast$ {\bf mdef}
+\begin{DoxyCompactList}\small\item\em Model definition (triphone mappings). \end{DoxyCompactList}\item 
+int16 $\ast$$\ast$ {\bf lc}
+\begin{DoxyCompactList}\small\item\em Left context triphone mappings for F\-S\-G. \end{DoxyCompactList}\item 
+int16 $\ast$$\ast$ {\bf rc}
+\begin{DoxyCompactList}\small\item\em Right context triphone mappings for F\-S\-G. \end{DoxyCompactList}\item 
+{\bf fsg\-\_\-pnode\-\_\-t} $\ast$$\ast$ {\bfseries root}\label{structfsg__lextree__s_a12e9668f7da3b84b0b36799a631fe8d3}
+
+\item 
+{\bf fsg\-\_\-pnode\-\_\-t} $\ast$$\ast$ {\bfseries alloc\-\_\-head}\label{structfsg__lextree__s_a430605e77e2ad3de2b5e2aa1fb7eb365}
+
+\item 
+int32 {\bfseries n\-\_\-pnode}\label{structfsg__lextree__s_ac55755e9f9453acab71a23a5cf3ea542}
+
+\item 
+int32 {\bfseries wip}\label{structfsg__lextree__s_a791fcaf2440b7d90796c5e7e50a7b186}
+
+\item 
+int32 {\bfseries pip}\label{structfsg__lextree__s_a9e6768eff7003453759b1ade9cb50bc7}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Collection of lextrees for an F\-S\-G. 
+
+Definition at line 180 of file fsg\-\_\-lextree.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{fsg\-\_\-lextree\-\_\-s@{fsg\-\_\-lextree\-\_\-s}!ctx@{ctx}}
+\index{ctx@{ctx}!fsg_lextree_s@{fsg\-\_\-lextree\-\_\-s}}
+\subsubsection[{ctx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hmm\-\_\-context\-\_\-t}$\ast$ fsg\-\_\-lextree\-\_\-s\-::ctx}\label{structfsg__lextree__s_afbbd5d59a74dfb287289aa20a9a3979a}
+
+
+H\-M\-M context structure. 
+
+
+
+Definition at line 182 of file fsg\-\_\-lextree.\-h.
+
+
+
+Referenced by fsg\-\_\-lextree\-\_\-init().
+
+\index{fsg\-\_\-lextree\-\_\-s@{fsg\-\_\-lextree\-\_\-s}!d2p@{d2p}}
+\index{d2p@{d2p}!fsg_lextree_s@{fsg\-\_\-lextree\-\_\-s}}
+\subsubsection[{d2p}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dict2pid\-\_\-t}$\ast$ fsg\-\_\-lextree\-\_\-s\-::d2p}\label{structfsg__lextree__s_add12fb7151ebdecb74deaf6aca86d95e}
+
+
+Context-\/dependent phone mappings for this F\-S\-G. 
+
+
+
+Definition at line 184 of file fsg\-\_\-lextree.\-h.
+
+
+
+Referenced by fsg\-\_\-lextree\-\_\-init().
+
+\index{fsg\-\_\-lextree\-\_\-s@{fsg\-\_\-lextree\-\_\-s}!dict@{dict}}
+\index{dict@{dict}!fsg_lextree_s@{fsg\-\_\-lextree\-\_\-s}}
+\subsubsection[{dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dict\-\_\-t}$\ast$ fsg\-\_\-lextree\-\_\-s\-::dict}\label{structfsg__lextree__s_abf077af1c0dd1246b2032b917bfacba5}
+
+
+Pronunciation dictionary for this F\-S\-G. 
+
+
+
+Definition at line 183 of file fsg\-\_\-lextree.\-h.
+
+
+
+Referenced by fsg\-\_\-lextree\-\_\-init().
+
+\index{fsg\-\_\-lextree\-\_\-s@{fsg\-\_\-lextree\-\_\-s}!fsg@{fsg}}
+\index{fsg@{fsg}!fsg_lextree_s@{fsg\-\_\-lextree\-\_\-s}}
+\subsubsection[{fsg}]{\setlength{\rightskip}{0pt plus 5cm}fsg\-\_\-model\-\_\-t$\ast$ fsg\-\_\-lextree\-\_\-s\-::fsg}\label{structfsg__lextree__s_a161ff35c65373388f18e51236bf7ef5f}
+
+
+The fsg for which this lextree is built. 
+
+
+
+Definition at line 181 of file fsg\-\_\-lextree.\-h.
+
+
+
+Referenced by fsg\-\_\-lextree\-\_\-dump(), fsg\-\_\-lextree\-\_\-free(), and fsg\-\_\-lextree\-\_\-init().
+
+\index{fsg\-\_\-lextree\-\_\-s@{fsg\-\_\-lextree\-\_\-s}!lc@{lc}}
+\index{lc@{lc}!fsg_lextree_s@{fsg\-\_\-lextree\-\_\-s}}
+\subsubsection[{lc}]{\setlength{\rightskip}{0pt plus 5cm}int16$\ast$$\ast$ fsg\-\_\-lextree\-\_\-s\-::lc}\label{structfsg__lextree__s_a0655f40ec98c9d971aba1fa8a894575d}
+
+
+Left context triphone mappings for F\-S\-G. 
+
+
+
+Definition at line 204 of file fsg\-\_\-lextree.\-h.
+
+
+
+Referenced by fsg\-\_\-lextree\-\_\-free().
+
+\index{fsg\-\_\-lextree\-\_\-s@{fsg\-\_\-lextree\-\_\-s}!mdef@{mdef}}
+\index{mdef@{mdef}!fsg_lextree_s@{fsg\-\_\-lextree\-\_\-s}}
+\subsubsection[{mdef}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bin\-\_\-mdef\-\_\-t}$\ast$ fsg\-\_\-lextree\-\_\-s\-::mdef}\label{structfsg__lextree__s_ae2c059413a1cb4cda7068ab30a7a477c}
+
+
+Model definition (triphone mappings). 
+
+
+
+Definition at line 185 of file fsg\-\_\-lextree.\-h.
+
+
+
+Referenced by fsg\-\_\-lextree\-\_\-init().
+
+\index{fsg\-\_\-lextree\-\_\-s@{fsg\-\_\-lextree\-\_\-s}!rc@{rc}}
+\index{rc@{rc}!fsg_lextree_s@{fsg\-\_\-lextree\-\_\-s}}
+\subsubsection[{rc}]{\setlength{\rightskip}{0pt plus 5cm}int16$\ast$$\ast$ fsg\-\_\-lextree\-\_\-s\-::rc}\label{structfsg__lextree__s_a307d5351803d409aa51395333294c0f1}
+
+
+Right context triphone mappings for F\-S\-G. 
+
+
+
+Definition at line 205 of file fsg\-\_\-lextree.\-h.
+
+
+
+Referenced by fsg\-\_\-lextree\-\_\-free().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/fsg\-\_\-lextree.\-h\end{DoxyCompactItemize}

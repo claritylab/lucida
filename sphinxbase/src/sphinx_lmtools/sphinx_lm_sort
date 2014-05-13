@@ -1,0 +1,72 @@
+#!/usr/bin/env perl
+use strict;
+
+if ($ARGV[0] eq '-h' or $ARGV[0] eq '-?' or $ARGV[0] eq '--help') {
+    print "Usage: $0 < INPUT_LM > OUTPUT_LM\n";
+    print "\n\tThis program reads an ARPA-format language model and";
+    print "\n\tsorts the N-Grams into the order required by Sphinx.";
+    print "\n\tIt also replaces 'missing' (actually nonexistent)";
+    print "\n\tbackoff weights with dummy values in order to satisfy";
+    print "\n\tall versions of Sphinx.\n";
+    exit 0;
+}
+
+sub print_sorted_ngrams {
+    my ($print_bo, $grams) = @_;
+    @$grams = sort {$a->[0] cmp $b->[0]} @$grams;
+    foreach my $g (@$grams) {
+	my ($gram, $prob, $bo) = @$g;
+	if ($print_bo) {
+	    printf("%.4f %s %.4f\n", $prob, $gram, $bo);
+	}
+	else {
+	    printf("%.4f %s\n", $prob, $gram);
+	}
+    }
+    print "\n";
+}
+
+my $in_data;
+my ($n, @ngrams);
+while (<>) {
+    if (/^\\data\\/) {
+	print;
+	$in_data = 1;
+	next;
+    }
+    unless ($in_data) {
+	print;
+	next;
+    }
+    if (/ngram (\d+)=(\d+)/) {
+	print;
+	next;
+    }
+    if (/\\(\d+)-grams:/) {
+	print_sorted_ngrams(1,\@ngrams);
+	$n = $1;
+	@ngrams = ();
+	print;
+	next;
+    }
+    unless (defined($n)) {
+	print;
+	next;
+    }
+    if (/^\\end\\/) {
+	print_sorted_ngrams(0,\@ngrams);
+	undef $n;
+	print;
+	next;
+    }
+    my (@parts) = split;
+    unless (@parts) {
+	next;
+    }
+    my $prob = shift @parts;
+    my $bo = 0;
+    if (@parts == $n + 1) {
+	$bo = pop @parts;
+    }
+    push @ngrams, ["@parts", $prob, $bo];
+}

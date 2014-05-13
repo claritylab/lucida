@@ -1,0 +1,54 @@
+\section{mdef\-\_\-entry\-\_\-s Struct Reference}
+\label{structmdef__entry__s}\index{mdef\-\_\-entry\-\_\-s@{mdef\-\_\-entry\-\_\-s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int32 {\bf ssid}\label{structmdef__entry__s_a12986649de9c59de3cc805e375b2c9a2}
+
+\begin{DoxyCompactList}\small\item\em Senone sequence I\-D. \end{DoxyCompactList}\item 
+int32 {\bf tmat}\label{structmdef__entry__s_a90758df5d6eb00d3a70135ac4475c7a1}
+
+\begin{DoxyCompactList}\small\item\em Transition matrix I\-D. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>uint8 {\bfseries filler}\\
+\>\>uint8 {\bfseries reserved} [3]\\
+\>\} {\bf ci}\\
+\>\>\>{\em $<$ CI phone information -\/ attributes (just \char`\"{}filler\char`\"{} for now) }\\
+\>struct \{\\
+\>\>uint8 {\bfseries wpos}\\
+\>\>uint8 {\bf ctx} [3]\\
+\>\>\>{\em quintphones will require hacking }\\
+\>\} {\bfseries cd}\\
+\} {\bfseries info}\label{structmdef__entry__s_a720c96c23083115ef7f5f707652ed306}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 76 of file bin\-\_\-mdef.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{mdef\-\_\-entry\-\_\-s@{mdef\-\_\-entry\-\_\-s}!ci@{ci}}
+\index{ci@{ci}!mdef_entry_s@{mdef\-\_\-entry\-\_\-s}}
+\subsubsection[{ci}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   mdef\-\_\-entry\-\_\-s\-::ci}\label{structmdef__entry__s_a24e5db7af5e705b310e82154055043ec}
+
+
+$<$ C\-I phone information -\/ attributes (just \char`\"{}filler\char`\"{} for now) 
+
+C\-D phone information -\/ context info. 
+
+Referenced by bin\-\_\-mdef\-\_\-phone\-\_\-id(), and bin\-\_\-mdef\-\_\-read\-\_\-text().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf bin\-\_\-mdef.\-h}\end{DoxyCompactItemize}

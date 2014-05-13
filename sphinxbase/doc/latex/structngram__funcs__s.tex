@@ -1,0 +1,84 @@
+\section{ngram\-\_\-funcs\-\_\-s Struct Reference}
+\label{structngram__funcs__s}\index{ngram\-\_\-funcs\-\_\-s@{ngram\-\_\-funcs\-\_\-s}}
+
+
+Implementation-\/specific functions for operating on ngram\-\_\-model\-\_\-t objects.  
+
+
+
+
+{\ttfamily \#include $<$ngram\-\_\-model\-\_\-internal.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ {\bf free} )({\bf ngram\-\_\-model\-\_\-t} $\ast$model)\label{structngram__funcs__s_a4211130880131f38e16022985816952f}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for freeing an ngram\-\_\-model\-\_\-t. \end{DoxyCompactList}\item 
+int($\ast$ {\bf apply\-\_\-weights} )({\bf ngram\-\_\-model\-\_\-t} $\ast$model, float32 lw, float32 wip, float32 uw)\label{structngram__funcs__s_abfd7e53c672aef5a34ec5114ec475916}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for applying language model weights. \end{DoxyCompactList}\item 
+int32($\ast$ {\bf score} )({\bf ngram\-\_\-model\-\_\-t} $\ast$model, int32 wid, int32 $\ast$history, int32 n\-\_\-hist, int32 $\ast$n\-\_\-used)\label{structngram__funcs__s_a81b0c7948179c2572fb274401b82278e}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for querying language model score. \end{DoxyCompactList}\item 
+int32($\ast$ {\bf raw\-\_\-score} )({\bf ngram\-\_\-model\-\_\-t} $\ast$model, int32 wid, int32 $\ast$history, int32 n\-\_\-hist, int32 $\ast$n\-\_\-used)\label{structngram__funcs__s_a2a64c66491914168bd830237cc93b16c}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for querying raw language model probability. \end{DoxyCompactList}\item 
+int32($\ast$ {\bf add\-\_\-ug} )({\bf ngram\-\_\-model\-\_\-t} $\ast$model, int32 wid, int32 lweight)
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for adding unigrams. \end{DoxyCompactList}\item 
+void($\ast$ {\bf flush} )({\bf ngram\-\_\-model\-\_\-t} $\ast$model)\label{structngram__funcs__s_a7abf2864db9c8e8d1d5909ea92144ffe}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for purging N-\/\-Gram cache. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-iter\-\_\-t} $\ast$($\ast$ {\bf iter} )({\bf ngram\-\_\-model\-\_\-t} $\ast$model, int32 wid, int32 $\ast$history, int32 n\-\_\-hist)\label{structngram__funcs__s_a8148f132a986660ff500e46f9b2ea1c1}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for iterating. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-iter\-\_\-t} $\ast$($\ast$ {\bf mgrams} )({\bf ngram\-\_\-model\-\_\-t} $\ast$model, int32 m)\label{structngram__funcs__s_a3a264fcbdbe8b4b342c533af090cfe8f}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for iterating. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-iter\-\_\-t} $\ast$($\ast$ {\bf successors} )({\bf ngram\-\_\-iter\-\_\-t} $\ast$itor)\label{structngram__funcs__s_af83b5620eb7bc37984ad522b66e266ad}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for iterating. \end{DoxyCompactList}\item 
+int32 const $\ast$($\ast$ {\bf iter\-\_\-get} )({\bf ngram\-\_\-iter\-\_\-t} $\ast$itor, int32 $\ast$out\-\_\-score, int32 $\ast$out\-\_\-bowt)\label{structngram__funcs__s_ac515e6ad9a1afbda6b74e8204fd460b5}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for iterating. \end{DoxyCompactList}\item 
+{\bf ngram\-\_\-iter\-\_\-t} $\ast$($\ast$ {\bf iter\-\_\-next} )({\bf ngram\-\_\-iter\-\_\-t} $\ast$itor)\label{structngram__funcs__s_a57777056985f8adc3494e859c1102f3e}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for iterating. \end{DoxyCompactList}\item 
+void($\ast$ {\bf iter\-\_\-free} )({\bf ngram\-\_\-iter\-\_\-t} $\ast$itor)\label{structngram__funcs__s_ad7031e996c16516cf7f52e7a4adee4bb}
+
+\begin{DoxyCompactList}\small\item\em Implementation-\/specific function for iterating. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation-\/specific functions for operating on ngram\-\_\-model\-\_\-t objects. 
+
+Definition at line 110 of file ngram\-\_\-model\-\_\-internal.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{ngram\-\_\-funcs\-\_\-s@{ngram\-\_\-funcs\-\_\-s}!add\-\_\-ug@{add\-\_\-ug}}
+\index{add\-\_\-ug@{add\-\_\-ug}!ngram_funcs_s@{ngram\-\_\-funcs\-\_\-s}}
+\subsubsection[{add\-\_\-ug}]{\setlength{\rightskip}{0pt plus 5cm}int32($\ast$ ngram\-\_\-funcs\-\_\-s\-::add\-\_\-ug)({\bf ngram\-\_\-model\-\_\-t} $\ast$model, int32 wid, int32 lweight)}\label{structngram__funcs__s_a6d553c95c7f4da4993f2b9df757ac016}
+
+
+Implementation-\/specific function for adding unigrams. 
+
+This function updates the internal structures of a language model to add the given unigram with the given weight (defined as a log-\/factor applied to the uniform distribution). This includes reallocating or otherwise resizing the set of unigrams.
+
+\begin{DoxyReturn}{Returns}
+The language model score (not raw log-\/probability) of the new word, or 0 for failure. 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file ngram\-\_\-model\-\_\-internal.\-h.
+
+
+
+Referenced by ngram\-\_\-model\-\_\-add\-\_\-word().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libsphinxbase/lm/ngram\-\_\-model\-\_\-internal.\-h\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+#!/bin/sh
+. ../testfuncs.sh
+
+set -e
+./deletehash -subvq > _hash_delete2.out 2>&1 
+compare_table delete2 _hash_delete2.out $tests/unit/test_hash/_hash_delete2.res
+rm -f _hash_delete2.out

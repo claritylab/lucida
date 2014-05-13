@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="fe__prespch__buf_8h" kind="file">
+    <compoundname>fe_prespch_buf.h</compoundname>
+    <includes refid="fe_8h" local="yes">sphinxbase/fe.h</includes>
+    <includedby refid="fe__internal_8h" local="yes">src/libsphinxbase/fe/fe_internal.h</includedby>
+    <includedby refid="fe__prespch__buf_8c" local="yes">src/libsphinxbase/fe/fe_prespch_buf.c</includedby>
+    <incdepgraph>
+      <node id="1406">
+        <label>stdarg.h</label>
+      </node>
+      <node id="1410">
+        <label>limits.h</label>
+      </node>
+      <node id="1408">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="1401">
+        <label>src/libsphinxbase/fe/fe_prespch_buf.h</label>
+        <link refid="fe_prespch_buf.h"/>
+        <childnode refid="1402" relation="include">
+        </childnode>
+      </node>
+      <node id="1409">
+        <label>sphinxbase/fixpoint.h</label>
+        <link refid="fixpoint_8h_source"/>
+        <childnode refid="1410" relation="include">
+        </childnode>
+        <childnode refid="1403" relation="include">
+        </childnode>
+        <childnode refid="1407" relation="include">
+        </childnode>
+      </node>
+      <node id="1403">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="1407">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="1408" relation="include">
+        </childnode>
+      </node>
+      <node id="1404">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="1405" relation="include">
+        </childnode>
+        <childnode refid="1406" relation="include">
+        </childnode>
+        <childnode refid="1403" relation="include">
+        </childnode>
+        <childnode refid="1407" relation="include">
+        </childnode>
+      </node>
+      <node id="1402">
+        <label>sphinxbase/fe.h</label>
+        <link refid="fe_8h_source"/>
+        <childnode refid="1403" relation="include">
+        </childnode>
+        <childnode refid="1404" relation="include">
+        </childnode>
+        <childnode refid="1409" relation="include">
+        </childnode>
+      </node>
+      <node id="1405">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1417">
+        <label>src/libsphinxbase/fe/fe_warp_affine.c</label>
+        <link refid="fe__warp__affine_8c_source"/>
+      </node>
+      <node id="1419">
+        <label>src/libsphinxbase/fe/fe_warp_piecewise_linear.c</label>
+        <link refid="fe__warp__piecewise__linear_8c_source"/>
+      </node>
+      <node id="1418">
+        <label>src/libsphinxbase/fe/fe_warp_inverse_linear.c</label>
+        <link refid="fe__warp__inverse__linear_8c_source"/>
+      </node>
+      <node id="1415">
+        <label>src/libsphinxbase/fe/fe_sigproc.c</label>
+        <link refid="fe__sigproc_8c_source"/>
+      </node>
+      <node id="1416">
+        <label>src/libsphinxbase/fe/fe_warp.c</label>
+        <link refid="fe__warp_8c_source"/>
+      </node>
+      <node id="1414">
+        <label>src/libsphinxbase/fe/fe_warp.h</label>
+        <link refid="fe__warp_8h_source"/>
+        <childnode refid="1413" relation="include">
+        </childnode>
+        <childnode refid="1415" relation="include">
+        </childnode>
+        <childnode refid="1416" relation="include">
+        </childnode>
+        <childnode refid="1417" relation="include">
+        </childnode>
+        <childnode refid="1418" relation="include">
+        </childnode>
+        <childnode refid="1419" relation="include">
+        </childnode>
+      </node>
+      <node id="1422">
+        <label>src/libsphinxbase/fe/fe_prespch_buf.c</label>
+        <link refid="fe__prespch__buf_8c_source"/>
+      </node>
+      <node id="1411">
+        <label>src/libsphinxbase/fe/fe_prespch_buf.h</label>
+        <link refid="fe_prespch_buf.h"/>
+        <childnode refid="1412" relation="include">
+        </childnode>
+        <childnode refid="1422" relation="include">
+        </childnode>
+      </node>
+      <node id="1421">
+        <label>src/libsphinxbase/fe/fixlog.c</label>
+        <link refid="fixlog_8c_source"/>
+      </node>
+      <node id="1413">
+        <label>src/libsphinxbase/fe/fe_interface.c</label>
+        <link refid="fe__interface_8c_source"/>
+      </node>
+      <node id="1412">
+        <label>src/libsphinxbase/fe/fe_internal.h</label>
+        <link refid="fe__internal_8h_source"/>
+        <childnode refid="1413" relation="include">
+        </childnode>
+        <childnode refid="1414" relation="include">
+        </childnode>
+        <childnode refid="1420" relation="include">
+        </childnode>
+        <childnode refid="1415" relation="include">
+        </childnode>
+        <childnode refid="1421" relation="include">
+        </childnode>
+      </node>
+      <node id="1420">
+        <label>src/libsphinxbase/fe/fe_noise.c</label>
+        <link refid="fe__noise_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="fe__prespch__buf_8h_1aa38251831a141950cd7de4253ddf6b83" prot="public" static="no">
+        <type>struct <ref refid="structprespch__buf__s" kindref="compound">prespch_buf_s</ref></type>
+        <definition>typedef struct prespch_buf_s prespch_buf_t</definition>
+        <argsstring></argsstring>
+        <name>prespch_buf_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="71" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="fe__prespch__buf_8h_1aecba712fd10fdb8770268d89d023699e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+        <definition>prespch_buf_t* fe_init_prespch</definition>
+        <argsstring>(int num_frames, int num_cepstra, int num_samples)</argsstring>
+        <name>fe_init_prespch</name>
+        <param>
+          <type>int</type>
+          <declname>num_frames</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_cepstra</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_samples</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="50" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="75" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="fe__prespch__buf_8h_1a626e00c57e08e61e53856008c4eb02e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fe_reinit_prespch_pcm</definition>
+        <argsstring>(prespch_buf_t *prespch_buf, int num_frames_pcm)</argsstring>
+        <name>fe_reinit_prespch_pcm</name>
+        <param>
+          <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+          <declname>prespch_buf</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_frames_pcm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="54" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="98" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="fe__prespch__buf_8h_1a22313fce29c22e5b3648304bf4b81aad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int fe_prespch_read_cep</definition>
+        <argsstring>(prespch_buf_t *prespch_buf, mfcc_t *fea)</argsstring>
+        <name>fe_prespch_read_cep</name>
+        <param>
+          <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+          <declname>prespch_buf</declname>
+        </param>
+        <param>
+          <type>mfcc_t *</type>
+          <declname>fea</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="57" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="111" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="fe__prespch__buf_8h_1a91e732275904d6bb41412d8d47d5665a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fe_prespch_write_cep</definition>
+        <argsstring>(prespch_buf_t *prespch_buf, mfcc_t *fea)</argsstring>
+        <name>fe_prespch_write_cep</name>
+        <param>
+          <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+          <declname>prespch_buf</declname>
+        </param>
+        <param>
+          <type>mfcc_t *</type>
+          <declname>fea</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="60" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="124" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="fe__prespch__buf_8h_1aaf50b9f93740796a6582ebbaee25d4e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fe_prespch_read_pcm</definition>
+        <argsstring>(prespch_buf_t *prespch_buf, int16 **samples, int32 *samples_num)</argsstring>
+        <name>fe_prespch_read_pcm</name>
+        <param>
+          <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+          <declname>prespch_buf</declname>
+        </param>
+        <param>
+          <type>int16 **</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>samples_num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="63" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="133" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="fe__prespch__buf_8h_1ab4297ec6ba5fed09103124714253d580" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fe_prespch_write_pcm</definition>
+        <argsstring>(prespch_buf_t *prespch_buf, int16 *samples)</argsstring>
+        <name>fe_prespch_write_pcm</name>
+        <param>
+          <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+          <declname>prespch_buf</declname>
+        </param>
+        <param>
+          <type>int16 *</type>
+          <declname>samples</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="67" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="148" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="fe__prespch__buf_8h_1a927eaede28c583fea44e8306e9bb6391" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fe_reset_prespch_cep</definition>
+        <argsstring>(prespch_buf_t *prespch_buf)</argsstring>
+        <name>fe_reset_prespch_cep</name>
+        <param>
+          <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+          <declname>prespch_buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="70" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="160" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="fe__prespch__buf_8h_1ac5900a5445991f5006668009254aed13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fe_reset_prespch_pcm</definition>
+        <argsstring>(prespch_buf_t *prespch_buf)</argsstring>
+        <name>fe_reset_prespch_pcm</name>
+        <param>
+          <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+          <declname>prespch_buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="73" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="167" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="fe__prespch__buf_8h_1af2ac6c7ea998f43a9057d04ee8c0272d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fe_free_prespch</definition>
+        <argsstring>(prespch_buf_t *prespch_buf)</argsstring>
+        <name>fe_free_prespch</name>
+        <param>
+          <type><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref> *</type>
+          <declname>prespch_buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h" line="76" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.c" bodystart="173" bodyend="180"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2013<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights<sp/></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FE_INTERNAL_H</highlight></codeline>
+<codeline lineno="39"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>FE_INTERNAL_H</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>HAVE_CONFIG_H</highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;config.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sphinxbase/fe.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_s</ref><sp/><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Creates<sp/>prespeech<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref><sp/>*fe_init_prespch(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_frames,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_cepstra,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_samples);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>initialize<sp/>pcm<sp/>prespeech<sp/>buffer<sp/>with<sp/>specified<sp/>amount<sp/>of<sp/>frames<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fe_reinit_prespch_pcm(<ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref>*<sp/>prespch_buf,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_frames_pcm);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Reads<sp/>mfcc<sp/>frame<sp/>from<sp/>prespeech<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_prespch_read_cep(<ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref><sp/>*<sp/>prespch_buf,<sp/>mfcc_t<sp/>*<sp/>fea);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Writes<sp/>mfcc<sp/>frame<sp/>to<sp/>prespeech<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fe_prespch_write_cep(<ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref><sp/>*<sp/>prespch_buf,<sp/>mfcc_t<sp/>*<sp/>fea);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Reads<sp/>pcm<sp/>frame<sp/>from<sp/>prespeech<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fe_prespch_read_pcm(<ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref><sp/>*<sp/>prespch_buf,<sp/>int16<sp/>**<sp/>samples,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>*<sp/>samples_num);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Writes<sp/>pcm<sp/>frame<sp/>to<sp/>prespeech<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fe_prespch_write_pcm(<ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref><sp/>*<sp/>prespch_buf,<sp/>int16<sp/>*<sp/>samples);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Resets<sp/>read/write<sp/>pointers<sp/>for<sp/>cepstrum<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fe_reset_prespch_cep(<ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref><sp/>*<sp/>prespch_buf);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Resets<sp/>read/write<sp/>pointer<sp/>for<sp/>pcm<sp/>audio<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fe_reset_prespch_pcm(<ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref><sp/>*<sp/>prespch_buf);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Releases<sp/>prespeech<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fe_free_prespch(<ref refid="structprespch__buf__s" kindref="compound">prespch_buf_t</ref><sp/>*<sp/>prespch_buf);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FE_INTERNAL_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/fe/fe_prespch_buf.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="ngram__search_8h" kind="file">
+    <compoundname>ngram_search.h</compoundname>
+    <includes local="no">sphinxbase/cmd_ln.h</includes>
+    <includes local="no">sphinxbase/logmath.h</includes>
+    <includes local="no">sphinxbase/ngram_model.h</includes>
+    <includes local="no">sphinxbase/listelem_alloc.h</includes>
+    <includes local="no">sphinxbase/err.h</includes>
+    <includes refid="pocketsphinx__internal_8h" local="yes">pocketsphinx_internal.h</includes>
+    <includes refid="hmm_8h" local="yes">hmm.h</includes>
+    <includedby refid="ngram__search_8c" local="yes">src/libpocketsphinx/ngram_search.c</includedby>
+    <includedby refid="ngram__search__fwdtree_8h" local="yes">src/libpocketsphinx/ngram_search_fwdtree.h</includedby>
+    <includedby refid="ngram__search__fwdflat_8h" local="yes">src/libpocketsphinx/ngram_search_fwdflat.h</includedby>
+    <includedby refid="ngram__search__fwdflat_8c" local="yes">src/libpocketsphinx/ngram_search_fwdflat.c</includedby>
+    <includedby refid="pocketsphinx_8c" local="yes">src/libpocketsphinx/pocketsphinx.c</includedby>
+    <includedby refid="ps__lattice_8c" local="yes">src/libpocketsphinx/ps_lattice.c</includedby>
+    <incdepgraph>
+      <node id="1317">
+        <label>sphinxbase/ngram_model.h</label>
+      </node>
+      <node id="1323">
+        <label>sphinxbase/hash_table.h</label>
+      </node>
+      <node id="1338">
+        <label>tmat.h</label>
+        <link refid="tmat_8h"/>
+        <childnode refid="1326" relation="include">
+        </childnode>
+        <childnode refid="1316" relation="include">
+        </childnode>
+      </node>
+      <node id="1325">
+        <label>pocketsphinx.h</label>
+        <link refid="pocketsphinx_8h"/>
+        <childnode refid="1326" relation="include">
+        </childnode>
+        <childnode refid="1315" relation="include">
+        </childnode>
+        <childnode refid="1316" relation="include">
+        </childnode>
+        <childnode refid="1321" relation="include">
+        </childnode>
+        <childnode refid="1322" relation="include">
+        </childnode>
+        <childnode refid="1327" relation="include">
+        </childnode>
+        <childnode refid="1317" relation="include">
+        </childnode>
+        <childnode refid="1323" relation="include">
+        </childnode>
+        <childnode refid="1328" relation="include">
+        </childnode>
+        <childnode refid="1329" relation="include">
+        </childnode>
+        <childnode refid="1330" relation="include">
+        </childnode>
+        <childnode refid="1332" relation="include">
+        </childnode>
+      </node>
+      <node id="1344">
+        <label>assert.h</label>
+      </node>
+      <node id="1343">
+        <label>float.h</label>
+      </node>
+      <node id="1315">
+        <label>sphinxbase/cmd_ln.h</label>
+      </node>
+      <node id="1342">
+        <label>s3types.h</label>
+        <link refid="s3types_8h"/>
+        <childnode refid="1343" relation="include">
+        </childnode>
+        <childnode refid="1344" relation="include">
+        </childnode>
+        <childnode refid="1331" relation="include">
+        </childnode>
+        <childnode refid="1319" relation="include">
+        </childnode>
+        <childnode refid="1345" relation="include">
+        </childnode>
+      </node>
+      <node id="1321">
+        <label>sphinxbase/fe.h</label>
+      </node>
+      <node id="1340">
+        <label>sphinxbase/fixpoint.h</label>
+      </node>
+      <node id="1337">
+        <label>mdef.h</label>
+        <link refid="mdef_8h"/>
+        <childnode refid="1326" relation="include">
+        </childnode>
+        <childnode refid="1323" relation="include">
+        </childnode>
+      </node>
+      <node id="1320">
+        <label>pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx__internal_8h"/>
+        <childnode refid="1315" relation="include">
+        </childnode>
+        <childnode refid="1321" relation="include">
+        </childnode>
+        <childnode refid="1322" relation="include">
+        </childnode>
+        <childnode refid="1323" relation="include">
+        </childnode>
+        <childnode refid="1316" relation="include">
+        </childnode>
+        <childnode refid="1324" relation="include">
+        </childnode>
+        <childnode refid="1325" relation="include">
+        </childnode>
+        <childnode refid="1333" relation="include">
+        </childnode>
+        <childnode refid="1341" relation="include">
+        </childnode>
+        <childnode refid="1346" relation="include">
+        </childnode>
+      </node>
+      <node id="1332">
+        <label>ps_mllr.h</label>
+        <link refid="ps__mllr_8h"/>
+        <childnode refid="1331" relation="include">
+        </childnode>
+        <childnode refid="1317" relation="include">
+        </childnode>
+        <childnode refid="1328" relation="include">
+        </childnode>
+      </node>
+      <node id="1336">
+        <label>sphinxbase/mmio.h</label>
+      </node>
+      <node id="1345">
+        <label>sphinxbase/ckd_alloc.h</label>
+      </node>
+      <node id="1318">
+        <label>sphinxbase/listelem_alloc.h</label>
+      </node>
+      <node id="1328">
+        <label>pocketsphinx_export.h</label>
+        <link refid="pocketsphinx__export_8h_source"/>
+      </node>
+      <node id="1322">
+        <label>sphinxbase/feat.h</label>
+      </node>
+      <node id="1331">
+        <label>sphinxbase/prim_type.h</label>
+      </node>
+      <node id="1334">
+        <label>sphinxbase/bitvec.h</label>
+      </node>
+      <node id="1339">
+        <label>hmm.h</label>
+        <link refid="hmm_8h"/>
+        <childnode refid="1326" relation="include">
+        </childnode>
+        <childnode refid="1340" relation="include">
+        </childnode>
+        <childnode refid="1318" relation="include">
+        </childnode>
+        <childnode refid="1335" relation="include">
+        </childnode>
+      </node>
+      <node id="1333">
+        <label>acmod.h</label>
+        <link refid="acmod_8h"/>
+        <childnode refid="1326" relation="include">
+        </childnode>
+        <childnode refid="1315" relation="include">
+        </childnode>
+        <childnode refid="1316" relation="include">
+        </childnode>
+        <childnode refid="1321" relation="include">
+        </childnode>
+        <childnode refid="1322" relation="include">
+        </childnode>
+        <childnode refid="1334" relation="include">
+        </childnode>
+        <childnode refid="1319" relation="include">
+        </childnode>
+        <childnode refid="1331" relation="include">
+        </childnode>
+        <childnode refid="1332" relation="include">
+        </childnode>
+        <childnode refid="1335" relation="include">
+        </childnode>
+        <childnode refid="1338" relation="include">
+        </childnode>
+        <childnode refid="1339" relation="include">
+        </childnode>
+      </node>
+      <node id="1330">
+        <label>ps_lattice.h</label>
+        <link refid="ps__lattice_8h"/>
+        <childnode refid="1331" relation="include">
+        </childnode>
+        <childnode refid="1317" relation="include">
+        </childnode>
+        <childnode refid="1328" relation="include">
+        </childnode>
+      </node>
+      <node id="1314">
+        <label>src/libpocketsphinx/ngram_search.h</label>
+        <link refid="ngram_search.h"/>
+        <childnode refid="1315" relation="include">
+        </childnode>
+        <childnode refid="1316" relation="include">
+        </childnode>
+        <childnode refid="1317" relation="include">
+        </childnode>
+        <childnode refid="1318" relation="include">
+        </childnode>
+        <childnode refid="1319" relation="include">
+        </childnode>
+        <childnode refid="1320" relation="include">
+        </childnode>
+        <childnode refid="1339" relation="include">
+        </childnode>
+      </node>
+      <node id="1335">
+        <label>bin_mdef.h</label>
+        <link refid="bin__mdef_8h"/>
+        <childnode refid="1336" relation="include">
+        </childnode>
+        <childnode refid="1315" relation="include">
+        </childnode>
+        <childnode refid="1328" relation="include">
+        </childnode>
+        <childnode refid="1337" relation="include">
+        </childnode>
+      </node>
+      <node id="1329">
+        <label>cmdln_macro.h</label>
+        <link refid="cmdln__macro_8h_source"/>
+        <childnode refid="1315" relation="include">
+        </childnode>
+        <childnode refid="1322" relation="include">
+        </childnode>
+        <childnode refid="1321" relation="include">
+        </childnode>
+      </node>
+      <node id="1319">
+        <label>sphinxbase/err.h</label>
+      </node>
+      <node id="1341">
+        <label>dict.h</label>
+        <link refid="dict_8h"/>
+        <childnode refid="1323" relation="include">
+        </childnode>
+        <childnode refid="1342" relation="include">
+        </childnode>
+        <childnode refid="1335" relation="include">
+        </childnode>
+        <childnode refid="1328" relation="include">
+        </childnode>
+      </node>
+      <node id="1346">
+        <label>dict2pid.h</label>
+        <link refid="dict2pid_8h"/>
+        <childnode refid="1326" relation="include">
+        </childnode>
+        <childnode refid="1316" relation="include">
+        </childnode>
+        <childnode refid="1334" relation="include">
+        </childnode>
+        <childnode refid="1342" relation="include">
+        </childnode>
+        <childnode refid="1335" relation="include">
+        </childnode>
+        <childnode refid="1341" relation="include">
+        </childnode>
+      </node>
+      <node id="1327">
+        <label>sphinxbase/fsg_model.h</label>
+      </node>
+      <node id="1316">
+        <label>sphinxbase/logmath.h</label>
+      </node>
+      <node id="1324">
+        <label>sphinxbase/profile.h</label>
+      </node>
+      <node id="1326">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1351">
+        <label>src/libpocketsphinx/pocketsphinx.c</label>
+        <link refid="pocketsphinx_8c_source"/>
+      </node>
+      <node id="1353">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.c</label>
+        <link refid="ngram__search__fwdflat_8c"/>
+      </node>
+      <node id="1352">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.h</label>
+        <link refid="ngram__search__fwdflat_8h"/>
+        <childnode refid="1348" relation="include">
+        </childnode>
+        <childnode refid="1351" relation="include">
+        </childnode>
+      </node>
+      <node id="1354">
+        <label>src/libpocketsphinx/ps_lattice.c</label>
+        <link refid="ps__lattice_8c"/>
+      </node>
+      <node id="1348">
+        <label>src/libpocketsphinx/ngram_search.c</label>
+        <link refid="ngram__search_8c"/>
+      </node>
+      <node id="1347">
+        <label>src/libpocketsphinx/ngram_search.h</label>
+        <link refid="ngram_search.h"/>
+        <childnode refid="1348" relation="include">
+        </childnode>
+        <childnode refid="1349" relation="include">
+        </childnode>
+        <childnode refid="1352" relation="include">
+        </childnode>
+        <childnode refid="1353" relation="include">
+        </childnode>
+        <childnode refid="1351" relation="include">
+        </childnode>
+        <childnode refid="1354" relation="include">
+        </childnode>
+      </node>
+      <node id="1350">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.c</label>
+        <link refid="ngram__search__fwdtree_8c"/>
+      </node>
+      <node id="1349">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.h</label>
+        <link refid="ngram__search__fwdtree_8h"/>
+        <childnode refid="1348" relation="include">
+        </childnode>
+        <childnode refid="1350" relation="include">
+        </childnode>
+        <childnode refid="1351" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structchan__s" prot="public">chan_s</innerclass>
+    <innerclass refid="structroot__chan__s" prot="public">root_chan_s</innerclass>
+    <innerclass refid="structbptbl__s" prot="public">bptbl_s</innerclass>
+    <innerclass refid="structbptbl__seg__s" prot="public">bptbl_seg_s</innerclass>
+    <innerclass refid="structlastphn__cand__s" prot="public">lastphn_cand_s</innerclass>
+    <innerclass refid="structlast__ltrans__t" prot="public">last_ltrans_t</innerclass>
+    <innerclass refid="structcand__sf__t" prot="public">cand_sf_t</innerclass>
+    <innerclass refid="structbestbp__rc__s" prot="public">bestbp_rc_s</innerclass>
+    <innerclass refid="structngram__search__stats__s" prot="public">ngram_search_stats_s</innerclass>
+    <innerclass refid="structngram__search__s" prot="public">ngram_search_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="ngram__search_8h_1a346ebebfc9fdaefced106c1560667ac0" prot="public" static="no">
+        <name>CAND_SF_ALLOCSIZE</name>
+        <initializer>32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="157" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ngram__search_8h_1a10e17daabad292e65cac7099c3678660" prot="public" static="no">
+        <name>NO_BP</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="175" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="ngram__search_8h_1a2c5740fe4792d870b73f4100b32e9324" prot="public" static="no">
+        <type>struct <ref refid="structchan__s" kindref="compound">chan_s</ref></type>
+        <definition>typedef struct chan_s  chan_t</definition>
+        <argsstring></argsstring>
+        <name>chan_t</name>
+        <briefdescription>
+<para>Lexical tree node data type. </para>        </briefdescription>
+        <detaileddescription>
+<para>Not the first HMM for words, which multiplex HMMs based on different left contexts. This structure is used both in the dynamic HMM tree structure and in the per-word last-phone right context fanout. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="81" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ngram__search_8h_1aab8eee3f73f666d0e12c5b355a651cff" prot="public" static="no">
+        <type>struct <ref refid="structroot__chan__s" kindref="compound">root_chan_s</ref></type>
+        <definition>typedef struct root_chan_s  root_chan_t</definition>
+        <argsstring></argsstring>
+        <name>root_chan_t</name>
+        <briefdescription>
+<para>Lexical tree node data type for the first phone (root) of each dynamic HMM tree structure. </para>        </briefdescription>
+        <detaileddescription>
+<para>Each state may have a different parent static HMM. Most fields are similar to those in chan_t. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="104" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ngram__search_8h_1a81093c091a82066374627744595840e6" prot="public" static="no">
+        <type>struct <ref refid="structbptbl__s" kindref="compound">bptbl_s</ref></type>
+        <definition>typedef struct bptbl_s  bptbl_t</definition>
+        <argsstring></argsstring>
+        <name>bptbl_t</name>
+        <briefdescription>
+<para>Back pointer table (forward pass lattice; actually a tree) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="121" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ngram__search_8h_1a89d7d2a948a3cc2d55c77120cbd35e0d" prot="public" static="no">
+        <type>struct <ref refid="structbptbl__seg__s" kindref="compound">bptbl_seg_s</ref></type>
+        <definition>typedef struct bptbl_seg_s  bptbl_seg_t</definition>
+        <argsstring></argsstring>
+        <name>bptbl_seg_t</name>
+        <briefdescription>
+<para>Segmentation &quot;iterator&quot; for backpointer table results. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="131" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ngram__search_8h_1a74085ad31c843ef11c5fbc360449eda5" prot="public" static="no">
+        <type>struct <ref refid="structlastphn__cand__s" kindref="compound">lastphn_cand_s</ref></type>
+        <definition>typedef struct lastphn_cand_s  lastphn_cand_t</definition>
+        <argsstring></argsstring>
+        <name>lastphn_cand_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="143" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ngram__search_8h_1aedd2fc2265aea00bbc36fcd6c2ad17c1" prot="public" static="no">
+        <type>struct <ref refid="structbestbp__rc__s" kindref="compound">bestbp_rc_s</ref></type>
+        <definition>typedef struct bestbp_rc_s  bestbp_rc_t</definition>
+        <argsstring></argsstring>
+        <name>bestbp_rc_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="173" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ngram__search_8h_1ae68375016e7d208d22042a7dd4a0f37c" prot="public" static="no">
+        <type>struct <ref refid="structngram__search__stats__s" kindref="compound">ngram_search_stats_s</ref></type>
+        <definition>typedef struct ngram_search_stats_s  ngram_search_stats_t</definition>
+        <argsstring></argsstring>
+        <name>ngram_search_stats_t</name>
+        <briefdescription>
+<para>Various statistics for profiling. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="191" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="ngram__search_8h_1aa8139adca6864a4ce9a03a48aa2af711" prot="public" static="no">
+        <type>struct <ref refid="structngram__search__s" kindref="compound">ngram_search_s</ref></type>
+        <definition>typedef struct ngram_search_s ngram_search_t</definition>
+        <argsstring></argsstring>
+        <name>ngram_search_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="1406" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+        <definition>ps_search_t* ngram_search_init</definition>
+        <argsstring>(ngram_model_t *lm, cmd_ln_t *config, acmod_t *acmod, dict_t *dict, dict2pid_t *d2p)</argsstring>
+        <name>ngram_search_init</name>
+        <param>
+          <type>ngram_model_t *</type>
+          <declname>lm</declname>
+        </param>
+        <param>
+          <type>cmd_ln_t *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="structacmod__s" kindref="compound">acmod_t</ref> *</type>
+          <declname>acmod</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref> *</type>
+          <declname>d2p</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the N-Gram search module. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="363" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="141" bodyend="236"/>
+        <references refid="acmod_8c_1a1555dac8fa27f644d709c5c89bbfa881" compoundref="acmod_8c" startline="424" endline="434">acmod_set_grow</references>
+        <references refid="pocketsphinx__internal_8h_1ad848d8d0cf0398542bfb74a2e34dbff3" compoundref="pocketsphinx_8c" startline="1259" endline="1282">ps_search_init</references>
+        <references refid="structngram__search__s_1acfbdd34e3dadbaa384818402f1dd59bf" compoundref="ngram__search_8h" startline="200">ngram_search_s::hmmctx</references>
+        <references refid="hmm_8h_1a4d6e2799cbe290112e8517adcab1b038" compoundref="hmm_8c" startline="56" endline="77">hmm_context_init</references>
+        <references refid="structacmod__s_1a351548ff5547c29b4a684e10434a51dd" compoundref="acmod_8h" startline="159">acmod_s::mdef</references>
+        <references refid="structacmod__s_1aaa3982184a49f0d61e397ba89f486259" compoundref="acmod_8h" startline="160">acmod_s::tmat</references>
+        <references refid="structtmat__t_1a9f518c96b30dab9efdb69bd779a7b5bf" compoundref="tmat_8h" startline="110">tmat_t::tp</references>
+        <references refid="structbin__mdef__s_1acb58480658812de7a357dcbd25ad7b41" compoundref="bin__mdef_8h" startline="137">bin_mdef_s::sseq</references>
+        <references refid="structngram__search__s_1abe9fe60f6e48b9a6e3d41856bb1dc109" compoundref="ngram__search_8h" startline="211">ngram_search_s::chan_alloc</references>
+        <references refid="structngram__search__s_1a576470858bfa44c671f0e677902ab424" compoundref="ngram__search_8h" startline="212">ngram_search_s::root_chan_alloc</references>
+        <references refid="structngram__search__s_1a21600dc2e23744f0be9c64a4db8d7e50" compoundref="ngram__search_8h" startline="213">ngram_search_s::latnode_alloc</references>
+        <references refid="structngram__search__s_1a79deb7295a261cd82d2a6b48cb119e77" compoundref="ngram__search_8h" startline="246">ngram_search_s::word_chan</references>
+        <references refid="dict_8h_1a361b948b42f9cfdf5c7fa9dfc8a71a94" compoundref="dict_8h" startline="154">dict_size</references>
+        <references refid="structngram__search__s_1aeb4c98851bf9b239ca607ca59f59ff4c" compoundref="ngram__search_8h" startline="247">ngram_search_s::word_active</references>
+        <references refid="structngram__search__s_1a38ea5de504b3d7ad2390a3f8966d502f" compoundref="ngram__search_8h" startline="307">ngram_search_s::n_frame_alloc</references>
+        <references refid="structngram__search__s_1a5056573bf95990cc28c97a56cd76ce9a" compoundref="ngram__search_8h" startline="287">ngram_search_s::active_word_list</references>
+        <references refid="structngram__search__s_1a6127a6d8fb53832e67456c11aa6ad9c4" compoundref="ngram__search_8h" startline="199">ngram_search_s::lmset</references>
+        <references refid="ngram__search__fwdtree_8c_1a72c89a2a1f189495abee00e1853cddcc" compoundref="ngram__search__fwdtree_8c" startline="384" endline="393">ngram_fwdtree_init</references>
+        <references refid="ngram__search__fwdflat_8c_1ad4b8ebd904c77f8a28f59cd5ca2c8307" compoundref="ngram__search__fwdflat_8c" startline="145" endline="166">ngram_fwdflat_init</references>
+        <references refid="ngram__search_8c_1aeaf140dc2bbeaa5c274f73480b5328f3" compoundref="ngram__search_8c" startline="288" endline="325">ngram_search_free</references>
+        <referencedby refid="pocketsphinx_8h_1aa76b495c63c665a21a49d7cb51c66d74" compoundref="pocketsphinx_8c" startline="545" endline="550">ps_set_lm</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ngram_search_free</definition>
+        <argsstring>(ps_search_t *ngs)</argsstring>
+        <name>ngram_search_free</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <briefdescription>
+<para>Finalize the N-Gram search module. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="372" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="288" bodyend="325"/>
+        <references refid="pocketsphinx__internal_8h_1a1299496b3498166928702d0701934e50" compoundref="pocketsphinx_8c" startline="1310" endline="1318">ps_search_deinit</references>
+        <references refid="ngram__search__fwdtree_8c_1a0e0e0436b30e1074114e1d37991c5d6b" compoundref="ngram__search__fwdtree_8c" startline="425" endline="451">ngram_fwdtree_deinit</references>
+        <references refid="ngram__search__fwdflat_8c_1a8faf467f90162a7273b23304fc6e8586" compoundref="ngram__search__fwdflat_8c" startline="169" endline="189">ngram_fwdflat_deinit</references>
+        <references refid="hmm_8h_1ab66534ad7970d49527f1b2a1e76bb05e" compoundref="hmm_8c" startline="80" endline="86">hmm_context_free</references>
+        <references refid="structngram__search__s_1acfbdd34e3dadbaa384818402f1dd59bf" compoundref="ngram__search_8h" startline="200">ngram_search_s::hmmctx</references>
+        <references refid="structngram__search__s_1abe9fe60f6e48b9a6e3d41856bb1dc109" compoundref="ngram__search_8h" startline="211">ngram_search_s::chan_alloc</references>
+        <references refid="structngram__search__s_1a576470858bfa44c671f0e677902ab424" compoundref="ngram__search_8h" startline="212">ngram_search_s::root_chan_alloc</references>
+        <references refid="structngram__search__s_1a21600dc2e23744f0be9c64a4db8d7e50" compoundref="ngram__search_8h" startline="213">ngram_search_s::latnode_alloc</references>
+        <references refid="structngram__search__s_1a6127a6d8fb53832e67456c11aa6ad9c4" compoundref="ngram__search_8h" startline="199">ngram_search_s::lmset</references>
+        <references refid="structngram__search__s_1a79deb7295a261cd82d2a6b48cb119e77" compoundref="ngram__search_8h" startline="246">ngram_search_s::word_chan</references>
+        <references refid="structngram__search__s_1aeb4c98851bf9b239ca607ca59f59ff4c" compoundref="ngram__search_8h" startline="247">ngram_search_s::word_active</references>
+        <references refid="structngram__search__s_1a5056573bf95990cc28c97a56cd76ce9a" compoundref="ngram__search_8h" startline="287">ngram_search_s::active_word_list</references>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1a7772e007b7d7fdf437c87aeb08b59c71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ngram_search_mark_bptable</definition>
+        <argsstring>(ngram_search_t *ngs, int frame_idx)</argsstring>
+        <name>ngram_search_mark_bptable</name>
+        <param>
+          <type><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_idx</declname>
+        </param>
+        <briefdescription>
+<para>Record the current frame&apos;s index in the backpointer table. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the current backpointer index. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="379" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="328" bodyend="344"/>
+        <references refid="structngram__search__s_1aa54544457c363ccccb87fc7ec63a5f3e" compoundref="ngram__search_8h" startline="316">ngram_search_s::frm_wordlist</references>
+        <references refid="structngram__search__s_1a38ea5de504b3d7ad2390a3f8966d502f" compoundref="ngram__search_8h" startline="307">ngram_search_s::n_frame_alloc</references>
+        <referencedby refid="ngram__search__fwdflat_8h_1ac855cf540ac4acdfa320629720ded6fe" compoundref="ngram__search__fwdflat_8c" startline="919" endline="955">ngram_fwdflat_finish</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1ae77ef21ae92dbcc4b14f40469fbd4307" compoundref="ngram__search__fwdflat_8c" startline="808" endline="867">ngram_fwdflat_search</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+        <referencedby refid="ngram__search__fwdtree_8h_1a9e2828ba0d249424a234b6cf7d3ee530" compoundref="ngram__search__fwdtree_8c" startline="1455" endline="1496">ngram_fwdtree_search</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1ae36649be6f5a2190e759e7ed13bd7b6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ngram_search_save_bp</definition>
+        <argsstring>(ngram_search_t *ngs, int frame_idx, int32 w, int32 score, int32 path, int32 rc)</argsstring>
+        <name>ngram_search_save_bp</name>
+        <param>
+          <type><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_idx</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>rc</declname>
+        </param>
+        <briefdescription>
+<para>Enter a word in the backpointer table. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="384" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="382" bodyend="502"/>
+        <references refid="structbptbl__s_1ae52081dde905cf6e7d988cdeb4c9b8b3" compoundref="ngram__search_8h" startline="110">bptbl_s::frame</references>
+        <references refid="structbptbl__s_1aa5643c0c19ce4d39d51ddf7376f4d508" compoundref="ngram__search_8h" startline="115">bptbl_s::score</references>
+        <references refid="hmm_8h_1aa930fb8fb6fce7f34bcf4018b81d7066" compoundref="hmm_8h" startline="104">WORSE_THAN</references>
+        <references refid="structbptbl__s_1a4ca45ebc4a1ac18fc0596195e7e03bc8" compoundref="ngram__search_8h" startline="114">bptbl_s::bp</references>
+        <references refid="structbptbl__s_1a83784e3b0121bc365d485151ab277920" compoundref="ngram__search_8h" startline="118">bptbl_s::prev_real_wid</references>
+        <references refid="structbptbl__s_1a91247e4f807cf780afe8f5ac45e720b8" compoundref="ngram__search_8h" startline="117">bptbl_s::real_wid</references>
+        <references refid="structbptbl__s_1abf9e4bcf1927aa09fb2b30c59e99f551" compoundref="ngram__search_8h" startline="116">bptbl_s::s_idx</references>
+        <references refid="structbptbl__s_1a143ff0891fafd471000df7c73123b8a7" compoundref="ngram__search_8h" startline="113">bptbl_s::wid</references>
+        <references refid="structbptbl__s_1a4948439666e1e2204a6d1c6d9cfd1cd0" compoundref="ngram__search_8h" startline="111">bptbl_s::valid</references>
+        <references refid="structbptbl__s_1aa7704ba76d3dcde6b8a24855362a4289" compoundref="ngram__search_8h" startline="119">bptbl_s::last_phone</references>
+        <references refid="structbptbl__s_1a27b8e54bb7552e6afc15e4f44f42e3b7" compoundref="ngram__search_8h" startline="120">bptbl_s::last2_phone</references>
+        <references refid="dict2pid_8h_1a453a98931cad95a19b4c4ab770fc79f1" compoundref="dict2pid_8h" startline="179">dict2pid_rssid</references>
+        <references refid="hmm_8h_1a833f100ee293ad0f1c03f2a5ef9be77a" compoundref="hmm_8h" startline="88">WORST_SCORE</references>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ngram_search_alloc_all_rc</definition>
+        <argsstring>(ngram_search_t *ngs, int32 w)</argsstring>
+        <name>ngram_search_alloc_all_rc</name>
+        <param>
+          <type><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+<para>Allocate last phone channels for all possible right contexts for word w. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="390" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="600" bodyend="646"/>
+        <references refid="dict2pid_8h_1a453a98931cad95a19b4c4ab770fc79f1" compoundref="dict2pid_8h" startline="179">dict2pid_rssid</references>
+        <references refid="structngram__search__s_1a79deb7295a261cd82d2a6b48cb119e77" compoundref="ngram__search_8h" startline="246">ngram_search_s::word_chan</references>
+        <references refid="structchan__s_1a742d6a125ac468b95a1ddd880a956e35" compoundref="ngram__search_8h" startline="65">chan_s::hmm</references>
+        <references refid="structxwdssid__t_1adbeeda6e94a51f08626c13414cdad6a8" compoundref="dict2pid_8h" startline="138">xwdssid_t::ssid</references>
+        <references refid="structngram__search__s_1abe9fe60f6e48b9a6e3d41856bb1dc109" compoundref="ngram__search_8h" startline="211">ngram_search_s::chan_alloc</references>
+        <references refid="structchan__s_1a260b68eff64150d0ae9ce4db7feb1300" compoundref="ngram__search_8h" startline="68">chan_s::next</references>
+        <references refid="structchan__s_1acf84a2fa662e7ff626769e7d8152a608" compoundref="ngram__search_8h" startline="79">chan_s::rc_id</references>
+        <references refid="structchan__s_1a33da51d8524073abc792519d0738ca0b" compoundref="ngram__search_8h" startline="73">chan_s::ciphone</references>
+        <references refid="hmm_8h_1aa911ae0d1c0eba562692fbeebca90d78" compoundref="hmm_8c" startline="89" endline="108">hmm_init</references>
+        <references refid="structngram__search__s_1acfbdd34e3dadbaa384818402f1dd59bf" compoundref="ngram__search_8h" startline="200">ngram_search_s::hmmctx</references>
+        <references refid="structxwdssid__t_1ab4443c642c5aff57c35abed070112d6e" compoundref="dict2pid_8h" startline="140">xwdssid_t::n_ssid</references>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1a15477192481dffcb29e9c4167eff6c3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ngram_search_free_all_rc</definition>
+        <argsstring>(ngram_search_t *ngs, int32 w)</argsstring>
+        <name>ngram_search_free_all_rc</name>
+        <param>
+          <type><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+<para>Allocate last phone channels for all possible right contexts for word w. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="395" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="649" bodyend="659"/>
+        <references refid="structngram__search__s_1a79deb7295a261cd82d2a6b48cb119e77" compoundref="ngram__search_8h" startline="246">ngram_search_s::word_chan</references>
+        <references refid="structchan__s_1a260b68eff64150d0ae9ce4db7feb1300" compoundref="ngram__search_8h" startline="68">chan_s::next</references>
+        <references refid="hmm_8h_1a7440ced1649225beb6816bf62481e08b" compoundref="hmm_8c" startline="111" endline="113">hmm_deinit</references>
+        <references refid="structchan__s_1a742d6a125ac468b95a1ddd880a956e35" compoundref="ngram__search_8h" startline="65">chan_s::hmm</references>
+        <references refid="structngram__search__s_1abe9fe60f6e48b9a6e3d41856bb1dc109" compoundref="ngram__search_8h" startline="211">ngram_search_s::chan_alloc</references>
+        <referencedby refid="ngram__search__fwdtree_8h_1af32a83dbb9187542577a0c500b000840" compoundref="ngram__search__fwdtree_8c" startline="1499" endline="1570">ngram_fwdtree_finish</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1ac6a01bb08e7b8d1deb39763a98148cb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ngram_search_find_exit</definition>
+        <argsstring>(ngram_search_t *ngs, int frame_idx, int32 *out_best_score, int32 *out_is_final)</argsstring>
+        <name>ngram_search_find_exit</name>
+        <param>
+          <type><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_idx</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_best_score</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>out_is_final</declname>
+        </param>
+        <briefdescription>
+<para>Find the best word exit for the current frame in the backpointer table. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the backpointer index of the best word exit. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="402" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="505" bodyend="549"/>
+        <references refid="hmm_8h_1a2874ab52613ff781c96f570ec0eb0d98" compoundref="hmm_8h" startline="99">BETTER_THAN</references>
+        <references refid="structngram__search__s_1a5255e56d28c239a4e1d9b1721e8a2f8d" compoundref="ngram__search_8h" startline="308">ngram_search_s::n_frame</references>
+        <references refid="structbptbl__s_1aa5643c0c19ce4d39d51ddf7376f4d508" compoundref="ngram__search_8h" startline="115">bptbl_s::score</references>
+        <references refid="structbptbl__s_1a143ff0891fafd471000df7c73123b8a7" compoundref="ngram__search_8h" startline="113">bptbl_s::wid</references>
+        <references refid="hmm_8h_1a833f100ee293ad0f1c03f2a5ef9be77a" compoundref="hmm_8h" startline="88">WORST_SCORE</references>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1aee393a136f8f7e8b98161e6eed7b1dd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char const *</type>
+        <definition>char const* ngram_search_bp_hyp</definition>
+        <argsstring>(ngram_search_t *ngs, int bpidx)</argsstring>
+        <name>ngram_search_bp_hyp</name>
+        <param>
+          <type><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>bpidx</declname>
+        </param>
+        <briefdescription>
+<para>Backtrace from a given backpointer index to obtain a word hypothesis. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a <bold>read-only</bold> string with the best hypothesis. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="409" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="552" bodyend="597"/>
+        <references refid="structbptbl__s_1a4ca45ebc4a1ac18fc0596195e7e03bc8" compoundref="ngram__search_8h" startline="114">bptbl_s::bp</references>
+        <references refid="dict_8h_1ad2eba4ca92dd1a3721608e003d95d8c1" compoundref="dict_8c" startline="411" endline="422">dict_real_word</references>
+        <references refid="structps__search__s_1aa398c736a887af97e42b2a562359adc3" compoundref="pocketsphinx__internal_8h" startline="113">ps_search_s::hyp_str</references>
+        <references refid="structbptbl__s_1a143ff0891fafd471000df7c73123b8a7" compoundref="ngram__search_8h" startline="113">bptbl_s::wid</references>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1a2fa760c99f77eb075157304f4359941e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ngram_compute_seg_scores</definition>
+        <argsstring>(ngram_search_t *ngs, float32 lwf)</argsstring>
+        <name>ngram_compute_seg_scores</name>
+        <param>
+          <type><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>lwf</declname>
+        </param>
+        <briefdescription>
+<para>Compute language and acoustic scores for backpointer table entries. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="414" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1ac30e7dec4bbfeee9f5163abf4bbd1014" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ps__lattice_8h_1af3c03aa650aafdaea0cbcfabe1a1c1e5" kindref="member">ps_lattice_t</ref> *</type>
+        <definition>ps_lattice_t* ngram_search_lattice</definition>
+        <argsstring>(ps_search_t *search)</argsstring>
+        <name>ngram_search_lattice</name>
+        <param>
+          <type><ref refid="pocketsphinx__internal_8h_1adc3de4d62e46c5e6cb93d09fb61be8ee" kindref="member">ps_search_t</ref> *</type>
+          <declname>search</declname>
+        </param>
+        <briefdescription>
+<para>Construct a word lattice from the current hypothesis. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="419" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="1217" bodyend="1404"/>
+        <references refid="structngram__search__s_1a150d99157e2f37a6f0dbb4b02682d9c3" compoundref="ngram__search_8h" startline="325">ngram_search_s::best_score</references>
+        <references refid="hmm_8h_1a833f100ee293ad0f1c03f2a5ef9be77a" compoundref="hmm_8h" startline="88">WORST_SCORE</references>
+        <references refid="hmm_8h_1aa930fb8fb6fce7f34bcf4018b81d7066" compoundref="hmm_8h" startline="104">WORSE_THAN</references>
+        <references refid="structps__search__s_1a897f46c55d17e817ff1364f555b31463" compoundref="pocketsphinx__internal_8h" startline="114">ps_search_s::dag</references>
+        <references refid="structps__lattice__s_1a3a997dc60d28b84d5bfc01f9ce25a891" compoundref="ps__lattice__internal_8h" startline="74">ps_lattice_s::n_frames</references>
+        <references refid="structngram__search__s_1a5255e56d28c239a4e1d9b1721e8a2f8d" compoundref="ngram__search_8h" startline="308">ngram_search_s::n_frame</references>
+        <references refid="ps__lattice_8h_1a3f90e846bde47cd1acdff165b92f5c22" compoundref="ps__lattice_8c" startline="688" endline="702">ps_lattice_free</references>
+        <references refid="ps__lattice_8c_1a606f6ee0fd569dd5829d7f84ae7e61bd" compoundref="ps__lattice_8c" startline="662" endline="678">ps_lattice_init_search</references>
+        <references refid="structps__lattice__s_1a5d936695a3813e117d20b585d48db8fe" compoundref="ps__lattice__internal_8h" startline="71">ps_lattice_s::start</references>
+        <references refid="structps__lattice__s_1a00f30e2689853d6bcb31c8005a69dc7b" compoundref="ps__lattice__internal_8h" startline="72">ps_lattice_s::end</references>
+        <references refid="structps__search__s_1a918f243fa966e72c47f697fb9e60089d" compoundref="pocketsphinx__internal_8h" startline="111">ps_search_s::dict</references>
+        <references refid="structps__latnode__s_1afd85dbd410d6e6d970c73088bc6fb97e" compoundref="ps__lattice__internal_8h" startline="115">ps_latnode_s::wid</references>
+        <references refid="structps__latnode__s_1a4171e956043e7856c04d84498f16cf29" compoundref="ps__lattice__internal_8h" startline="120">ps_latnode_s::sf</references>
+        <references refid="structps__latnode__s_1a5c7b9114d131151d6ce85228ea9f829d" compoundref="ps__lattice__internal_8h" startline="119">ps_latnode_s::lef</references>
+        <references refid="structps__lattice__s_1aba113d4134c72d7405423c77bcc1247e" compoundref="ps__lattice__internal_8h" startline="76">ps_lattice_s::final_node_ascr</references>
+        <references refid="structps__lattice__s_1a838bd9223e35d012419e6225b54e393d" compoundref="ps__lattice__internal_8h" startline="70">ps_lattice_s::nodes</references>
+        <references refid="structps__latnode__s_1aca6f3d543a1712a1ca3bb8ec60f71c84" compoundref="ps__lattice__internal_8h" startline="133">ps_latnode_s::next</references>
+        <references refid="structps__lattice__s_1a14e4e87550647d5119cd1cc48ff4f3f1" compoundref="ps__lattice__internal_8h" startline="80">ps_lattice_s::latnode_alloc</references>
+        <references refid="structps__latnode__s_1af9c4c69f5f85bbc36818357a52432565" compoundref="ps__lattice__internal_8h" startline="121">ps_latnode_s::reachable</references>
+        <references refid="structps__latnode__s_1a584ee5a303355d851ac903718998df14" compoundref="ps__lattice__internal_8h" startline="118">ps_latnode_s::fef</references>
+        <references refid="structbptbl__s_1ae52081dde905cf6e7d988cdeb4c9b8b3" compoundref="ngram__search_8h" startline="110">bptbl_s::frame</references>
+        <references refid="structbptbl__s_1a143ff0891fafd471000df7c73123b8a7" compoundref="ngram__search_8h" startline="113">bptbl_s::wid</references>
+        <references refid="ngram__search_8c_1a25a80e488425b2bd4e24eb753c9295a5" compoundref="ngram__search_8c" startline="662" endline="681">ngram_search_exit_score</references>
+        <references refid="structbptbl__s_1aa5643c0c19ce4d39d51ddf7376f4d508" compoundref="ngram__search_8h" startline="115">bptbl_s::score</references>
+        <references refid="hmm_8h_1a2874ab52613ff781c96f570ec0eb0d98" compoundref="hmm_8h" startline="99">BETTER_THAN</references>
+        <references refid="ps__lattice_8h_1a4aaae70904361b23a78cdcb632c298c4" compoundref="ps__lattice_8c" startline="65" endline="103">ps_lattice_link</references>
+        <references refid="structps__latnode__s_1ae3b3dc7d14347e6380859c74b9a02589" compoundref="ps__lattice__internal_8h" startline="116">ps_latnode_s::basewid</references>
+        <references refid="structps__latnode__s_1aa4c0a395c74acbacccde561f92fa89e4" compoundref="ps__lattice__internal_8h" startline="132">ps_latnode_s::alt</references>
+        <references refid="structps__lattice__s_1ab3690a8d16e3fa8a3b0dd3aa8277b653" compoundref="ps__lattice__internal_8h" startline="75">ps_lattice_s::n_nodes</references>
+        <references refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</references>
+        <references refid="ps__lattice_8c_1a6da4e36322aaab4d2ebe812bee9a4439" compoundref="ps__lattice_8c" startline="197" endline="230">ps_lattice_delete_unreachable</references>
+        <references refid="ps__lattice_8c_1a9b40adaa059978fe33959d59da1b6919" compoundref="ps__lattice_8c" startline="106" endline="140">ps_lattice_bypass_fillers</references>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1a25a80e488425b2bd4e24eb753c9295a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ngram_search_exit_score</definition>
+        <argsstring>(ngram_search_t *ngs, bptbl_t *pbe, int rcphone)</argsstring>
+        <name>ngram_search_exit_score</name>
+        <param>
+          <type><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref> *</type>
+          <declname>ngs</declname>
+        </param>
+        <param>
+          <type><ref refid="ngram__search_8h_1a81093c091a82066374627744595840e6" kindref="member">bptbl_t</ref> *</type>
+          <declname>pbe</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rcphone</declname>
+        </param>
+        <briefdescription>
+<para>Get the exit score for a backpointer entry with a given right context. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="424" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="662" bodyend="681"/>
+        <references refid="structbptbl__s_1a27b8e54bb7552e6afc15e4f44f42e3b7" compoundref="ngram__search_8h" startline="120">bptbl_s::last2_phone</references>
+        <references refid="structbptbl__s_1aa5643c0c19ce4d39d51ddf7376f4d508" compoundref="ngram__search_8h" startline="115">bptbl_s::score</references>
+        <references refid="dict2pid_8h_1a453a98931cad95a19b4c4ab770fc79f1" compoundref="dict2pid_8h" startline="179">dict2pid_rssid</references>
+        <references refid="structbptbl__s_1aa7704ba76d3dcde6b8a24855362a4289" compoundref="ngram__search_8h" startline="119">bptbl_s::last_phone</references>
+        <references refid="structbptbl__s_1abf9e4bcf1927aa09fb2b30c59e99f551" compoundref="ngram__search_8h" startline="116">bptbl_s::s_idx</references>
+        <references refid="structxwdssid__t_1a502f9241a70383aa260d3390e4ff58fb" compoundref="dict2pid_8h" startline="139">xwdssid_t::cimap</references>
+        <referencedby refid="ngram__search_8h_1ac30e7dec4bbfeee9f5163abf4bbd1014" compoundref="ngram__search_8c" startline="1217" endline="1404">ngram_search_lattice</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ngram__search_8h_1a0e681022d3fa0e63da066aad123245e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ngram_search_set_lm</definition>
+        <argsstring>(ngram_model_t *lm)</argsstring>
+        <name>ngram_search_set_lm</name>
+        <param>
+          <type>ngram_model_t *</type>
+          <declname>lm</declname>
+        </param>
+        <briefdescription>
+<para>Sets the global language model. </para>        </briefdescription>
+        <detaileddescription>
+<para>Sets the language model to use if nothing was passed in configuration </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h" line="431" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.c" bodystart="1406" bodyend="1409"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>N-Gram based multi-pass search (&quot;FBS&quot;) </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2008<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor">#ifndef<sp/>__NGRAM_SEARCH_H__</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__NGRAM_SEARCH_H__</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>SphinxBase<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/cmd_ln.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/logmath.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/ngram_model.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/listelem_alloc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/err.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Local<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pocketsphinx__internal_8h" kindref="compound">pocketsphinx_internal.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="hmm_8h" kindref="compound">hmm.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="structchan__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structchan__s" kindref="compound">chan_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="65" refid="structchan__s_1a742d6a125ac468b95a1ddd880a956e35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structhmm__t" kindref="compound">hmm_t</ref><sp/><ref refid="structchan__s_1a742d6a125ac468b95a1ddd880a956e35" kindref="member">hmm</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68" refid="structchan__s_1a260b68eff64150d0ae9ce4db7feb1300" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structchan__s" kindref="compound">chan_s</ref><sp/>*<ref refid="structchan__s_1a260b68eff64150d0ae9ce4db7feb1300" kindref="member">next</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71" refid="structchan__s_1a52e85d037ca3a8b21ff1eed1d469ca15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structchan__s" kindref="compound">chan_s</ref><sp/>*<ref refid="structchan__s_1a52e85d037ca3a8b21ff1eed1d469ca15" kindref="member">alt</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73" refid="structchan__s_1a33da51d8524073abc792519d0738ca0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/><sp/><sp/><ref refid="structchan__s_1a33da51d8524073abc792519d0738ca0b" kindref="member">ciphone</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">union<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75" refid="structchan__s_1a136796f6a13c0d6989120f9aa25b85f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structchan__s_1a136796f6a13c0d6989120f9aa25b85f1" kindref="member">penult_phn_wid</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79" refid="structchan__s_1acf84a2fa662e7ff626769e7d8152a608" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structchan__s_1acf84a2fa662e7ff626769e7d8152a608" kindref="member">rc_id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>info;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}<sp/><ref refid="ngram__search_8h_1a2c5740fe4792d870b73f4100b32e9324" kindref="member">chan_t</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="structroot__chan__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structroot__chan__s" kindref="compound">root_chan_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="91" refid="structroot__chan__s_1a9d4d92ffa8b4079202ddebe3ba0eb290" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structhmm__t" kindref="compound">hmm_t</ref><sp/><ref refid="structroot__chan__s_1a9d4d92ffa8b4079202ddebe3ba0eb290" kindref="member">hmm</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94" refid="structroot__chan__s_1ae0f0b90a7cb2fcb54cd7b30502dd497e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structchan__s" kindref="compound">chan_t</ref><sp/>*<ref refid="structroot__chan__s_1ae0f0b90a7cb2fcb54cd7b30502dd497e" kindref="member">next</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/>penult_phn_wid;</highlight></codeline>
+<codeline lineno="97" refid="structroot__chan__s_1af5bb41f0c9a03211ab90919f65be1564" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/><ref refid="structroot__chan__s_1af5bb41f0c9a03211ab90919f65be1564" kindref="member">this_phn_wid</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100" refid="structroot__chan__s_1ad67c37bf4183f518acd7760c09a806f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><sp/><sp/><sp/><ref refid="structroot__chan__s_1ad67c37bf4183f518acd7760c09a806f6" kindref="member">ciphone</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102" refid="structroot__chan__s_1a0c0cf22caf4c97879af86865764f1675" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><sp/><sp/><sp/><ref refid="structroot__chan__s_1a0c0cf22caf4c97879af86865764f1675" kindref="member">ci2phone</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}<sp/><ref refid="ngram__search_8h_1aab8eee3f73f666d0e12c5b355a651cff" kindref="member">root_chan_t</ref>;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="structbptbl__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbptbl__s" kindref="compound">bptbl_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="110" refid="structbptbl__s_1ae52081dde905cf6e7d988cdeb4c9b8b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hmm_8h_1ac9c9bae34d05f32736ae1743316737ef" kindref="member">frame_idx_t</ref><sp/><sp/><ref refid="structbptbl__s_1ae52081dde905cf6e7d988cdeb4c9b8b3" kindref="member">frame</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111" refid="structbptbl__s_1a4948439666e1e2204a6d1c6d9cfd1cd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1a4948439666e1e2204a6d1c6d9cfd1cd0" kindref="member">valid</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112" refid="structbptbl__s_1acdc7410a4069418879aa022f9b61c13d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1acdc7410a4069418879aa022f9b61c13d" kindref="member">refcnt</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113" refid="structbptbl__s_1a143ff0891fafd471000df7c73123b8a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1a143ff0891fafd471000df7c73123b8a7" kindref="member">wid</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="114" refid="structbptbl__s_1a4ca45ebc4a1ac18fc0596195e7e03bc8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1a4ca45ebc4a1ac18fc0596195e7e03bc8" kindref="member">bp</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="115" refid="structbptbl__s_1aa5643c0c19ce4d39d51ddf7376f4d508" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1aa5643c0c19ce4d39d51ddf7376f4d508" kindref="member">score</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="116" refid="structbptbl__s_1abf9e4bcf1927aa09fb2b30c59e99f551" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1abf9e4bcf1927aa09fb2b30c59e99f551" kindref="member">s_idx</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117" refid="structbptbl__s_1a91247e4f807cf780afe8f5ac45e720b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1a91247e4f807cf780afe8f5ac45e720b8" kindref="member">real_wid</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="118" refid="structbptbl__s_1a83784e3b0121bc365d485151ab277920" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1a83784e3b0121bc365d485151ab277920" kindref="member">prev_real_wid</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119" refid="structbptbl__s_1aa7704ba76d3dcde6b8a24855362a4289" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1aa7704ba76d3dcde6b8a24855362a4289" kindref="member">last_phone</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="120" refid="structbptbl__s_1a27b8e54bb7552e6afc15e4f44f42e3b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><sp/><sp/><sp/><ref refid="structbptbl__s_1a27b8e54bb7552e6afc15e4f44f42e3b7" kindref="member">last2_phone</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}<sp/><ref refid="ngram__search_8h_1a81093c091a82066374627744595840e6" kindref="member">bptbl_t</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="structbptbl__seg__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbptbl__seg__s" kindref="compound">bptbl_seg_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="127" refid="structbptbl__seg__s_1ac21f715b189c7e452385252bfcee47fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__seg__s" kindref="compound">ps_seg_t</ref><sp/><ref refid="structbptbl__seg__s_1ac21f715b189c7e452385252bfcee47fe" kindref="member">base</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="128" refid="structbptbl__seg__s_1a81e3d422fb2307c1a83e9490525dce7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>*<ref refid="structbptbl__seg__s_1a81e3d422fb2307c1a83e9490525dce7f" kindref="member">bpidx</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="129" refid="structbptbl__seg__s_1a8d1f0aa7dd09e2d6321a00b68ab6a051" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><ref refid="structbptbl__seg__s_1a8d1f0aa7dd09e2d6321a00b68ab6a051" kindref="member">n_bpidx</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="130" refid="structbptbl__seg__s_1a1649196a2c03fb61b31624086ee998b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int16<sp/><ref refid="structbptbl__seg__s_1a1649196a2c03fb61b31624086ee998b5" kindref="member">cur</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}<sp/><ref refid="ngram__search_8h_1a89d7d2a948a3cc2d55c77120cbd35e0d" kindref="member">bptbl_seg_t</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>Candidates<sp/>words<sp/>for<sp/>entering<sp/>their<sp/>last<sp/>phones.<sp/><sp/>Cleared<sp/>and<sp/>rebuilt<sp/>in<sp/>each</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>frame.</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>NOTE:<sp/>candidates<sp/>can<sp/>only<sp/>be<sp/>multi-phone,<sp/>real<sp/>dictionary<sp/>words.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="structlastphn__cand__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlastphn__cand__s" kindref="compound">lastphn_cand_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>wid;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>score;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bp;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>next;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>next<sp/>candidate<sp/>starting<sp/>at<sp/>the<sp/>same<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}<sp/><ref refid="structlastphn__cand__s" kindref="compound">lastphn_cand_t</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*<sp/>Since<sp/>the<sp/>same<sp/>instance<sp/>of<sp/>a<sp/>word<sp/>(i.e.,<sp/>&lt;word,start-frame&gt;)<sp/>reaches<sp/>its<sp/>last</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>phone<sp/>several<sp/>times,<sp/>we<sp/>can<sp/>compute<sp/>its<sp/>best<sp/>BP<sp/>and<sp/>LM<sp/>transition<sp/>score<sp/>info</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*<sp/>just<sp/>the<sp/>first<sp/>time<sp/>and<sp/>cache<sp/>it<sp/>for<sp/>future<sp/>occurrences.<sp/><sp/>Structure<sp/>for<sp/>such</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*<sp/>a<sp/>cache.</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151" refid="structlast__ltrans__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>sf;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Start<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>dscr;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Delta-score<sp/>upon<sp/>entering<sp/>last<sp/>phone<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Best<sp/>BP<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}<sp/><ref refid="structlast__ltrans__t" kindref="compound">last_ltrans_t</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CAND_SF_ALLOCSIZE<sp/><sp/><sp/><sp/><sp/><sp/><sp/>32</highlight></codeline>
+<codeline lineno="158" refid="structcand__sf__t" refkind="compound"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bp_ef;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>cand;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}<sp/><ref refid="structcand__sf__t" kindref="compound">cand_sf_t</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*<sp/>Structure<sp/>for<sp/>reorganizing<sp/>the<sp/>BP<sp/>table<sp/>entries<sp/>in<sp/>the<sp/>current<sp/>frame<sp/>according</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*<sp/>to<sp/>distinct<sp/>right<sp/>context<sp/>ci-phones.<sp/><sp/>Each<sp/>entry<sp/>contains<sp/>the<sp/>best<sp/>BP<sp/>entry<sp/>for</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>a<sp/>given<sp/>right<sp/>context.<sp/><sp/>Each<sp/>successor<sp/>word<sp/>will<sp/>pick<sp/>up<sp/>the<sp/>correct<sp/>entry<sp/>based</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/>on<sp/>its<sp/>first<sp/>ci-phone.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="structbestbp__rc__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structbestbp__rc__s" kindref="compound">bestbp_rc_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>score;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>path;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>BP<sp/>table<sp/>index<sp/>corresponding<sp/>to<sp/>this<sp/>entry<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>lc;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>right<sp/>most<sp/>ci-phone<sp/>of<sp/>above<sp/>BP<sp/>entry<sp/>word<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal">}<sp/><ref refid="structbestbp__rc__s" kindref="compound">bestbp_rc_t</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NO_BP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-1</highlight></codeline>
+<codeline lineno="176"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="180" refid="structngram__search__stats__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structngram__search__stats__s" kindref="compound">ngram_search_stats_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_phone_eval;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_root_chan_eval;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_nonroot_chan_eval;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_last_chan_eval;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_word_lastchan_eval;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_lastphn_cand_utt;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_fwdflat_chan;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_fwdflat_words;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_fwdflat_word_transition;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_senone_active_utt;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}<sp/><ref refid="ngram__search_8h_1ae68375016e7d208d22042a7dd4a0f37c" kindref="member">ngram_search_stats_t</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="structngram__search__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structngram__search__s" kindref="compound">ngram_search_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>base;</highlight></codeline>
+<codeline lineno="199" refid="structngram__search__s_1a6127a6d8fb53832e67456c11aa6ad9c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ngram_model_t<sp/>*<ref refid="structngram__search__s_1a6127a6d8fb53832e67456c11aa6ad9c4" kindref="member">lmset</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="200" refid="structngram__search__s_1acfbdd34e3dadbaa384818402f1dd59bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structhmm__context__t" kindref="compound">hmm_context_t</ref><sp/>*<ref refid="structngram__search__s_1acfbdd34e3dadbaa384818402f1dd59bf" kindref="member">hmmctx</ref>;<sp/></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Flags<sp/>to<sp/>quickly<sp/>indicate<sp/>which<sp/>passes<sp/>are<sp/>enabled.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/>fwdtree;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/>fwdflat;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/>bestpath;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>State<sp/>of<sp/>procesing.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8<sp/>done;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Allocators<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="structngram__search__s_1abe9fe60f6e48b9a6e3d41856bb1dc109" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>listelem_alloc_t<sp/>*<ref refid="structngram__search__s_1abe9fe60f6e48b9a6e3d41856bb1dc109" kindref="member">chan_alloc</ref>;<sp/></highlight></codeline>
+<codeline lineno="212" refid="structngram__search__s_1a576470858bfa44c671f0e677902ab424" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>listelem_alloc_t<sp/>*<ref refid="structngram__search__s_1a576470858bfa44c671f0e677902ab424" kindref="member">root_chan_alloc</ref>;<sp/></highlight></codeline>
+<codeline lineno="213" refid="structngram__search__s_1a21600dc2e23744f0be9c64a4db8d7e50" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>listelem_alloc_t<sp/>*<ref refid="structngram__search__s_1a21600dc2e23744f0be9c64a4db8d7e50" kindref="member">latnode_alloc</ref>;<sp/></highlight></codeline>
+<codeline lineno="231" refid="structngram__search__s_1ae1b0a51cfcddc1e4b6ac94fa1e48887a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structroot__chan__s" kindref="compound">root_chan_t</ref><sp/>*<ref refid="structngram__search__s_1ae1b0a51cfcddc1e4b6ac94fa1e48887a" kindref="member">root_chan</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="232" refid="structngram__search__s_1abc8a67e3f64adc470c78dfdd23be4126" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1abc8a67e3f64adc470c78dfdd23be4126" kindref="member">n_root_chan_alloc</ref>;<sp/></highlight></codeline>
+<codeline lineno="233" refid="structngram__search__s_1a297d8bdb856617490ee8ccd99df70e68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a297d8bdb856617490ee8ccd99df70e68" kindref="member">n_root_chan</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="234" refid="structngram__search__s_1a043723786367f5026dce99c261f7086d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a043723786367f5026dce99c261f7086d" kindref="member">n_nonroot_chan</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="235" refid="structngram__search__s_1a4b2b42349e9e3df7e93b4a7d6994f63f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a4b2b42349e9e3df7e93b4a7d6994f63f" kindref="member">max_nonroot_chan</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="236" refid="structngram__search__s_1a1ffa3c9100252122ae8a2a713c50b527" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structroot__chan__s" kindref="compound">root_chan_t</ref><sp/>*<ref refid="structngram__search__s_1a1ffa3c9100252122ae8a2a713c50b527" kindref="member">rhmm_1ph</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="246" refid="structngram__search__s_1a79deb7295a261cd82d2a6b48cb119e77" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structchan__s" kindref="compound">chan_t</ref><sp/>**<ref refid="structngram__search__s_1a79deb7295a261cd82d2a6b48cb119e77" kindref="member">word_chan</ref>;</highlight></codeline>
+<codeline lineno="247" refid="structngram__search__s_1aeb4c98851bf9b239ca607ca59f59ff4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bitvec_t<sp/>*<ref refid="structngram__search__s_1aeb4c98851bf9b239ca607ca59f59ff4c" kindref="member">word_active</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="263" refid="structngram__search__s_1ab251bb3d0ddd33dd99ed390b61e481f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>*<ref refid="structngram__search__s_1ab251bb3d0ddd33dd99ed390b61e481f2" kindref="member">homophone_set</ref>;</highlight></codeline>
+<codeline lineno="264" refid="structngram__search__s_1a1157923e0060b947e05caa819c8abe2c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>*<ref refid="structngram__search__s_1a1157923e0060b947e05caa819c8abe2c" kindref="member">single_phone_wid</ref>;<sp/></highlight></codeline>
+<codeline lineno="265" refid="structngram__search__s_1a9168184c862d6f63bd7926e6581b25d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a9168184c862d6f63bd7926e6581b25d9" kindref="member">n_1ph_words</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="266" refid="structngram__search__s_1a988672d895f1ee61dbf790b2065df4df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a988672d895f1ee61dbf790b2065df4df" kindref="member">n_1ph_LMwords</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="275" refid="structngram__search__s_1a83731bf0e2234e632c5e78f2321f5b2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structchan__s" kindref="compound">chan_t</ref><sp/>***<ref refid="structngram__search__s_1a83731bf0e2234e632c5e78f2321f5b2d" kindref="member">active_chan_list</ref>;</highlight></codeline>
+<codeline lineno="276" refid="structngram__search__s_1ac33f60894871671ec5c2173ca56d600f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1ac33f60894871671ec5c2173ca56d600f" kindref="member">n_active_chan</ref>[2];<sp/><sp/></highlight></codeline>
+<codeline lineno="287" refid="structngram__search__s_1a5056573bf95990cc28c97a56cd76ce9a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>**<ref refid="structngram__search__s_1a5056573bf95990cc28c97a56cd76ce9a" kindref="member">active_word_list</ref>;</highlight></codeline>
+<codeline lineno="288" refid="structngram__search__s_1a5c864f1fe331fc95c04e0d87a5bdf9ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a5c864f1fe331fc95c04e0d87a5bdf9ee" kindref="member">n_active_word</ref>[2];<sp/><sp/></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="291"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>FIXME:<sp/>Document<sp/>all<sp/>of<sp/>these<sp/>bits.</highlight></codeline>
+<codeline lineno="292"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlastphn__cand__s" kindref="compound">lastphn_cand_t</ref><sp/>*lastphn_cand;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_lastphn_cand;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlast__ltrans__t" kindref="compound">last_ltrans_t</ref><sp/>*last_ltrans;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>one<sp/>per<sp/>word<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>cand_sf_alloc;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structcand__sf__t" kindref="compound">cand_sf_t</ref><sp/>*cand_sf;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structbestbp__rc__s" kindref="compound">bestbp_rc_t</ref><sp/>*bestbp_rc;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structbptbl__s" kindref="compound">bptbl_t</ref><sp/>*bp_table;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Forward<sp/>pass<sp/>lattice<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bpidx;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>First<sp/>free<sp/>BPTable<sp/>entry<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bp_table_size;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>*bscore_stack;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Score<sp/>stack<sp/>for<sp/>all<sp/>possible<sp/>right<sp/>contexts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bss_head;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>First<sp/>free<sp/>BScoreStack<sp/>entry<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>bscore_stack_size;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307" refid="structngram__search__s_1a38ea5de504b3d7ad2390a3f8966d502f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a38ea5de504b3d7ad2390a3f8966d502f" kindref="member">n_frame_alloc</ref>;<sp/></highlight></codeline>
+<codeline lineno="308" refid="structngram__search__s_1a5255e56d28c239a4e1d9b1721e8a2f8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a5255e56d28c239a4e1d9b1721e8a2f8d" kindref="member">n_frame</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>*bp_table_idx;<sp/></highlight><highlight class="comment">/*<sp/>First<sp/>BPTable<sp/>entry<sp/>for<sp/>each<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>*word_lat_idx;<sp/></highlight><highlight class="comment">/*<sp/>BPTable<sp/>index<sp/>for<sp/>any<sp/>word<sp/>in<sp/>current<sp/>frame;</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cleared<sp/>before<sp/>each<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="314"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Flat<sp/>lexicon<sp/>(2nd<sp/>pass)<sp/>search<sp/>stuff.</highlight></codeline>
+<codeline lineno="315"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316" refid="structngram__search__s_1aa54544457c363ccccb87fc7ec63a5f3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structps__latnode__s" kindref="compound">ps_latnode_t</ref><sp/>**<ref refid="structngram__search__s_1aa54544457c363ccccb87fc7ec63a5f3e" kindref="member">frm_wordlist</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="317" refid="structngram__search__s_1a774f1640c5ece856f4bef98d98e7c959" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>*<ref refid="structngram__search__s_1a774f1640c5ece856f4bef98d98e7c959" kindref="member">fwdflat_wordlist</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>bitvec_t<sp/>*expand_word_flag;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>*expand_word_list;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_expand_words;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>min_ef_width;</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>max_sf_win;</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>float32<sp/>fwdflat_fwdtree_lw_ratio;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325" refid="structngram__search__s_1a150d99157e2f37a6f0dbb4b02682d9c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a150d99157e2f37a6f0dbb4b02682d9c3" kindref="member">best_score</ref>;<sp/></highlight></codeline>
+<codeline lineno="326" refid="structngram__search__s_1a81ee45f3c184568e2b5f8b79c58e0b9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structngram__search__s_1a81ee45f3c184568e2b5f8b79c58e0b9e" kindref="member">last_phone_best_score</ref>;<sp/></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>renormalized;</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="330"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>DAG<sp/>(3rd<sp/>pass)<sp/>search<sp/>stuff.</highlight></codeline>
+<codeline lineno="331"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>float32<sp/>bestpath_fwdtree_lw_ratio;</highlight></codeline>
+<codeline lineno="333" refid="structngram__search__s_1a1e3d4b67e4b11c6c11ebe16552d53d2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>float32<sp/><ref refid="structngram__search__s_1a1e3d4b67e4b11c6c11ebe16552d53d2d" kindref="member">ascale</ref>;<sp/></highlight></codeline>
+<codeline lineno="335" refid="structngram__search__s_1a5758d167fbb48e824a6a58186620e06d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structngram__search__stats__s" kindref="compound">ngram_search_stats_t</ref><sp/><ref refid="structngram__search__s_1a5758d167fbb48e824a6a58186620e06d" kindref="member">st</ref>;<sp/></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>ptmr_t<sp/>fwdtree_perf;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>ptmr_t<sp/>fwdflat_perf;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>ptmr_t<sp/>bestpath_perf;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>n_tot_frame;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>A<sp/>collection<sp/>of<sp/>beam<sp/>widths.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>beam;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>dynamic_beam;</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>pbeam;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>wbeam;</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>lpbeam;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>lponlybeam;</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>fwdflatbeam;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>fwdflatwbeam;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>fillpen;</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>silpen;</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>wip;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>nwpen;</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>pip;</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>maxwpf;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>maxhmmpf;</highlight></codeline>
+<codeline lineno="357"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structngram__search__s" kindref="compound">ngram_search_s</ref><sp/><ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref>;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*<ref refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" kindref="member">ngram_search_init</ref>(ngram_model_t<sp/>*lm,</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd_ln_t<sp/>*config,</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structacmod__s" kindref="compound">acmod_t</ref><sp/>*acmod,</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*dict,</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structdict2pid__t" kindref="compound">dict2pid_t</ref><sp/>*d2p);</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ngram__search_8h_1a9bafaa4af5a9a4f9e76a8daf54ac4a11" kindref="member">ngram_search_free</ref>(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*ngs);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ngram__search_8h_1a7772e007b7d7fdf437c87aeb08b59c71" kindref="member">ngram_search_mark_bptable</ref>(<ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref><sp/>*ngs,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_idx);</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight></codeline>
+<codeline lineno="384"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ngram__search_8h_1ae36649be6f5a2190e759e7ed13bd7b6b" kindref="member">ngram_search_save_bp</ref>(<ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref><sp/>*ngs,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_idx,<sp/>int32<sp/>w,</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>score,<sp/>int32<sp/>path,<sp/>int32<sp/>rc);</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="390"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ngram__search_8h_1a1ddcc1a9cb3e164ceb2140097ed23a3e" kindref="member">ngram_search_alloc_all_rc</ref>(<ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref><sp/>*ngs,<sp/>int32<sp/>w);</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="395"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ngram__search_8h_1a15477192481dffcb29e9c4167eff6c3c" kindref="member">ngram_search_free_all_rc</ref>(<ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref><sp/>*ngs,<sp/>int32<sp/>w);</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"></highlight></codeline>
+<codeline lineno="402"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ngram__search_8h_1ac6a01bb08e7b8d1deb39763a98148cb0" kindref="member">ngram_search_find_exit</ref>(<ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref><sp/>*ngs,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_idx,<sp/>int32<sp/>*out_best_score,<sp/>int32<sp/>*out_is_final);</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"></highlight></codeline>
+<codeline lineno="409"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="ngram__search_8h_1aee393a136f8f7e8b98161e6eed7b1dd9" kindref="member">ngram_search_bp_hyp</ref>(<ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref><sp/>*ngs,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bpidx);</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"></highlight></codeline>
+<codeline lineno="414"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ngram__search_8h_1a2fa760c99f77eb075157304f4359941e" kindref="member">ngram_compute_seg_scores</ref>(<ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref><sp/>*ngs,<sp/>float32<sp/>lwf);</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"><ref refid="structps__lattice__s" kindref="compound">ps_lattice_t</ref><sp/>*<ref refid="ngram__search_8h_1ac30e7dec4bbfeee9f5163abf4bbd1014" kindref="member">ngram_search_lattice</ref>(<ref refid="structps__search__s" kindref="compound">ps_search_t</ref><sp/>*search);</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"></highlight></codeline>
+<codeline lineno="424"><highlight class="normal">int32<sp/><ref refid="ngram__search_8h_1a25a80e488425b2bd4e24eb753c9295a5" kindref="member">ngram_search_exit_score</ref>(<ref refid="structngram__search__s" kindref="compound">ngram_search_t</ref><sp/>*ngs,<sp/><ref refid="structbptbl__s" kindref="compound">bptbl_t</ref><sp/>*pbe,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rcphone);</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"></highlight></codeline>
+<codeline lineno="431"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ngram__search_8h_1a0e681022d3fa0e63da066aad123245e7" kindref="member">ngram_search_set_lm</ref>(ngram_model_t<sp/>*lm);</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"></highlight></codeline>
+<codeline lineno="433"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__NGRAM_SEARCH_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ngram_search.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,231 @@
+\section{include/sphinxbase/ckd\-\_\-alloc.h File Reference}
+\label{ckd__alloc_8h}\index{include/sphinxbase/ckd\-\_\-alloc.\-h@{include/sphinxbase/ckd\-\_\-alloc.\-h}}
+
+
+Sphinx's memory allocation/deallocation routines.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$setjmp.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf ckd\-\_\-calloc}(n, sz)~\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-\-\_\-((n),(sz),\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-,\-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)
+\begin{DoxyCompactList}\small\item\em Macros to simplify the use of above functions. \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-malloc}(sz)~\-\_\-\-\_\-ckd\-\_\-malloc\-\_\-\-\_\-((sz),\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-,\-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{ckd__alloc_8h_a8e89a31c3c70710a8e023a177084bff2}
+
+\begin{DoxyCompactList}\small\item\em Macro for {\bfseries ckd\-\_\-malloc} \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-realloc}(ptr, sz)~\-\_\-\-\_\-ckd\-\_\-realloc\-\_\-\-\_\-(ptr,(sz),\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-,\-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{ckd__alloc_8h_afd496738b3e114bd494c5a0955f1bfb3}
+
+\begin{DoxyCompactList}\small\item\em Macro for {\bfseries ckd\-\_\-realloc} \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-salloc}(ptr)~{\bf \-\_\-\-\_\-ckd\-\_\-salloc\-\_\-\-\_\-}(ptr,\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-,\-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{ckd__alloc_8h_ad313f92478859f9e4ea99d0f6e78c393}
+
+\begin{DoxyCompactList}\small\item\em Macro for {\bfseries ckd\-\_\-salloc} \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-calloc\-\_\-2d}(d1, d2, sz)~{\bf \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-2d\-\_\-\-\_\-}((d1),(d2),(sz),\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-,\-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{ckd__alloc_8h_a949e7b50fcd9697b1563fa57f50e9c4f}
+
+\begin{DoxyCompactList}\small\item\em Macro for {\bfseries ckd\-\_\-calloc\-\_\-2d} \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-calloc\-\_\-3d}(d1, d2, d3, sz)~{\bf \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-3d\-\_\-\-\_\-}((d1),(d2),(d3),(sz),\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-,\-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{ckd__alloc_8h_af716d69c9fbde1d8b2678da9c260ddc7}
+
+\begin{DoxyCompactList}\small\item\em Macro for {\bfseries ckd\-\_\-calloc\-\_\-3d} \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-calloc\-\_\-4d}(d1, d2, d3, d4, s)~{\bf \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\-}((d1), (d2), (d3), (d4), (s), \-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{ckd__alloc_8h_a5364600029b5bd488e41f29d6c5ffb11}
+
+\begin{DoxyCompactList}\small\item\em Macro for {\bfseries ckd\-\_\-calloc\-\_\-4d} \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-alloc\-\_\-2d\-\_\-ptr}(d1, d2, bf, sz)~{\bf \-\_\-\-\_\-ckd\-\_\-alloc\-\_\-2d\-\_\-ptr}((d1), (d2), (bf), (sz), \-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{ckd__alloc_8h_ad5d0dce212e97207af42803a3add00e1}
+
+\begin{DoxyCompactList}\small\item\em Macro for {\bfseries ckd\-\_\-alloc\-\_\-2d\-\_\-ptr} \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-free\-\_\-2d\-\_\-ptr}(bf)~{\bf ckd\-\_\-free}(bf)\label{ckd__alloc_8h_a0afe1152d34da544602e6ab1635e05b1}
+
+\begin{DoxyCompactList}\small\item\em Free only the pointer arrays allocated with \doxyref{ckd\-\_\-alloc\-\_\-2d\-\_\-ptr()}{p.}{ckd__alloc_8h_ad5d0dce212e97207af42803a3add00e1}. \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-alloc\-\_\-3d\-\_\-ptr}(d1, d2, d3, bf, sz)~{\bf \-\_\-\-\_\-ckd\-\_\-alloc\-\_\-3d\-\_\-ptr}((d1), (d2), (d3), (bf), (sz), \-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)\label{ckd__alloc_8h_ab29a3fbbd58bc59aa2827eaeda090d06}
+
+\begin{DoxyCompactList}\small\item\em Macro for {\bfseries ckd\-\_\-alloc\-\_\-3d\-\_\-ptr} \end{DoxyCompactList}\item 
+\#define {\bf ckd\-\_\-free\-\_\-3d\-\_\-ptr}(bf)~{\bf ckd\-\_\-free\-\_\-2d}(bf)\label{ckd__alloc_8h_af03a0583f358dbee5200910d151b490e}
+
+\begin{DoxyCompactList}\small\item\em Free only the pointer arrays allocated with \doxyref{ckd\-\_\-alloc\-\_\-3d\-\_\-ptr()}{p.}{ckd__alloc_8h_ab29a3fbbd58bc59aa2827eaeda090d06}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+jmp\-\_\-buf $\ast$ {\bf ckd\-\_\-set\-\_\-jump} (jmp\-\_\-buf $\ast$env, int abort)
+\begin{DoxyCompactList}\small\item\em Control behaviour of the program when allocation fails. \end{DoxyCompactList}\item 
+void {\bf ckd\-\_\-fail} (char $\ast$format,...)\label{ckd__alloc_8h_ab81dfe13d2237c64182f06f66fab7b0e}
+
+\begin{DoxyCompactList}\small\item\em Fail (with a message) according to behaviour specified by \doxyref{ckd\-\_\-set\-\_\-jump()}{p.}{ckd__alloc_8h_a0ec6d92241b1912b10f59519d553acb9}. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void $\ast$ {\bfseries \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-\-\_\-} (size\-\_\-t n\-\_\-elem, size\-\_\-t elem\-\_\-size, const char $\ast$caller\-\_\-file, int caller\-\_\-line)\label{ckd__alloc_8h_a903aef4c99a8f19b555a34c9e31c61f8}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void $\ast$ {\bfseries \-\_\-\-\_\-ckd\-\_\-malloc\-\_\-\-\_\-} (size\-\_\-t size, const char $\ast$caller\-\_\-file, int caller\-\_\-line)\label{ckd__alloc_8h_a861f3b9f9730dd87a1dfaf3be2218fd0}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void $\ast$ {\bfseries \-\_\-\-\_\-ckd\-\_\-realloc\-\_\-\-\_\-} (void $\ast$ptr, size\-\_\-t new\-\_\-size, const char $\ast$caller\-\_\-file, int caller\-\_\-line)\label{ckd__alloc_8h_a138dd425d0b3329aa214597cb3bd62bd}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T char $\ast$ {\bf \-\_\-\-\_\-ckd\-\_\-salloc\-\_\-\-\_\-} (const char $\ast$origstr, const char $\ast$caller\-\_\-file, int caller\-\_\-line)
+\begin{DoxyCompactList}\small\item\em Like strdup, except that if an error occurs it prints a diagnostic message and exits. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void $\ast$ {\bf \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-2d\-\_\-\-\_\-} (size\-\_\-t d1, size\-\_\-t d2, size\-\_\-t elemsize, const char $\ast$caller\-\_\-file, int caller\-\_\-line)
+\begin{DoxyCompactList}\small\item\em Allocate a 2-\/\-D array and return ptr to it (ie, ptr to vector of ptrs). \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void $\ast$ {\bf \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-3d\-\_\-\-\_\-} (size\-\_\-t d1, size\-\_\-t d2, size\-\_\-t d3, size\-\_\-t elemsize, const char $\ast$caller\-\_\-file, int caller\-\_\-line)
+\begin{DoxyCompactList}\small\item\em Allocate a 3-\/\-D array and return ptr to it. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void $\ast$$\ast$$\ast$$\ast$ {\bf \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\-} (size\-\_\-t d1, size\-\_\-t d2, size\-\_\-t d3, size\-\_\-t d4, size\-\_\-t elem\-\_\-size, char $\ast$caller\-\_\-file, int caller\-\_\-line)
+\begin{DoxyCompactList}\small\item\em Allocate a 34\-D array and return ptr to it. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void $\ast$ {\bf \-\_\-\-\_\-ckd\-\_\-alloc\-\_\-3d\-\_\-ptr} (size\-\_\-t d1, size\-\_\-t d2, size\-\_\-t d3, void $\ast$store, size\-\_\-t elem\-\_\-size, char $\ast$caller\-\_\-file, int caller\-\_\-line)\label{ckd__alloc_8h_af9a3ef2d363ee6a53429427d1d9327a6}
+
+\begin{DoxyCompactList}\small\item\em Overlay a 3-\/\-D array over a previously allocated storage area. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void $\ast$ {\bf \-\_\-\-\_\-ckd\-\_\-alloc\-\_\-2d\-\_\-ptr} (size\-\_\-t d1, size\-\_\-t d2, void $\ast$store, size\-\_\-t elem\-\_\-size, char $\ast$caller\-\_\-file, int caller\-\_\-line)\label{ckd__alloc_8h_a965f553ee64bbfbeda048d43393ae04b}
+
+\begin{DoxyCompactList}\small\item\em Overlay a s-\/\-D array over a previously allocated storage area. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ckd\-\_\-free} (void $\ast$ptr)\label{ckd__alloc_8h_a31c6b405558620ac37599737b5722fbf}
+
+\begin{DoxyCompactList}\small\item\em Test and free a 1-\/\-D array. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ckd\-\_\-free\-\_\-2d} (void $\ast$ptr)\label{ckd__alloc_8h_a8246c071ac12e98b7e1df9fe6da15aef}
+
+\begin{DoxyCompactList}\small\item\em Free a 2-\/\-D array (ptr) previously allocated by ckd\-\_\-calloc\-\_\-2d. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ckd\-\_\-free\-\_\-3d} (void $\ast$ptr)\label{ckd__alloc_8h_a443accde4663a4a07c6d147088614d57}
+
+\begin{DoxyCompactList}\small\item\em Free a 3-\/\-D array (ptr) previously allocated by ckd\-\_\-calloc\-\_\-3d. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ckd\-\_\-free\-\_\-4d} (void $\ast$ptr)\label{ckd__alloc_8h_a2fb0211c16bcbd89d932f383e28b9a7a}
+
+\begin{DoxyCompactList}\small\item\em Free a 4-\/\-D array (ptr) previously allocated by ckd\-\_\-calloc\-\_\-4d. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sphinx's memory allocation/deallocation routines. Implementation of efficient memory allocation deallocation for multiple dimensional arrays. 
+
+Definition in file {\bf ckd\-\_\-alloc.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\index{ckd\-\_\-alloc.\-h@{ckd\-\_\-alloc.\-h}!ckd\-\_\-calloc@{ckd\-\_\-calloc}}
+\index{ckd\-\_\-calloc@{ckd\-\_\-calloc}!ckd_alloc.h@{ckd\-\_\-alloc.\-h}}
+\subsubsection[{ckd\-\_\-calloc}]{\setlength{\rightskip}{0pt plus 5cm}\#define ckd\-\_\-calloc(
+\begin{DoxyParamCaption}
+\item[{}]{n, }
+\item[{}]{sz}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-\-\_\-((n),(sz),\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-,\-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-)}\label{ckd__alloc_8h_aa00ef21903bc4f8a972488417adc8d2e}
+
+
+Macros to simplify the use of above functions. 
+
+One should use these, rather than target functions directly. Macro for {\bfseries ckd\-\_\-calloc} 
+
+Definition at line 248 of file ckd\-\_\-alloc.\-h.
+
+
+
+Referenced by \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\-(), agc\-\_\-init(), bio\-\_\-fread\-\_\-1d(), bio\-\_\-fwrite(), bio\-\_\-read\-\_\-wavfile(), bio\-\_\-readhdr(), bit\-\_\-encode\-\_\-attach(), cmd\-\_\-ln\-\_\-init(), cmd\-\_\-ln\-\_\-parse\-\_\-file\-\_\-r(), cmd\-\_\-ln\-\_\-parse\-\_\-r(), feat\-\_\-array\-\_\-alloc(), feat\-\_\-init(), feat\-\_\-lda\-\_\-transform(), feat\-\_\-s2mfc2feat(), feat\-\_\-set\-\_\-subvecs(), fopen\-\_\-compchk(), glist\-\_\-add\-\_\-float32(), glist\-\_\-add\-\_\-float64(), glist\-\_\-add\-\_\-int32(), glist\-\_\-add\-\_\-ptr(), glist\-\_\-add\-\_\-uint32(), glist\-\_\-insert\-\_\-float32(), glist\-\_\-insert\-\_\-float64(), glist\-\_\-insert\-\_\-int32(), glist\-\_\-insert\-\_\-ptr(), glist\-\_\-insert\-\_\-uint32(), hash\-\_\-table\-\_\-iter(), hash\-\_\-table\-\_\-new(), heap\-\_\-new(), huff\-\_\-code\-\_\-build\-\_\-int(), huff\-\_\-code\-\_\-build\-\_\-str(), huff\-\_\-code\-\_\-read(), jsgf\-\_\-grammar\-\_\-new(), lineiter\-\_\-start(), listelem\-\_\-alloc\-\_\-init(), logmath\-\_\-init(), logmath\-\_\-read(), mmio\-\_\-file\-\_\-read(), ngram\-\_\-iter(), ngram\-\_\-model\-\_\-add\-\_\-class(), ngram\-\_\-model\-\_\-set\-\_\-init(), ngram\-\_\-model\-\_\-set\-\_\-iter(), ngram\-\_\-model\-\_\-set\-\_\-map\-\_\-words(), ngram\-\_\-model\-\_\-set\-\_\-read(), ngram\-\_\-prob(), ngram\-\_\-probv(), ngram\-\_\-score(), parse\-\_\-subvecs(), pctr\-\_\-new(), sbevent\-\_\-init(), sbmsgq\-\_\-init(), sbmtx\-\_\-init(), sbthread\-\_\-start(), string\-\_\-join(), and yin\-\_\-init().
+
+
+
+\subsection{Function Documentation}
+\index{ckd\-\_\-alloc.\-h@{ckd\-\_\-alloc.\-h}!\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-2d\-\_\-\-\_\-@{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-2d\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-2d\-\_\-\-\_\-@{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-2d\-\_\-\-\_\-}!ckd_alloc.h@{ckd\-\_\-alloc.\-h}}
+\subsubsection[{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-2d\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void$\ast$ \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-2d\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{d1, }
+\item[{size\-\_\-t}]{d2, }
+\item[{size\-\_\-t}]{elemsize, }
+\item[{const char $\ast$}]{caller\-\_\-file, }
+\item[{int}]{caller\-\_\-line}
+\end{DoxyParamCaption}
+)}\label{ckd__alloc_8h_a141713f7d0ac99eac338d6d8ae35b771}
+
+
+Allocate a 2-\/\-D array and return ptr to it (ie, ptr to vector of ptrs). 
+
+The data area is allocated in one block so it can also be treated as a 1-\/\-D array. 
+
+Definition at line 223 of file ckd\-\_\-alloc.\-c.
+
+\index{ckd\-\_\-alloc.\-h@{ckd\-\_\-alloc.\-h}!\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-3d\-\_\-\-\_\-@{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-3d\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-3d\-\_\-\-\_\-@{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-3d\-\_\-\-\_\-}!ckd_alloc.h@{ckd\-\_\-alloc.\-h}}
+\subsubsection[{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-3d\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void$\ast$ \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-3d\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{d1, }
+\item[{size\-\_\-t}]{d2, }
+\item[{size\-\_\-t}]{d3, }
+\item[{size\-\_\-t}]{elemsize, }
+\item[{const char $\ast$}]{caller\-\_\-file, }
+\item[{int}]{caller\-\_\-line}
+\end{DoxyParamCaption}
+)}\label{ckd__alloc_8h_a19c770c65f642488f6045c442f53fc0c}
+
+
+Allocate a 3-\/\-D array and return ptr to it. 
+
+The data area is allocated in one block so it can also be treated as a 1-\/\-D array. 
+
+Definition at line 265 of file ckd\-\_\-alloc.\-c.
+
+\index{ckd\-\_\-alloc.\-h@{ckd\-\_\-alloc.\-h}!\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\-@{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\-@{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\-}!ckd_alloc.h@{ckd\-\_\-alloc.\-h}}
+\subsubsection[{\-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void$\ast$$\ast$$\ast$$\ast$ \-\_\-\-\_\-ckd\-\_\-calloc\-\_\-4d\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{d1, }
+\item[{size\-\_\-t}]{d2, }
+\item[{size\-\_\-t}]{d3, }
+\item[{size\-\_\-t}]{d4, }
+\item[{size\-\_\-t}]{elem\-\_\-size, }
+\item[{char $\ast$}]{caller\-\_\-file, }
+\item[{int}]{caller\-\_\-line}
+\end{DoxyParamCaption}
+)}\label{ckd__alloc_8h_a7881d3a852b82336f644f504453bb839}
+
+
+Allocate a 34\-D array and return ptr to it. 
+
+The data area is allocated in one block so it can also be treated as a 1-\/\-D array. 
+
+Definition at line 310 of file ckd\-\_\-alloc.\-c.
+
+
+
+References ckd\-\_\-calloc, and E\-\_\-\-F\-A\-T\-A\-L.
+
+\index{ckd\-\_\-alloc.\-h@{ckd\-\_\-alloc.\-h}!\-\_\-\-\_\-ckd\-\_\-salloc\-\_\-\-\_\-@{\-\_\-\-\_\-ckd\-\_\-salloc\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-ckd\-\_\-salloc\-\_\-\-\_\-@{\-\_\-\-\_\-ckd\-\_\-salloc\-\_\-\-\_\-}!ckd_alloc.h@{ckd\-\_\-alloc.\-h}}
+\subsubsection[{\-\_\-\-\_\-ckd\-\_\-salloc\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T char$\ast$ \-\_\-\-\_\-ckd\-\_\-salloc\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{origstr, }
+\item[{const char $\ast$}]{caller\-\_\-file, }
+\item[{int}]{caller\-\_\-line}
+\end{DoxyParamCaption}
+)}\label{ckd__alloc_8h_ad92dae54c994a4f90c842e42d05c494a}
+
+
+Like strdup, except that if an error occurs it prints a diagnostic message and exits. 
+
+If origin in N\-U\-L\-L the function also returns N\-U\-L\-L. 
+
+Definition at line 205 of file ckd\-\_\-alloc.\-c.
+
+\index{ckd\-\_\-alloc.\-h@{ckd\-\_\-alloc.\-h}!ckd\-\_\-set\-\_\-jump@{ckd\-\_\-set\-\_\-jump}}
+\index{ckd\-\_\-set\-\_\-jump@{ckd\-\_\-set\-\_\-jump}!ckd_alloc.h@{ckd\-\_\-alloc.\-h}}
+\subsubsection[{ckd\-\_\-set\-\_\-jump}]{\setlength{\rightskip}{0pt plus 5cm}jmp\-\_\-buf$\ast$ ckd\-\_\-set\-\_\-jump (
+\begin{DoxyParamCaption}
+\item[{jmp\-\_\-buf $\ast$}]{env, }
+\item[{int}]{abort}
+\end{DoxyParamCaption}
+)}\label{ckd__alloc_8h_a0ec6d92241b1912b10f59519d553acb9}
+
+
+Control behaviour of the program when allocation fails. 
+
+Although your program is probably toast when memory allocation fails, it is also probably a good idea to be able to catch these errors and alert the user in some way. Either that, or you might want the program to call abort() so that you can debug the failed code. This function allows you to control that behaviour.
+
+
+\begin{DoxyParams}{Parameters}
+{\em env} & Pointer to a {\ttfamily jmp\-\_\-buf} initialized with setjmp(), or N\-U\-L\-L to remove a previously set jump target. \\
+\hline
+{\em abort} & If non-\/zero, the program will call abort() when allocation fails rather than exiting or calling longjmp(). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a previously set {\ttfamily jmp\-\_\-buf}, if any. 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file ckd\-\_\-alloc.\-c.
+

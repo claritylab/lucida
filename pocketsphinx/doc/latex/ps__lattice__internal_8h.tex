@@ -1,0 +1,181 @@
+\section{src/libpocketsphinx/ps\-\_\-lattice\-\_\-internal.h File Reference}
+\label{ps__lattice__internal_8h}\index{src/libpocketsphinx/ps\-\_\-lattice\-\_\-internal.\-h@{src/libpocketsphinx/ps\-\_\-lattice\-\_\-internal.\-h}}
+
+
+Word graph search implementation.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf latlink\-\_\-list\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Linked list of D\-A\-G link pointers. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-lattice\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Word graph structure used in bestpath/nbest search. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-latlink\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Links between D\-A\-G nodes. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-latnode\-\_\-s}
+\begin{DoxyCompactList}\small\item\em D\-A\-G nodes. \end{DoxyCompactList}\item 
+struct {\bf dag\-\_\-seg\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Segmentation \char`\"{}iterator\char`\"{} for backpointer table results. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-latpath\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Partial path structure used in N-\/best (A$\ast$) search. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-astar\-\_\-s}
+\begin{DoxyCompactList}\small\item\em A$\ast$ search structure. \end{DoxyCompactList}\item 
+struct {\bf astar\-\_\-seg\-\_\-s}
+\begin{DoxyCompactList}\small\item\em Segmentation \char`\"{}iterator\char`\"{} for A$\ast$ search results. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf latlink\-\_\-list\-\_\-s} {\bf latlink\-\_\-list\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Linked list of D\-A\-G link pointers. \end{DoxyCompactList}\item 
+typedef struct {\bf dag\-\_\-seg\-\_\-s} {\bf dag\-\_\-seg\-\_\-t}\label{ps__lattice__internal_8h_a58a548300316e58e8c3b9e2bb90f980a}
+
+\begin{DoxyCompactList}\small\item\em Segmentation \char`\"{}iterator\char`\"{} for backpointer table results. \end{DoxyCompactList}\item 
+typedef struct {\bf ps\-\_\-latpath\-\_\-s} {\bf ps\-\_\-latpath\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Partial path structure used in N-\/best (A$\ast$) search. \end{DoxyCompactList}\item 
+typedef struct {\bf ps\-\_\-astar\-\_\-s} {\bf ps\-\_\-astar\-\_\-t}\label{ps__lattice__internal_8h_a756a1b6f5dfe4e3f35052380f9acb8de}
+
+\begin{DoxyCompactList}\small\item\em A$\ast$ search structure. \end{DoxyCompactList}\item 
+typedef struct {\bf astar\-\_\-seg\-\_\-s} {\bf astar\-\_\-seg\-\_\-t}\label{ps__lattice__internal_8h_ac9ad8a97a222c2fa9e5c2bb66d26d74d}
+
+\begin{DoxyCompactList}\small\item\em Segmentation \char`\"{}iterator\char`\"{} for A$\ast$ search results. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-lattice\-\_\-t} $\ast$ {\bf ps\-\_\-lattice\-\_\-init\-\_\-search} ({\bf ps\-\_\-search\-\_\-t} $\ast$search, int n\-\_\-frame)\label{ps__lattice__internal_8h_a606f6ee0fd569dd5829d7f84ae7e61bd}
+
+\begin{DoxyCompactList}\small\item\em Construct an empty word graph with reference to a search structure. \end{DoxyCompactList}\item 
+void {\bf ps\-\_\-lattice\-\_\-bypass\-\_\-fillers} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag, int32 silpen, int32 fillpen)\label{ps__lattice__internal_8h_a9b40adaa059978fe33959d59da1b6919}
+
+\begin{DoxyCompactList}\small\item\em Bypass filler words. \end{DoxyCompactList}\item 
+void {\bf ps\-\_\-lattice\-\_\-delete\-\_\-unreachable} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag)\label{ps__lattice__internal_8h_a6da4e36322aaab4d2ebe812bee9a4439}
+
+\begin{DoxyCompactList}\small\item\em Remove nodes marked as unreachable. \end{DoxyCompactList}\item 
+void {\bf ps\-\_\-lattice\-\_\-pushq} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag, {\bf ps\-\_\-latlink\-\_\-t} $\ast$link)\label{ps__lattice__internal_8h_a04896ebe0e2592bc7950d413b5d5c52e}
+
+\begin{DoxyCompactList}\small\item\em Add an edge to the traversal queue. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-latlink\-\_\-t} $\ast$ {\bf ps\-\_\-lattice\-\_\-popq} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag)\label{ps__lattice__internal_8h_a481c4d941368597e11b0af4709bd03b0}
+
+\begin{DoxyCompactList}\small\item\em Remove an edge from the traversal queue. \end{DoxyCompactList}\item 
+void {\bf ps\-\_\-lattice\-\_\-delq} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag)\label{ps__lattice__internal_8h_ad128ca75e8bc7ca4ba41094fb5b68ee9}
+
+\begin{DoxyCompactList}\small\item\em Clear and reset the traversal queue. \end{DoxyCompactList}\item 
+{\bf latlink\-\_\-list\-\_\-t} $\ast$ {\bf latlink\-\_\-list\-\_\-new} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag, {\bf ps\-\_\-latlink\-\_\-t} $\ast$link, {\bf latlink\-\_\-list\-\_\-t} $\ast$next)\label{ps__lattice__internal_8h_a7197508af770064ea825bb812dd6eddc}
+
+\begin{DoxyCompactList}\small\item\em Create a new lattice link element. \end{DoxyCompactList}\item 
+char const $\ast$ {\bf ps\-\_\-lattice\-\_\-hyp} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag, {\bf ps\-\_\-latlink\-\_\-t} $\ast$link)\label{ps__lattice__internal_8h_a02b07c009d23b852bd4db54700dfac5b}
+
+\begin{DoxyCompactList}\small\item\em Get hypothesis string after bestpath search. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-seg\-\_\-t} $\ast$ {\bf ps\-\_\-lattice\-\_\-seg\-\_\-iter} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag, {\bf ps\-\_\-latlink\-\_\-t} $\ast$link, float32 lwf)\label{ps__lattice__internal_8h_afedbc5558c18f7d029e84a4e27e38187}
+
+\begin{DoxyCompactList}\small\item\em Get hypothesis segmentation iterator after bestpath search. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-astar\-\_\-t} $\ast$ {\bf ps\-\_\-astar\-\_\-start} ({\bf ps\-\_\-lattice\-\_\-t} $\ast$dag, ngram\-\_\-model\-\_\-t $\ast$lmset, float32 lwf, int sf, int ef, int w1, int w2)
+\begin{DoxyCompactList}\small\item\em Begin N-\/\-Gram based A$\ast$ search on a word graph. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-latpath\-\_\-t} $\ast$ {\bf ps\-\_\-astar\-\_\-next} ({\bf ps\-\_\-astar\-\_\-t} $\ast$nbest)
+\begin{DoxyCompactList}\small\item\em Find next best hypothesis of A$\ast$ on a word graph. \end{DoxyCompactList}\item 
+void {\bf ps\-\_\-astar\-\_\-finish} ({\bf ps\-\_\-astar\-\_\-t} $\ast$nbest)\label{ps__lattice__internal_8h_abfb03e9e0fcbe3def45120f5ba43be14}
+
+\begin{DoxyCompactList}\small\item\em Finish N-\/best search, releasing resources associated with it. \end{DoxyCompactList}\item 
+char const $\ast$ {\bf ps\-\_\-astar\-\_\-hyp} ({\bf ps\-\_\-astar\-\_\-t} $\ast$nbest, {\bf ps\-\_\-latpath\-\_\-t} $\ast$path)\label{ps__lattice__internal_8h_ac7372b5c5ec111f6814ce1ba495593e4}
+
+\begin{DoxyCompactList}\small\item\em Get hypothesis string from A$\ast$ search. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-seg\-\_\-t} $\ast$ {\bf ps\-\_\-astar\-\_\-seg\-\_\-iter} ({\bf ps\-\_\-astar\-\_\-t} $\ast$astar, {\bf ps\-\_\-latpath\-\_\-t} $\ast$path, float32 lwf)\label{ps__lattice__internal_8h_ac8e3dff7276c03c93377d0cb79fbdbd7}
+
+\begin{DoxyCompactList}\small\item\em Get hypothesis segmentation from A$\ast$ search. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Word graph search implementation. 
+
+Definition in file {\bf ps\-\_\-lattice\-\_\-internal.\-h}.
+
+
+
+\subsection{Typedef Documentation}
+\index{ps\-\_\-lattice\-\_\-internal.\-h@{ps\-\_\-lattice\-\_\-internal.\-h}!latlink\-\_\-list\-\_\-t@{latlink\-\_\-list\-\_\-t}}
+\index{latlink\-\_\-list\-\_\-t@{latlink\-\_\-list\-\_\-t}!ps_lattice_internal.h@{ps\-\_\-lattice\-\_\-internal.\-h}}
+\subsubsection[{latlink\-\_\-list\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf latlink\-\_\-list\-\_\-s}  {\bf latlink\-\_\-list\-\_\-t}}\label{ps__lattice__internal_8h_a32dd9511afc2f024dc63c9c060261e94}
+
+
+Linked list of D\-A\-G link pointers. 
+
+Because the same link structure is used for forward and reverse links, as well as for the agenda used in bestpath search, we can't store the list pointer inside latlink\-\_\-t. We could use glist\-\_\-t here, but it wastes 4 bytes per entry on 32-\/bit machines. \index{ps\-\_\-lattice\-\_\-internal.\-h@{ps\-\_\-lattice\-\_\-internal.\-h}!ps\-\_\-latpath\-\_\-t@{ps\-\_\-latpath\-\_\-t}}
+\index{ps\-\_\-latpath\-\_\-t@{ps\-\_\-latpath\-\_\-t}!ps_lattice_internal.h@{ps\-\_\-lattice\-\_\-internal.\-h}}
+\subsubsection[{ps\-\_\-latpath\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf ps\-\_\-latpath\-\_\-s}  {\bf ps\-\_\-latpath\-\_\-t}}\label{ps__lattice__internal_8h_aba5a485290f665fb2e7e514a32ba3073}
+
+
+Partial path structure used in N-\/best (A$\ast$) search. 
+
+Each partial path (latpath\-\_\-t) is constructed by extending another partial path--parent--by one node. 
+
+\subsection{Function Documentation}
+\index{ps\-\_\-lattice\-\_\-internal.\-h@{ps\-\_\-lattice\-\_\-internal.\-h}!ps\-\_\-astar\-\_\-next@{ps\-\_\-astar\-\_\-next}}
+\index{ps\-\_\-astar\-\_\-next@{ps\-\_\-astar\-\_\-next}!ps_lattice_internal.h@{ps\-\_\-lattice\-\_\-internal.\-h}}
+\subsubsection[{ps\-\_\-astar\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-latpath\-\_\-t}$\ast$ ps\-\_\-astar\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-astar\-\_\-t} $\ast$}]{nbest}
+\end{DoxyParamCaption}
+)}\label{ps__lattice__internal_8h_a6bea95f8fb827af790bbe6ce1920908c}
+
+
+Find next best hypothesis of A$\ast$ on a word graph. 
+
+\begin{DoxyReturn}{Returns}
+a complete path, or N\-U\-L\-L if no more hypotheses exist. 
+\end{DoxyReturn}
+
+
+Definition at line 1724 of file ps\-\_\-lattice.\-c.
+
+
+
+References ps\-\_\-lattice\-\_\-s\-::end, ps\-\_\-latnode\-\_\-s\-::fef, ps\-\_\-latpath\-\_\-s\-::next, ps\-\_\-latpath\-\_\-s\-::node, and ps\-\_\-latnode\-\_\-s\-::sf.
+
+
+
+Referenced by ps\-\_\-nbest\-\_\-next().
+
+\index{ps\-\_\-lattice\-\_\-internal.\-h@{ps\-\_\-lattice\-\_\-internal.\-h}!ps\-\_\-astar\-\_\-start@{ps\-\_\-astar\-\_\-start}}
+\index{ps\-\_\-astar\-\_\-start@{ps\-\_\-astar\-\_\-start}!ps_lattice_internal.h@{ps\-\_\-lattice\-\_\-internal.\-h}}
+\subsubsection[{ps\-\_\-astar\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-astar\-\_\-t}$\ast$ ps\-\_\-astar\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-lattice\-\_\-t} $\ast$}]{dag, }
+\item[{ngram\-\_\-model\-\_\-t $\ast$}]{lmset, }
+\item[{float32}]{lwf, }
+\item[{int}]{sf, }
+\item[{int}]{ef, }
+\item[{int}]{w1, }
+\item[{int}]{w2}
+\end{DoxyParamCaption}
+)}\label{ps__lattice__internal_8h_aaf9aedd3cd8bd1d45053e10828215a25}
+
+
+Begin N-\/\-Gram based A$\ast$ search on a word graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sf} & Starting frame for N-\/best search. \\
+\hline
+{\em ef} & Ending frame for N-\/best search, or -\/1 for last frame. \\
+\hline
+{\em w1} & First context word, or -\/1 for none. \\
+\hline
+{\em w2} & Second context word, or -\/1 for none. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success, $<$0 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 1665 of file ps\-\_\-lattice.\-c.
+
+
+
+References ps\-\_\-latnode\-\_\-s\-::basewid, ps\-\_\-lattice\-\_\-s\-::end, ps\-\_\-latnode\-\_\-s\-::exits, ps\-\_\-astar\-\_\-s\-::latpath\-\_\-alloc, ps\-\_\-lattice\-\_\-s\-::n\-\_\-frames, ps\-\_\-latnode\-\_\-s\-::next, ps\-\_\-latpath\-\_\-s\-::node, ps\-\_\-lattice\-\_\-s\-::nodes, ps\-\_\-latpath\-\_\-s\-::parent, ps\-\_\-latnode\-\_\-s\-::rem\-\_\-score, ps\-\_\-latpath\-\_\-s\-::score, S\-E\-N\-S\-C\-R\-\_\-\-S\-H\-I\-F\-T, ps\-\_\-latnode\-\_\-s\-::sf, and W\-O\-R\-S\-T\-\_\-\-S\-C\-O\-R\-E.
+
+
+
+Referenced by ps\-\_\-nbest().
+

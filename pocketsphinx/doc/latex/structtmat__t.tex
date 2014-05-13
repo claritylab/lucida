@@ -1,0 +1,37 @@
+\section{tmat\-\_\-t Struct Reference}
+\label{structtmat__t}\index{tmat\-\_\-t@{tmat\-\_\-t}}
+
+
+Transition matrix data structure.  
+
+
+
+
+{\ttfamily \#include $<$tmat.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8 $\ast$$\ast$$\ast$ {\bf tp}\label{structtmat__t_a9f518c96b30dab9efdb69bd779a7b5bf}
+
+\begin{DoxyCompactList}\small\item\em The transition matrices; kept in the same scale as acoustic scores; tp[tmatid][from-\/state][to-\/state]. \end{DoxyCompactList}\item 
+int16 {\bf n\-\_\-tmat}\label{structtmat__t_ada644af34d54256f1574870d5f7a6788}
+
+\begin{DoxyCompactList}\small\item\em Number matrices. \end{DoxyCompactList}\item 
+int16 {\bf n\-\_\-state}\label{structtmat__t_a3633c71659e30cf23bee1f7efb4b4805}
+
+\begin{DoxyCompactList}\small\item\em Number source states in matrix (only the emitting states); Number destination states = n\-\_\-state+1, it includes the exit state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Transition matrix data structure. 
+
+All phone H\-M\-Ms are assumed to have the same topology. 
+
+Definition at line 109 of file tmat.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf tmat.\-h}\end{DoxyCompactItemize}

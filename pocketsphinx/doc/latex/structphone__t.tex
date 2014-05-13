@@ -1,0 +1,63 @@
+\section{phone\-\_\-t Struct Reference}
+\label{structphone__t}\index{phone\-\_\-t@{phone\-\_\-t}}
+
+
+Triphone information, including base phones as a subset.  
+
+
+
+
+{\ttfamily \#include $<$mdef.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int32 {\bf ssid}
+\begin{DoxyCompactList}\small\item\em State sequence (or senone sequence) I\-D, considering the n\-\_\-emit\-\_\-state senone-\/ids are a unit. \end{DoxyCompactList}\item 
+int32 {\bf tmat}\label{structphone__t_acbe38b7fc991bfbcb745fb6131d812f0}
+
+\begin{DoxyCompactList}\small\item\em Transition matrix id. \end{DoxyCompactList}\item 
+int16 {\bfseries ci}\label{structphone__t_a0a895c57dccac46699fa3589e42b21d5}
+
+\item 
+int16 {\bfseries lc}\label{structphone__t_a2a473afd43114648de71a9444aa54641}
+
+\item 
+int16 {\bf rc}\label{structphone__t_a334106cbedf3d95a6bdebc4704e028cd}
+
+\begin{DoxyCompactList}\small\item\em Base, left, right context ciphones. \end{DoxyCompactList}\item 
+{\bf word\-\_\-posn\-\_\-t} {\bf wpos}\label{structphone__t_a5436db1dd178ef5ead83359c84963c83}
+
+\begin{DoxyCompactList}\small\item\em Word position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Triphone information, including base phones as a subset. 
+
+For the latter, lc, rc and wpos are non-\/existent. 
+
+Definition at line 100 of file mdef.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{phone\-\_\-t@{phone\-\_\-t}!ssid@{ssid}}
+\index{ssid@{ssid}!phone_t@{phone\-\_\-t}}
+\subsubsection[{ssid}]{\setlength{\rightskip}{0pt plus 5cm}int32 phone\-\_\-t\-::ssid}\label{structphone__t_af2f31836358c1c29c38a361b3923b859}
+
+
+State sequence (or senone sequence) I\-D, considering the n\-\_\-emit\-\_\-state senone-\/ids are a unit. 
+
+The senone sequences themselves are in a separate table 
+
+Definition at line 101 of file mdef.\-h.
+
+
+
+Referenced by bin\-\_\-mdef\-\_\-read\-\_\-text().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf mdef.\-h}\end{DoxyCompactItemize}

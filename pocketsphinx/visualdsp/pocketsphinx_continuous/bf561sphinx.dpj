@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding='ISO-8859-1'?>
+<visualdsp-project schema="16" name="bf561sphinx" file="bf561sphinx.dpj" version="1">
+	<!-- Project build target -->
+	<target>
+		<processor revision="Automatic">ADSP-BF561</processor>
+		<extension>.dxe</extension>
+		<type>Executable file</type>
+	</target>
+	<!-- Configurations -->
+	<configurations active="Debug">
+		<configuration name="Debug">
+			<intermediate-dir>.\Debug</intermediate-dir>
+			<output-dir>.\Debug</output-dir>
+			<changed-property-page-flags>0</changed-property-page-flags>
+			<tools>
+				<tool type="Compiler">
+					<option><![CDATA[|-Version>4.5|-O>0|-O1>0|-Ov>100|-g>1|-Oa>1|-save-temps -path-output>0|-ED>1|-no-builtin>0|-no-extra-keywords>0|-enum-is-int>0|-no-fp-associative>0|-structs-do-not-overlap>1|-implicit-pointers>0|-eh -rtti>0|-check-init-order>0|-ignore-std>0|-const-read-write>0|-const-strings>0|-no-multiline>1|-D__PROCESSOR_SPEED__=>600|-double-size-64>1|-double-size-any>0|-full-io>1|-decls-weak>1|-no-saturation>1|-flags-compiler --diag_warning,implicit_func_decl>0|-warn-protos>1|AdditionalOptions> -DHAVE_LONG_LONG -DSIZEOF_LONG_LONG=8]]></option>
+				</tool>
+				<tool type="Assembler">
+					<option><![CDATA[|-Version>4.5|-g>1|-l>1]]></option>
+				</tool>
+				<tool type="Linker">
+					<option><![CDATA[|-Version>4.5|-map>1|-flags-link -xref>1|-flags-link -ip>1|-MD>USER_CRT="bf561sphinx_basiccrt.doj",__cplusplus,USE_FILEIO,USE_INSTRUCTION_CACHE|-i>"$(ADI_DSP)\Blackfin\include"|-flags-link -e>1|-add-debug-libpaths>1|NOSWITCH>1|-flags-link -MDUSE_SDRAM>1|AdditionalOptions>-MDCOREA,-MDCOREB, -MDUSE_EXTERNAL|-flags-link -MDUSE_CACHE>1]]></option>
+				</tool>
+				<tool type="Archiver">
+					<option><![CDATA[]]></option>
+				</tool>
+				<tool type="Loader">
+					<option><![CDATA[|-Version>4.5|-b Flash>1|-f HEX>1|-Width 8>1|-p>0x0|-waits >-1|-BaudRate 500k>1|-HoldTime >-1|-pFlag >0|-No2Kernel>1|-kb Flash>1|-kf HEX>1|-kWidth 8>1|-kp>0x0|UserKernel>1|split HEX>1|-maskaddr>0]]></option>
+				</tool>
+				<tool type="VdkGen">
+					<option><![CDATA[]]></option>
+				</tool>
+			</tools>
+		</configuration>
+		<configuration name="Release">
+			<intermediate-dir>.\Release</intermediate-dir>
+			<output-dir>.\Release</output-dir>
+			<changed-property-page-flags>4</changed-property-page-flags>
+			<tools>
+				<tool type="Compiler">
+					<option><![CDATA[|-Version>4.5|-O>1|-O1>1|-Ov>100|-g>0|-save-temps -path-output>0|-ED>0|-no-builtin>0|-no-extra-keywords>0|-enum-is-int>0|-no-fp-associative>0|-structs-do-not-overlap>1|-implicit-pointers>0|-eh -rtti>0|-check-init-order>0|-ignore-std>1|-const-read-write>0|-const-strings>0|-no-multiline>1|-double-size-64>1|-double-size-any>0|-full-io>1|-decls-weak>1|-flags-compiler --diag_warning,implicit_func_decl>0|-warn-protos>1]]></option>
+				</tool>
+				<tool type="Assembler">
+					<option><![CDATA[|-Version>4.5|-g>0]]></option>
+				</tool>
+				<tool type="Linker">
+					<option><![CDATA[|-Version>4.5|-flags-link -ip>0|-MD>USER_CRT="bf561sphinx_basiccrt.doj",__cplusplus,USE_FILEIO,USE_INSTRUCTION_CACHE|-i>"$(ADI_DSP)\Blackfin\include"|-flags-link -e>1|-add-debug-libpaths>0|NOSWITCH>1|-flags-link -MDUSE_CACHE>1]]></option>
+				</tool>
+				<tool type="Archiver">
+					<option><![CDATA[]]></option>
+				</tool>
+				<tool type="Loader">
+					<option><![CDATA[|-Version>4.5|-b Flash>1|-f HEX>1|-Width 8>1|-waits >0|-BaudRate 500k>1|-HoldTime >0|-pFlag >0|-No2Kernel>0|-kb Flash>1|-kf HEX>1|-kWidth 8>1|UserKernel>1|split HEX>1|-maskaddr>0]]></option>
+				</tool>
+				<tool type="VdkGen">
+					<option><![CDATA[]]></option>
+				</tool>
+			</tools>
+		</configuration>
+	</configurations>
+	<!-- Project folders -->
+	<folders>
+		<folder name="Generated Files">
+			<folders>
+				<folder name="Startup">
+					<files>
+						<file name=".\bf561sphinx_basiccrt.s">
+							<file-configurations>
+								<file-configuration name="Debug">
+									<excluded-flag value="no"/>
+									<build-with-flag value="project"/>
+									<intermediate-dir>.\Debug</intermediate-dir>
+									<output-dir>.\Debug</output-dir>
+								</file-configuration>
+								<file-configuration name="Release">
+									<excluded-flag value="no"/>
+									<build-with-flag value="project"/>
+									<intermediate-dir>.\Release</intermediate-dir>
+									<output-dir>.\Release</output-dir>
+								</file-configuration>
+							</file-configurations>
+						</file>
+					</files>
+				</folder>
+				<folder name="User Heap">
+					<files>
+						<file name=".\bf561sphinx_heaptab.c">
+							<file-configurations>
+								<file-configuration name="Debug">
+									<excluded-flag value="no"/>
+									<build-with-flag value="project"/>
+									<intermediate-dir>.\Debug</intermediate-dir>
+									<output-dir>.\Debug</output-dir>
+								</file-configuration>
+								<file-configuration name="Release">
+									<excluded-flag value="no"/>
+									<build-with-flag value="project"/>
+									<intermediate-dir>.\Release</intermediate-dir>
+									<output-dir>.\Release</output-dir>
+								</file-configuration>
+							</file-configurations>
+						</file>
+					</files>
+				</folder>
+			</folders>
+		</folder>
+		<folder name="Header Files" ext=".h,.hpp,.hxx">
+			<files>
+				<file name=".\CoreA\audio.h">
+				</file>
+			</files>
+		</folder>
+		<folder name="Linker Files" ext=".ldf,.dlb">
+			<files>
+				<file name=".\bf561sphinx.ldf">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+			</files>
+		</folder>
+		<folder name="Source Files" ext=".c,.cpp,.cxx,.asm,.dsp,.s">
+		</folder>
+	</folders>
+	<!-- System Builder Components -->
+	<system-builder-component-tables>
+		<system-builder-plugin name="Startup Code Wizard" version="2.0">
+			<system-builder-component name="Advanced Options">
+				<property name="Include C++ support"><![CDATA[True]]></property>
+				<property name="Include C/C++ support"><![CDATA[True]]></property>
+				<property name="Include LDF exceptions support"><![CDATA[True]]></property>
+				<property name="Search for libraries in the tools installation directory"><![CDATA[True]]></property>
+			</system-builder-component>
+			<system-builder-component name="Cache and Memory Protection">
+				<property name="DCBS"><![CDATA[Set]]></property>
+				<property name="Data cache memory configuration"><![CDATA[RAM with no memory protection]]></property>
+				<property name="Generate support for memory protection"><![CDATA[False]]></property>
+				<property name="Instruction cache memory configuration"><![CDATA[Instruction cache]]></property>
+				<property name="Write-back cache"><![CDATA[False]]></property>
+				<property name="Write-through cache"><![CDATA[False]]></property>
+			</system-builder-component>
+			<system-builder-component name="Compiler Instrumented Profiling">
+				<property name="Enable profiling"><![CDATA[False]]></property>
+				<property name="Profiling output"><![CDATA[mon.out]]></property>
+			</system-builder-component>
+			<system-builder-component name="Configuration">
+				<property name="Add LDF"><![CDATA[True]]></property>
+				<property name="Add startup code"><![CDATA[True]]></property>
+				<property name="LDF template schema"><![CDATA[8]]></property>
+				<property name="Startup code template schema"><![CDATA[3]]></property>
+			</system-builder-component>
+			<system-builder-component name="Custom system heap settings">
+				<property name="Absolute size"><![CDATA[16 MB]]></property>
+				<property name="Customize system heap"><![CDATA[True]]></property>
+				<property name="Memory types"><![CDATA[L3]]></property>
+				<property name="Minimum size"><![CDATA[]]></property>
+			</system-builder-component>
+			<system-builder-component name="Custom system stack settings">
+				<property name="Absolute size"><![CDATA[31 KB]]></property>
+				<property name="Customize system stack"><![CDATA[True]]></property>
+				<property name="Memory types"><![CDATA[L2]]></property>
+				<property name="Minimum size"><![CDATA[]]></property>
+			</system-builder-component>
+			<system-builder-component name="External memory settings">
+				<property name="Partition external memory"><![CDATA[Custom]]></property>
+				<property name="Size"><![CDATA[64MB]]></property>
+				<property name="Using external memory"><![CDATA[True]]></property>
+			</system-builder-component>
+			<system-builder-component name="Multi-core Selection">
+				<property name="Core"><![CDATA[Core A and B]]></property>
+			</system-builder-component>
+			<system-builder-component name="PGO">
+				<property name="Using PGO"><![CDATA[False]]></property>
+			</system-builder-component>
+			<system-builder-component name="Processor clock and power settings">
+				<property name="Clock and power settings"><![CDATA[Optimize for speed]]></property>
+				<property name="Configure clock and power settings"><![CDATA[True]]></property>
+				<property name="EZ-KIT"><![CDATA[600 MHz ADSP-BF561 EZ-KIT]]></property>
+			</system-builder-component>
+			<system-builder-component name="Program Running From">
+				<property name="Internal Memory"><![CDATA[True]]></property>
+			</system-builder-component>
+			<system-builder-component name="Run-time Initialization">
+				<property name="I/O device initialization"><![CDATA[True]]></property>
+				<property name="Initialize data registers"><![CDATA[False]]></property>
+				<property name="Initialize return registers to zero"><![CDATA[False]]></property>
+				<property name="Run-time memory initialization"><![CDATA[False]]></property>
+				<property name="Run-time memory location"><![CDATA[L1]]></property>
+			</system-builder-component>
+			<system-builder-component name="User heap settings">
+				<property name="Absolute size 1"><![CDATA[16 MB]]></property>
+				<property name="Heap name 1"><![CDATA[MyHeap]]></property>
+				<property name="Memory types 1"><![CDATA[L3]]></property>
+			</system-builder-component>
+		</system-builder-plugin>
+	</system-builder-component-tables>
+</visualdsp-project>

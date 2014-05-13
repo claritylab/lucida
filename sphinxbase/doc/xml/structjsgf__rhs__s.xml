@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structjsgf__rhs__s" kind="struct" prot="public">
+    <compoundname>jsgf_rhs_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjsgf__rhs__s_1a53c517a31c83eb357764fb891bba7008" prot="public" static="no" mutable="no">
+        <type><ref refid="structgnode__s" kindref="compound">glist_t</ref></type>
+        <definition>glist_t jsgf_rhs_s::atoms</definition>
+        <argsstring></argsstring>
+        <name>atoms</name>
+        <briefdescription>
+<para>Sequence of items. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="100" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__rhs__s_1ad07cf44d48798d86633b37e9e6e67ff5" prot="public" static="no" mutable="no">
+        <type><ref refid="structjsgf__rhs__s" kindref="compound">jsgf_rhs_t</ref> *</type>
+        <definition>jsgf_rhs_t* jsgf_rhs_s::alt</definition>
+        <argsstring></argsstring>
+        <name>alt</name>
+        <briefdescription>
+<para>Linked list of alternates. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="101" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="124">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="124" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="125" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="125">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="123">
+        <label>jsgf_rhs_s</label>
+        <link refid="structjsgf__rhs__s"/>
+        <childnode refid="123" relation="usage">
+          <edgelabel>alt</edgelabel>
+        </childnode>
+        <childnode refid="124" relation="usage">
+          <edgelabel>atoms</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="99" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="99" bodyend="102"/>
+    <listofallmembers>
+      <member refid="structjsgf__rhs__s_1ad07cf44d48798d86633b37e9e6e67ff5" prot="public" virt="non-virtual"><scope>jsgf_rhs_s</scope><name>alt</name></member>
+      <member refid="structjsgf__rhs__s_1a53c517a31c83eb357764fb891bba7008" prot="public" virt="non-virtual"><scope>jsgf_rhs_s</scope><name>atoms</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

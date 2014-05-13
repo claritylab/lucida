@@ -1,0 +1,2041 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="cmd__ln_8h" kind="file">
+    <compoundname>cmd_ln.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdarg.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includedby refid="fe_8h" local="no">include/sphinxbase/fe.h</includedby>
+    <includedby refid="huff__code_8h" local="no">include/sphinxbase/huff_code.h</includedby>
+    <includedby refid="logmath_8h" local="no">include/sphinxbase/logmath.h</includedby>
+    <includedby refid="ngram__model_8h" local="no">include/sphinxbase/ngram_model.h</includedby>
+    <includedby refid="sbthread_8h" local="no">include/sphinxbase/sbthread.h</includedby>
+    <includedby refid="fe__interface_8c" local="yes">src/libsphinxbase/fe/fe_interface.c</includedby>
+    <includedby refid="cmd__ln_8c" local="yes">src/libsphinxbase/util/cmd_ln.c</includedby>
+    <includedby refid="cont__seg_8c" local="no">src/sphinx_adtools/cont_seg.c</includedby>
+    <includedby refid="sphinx__pitch_8c" local="no">src/sphinx_adtools/sphinx_pitch.c</includedby>
+    <includedby refid="main__cepview_8c" local="no">src/sphinx_cepview/main_cepview.c</includedby>
+    <includedby refid="cmd__ln__defn_8h" local="no">src/sphinx_fe/cmd_ln_defn.h</includedby>
+    <includedby refid="sphinx__fe_8c" local="no">src/sphinx_fe/sphinx_fe.c</includedby>
+    <includedby refid="sphinx__lm__convert_8c" local="no">src/sphinx_lmtools/sphinx_lm_convert.c</includedby>
+    <includedby refid="sphinx__lm__eval_8c" local="no">src/sphinx_lmtools/sphinx_lm_eval.c</includedby>
+    <incdepgraph>
+      <node id="291">
+        <label>stdarg.h</label>
+      </node>
+      <node id="294">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="292">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="293">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="294" relation="include">
+        </childnode>
+      </node>
+      <node id="289">
+        <label>include/sphinxbase/cmd_ln.h</label>
+        <link refid="cmd_ln.h"/>
+        <childnode refid="290" relation="include">
+        </childnode>
+        <childnode refid="291" relation="include">
+        </childnode>
+        <childnode refid="292" relation="include">
+        </childnode>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="290">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="298">
+        <label>include/sphinxbase/feat.h</label>
+        <link refid="feat_8h"/>
+        <childnode refid="299" relation="include">
+        </childnode>
+        <childnode refid="300" relation="include">
+        </childnode>
+      </node>
+      <node id="345">
+        <label>src/libsphinxbase/lm/ngram_model_set.c</label>
+        <link refid="ngram__model__set_8c"/>
+      </node>
+      <node id="355">
+        <label>src/sphinx_cepview/main_cepview.c</label>
+        <link refid="main__cepview_8c"/>
+      </node>
+      <node id="344">
+        <label>src/libsphinxbase/lm/ngram_model_set.h</label>
+        <link refid="ngram__model__set_8h"/>
+        <childnode refid="345" relation="include">
+        </childnode>
+      </node>
+      <node id="349">
+        <label>src/sphinx_lmtools/sphinx_lm_eval.c</label>
+        <link refid="sphinx__lm__eval_8c"/>
+      </node>
+      <node id="332">
+        <label>src/libsphinxbase/lm/jsgf_parser.c</label>
+        <link refid="jsgf__parser_8c_source"/>
+      </node>
+      <node id="324">
+        <label>src/sphinx_fe/sphinx_fe.c</label>
+        <link refid="sphinx__fe_8c_source"/>
+      </node>
+      <node id="339">
+        <label>src/libsphinxbase/lm/lm3g_model.c</label>
+        <link refid="lm3g__model_8c_source"/>
+      </node>
+      <node id="338">
+        <label>src/libsphinxbase/lm/lm3g_model.h</label>
+        <link refid="lm3g__model_8h_source"/>
+        <childnode refid="339" relation="include">
+        </childnode>
+        <childnode refid="340" relation="include">
+        </childnode>
+        <childnode refid="342" relation="include">
+        </childnode>
+        <childnode refid="344" relation="include">
+        </childnode>
+      </node>
+      <node id="304">
+        <label>src/libsphinxbase/feat/cmn_prior.c</label>
+        <link refid="cmn__prior_8c_source"/>
+      </node>
+      <node id="310">
+        <label>src/libsphinxbase/fe/fe_warp_affine.c</label>
+        <link refid="fe__warp__affine_8c_source"/>
+      </node>
+      <node id="320">
+        <label>src/libsphinxbase/fe/fe_warp_affine.h</label>
+        <link refid="fe__warp__affine_8h_source"/>
+        <childnode refid="309" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+      </node>
+      <node id="335">
+        <label>src/libsphinxbase/lm/fsg_model.c</label>
+        <link refid="fsg__model_8c_source"/>
+      </node>
+      <node id="336">
+        <label>include/sphinxbase/ngram_model.h</label>
+        <link refid="ngram__model_8h"/>
+        <childnode refid="337" relation="include">
+        </childnode>
+        <childnode refid="346" relation="include">
+        </childnode>
+        <childnode refid="348" relation="include">
+        </childnode>
+        <childnode refid="349" relation="include">
+        </childnode>
+      </node>
+      <node id="312">
+        <label>src/libsphinxbase/fe/fe_warp_piecewise_linear.c</label>
+        <link refid="fe__warp__piecewise__linear_8c_source"/>
+      </node>
+      <node id="321">
+        <label>src/libsphinxbase/fe/fe_warp_piecewise_linear.h</label>
+        <link refid="fe__warp__piecewise__linear_8h_source"/>
+        <childnode refid="309" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
+        </childnode>
+      </node>
+      <node id="325">
+        <label>include/sphinxbase/huff_code.h</label>
+        <link refid="huff__code_8h"/>
+        <childnode refid="326" relation="include">
+        </childnode>
+      </node>
+      <node id="311">
+        <label>src/libsphinxbase/fe/fe_warp_inverse_linear.c</label>
+        <link refid="fe__warp__inverse__linear_8c_source"/>
+      </node>
+      <node id="319">
+        <label>src/libsphinxbase/fe/fe_warp_inverse_linear.h</label>
+        <link refid="fe__warp__inverse__linear_8h_source"/>
+        <childnode refid="309" relation="include">
+        </childnode>
+        <childnode refid="311" relation="include">
+        </childnode>
+      </node>
+      <node id="308">
+        <label>src/libsphinxbase/fe/fe_sigproc.c</label>
+        <link refid="fe__sigproc_8c_source"/>
+      </node>
+      <node id="303">
+        <label>src/libsphinxbase/feat/cmn.c</label>
+        <link refid="cmn_8c_source"/>
+      </node>
+      <node id="350">
+        <label>src/libsphinxbase/util/logmath.c</label>
+        <link refid="logmath_8c_source"/>
+      </node>
+      <node id="297">
+        <label>include/sphinxbase/agc.h</label>
+        <link refid="agc_8h"/>
+        <childnode refid="298" relation="include">
+        </childnode>
+        <childnode refid="301" relation="include">
+        </childnode>
+        <childnode refid="299" relation="include">
+        </childnode>
+      </node>
+      <node id="309">
+        <label>src/libsphinxbase/fe/fe_warp.c</label>
+        <link refid="fe__warp_8c_source"/>
+      </node>
+      <node id="307">
+        <label>src/libsphinxbase/fe/fe_warp.h</label>
+        <link refid="fe__warp_8h_source"/>
+        <childnode refid="306" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
+        <childnode refid="309" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+        <childnode refid="311" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
+        </childnode>
+      </node>
+      <node id="351">
+        <label>include/sphinxbase/sbthread.h</label>
+        <link refid="sbthread_8h"/>
+        <childnode refid="352" relation="include">
+        </childnode>
+      </node>
+      <node id="337">
+        <label>src/libsphinxbase/lm/ngram_model_internal.h</label>
+        <link refid="ngram__model__internal_8h_source"/>
+        <childnode refid="338" relation="include">
+        </childnode>
+        <childnode refid="346" relation="include">
+        </childnode>
+        <childnode refid="340" relation="include">
+        </childnode>
+        <childnode refid="342" relation="include">
+        </childnode>
+        <childnode refid="347" relation="include">
+        </childnode>
+        <childnode refid="344" relation="include">
+        </childnode>
+      </node>
+      <node id="316">
+        <label>src/libsphinxbase/fe/fe_type.h</label>
+        <link refid="fe__type_8h_source"/>
+        <childnode refid="315" relation="include">
+        </childnode>
+        <childnode refid="305" relation="include">
+        </childnode>
+      </node>
+      <node id="354">
+        <label>src/sphinx_adtools/sphinx_pitch.c</label>
+        <link refid="sphinx__pitch_8c_source"/>
+      </node>
+      <node id="334">
+        <label>src/sphinx_jsgf2fsg/main.c</label>
+        <link refid="main_8c_source"/>
+      </node>
+      <node id="330">
+        <label>src/libsphinxbase/lm/jsgf_internal.h</label>
+        <link refid="jsgf__internal_8h"/>
+        <childnode refid="331" relation="include">
+        </childnode>
+        <childnode refid="332" relation="include">
+        </childnode>
+        <childnode refid="333" relation="include">
+        </childnode>
+      </node>
+      <node id="328">
+        <label>include/sphinxbase/fsg_model.h</label>
+        <link refid="fsg__model_8h_source"/>
+        <childnode refid="329" relation="include">
+        </childnode>
+        <childnode refid="335" relation="include">
+        </childnode>
+        <childnode refid="330" relation="include">
+        </childnode>
+        <childnode refid="334" relation="include">
+        </childnode>
+      </node>
+      <node id="299">
+        <label>src/libsphinxbase/feat/feat.c</label>
+        <link refid="feat_8c_source"/>
+      </node>
+      <node id="318">
+        <label>src/libsphinxbase/fe/fe_prespch_buf.c</label>
+        <link refid="fe__prespch__buf_8c_source"/>
+      </node>
+      <node id="317">
+        <label>src/libsphinxbase/fe/fe_prespch_buf.h</label>
+        <link refid="fe__prespch__buf_8h_source"/>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="318" relation="include">
+        </childnode>
+      </node>
+      <node id="314">
+        <label>src/libsphinxbase/fe/fixlog.c</label>
+        <link refid="fixlog_8c_source"/>
+      </node>
+      <node id="353">
+        <label>src/libsphinxbase/util/cmd_ln.c</label>
+        <link refid="cmd__ln_8c_source"/>
+      </node>
+      <node id="347">
+        <label>src/libsphinxbase/lm/ngram_model_dmp32.c</label>
+        <link refid="ngram__model__dmp32_8c_source"/>
+      </node>
+      <node id="295">
+        <label>include/sphinxbase/cmd_ln.h</label>
+        <link refid="cmd_ln.h"/>
+        <childnode refid="296" relation="include">
+        </childnode>
+        <childnode refid="325" relation="include">
+        </childnode>
+        <childnode refid="327" relation="include">
+        </childnode>
+        <childnode refid="336" relation="include">
+        </childnode>
+        <childnode refid="351" relation="include">
+        </childnode>
+        <childnode refid="306" relation="include">
+        </childnode>
+        <childnode refid="353" relation="include">
+        </childnode>
+        <childnode refid="322" relation="include">
+        </childnode>
+        <childnode refid="354" relation="include">
+        </childnode>
+        <childnode refid="355" relation="include">
+        </childnode>
+        <childnode refid="323" relation="include">
+        </childnode>
+        <childnode refid="324" relation="include">
+        </childnode>
+        <childnode refid="348" relation="include">
+        </childnode>
+        <childnode refid="349" relation="include">
+        </childnode>
+      </node>
+      <node id="352">
+        <label>src/libsphinxbase/util/sbthread.c</label>
+        <link refid="sbthread_8c"/>
+      </node>
+      <node id="296">
+        <label>include/sphinxbase/fe.h</label>
+        <link refid="fe_8h_source"/>
+        <childnode refid="297" relation="include">
+        </childnode>
+        <childnode refid="302" relation="include">
+        </childnode>
+        <childnode refid="298" relation="include">
+        </childnode>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="315" relation="include">
+        </childnode>
+        <childnode refid="316" relation="include">
+        </childnode>
+        <childnode refid="317" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
+        <childnode refid="319" relation="include">
+        </childnode>
+        <childnode refid="320" relation="include">
+        </childnode>
+        <childnode refid="321" relation="include">
+        </childnode>
+        <childnode refid="299" relation="include">
+        </childnode>
+        <childnode refid="322" relation="include">
+        </childnode>
+        <childnode refid="323" relation="include">
+        </childnode>
+        <childnode refid="324" relation="include">
+        </childnode>
+      </node>
+      <node id="343">
+        <label>src/libsphinxbase/lm/ngram_model_dmp.c</label>
+        <link refid="ngram__model__dmp_8c_source"/>
+      </node>
+      <node id="342">
+        <label>src/libsphinxbase/lm/ngram_model_dmp.h</label>
+        <link refid="ngram__model__dmp_8h_source"/>
+        <childnode refid="343" relation="include">
+        </childnode>
+      </node>
+      <node id="306">
+        <label>src/libsphinxbase/fe/fe_interface.c</label>
+        <link refid="fe__interface_8c_source"/>
+      </node>
+      <node id="302">
+        <label>include/sphinxbase/cmn.h</label>
+        <link refid="cmn_8h"/>
+        <childnode refid="298" relation="include">
+        </childnode>
+        <childnode refid="303" relation="include">
+        </childnode>
+        <childnode refid="304" relation="include">
+        </childnode>
+        <childnode refid="299" relation="include">
+        </childnode>
+      </node>
+      <node id="331">
+        <label>src/libsphinxbase/lm/jsgf.c</label>
+        <link refid="jsgf_8c"/>
+      </node>
+      <node id="327">
+        <label>include/sphinxbase/logmath.h</label>
+        <link refid="logmath_8h"/>
+        <childnode refid="328" relation="include">
+        </childnode>
+        <childnode refid="329" relation="include">
+        </childnode>
+        <childnode refid="336" relation="include">
+        </childnode>
+        <childnode refid="330" relation="include">
+        </childnode>
+        <childnode refid="346" relation="include">
+        </childnode>
+        <childnode refid="350" relation="include">
+        </childnode>
+        <childnode refid="348" relation="include">
+        </childnode>
+        <childnode refid="349" relation="include">
+        </childnode>
+      </node>
+      <node id="301">
+        <label>src/libsphinxbase/feat/agc.c</label>
+        <link refid="agc_8c_source"/>
+      </node>
+      <node id="326">
+        <label>src/libsphinxbase/util/huff_code.c</label>
+        <link refid="huff__code_8c_source"/>
+      </node>
+      <node id="323">
+        <label>src/sphinx_fe/cmd_ln_defn.h</label>
+        <link refid="cmd__ln__defn_8h_source"/>
+        <childnode refid="324" relation="include">
+        </childnode>
+      </node>
+      <node id="346">
+        <label>src/libsphinxbase/lm/ngram_model.c</label>
+        <link refid="ngram__model_8c_source"/>
+      </node>
+      <node id="348">
+        <label>src/sphinx_lmtools/sphinx_lm_convert.c</label>
+        <link refid="sphinx__lm__convert_8c"/>
+      </node>
+      <node id="305">
+        <label>src/libsphinxbase/fe/fe_internal.h</label>
+        <link refid="fe__internal_8h_source"/>
+        <childnode refid="306" relation="include">
+        </childnode>
+        <childnode refid="307" relation="include">
+        </childnode>
+        <childnode refid="313" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
+        <childnode refid="314" relation="include">
+        </childnode>
+      </node>
+      <node id="341">
+        <label>src/libsphinxbase/lm/ngram_model_arpa.c</label>
+        <link refid="ngram__model__arpa_8c_source"/>
+      </node>
+      <node id="340">
+        <label>src/libsphinxbase/lm/ngram_model_arpa.h</label>
+        <link refid="ngram__model__arpa_8h_source"/>
+        <childnode refid="341" relation="include">
+        </childnode>
+      </node>
+      <node id="333">
+        <label>src/libsphinxbase/lm/jsgf_scanner.c</label>
+        <link refid="jsgf__scanner_8c_source"/>
+      </node>
+      <node id="322">
+        <label>src/sphinx_adtools/cont_seg.c</label>
+        <link refid="cont__seg_8c_source"/>
+      </node>
+      <node id="300">
+        <label>src/libsphinxbase/feat/lda.c</label>
+        <link refid="lda_8c_source"/>
+      </node>
+      <node id="313">
+        <label>src/libsphinxbase/fe/fe_noise.c</label>
+        <link refid="fe__noise_8c_source"/>
+      </node>
+      <node id="315">
+        <label>src/libsphinxbase/fe/fe_noise.h</label>
+        <link refid="fe__noise_8h_source"/>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="313" relation="include">
+        </childnode>
+      </node>
+      <node id="329">
+        <label>include/sphinxbase/jsgf.h</label>
+        <link refid="jsgf_8h"/>
+        <childnode refid="330" relation="include">
+        </childnode>
+        <childnode refid="334" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structarg__s" prot="public">arg_s</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Values for arg_t::type</header>
+      <memberdef kind="define" id="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" prot="public" static="no">
+        <name>ARG_REQUIRED</name>
+        <initializer>(1&lt;&lt;0)</initializer>
+        <briefdescription>
+<para>Bit indicating a required argument. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="102" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="102" bodyend="-1"/>
+        <referencedby refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" compoundref="cmd__ln_8c" startline="552" endline="719">cmd_ln_parse_r</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a59c01ad9c48f29ac877ba14dc90808de" prot="public" static="no">
+        <name>ARG_INTEGER</name>
+        <initializer>(1&lt;&lt;1)</initializer>
+        <briefdescription>
+<para>Integer argument (optional). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="106" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ac8a280a53349bdd41d15edb4fa37972f" prot="public" static="no">
+        <name>ARG_FLOATING</name>
+        <initializer>(1&lt;&lt;2)</initializer>
+        <briefdescription>
+<para>Floating point argument (optional). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="110" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" prot="public" static="no">
+        <name>ARG_STRING</name>
+        <initializer>(1&lt;&lt;3)</initializer>
+        <briefdescription>
+<para>String argument (optional). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="114" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="114" bodyend="-1"/>
+        <referencedby refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" compoundref="cmd__ln_8c" startline="552" endline="719">cmd_ln_parse_r</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ac7d08ff59bb6905c3375162e75913e88" prot="public" static="no">
+        <name>ARG_BOOLEAN</name>
+        <initializer>(1&lt;&lt;4)</initializer>
+        <briefdescription>
+<para>Boolean (true/false) argument (optional). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="118" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a0698bd0586e83569c1c0d86f072cfe13" prot="public" static="no">
+        <name>ARG_STRING_LIST</name>
+        <initializer>(1&lt;&lt;5)</initializer>
+        <briefdescription>
+<para>Boolean (true/false) argument (optional). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="122" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a8186f2660ad6b63be15019598a8dbb36" prot="public" static="no">
+        <name>REQARG_INTEGER</name>
+        <initializer>(<ref refid="cmd__ln_8h_1a59c01ad9c48f29ac877ba14dc90808de" kindref="member">ARG_INTEGER</ref> | <ref refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" kindref="member">ARG_REQUIRED</ref>)</initializer>
+        <briefdescription>
+<para>Required integer argument. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="127" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a92ac706b4ccd544ebea6e0ceaccf3873" prot="public" static="no">
+        <name>REQARG_FLOATING</name>
+        <initializer>(<ref refid="cmd__ln_8h_1ac8a280a53349bdd41d15edb4fa37972f" kindref="member">ARG_FLOATING</ref> | <ref refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" kindref="member">ARG_REQUIRED</ref>)</initializer>
+        <briefdescription>
+<para>Required floating point argument. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="131" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1abaf37a6c677dde76bb1a211b818541bb" prot="public" static="no">
+        <name>REQARG_STRING</name>
+        <initializer>(<ref refid="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" kindref="member">ARG_STRING</ref> | <ref refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" kindref="member">ARG_REQUIRED</ref>)</initializer>
+        <briefdescription>
+<para>Required string argument. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="135" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ac98546cfe85afea642248ae3063c2258" prot="public" static="no">
+        <name>REQARG_BOOLEAN</name>
+        <initializer>(<ref refid="cmd__ln_8h_1ac7d08ff59bb6905c3375162e75913e88" kindref="member">ARG_BOOLEAN</ref> | <ref refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" kindref="member">ARG_REQUIRED</ref>)</initializer>
+        <briefdescription>
+<para>Required boolean argument. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="139" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a7ca1061dca6e8d4e7882bcefe1d15722" prot="public" static="no">
+        <name>ARG_INT32</name>
+        <initializer><ref refid="cmd__ln_8h_1a59c01ad9c48f29ac877ba14dc90808de" kindref="member">ARG_INTEGER</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000001"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use ARG_INTEGER instead. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="144" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ad9b1952e4f1def9ee6a88791375b3901" prot="public" static="no">
+        <name>ARG_FLOAT32</name>
+        <initializer><ref refid="cmd__ln_8h_1ac8a280a53349bdd41d15edb4fa37972f" kindref="member">ARG_FLOATING</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000002"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use ARG_FLOATING instead. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="148" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1aceb617c8572cf5ad6257b35e6d8919e7" prot="public" static="no">
+        <name>ARG_FLOAT64</name>
+        <initializer><ref refid="cmd__ln_8h_1ac8a280a53349bdd41d15edb4fa37972f" kindref="member">ARG_FLOATING</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000003"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use ARG_FLOATING instead. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="152" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a49a6267bbca65099157aad7c2adc52b3" prot="public" static="no">
+        <name>REQARG_INT32</name>
+        <initializer>(<ref refid="cmd__ln_8h_1a7ca1061dca6e8d4e7882bcefe1d15722" kindref="member">ARG_INT32</ref> | <ref refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" kindref="member">ARG_REQUIRED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000004"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use REQARG_INTEGER instead. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="156" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a46a5db6810b67a506c6074a76f003798" prot="public" static="no">
+        <name>REQARG_FLOAT32</name>
+        <initializer>(<ref refid="cmd__ln_8h_1ad9b1952e4f1def9ee6a88791375b3901" kindref="member">ARG_FLOAT32</ref> | <ref refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" kindref="member">ARG_REQUIRED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000005"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use REQARG_FLOATING instead. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="160" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a501b468ee6e97644b9ca75e4bf9cd1a8" prot="public" static="no">
+        <name>REQARG_FLOAT64</name>
+        <initializer>(<ref refid="cmd__ln_8h_1aceb617c8572cf5ad6257b35e6d8919e7" kindref="member">ARG_FLOAT64</ref> | <ref refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" kindref="member">ARG_REQUIRED</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000006"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use REQARG_FLOATING instead. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="164" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="cmd__ln_8h_1a98a8fc7c21a0832cd44e3a6e10844b1e" prot="public" static="no">
+        <name>ARG_STRINGIFY</name>
+        <param><defname>s</defname></param>
+        <initializer>ARG_STRINGIFY1(s)</initializer>
+        <briefdescription>
+<para>Helper macro to stringify enums and other non-string values for default arguments. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="172" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ae71d493fb63447033e8797f44fe7bb8d" prot="public" static="no">
+        <name>ARG_STRINGIFY1</name>
+        <param><defname>s</defname></param>
+        <initializer>#s</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="173" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a159e691c95089689cf9a8f85a67830a6" prot="public" static="no">
+        <name>cmd_ln_boolean_r</name>
+        <param><defname>c</defname></param>
+        <param><defname>n</defname></param>
+        <initializer>(<ref refid="cmd__ln_8h_1a3bf86d597effc163148fddf14c0d117a" kindref="member">cmd_ln_int_r</ref>(c,n) != 0)</initializer>
+        <briefdescription>
+<para>Retrieve a boolean value from a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="334" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ad4984b45985a6c5e2b231cf1f9b44fe4" prot="public" static="no">
+        <name>cmd_ln_set_boolean_r</name>
+        <param><defname>c</defname></param>
+        <param><defname>n</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>(<ref refid="cmd__ln_8h_1afd5eef797f4786d7a1ddf4a64018cc7d" kindref="member">cmd_ln_set_int_r</ref>(c,n,(b)!=0))</initializer>
+        <briefdescription>
+<para>Set a boolean value in a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="370" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a744cba615ad615a3bb0fc309e0bfb4c8" prot="public" static="no">
+        <name>cmd_ln_int32_r</name>
+        <param><defname>c</defname></param>
+        <param><defname>n</defname></param>
+        <initializer>(int32)<ref refid="cmd__ln_8h_1a3bf86d597effc163148fddf14c0d117a" kindref="member">cmd_ln_int_r</ref>(c,n)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="375" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="375" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1aac984a3d645ca2293a711dc77e9441e6" prot="public" static="no">
+        <name>cmd_ln_float32_r</name>
+        <param><defname>c</defname></param>
+        <param><defname>n</defname></param>
+        <initializer>(float32)<ref refid="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" kindref="member">cmd_ln_float_r</ref>(c,n)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="376" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ad1ef54ed340feb9aa6cc0a32d4fe041e" prot="public" static="no">
+        <name>cmd_ln_float64_r</name>
+        <param><defname>c</defname></param>
+        <param><defname>n</defname></param>
+        <initializer>(float64)<ref refid="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" kindref="member">cmd_ln_float_r</ref>(c,n)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="377" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a4e2c787a885bf6dd5f17c2ba94670bb1" prot="public" static="no">
+        <name>cmd_ln_set_int32_r</name>
+        <param><defname>c</defname></param>
+        <param><defname>n</defname></param>
+        <param><defname>i</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1afd5eef797f4786d7a1ddf4a64018cc7d" kindref="member">cmd_ln_set_int_r</ref>(c,n,i)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="378" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ae6d8f136f938b0b997dbe4b5d4cbd7f6" prot="public" static="no">
+        <name>cmd_ln_set_float32_r</name>
+        <param><defname>c</defname></param>
+        <param><defname>n</defname></param>
+        <param><defname>f</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" kindref="member">cmd_ln_set_float_r</ref>(c,n,(double)f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="379" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="379" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a2fc588ffad9586cad2bf4649a6a26269" prot="public" static="no">
+        <name>cmd_ln_set_float64_r</name>
+        <param><defname>c</defname></param>
+        <param><defname>n</defname></param>
+        <param><defname>f</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" kindref="member">cmd_ln_set_float_r</ref>(c,n,(double)f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="380" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="380" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a35020ed4f3aae151fc654dea22dda028" prot="public" static="no">
+        <name>cmd_ln_exists</name>
+        <param><defname>name</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" kindref="member">cmd_ln_exists_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(), name)</initializer>
+        <briefdescription>
+<para>Test the existence of a command-line argument in the global set of definitions. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000012"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" kindref="member">cmd_ln_exists_r()</ref>.</para></xrefdescription></xrefsect></para><para><simplesect kind="return"><para>True if the command line argument exists (i.e. it was one of the arguments defined in the call to <ref refid="cmd__ln_8h_1a42447819b47aab58ee53f4745244f7f7" kindref="member">cmd_ln_parse()</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="473" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="473" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1aa332e626631dfa1b7d93267d1b2384ba" prot="public" static="no">
+        <name>cmd_ln_access</name>
+        <param><defname>name</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" kindref="member">cmd_ln_access_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(), name)</initializer>
+        <briefdescription>
+<para>Return a pointer to the previously parsed value for the given argument name. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000013"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" kindref="member">cmd_ln_access_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="481" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="481" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ab5bd3d0b7f28a485411da21a5e3984b3" prot="public" static="no">
+        <name>cmd_ln_str</name>
+        <param><defname>name</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(), name)</initializer>
+        <briefdescription>
+<para>Retrieve a string from the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000014"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="489" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="489" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a5061e894a4b65597c046a49b2c61f28b" prot="public" static="no">
+        <name>cmd_ln_str_list</name>
+        <param><defname>name</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1a8ef7df4f5749b5517f3a655566104a10" kindref="member">cmd_ln_str_list_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(), name)</initializer>
+        <briefdescription>
+<para>Retrieve an array of strings in the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000015"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a8ef7df4f5749b5517f3a655566104a10" kindref="member">cmd_ln_str_list_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="497" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="497" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ad3c5abaaeda4f3fd4462a24d41db7589" prot="public" static="no">
+        <name>cmd_ln_int32</name>
+        <param><defname>name</defname></param>
+        <initializer>(int32)<ref refid="cmd__ln_8h_1a3bf86d597effc163148fddf14c0d117a" kindref="member">cmd_ln_int_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(), name)</initializer>
+        <briefdescription>
+<para>Retrieve a 32-bit integer from the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000016"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a3bf86d597effc163148fddf14c0d117a" kindref="member">cmd_ln_int_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="505" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="505" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a95b9ea6b4ef4a6ae9718b7df5fffdde8" prot="public" static="no">
+        <name>cmd_ln_float32</name>
+        <param><defname>name</defname></param>
+        <initializer>(float32)<ref refid="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" kindref="member">cmd_ln_float_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(), name)</initializer>
+        <briefdescription>
+<para>Retrieve a 32-bit float from the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000017"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" kindref="member">cmd_ln_float_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="512" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="512" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a3468b03e9089e4b9b4ccd5b9e4347a9c" prot="public" static="no">
+        <name>cmd_ln_float64</name>
+        <param><defname>name</defname></param>
+        <initializer>(float64)<ref refid="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" kindref="member">cmd_ln_float_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(), name)</initializer>
+        <briefdescription>
+<para>Retrieve a 64-bit float from the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000018"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" kindref="member">cmd_ln_float_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="519" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="519" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a168e6f2cf367471406614a70d2b42ae8" prot="public" static="no">
+        <name>cmd_ln_boolean</name>
+        <param><defname>name</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1a159e691c95089689cf9a8f85a67830a6" kindref="member">cmd_ln_boolean_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(), name)</initializer>
+        <briefdescription>
+<para>Retrieve a boolean from the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000019"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a159e691c95089689cf9a8f85a67830a6" kindref="member">cmd_ln_boolean_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="526" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="526" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1add9cb281562711418b6c795f5a6eb206" prot="public" static="no">
+        <name>cmd_ln_set_str</name>
+        <param><defname>n</defname></param>
+        <param><defname>s</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1a3868b219fd3eaf64e902db38145c1c59" kindref="member">cmd_ln_set_str_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(),n,s)</initializer>
+        <briefdescription>
+<para>Set a string in the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000020"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a3868b219fd3eaf64e902db38145c1c59" kindref="member">cmd_ln_set_str_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="534" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="534" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ab63087898153823d7a7041669d60cfae" prot="public" static="no">
+        <name>cmd_ln_set_int32</name>
+        <param><defname>n</defname></param>
+        <param><defname>i</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1afd5eef797f4786d7a1ddf4a64018cc7d" kindref="member">cmd_ln_set_int_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(),n,i)</initializer>
+        <briefdescription>
+<para>Set a 32-bit integer value in the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000021"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1afd5eef797f4786d7a1ddf4a64018cc7d" kindref="member">cmd_ln_set_int_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="541" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="541" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1a2642012877117ba59dec59d5bfdbbed1" prot="public" static="no">
+        <name>cmd_ln_set_float32</name>
+        <param><defname>n</defname></param>
+        <param><defname>f</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" kindref="member">cmd_ln_set_float_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(),n,f)</initializer>
+        <briefdescription>
+<para>Set a 32-bit float in the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000022"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" kindref="member">cmd_ln_set_float_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="548" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="548" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1ae9b20503ea67f45dc43312d13068a127" prot="public" static="no">
+        <name>cmd_ln_set_float64</name>
+        <param><defname>n</defname></param>
+        <param><defname>f</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" kindref="member">cmd_ln_set_float_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(),n,f)</initializer>
+        <briefdescription>
+<para>Set a 64-bit float in the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000023"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" kindref="member">cmd_ln_set_float_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="555" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="555" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1aa6ee66099aca6807d03c70a9d3e5f2a3" prot="public" static="no">
+        <name>cmd_ln_set_boolean</name>
+        <param><defname>n</defname></param>
+        <param><defname>b</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1ad4984b45985a6c5e2b231cf1f9b44fe4" kindref="member">cmd_ln_set_boolean_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(),n,b)</initializer>
+        <briefdescription>
+<para>Set a boolean value in the global command line. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000024"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1ad4984b45985a6c5e2b231cf1f9b44fe4" kindref="member">cmd_ln_set_boolean_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="562" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="562" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="cmd__ln_8h_1aac4bb58af379a71fad4e1adc7fb4d476" prot="public" static="no">
+        <name>cmd_ln_print_help</name>
+        <param><defname>f</defname></param>
+        <param><defname>d</defname></param>
+        <initializer><ref refid="cmd__ln_8h_1a103dabd597830caf65ec4ef3fdc71a1a" kindref="member">cmd_ln_print_help_r</ref>(<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(),f,d)</initializer>
+        <briefdescription>
+<para>Print a help message listing the valid argument names, and the associated attributes as given in defn. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000025"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a103dabd597830caf65ec4ef3fdc71a1a" kindref="member">cmd_ln_print_help_r()</ref>. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="571" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="571" bodyend="-1"/>
+        <referencedby refid="cmd__ln_8h_1a7b06faa9f83eb8a2b045f8cfb6b67d36" compoundref="cmd__ln_8c" startline="495" endline="542">cmd_ln_appl_enter</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="cmd__ln_8h_1a7555950a1a9a65eee866083bd8ce4301" prot="public" static="no">
+        <type>struct <ref refid="structarg__s" kindref="compound">arg_s</ref></type>
+        <definition>typedef struct arg_s  arg_t</definition>
+        <argsstring></argsstring>
+        <name>arg_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="93" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="cmd__ln_8h_1a0c78d3d751be17a8c2d58ee81ae21182" prot="public" static="no">
+        <type>struct <ref refid="structcmd__ln__s" kindref="compound">cmd_ln_s</ref></type>
+        <definition>typedef struct cmd_ln_s cmd_ln_t</definition>
+        <argsstring></argsstring>
+        <name>cmd_ln_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="28" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="cmd__ln_8h_1afdba0ab4dfe8a3ad9d49a6732bd62c42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT cmd_ln_t* cmd_ln_init</definition>
+        <argsstring>(cmd_ln_t *inout_cmdln, arg_t const *defn, int32 strict,...)</argsstring>
+        <name>cmd_ln_init</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>inout_cmdln</declname>
+        </param>
+        <param>
+          <type><ref refid="structarg__t" kindref="compound">arg_t</ref> const *</type>
+          <declname>defn</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>strict</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+<para>Create a <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> from NULL-terminated list of arguments. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function creates a <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> from a NULL-terminated list of argument strings. For example, to create the equivalent of passing &quot;-hmm foodir -dsratio 2 -lm bar.lm&quot; on the command-line:</para><para>config = cmd_ln_init(NULL, defs, TRUE, &quot;-hmm&quot;, &quot;foodir&quot;, &quot;-dsratio&quot;, &quot;2&quot;, &quot;-lm&quot;, &quot;bar.lm&quot;, NULL);</para><para>Note that for simplicity, <bold>all</bold> arguments are passed as strings, regardless of the actual underlying type.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inout_cmdln</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous command-line to update, or NULL to create a new one. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>defn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of argument name definitions, or NULL to allow any arguments. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to fail on duplicate or unknown arguments. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A cmd_ln_t* containing the results of command line parsing, or NULL on failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="200" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="722" bodyend="756"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" compoundref="ckd__alloc_8h" startline="264">ckd_salloc</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a975f5bf7b6f4fc95f426d1979281f73b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT cmd_ln_t* cmd_ln_retain</definition>
+        <argsstring>(cmd_ln_t *cmdln)</argsstring>
+        <name>cmd_ln_retain</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <briefdescription>
+<para>Retain ownership of a command-line argument set. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>pointer to retained command-line argument set. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="208" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="1032" bodyend="1036"/>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a26707fc85e87d8999e368a680e7873cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int cmd_ln_free_r</definition>
+        <argsstring>(cmd_ln_t *cmdln)</argsstring>
+        <name>cmd_ln_free_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <briefdescription>
+<para>Release a command-line argument set and all associated strings. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>new reference count (0 if freed completely) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="216" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="1039" bodyend="1072"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="glist_8h_1a45380e15d2c33afc554fd60a8828580c" compoundref="glist_8c" startline="133" endline="142">glist_free</references>
+        <references refid="glist_8h_1ace56682f14d84cc456c805d26fd86734" compoundref="glist_8h" startline="109">gnode_ptr</references>
+        <references refid="hash__table_8h_1a0a588c22946f8cc16328973035ed19e3" compoundref="hash__table_8c" startline="695" endline="713">hash_table_free</references>
+        <references refid="hash__table_8h_1a61f59389f05d8871003da4692a9c2acc" compoundref="hash__table_8c" startline="623" endline="650">hash_table_tolist</references>
+        <references refid="structhash__entry__s_1a0d57012963084fed93886681108aa636" compoundref="hash__table_8h" startline="155">hash_entry_s::val</references>
+        <referencedby refid="cmd__ln_8h_1a439d3f832f92ae655f1028445aa91602" compoundref="cmd__ln_8c" startline="1075" endline="1079">cmd_ln_free</referencedby>
+        <referencedby refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" compoundref="cmd__ln_8c" startline="552" endline="719">cmd_ln_parse_r</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT cmd_ln_t* cmd_ln_parse_r</definition>
+        <argsstring>(cmd_ln_t *inout_cmdln, arg_t const *defn, int32 argc, char *argv[], int32 strict)</argsstring>
+        <name>cmd_ln_parse_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>inout_cmdln</declname>
+          <briefdescription><para>In/Out: Previous command-line to update, or NULL to create a new one. </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="structarg__t" kindref="compound">arg_t</ref> const *</type>
+          <declname>defn</declname>
+          <briefdescription><para>In: Array of argument name definitions </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>argc</declname>
+          <briefdescription><para>In: Number of actual arguments </para></briefdescription>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+          <briefdescription><para>In: Actual arguments </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>strict</declname>
+          <briefdescription><para>In: Fail on duplicate or unknown arguments, or no arguments? </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Parse a list of strings into argumetns. </para>        </briefdescription>
+        <detaileddescription>
+<para>Parse the given list of arguments (name-value pairs) according to the given definitions. Argument values can be retrieved in future using <ref refid="cmd__ln_8h_1aa332e626631dfa1b7d93267d1b2384ba" kindref="member">cmd_ln_access()</ref>. argv[0] is assumed to be the program name and skipped. Any unknown argument name causes a fatal error. The routine also prints the prevailing argument values (to stderr) after parsing.</para><para><simplesect kind="note"><para>It is currently assumed that the strings in argv are allocated statically, or at least that they will be valid as long as the <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> returned from this function. Unpredictable behaviour will result if they are freed or otherwise become invalidated.</para></simplesect>
+<simplesect kind="return"><para>A <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> containing the results of command line parsing, or NULL on failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="238" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="552" bodyend="719"/>
+        <references refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" compoundref="cmd__ln_8h" startline="102">ARG_REQUIRED</references>
+        <references refid="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" compoundref="cmd__ln_8h" startline="114">ARG_STRING</references>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" compoundref="cmd__ln_8c" startline="932" endline="938">cmd_ln_exists_r</references>
+        <references refid="cmd__ln_8h_1a26707fc85e87d8999e368a680e7873cd" compoundref="cmd__ln_8c" startline="1039" endline="1072">cmd_ln_free_r</references>
+        <references refid="cmd__ln_8h_1a103dabd597830caf65ec4ef3fdc71a1a" compoundref="cmd__ln_8c" startline="923" endline="929">cmd_ln_print_help_r</references>
+        <references refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" compoundref="cmd__ln_8c" startline="952" endline="959">cmd_ln_str_r</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="err_8h_1ac8eb8ab6d805872c19a959bb9930fcea" compoundref="err_8h" startline="92">E_FATAL_SYSTEM</references>
+        <references refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" compoundref="err_8h" startline="131">E_INFO</references>
+        <references refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" compoundref="err_8h" startline="136">E_INFOCONT</references>
+        <references refid="err_8h_1a9707012f263e46ea66e93349313ddbe6" compoundref="err_8c" startline="187" endline="195">err_get_logfp</references>
+        <references refid="err_8h_1a1ccfa2c3d46f765dac7066c417b5e926" compoundref="err_8c" startline="160" endline="171">err_set_logfile</references>
+        <references refid="hash__table_8h_1aebfe63c3869c271b125a8413ee384412" compoundref="hash__table_8c" startline="508" endline="516">hash_table_enter</references>
+        <references refid="hash__table_8h_1a0a588c22946f8cc16328973035ed19e3" compoundref="hash__table_8c" startline="695" endline="713">hash_table_free</references>
+        <references refid="hash__table_8h_1a9a1e5ed410eb96f514b00fdce770fbd7" compoundref="hash__table_8c" startline="309" endline="326">hash_table_lookup</references>
+        <references refid="hash__table_8h_1a56d93e8c03e066b77377ac6eab50cfae" compoundref="hash__table_8c" startline="158" endline="169">hash_table_new</references>
+        <references refid="hash__table_8h_1ae61b28ea189a98ef8f2a3c5521482968" compoundref="hash__table_8c" startline="519" endline="527">hash_table_replace</references>
+        <referencedby refid="cmd__ln_8h_1a42447819b47aab58ee53f4745244f7f7" compoundref="cmd__ln_8c" startline="759" endline="774">cmd_ln_parse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a57f54649952a07b8bef888af4e416550" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT cmd_ln_t* cmd_ln_parse_file_r</definition>
+        <argsstring>(cmd_ln_t *inout_cmdln, arg_t const *defn, char const *filename, int32 strict)</argsstring>
+        <name>cmd_ln_parse_file_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>inout_cmdln</declname>
+          <briefdescription><para>In/Out: Previous command-line to update, or NULL to create a new one. </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="structarg__t" kindref="compound">arg_t</ref> const *</type>
+          <declname>defn</declname>
+          <briefdescription><para>In: Array of argument name definitions </para></briefdescription>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>filename</declname>
+          <briefdescription><para>In: A file that contains all the arguments </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>strict</declname>
+          <briefdescription><para>In: Fail on duplicate or unknown arguments, or no arguments? </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Parse an arguments file by deliminating on &quot; \r\t\n&quot; and putting each tokens into an argv[] for <ref refid="cmd__ln_8h_1a42447819b47aab58ee53f4745244f7f7" kindref="member">cmd_ln_parse()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> containing the results of command line parsing, or NULL on failure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="254" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="777" bodyend="904"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" compoundref="ckd__alloc_8h" startline="258">ckd_realloc</references>
+        <references refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" compoundref="ckd__alloc_8h" startline="264">ckd_salloc</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <references refid="err_8h_1aed4c99044fd3e70b7b33a0298a2279b4" compoundref="err_8h" startline="126">E_WARN</references>
+        <referencedby refid="cmd__ln_8h_1ab7970c08288fae94d211a4252381bc61" compoundref="cmd__ln_8c" startline="907" endline="920">cmd_ln_parse_file</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="prim__type_8h_1a98bfefef272895ed1506502cdb8c1aa3" kindref="member">anytype_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT anytype_t* cmd_ln_access_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name)</argsstring>
+        <name>cmd_ln_access_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Access the generic type union for a command line argument. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="267" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="941" bodyend="949"/>
+        <references refid="hash__table_8h_1a9a1e5ed410eb96f514b00fdce770fbd7" compoundref="hash__table_8c" startline="309" endline="326">hash_table_lookup</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <referencedby refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" compoundref="cmd__ln_8c" startline="952" endline="959">cmd_ln_str_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1a8ef7df4f5749b5517f3a655566104a10" compoundref="cmd__ln_8c" startline="962" endline="969">cmd_ln_str_list_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1a3bf86d597effc163148fddf14c0d117a" compoundref="cmd__ln_8c" startline="972" endline="979">cmd_ln_int_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" compoundref="cmd__ln_8c" startline="982" endline="989">cmd_ln_float_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1a3868b219fd3eaf64e902db38145c1c59" compoundref="cmd__ln_8c" startline="992" endline="1005">cmd_ln_set_str_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1afd5eef797f4786d7a1ddf4a64018cc7d" compoundref="cmd__ln_8c" startline="1008" endline="1017">cmd_ln_set_int_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" compoundref="cmd__ln_8c" startline="1020" endline="1029">cmd_ln_set_float_r</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT char const *</type>
+        <definition>SPHINXBASE_EXPORT char const* cmd_ln_str_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name)</argsstring>
+        <name>cmd_ln_str_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve a string from a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+<para>The command-line object retains ownership of this string, so you should not attempt to free it manually.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmdln</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Command-line object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the command-line flag to retrieve. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the string value associated with <computeroutput>name</computeroutput>, or NULL if <computeroutput>name</computeroutput> does not exist. You must use <ref refid="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" kindref="member">cmd_ln_exists_r()</ref> to distinguish between cases where a value is legitimately NULL and where the corresponding flag is unknown. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="284" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="952" bodyend="959"/>
+        <references refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" compoundref="cmd__ln_8c" startline="941" endline="949">cmd_ln_access_r</references>
+        <referencedby refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" compoundref="cmd__ln_8c" startline="552" endline="719">cmd_ln_parse_r</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a8ef7df4f5749b5517f3a655566104a10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT char const **</type>
+        <definition>SPHINXBASE_EXPORT char const** cmd_ln_str_list_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name)</argsstring>
+        <name>cmd_ln_str_list_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve an array of strings from a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+<para>The command-line object retains ownership of this array, so you should not attempt to free it manually.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmdln</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Command-line object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the command-line flag to retrieve. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the array of strings associated with <computeroutput>name</computeroutput>, or NULL if <computeroutput>name</computeroutput> does not exist. You must use <ref refid="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" kindref="member">cmd_ln_exists_r()</ref> to distinguish between cases where a value is legitimately NULL and where the corresponding flag is unknown. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="301" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="962" bodyend="969"/>
+        <references refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" compoundref="cmd__ln_8c" startline="941" endline="949">cmd_ln_access_r</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a3bf86d597effc163148fddf14c0d117a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT long</type>
+        <definition>SPHINXBASE_EXPORT long cmd_ln_int_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name)</argsstring>
+        <name>cmd_ln_int_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve an integer from a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmdln</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Command-line object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the command-line flag to retrieve. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the integer value associated with <computeroutput>name</computeroutput>, or 0 if <computeroutput>name</computeroutput> does not exist. You must use <ref refid="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" kindref="member">cmd_ln_exists_r()</ref> to distinguish between cases where a value is legitimately zero and where the corresponding flag is unknown. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="315" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="972" bodyend="979"/>
+        <references refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" compoundref="cmd__ln_8c" startline="941" endline="949">cmd_ln_access_r</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT double</type>
+        <definition>SPHINXBASE_EXPORT double cmd_ln_float_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name)</argsstring>
+        <name>cmd_ln_float_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve a floating-point number from a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmdln</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Command-line object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the command-line flag to retrieve. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the float value associated with <computeroutput>name</computeroutput>, or 0.0 if <computeroutput>name</computeroutput> does not exist. You must use <ref refid="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" kindref="member">cmd_ln_exists_r()</ref> to distinguish between cases where a value is legitimately zero and where the corresponding flag is unknown. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="329" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="982" bodyend="989"/>
+        <references refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" compoundref="cmd__ln_8c" startline="941" endline="949">cmd_ln_access_r</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a3868b219fd3eaf64e902db38145c1c59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmd_ln_set_str_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name, char const *str)</argsstring>
+        <name>cmd_ln_set_str_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Set a string in a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmdln</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Command-line object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The command-line flag to set. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String value to set. The command-line object does not retain ownership of this pointer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="345" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="992" bodyend="1005"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" compoundref="ckd__alloc_8h" startline="264">ckd_salloc</references>
+        <references refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" compoundref="cmd__ln_8c" startline="941" endline="949">cmd_ln_access_r</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1afd5eef797f4786d7a1ddf4a64018cc7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmd_ln_set_int_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name, long iv)</argsstring>
+        <name>cmd_ln_set_int_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>iv</declname>
+        </param>
+        <briefdescription>
+<para>Set an integer in a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmdln</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Command-line object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The command-line flag to set. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value to set. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="355" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="1008" bodyend="1017"/>
+        <references refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" compoundref="cmd__ln_8c" startline="941" endline="949">cmd_ln_access_r</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmd_ln_set_float_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name, double fv)</argsstring>
+        <name>cmd_ln_set_float_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fv</declname>
+        </param>
+        <briefdescription>
+<para>Set a floating-point number in a command-line object. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cmdln</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Command-line object. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The command-line flag to set. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value to set. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="365" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="1020" bodyend="1029"/>
+        <references refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" compoundref="cmd__ln_8c" startline="941" endline="949">cmd_ln_access_r</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int cmd_ln_exists_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, char const *name)</argsstring>
+        <name>cmd_ln_exists_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Re-entrant version of <ref refid="cmd__ln_8h_1a35020ed4f3aae151fc654dea22dda028" kindref="member">cmd_ln_exists()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the command line argument exists (i.e. it was one of the arguments defined in the call to <ref refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" kindref="member">cmd_ln_parse_r()</ref>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="389" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="932" bodyend="938"/>
+        <references refid="hash__table_8h_1a9a1e5ed410eb96f514b00fdce770fbd7" compoundref="hash__table_8c" startline="309" endline="326">hash_table_lookup</references>
+        <referencedby refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" compoundref="cmd__ln_8c" startline="552" endline="719">cmd_ln_parse_r</referencedby>
+        <referencedby refid="ngram__model_8h_1ab0c840f2bdfc38cea08bb70054f76624" compoundref="ngram__model_8c" startline="121" endline="164">ngram_model_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a103dabd597830caf65ec4ef3fdc71a1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmd_ln_print_help_r</definition>
+        <argsstring>(cmd_ln_t *cmdln, FILE *fp, const arg_t *defn)</argsstring>
+        <name>cmd_ln_print_help_r</name>
+        <param>
+          <type><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+          <declname>cmdln</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structarg__t" kindref="compound">arg_t</ref> *</type>
+          <declname>defn</declname>
+        </param>
+        <briefdescription>
+<para>Print a help message listing the valid argument names, and the associated attributes as given in defn. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>output stream </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>defn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of argument name definitions. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="399" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="923" bodyend="929"/>
+        <referencedby refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" compoundref="cmd__ln_8c" startline="552" endline="719">cmd_ln_parse_r</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a42447819b47aab58ee53f4745244f7f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 cmd_ln_parse</definition>
+        <argsstring>(const arg_t *defn, int32 argc, char *argv[], int32 strict)</argsstring>
+        <name>cmd_ln_parse</name>
+        <param>
+          <type>const <ref refid="structarg__t" kindref="compound">arg_t</ref> *</type>
+          <declname>defn</declname>
+          <briefdescription><para>In: Array of argument name definitions </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>argc</declname>
+          <briefdescription><para>In: Number of actual arguments </para></briefdescription>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+          <briefdescription><para>In: Actual arguments </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>strict</declname>
+          <briefdescription><para>In: Fail on duplicate or unknown arguments, or no arguments? </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Non-reentrant version of <ref refid="cmd__ln_8h_1a42447819b47aab58ee53f4745244f7f7" kindref="member">cmd_ln_parse()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000007"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" kindref="member">cmd_ln_parse_r()</ref>. <simplesect kind="return"><para>0 if successful, &lt;0 if error. </para></simplesect>
+</para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="409" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="759" bodyend="774"/>
+        <references refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" compoundref="cmd__ln_8c" startline="552" endline="719">cmd_ln_parse_r</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <referencedby refid="cmd__ln_8h_1a7b06faa9f83eb8a2b045f8cfb6b67d36" compoundref="cmd__ln_8c" startline="495" endline="542">cmd_ln_appl_enter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1ab7970c08288fae94d211a4252381bc61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 cmd_ln_parse_file</definition>
+        <argsstring>(const arg_t *defn, char const *filename, int32 strict)</argsstring>
+        <name>cmd_ln_parse_file</name>
+        <param>
+          <type>const <ref refid="structarg__t" kindref="compound">arg_t</ref> *</type>
+          <declname>defn</declname>
+          <briefdescription><para>In: Array of argument name definitions </para></briefdescription>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>filename</declname>
+          <briefdescription><para>In: A file that contains all the arguments </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>strict</declname>
+          <briefdescription><para>In: Fail on duplicate or unknown arguments, or no arguments? </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Parse an arguments file by deliminating on &quot; \r\t\n&quot; and putting each tokens into an argv[] for <ref refid="cmd__ln_8h_1a42447819b47aab58ee53f4745244f7f7" kindref="member">cmd_ln_parse()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000008"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API function <ref refid="cmd__ln_8h_1a57f54649952a07b8bef888af4e416550" kindref="member">cmd_ln_parse_file_r()</ref>.</para></xrefdescription></xrefsect></para><para><simplesect kind="return"><para>0 if successful, &lt;0 on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="426" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="907" bodyend="920"/>
+        <references refid="cmd__ln_8h_1a57f54649952a07b8bef888af4e416550" compoundref="cmd__ln_8c" startline="777" endline="904">cmd_ln_parse_file_r</references>
+        <referencedby refid="cmd__ln_8h_1a7b06faa9f83eb8a2b045f8cfb6b67d36" compoundref="cmd__ln_8c" startline="495" endline="542">cmd_ln_appl_enter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a7b06faa9f83eb8a2b045f8cfb6b67d36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmd_ln_appl_enter</definition>
+        <argsstring>(int argc, char *argv[], char const *default_argfn, const arg_t *defn)</argsstring>
+        <name>cmd_ln_appl_enter</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+          <briefdescription><para>In: Number of actual arguments </para></briefdescription>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+          <briefdescription><para>In: Number of actual arguments </para></briefdescription>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>default_argfn</declname>
+          <briefdescription><para>In: default argument file name </para></briefdescription>
+        </param>
+        <param>
+          <type>const <ref refid="structarg__t" kindref="compound">arg_t</ref> *</type>
+          <declname>defn</declname>
+          <briefdescription><para>Command-line argument definition </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Old application initialization routine for Sphinx3 code. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000009"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="438" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="495" bodyend="542"/>
+        <references refid="cmd__ln_8h_1a42447819b47aab58ee53f4745244f7f7" compoundref="cmd__ln_8c" startline="759" endline="774">cmd_ln_parse</references>
+        <references refid="cmd__ln_8h_1ab7970c08288fae94d211a4252381bc61" compoundref="cmd__ln_8c" startline="907" endline="920">cmd_ln_parse_file</references>
+        <references refid="cmd__ln_8h_1aac4bb58af379a71fad4e1adc7fb4d476" compoundref="cmd__ln_8h" startline="571">cmd_ln_print_help</references>
+        <references refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" compoundref="err_8h" startline="131">E_INFO</references>
+        <references refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" compoundref="err_8h" startline="136">E_INFOCONT</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a97d5edba5ad53d97a159ac8ab9234de7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmd_ln_appl_exit</definition>
+        <argsstring>(void)</argsstring>
+        <name>cmd_ln_appl_exit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Finalization routine corresponding to <ref refid="cmd__ln_8h_1a7b06faa9f83eb8a2b045f8cfb6b67d36" kindref="member">cmd_ln_appl_enter()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000010"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="452" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="545" bodyend="548"/>
+        <references refid="cmd__ln_8h_1a439d3f832f92ae655f1028445aa91602" compoundref="cmd__ln_8c" startline="1075" endline="1079">cmd_ln_free</references>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT cmd_ln_t* cmd_ln_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>cmd_ln_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Retrieve the global <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> object used by non-re-entrant functions. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000011"><xreftitle>Deprecated</xreftitle><xrefdescription><para>This is deprecated in favor of the re-entrant API. <simplesect kind="return"><para>global <ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref> object. </para></simplesect>
+</para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="461" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="489" bodyend="492"/>
+      </memberdef>
+      <memberdef kind="function" id="cmd__ln_8h_1a439d3f832f92ae655f1028445aa91602" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void cmd_ln_free</definition>
+        <argsstring>(void)</argsstring>
+        <name>cmd_ln_free</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Free the global command line, if any exists. </para>        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000026"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Use the re-entrant API instead. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h" line="578" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="1075" bodyend="1079"/>
+        <references refid="cmd__ln_8h_1a26707fc85e87d8999e368a680e7873cd" compoundref="cmd__ln_8c" startline="1039" endline="1072">cmd_ln_free_r</references>
+        <referencedby refid="cmd__ln_8h_1a97d5edba5ad53d97a159ac8ab9234de7" compoundref="cmd__ln_8c" startline="545" endline="548">cmd_ln_appl_exit</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Command-line and other configurationparsing and handling. </para>    </briefdescription>
+    <detaileddescription>
+<para>Configuration parameters, optionally parsed from the command line. </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>cmd_ln.h<sp/>--<sp/>Command<sp/>line<sp/>argument<sp/>parsing.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>15-Jul-1997<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>required<sp/>arguments<sp/>types.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>07-Dec-96<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Created,<sp/>based<sp/>on<sp/>Eric&apos;s<sp/>implementation.<sp/><sp/>Basically,<sp/>combined<sp/>several</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>functions<sp/>into<sp/>one,<sp/>eliminated<sp/>validation,<sp/>and<sp/>simplified<sp/>the<sp/>interface.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_LIBUTIL_CMD_LN_H_</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_LIBUTIL_CMD_LN_H_</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Win32/WinCE<sp/>DLL<sp/>gunk<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="88" refid="structarg__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structarg__s" kindref="compound">arg_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="89" refid="structarg__s_1ac6c8fb7dc57cf2df9720cf96535043f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="structarg__s_1ac6c8fb7dc57cf2df9720cf96535043f9" kindref="member">name</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90" refid="structarg__s_1ad19743ceba37f2af159b255306bb8920" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structarg__s_1ad19743ceba37f2af159b255306bb8920" kindref="member">type</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91" refid="structarg__s_1ab975459159f873ee06012460d16819c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="structarg__s_1ab975459159f873ee06012460d16819c7" kindref="member">deflt</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="92" refid="structarg__s_1a706be2e230dea293579e4b03043550c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="structarg__s_1a706be2e230dea293579e4b03043550c0" kindref="member">doc</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}<sp/><ref refid="structarg__t" kindref="compound">arg_t</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment">/*<sp/>@{<sp/>*/</highlight></codeline>
+<codeline lineno="102" refid="cmd__ln_8h_1ab1f031eb9c89fa1bcae95b1c7532fb3d" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_REQUIRED<sp/>(1&lt;&lt;0)</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="106" refid="cmd__ln_8h_1a59c01ad9c48f29ac877ba14dc90808de" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_INTEGER<sp/><sp/>(1&lt;&lt;1)</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="110" refid="cmd__ln_8h_1ac8a280a53349bdd41d15edb4fa37972f" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_FLOATING<sp/>(1&lt;&lt;2)</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="114" refid="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_STRING<sp/><sp/><sp/>(1&lt;&lt;3)</highlight></codeline>
+<codeline lineno="115"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="118" refid="cmd__ln_8h_1ac7d08ff59bb6905c3375162e75913e88" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_BOOLEAN<sp/><sp/>(1&lt;&lt;4)</highlight></codeline>
+<codeline lineno="119"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="122" refid="cmd__ln_8h_1a0698bd0586e83569c1c0d86f072cfe13" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_STRING_LIST<sp/><sp/>(1&lt;&lt;5)</highlight></codeline>
+<codeline lineno="123"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="127" refid="cmd__ln_8h_1a8186f2660ad6b63be15019598a8dbb36" refkind="member"><highlight class="preprocessor">#define<sp/>REQARG_INTEGER<sp/>(ARG_INTEGER<sp/>|<sp/>ARG_REQUIRED)</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="131" refid="cmd__ln_8h_1a92ac706b4ccd544ebea6e0ceaccf3873" refkind="member"><highlight class="preprocessor">#define<sp/>REQARG_FLOATING<sp/>(ARG_FLOATING<sp/>|<sp/>ARG_REQUIRED)</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="135" refid="cmd__ln_8h_1abaf37a6c677dde76bb1a211b818541bb" refkind="member"><highlight class="preprocessor">#define<sp/>REQARG_STRING<sp/>(ARG_STRING<sp/>|<sp/>ARG_REQUIRED)</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="139" refid="cmd__ln_8h_1ac98546cfe85afea642248ae3063c2258" refkind="member"><highlight class="preprocessor">#define<sp/>REQARG_BOOLEAN<sp/>(ARG_BOOLEAN<sp/>|<sp/>ARG_REQUIRED)</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="144" refid="cmd__ln_8h_1a7ca1061dca6e8d4e7882bcefe1d15722" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_INT32<sp/><sp/><sp/>ARG_INTEGER</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="148" refid="cmd__ln_8h_1ad9b1952e4f1def9ee6a88791375b3901" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_FLOAT32<sp/>ARG_FLOATING</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="152" refid="cmd__ln_8h_1aceb617c8572cf5ad6257b35e6d8919e7" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_FLOAT64<sp/>ARG_FLOATING</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="156" refid="cmd__ln_8h_1a49a6267bbca65099157aad7c2adc52b3" refkind="member"><highlight class="preprocessor">#define<sp/>REQARG_INT32<sp/>(ARG_INT32<sp/>|<sp/>ARG_REQUIRED)</highlight></codeline>
+<codeline lineno="157"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="160" refid="cmd__ln_8h_1a46a5db6810b67a506c6074a76f003798" refkind="member"><highlight class="preprocessor">#define<sp/>REQARG_FLOAT32<sp/>(ARG_FLOAT32<sp/>|<sp/>ARG_REQUIRED)</highlight></codeline>
+<codeline lineno="161"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="164" refid="cmd__ln_8h_1a501b468ee6e97644b9ca75e4bf9cd1a8" refkind="member"><highlight class="preprocessor">#define<sp/>REQARG_FLOAT64<sp/>(ARG_FLOAT64<sp/>|<sp/>ARG_REQUIRED)</highlight></codeline>
+<codeline lineno="165"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="cmd__ln_8h_1a98a8fc7c21a0832cd44e3a6e10844b1e" refkind="member"><highlight class="preprocessor">#define<sp/>ARG_STRINGIFY(s)<sp/>ARG_STRINGIFY1(s)</highlight></codeline>
+<codeline lineno="173"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ARG_STRINGIFY1(s)<sp/>#s</highlight></codeline>
+<codeline lineno="174"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="179"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcmd__ln__s" kindref="compound">cmd_ln_s</ref><sp/><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref>;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*<ref refid="cmd__ln_8h_1afdba0ab4dfe8a3ad9d49a6732bd62c42" kindref="member">cmd_ln_init</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*inout_cmdln,<sp/><ref refid="structarg__t" kindref="compound">arg_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*defn,<sp/>int32<sp/>strict,<sp/>...);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*<ref refid="cmd__ln_8h_1a975f5bf7b6f4fc95f426d1979281f73b" kindref="member">cmd_ln_retain</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a26707fc85e87d8999e368a680e7873cd" kindref="member">cmd_ln_free_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*<ref refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" kindref="member">cmd_ln_parse_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*inout_cmdln,<sp/></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structarg__t" kindref="compound">arg_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*defn,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>argc,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[],<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>strict<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*<ref refid="cmd__ln_8h_1a57f54649952a07b8bef888af4e416550" kindref="member">cmd_ln_parse_file_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*inout_cmdln,<sp/></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structarg__t" kindref="compound">arg_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*defn,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*filename,</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>strict<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><ref refid="unionanytype__s" kindref="compound">anytype_t</ref><sp/>*<ref refid="cmd__ln_8h_1ac8d204103a24e39efefda608db8d81f7" kindref="member">cmd_ln_access_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>**<ref refid="cmd__ln_8h_1a8ef7df4f5749b5517f3a655566104a10" kindref="member">cmd_ln_str_list_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a3bf86d597effc163148fddf14c0d117a" kindref="member">cmd_ln_int_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a2deca68514704cafbb7ec594b8ff38fe" kindref="member">cmd_ln_float_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334" refid="cmd__ln_8h_1a159e691c95089689cf9a8f85a67830a6" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_boolean_r(c,n)<sp/>(cmd_ln_int_r(c,n)<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="335"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a3868b219fd3eaf64e902db38145c1c59" kindref="member">cmd_ln_set_str_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*str);</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1afd5eef797f4786d7a1ddf4a64018cc7d" kindref="member">cmd_ln_set_int_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>iv);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a71c02d36c1db0c1d4e6349bd253d9b59" kindref="member">cmd_ln_set_float_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fv);</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="370" refid="cmd__ln_8h_1ad4984b45985a6c5e2b231cf1f9b44fe4" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_set_boolean_r(c,n,b)<sp/>(cmd_ln_set_int_r(c,n,(b)!=0))</highlight></codeline>
+<codeline lineno="371"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="373"><highlight class="comment"><sp/>*<sp/>Compatibility<sp/>macros</highlight></codeline>
+<codeline lineno="374"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>cmd_ln_int32_r(c,n)<sp/><sp/><sp/><sp/><sp/>(int32)cmd_ln_int_r(c,n)</highlight></codeline>
+<codeline lineno="376"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>cmd_ln_float32_r(c,n)<sp/><sp/><sp/>(float32)cmd_ln_float_r(c,n)</highlight></codeline>
+<codeline lineno="377"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>cmd_ln_float64_r(c,n)<sp/><sp/><sp/>(float64)cmd_ln_float_r(c,n)</highlight></codeline>
+<codeline lineno="378"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>cmd_ln_set_int32_r(c,n,i)<sp/><sp/><sp/>cmd_ln_set_int_r(c,n,i)</highlight></codeline>
+<codeline lineno="379"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>cmd_ln_set_float32_r(c,n,f)<sp/>cmd_ln_set_float_r(c,n,(double)f)</highlight></codeline>
+<codeline lineno="380"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>cmd_ln_set_float64_r(c,n,f)<sp/>cmd_ln_set_float_r(c,n,(double)f)</highlight></codeline>
+<codeline lineno="381"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="388"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1ab4ad5ae130e3c2c042590b41768635e3" kindref="member">cmd_ln_exists_r</ref>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name);</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"></highlight></codeline>
+<codeline lineno="398"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a103dabd597830caf65ec4ef3fdc71a1a" kindref="member">cmd_ln_print_help_r</ref><sp/>(<ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*cmdln,<sp/>FILE<sp/>*fp,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structarg__t" kindref="compound">arg_t</ref><sp/>*defn);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="409"><highlight class="normal">int32<sp/><ref refid="cmd__ln_8h_1a42447819b47aab58ee53f4745244f7f7" kindref="member">cmd_ln_parse</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structarg__t" kindref="compound">arg_t</ref><sp/>*defn,<sp/><sp/></highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>argc,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[],<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>strict<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight></codeline>
+<codeline lineno="425"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="426"><highlight class="normal">int32<sp/><ref refid="cmd__ln_8h_1ab7970c08288fae94d211a4252381bc61" kindref="member">cmd_ln_parse_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structarg__t" kindref="compound">arg_t</ref><sp/>*defn,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*filename,</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>strict<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"></highlight></codeline>
+<codeline lineno="437"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a7b06faa9f83eb8a2b045f8cfb6b67d36" kindref="member">cmd_ln_appl_enter</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[],<sp/></highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">*<sp/>default_argfn,<sp/></highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structarg__t" kindref="compound">arg_t</ref><sp/>*defn<sp/></highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"></highlight></codeline>
+<codeline lineno="444"><highlight class="normal"></highlight></codeline>
+<codeline lineno="451"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a97d5edba5ad53d97a159ac8ab9234de7" kindref="member">cmd_ln_appl_exit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"></highlight></codeline>
+<codeline lineno="460"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*<ref refid="cmd__ln_8h_1a6e10003b5e86ec317c1b78c0655972af" kindref="member">cmd_ln_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="462"><highlight class="normal"></highlight></codeline>
+<codeline lineno="473" refid="cmd__ln_8h_1a35020ed4f3aae151fc654dea22dda028" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_exists(name)<sp/><sp/><sp/><sp/><sp/>cmd_ln_exists_r(cmd_ln_get(),<sp/>name)</highlight></codeline>
+<codeline lineno="474"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="481" refid="cmd__ln_8h_1aa332e626631dfa1b7d93267d1b2384ba" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_access(name)<sp/><sp/><sp/><sp/><sp/>cmd_ln_access_r(cmd_ln_get(),<sp/>name)</highlight></codeline>
+<codeline lineno="482"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="489" refid="cmd__ln_8h_1ab5bd3d0b7f28a485411da21a5e3984b3" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_str(name)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd_ln_str_r(cmd_ln_get(),<sp/>name)</highlight></codeline>
+<codeline lineno="490"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="497" refid="cmd__ln_8h_1a5061e894a4b65597c046a49b2c61f28b" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_str_list(name)<sp/><sp/><sp/>cmd_ln_str_list_r(cmd_ln_get(),<sp/>name)</highlight></codeline>
+<codeline lineno="498"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="505" refid="cmd__ln_8h_1ad3c5abaaeda4f3fd4462a24d41db7589" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_int32(name)<sp/><sp/><sp/><sp/><sp/><sp/>(int32)cmd_ln_int_r(cmd_ln_get(),<sp/>name)</highlight></codeline>
+<codeline lineno="506"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="512" refid="cmd__ln_8h_1a95b9ea6b4ef4a6ae9718b7df5fffdde8" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_float32(name)<sp/><sp/><sp/><sp/>(float32)cmd_ln_float_r(cmd_ln_get(),<sp/>name)</highlight></codeline>
+<codeline lineno="513"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="519" refid="cmd__ln_8h_1a3468b03e9089e4b9b4ccd5b9e4347a9c" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_float64(name)<sp/><sp/><sp/><sp/>(float64)cmd_ln_float_r(cmd_ln_get(),<sp/>name)</highlight></codeline>
+<codeline lineno="520"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="526" refid="cmd__ln_8h_1a168e6f2cf367471406614a70d2b42ae8" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_boolean(name)<sp/><sp/><sp/><sp/>cmd_ln_boolean_r(cmd_ln_get(),<sp/>name)</highlight></codeline>
+<codeline lineno="527"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="534" refid="cmd__ln_8h_1add9cb281562711418b6c795f5a6eb206" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_set_str(n,s)<sp/><sp/><sp/><sp/><sp/>cmd_ln_set_str_r(cmd_ln_get(),n,s)</highlight></codeline>
+<codeline lineno="535"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="541" refid="cmd__ln_8h_1ab63087898153823d7a7041669d60cfae" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_set_int32(n,i)<sp/><sp/><sp/>cmd_ln_set_int_r(cmd_ln_get(),n,i)</highlight></codeline>
+<codeline lineno="542"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="548" refid="cmd__ln_8h_1a2642012877117ba59dec59d5bfdbbed1" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_set_float32(n,f)<sp/>cmd_ln_set_float_r(cmd_ln_get(),n,f)</highlight></codeline>
+<codeline lineno="549"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="555" refid="cmd__ln_8h_1ae9b20503ea67f45dc43312d13068a127" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_set_float64(n,f)<sp/>cmd_ln_set_float_r(cmd_ln_get(),n,f)</highlight></codeline>
+<codeline lineno="556"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="562" refid="cmd__ln_8h_1aa6ee66099aca6807d03c70a9d3e5f2a3" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_set_boolean(n,b)<sp/>cmd_ln_set_boolean_r(cmd_ln_get(),n,b)</highlight></codeline>
+<codeline lineno="563"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="571" refid="cmd__ln_8h_1aac4bb58af379a71fad4e1adc7fb4d476" refkind="member"><highlight class="preprocessor">#define<sp/>cmd_ln_print_help(f,d)<sp/>cmd_ln_print_help_r(cmd_ln_get(),f,d)</highlight></codeline>
+<codeline lineno="572"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="577"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="578"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="cmd__ln_8h_1a439d3f832f92ae655f1028445aa91602" kindref="member">cmd_ln_free</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="579"><highlight class="normal"></highlight></codeline>
+<codeline lineno="580"><highlight class="normal"></highlight></codeline>
+<codeline lineno="581"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="582"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="583"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="584"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="585"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="586"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="587"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/cmd_ln.h"/>
+  </compounddef>
+</doxygen>

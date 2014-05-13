@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structlm3g__model__s" kind="struct" prot="public">
+    <compoundname>lm3g_model_s</compoundname>
+    <includes refid="lm3g__model_8h" local="no">lm3g_model.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlm3g__model__s_1a94b4a80531261a20036cbc41b76b3f3a" prot="public" static="no" mutable="no">
+        <type><ref refid="structunigram__s" kindref="compound">unigram_t</ref> *</type>
+        <definition>unigram_t* lm3g_model_s::unigrams</definition>
+        <argsstring></argsstring>
+        <name>unigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="143" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1a58e72d8dd17a928d1e150e95483092ca" prot="public" static="no" mutable="no">
+        <type><ref refid="structbigram__s" kindref="compound">bigram_t</ref> *</type>
+        <definition>bigram_t* lm3g_model_s::bigrams</definition>
+        <argsstring></argsstring>
+        <name>bigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="144" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1a9d10497789f7406433bccae79db63b9f" prot="public" static="no" mutable="no">
+        <type><ref refid="structtrigram__s" kindref="compound">trigram_t</ref> *</type>
+        <definition>trigram_t* lm3g_model_s::trigrams</definition>
+        <argsstring></argsstring>
+        <name>trigrams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="145" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1a34acf8c1ffaa4bb712ce1196eea59678" prot="public" static="no" mutable="no">
+        <type><ref refid="unionlmprob__t" kindref="compound">lmprob_t</ref> *</type>
+        <definition>lmprob_t* lm3g_model_s::prob2</definition>
+        <argsstring></argsstring>
+        <name>prob2</name>
+        <briefdescription>
+<para>Table of actual bigram probs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="146" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1a273e6ea4c39d1a563cc59f00b4b6ee98" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 lm3g_model_s::n_prob2</definition>
+        <argsstring></argsstring>
+        <name>n_prob2</name>
+        <briefdescription>
+<para>prob2 size </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="147" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1a7ee629aa1b8e88529127cf4da470d80f" prot="public" static="no" mutable="no">
+        <type><ref refid="unionlmprob__t" kindref="compound">lmprob_t</ref> *</type>
+        <definition>lmprob_t* lm3g_model_s::bo_wt2</definition>
+        <argsstring></argsstring>
+        <name>bo_wt2</name>
+        <briefdescription>
+<para>Table of actual bigram backoff weights. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="148" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1ad4bbdd65d13712fe653afe8b1de9b096" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 lm3g_model_s::n_bo_wt2</definition>
+        <argsstring></argsstring>
+        <name>n_bo_wt2</name>
+        <briefdescription>
+<para>bo_wt2 size </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="149" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1adc9ed2ad1f2daefdd40713a9dd371673" prot="public" static="no" mutable="no">
+        <type><ref refid="unionlmprob__t" kindref="compound">lmprob_t</ref> *</type>
+        <definition>lmprob_t* lm3g_model_s::prob3</definition>
+        <argsstring></argsstring>
+        <name>prob3</name>
+        <briefdescription>
+<para>Table of actual trigram probs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="150" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1add28369f51e657ee54deed5291c84d09" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 lm3g_model_s::n_prob3</definition>
+        <argsstring></argsstring>
+        <name>n_prob3</name>
+        <briefdescription>
+<para>prob3 size </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="151" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1a6cec34be6a748a9cece94ae3dfc1e8d7" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* lm3g_model_s::tseg_base</definition>
+        <argsstring></argsstring>
+        <name>tseg_base</name>
+        <briefdescription>
+<para>tseg_base[i&gt;&gt;LOG_BG_SEG_SZ] = index of 1st trigram for bigram segment (i&gt;&gt;LOG_BG_SEG_SZ) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="152" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" prot="public" static="no" mutable="no">
+        <type><ref refid="structtginfo__s" kindref="compound">tginfo_t</ref> **</type>
+        <definition>tginfo_t** lm3g_model_s::tginfo</definition>
+        <argsstring></argsstring>
+        <name>tginfo</name>
+        <briefdescription>
+<para>tginfo[lw2] is head of linked list of trigram information for some cached subset of bigrams (*,lw2). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="154" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlm3g__model__s_1a2c96ba8aa34632e4d42908f9384d1b01" prot="public" static="no" mutable="no">
+        <type><ref refid="listelem__alloc_8h_1a3fd3950d7834feaa2bbdf84afb98ce32" kindref="member">listelem_alloc_t</ref> *</type>
+        <definition>listelem_alloc_t* lm3g_model_s::le</definition>
+        <argsstring></argsstring>
+        <name>le</name>
+        <briefdescription>
+<para>List element allocator for tginfo. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="156" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Common internal structure for Sphinx 3-gram models. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="172">
+        <label>lmprob_t</label>
+        <link refid="unionlmprob__t"/>
+      </node>
+      <node id="168">
+        <label>trigram_s</label>
+        <link refid="structtrigram__s"/>
+      </node>
+      <node id="173">
+        <label>unigram_s</label>
+        <link refid="structunigram__s"/>
+        <childnode refid="172" relation="usage">
+          <edgelabel>bo_wt1</edgelabel>
+          <edgelabel>prob1</edgelabel>
+        </childnode>
+      </node>
+      <node id="166">
+        <label>lm3g_model_s</label>
+        <link refid="structlm3g__model__s"/>
+        <childnode refid="167" relation="usage">
+          <edgelabel>tginfo</edgelabel>
+        </childnode>
+        <childnode refid="169" relation="usage">
+          <edgelabel>le</edgelabel>
+        </childnode>
+        <childnode refid="172" relation="usage">
+          <edgelabel>bo_wt2</edgelabel>
+          <edgelabel>prob2</edgelabel>
+          <edgelabel>prob3</edgelabel>
+        </childnode>
+        <childnode refid="168" relation="usage">
+          <edgelabel>trigrams</edgelabel>
+        </childnode>
+        <childnode refid="173" relation="usage">
+          <edgelabel>unigrams</edgelabel>
+        </childnode>
+        <childnode refid="174" relation="usage">
+          <edgelabel>bigrams</edgelabel>
+        </childnode>
+      </node>
+      <node id="170">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="170" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="171" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="174">
+        <label>bigram_s</label>
+        <link refid="structbigram__s"/>
+      </node>
+      <node id="171">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="167">
+        <label>tginfo_s</label>
+        <link refid="structtginfo__s"/>
+        <childnode refid="167" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="168" relation="usage">
+          <edgelabel>tg</edgelabel>
+        </childnode>
+      </node>
+      <node id="169">
+        <label>listelem_alloc_s</label>
+        <link refid="structlistelem__alloc__s"/>
+        <childnode refid="170" relation="usage">
+          <edgelabel>blocks</edgelabel>
+          <edgelabel>blocksize</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" line="142" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.h" bodystart="142" bodyend="157"/>
+    <listofallmembers>
+      <member refid="structlm3g__model__s_1a58e72d8dd17a928d1e150e95483092ca" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>bigrams</name></member>
+      <member refid="structlm3g__model__s_1a7ee629aa1b8e88529127cf4da470d80f" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>bo_wt2</name></member>
+      <member refid="structlm3g__model__s_1a2c96ba8aa34632e4d42908f9384d1b01" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>le</name></member>
+      <member refid="structlm3g__model__s_1ad4bbdd65d13712fe653afe8b1de9b096" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>n_bo_wt2</name></member>
+      <member refid="structlm3g__model__s_1a273e6ea4c39d1a563cc59f00b4b6ee98" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>n_prob2</name></member>
+      <member refid="structlm3g__model__s_1add28369f51e657ee54deed5291c84d09" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>n_prob3</name></member>
+      <member refid="structlm3g__model__s_1a34acf8c1ffaa4bb712ce1196eea59678" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>prob2</name></member>
+      <member refid="structlm3g__model__s_1adc9ed2ad1f2daefdd40713a9dd371673" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>prob3</name></member>
+      <member refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>tginfo</name></member>
+      <member refid="structlm3g__model__s_1a9d10497789f7406433bccae79db63b9f" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>trigrams</name></member>
+      <member refid="structlm3g__model__s_1a6cec34be6a748a9cece94ae3dfc1e8d7" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>tseg_base</name></member>
+      <member refid="structlm3g__model__s_1a94b4a80531261a20036cbc41b76b3f3a" prot="public" virt="non-virtual"><scope>lm3g_model_s</scope><name>unigrams</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,34 @@
+\section{cd\-\_\-tree\-\_\-s Struct Reference}
+\label{structcd__tree__s}\index{cd\-\_\-tree\-\_\-s@{cd\-\_\-tree\-\_\-s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int16 {\bf ctx}\label{structcd__tree__s_a2168538bf6cc21ad1a2c99fa2deb4559}
+
+\begin{DoxyCompactList}\small\item\em Context (word position or C\-I phone) \end{DoxyCompactList}\item 
+int16 {\bf n\-\_\-down}\label{structcd__tree__s_ae5e735d325b0f278ff2ad55293faa616}
+
+\begin{DoxyCompactList}\small\item\em Number of children (0 for leafnode) \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int32 {\bf pid}\\
+\>\>{\em Phone ID (leafnode) }\\
+\>int32 {\bf down}\\
+\>\>{\em Next level of the tree (offset from start of cd\_trees) }\\
+\} {\bfseries c}\label{structcd__tree__s_acc49ddc3248fc58d5a9bf241fffcbc2b}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 107 of file bin\-\_\-mdef.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf bin\-\_\-mdef.\-h}\end{DoxyCompactItemize}

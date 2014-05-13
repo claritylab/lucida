@@ -1,0 +1,11 @@
+--- ..\work\pocketsphinx\visualdsp\pocketsphinx_continuous\CoreA\adi_ad1836a_ii.c	2008-02-26 02:00:10.078125000 +0200
++++ libs\common\adi_ad1836a_ii.c	2008-02-26 01:54:58.656250000 +0200
+@@ -610,7 +610,7 @@
+ 				        pAD1836A->Sport.TCR1 = PAUX_SPORT_TCR1;
+ 				        pAD1836A->Sport.RCR2 = PAUX_SPORT_WLEN;
+ 				        pAD1836A->Sport.TCR2 = PAUX_SPORT_WLEN;
+-				        pAD1836A->Sport.MCMC2= PAUX_MCMC2;
++				        pAD1836A->Sport.MCMC2= 0x101C; // HANNU
+         				// Select SPORT configuration commands for data Transmit & Receive settings (for AD1836A ADC & DAC)
+ 						pAD1836A->SportCmdSelect 	= (SPORT_TCR1 | SPORT_TCR2 | SPORT_RCR1 | SPORT_RCR2 | SPORT_MCMC1 \
+ 														| SPORT_MCMC2 | SPORT_MTCS0 | SPORT_MRCS0);

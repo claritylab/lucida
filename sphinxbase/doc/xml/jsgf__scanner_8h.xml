@@ -1,0 +1,1897 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="jsgf__scanner_8h" kind="file">
+    <compoundname>jsgf_scanner.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="errno_8h" local="no">errno.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="jsgf_8c" local="yes">src/libsphinxbase/lm/jsgf.c</includedby>
+    <includedby refid="jsgf__parser_8c" local="yes">src/libsphinxbase/lm/jsgf_parser.c</includedby>
+    <incdepgraph>
+      <node id="1885">
+        <label>errno.h</label>
+        <link refid="errno_8h_source"/>
+      </node>
+      <node id="1886">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1884">
+        <label>string.h</label>
+      </node>
+      <node id="1882">
+        <label>src/libsphinxbase/lm/jsgf_scanner.h</label>
+        <link refid="jsgf_scanner.h"/>
+        <childnode refid="1883" relation="include">
+        </childnode>
+        <childnode refid="1884" relation="include">
+        </childnode>
+        <childnode refid="1885" relation="include">
+        </childnode>
+        <childnode refid="1886" relation="include">
+        </childnode>
+      </node>
+      <node id="1883">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1889">
+        <label>src/libsphinxbase/lm/jsgf_parser.c</label>
+        <link refid="jsgf__parser_8c_source"/>
+      </node>
+      <node id="1888">
+        <label>src/libsphinxbase/lm/jsgf.c</label>
+        <link refid="jsgf_8c"/>
+      </node>
+      <node id="1887">
+        <label>src/libsphinxbase/lm/jsgf_scanner.h</label>
+        <link refid="jsgf_scanner.h"/>
+        <childnode refid="1888" relation="include">
+        </childnode>
+        <childnode refid="1889" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structyy__buffer__state" prot="public">yy_buffer_state</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="jsgf__scanner_8h_1a61b73a0217f7aa5a44ece66df0d2fb15" prot="public" static="no">
+        <name>yyIN_HEADER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="3" column="17" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a1ae16e642a197fa4948998525813c6f5" prot="public" static="no">
+        <name>YY_INT_ALIGNED</name>
+        <initializer>short int</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="9" column="10" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a3c3d1ef92e93b0bc81d7760a73d5c3b6" prot="public" static="no">
+        <name>FLEX_SCANNER</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="13" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a243ca1d30872935faf05ea5118ed6fdc" prot="public" static="no">
+        <name>YY_FLEX_MAJOR_VERSION</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="14" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a90f9d458829400869e47efb68a865677" prot="public" static="no">
+        <name>YY_FLEX_MINOR_VERSION</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="15" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ac676bd06869180ea493e9b6d7c078dbb" prot="public" static="no">
+        <name>YY_FLEX_SUBMINOR_VERSION</name>
+        <initializer>37</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="16" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a9465c9986fdda27730c9dff8d16a0887" prot="public" static="no">
+        <name>FLEX_BETA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="18" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1aec980b5a71bbe6d67931df20f0ebaec4" prot="public" static="no">
+        <name>FLEXINT_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="34" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1aadcf2a81af243df333b31efa6461ab8e" prot="public" static="no">
+        <name>INT8_MIN</name>
+        <initializer>(-128)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="64" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ad4e9955955b27624963643eac448118a" prot="public" static="no">
+        <name>INT16_MIN</name>
+        <initializer>(-32767-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="67" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a688eb21a22db27c2b2bd5836943cdcbe" prot="public" static="no">
+        <name>INT32_MIN</name>
+        <initializer>(-2147483647-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="70" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1aaf7f29f45f1a513b4748a4e5014ddf6a" prot="public" static="no">
+        <name>INT8_MAX</name>
+        <initializer>(127)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="73" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ac58f2c111cc9989c86db2a7dc4fd84ca" prot="public" static="no">
+        <name>INT16_MAX</name>
+        <initializer>(32767)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="76" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a181807730d4a375f848ba139813ce04f" prot="public" static="no">
+        <name>INT32_MAX</name>
+        <initializer>(2147483647)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="79" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1aeb4e270a084ee26fe73e799861bd0252" prot="public" static="no">
+        <name>UINT8_MAX</name>
+        <initializer>(255U)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="82" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a3ea490c9b3617d4479bd80ef93cd5602" prot="public" static="no">
+        <name>UINT16_MAX</name>
+        <initializer>(65535U)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="85" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ab5eb23180f7cc12b7d6c04a8ec067fdd" prot="public" static="no">
+        <name>UINT32_MAX</name>
+        <initializer>(4294967295U)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="88" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1aa2f1a918be586b44bf08126bde2d7cc9" prot="public" static="no">
+        <name>yyconst</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="113" column="10" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a5d5508008cac8fb66fca3baa4e9b6584" prot="public" static="no">
+        <name>YY_TYPEDEF_YY_SCANNER_T</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="118" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1aa789f4617e33fb99594cb04a3688a0c1" prot="public" static="no">
+        <name>yyin</name>
+        <initializer>yyg-&gt;yyin_r</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="124" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a4fd44867d448dcb6fc32ea004a15de54" prot="public" static="no">
+        <name>yyout</name>
+        <initializer>yyg-&gt;yyout_r</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="125" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a6d98927535a334881d37873915fbc45f" prot="public" static="no">
+        <name>yyextra</name>
+        <initializer>yyg-&gt;yyextra_r</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="126" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1afa07a629486cb790560bb95713ec7794" prot="public" static="no">
+        <name>yyleng</name>
+        <initializer>yyg-&gt;yyleng_r</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="127" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a0d71f919dbec1ffd74b2460fa7e5ac28" prot="public" static="no">
+        <name>yytext</name>
+        <initializer>yyg-&gt;yytext_r</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="128" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ad71cf0fddcfe4f61de0929105b33226c" prot="public" static="no">
+        <name>yylineno</name>
+        <initializer>(YY_CURRENT_BUFFER_LVALUE-&gt;yy_bs_lineno)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="129" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1adb60e80d603c103e73f2561c7499095c" prot="public" static="no">
+        <name>yycolumn</name>
+        <initializer>(YY_CURRENT_BUFFER_LVALUE-&gt;yy_bs_column)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="130" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a301f4439c9b191c80db45f5b1a8c7269" prot="public" static="no">
+        <name>yy_flex_debug</name>
+        <initializer>yyg-&gt;yy_flex_debug_r</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="131" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ae7e51116e747d3390e7a6cfc6532834c" prot="public" static="no">
+        <name>YY_BUF_SIZE</name>
+        <initializer>16384</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="135" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1aa79d63ed3ff8d2249baf1732a73089f5" prot="public" static="no">
+        <name>YY_TYPEDEF_YY_BUFFER_STATE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="139" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ae0f2b0b5f04b2338367826b5670774f9" prot="public" static="no">
+        <name>YY_TYPEDEF_YY_SIZE_T</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="144" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a8aaa9e1fa7f13d6954d045ef973a9c84" prot="public" static="no">
+        <name>YY_STRUCT_YY_BUFFER_STATE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="149" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a9fc8f6b22baf5d54fbeeb62021a48e78" prot="public" static="no">
+        <name>yywrap</name>
+        <param><defname>yyscanner</defname></param>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="217" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ae1ef5933028cbc587d31328e53d11a99" prot="public" static="no">
+        <name>YY_SKIP_YYWRAP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="218" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a790a191a93ef4d3b8c0bb43fd7480052" prot="public" static="no">
+        <name>yytext_ptr</name>
+        <initializer>yytext_r</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="220" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a26938d921de835f6183c02e54cf08828" prot="public" static="no">
+        <name>YY_EXTRA_TYPE</name>
+        <initializer>void *</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="231" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1aab1491ceccb1c95c14320b2903773a1c" prot="public" static="no">
+        <name>YY_READ_BUF_SIZE</name>
+        <initializer>8192</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="301" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a227e75c43b9e0cd41529974230be7e75" prot="public" static="no">
+        <name>YY_START_STACK_INCR</name>
+        <initializer>25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="306" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="306" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1a7682c8d9cec0859408d2421fbe4a5570" prot="public" static="no">
+        <name>YY_DECL_IS_OURS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="313" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="jsgf__scanner_8h_1ae5b01ac2fa5a6ad5fb97559638abe686" prot="public" static="no">
+        <name>YY_DECL</name>
+        <initializer>int yylex \
+               (<ref refid="unionYYSTYPE" kindref="compound">YYSTYPE</ref> * yylval_param , yyscan_t yyscanner)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="318" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1a7b0840dff4a2ef1702118aa12264b2a7" prot="public" static="no">
+        <type>signed char</type>
+        <definition>typedef signed char flex_int8_t</definition>
+        <argsstring></argsstring>
+        <name>flex_int8_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="55" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1a2e73b2c75126814585525fb2e9d51159" prot="public" static="no">
+        <type>short int</type>
+        <definition>typedef short int flex_int16_t</definition>
+        <argsstring></argsstring>
+        <name>flex_int16_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="56" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1a838ce943cf44ef7769480714fc6c3ba9" prot="public" static="no">
+        <type>int</type>
+        <definition>typedef int flex_int32_t</definition>
+        <argsstring></argsstring>
+        <name>flex_int32_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="57" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1a0fac5ea484f64e75dbe6eba4aa61750c" prot="public" static="no">
+        <type>unsigned char</type>
+        <definition>typedef unsigned char flex_uint8_t</definition>
+        <argsstring></argsstring>
+        <name>flex_uint8_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="58" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1ac50cdb9eefbef83a1cec89e3a7f6e1d2" prot="public" static="no">
+        <type>unsigned short int</type>
+        <definition>typedef unsigned short int flex_uint16_t</definition>
+        <argsstring></argsstring>
+        <name>flex_uint16_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="59" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1a36869712de12820c73aae736762e8e88" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>typedef unsigned int flex_uint32_t</definition>
+        <argsstring></argsstring>
+        <name>flex_uint32_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="60" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1a157535ed0322a026cc197c8985c08d35" prot="public" static="no">
+        <type>void *</type>
+        <definition>typedef void* yyscan_t</definition>
+        <argsstring></argsstring>
+        <name>yyscan_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="119" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1a4e5bd2d129903df83f3d13effaf8f3e4" prot="public" static="no">
+        <type>struct <ref refid="structyy__buffer__state" kindref="compound">yy_buffer_state</ref> *</type>
+        <definition>typedef struct yy_buffer_state* YY_BUFFER_STATE</definition>
+        <argsstring></argsstring>
+        <name>YY_BUFFER_STATE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="140" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="jsgf__scanner_8h_1ad557845057f187eec4be07e2717d2afa" prot="public" static="no">
+        <type>size_t</type>
+        <definition>typedef size_t yy_size_t</definition>
+        <argsstring></argsstring>
+        <name>yy_size_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="145" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="jsgf__scanner_8h_1a90dd3a9d98d1038bfbacab594def68aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyrestart</definition>
+        <argsstring>(FILE *input_file, yyscan_t yyscanner)</argsstring>
+        <name>yyrestart</name>
+        <param>
+          <type>FILE *</type>
+          <declname>input_file</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Immediately switch to a different input stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input_file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A readable stream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This function does not reset the start condition to <computeroutput>INITIAL</computeroutput> . </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="199" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1518" bodyend="1530"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a7cdbe6260339833a504479ae8e1ea279" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yy_switch_to_buffer</definition>
+        <argsstring>(YY_BUFFER_STATE new_buffer, yyscan_t yyscanner)</argsstring>
+        <name>yy_switch_to_buffer</name>
+        <param>
+          <type><ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref></type>
+          <declname>new_buffer</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Switch to a different input buffer. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>new_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new input buffer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="200" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1536" bodyend="1566"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1ac09acfd337d92d0d2a9fc779a6e695a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref></type>
+        <definition>YY_BUFFER_STATE yy_create_buffer</definition>
+        <argsstring>(FILE *file, int size, yyscan_t yyscanner)</argsstring>
+        <name>yy_create_buffer</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Allocate and initialize an input buffer state. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A readable stream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The character buffer size in bytes. When in doubt, use <computeroutput>YY_BUF_SIZE</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the allocated buffer state. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="201" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1583" bodyend="1605"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1af84a23034d0c924a3e9ce920f4ec58d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yy_delete_buffer</definition>
+        <argsstring>(YY_BUFFER_STATE b, yyscan_t yyscanner)</argsstring>
+        <name>yy_delete_buffer</name>
+        <param>
+          <type><ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Destroy the buffer. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a buffer created with yy_create_buffer() </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="202" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1611" bodyend="1625"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a120dc1da21a01a6803c3238d4b0c87f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yy_flush_buffer</definition>
+        <argsstring>(YY_BUFFER_STATE b, yyscan_t yyscanner)</argsstring>
+        <name>yy_flush_buffer</name>
+        <param>
+          <type><ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Discard all buffered characters. </para>        </briefdescription>
+        <detaileddescription>
+<para>On the next scan, YY_INPUT will be called. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the buffer state to be flushed, usually <computeroutput>YY_CURRENT_BUFFER</computeroutput>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="203" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1660" bodyend="1682"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a307a8272bd7da504c943524338fbb330" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yypush_buffer_state</definition>
+        <argsstring>(YY_BUFFER_STATE new_buffer, yyscan_t yyscanner)</argsstring>
+        <name>yypush_buffer_state</name>
+        <param>
+          <type><ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref></type>
+          <declname>new_buffer</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Pushes the new state onto the stack. </para>        </briefdescription>
+        <detaileddescription>
+<para>The new state becomes the current state. This function will allocate the stack if necessary. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>new_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new state. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="204" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1690" bodyend="1715"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a878e1d6fe61658bf7d1c34a366989079" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yypop_buffer_state</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yypop_buffer_state</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Removes and deletes the top of the stack, if present. </para>        </briefdescription>
+        <detaileddescription>
+<para>The next element becomes the new top. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="205" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1721" bodyend="1736"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a9660b57f0bd852377eadbd84dc9df68b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref></type>
+        <definition>YY_BUFFER_STATE yy_scan_buffer</definition>
+        <argsstring>(char *base, yy_size_t size, yyscan_t yyscanner)</argsstring>
+        <name>yy_scan_buffer</name>
+        <param>
+          <type>char *</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>yy_size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Setup the input buffer state to scan directly from a user-specified character buffer. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>base</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the character buffer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size in bytes of the character buffer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the newly allocated buffer state object. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="207" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1791" bodyend="1818"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a1c76c5a3bf3778ab371e3022a3b6b95d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref></type>
+        <definition>YY_BUFFER_STATE yy_scan_string</definition>
+        <argsstring>(yyconst char *yy_str, yyscan_t yyscanner)</argsstring>
+        <name>yy_scan_string</name>
+        <param>
+          <type>yyconst char *</type>
+          <declname>yy_str</declname>
+          <defname>yystr</defname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Setup the input buffer state to scan a string. </para>        </briefdescription>
+        <detaileddescription>
+<para>The next call to yylex() will scan from a <emphasis>copy</emphasis> of <emphasis>str</emphasis>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yystr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a NUL-terminated string to scan </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the newly allocated buffer state object. </para></simplesect>
+<simplesect kind="note"><para>If you want to scan bytes that may contain NUL values, then use yy_scan_bytes() instead. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="208" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1828" bodyend="1832"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a699f2b158aae735d4acdef1f4ba81967" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref></type>
+        <definition>YY_BUFFER_STATE yy_scan_bytes</definition>
+        <argsstring>(yyconst char *bytes, yy_size_t len, yyscan_t yyscanner)</argsstring>
+        <name>yy_scan_bytes</name>
+        <param>
+          <type>yyconst char *</type>
+          <declname>bytes</declname>
+          <defname>yybytes</defname>
+        </param>
+        <param>
+          <type>yy_size_t</type>
+          <declname>len</declname>
+          <defname>_yybytes_len</defname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Setup the input buffer state to scan the given bytes. </para>        </briefdescription>
+        <detaileddescription>
+<para>The next call to yylex() will scan from a <emphasis>copy</emphasis> of <emphasis>bytes</emphasis>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yybytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the byte buffer to scan </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_yybytes_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of bytes in the buffer pointed to by <emphasis>bytes</emphasis>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the newly allocated buffer state object. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="209" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1841" bodyend="1869"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a8ed916a3de3e1c01305e55cef415ba1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* yyalloc</definition>
+        <argsstring>(yy_size_t, yyscan_t yyscanner)</argsstring>
+        <name>yyalloc</name>
+        <param>
+          <type>yy_size_t</type>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="211" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2207" bodyend="2210"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1ae09f0ad558372e0809f461737d6538bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* yyrealloc</definition>
+        <argsstring>(void *, yy_size_t, yyscan_t yyscanner)</argsstring>
+        <name>yyrealloc</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>yy_size_t</type>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="212" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2212" bodyend="2222"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1ace3a0458b901e4a503a33b6411ef5fa1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyfree</definition>
+        <argsstring>(void *, yyscan_t yyscanner)</argsstring>
+        <name>yyfree</name>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="213" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2224" bodyend="2227"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1afbcda44be0f721a1c8f2f280aabb74f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yylex_init</definition>
+        <argsstring>(yyscan_t *scanner)</argsstring>
+        <name>yylex_init</name>
+        <param>
+          <type>yyscan_t *</type>
+          <declname>scanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="234" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2063" bodyend="2082"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a6d4d9baf5ca416f7f4028dc309aeaa02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yylex_init_extra</definition>
+        <argsstring>(YY_EXTRA_TYPE user_defined, yyscan_t *scanner)</argsstring>
+        <name>yylex_init_extra</name>
+        <param>
+          <type>YY_EXTRA_TYPE</type>
+          <declname>user_defined</declname>
+        </param>
+        <param>
+          <type>yyscan_t *</type>
+          <declname>scanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="236" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2092" bodyend="2118"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1aaea60d8102c2afdd7d8e07bc43c530c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yylex_destroy</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yylex_destroy</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="241" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2154" bodyend="2181"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a9711f7e149387b20a3fc11762adf0a9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yyget_debug</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_debug</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="243" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2030" bodyend="2034"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1ad59dca606bf72e9a622cf156a582d529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyset_debug</definition>
+        <argsstring>(int debug_flag, yyscan_t yyscanner)</argsstring>
+        <name>yyset_debug</name>
+        <param>
+          <type>int</type>
+          <declname>debug_flag</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="245" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2036" bodyend="2040"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1afe57498c9517147d12f9c13a6bdd07b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>YY_EXTRA_TYPE</type>
+        <definition>YY_EXTRA_TYPE yyget_extra</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_extra</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Get the user-defined data for this scanner. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="247" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1903" bodyend="1907"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a90d20294722d171c4bf004fda3cd9403" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyset_extra</definition>
+        <argsstring>(YY_EXTRA_TYPE user_defined, yyscan_t yyscanner)</argsstring>
+        <name>yyset_extra</name>
+        <param>
+          <type>YY_EXTRA_TYPE</type>
+          <declname>user_defined</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Set the user-defined data. </para>        </briefdescription>
+        <detaileddescription>
+<para>This data is never touched by the scanner. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user_defined</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to be associated with this scanner. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="249" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1976" bodyend="1980"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1ac37f9e56a959084a6ee592974d1ffe62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE* yyget_in</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_in</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Get the input stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="251" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1938" bodyend="1942"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a9b71d87d640fa8c946c70204acc3fb50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyset_in</definition>
+        <argsstring>(FILE *in_str, yyscan_t yyscanner)</argsstring>
+        <name>yyset_in</name>
+        <param>
+          <type>FILE *</type>
+          <declname>in_str</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Set the input stream. </para>        </briefdescription>
+        <detaileddescription>
+<para>This does not discard the current input buffer. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in_str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A readable stream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>yy_switch_to_buffer </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="253" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2018" bodyend="2022"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a18329358dd492efcce59c62dfa75c280" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE* yyget_out</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_out</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Get the output stream. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="255" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1947" bodyend="1951"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a020f83547c841c35b8c8bb455cef2252" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyset_out</definition>
+        <argsstring>(FILE *out_str, yyscan_t yyscanner)</argsstring>
+        <name>yyset_out</name>
+        <param>
+          <type>FILE *</type>
+          <declname>out_str</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="257" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2024" bodyend="2028"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a3af888694e44f1ff1ea4ed7aabf12f07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>yy_size_t</type>
+        <definition>yy_size_t yyget_leng</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_leng</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Get the length of the current token. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="259" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1956" bodyend="1960"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1ac8eed2192509e291419cbe712aaa5bd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* yyget_text</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_text</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Get the current token. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="261" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1966" bodyend="1970"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a86cef2b171b5abc4f80a9d55b839e7c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yyget_lineno</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_lineno</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Get the current line number. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="263" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1912" bodyend="1920"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1afd0daa048274524a133a1e4e3a42217f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyset_lineno</definition>
+        <argsstring>(int line_number, yyscan_t yyscanner)</argsstring>
+        <name>yyset_lineno</name>
+        <param>
+          <type>int</type>
+          <declname>line_number</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Set the current line number. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>line_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="265" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1986" bodyend="1995"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1ae99214cb04ca948c5dde77ed7178a656" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yyget_column</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_column</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Get the current column number. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="267" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="1925" bodyend="1933"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1acf34f8128a0c285f17ed9ceb9cc54fb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyset_column</definition>
+        <argsstring>(int column_no, yyscan_t yyscanner)</argsstring>
+        <name>yyset_column</name>
+        <param>
+          <type>int</type>
+          <declname>column_no</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+<para>Set the current column. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>line_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yyscanner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scanner object. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="269" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2001" bodyend="2010"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1a6c6af51e52d7fcedd43b98f8c9558752" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="unionYYSTYPE" kindref="compound">YYSTYPE</ref> *</type>
+        <definition>YYSTYPE* yyget_lval</definition>
+        <argsstring>(yyscan_t yyscanner)</argsstring>
+        <name>yyget_lval</name>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="271" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2044" bodyend="2048"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1ab0cd88647db3e1e240b43ec63cb8d868" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yyset_lval</definition>
+        <argsstring>(YYSTYPE *yylval_param, yyscan_t yyscanner)</argsstring>
+        <name>yyset_lval</name>
+        <param>
+          <type><ref refid="unionYYSTYPE" kindref="compound">YYSTYPE</ref> *</type>
+          <declname>yylval_param</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="273" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c" bodystart="2050" bodyend="2054"/>
+      </memberdef>
+      <memberdef kind="function" id="jsgf__scanner_8h_1adaeeff4d42ab7f57df3ad648082015d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int yylex</definition>
+        <argsstring>(YYSTYPE *yylval_param, yyscan_t yyscanner)</argsstring>
+        <name>yylex</name>
+        <param>
+          <type><ref refid="unionYYSTYPE" kindref="compound">YYSTYPE</ref> *</type>
+          <declname>yylval_param</declname>
+        </param>
+        <param>
+          <type>yyscan_t</type>
+          <declname>yyscanner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h" line="315" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>yyHEADER_H</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yyHEADER_H<sp/>1</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yyIN_HEADER<sp/>1</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#line<sp/>6<sp/>&quot;jsgf_scanner.h&quot;</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#line<sp/>8<sp/>&quot;jsgf_scanner.h&quot;</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/><sp/>YY_INT_ALIGNED<sp/>short<sp/>int</highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>A<sp/>lexical<sp/>scanner<sp/>generated<sp/>by<sp/>flex<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FLEX_SCANNER</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_FLEX_MAJOR_VERSION<sp/>2</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_FLEX_MINOR_VERSION<sp/>5</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_FLEX_SUBMINOR_VERSION<sp/>37</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>YY_FLEX_SUBMINOR_VERSION<sp/>&gt;<sp/>0</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>FLEX_BETA</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>First,<sp/>we<sp/>deal<sp/>with<sp/><sp/>platform-specific<sp/>or<sp/>compiler-specific<sp/>issues.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>begin<sp/>standard<sp/>C<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>end<sp/>standard<sp/>C<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>flex<sp/>integer<sp/>type<sp/>definitions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FLEXINT_H</highlight></codeline>
+<codeline lineno="34"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>FLEXINT_H</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>C99<sp/>systems<sp/>have<sp/>&lt;inttypes.h&gt;.<sp/>Non-C99<sp/>systems<sp/>may<sp/>or<sp/>may<sp/>not.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined<sp/>(__STDC_VERSION__)<sp/>&amp;&amp;<sp/>__STDC_VERSION__<sp/>&gt;=<sp/>199901L</highlight></codeline>
+<codeline lineno="39"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>C99<sp/>says<sp/>to<sp/>define<sp/>__STDC_LIMIT_MACROS<sp/>before<sp/>including<sp/>stdint.h,</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>if<sp/>you<sp/>want<sp/>the<sp/>limit<sp/>(max/min)<sp/>macros<sp/>for<sp/>int<sp/>types.<sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__STDC_LIMIT_MACROS</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__STDC_LIMIT_MACROS<sp/>1</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;inttypes.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int8_t<sp/>flex_int8_t;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint8_t<sp/>flex_uint8_t;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int16_t<sp/>flex_int16_t;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint16_t<sp/>flex_uint16_t;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int32_t<sp/>flex_int32_t;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/>flex_uint32_t;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">signed</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>flex_int8_t;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flex_int16_t;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flex_int32_t;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>flex_uint8_t;<sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flex_uint16_t;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flex_uint32_t;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Limits<sp/>of<sp/>integral<sp/>types.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INT8_MIN</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INT8_MIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-128)</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="66"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>INT16_MIN</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INT16_MIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-32767-1)</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>INT32_MIN</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INT32_MIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-2147483647-1)</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>INT8_MAX</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INT8_MAX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(127)</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>INT16_MAX</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INT16_MAX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(32767)</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>INT32_MAX</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INT32_MAX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(2147483647)</highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="81"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>UINT8_MAX</highlight></codeline>
+<codeline lineno="82"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>UINT8_MAX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(255U)</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>UINT16_MAX</highlight></codeline>
+<codeline lineno="85"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>UINT16_MAX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(65535U)</highlight></codeline>
+<codeline lineno="86"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>UINT32_MAX</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>UINT32_MAX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(4294967295U)</highlight></codeline>
+<codeline lineno="89"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="90"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!<sp/>C99<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="92"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!<sp/>FLEXINT_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>The<sp/>&quot;const&quot;<sp/>storage-class-modifier<sp/>is<sp/>valid.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>YY_USE_CONST</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>!<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>C99<sp/>requires<sp/>__STDC__<sp/>to<sp/>be<sp/>defined<sp/>as<sp/>1.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined<sp/>(__STDC__)</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>YY_USE_CONST</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>defined<sp/>(__STDC__)<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>!<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>YY_USE_CONST</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yyconst<sp/>const</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yyconst</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="115"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>An<sp/>opaque<sp/>pointer.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_TYPEDEF_YY_SCANNER_T</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_TYPEDEF_YY_SCANNER_T</highlight></codeline>
+<codeline lineno="119"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>yyscan_t;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="121"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>For<sp/>convenience,<sp/>these<sp/>vars<sp/>(plus<sp/>the<sp/>bison<sp/>vars<sp/>far<sp/>below)</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/><sp/>are<sp/>macros<sp/>in<sp/>the<sp/>reentrant<sp/>scanner.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>yyin<sp/>yyg-&gt;yyin_r</highlight></codeline>
+<codeline lineno="125"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yyout<sp/>yyg-&gt;yyout_r</highlight></codeline>
+<codeline lineno="126"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yyextra<sp/>yyg-&gt;yyextra_r</highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yyleng<sp/>yyg-&gt;yyleng_r</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yytext<sp/>yyg-&gt;yytext_r</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yylineno<sp/>(YY_CURRENT_BUFFER_LVALUE-&gt;yy_bs_lineno)</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yycolumn<sp/>(YY_CURRENT_BUFFER_LVALUE-&gt;yy_bs_column)</highlight></codeline>
+<codeline lineno="131"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>yy_flex_debug<sp/>yyg-&gt;yy_flex_debug_r</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Size<sp/>of<sp/>default<sp/>input<sp/>buffer.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_BUF_SIZE</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_BUF_SIZE<sp/>16384</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_TYPEDEF_YY_BUFFER_STATE</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_TYPEDEF_YY_BUFFER_STATE</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structyy__buffer__state" kindref="compound">yy_buffer_state</ref><sp/>*<ref refid="structyy__buffer__state" kindref="compound">YY_BUFFER_STATE</ref>;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_TYPEDEF_YY_SIZE_T</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_TYPEDEF_YY_SIZE_T</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>yy_size_t;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_STRUCT_YY_BUFFER_STATE</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_STRUCT_YY_BUFFER_STATE</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structyy__buffer__state" kindref="compound">yy_buffer_state</ref></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*yy_input_file;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*yy_ch_buf;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>input<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*yy_buf_pos;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>current<sp/>position<sp/>in<sp/>input<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Size<sp/>of<sp/>input<sp/>buffer<sp/>in<sp/>bytes,<sp/>not<sp/>including<sp/>room<sp/>for<sp/>EOB</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>characters.</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yy_size_t<sp/>yy_buf_size;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Number<sp/>of<sp/>characters<sp/>read<sp/>into<sp/>yy_ch_buf,<sp/>not<sp/>including<sp/>EOB</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>characters.</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yy_size_t<sp/>yy_n_chars;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Whether<sp/>we<sp/>&quot;own&quot;<sp/>the<sp/>buffer<sp/>-<sp/>i.e.,<sp/>we<sp/>know<sp/>we<sp/>created<sp/>it,</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>and<sp/>can<sp/>realloc()<sp/>it<sp/>to<sp/>grow<sp/>it,<sp/>and<sp/>should<sp/>free()<sp/>it<sp/>to</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>delete<sp/>it.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yy_is_our_buffer;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Whether<sp/>this<sp/>is<sp/>an<sp/>&quot;interactive&quot;<sp/>input<sp/>source;<sp/>if<sp/>so,<sp/>and</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>if<sp/>we&apos;re<sp/>using<sp/>stdio<sp/>for<sp/>input,<sp/>then<sp/>we<sp/>want<sp/>to<sp/>use<sp/>getc()</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>instead<sp/>of<sp/>fread(),<sp/>to<sp/>make<sp/>sure<sp/>we<sp/>stop<sp/>fetching<sp/>input<sp/>after</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>each<sp/>newline.</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yy_is_interactive;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Whether<sp/>we&apos;re<sp/>considered<sp/>to<sp/>be<sp/>at<sp/>the<sp/>beginning<sp/>of<sp/>a<sp/>line.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>If<sp/>so,<sp/>&apos;^&apos;<sp/>rules<sp/>will<sp/>be<sp/>active<sp/>on<sp/>the<sp/>next<sp/>match,<sp/>otherwise</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>not.</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yy_at_bol;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structyy__buffer__state_1a818e94bc9c766e683c60df1e9fd01199" kindref="member">yy_bs_lineno</ref>;<sp/></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structyy__buffer__state_1a10c4fcd8be759e6bf11e6d3e8cdb0307" kindref="member">yy_bs_column</ref>;<sp/></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Whether<sp/>to<sp/>try<sp/>to<sp/>fill<sp/>the<sp/>input<sp/>buffer<sp/>when<sp/>we<sp/>reach<sp/>the</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>end<sp/>of<sp/>it.</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yy_fill_buffer;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yy_buffer_status;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!YY_STRUCT_YY_BUFFER_STATE<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="198"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyrestart<sp/>(FILE<sp/>*input_file<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yy_switch_to_buffer<sp/>(YY_BUFFER_STATE<sp/>new_buffer<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal">YY_BUFFER_STATE<sp/>yy_create_buffer<sp/>(FILE<sp/>*file,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yy_delete_buffer<sp/>(YY_BUFFER_STATE<sp/>b<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yy_flush_buffer<sp/>(YY_BUFFER_STATE<sp/>b<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yypush_buffer_state<sp/>(YY_BUFFER_STATE<sp/>new_buffer<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yypop_buffer_state<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">YY_BUFFER_STATE<sp/>yy_scan_buffer<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*base,yy_size_t<sp/>size<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">YY_BUFFER_STATE<sp/>yy_scan_string<sp/>(yyconst<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*yy_str<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">YY_BUFFER_STATE<sp/>yy_scan_bytes<sp/>(yyconst<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*bytes,yy_size_t<sp/>len<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="unionyyalloc" kindref="compound">yyalloc</ref><sp/>(yy_size_t<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*yyrealloc<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,yy_size_t<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyfree<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Begin<sp/>user<sp/>sect3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>yywrap(yyscanner)<sp/>1</highlight></codeline>
+<codeline lineno="218"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_SKIP_YYWRAP</highlight></codeline>
+<codeline lineno="219"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>yytext_ptr<sp/>yytext_r</highlight></codeline>
+<codeline lineno="221"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>YY_HEADER_EXPORT_START_CONDITIONS</highlight></codeline>
+<codeline lineno="223"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>INITIAL<sp/>0</highlight></codeline>
+<codeline lineno="224"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>COMMENT<sp/>1</highlight></codeline>
+<codeline lineno="225"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>DECL<sp/>2</highlight></codeline>
+<codeline lineno="226"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>DECLCOMMENT<sp/>3</highlight></codeline>
+<codeline lineno="227"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="229"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_EXTRA_TYPE</highlight></codeline>
+<codeline lineno="231"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_EXTRA_TYPE<sp/>void<sp/>*</highlight></codeline>
+<codeline lineno="232"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="233"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yylex_init<sp/>(yyscan_t*<sp/>scanner);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yylex_init_extra<sp/>(YY_EXTRA_TYPE<sp/>user_defined,yyscan_t*<sp/>scanner);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Accessor<sp/>methods<sp/>to<sp/>globals.</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/><sp/><sp/>These<sp/>are<sp/>made<sp/>visible<sp/>to<sp/>non-reentrant<sp/>scanners<sp/>for<sp/>convenience.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yylex_destroy<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yyget_debug<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyset_debug<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>debug_flag<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal">YY_EXTRA_TYPE<sp/>yyget_extra<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyset_extra<sp/>(YY_EXTRA_TYPE<sp/>user_defined<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal">FILE<sp/>*yyget_in<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyset_in<sp/><sp/>(FILE<sp/>*<sp/>in_str<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal">FILE<sp/>*yyget_out<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyset_out<sp/><sp/>(FILE<sp/>*<sp/>out_str<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal">yy_size_t<sp/>yyget_leng<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*yyget_text<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yyget_lineno<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyset_lineno<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_number<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yyget_column<sp/><sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyset_column<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>column_no<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><ref refid="unionYYSTYPE" kindref="compound">YYSTYPE</ref><sp/>*<sp/>yyget_lval<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yyset_lval<sp/>(<ref refid="unionYYSTYPE" kindref="compound">YYSTYPE</ref><sp/>*<sp/>yylval_param<sp/>,yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Macros<sp/>after<sp/>this<sp/>point<sp/>can<sp/>all<sp/>be<sp/>overridden<sp/>by<sp/>user<sp/>definitions<sp/>in</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*<sp/>section<sp/>1.</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_SKIP_YYWRAP</highlight></codeline>
+<codeline lineno="280"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="281"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yywrap<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="283"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yywrap<sp/>(yyscan_t<sp/>yyscanner<sp/>);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="285"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="286"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>yytext_ptr</highlight></codeline>
+<codeline lineno="288"><highlight class="preprocessor"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>yy_flex_strncpy<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,yyconst<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>,yyscan_t<sp/>yyscanner);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="290"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>YY_NEED_STRLEN</highlight></codeline>
+<codeline lineno="292"><highlight class="preprocessor"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yy_flex_strlen<sp/>(yyconst<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>,yyscan_t<sp/>yyscanner);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="294"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_NO_INPUT</highlight></codeline>
+<codeline lineno="296"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="298"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Amount<sp/>of<sp/>stuff<sp/>to<sp/>slurp<sp/>up<sp/>with<sp/>each<sp/>read.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_READ_BUF_SIZE</highlight></codeline>
+<codeline lineno="301"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_READ_BUF_SIZE<sp/>8192</highlight></codeline>
+<codeline lineno="302"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="303"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Number<sp/>of<sp/>entries<sp/>by<sp/>which<sp/>start-condition<sp/>stack<sp/>grows.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_START_STACK_INCR</highlight></codeline>
+<codeline lineno="306"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_START_STACK_INCR<sp/>25</highlight></codeline>
+<codeline lineno="307"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="308"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Default<sp/>declaration<sp/>of<sp/>generated<sp/>scanner<sp/>-<sp/>a<sp/>define<sp/>so<sp/>the<sp/>user<sp/>can</highlight></codeline>
+<codeline lineno="310"><highlight class="comment"><sp/>*<sp/>easily<sp/>add<sp/>parameters.</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>YY_DECL</highlight></codeline>
+<codeline lineno="313"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>YY_DECL_IS_OURS<sp/>1</highlight></codeline>
+<codeline lineno="314"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yylex<sp/>\</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="unionYYSTYPE" kindref="compound">YYSTYPE</ref><sp/>*<sp/>yylval_param<sp/>,yyscan_t<sp/>yyscanner);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>YY_DECL<sp/>int<sp/>yylex<sp/>\</highlight></codeline>
+<codeline lineno="319"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(YYSTYPE<sp/>*<sp/>yylval_param<sp/>,<sp/>yyscan_t<sp/>yyscanner)</highlight></codeline>
+<codeline lineno="320"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!YY_DECL<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="321"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>yy_get_previous_state<sp/>-<sp/>get<sp/>the<sp/>state<sp/>just<sp/>before<sp/>the<sp/>EOB<sp/>char<sp/>was<sp/>reached<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>YY_NEW_FILE</highlight></codeline>
+<codeline lineno="325"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#undef<sp/>YY_FLUSH_BUFFER</highlight></codeline>
+<codeline lineno="326"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#undef<sp/>yy_set_bol</highlight></codeline>
+<codeline lineno="327"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#undef<sp/>yy_new_buffer</highlight></codeline>
+<codeline lineno="328"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#undef<sp/>yy_set_interactive</highlight></codeline>
+<codeline lineno="329"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#undef<sp/>YY_DO_BEFORE_ACTION</highlight></codeline>
+<codeline lineno="330"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>YY_DECL_IS_OURS</highlight></codeline>
+<codeline lineno="332"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#undef<sp/>YY_DECL_IS_OURS</highlight></codeline>
+<codeline lineno="333"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#undef<sp/>YY_DECL</highlight></codeline>
+<codeline lineno="334"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="335"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight><highlight class="preprocessor">#line<sp/>87<sp/>&quot;_jsgf_scanner.l&quot;</highlight></codeline>
+<codeline lineno="337"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight><highlight class="preprocessor">#line<sp/>340<sp/>&quot;jsgf_scanner.h&quot;</highlight></codeline>
+<codeline lineno="340"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#undef<sp/>yyIN_HEADER</highlight></codeline>
+<codeline lineno="341"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>yyHEADER_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h"/>
+  </compounddef>
+</doxygen>

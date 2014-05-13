@@ -1,0 +1,54 @@
+.TH POCKETSPHINX_BATCH 1 "2007-08-27"
+.SH NAME
+pocketsphinx_batch \- Run speech recognition in batch mode
+.SH SYNOPSIS
+.B pocketsphinx_batch
+.RI \fB\-hmm\fR
+\fIhmmdir\fR
+\fB\-dict\fR
+\fIdictfile\fR
+[\fI options \fR]...
+.SH DESCRIPTION
+.PP
+Run speech recognition over a list of utterances in batchmode.  A list
+of arguments follows:
+.\" ### ARGUMENTS ###
+.PP
+The
+.B \-hmm
+and
+.B \-dict
+arguments are always required.  Either
+.B \-lm
+or
+.B \-fsg
+is required, depending on whether you are using a statistical language
+model or a finite-state grammar.  To do batchmode recognition, you
+will need to specify a control file, using
+.B \-ctl
+This is a simple text file containing one entry per line.  Each entry
+is the name of an input file relative to the
+.B \-cepdir
+directory, and without the filename extension (which is given in the
+.B \-cepext
+argument).
+.PP
+If you are using acoustic feature files as input (see
+.BR sphinx_fe (1)
+for information on how to generate these), you can also specify a subpart
+of a file, using the following format:
+.PP
+.RS
+.B FILENAME START\-FRAME END\-FRAME UTTERANCE-ID
+.RE
+.SH AUTHOR
+Written by numerous people at CMU from 1994 onwards.  This manual page
+by David Huggins-Daines <dhuggins@cs.cmu.edu>
+.SH COPYRIGHT
+Copyright \(co 1994-2007 Carnegie Mellon University.  See the file
+\fICOPYING\fR included with this package for more information.
+.br
+.SH "SEE ALSO"
+.BR pocketsphinx_continuous (1),
+.BR sphinx_fe (1).
+.br

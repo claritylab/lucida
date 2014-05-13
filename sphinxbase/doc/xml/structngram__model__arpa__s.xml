@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structngram__model__arpa__s" kind="struct" prot="public">
+    <compoundname>ngram_model_arpa_s</compoundname>
+    <includes refid="ngram__model__arpa_8h" local="no">ngram_model_arpa.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structngram__model__arpa__s_1ab09caa709057492ca333e7349e006c5d" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__model_8h_1afaaf0c00e20056d97efcd97e4cae4ea7" kindref="member">ngram_model_t</ref></type>
+        <definition>ngram_model_t ngram_model_arpa_s::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+<para>Base ngram_model_t structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="76" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__model__arpa__s_1abe1aa64587afdcb6134c0efaad622e78" prot="public" static="no" mutable="no">
+        <type><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref></type>
+        <definition>lm3g_model_t ngram_model_arpa_s::lm3g</definition>
+        <argsstring></argsstring>
+        <name>lm3g</name>
+        <briefdescription>
+<para>Shared lm3g structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="77" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__model__arpa__s_1a3ce912671b868fa1ebc556c0776e2246" prot="public" static="no" mutable="no">
+        <type><ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref></type>
+        <definition>sorted_list_t ngram_model_arpa_s::sorted_prob2</definition>
+        <argsstring></argsstring>
+        <name>sorted_prob2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="81" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__model__arpa__s_1ad1cc307815c424daee1ea93a7192228d" prot="public" static="no" mutable="no">
+        <type><ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref></type>
+        <definition>sorted_list_t ngram_model_arpa_s::sorted_bo_wt2</definition>
+        <argsstring></argsstring>
+        <name>sorted_bo_wt2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="82" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__model__arpa__s_1a4975e5e7a036df540a27a19dce588388" prot="public" static="no" mutable="no">
+        <type><ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref></type>
+        <definition>sorted_list_t ngram_model_arpa_s::sorted_prob3</definition>
+        <argsstring></argsstring>
+        <name>sorted_prob3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="83" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Subclass of ngram_model for ARPA file reading. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="229">
+        <label>lmprob_t</label>
+        <link refid="unionlmprob__t"/>
+      </node>
+      <node id="225">
+        <label>trigram_s</label>
+        <link refid="structtrigram__s"/>
+      </node>
+      <node id="240">
+        <label>ngram_funcs_s</label>
+        <link refid="structngram__funcs__s"/>
+        <childnode refid="241" relation="usage">
+          <edgelabel>mgrams</edgelabel>
+          <edgelabel>iter_next</edgelabel>
+          <edgelabel>successors</edgelabel>
+          <edgelabel>iter</edgelabel>
+        </childnode>
+      </node>
+      <node id="230">
+        <label>unigram_s</label>
+        <link refid="structunigram__s"/>
+        <childnode refid="229" relation="usage">
+          <edgelabel>bo_wt1</edgelabel>
+          <edgelabel>prob1</edgelabel>
+        </childnode>
+      </node>
+      <node id="223">
+        <label>lm3g_model_s</label>
+        <link refid="structlm3g__model__s"/>
+        <childnode refid="224" relation="usage">
+          <edgelabel>tginfo</edgelabel>
+        </childnode>
+        <childnode refid="226" relation="usage">
+          <edgelabel>le</edgelabel>
+        </childnode>
+        <childnode refid="229" relation="usage">
+          <edgelabel>bo_wt2</edgelabel>
+          <edgelabel>prob2</edgelabel>
+          <edgelabel>prob3</edgelabel>
+        </childnode>
+        <childnode refid="225" relation="usage">
+          <edgelabel>trigrams</edgelabel>
+        </childnode>
+        <childnode refid="230" relation="usage">
+          <edgelabel>unigrams</edgelabel>
+        </childnode>
+        <childnode refid="231" relation="usage">
+          <edgelabel>bigrams</edgelabel>
+        </childnode>
+      </node>
+      <node id="227">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="227" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="228" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="231">
+        <label>bigram_s</label>
+        <link refid="structbigram__s"/>
+      </node>
+      <node id="232">
+        <label>sorted_list_t</label>
+        <link refid="structsorted__list__t"/>
+        <childnode refid="233" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+      <node id="233">
+        <label>sorted_entry_s</label>
+        <link refid="structsorted__entry__s"/>
+        <childnode refid="229" relation="usage">
+          <edgelabel>val</edgelabel>
+        </childnode>
+      </node>
+      <node id="222">
+        <label>ngram_model_arpa_s</label>
+        <link refid="structngram__model__arpa__s"/>
+        <childnode refid="223" relation="usage">
+          <edgelabel>lm3g</edgelabel>
+        </childnode>
+        <childnode refid="232" relation="usage">
+          <edgelabel>sorted_bo_wt2</edgelabel>
+          <edgelabel>sorted_prob2</edgelabel>
+          <edgelabel>sorted_prob3</edgelabel>
+        </childnode>
+        <childnode refid="234" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+      <node id="228">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="243">
+        <label>ngram_class_s::ngram_hash_s</label>
+        <link refid="structngram__class__s_1_1ngram__hash__s"/>
+      </node>
+      <node id="236">
+        <label>hash_entry_s</label>
+        <link refid="structhash__entry__s"/>
+        <childnode refid="236" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="235">
+        <label>hash_table_t</label>
+        <link refid="structhash__table__t"/>
+        <childnode refid="236" relation="usage">
+          <edgelabel>table</edgelabel>
+        </childnode>
+      </node>
+      <node id="224">
+        <label>tginfo_s</label>
+        <link refid="structtginfo__s"/>
+        <childnode refid="224" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="225" relation="usage">
+          <edgelabel>tg</edgelabel>
+        </childnode>
+      </node>
+      <node id="241">
+        <label>ngram_iter_s</label>
+        <link refid="structngram__iter__s"/>
+        <childnode refid="234" relation="usage">
+          <edgelabel>model</edgelabel>
+        </childnode>
+      </node>
+      <node id="226">
+        <label>listelem_alloc_s</label>
+        <link refid="structlistelem__alloc__s"/>
+        <childnode refid="227" relation="usage">
+          <edgelabel>blocks</edgelabel>
+          <edgelabel>blocksize</edgelabel>
+        </childnode>
+      </node>
+      <node id="242">
+        <label>ngram_class_s</label>
+        <link refid="structngram__class__s"/>
+        <childnode refid="243" relation="usage">
+          <edgelabel>nword_hash</edgelabel>
+        </childnode>
+      </node>
+      <node id="237">
+        <label>logmath_s</label>
+        <link refid="structlogmath__s"/>
+        <childnode refid="238" relation="usage">
+          <edgelabel>t</edgelabel>
+        </childnode>
+        <childnode refid="239" relation="usage">
+          <edgelabel>filemap</edgelabel>
+        </childnode>
+      </node>
+      <node id="238">
+        <label>logadd_s</label>
+        <link refid="structlogadd__s"/>
+      </node>
+      <node id="239">
+        <label>mmio_file_s</label>
+        <link refid="structmmio__file__s"/>
+      </node>
+      <node id="234">
+        <label>ngram_model_s</label>
+        <link refid="structngram__model__s"/>
+        <childnode refid="235" relation="usage">
+          <edgelabel>wid</edgelabel>
+        </childnode>
+        <childnode refid="237" relation="usage">
+          <edgelabel>lmath</edgelabel>
+        </childnode>
+        <childnode refid="240" relation="usage">
+          <edgelabel>funcs</edgelabel>
+        </childnode>
+        <childnode refid="242" relation="usage">
+          <edgelabel>classes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" line="75" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h" bodystart="75" bodyend="84"/>
+    <listofallmembers>
+      <member refid="structngram__model__arpa__s_1ab09caa709057492ca333e7349e006c5d" prot="public" virt="non-virtual"><scope>ngram_model_arpa_s</scope><name>base</name></member>
+      <member refid="structngram__model__arpa__s_1abe1aa64587afdcb6134c0efaad622e78" prot="public" virt="non-virtual"><scope>ngram_model_arpa_s</scope><name>lm3g</name></member>
+      <member refid="structngram__model__arpa__s_1ad1cc307815c424daee1ea93a7192228d" prot="public" virt="non-virtual"><scope>ngram_model_arpa_s</scope><name>sorted_bo_wt2</name></member>
+      <member refid="structngram__model__arpa__s_1a3ce912671b868fa1ebc556c0776e2246" prot="public" virt="non-virtual"><scope>ngram_model_arpa_s</scope><name>sorted_prob2</name></member>
+      <member refid="structngram__model__arpa__s_1a4975e5e7a036df540a27a19dce588388" prot="public" virt="non-virtual"><scope>ngram_model_arpa_s</scope><name>sorted_prob3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

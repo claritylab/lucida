@@ -1,0 +1,79 @@
+.TH SPHINX_CONT_ADSEG 1 "2008-05-12"
+.SH NAME
+sphinx_cont_fileseg \- Segment a waveform file into non-silence regions
+.SH SYNOPSIS
+.B sphinx_cont_fileseg
+[
+.B -? | -h
+]
+[
+.B \-d | \-debug
+]
+[
+.B \-sps
+.I sampling-rate (16000)
+]
+[
+.B \-b | \-byteswap
+]
+[
+{
+.B \-s | \-silsep
+}
+.I length-silence-separator(sec) (0.5)
+]
+[
+.B \-w | \-writeseg
+]
+[
+.B \-min-noise
+.I min-noise
+]
+[
+.B \-max-noise
+.I max-noise
+]
+[
+.B \-delta-sil
+.I delta-sil
+]
+[
+.B \-delta-speech
+.I delta-speech
+]
+[
+.B \-sil-onset
+.I sil-onset
+]
+[
+.B -speech-onset
+.I speech-onset
+]
+[
+.B \-adapt-rate
+.I adapt-rate
+]
+[
+.B \-max-adreadsize 
+.I ad_read_blksize
+]
+[
+.B -c
+.I copy-input-file
+]
+[
+.B -r | -rawmode
+]
+.B -i
+.I input-file
+.SH DESCRIPTION
+.PP
+This program reads an input file and segments it
+into individual non-silence regions.
+.SH AUTHOR
+Written by M. K. Ravishankar <rkm@cs.cmu.edu>.  This (rather lousy) manual page
+by David Huggins-Daines <dhuggins@cs.cmu.edu>
+.SH COPYRIGHT
+Copyright \(co 1999-2001 Carnegie Mellon University.  See the file
+\fICOPYING\fR included with this package for more information.
+.br

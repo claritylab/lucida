@@ -1,0 +1,881 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="bio_8h" kind="file">
+    <compoundname>bio.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdarg.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includes refid="byteorder_8h" local="no">sphinxbase/byteorder.h</includes>
+    <includedby refid="feat_8c" local="yes">src/libsphinxbase/feat/feat.c</includedby>
+    <includedby refid="lda_8c" local="yes">src/libsphinxbase/feat/lda.c</includedby>
+    <includedby refid="bio_8c" local="yes">src/libsphinxbase/util/bio.c</includedby>
+    <includedby refid="logmath_8c" local="yes">src/libsphinxbase/util/logmath.c</includedby>
+    <includedby refid="main__cepview_8c" local="no">src/sphinx_cepview/main_cepview.c</includedby>
+    <incdepgraph>
+      <node id="177">
+        <label>stdarg.h</label>
+      </node>
+      <node id="181">
+        <label>sphinxbase/byteorder.h</label>
+        <link refid="byteorder_8h_source"/>
+      </node>
+      <node id="175">
+        <label>include/sphinxbase/bio.h</label>
+        <link refid="bio.h"/>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+      </node>
+      <node id="180">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="178">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="179">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="180" relation="include">
+        </childnode>
+      </node>
+      <node id="176">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="187">
+        <label>src/sphinx_cepview/main_cepview.c</label>
+        <link refid="main__cepview_8c"/>
+      </node>
+      <node id="182">
+        <label>include/sphinxbase/bio.h</label>
+        <link refid="bio.h"/>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="186" relation="include">
+        </childnode>
+        <childnode refid="187" relation="include">
+        </childnode>
+      </node>
+      <node id="186">
+        <label>src/libsphinxbase/util/logmath.c</label>
+        <link refid="logmath_8c_source"/>
+      </node>
+      <node id="183">
+        <label>src/libsphinxbase/feat/feat.c</label>
+        <link refid="feat_8c_source"/>
+      </node>
+      <node id="185">
+        <label>src/libsphinxbase/util/bio.c</label>
+        <link refid="bio_8c_source"/>
+      </node>
+      <node id="184">
+        <label>src/libsphinxbase/feat/lda.c</label>
+        <link refid="lda_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="bio_8h_1ac08e1e4728563a03ff6c937bfa8fd845" prot="public" static="no">
+        <name>BYTE_ORDER_MAGIC</name>
+        <initializer>(0x11223344)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="92" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bio_8h_1abf9af8ac9d8a67710371365812869c92" prot="public" static="no">
+        <name>REVERSE_SENSE_SWAP_INT16</name>
+        <param><defname>x</defname></param>
+        <briefdescription>
+<para>&quot;reversed senses&quot; SWAP, ARCHAN: This is still incorporated in Sphinx 3 because lm3g2dmp used it. </para>        </briefdescription>
+        <detaileddescription>
+<para>Don&apos;t think that I am very happy with it. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="103" column="10" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bio_8h_1a2c277e579a007b5c46bd762a7d18b2cf" prot="public" static="no">
+        <name>REVERSE_SENSE_SWAP_INT32</name>
+        <param><defname>x</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="104" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="bio_8h_1a7a155ff51740f1d9a31f7bb7b6e4bc3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 bio_readhdr</definition>
+        <argsstring>(FILE *fp, char ***name, char ***val, int32 *swap)</argsstring>
+        <name>bio_readhdr</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to read </para></briefdescription>
+        </param>
+        <param>
+          <type>char ***</type>
+          <declname>name</declname>
+          <briefdescription><para>Out: array of argument name strings read </para></briefdescription>
+        </param>
+        <param>
+          <type>char ***</type>
+          <declname>val</declname>
+          <briefdescription><para>Out: corresponding value strings read </para></briefdescription>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>swap</declname>
+          <briefdescription><para>Out: file needs byteswapping iff (*swap) </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Read binary file format header: has the following format. </para>        </briefdescription>
+        <detaileddescription>
+<para><preformatted>
+    s3
+    &lt;argument-name&gt; &lt;argument-value&gt;
+    &lt;argument-name&gt; &lt;argument-value&gt;
+    ...
+    endhdr
+    4-byte byte-order word used to find file byte ordering relative to host machine.
+</preformatted> Lines beginning with # are ignored. Memory for name and val allocated by this function; use bio_hdrarg_free to free them. <simplesect kind="return"><para>0 if successful, -1 otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="125" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="187" bodyend="262"/>
+        <references refid="bio_8h_1adb3c858a50381aeff022ccd4271af2d9" compoundref="bio_8c" startline="121" endline="133">bio_hdrarg_free</references>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" compoundref="ckd__alloc_8h" startline="264">ckd_salloc</references>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+        <referencedby refid="feat_8h_1a7639fbc34e3328d7e3259e61372c64b8" compoundref="lda_8c" startline="61" endline="136">feat_read_lda</referencedby>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1a9662c09be1f18377488dedb8e7ca0bfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 bio_writehdr_version</definition>
+        <argsstring>(FILE *fp, char *version)</argsstring>
+        <name>bio_writehdr_version</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>Output: File to write </para></briefdescription>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>version</declname>
+          <briefdescription><para>Input: A string of version </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Write a simple binary file header, containing only the version string. </para>        </briefdescription>
+        <detaileddescription>
+<para>Also write the byte order magic word. <simplesect kind="return"><para>0 if successful, -1 otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="136" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="137" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1adc41fc6124fa3e52267c0a2c1036246f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 bio_writehdr</definition>
+        <argsstring>(FILE *fp,...)</argsstring>
+        <name>bio_writehdr</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+<para>Write a simple binary file header with only byte order magic word. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 if successful, -1 otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="146" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="155" bodyend="183"/>
+        <references refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" compoundref="err_8h" startline="121">E_ERROR</references>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1adb3c858a50381aeff022ccd4271af2d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void bio_hdrarg_free</definition>
+        <argsstring>(char **name, char **val)</argsstring>
+        <name>bio_hdrarg_free</name>
+        <param>
+          <type>char **</type>
+          <declname>name</declname>
+          <briefdescription><para>In: Array previously returned by bio_readhdr </para></briefdescription>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>val</declname>
+          <briefdescription><para>In: Array previously returned by bio_readhdr </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Free name and value strings previously allocated and returned by bio_readhdr. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="152" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="121" bodyend="133"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="bio_8h_1a7a155ff51740f1d9a31f7bb7b6e4bc3a" compoundref="bio_8c" startline="187" endline="262">bio_readhdr</referencedby>
+        <referencedby refid="feat_8h_1a7639fbc34e3328d7e3259e61372c64b8" compoundref="lda_8c" startline="61" endline="136">feat_read_lda</referencedby>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 bio_fread</definition>
+        <argsstring>(void *buf, int32 el_sz, int32 n_el, FILE *fp, int32 swap, uint32 *chksum)</argsstring>
+        <name>bio_fread</name>
+        <param>
+          <type>void *</type>
+          <declname>buf</declname>
+          <briefdescription><para>In: buffer to write </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>el_sz</declname>
+          <briefdescription><para>In: element size </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_el</declname>
+          <briefdescription><para>In: number of elements </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: An input file pointer </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>swap</declname>
+          <briefdescription><para>In: Byteswap iff (swap != 0) </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In/Out: Accumulated checksum </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Like fread but perform byteswapping and accumulate checksum (the 2 extra arguments). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>unlike fread, returns -1 if required number of elements (n_el) not read; also, no byteswapping or checksum accumulation is performed in that case. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="163" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="326" bodyend="339"/>
+        <referencedby refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" compoundref="bio_8c" startline="364" endline="381">bio_fread_1d</referencedby>
+        <referencedby refid="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" compoundref="bio_8c" startline="384" endline="427">bio_fread_2d</referencedby>
+        <referencedby refid="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" compoundref="bio_8c" startline="430" endline="489">bio_fread_3d</referencedby>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1a144651e14134242035793d69918fd407" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 bio_fwrite</definition>
+        <argsstring>(const void *buf, int32 el_sz, int32 n_el, FILE *fp, int32 swap, uint32 *chksum)</argsstring>
+        <name>bio_fwrite</name>
+        <param>
+          <type>const void *</type>
+          <declname>buf</declname>
+          <briefdescription><para>In: buffer to write </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>el_sz</declname>
+          <briefdescription><para>In: element size </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_el</declname>
+          <briefdescription><para>In: number of elements </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: An input file pointer </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>swap</declname>
+          <briefdescription><para>In: Byteswap iff (swap != 0) </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In/Out: Accumulated checksum </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Like fwrite but perform byteswapping and accumulate checksum (the 2 extra arguments). </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of elemens written (like fwrite). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="177" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="342" bodyend="361"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" compoundref="bio_8c" startline="558" endline="589">bio_fwrite_1d</referencedby>
+        <referencedby refid="bio_8h_1a86f52de3b6076ff2ac32c8d8f5cf48fd" compoundref="bio_8c" startline="507" endline="555">bio_fwrite_3d</referencedby>
+        <referencedby refid="logmath_8h_1a787070f5e689878348ef219245fc7c44" compoundref="logmath_8c" startline="272" endline="332">logmath_write</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 bio_fread_1d</definition>
+        <argsstring>(void **buf, size_t el_sz, uint32 *n_el, FILE *fp, int32 sw, uint32 *ck)</argsstring>
+        <name>bio_fread_1d</name>
+        <param>
+          <type>void **</type>
+          <declname>buf</declname>
+          <briefdescription><para>Out: contains array data; allocated by this function; can be freed using ckd_free </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>el_sz</declname>
+          <briefdescription><para>In: Array element size </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>n_el</declname>
+          <briefdescription><para>Out: Number of array elements allocated/read </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to read </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>sw</declname>
+          <briefdescription><para>In: Byteswap iff (swap != 0) </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>ck</declname>
+          <briefdescription><para>In/Out: Accumulated checksum </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Read a 1-d array (fashioned after fread): </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>4-byte array size (returned in n_el)</para></listitem><listitem><para>memory allocated for the array and read (returned in buf)</para></listitem></itemizedlist>
+</para><para>Byteswapping and checksum accumulation performed as necessary. Fails fatally if expected data not read. <simplesect kind="return"><para>number of array elements allocated and read; -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="196" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="364" bodyend="381"/>
+        <references refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" compoundref="bio_8c" startline="326" endline="339">bio_fread</references>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+        <referencedby refid="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" compoundref="bio_8c" startline="384" endline="427">bio_fread_2d</referencedby>
+        <referencedby refid="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" compoundref="bio_8c" startline="430" endline="489">bio_fread_3d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 bio_fread_2d</definition>
+        <argsstring>(void ***arr, size_t e_sz, uint32 *d1, uint32 *d2, FILE *fp, uint32 swap, uint32 *chksum)</argsstring>
+        <name>bio_fread_2d</name>
+        <param>
+          <type>void ***</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>e_sz</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>swap</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+        </param>
+        <briefdescription>
+<para>Read a 2-d matrix: </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>4-byte # rows, # columns (returned in d1, d2, d3)</para></listitem><listitem><para>memory allocated for the array and read (returned in buf)</para></listitem></itemizedlist>
+</para><para>Byteswapping and checksum accumulation performed as necessary. Fails fatally if expected data not read. <simplesect kind="return"><para>number of array elements allocated and read; -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="216" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="384" bodyend="427"/>
+        <references refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" compoundref="bio_8c" startline="326" endline="339">bio_fread</references>
+        <references refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" compoundref="bio_8c" startline="364" endline="381">bio_fread_1d</references>
+        <references refid="ckd__alloc_8h_1ad5d0dce212e97207af42803a3add00e1" compoundref="ckd__alloc_8h" startline="287">ckd_alloc_2d_ptr</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 bio_fread_3d</definition>
+        <argsstring>(void ****arr, size_t e_sz, uint32 *d1, uint32 *d2, uint32 *d3, FILE *fp, uint32 swap, uint32 *chksum)</argsstring>
+        <name>bio_fread_3d</name>
+        <param>
+          <type>void ****</type>
+          <declname>arr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>e_sz</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>d3</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>swap</declname>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+        </param>
+        <briefdescription>
+<para>Read a 3-d array (set of matrices) </para>        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>4-byte # matrices, # rows, # columns (returned in d1, d2, d3)</para></listitem><listitem><para>memory allocated for the array and read (returned in buf)</para></listitem></itemizedlist>
+</para><para>Byteswapping and checksum accumulation performed as necessary. Fails fatally if expected data not read. <simplesect kind="return"><para>number of array elements allocated and read; -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="235" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="430" bodyend="489"/>
+        <references refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" compoundref="bio_8c" startline="326" endline="339">bio_fread</references>
+        <references refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" compoundref="bio_8c" startline="364" endline="381">bio_fread_1d</references>
+        <references refid="ckd__alloc_8h_1ab29a3fbbd58bc59aa2827eaeda090d06" compoundref="ckd__alloc_8h" startline="298">ckd_alloc_3d_ptr</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+        <referencedby refid="feat_8h_1a7639fbc34e3328d7e3259e61372c64b8" compoundref="lda_8c" startline="61" endline="136">feat_read_lda</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1ad07e2ee9f2f01d3ff3232008098295a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void bio_verify_chksum</definition>
+        <argsstring>(FILE *fp, int32 byteswap, uint32 chksum)</argsstring>
+        <name>bio_verify_chksum</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to read </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>byteswap</declname>
+          <briefdescription><para>In: Byteswap iff (swap != 0) </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In: Value to compare with checksum in file </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Read and verify checksum at the end of binary file. </para>        </briefdescription>
+        <detaileddescription>
+<para>Fails fatally if there is a mismatch. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="249" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="492" bodyend="504"/>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int bio_fwrite_1d</definition>
+        <argsstring>(void *arr, size_t e_sz, uint32 d1, FILE *fp, uint32 *chksum)</argsstring>
+        <name>bio_fwrite_1d</name>
+        <param>
+          <type>void *</type>
+          <declname>arr</declname>
+          <briefdescription><para>In: Data to write </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>e_sz</declname>
+          <briefdescription><para>In: Size of the elements in bytes </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+          <briefdescription><para>In: First dimension </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to write to </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In/Out: Checksum accumulator </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Write a 1-d array. </para>        </briefdescription>
+        <detaileddescription>
+<para>Checksum accumulation performed as necessary.</para><para><simplesect kind="return"><para>number of array elements successfully written or -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="263" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="558" bodyend="589"/>
+        <references refid="bio_8h_1a144651e14134242035793d69918fd407" compoundref="bio_8c" startline="342" endline="361">bio_fwrite</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+        <referencedby refid="bio_8h_1a86f52de3b6076ff2ac32c8d8f5cf48fd" compoundref="bio_8c" startline="507" endline="555">bio_fwrite_3d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1a86f52de3b6076ff2ac32c8d8f5cf48fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int bio_fwrite_3d</definition>
+        <argsstring>(void ***arr, size_t e_sz, uint32 d1, uint32 d2, uint32 d3, FILE *fp, uint32 *chksum)</argsstring>
+        <name>bio_fwrite_3d</name>
+        <param>
+          <type>void ***</type>
+          <declname>arr</declname>
+          <briefdescription><para>In: Data to write </para></briefdescription>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>e_sz</declname>
+          <briefdescription><para>In: Size of the elements in bytes </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d1</declname>
+          <briefdescription><para>In: First dimension </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d2</declname>
+          <briefdescription><para>In: Second dimension </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>d3</declname>
+          <briefdescription><para>In: Third dimension </para></briefdescription>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+          <briefdescription><para>In: File to write to </para></briefdescription>
+        </param>
+        <param>
+          <type>uint32 *</type>
+          <declname>chksum</declname>
+          <briefdescription><para>In/Out: Checksum accumulator </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Write a 3-d array (set of matrices). </para>        </briefdescription>
+        <detaileddescription>
+<para>Checksum accumulation performed as necessary.</para><para><simplesect kind="return"><para>number of array elements successfully written or -1 if error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="277" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="507" bodyend="555"/>
+        <references refid="bio_8h_1a144651e14134242035793d69918fd407" compoundref="bio_8c" startline="342" endline="361">bio_fwrite</references>
+        <references refid="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" compoundref="bio_8c" startline="558" endline="589">bio_fwrite_1d</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+      </memberdef>
+      <memberdef kind="function" id="bio_8h_1afb2a720bfe1c63d5280d343715292d61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int16 *</type>
+        <definition>SPHINXBASE_EXPORT int16* bio_read_wavfile</definition>
+        <argsstring>(char const *directory, char const *filename, char const *extension, int32 header, int32 endian, int32 *nsamps)</argsstring>
+        <name>bio_read_wavfile</name>
+        <param>
+          <type>char const *</type>
+          <declname>directory</declname>
+          <briefdescription><para>In: the folder where the file is located </para></briefdescription>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>filename</declname>
+          <briefdescription><para>In: the name of the file </para></briefdescription>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>extension</declname>
+          <briefdescription><para>In: file extension </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>header</declname>
+          <briefdescription><para>In: the size of the header to skip usually 44 bytes </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>endian</declname>
+          <briefdescription><para>In: endian of the data </para></briefdescription>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>nsamps</declname>
+          <briefdescription><para>Out: number of samples read </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Read raw data from the wav file. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>pointer to the data. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h" line="292" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/bio.c" bodystart="592" bodyend="644"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <references refid="err_8h_1a8b8037ee64c0b344423f797589ae364f" compoundref="err_8h" startline="107">E_ERROR_SYSTEM</references>
+        <references refid="err_8h_1ac8eb8ab6d805872c19a959bb9930fcea" compoundref="err_8h" startline="92">E_FATAL_SYSTEM</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Cross platform binary IO to process files in sphinx3 format. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>bio.h<sp/>--<sp/>Sphinx-3<sp/>binary<sp/>file<sp/>I/O<sp/>functions.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1996<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>bio.h,v<sp/>$</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.8<sp/><sp/>2005/06/21<sp/>20:40:46<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>1,<sp/>Fixed<sp/>doxygen<sp/>documentation,<sp/>2,<sp/>Add<sp/>the<sp/>$<sp/>keyword.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.5<sp/><sp/>2005/06/13<sp/>04:02:57<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>most<sp/>doxygen-style<sp/>documentation<sp/>under<sp/>libs3decoder.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2005/05/10<sp/>21:21:52<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>Three<sp/>functionalities<sp/>added<sp/>but<sp/>not<sp/>tested.<sp/>Code<sp/>on<sp/>1)<sp/>addition/deletion<sp/>of<sp/>LM<sp/>in<sp/>mode<sp/>4.<sp/>2)<sp/>reading<sp/>text-based<sp/>LM<sp/>3)<sp/>Converting<sp/>txt-based<sp/>LM<sp/>to<sp/>dmp-based<sp/>LM.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:46<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>28-Apr-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Created.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_S3_BIO_H_</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_S3_BIO_H_</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Win32/WinCE<sp/>DLL<sp/>gunk<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/byteorder.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="85"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="91"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BYTE_ORDER_MAGIC<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0x11223344)</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor">#if<sp/>(__BIG_ENDIAN__)</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>REVERSE_SENSE_SWAP_INT16(x)<sp/><sp/>x<sp/>=<sp/>(<sp/>(((x)&lt;&lt;8)&amp;0x0000ff00)<sp/>|<sp/>(((x)&gt;&gt;8)&amp;0x00ff)<sp/>)</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>REVERSE_SENSE_SWAP_INT32(x)<sp/><sp/>x<sp/>=<sp/>(<sp/>(((x)&lt;&lt;24)&amp;0xff000000)<sp/>|<sp/>(((x)&lt;&lt;8)&amp;0x00ff0000)<sp/>|<sp/>\</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(((x)&gt;&gt;8)&amp;0x0000ff00)<sp/>|<sp/>(((x)&gt;&gt;24)&amp;0x000000ff)<sp/>)</highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="103" refid="bio_8h_1abf9af8ac9d8a67710371365812869c92" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>REVERSE_SENSE_SWAP_INT16(x)</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>REVERSE_SENSE_SWAP_INT32(x)</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">int32<sp/><ref refid="bio_8h_1a7a155ff51740f1d9a31f7bb7b6e4bc3a" kindref="member">bio_readhdr</ref><sp/>(FILE<sp/>*fp,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***name,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>***val,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>*swap<sp/><sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">int32<sp/><ref refid="bio_8h_1a9662c09be1f18377488dedb8e7ca0bfd" kindref="member">bio_writehdr_version</ref><sp/>(FILE<sp/>*fp,<sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*version<sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">int32<sp/><ref refid="bio_8h_1adc41fc6124fa3e52267c0a2c1036246f" kindref="member">bio_writehdr</ref>(FILE<sp/>*fp,<sp/>...);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="bio_8h_1adb3c858a50381aeff022ccd4271af2d9" kindref="member">bio_hdrarg_free</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**name,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**val<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">int32<sp/><ref refid="bio_8h_1a7068bb61e421bc46a6989cef3b37c833" kindref="member">bio_fread</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buf,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>el_sz,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>n_el,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>swap,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum<sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">int32<sp/><ref refid="bio_8h_1a144651e14134242035793d69918fd407" kindref="member">bio_fwrite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buf,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>el_sz,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>n_el,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>swap,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum<sp/></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">int32<sp/><ref refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" kindref="member">bio_fread_1d</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**buf,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>el_sz,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*n_el,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>sw,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*ck<sp/><sp/></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">int32<sp/><ref refid="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" kindref="member">bio_fread_2d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>***arr,</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>e_sz,</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d1,</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d2,</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>swap,</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">int32<sp/><ref refid="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" kindref="member">bio_fread_3d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>****arr,</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>e_sz,</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d1,</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d2,</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*d3,</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>swap,</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="bio_8h_1ad07e2ee9f2f01d3ff3232008098295a0" kindref="member">bio_verify_chksum</ref><sp/>(FILE<sp/>*fp,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>byteswap,<sp/></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>chksum<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="bio_8h_1a0ea8d462807ebfc27e892f898bd3730e" kindref="member">bio_fwrite_1d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*arr,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>e_sz,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>d1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="bio_8h_1a86f52de3b6076ff2ac32c8d8f5cf48fd" kindref="member">bio_fwrite_3d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>***arr,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>e_sz,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>d1,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>d2,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>d3,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FILE<sp/>*fp,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/>*chksum<sp/><sp/></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="292"><highlight class="normal">int16*<sp/><ref refid="bio_8h_1afb2a720bfe1c63d5280d343715292d61" kindref="member">bio_read_wavfile</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*directory,<sp/></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*filename,<sp/><sp/></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*extension,<sp/></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>header,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>endian,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>*nsamps<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="301"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="303"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/bio.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1274 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="fsg__model_8h" kind="file">
+    <compoundname>fsg_model.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includes refid="glist_8h" local="no">sphinxbase/glist.h</includes>
+    <includes refid="logmath_8h" local="no">sphinxbase/logmath.h</includes>
+    <includes refid="bitvec_8h" local="no">sphinxbase/bitvec.h</includes>
+    <includes refid="hash__table_8h" local="no">sphinxbase/hash_table.h</includes>
+    <includes refid="listelem__alloc_8h" local="no">sphinxbase/listelem_alloc.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includedby refid="jsgf_8h" local="no">include/sphinxbase/jsgf.h</includedby>
+    <includedby refid="fsg__model_8c" local="yes">src/libsphinxbase/lm/fsg_model.c</includedby>
+    <includedby refid="jsgf__internal_8h" local="no">src/libsphinxbase/lm/jsgf_internal.h</includedby>
+    <includedby refid="main_8c" local="no">src/sphinx_jsgf2fsg/main.c</includedby>
+    <incdepgraph>
+      <node id="554">
+        <label>stdarg.h</label>
+      </node>
+      <node id="555">
+        <label>sphinxbase/bitvec.h</label>
+        <link refid="bitvec_8h"/>
+        <childnode refid="546" relation="include">
+        </childnode>
+        <childnode refid="551" relation="include">
+        </childnode>
+        <childnode refid="547" relation="include">
+        </childnode>
+        <childnode refid="556" relation="include">
+        </childnode>
+      </node>
+      <node id="550">
+        <label>stdlib.h</label>
+      </node>
+      <node id="557">
+        <label>setjmp.h</label>
+      </node>
+      <node id="544">
+        <label>include/sphinxbase/fsg_model.h</label>
+        <link refid="fsg_model.h"/>
+        <childnode refid="545" relation="include">
+        </childnode>
+        <childnode refid="546" relation="include">
+        </childnode>
+        <childnode refid="547" relation="include">
+        </childnode>
+        <childnode refid="549" relation="include">
+        </childnode>
+        <childnode refid="552" relation="include">
+        </childnode>
+        <childnode refid="555" relation="include">
+        </childnode>
+        <childnode refid="558" relation="include">
+        </childnode>
+        <childnode refid="559" relation="include">
+        </childnode>
+        <childnode refid="551" relation="include">
+        </childnode>
+      </node>
+      <node id="548">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="559">
+        <label>sphinxbase/listelem_alloc.h</label>
+        <link refid="listelem__alloc_8h"/>
+        <childnode refid="550" relation="include">
+        </childnode>
+        <childnode refid="551" relation="include">
+        </childnode>
+        <childnode refid="547" relation="include">
+        </childnode>
+      </node>
+      <node id="546">
+        <label>string.h</label>
+      </node>
+      <node id="551">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="547">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="548" relation="include">
+        </childnode>
+      </node>
+      <node id="553">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="545" relation="include">
+        </childnode>
+        <childnode refid="554" relation="include">
+        </childnode>
+        <childnode refid="551" relation="include">
+        </childnode>
+        <childnode refid="547" relation="include">
+        </childnode>
+      </node>
+      <node id="552">
+        <label>sphinxbase/logmath.h</label>
+        <link refid="logmath_8h"/>
+        <childnode refid="551" relation="include">
+        </childnode>
+        <childnode refid="547" relation="include">
+        </childnode>
+        <childnode refid="553" relation="include">
+        </childnode>
+      </node>
+      <node id="558">
+        <label>sphinxbase/hash_table.h</label>
+        <link refid="hash__table_8h"/>
+        <childnode refid="551" relation="include">
+        </childnode>
+        <childnode refid="547" relation="include">
+        </childnode>
+        <childnode refid="549" relation="include">
+        </childnode>
+      </node>
+      <node id="549">
+        <label>sphinxbase/glist.h</label>
+        <link refid="glist_8h"/>
+        <childnode refid="550" relation="include">
+        </childnode>
+        <childnode refid="551" relation="include">
+        </childnode>
+        <childnode refid="547" relation="include">
+        </childnode>
+      </node>
+      <node id="556">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="550" relation="include">
+        </childnode>
+        <childnode refid="557" relation="include">
+        </childnode>
+        <childnode refid="551" relation="include">
+        </childnode>
+        <childnode refid="547" relation="include">
+        </childnode>
+      </node>
+      <node id="545">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="564">
+        <label>src/libsphinxbase/lm/jsgf_parser.c</label>
+        <link refid="jsgf__parser_8c_source"/>
+      </node>
+      <node id="567">
+        <label>src/libsphinxbase/lm/fsg_model.c</label>
+        <link refid="fsg__model_8c_source"/>
+      </node>
+      <node id="566">
+        <label>src/sphinx_jsgf2fsg/main.c</label>
+        <link refid="main_8c_source"/>
+      </node>
+      <node id="562">
+        <label>src/libsphinxbase/lm/jsgf_internal.h</label>
+        <link refid="jsgf__internal_8h"/>
+        <childnode refid="563" relation="include">
+        </childnode>
+        <childnode refid="564" relation="include">
+        </childnode>
+        <childnode refid="565" relation="include">
+        </childnode>
+      </node>
+      <node id="560">
+        <label>include/sphinxbase/fsg_model.h</label>
+        <link refid="fsg_model.h"/>
+        <childnode refid="561" relation="include">
+        </childnode>
+        <childnode refid="567" relation="include">
+        </childnode>
+        <childnode refid="562" relation="include">
+        </childnode>
+        <childnode refid="566" relation="include">
+        </childnode>
+      </node>
+      <node id="563">
+        <label>src/libsphinxbase/lm/jsgf.c</label>
+        <link refid="jsgf_8c"/>
+      </node>
+      <node id="565">
+        <label>src/libsphinxbase/lm/jsgf_scanner.c</label>
+        <link refid="jsgf__scanner_8c_source"/>
+      </node>
+      <node id="561">
+        <label>include/sphinxbase/jsgf.h</label>
+        <link refid="jsgf_8h"/>
+        <childnode refid="562" relation="include">
+        </childnode>
+        <childnode refid="566" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structfsg__link__s" prot="public">fsg_link_s</innerclass>
+    <innerclass refid="structfsg__model__s" prot="public">fsg_model_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="fsg__model_8h_1a690c9ca7cd8e1718af0cddb44c1398af" prot="public" static="no">
+        <name>fsg_link_from_state</name>
+        <param><defname>l</defname></param>
+        <initializer>((l)-&gt;from_state)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="74" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1ab924df16c557b7bdb1dbb5a683e81a69" prot="public" static="no">
+        <name>fsg_link_to_state</name>
+        <param><defname>l</defname></param>
+        <initializer>((l)-&gt;to_state)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="75" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a1f2e4cecf27ced51e71206526815e9c5" prot="public" static="no">
+        <name>fsg_link_wid</name>
+        <param><defname>l</defname></param>
+        <initializer>((l)-&gt;wid)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="76" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a32919b42c1d0a76706706a1d74454e30" prot="public" static="no">
+        <name>fsg_link_logs2prob</name>
+        <param><defname>l</defname></param>
+        <initializer>((l)-&gt;logs2prob)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="77" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1aadbabdbfbf8b034aea2b050033889088" prot="public" static="no">
+        <name>fsg_model_name</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)-&gt;name)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="110" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a350328074baee2b56ca421ba1e2f9c5b" prot="public" static="no">
+        <name>fsg_model_n_state</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)-&gt;n_state)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="111" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a93879cc30504122e31806d45649c8896" prot="public" static="no">
+        <name>fsg_model_start_state</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)-&gt;start_state)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="112" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a4b3cc97991671a772a0809b4d6b2261b" prot="public" static="no">
+        <name>fsg_model_final_state</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)-&gt;final_state)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="113" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a3213f2ad14a45419eea11e8c7dcfb731" prot="public" static="no">
+        <name>fsg_model_log</name>
+        <param><defname>f</defname></param>
+        <param><defname>p</defname></param>
+        <initializer><ref refid="logmath_8h_1aebb4711268322fa7aec31e5798fe7e90" kindref="member">logmath_log</ref>((f)-&gt;lmath, p)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="114" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a4855a561d1583144d97f89740b26d146" prot="public" static="no">
+        <name>fsg_model_lw</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)-&gt;lw)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="115" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1adaeb0fd816f3f2414ccecdb253fc00b8" prot="public" static="no">
+        <name>fsg_model_n_word</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)-&gt;n_word)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="116" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a3bf85a065235f22c573a7b2eedb02df9" prot="public" static="no">
+        <name>fsg_model_word_str</name>
+        <param><defname>f</defname></param>
+        <param><defname>wid</defname></param>
+        <initializer>(wid == -1 ? &quot;(NULL)&quot; : (f)-&gt;vocab[wid])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="117" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1acbb52ae054c360e11bbcb863a05867d6" prot="public" static="no">
+        <name>fsg_model_has_sil</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)-&gt;silwords != NULL)</initializer>
+        <briefdescription>
+<para>Have silence transitions been added? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="127" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1aacf96dfbd1ee0a7647a70dcf0f281c4d" prot="public" static="no">
+        <name>fsg_model_has_alt</name>
+        <param><defname>f</defname></param>
+        <initializer>((f)-&gt;altwords != NULL)</initializer>
+        <briefdescription>
+<para>Have alternate word transitions been added? </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="132" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1a1e2abc2f10c63e5e1668dde4deffb7a5" prot="public" static="no">
+        <name>fsg_model_is_filler</name>
+        <param><defname>f</defname></param>
+        <param><defname>wid</defname></param>
+        <initializer>(fsg_model_has_sil(f) ? <ref refid="bitvec_8h_1ae323f80288b2ff946d6d8b0e38f791c9" kindref="member">bitvec_is_set</ref>((f)-&gt;silwords, wid) : FALSE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="134" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fsg__model_8h_1af1af10d7b87e8ad90551373878c56067" prot="public" static="no">
+        <name>fsg_model_is_alt</name>
+        <param><defname>f</defname></param>
+        <param><defname>wid</defname></param>
+        <initializer>(fsg_model_has_alt(f) ? <ref refid="bitvec_8h_1ae323f80288b2ff946d6d8b0e38f791c9" kindref="member">bitvec_is_set</ref>((f)-&gt;altwords, wid) : FALSE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="136" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="fsg__model_8h_1ad23561c60fb1db091777bc5aafcb8b1e" prot="public" static="no">
+        <type>struct <ref refid="structfsg__link__s" kindref="compound">fsg_link_s</ref></type>
+        <definition>typedef struct fsg_link_s  fsg_link_t</definition>
+        <argsstring></argsstring>
+        <name>fsg_link_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="71" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fsg__model_8h_1a468438e420ed85586aa7f9c8e923e78b" prot="public" static="no">
+        <type>struct <ref refid="structtrans__list__s" kindref="compound">trans_list_s</ref></type>
+        <definition>typedef struct trans_list_s trans_list_t</definition>
+        <argsstring></argsstring>
+        <name>trans_list_t</name>
+        <briefdescription>
+<para>Adjacency list (opaque) for a state in an FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="144" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fsg__model_8h_1acbd0e8513684ecd9c0d33e922b792d38" prot="public" static="no">
+        <type>struct <ref refid="structfsg__model__s" kindref="compound">fsg_model_s</ref></type>
+        <definition>typedef struct fsg_model_s  fsg_model_t</definition>
+        <argsstring></argsstring>
+        <name>fsg_model_t</name>
+        <briefdescription>
+<para>Word level FSG definition. </para>        </briefdescription>
+        <detaileddescription>
+<para>States are simply integers 0..n_state-1. A transition emits a word and has a given probability of being taken. There can also be null or epsilon transitions, with no associated emitted word. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="107" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fsg__model_8h_1aca82b5173954b3a5290d4c273615a938" prot="public" static="no">
+        <type>struct <ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_s</ref></type>
+        <definition>typedef struct fsg_arciter_s fsg_arciter_t</definition>
+        <argsstring></argsstring>
+        <name>fsg_arciter_t</name>
+        <briefdescription>
+<para>Iterator over arcs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="144" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="fsg__model_8h_1ae15d4c8c225b1f74bceb9d5cfa32de09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT fsg_model_t* fsg_model_init</definition>
+        <argsstring>(char const *name, logmath_t *lmath, float32 lw, int32 n_state)</argsstring>
+        <name>fsg_model_init</name>
+        <param>
+          <type>char const *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="logmath_8h_1ae613aa7db1dd40ff56a80a7dadb22cc8" kindref="member">logmath_t</ref> *</type>
+          <declname>lmath</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>lw</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_state</declname>
+        </param>
+        <briefdescription>
+<para>Create a new FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="143" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="519" bodyend="536"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1af58b50a31dfce93bb465c2498dc69674" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT fsg_model_t* fsg_model_readfile</definition>
+        <argsstring>(const char *file, logmath_t *lmath, float32 lw)</argsstring>
+        <name>fsg_model_readfile</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type><ref refid="logmath_8h_1ae613aa7db1dd40ff56a80a7dadb22cc8" kindref="member">logmath_t</ref> *</type>
+          <declname>lmath</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>lw</declname>
+        </param>
+        <briefdescription>
+<para>Read a word FSG from the given file and return a pointer to the structure created. </para>        </briefdescription>
+        <detaileddescription>
+<para>Return NULL if any error occurred.</para><para>File format:</para><para><preformatted>
+  Any number of comment lines; ignored
+  FSG_BEGIN [&lt;fsgname&gt;]
+  N &lt;#states&gt;
+  S &lt;start-state ID&gt;
+  F &lt;final-state ID&gt;
+  T &lt;from-state&gt; &lt;to-state&gt; &lt;prob&gt; [&lt;word-string&gt;]
+  T ...
+  ... (any number of state transitions)
+  FSG_END
+  Any number of comment lines; ignored
+</preformatted></para><para>The FSG spec begins with the line containing the keyword FSG_BEGIN. It has an optional fsg name string. If not present, the FSG has the empty string as its name.</para><para>Following the FSG_BEGIN declaration is the number of states, the start state, and the final state, each on a separate line. States are numbered in the range [0 .. &lt;numberofstate&gt;-1].</para><para>These are followed by all the state transitions, each on a separate line, and terminated by the FSG_END line. A state transition has the given probability of being taken, and emits the given word. The word emission is optional; if word-string omitted, it is an epsilon or null transition.</para><para>Comments can also be embedded within the FSG body proper (i.e. between FSG_BEGIN and FSG_END): any line with a # character in col 1 is treated as a comment line.</para><para>Return value: a new fsg_model_t structure if the file is successfully read, NULL otherwise. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="186" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="744" bodyend="756"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a3168d49e09047a8fac127d40645404a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT fsg_model_t* fsg_model_read</definition>
+        <argsstring>(FILE *fp, logmath_t *lmath, float32 lw)</argsstring>
+        <name>fsg_model_read</name>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <param>
+          <type><ref refid="logmath_8h_1ae613aa7db1dd40ff56a80a7dadb22cc8" kindref="member">logmath_t</ref> *</type>
+          <declname>lmath</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>lw</declname>
+        </param>
+        <briefdescription>
+<para>Like fsg_model_readfile(), but from an already open stream. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="192" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="539" bodyend="740"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a5d81399bfb37a7045e8e75fdef28f4c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT fsg_model_t* fsg_model_retain</definition>
+        <argsstring>(fsg_model_t *fsg)</argsstring>
+        <name>fsg_model_retain</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <briefdescription>
+<para>Retain ownership of an FSG. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Pointer to retained FSG. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="200" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="759" bodyend="763"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1aebe65babccf7232e047ea03001342f5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int fsg_model_free</definition>
+        <argsstring>(fsg_model_t *fsg)</argsstring>
+        <name>fsg_model_free</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <briefdescription>
+<para>Free the given word FSG. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>new reference count (0 if freed completely) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="208" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="785" bodyend="807"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1aa91efc2174b63b9fd44d9a7b1b106150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int fsg_model_word_add</definition>
+        <argsstring>(fsg_model_t *fsg, char const *word)</argsstring>
+        <name>fsg_model_word_add</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+<para>Add a word to the FSG vocabulary. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Word ID for this new word. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="216" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="393" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1ae6e7a228e708bea986fce9215f97a709" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int fsg_model_word_id</definition>
+        <argsstring>(fsg_model_t *fsg, char const *word)</argsstring>
+        <name>fsg_model_word_id</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+<para>Look up a word in the FSG vocabulary. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Word ID for this word </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="224" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="377" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a3b533e36fce124ca1656830c9104895b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void fsg_model_trans_add</definition>
+        <argsstring>(fsg_model_t *fsg, int32 from, int32 to, int32 logp, int32 wid)</argsstring>
+        <name>fsg_model_trans_add</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>logp</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>wid</declname>
+        </param>
+        <briefdescription>
+<para>Add the given transition to the FSG transition matrix. </para>        </briefdescription>
+        <detaileddescription>
+<para>Duplicates (i.e., two transitions between the same states, with the same word label) are flagged and only the highest prob retained. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="233" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="120" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1abdde162ba6bba4ab8b690e84f126185c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 fsg_model_null_trans_add</definition>
+        <argsstring>(fsg_model_t *fsg, int32 from, int32 to, int32 logp)</argsstring>
+        <name>fsg_model_null_trans_add</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>logp</declname>
+        </param>
+        <briefdescription>
+<para>Add a null transition between the given states. </para>        </briefdescription>
+        <detaileddescription>
+<para>There can be at most one null transition between the given states; duplicates are flagged and only the best prob retained. Transition probs must be &lt;= 1 (i.e., logprob &lt;= 0).</para><para><simplesect kind="return"><para>1 if a new transition was added, 0 if the prob of an existing transition was upgraded; -1 if nothing was changed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="247" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="201" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1ab6e9475f7c5a77c7bea25ddc0d59fd74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int32</type>
+        <definition>SPHINXBASE_EXPORT int32 fsg_model_tag_trans_add</definition>
+        <argsstring>(fsg_model_t *fsg, int32 from, int32 to, int32 logp, int32 wid)</argsstring>
+        <name>fsg_model_tag_trans_add</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>logp</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>wid</declname>
+        </param>
+        <briefdescription>
+<para>Add a &quot;tag&quot; transition between the given states. </para>        </briefdescription>
+        <detaileddescription>
+<para>A &quot;tag&quot; transition is a null transition with a non-null word ID, which corresponds to a semantic tag or other symbol to be output when this transition is taken.</para><para>As above, there can be at most one null or tag transition between the given states; duplicates are flagged and only the best prob retained. Transition probs must be &lt;= 1 (i.e., logprob &lt;= 0).</para><para><simplesect kind="return"><para>1 if a new transition was added, 0 if the prob of an existing transition was upgraded; -1 if nothing was changed. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="264" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="155" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1aa019986035b71af03316b0c5248f9b71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structgnode__s" kindref="compound">glist_t</ref></type>
+        <definition>SPHINXBASE_EXPORT glist_t fsg_model_null_trans_closure</definition>
+        <argsstring>(fsg_model_t *fsg, glist_t nulls)</argsstring>
+        <name>fsg_model_null_trans_closure</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type><ref refid="structgnode__s" kindref="compound">glist_t</ref></type>
+          <declname>nulls</declname>
+        </param>
+        <briefdescription>
+<para>Obtain transitive closure of null transitions in the given FSG. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nulls</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of null transitions, or NULL to find them automatically. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Updated list of null transitions. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="274" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="208" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a1b4892df39f1cc826e0e4a516b0d42cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structgnode__s" kindref="compound">glist_t</ref></type>
+        <definition>SPHINXBASE_EXPORT glist_t fsg_model_trans</definition>
+        <argsstring>(fsg_model_t *fsg, int32 i, int32 j)</argsstring>
+        <name>fsg_model_trans</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>Get the list of transitions (if any) from state i to j. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="280" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="283" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a55acd9b6f2cdd52e88ae7be5dedc8dec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT fsg_arciter_t* fsg_model_arcs</definition>
+        <argsstring>(fsg_model_t *fsg, int32 i)</argsstring>
+        <name>fsg_model_arcs</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get an iterator over the outgoing transitions from state i. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="286" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="309" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a4b5132d126df8d4400c3f7b3b30dc2b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structfsg__link__s" kindref="compound">fsg_link_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT fsg_link_t* fsg_arciter_get</definition>
+        <argsstring>(fsg_arciter_t *itor)</argsstring>
+        <name>fsg_arciter_get</name>
+        <param>
+          <type><ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Get the current arc from the arc iterator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="292" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="326" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a981b9a811388f822286b667238a965f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT fsg_arciter_t* fsg_arciter_next</definition>
+        <argsstring>(fsg_arciter_t *itor)</argsstring>
+        <name>fsg_arciter_next</name>
+        <param>
+          <type><ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Move the arc iterator forward. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="298" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="338" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a9ce69a80b181fbac3f5285b5b4d9fd4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void fsg_arciter_free</definition>
+        <argsstring>(fsg_arciter_t *itor)</argsstring>
+        <name>fsg_arciter_free</name>
+        <param>
+          <type><ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref> *</type>
+          <declname>itor</declname>
+        </param>
+        <briefdescription>
+<para>Free the arc iterator (early termination) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="304" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="367" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1ad4c1fc682c31358e4ad9957ad212bb3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT <ref refid="structfsg__link__s" kindref="compound">fsg_link_t</ref> *</type>
+        <definition>SPHINXBASE_EXPORT fsg_link_t* fsg_model_null_trans</definition>
+        <argsstring>(fsg_model_t *fsg, int32 i, int32 j)</argsstring>
+        <name>fsg_model_null_trans</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>Get the null transition (if any) from state i to j. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="309" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="296" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a03f74c53ce25fb5c3a2848eb9b7bf777" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int fsg_model_add_silence</definition>
+        <argsstring>(fsg_model_t *fsg, char const *silword, int state, float32 silprob)</argsstring>
+        <name>fsg_model_add_silence</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>silword</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>silprob</declname>
+        </param>
+        <briefdescription>
+<para>Add silence word transitions to each state in given FSG. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>state to add a self-loop to, or -1 for all states. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>silprob</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>probability of silence transition. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="318" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="422" bodyend="450"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a17f0ff8989a0f33fb7d70fb9f37cae19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT int</type>
+        <definition>SPHINXBASE_EXPORT int fsg_model_add_alt</definition>
+        <argsstring>(fsg_model_t *fsg, char const *baseword, char const *altword)</argsstring>
+        <name>fsg_model_add_alt</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>baseword</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>altword</declname>
+        </param>
+        <briefdescription>
+<para>Add alternate pronunciation transitions for a word in given FSG. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="325" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="453" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a8be87368699b923f8248f6b87aa4f805" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void fsg_model_write</definition>
+        <argsstring>(fsg_model_t *fsg, FILE *fp)</argsstring>
+        <name>fsg_model_write</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <briefdescription>
+<para>Write FSG to a file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="332" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="811" bodyend="839"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a33dcb46ca50e3401b6eefd57a24d2990" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void fsg_model_writefile</definition>
+        <argsstring>(fsg_model_t *fsg, char const *file)</argsstring>
+        <name>fsg_model_writefile</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Write FSG to a file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="338" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="842" bodyend="858"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1ac35c97344be83c5ba86e5dc8e7997bc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void fsg_model_write_fsm</definition>
+        <argsstring>(fsg_model_t *fsg, FILE *fp)</argsstring>
+        <name>fsg_model_write_fsm</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>fp</declname>
+        </param>
+        <briefdescription>
+<para>Write FSG to a file in AT&amp;T FSM format. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="344" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="876" bodyend="894"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1aa0b94c63203e13028f049f6b4d4a6cfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void fsg_model_writefile_fsm</definition>
+        <argsstring>(fsg_model_t *fsg, char const *file)</argsstring>
+        <name>fsg_model_writefile_fsm</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Write FSG to a file in AT&amp;T FSM format. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="350" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="897" bodyend="913"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1acc4b1a27ab39f1c73fc3771b7cec038a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void fsg_model_write_symtab</definition>
+        <argsstring>(fsg_model_t *fsg, FILE *file)</argsstring>
+        <name>fsg_model_write_symtab</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Write FSG symbol table to a file (for AT&amp;T FSM) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="356" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="916" bodyend="925"/>
+      </memberdef>
+      <memberdef kind="function" id="fsg__model_8h_1a39473aa86ea3710bb92b9ec70bd180ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void fsg_model_writefile_symtab</definition>
+        <argsstring>(fsg_model_t *fsg, char const *file)</argsstring>
+        <name>fsg_model_writefile_symtab</name>
+        <param>
+          <type><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref> *</type>
+          <declname>fsg</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Write FSG symbol table to a file (for AT&amp;T FSM) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h" line="362" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/fsg_model.c" bodystart="928" bodyend="944"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>fsg_model.h<sp/>--<sp/>Word-level<sp/>finite<sp/>state<sp/>graph</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2003<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__FSG_MODEL_H__</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__FSG_MODEL_H__</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>System<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>SphinxBase<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="glist_8h" kindref="compound">sphinxbase/glist.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="logmath_8h" kindref="compound">sphinxbase/logmath.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="bitvec_8h" kindref="compound">sphinxbase/bitvec.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="hash__table_8h" kindref="compound">sphinxbase/hash_table.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="listelem__alloc_8h" kindref="compound">sphinxbase/listelem_alloc.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>A<sp/>single<sp/>transition<sp/>in<sp/>the<sp/>FSG.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="structfsg__link__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfsg__link__s" kindref="compound">fsg_link_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>from_state;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>to_state;</highlight></codeline>
+<codeline lineno="69" refid="structfsg__link__s_1a4bc31131cca140338254c43eada509dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__link__s_1a4bc31131cca140338254c43eada509dc" kindref="member">logs2prob</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70" refid="structfsg__link__s_1a99b8eb916944d981adf2c492b8193d4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__link__s_1a99b8eb916944d981adf2c492b8193d4e" kindref="member">wid</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}<sp/><ref refid="structfsg__link__s" kindref="compound">fsg_link_t</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Access<sp/>macros<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>fsg_link_from_state(l)<sp/><sp/>((l)-&gt;from_state)</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_link_to_state(l)<sp/><sp/><sp/><sp/>((l)-&gt;to_state)</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_link_wid(l)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((l)-&gt;wid)</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_link_logs2prob(l)<sp/><sp/><sp/>((l)-&gt;logs2prob)</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="82"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structtrans__list__s" kindref="compound">trans_list_s</ref><sp/><ref refid="structtrans__list__s" kindref="compound">trans_list_t</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="structfsg__model__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfsg__model__s" kindref="compound">fsg_model_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="92" refid="structfsg__model__s_1af329127556a42f6ea3b27f41a99a0b17" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structfsg__model__s_1af329127556a42f6ea3b27f41a99a0b17" kindref="member">refcount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93" refid="structfsg__model__s_1ab23ae2c362f1a3b18bbe135b97dfb467" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structfsg__model__s_1ab23ae2c362f1a3b18bbe135b97dfb467" kindref="member">name</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94" refid="structfsg__model__s_1a99ed2894f7690a960d11e1590d11a6b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__model__s_1a99ed2894f7690a960d11e1590d11a6b9" kindref="member">n_word</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95" refid="structfsg__model__s_1a329ae88c26111df8cd64657b46b9108f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__model__s_1a329ae88c26111df8cd64657b46b9108f" kindref="member">n_word_alloc</ref>;<sp/></highlight></codeline>
+<codeline lineno="96" refid="structfsg__model__s_1a6bbfce2d672624d792ff964200a64031" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="structfsg__model__s_1a6bbfce2d672624d792ff964200a64031" kindref="member">vocab</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97" refid="structfsg__model__s_1ab5709e67c1b7506ab024f2060d50331c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bitvec_t<sp/>*<ref refid="structfsg__model__s_1ab5709e67c1b7506ab024f2060d50331c" kindref="member">silwords</ref>;<sp/></highlight></codeline>
+<codeline lineno="98" refid="structfsg__model__s_1adb51d840853d7ef3315bd833cddeb748" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bitvec_t<sp/>*<ref refid="structfsg__model__s_1adb51d840853d7ef3315bd833cddeb748" kindref="member">altwords</ref>;<sp/></highlight></codeline>
+<codeline lineno="99" refid="structfsg__model__s_1ab0b22dadb593ee1901829f89c4a47fe2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlogmath__s" kindref="compound">logmath_t</ref><sp/>*<ref refid="structfsg__model__s_1ab0b22dadb593ee1901829f89c4a47fe2" kindref="member">lmath</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100" refid="structfsg__model__s_1a80cdb0b5e7463221ce14135c9f5a3b01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__model__s_1a80cdb0b5e7463221ce14135c9f5a3b01" kindref="member">n_state</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101" refid="structfsg__model__s_1a4ff49da3938ecc236d45a68d009f97b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__model__s_1a4ff49da3938ecc236d45a68d009f97b9" kindref="member">start_state</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="102" refid="structfsg__model__s_1ada19c76db4f1fc89c8b5cd674ec865da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structfsg__model__s_1ada19c76db4f1fc89c8b5cd674ec865da" kindref="member">final_state</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="103" refid="structfsg__model__s_1aeaff529953d494b9891dbc0fdac8e97f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>float32<sp/><ref refid="structfsg__model__s_1aeaff529953d494b9891dbc0fdac8e97f" kindref="member">lw</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105" refid="structfsg__model__s_1ac5cd4b72818b7a9f2dc543d6a6ac9cc7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structtrans__list__s" kindref="compound">trans_list_t</ref><sp/>*<ref refid="structfsg__model__s_1ac5cd4b72818b7a9f2dc543d6a6ac9cc7" kindref="member">trans</ref>;<sp/></highlight></codeline>
+<codeline lineno="106" refid="structfsg__model__s_1ac4e2a36305bbe62a5c7468588eb058b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structlistelem__alloc__s" kindref="compound">listelem_alloc_t</ref><sp/>*<ref refid="structfsg__model__s_1ac4e2a36305bbe62a5c7468588eb058b1" kindref="member">link_alloc</ref>;<sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}<sp/><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref>;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Access<sp/>macros<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_name(f)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((f)-&gt;name)</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_n_state(f)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((f)-&gt;n_state)</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_start_state(f)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((f)-&gt;start_state)</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_final_state(f)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((f)-&gt;final_state)</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_log(f,p)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logmath_log((f)-&gt;lmath,<sp/>p)</highlight></codeline>
+<codeline lineno="115"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_lw(f)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((f)-&gt;lw)</highlight></codeline>
+<codeline lineno="116"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_n_word(f)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((f)-&gt;n_word)</highlight></codeline>
+<codeline lineno="117"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_word_str(f,wid)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(wid<sp/>==<sp/>-1<sp/>?<sp/>&quot;(NULL)&quot;<sp/>:<sp/>(f)-&gt;vocab[wid])</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="122"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_s</ref><sp/><ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor">#define<sp/>fsg_model_has_sil(f)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((f)-&gt;silwords<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor">#define<sp/>fsg_model_has_alt(f)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((f)-&gt;altwords<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_is_filler(f,wid)<sp/>\</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(fsg_model_has_sil(f)<sp/>?<sp/>bitvec_is_set((f)-&gt;silwords,<sp/>wid)<sp/>:<sp/>FALSE)</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>fsg_model_is_alt(f,wid)<sp/>\</highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(fsg_model_has_alt(f)<sp/>?<sp/>bitvec_is_set((f)-&gt;altwords,<sp/>wid)<sp/>:<sp/>FALSE)</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg_model_init(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*name,<sp/><ref refid="structlogmath__s" kindref="compound">logmath_t</ref><sp/>*lmath,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float32<sp/>lw,<sp/>int32<sp/>n_state);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg_model_readfile(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*file,<sp/><ref refid="structlogmath__s" kindref="compound">logmath_t</ref><sp/>*lmath,<sp/>float32<sp/>lw);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg_model_read(FILE<sp/>*fp,<sp/><ref refid="structlogmath__s" kindref="compound">logmath_t</ref><sp/>*lmath,<sp/>float32<sp/>lw);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg_model_retain(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_model_free(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_model_word_add(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*word);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_model_word_id(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*word);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_model_trans_add(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*<sp/>fsg,</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>from,<sp/>int32<sp/>to,<sp/>int32<sp/>logp,<sp/>int32<sp/>wid);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="247"><highlight class="normal">int32<sp/>fsg_model_null_trans_add(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*<sp/>fsg,<sp/>int32<sp/>from,<sp/>int32<sp/>to,<sp/>int32<sp/>logp);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="264"><highlight class="normal">int32<sp/>fsg_model_tag_trans_add(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*<sp/>fsg,<sp/>int32<sp/>from,<sp/>int32<sp/>to,</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>logp,<sp/>int32<sp/>wid);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><ref refid="structgnode__s" kindref="compound">glist_t</ref><sp/>fsg_model_null_trans_closure(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*<sp/>fsg,<sp/><ref refid="structgnode__s" kindref="compound">glist_t</ref><sp/>nulls);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><ref refid="structgnode__s" kindref="compound">glist_t</ref><sp/>fsg_model_trans(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/>int32<sp/>i,<sp/>int32<sp/>j);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref><sp/>*fsg_model_arcs(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/>int32<sp/>i);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><ref refid="structfsg__link__s" kindref="compound">fsg_link_t</ref><sp/>*fsg_arciter_get(<ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref><sp/>*fsg_arciter_next(<ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_arciter_free(<ref refid="structfsg__arciter__s" kindref="compound">fsg_arciter_t</ref><sp/>*itor);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><ref refid="structfsg__link__s" kindref="compound">fsg_link_t</ref><sp/>*fsg_model_null_trans(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/>int32<sp/>i,<sp/>int32<sp/>j);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_model_add_silence(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*<sp/>fsg,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*silword,</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>state,<sp/>float32<sp/>silprob);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fsg_model_add_alt(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*<sp/>fsg,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*baseword,</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*altword);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_model_write(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/>FILE<sp/>*fp);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_model_writefile(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*file);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_model_write_fsm(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/>FILE<sp/>*fp);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_model_writefile_fsm(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*file);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_model_write_symtab(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/>FILE<sp/>*file);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fsg_model_writefile_symtab(<ref refid="structfsg__model__s" kindref="compound">fsg_model_t</ref><sp/>*fsg,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*file);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__FSG_MODEL_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/fsg_model.h"/>
+  </compounddef>
+</doxygen>

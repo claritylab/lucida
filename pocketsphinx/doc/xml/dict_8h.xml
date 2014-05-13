@@ -1,0 +1,1195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dict_8h" kind="file">
+    <compoundname>dict.h</compoundname>
+    <includes local="no">sphinxbase/hash_table.h</includes>
+    <includes refid="s3types_8h" local="yes">s3types.h</includes>
+    <includes refid="bin__mdef_8h" local="yes">bin_mdef.h</includes>
+    <includes refid="pocketsphinx__export_8h" local="yes">pocketsphinx_export.h</includes>
+    <includedby refid="pocketsphinx__internal_8h" local="yes">src/libpocketsphinx/pocketsphinx_internal.h</includedby>
+    <includedby refid="dict2pid_8h" local="yes">src/libpocketsphinx/dict2pid.h</includedby>
+    <includedby refid="dict_8c" local="yes">src/libpocketsphinx/dict.c</includedby>
+    <includedby refid="fsg__lextree_8h" local="yes">src/libpocketsphinx/fsg_lextree.h</includedby>
+    <includedby refid="fsg__history_8h" local="yes">src/libpocketsphinx/fsg_history.h</includedby>
+    <includedby refid="ps__lattice_8c" local="yes">src/libpocketsphinx/ps_lattice.c</includedby>
+    <incdepgraph>
+      <node id="414">
+        <label>sphinxbase/hash_table.h</label>
+      </node>
+      <node id="417">
+        <label>assert.h</label>
+      </node>
+      <node id="416">
+        <label>float.h</label>
+      </node>
+      <node id="423">
+        <label>sphinxbase/cmd_ln.h</label>
+      </node>
+      <node id="415">
+        <label>s3types.h</label>
+        <link refid="s3types_8h"/>
+        <childnode refid="416" relation="include">
+        </childnode>
+        <childnode refid="417" relation="include">
+        </childnode>
+        <childnode refid="418" relation="include">
+        </childnode>
+        <childnode refid="419" relation="include">
+        </childnode>
+        <childnode refid="420" relation="include">
+        </childnode>
+      </node>
+      <node id="425">
+        <label>mdef.h</label>
+        <link refid="mdef_8h"/>
+        <childnode refid="426" relation="include">
+        </childnode>
+        <childnode refid="414" relation="include">
+        </childnode>
+      </node>
+      <node id="422">
+        <label>sphinxbase/mmio.h</label>
+      </node>
+      <node id="420">
+        <label>sphinxbase/ckd_alloc.h</label>
+      </node>
+      <node id="424">
+        <label>pocketsphinx_export.h</label>
+        <link refid="pocketsphinx__export_8h_source"/>
+      </node>
+      <node id="418">
+        <label>sphinxbase/prim_type.h</label>
+      </node>
+      <node id="421">
+        <label>bin_mdef.h</label>
+        <link refid="bin__mdef_8h"/>
+        <childnode refid="422" relation="include">
+        </childnode>
+        <childnode refid="423" relation="include">
+        </childnode>
+        <childnode refid="424" relation="include">
+        </childnode>
+        <childnode refid="425" relation="include">
+        </childnode>
+      </node>
+      <node id="419">
+        <label>sphinxbase/err.h</label>
+      </node>
+      <node id="413">
+        <label>src/libpocketsphinx/dict.h</label>
+        <link refid="dict.h"/>
+        <childnode refid="414" relation="include">
+        </childnode>
+        <childnode refid="415" relation="include">
+        </childnode>
+        <childnode refid="421" relation="include">
+        </childnode>
+        <childnode refid="424" relation="include">
+        </childnode>
+      </node>
+      <node id="426">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="442">
+        <label>src/libpocketsphinx/fsg_search.c</label>
+        <link refid="fsg__search_8c_source"/>
+      </node>
+      <node id="443">
+        <label>src/libpocketsphinx/pocketsphinx.c</label>
+        <link refid="pocketsphinx_8c_source"/>
+      </node>
+      <node id="458">
+        <label>src/libpocketsphinx/state_align_search.c</label>
+        <link refid="state__align__search_8c"/>
+      </node>
+      <node id="457">
+        <label>src/libpocketsphinx/state_align_search.h</label>
+        <link refid="state__align__search_8h"/>
+        <childnode refid="458" relation="include">
+        </childnode>
+      </node>
+      <node id="441">
+        <label>src/libpocketsphinx/fsg_history.c</label>
+        <link refid="fsg__history_8c_source"/>
+      </node>
+      <node id="462">
+        <label>src/libpocketsphinx/fsg_history.h</label>
+        <link refid="fsg__history_8h_source"/>
+        <childnode refid="440" relation="include">
+        </childnode>
+        <childnode refid="441" relation="include">
+        </childnode>
+        <childnode refid="442" relation="include">
+        </childnode>
+      </node>
+      <node id="428">
+        <label>src/libpocketsphinx/pocketsphinx_internal.h</label>
+        <link refid="pocketsphinx__internal_8h"/>
+        <childnode refid="429" relation="include">
+        </childnode>
+        <childnode refid="440" relation="include">
+        </childnode>
+        <childnode refid="442" relation="include">
+        </childnode>
+        <childnode refid="444" relation="include">
+        </childnode>
+        <childnode refid="447" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+        <childnode refid="448" relation="include">
+        </childnode>
+        <childnode refid="449" relation="include">
+        </childnode>
+        <childnode refid="455" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+        <childnode refid="454" relation="include">
+        </childnode>
+        <childnode refid="457" relation="include">
+        </childnode>
+      </node>
+      <node id="440">
+        <label>src/libpocketsphinx/fsg_search_internal.h</label>
+        <link refid="fsg__search__internal_8h_source"/>
+        <childnode refid="441" relation="include">
+        </childnode>
+        <childnode refid="442" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+      </node>
+      <node id="438">
+        <label>src/libpocketsphinx/ms_senone.c</label>
+        <link refid="ms__senone_8c_source"/>
+      </node>
+      <node id="437">
+        <label>src/libpocketsphinx/ms_senone.h</label>
+        <link refid="ms__senone_8h"/>
+        <childnode refid="435" relation="include">
+        </childnode>
+        <childnode refid="438" relation="include">
+        </childnode>
+      </node>
+      <node id="465">
+        <label>src/libpocketsphinx/ps_alignment.c</label>
+        <link refid="ps__alignment_8c"/>
+      </node>
+      <node id="464">
+        <label>src/libpocketsphinx/ps_alignment.h</label>
+        <link refid="ps__alignment_8h"/>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="457" relation="include">
+        </childnode>
+      </node>
+      <node id="447">
+        <label>src/libpocketsphinx/kws_search.c</label>
+        <link refid="kws__search_8c_source"/>
+      </node>
+      <node id="446">
+        <label>src/libpocketsphinx/kws_search.h</label>
+        <link refid="kws__search_8h_source"/>
+        <childnode refid="447" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+      </node>
+      <node id="453">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.c</label>
+        <link refid="ngram__search__fwdflat_8c"/>
+      </node>
+      <node id="452">
+        <label>src/libpocketsphinx/ngram_search_fwdflat.h</label>
+        <link refid="ngram__search__fwdflat_8h"/>
+        <childnode refid="448" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+      </node>
+      <node id="454">
+        <label>src/libpocketsphinx/ps_lattice.c</label>
+        <link refid="ps__lattice_8c"/>
+      </node>
+      <node id="445">
+        <label>src/libpocketsphinx/kws_detections.c</label>
+        <link refid="kws__detections_8c_source"/>
+      </node>
+      <node id="444">
+        <label>src/libpocketsphinx/kws_detections.h</label>
+        <link refid="kws__detections_8h_source"/>
+        <childnode refid="445" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+      </node>
+      <node id="439">
+        <label>src/libpocketsphinx/ms_gauden.c</label>
+        <link refid="ms__gauden_8c_source"/>
+      </node>
+      <node id="429">
+        <label>src/libpocketsphinx/ms_gauden.h</label>
+        <link refid="ms__gauden_8h"/>
+        <childnode refid="430" relation="include">
+        </childnode>
+        <childnode refid="433" relation="include">
+        </childnode>
+        <childnode refid="435" relation="include">
+        </childnode>
+        <childnode refid="437" relation="include">
+        </childnode>
+        <childnode refid="439" relation="include">
+        </childnode>
+      </node>
+      <node id="463">
+        <label>src/libpocketsphinx/fsg_lextree.c</label>
+        <link refid="fsg__lextree_8c"/>
+      </node>
+      <node id="461">
+        <label>src/libpocketsphinx/fsg_lextree.h</label>
+        <link refid="fsg__lextree_8h_source"/>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="440" relation="include">
+        </childnode>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="442" relation="include">
+        </childnode>
+      </node>
+      <node id="431">
+        <label>src/libpocketsphinx/acmod.c</label>
+        <link refid="acmod_8c"/>
+      </node>
+      <node id="448">
+        <label>src/libpocketsphinx/ngram_search.c</label>
+        <link refid="ngram__search_8c"/>
+      </node>
+      <node id="449">
+        <label>src/libpocketsphinx/ngram_search.h</label>
+        <link refid="ngram__search_8h"/>
+        <childnode refid="448" relation="include">
+        </childnode>
+        <childnode refid="450" relation="include">
+        </childnode>
+        <childnode refid="452" relation="include">
+        </childnode>
+        <childnode refid="453" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+        <childnode refid="454" relation="include">
+        </childnode>
+      </node>
+      <node id="432">
+        <label>src/libpocketsphinx/s2_semi_mgau.c</label>
+        <link refid="s2__semi__mgau_8c_source"/>
+      </node>
+      <node id="430">
+        <label>src/libpocketsphinx/s2_semi_mgau.h</label>
+        <link refid="s2__semi__mgau_8h_source"/>
+        <childnode refid="431" relation="include">
+        </childnode>
+        <childnode refid="432" relation="include">
+        </childnode>
+      </node>
+      <node id="456">
+        <label>src/libpocketsphinx/phone_loop_search.c</label>
+        <link refid="phone__loop__search_8c_source"/>
+      </node>
+      <node id="455">
+        <label>src/libpocketsphinx/phone_loop_search.h</label>
+        <link refid="phone__loop__search_8h"/>
+        <childnode refid="451" relation="include">
+        </childnode>
+        <childnode refid="456" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+      </node>
+      <node id="466">
+        <label>src/libpocketsphinx/dict.c</label>
+        <link refid="dict_8c_source"/>
+      </node>
+      <node id="460">
+        <label>src/libpocketsphinx/dict2pid.c</label>
+        <link refid="dict2pid_8c"/>
+      </node>
+      <node id="427">
+        <label>src/libpocketsphinx/dict.h</label>
+        <link refid="dict.h"/>
+        <childnode refid="428" relation="include">
+        </childnode>
+        <childnode refid="459" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="461" relation="include">
+        </childnode>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="454" relation="include">
+        </childnode>
+      </node>
+      <node id="459">
+        <label>src/libpocketsphinx/dict2pid.h</label>
+        <link refid="dict2pid_8h"/>
+        <childnode refid="428" relation="include">
+        </childnode>
+        <childnode refid="460" relation="include">
+        </childnode>
+        <childnode refid="461" relation="include">
+        </childnode>
+        <childnode refid="464" relation="include">
+        </childnode>
+      </node>
+      <node id="451">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.c</label>
+        <link refid="ngram__search__fwdtree_8c"/>
+      </node>
+      <node id="450">
+        <label>src/libpocketsphinx/ngram_search_fwdtree.h</label>
+        <link refid="ngram__search__fwdtree_8h"/>
+        <childnode refid="448" relation="include">
+        </childnode>
+        <childnode refid="451" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+      </node>
+      <node id="434">
+        <label>src/libpocketsphinx/ptm_mgau.c</label>
+        <link refid="ptm__mgau_8c_source"/>
+      </node>
+      <node id="433">
+        <label>src/libpocketsphinx/ptm_mgau.h</label>
+        <link refid="ptm__mgau_8h"/>
+        <childnode refid="431" relation="include">
+        </childnode>
+        <childnode refid="434" relation="include">
+        </childnode>
+      </node>
+      <node id="436">
+        <label>src/libpocketsphinx/ms_mgau.c</label>
+        <link refid="ms__mgau_8c_source"/>
+      </node>
+      <node id="435">
+        <label>src/libpocketsphinx/ms_mgau.h</label>
+        <link refid="ms__mgau_8h"/>
+        <childnode refid="431" relation="include">
+        </childnode>
+        <childnode refid="436" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structdictword__t" prot="public">dictword_t</innerclass>
+    <innerclass refid="structdict__t" prot="public">dict_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="dict_8h_1a8d8a7f13ae4607c024a3e9f0c34ba2b9" prot="public" static="no">
+        <name>S3DICT_INC_SZ</name>
+        <initializer>4096</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="53" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a361b948b42f9cfdf5c7fa9dfc8a71a94" prot="public" static="no">
+        <name>dict_size</name>
+        <param><defname>d</defname></param>
+        <initializer>((d)-&gt;n_word)</initializer>
+        <briefdescription>
+<para>Packaged macro access to dictionary members. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="154" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="154" bodyend="-1"/>
+        <referencedby refid="dict2pid_8h_1addd541f2275b79e284575fb11b7986e1" compoundref="dict2pid_8c" startline="388" endline="497">dict2pid_build</referencedby>
+        <referencedby refid="dict2pid_8h_1a32320cd5d020620ac913b46bafeb5cae" compoundref="dict2pid_8c" startline="538" endline="578">dict2pid_dump</referencedby>
+        <referencedby refid="ngram__search_8h_1a1db74b6837f13db06470649d3ae84e80" compoundref="ngram__search_8c" startline="141" endline="236">ngram_search_init</referencedby>
+        <referencedby refid="ngram__search__fwdflat_8h_1aa4879c06ddbc455a6f355084a9c574b4" compoundref="ngram__search__fwdflat_8c" startline="192" endline="221">ngram_fwdflat_reinit</referencedby>
+        <referencedby refid="pocketsphinx__internal_8h_1ad848d8d0cf0398542bfb74a2e34dbff3" compoundref="pocketsphinx_8c" startline="1259" endline="1282">ps_search_init</referencedby>
+        <referencedby refid="pocketsphinx__internal_8h_1a307801961f27bd5f4b82a3e6b83e0ca1" compoundref="pocketsphinx_8c" startline="1285" endline="1307">ps_search_base_reinit</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a21147dad416a87bf085b86bc32a62810" prot="public" static="no">
+        <name>dict_num_fillers</name>
+        <param><defname>d</defname></param>
+        <initializer>(dict_filler_end(d) - dict_filler_start(d))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="155" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a529d92f69f39e1f8c4a94e60a9509201" prot="public" static="no">
+        <name>dict_num_real_words</name>
+        <param><defname>d</defname></param>
+        <initializer>(<ref refid="dict_8h_1a361b948b42f9cfdf5c7fa9dfc8a71a94" kindref="member">dict_size</ref>(d) - (dict_filler_end(d) - dict_filler_start(d)) - 2)</initializer>
+        <briefdescription>
+<para>Number of &quot;real words&quot; in the dictionary. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is the number of words that are not fillers, &lt;s&gt;, or &lt;/s&gt;. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="161" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a5ad27f5fb02c9f5dd811e0d04aca9231" prot="public" static="no">
+        <name>dict_basewid</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[w].basewid)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="163" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a960244692f448457dbea9498108fe2d9" prot="public" static="no">
+        <name>dict_wordstr</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((w) &lt; 0 ? NULL : (d)-&gt;word[w].word)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="164" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a84df59782b43012dafcaebc716cbd932" prot="public" static="no">
+        <name>dict_basestr</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[dict_basewid(d,w)].word)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="165" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1ad28133467ed803b4219ae1452bff929c" prot="public" static="no">
+        <name>dict_nextalt</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[w].alt)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="166" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1ab40570a0b06cdcbc9a22d9777936e780" prot="public" static="no">
+        <name>dict_pronlen</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[w].pronlen)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="167" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a8785ab6264a5c6cf0b8da6bf79a46de4" prot="public" static="no">
+        <name>dict_pron</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <param><defname>p</defname></param>
+        <initializer>((d)-&gt;word[w].ciphone[p])</initializer>
+        <briefdescription>
+<para>The CI phones of the word w at position p. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="168" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="168" bodyend="-1"/>
+        <referencedby refid="dict2pid_8h_1a720e15c92ef6930e722bccb014e11b7b" compoundref="dict2pid_8c" startline="367" endline="385">dict2pid_internal</referencedby>
+        <referencedby refid="dict2pid_8h_1addd541f2275b79e284575fb11b7986e1" compoundref="dict2pid_8c" startline="388" endline="497">dict2pid_build</referencedby>
+        <referencedby refid="ps__alignment_8h_1a59e81853dad3d935755dcb309d8cc926" compoundref="ps__alignment_8c" startline="128" endline="238">ps_alignment_populate</referencedby>
+        <referencedby refid="ps__alignment_8h_1ae17f691c36070955e32a2c987910acde" compoundref="ps__alignment_8c" startline="242" endline="303">ps_alignment_populate_ci</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1aa6e902650918309eb90b83cbbed96401" prot="public" static="no">
+        <name>dict_filler_start</name>
+        <param><defname>d</defname></param>
+        <initializer>((d)-&gt;filler_start)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="169" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a236a26fcd9e5464631c563a03e05c719" prot="public" static="no">
+        <name>dict_filler_end</name>
+        <param><defname>d</defname></param>
+        <initializer>((d)-&gt;filler_end)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="170" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a56c28444a8e3ffeb71a3329df2509257" prot="public" static="no">
+        <name>dict_startwid</name>
+        <param><defname>d</defname></param>
+        <initializer>((d)-&gt;startwid)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="171" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1ab00b6ceb46292b3c10b571d5cc7eac1d" prot="public" static="no">
+        <name>dict_finishwid</name>
+        <param><defname>d</defname></param>
+        <initializer>((d)-&gt;finishwid)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="172" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a3e35b701bf6eefd7c17436a45409b623" prot="public" static="no">
+        <name>dict_silwid</name>
+        <param><defname>d</defname></param>
+        <initializer>((d)-&gt;silwid)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="173" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1addf34f870858c4dd751896113c6f62b4" prot="public" static="no">
+        <name>dict_is_single_phone</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[w].pronlen == 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="174" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1aac0e78a257dde5c082fe2053b19c7346" prot="public" static="no">
+        <name>dict_first_phone</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[w].ciphone[0])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="175" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a6504d5e7dcac8096894e1a8cea35b7db" prot="public" static="no">
+        <name>dict_second_phone</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[w].ciphone[1])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="176" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a75ebbbca085999e695278cc3c02895ef" prot="public" static="no">
+        <name>dict_second_last_phone</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[w].ciphone[(d)-&gt;word[w].pronlen - 2])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="177" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a47f1f648ae9d6544ec067d2a327d1316" prot="public" static="no">
+        <name>dict_last_phone</name>
+        <param><defname>d</defname></param>
+        <param><defname>w</defname></param>
+        <initializer>((d)-&gt;word[w].ciphone[(d)-&gt;word[w].pronlen - 1])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="178" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a383b5d67202951a19989b0fca2e5462b" prot="public" static="no">
+        <name>S3_START_WORD</name>
+        <initializer>&quot;&lt;s&gt;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="181" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a22c7450ba073a0d1e1a3a2a99304d5c8" prot="public" static="no">
+        <name>S3_FINISH_WORD</name>
+        <initializer>&quot;&lt;/s&gt;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="182" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1afb3127621782f91be8536c2c95a20dd8" prot="public" static="no">
+        <name>S3_SILENCE_WORD</name>
+        <initializer>&quot;&lt;sil&gt;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="183" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dict_8h_1a07d5343a9b10d6f6ea885c28c5d36a4b" prot="public" static="no">
+        <name>S3_UNKNOWN_WORD</name>
+        <initializer>&quot;&lt;UNK&gt;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="184" column="9" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+        <definition>dict_t* dict_init</definition>
+        <argsstring>(cmd_ln_t *config, bin_mdef_t *mdef)</argsstring>
+        <name>dict_init</name>
+        <param>
+          <type>cmd_ln_t *</type>
+          <declname>config</declname>
+          <briefdescription><para>Configuration (-dict, -fdict, -dictcase) or NULL </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="bin__mdef_8h_1a269082d84ae254593b79f1eafe9b2d12" kindref="member">bin_mdef_t</ref> *</type>
+          <declname>mdef</declname>
+          <briefdescription><para>For looking up CI phone IDs (or NULL) </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Initialize a new dictionary. </para>        </briefdescription>
+        <detaileddescription>
+<para>If config and mdef are supplied, then the dictionary will be read from the files specified by the -dict and -fdict options in config, with case sensitivity determined by the -dictcase option.</para><para>Otherwise an empty case-sensitive dictionary will be created.</para><para>Return ptr to <ref refid="structdict__t" kindref="compound">dict_t</ref> if successful, NULL otherwise. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="106" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="252" bodyend="379"/>
+        <references refid="s3types_8h_1a5c42410b7125da611210c5a4be29898b" compoundref="s3types_8h" startline="136">BAD_S3WID</references>
+        <references refid="bin__mdef_8h_1a297167f03662a9cbd650743d3f4cf8f8" compoundref="bin__mdef_8c" startline="265" endline="269">bin_mdef_retain</references>
+        <references refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" compoundref="dict_8c" startline="80" endline="145">dict_add_word</references>
+        <references refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" compoundref="dict_8c" startline="397" endline="408">dict_filler_word</references>
+        <references refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" compoundref="dict_8c" startline="452" endline="480">dict_free</references>
+        <references refid="dict_8h_1ad3729eb1a02a9a321e17933f7e90c80e" compoundref="dict_8c" startline="383" endline="393">dict_wordid</references>
+        <references refid="structdict__t_1a77c6692e56308968804add1292275cb7" compoundref="dict_8h" startline="87">dict_t::filler_end</references>
+        <references refid="structdict__t_1abd48fdafaaa68a8df2fd82163c51a95c" compoundref="dict_8h" startline="86">dict_t::filler_start</references>
+        <references refid="structdict__t_1a3875be5336e2d9888f6d5cb83ded82c5" compoundref="dict_8h" startline="89">dict_t::finishwid</references>
+        <references refid="structdict__t_1a7205aae4fbeef3aaa53f94b6af529af2" compoundref="dict_8h" startline="83">dict_t::ht</references>
+        <references refid="structdict__t_1af6142600cef73f846b58ba9bc36b02ac" compoundref="dict_8h" startline="84">dict_t::max_words</references>
+        <references refid="structdict__t_1a3a01eb5a3ebda5652d434be26e0cfdd2" compoundref="dict_8h" startline="81">dict_t::mdef</references>
+        <references refid="structdict__t_1af00f60319a7025361e291af5addb6b31" compoundref="dict_8h" startline="85">dict_t::n_word</references>
+        <references refid="structdict__t_1aad07b22b94c360923f151c02890f6e68" compoundref="dict_8h" startline="90">dict_t::silwid</references>
+        <references refid="structdict__t_1a22bc6c52ce9e04c4f3f7d0ba1972ee51" compoundref="dict_8h" startline="88">dict_t::startwid</references>
+        <references refid="structdict__t_1a9e6636bbe45936a03381fea430addd31" compoundref="dict_8h" startline="82">dict_t::word</references>
+        <referencedby refid="ps__lattice_8c_1aaf4a101f324943c7635746ec6ba7ab06" compoundref="ps__lattice_8c" startline="410" endline="653">ps_lattice_read</referencedby>
+        <referencedby refid="pocketsphinx_8h_1a824f46e51681d931b7e2706a86c3d86f" compoundref="pocketsphinx_8c" startline="640" endline="693">ps_load_dict</referencedby>
+        <referencedby refid="pocketsphinx_8h_1a391679e7edb0de1e324aa302ee820287" compoundref="pocketsphinx_8c" startline="213" endline="358">ps_reinit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1a4bfa8e3b7b9ff30165375d1c97bb04b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int dict_write</definition>
+        <argsstring>(dict_t *dict, char const *filename, char const *format)</argsstring>
+        <name>dict_write</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>dict</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+<para>Write dictionary to a file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="113" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="221" bodyend="248"/>
+        <references refid="structdict__t_1af00f60319a7025361e291af5addb6b31" compoundref="dict_8h" startline="85">dict_t::n_word</references>
+        <references refid="dict_8h_1ad2eba4ca92dd1a3721608e003d95d8c1" compoundref="dict_8c" startline="411" endline="422">dict_real_word</references>
+        <references refid="dict_8h_1a8587d077f5303554df0e26a181bfb0bf" compoundref="dict_8c" startline="69" endline="76">dict_ciphone_str</references>
+        <referencedby refid="pocketsphinx_8h_1a5e278377cc57d921591ce95b980760d5" compoundref="pocketsphinx_8c" startline="696" endline="700">ps_save_dict</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1ad3729eb1a02a9a321e17933f7e90c80e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT s3wid_t</type>
+        <definition>POCKETSPHINX_EXPORT s3wid_t dict_wordid</definition>
+        <argsstring>(dict_t *d, const char *word)</argsstring>
+        <name>dict_wordid</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+<para>Return word id for given word string if present. </para>        </briefdescription>
+        <detaileddescription>
+<para>Otherwise return BAD_S3WID </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="117" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="383" bodyend="393"/>
+        <references refid="s3types_8h_1a5c42410b7125da611210c5a4be29898b" compoundref="s3types_8h" startline="136">BAD_S3WID</references>
+        <references refid="structdict__t_1a7205aae4fbeef3aaa53f94b6af529af2" compoundref="dict_8h" startline="83">dict_t::ht</references>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="ps__lattice_8c_1aaf4a101f324943c7635746ec6ba7ab06" compoundref="ps__lattice_8c" startline="410" endline="653">ps_lattice_read</referencedby>
+        <referencedby refid="pocketsphinx_8h_1af4bb6ba47844a135745db428919d9810" compoundref="pocketsphinx_8c" startline="1151" endline="1181">ps_nbest</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1aa5cade4dc6464c620718b86344540aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int dict_filler_word</definition>
+        <argsstring>(dict_t *d, s3wid_t w)</argsstring>
+        <name>dict_filler_word</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>d</declname>
+          <briefdescription><para>The dictionary structure </para></briefdescription>
+        </param>
+        <param>
+          <type>s3wid_t</type>
+          <declname>w</declname>
+          <briefdescription><para>The word ID </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Return 1 if w is a filler word, 0 if not. </para>        </briefdescription>
+        <detaileddescription>
+<para>A filler word is one that was read in from the filler dictionary; however, sentence START and FINISH words are not filler words. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="123" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="397" bodyend="408"/>
+        <references refid="structdict__t_1abd48fdafaaa68a8df2fd82163c51a95c" compoundref="dict_8h" startline="86">dict_t::filler_start</references>
+        <references refid="structdict__t_1a3875be5336e2d9888f6d5cb83ded82c5" compoundref="dict_8h" startline="89">dict_t::finishwid</references>
+        <references refid="structdict__t_1a22bc6c52ce9e04c4f3f7d0ba1972ee51" compoundref="dict_8h" startline="88">dict_t::startwid</references>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="ngram__search_8h_1ac30e7dec4bbfeee9f5163abf4bbd1014" compoundref="ngram__search_8c" startline="1217" endline="1404">ngram_search_lattice</referencedby>
+        <referencedby refid="ps__lattice_8c_1a0cc8e4824f4f23ecbf511b0bb096a3ea" compoundref="ps__lattice_8c" startline="1238" endline="1370">ps_lattice_bestpath</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1a9b40adaa059978fe33959d59da1b6919" compoundref="ps__lattice_8c" startline="106" endline="140">ps_lattice_bypass_fillers</referencedby>
+        <referencedby refid="ps__lattice_8c_1aafee8a8325301db72711a3680bc385c6" compoundref="ps__lattice_8c" startline="1408" endline="1474">ps_lattice_posterior</referencedby>
+        <referencedby refid="ps__lattice_8c_1aaf4a101f324943c7635746ec6ba7ab06" compoundref="ps__lattice_8c" startline="410" endline="653">ps_lattice_read</referencedby>
+        <referencedby refid="ps__lattice_8c_1a1ac6d846fbecfcaba6094d84e93655f7" compoundref="ps__lattice_8c" startline="293" endline="370">ps_lattice_write_htk</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1ad2eba4ca92dd1a3721608e003d95d8c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>POCKETSPHINX_EXPORT int</type>
+        <definition>POCKETSPHINX_EXPORT int dict_real_word</definition>
+        <argsstring>(dict_t *d, s3wid_t w)</argsstring>
+        <name>dict_real_word</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>d</declname>
+          <briefdescription><para>The dictionary structure </para></briefdescription>
+        </param>
+        <param>
+          <type>s3wid_t</type>
+          <declname>w</declname>
+          <briefdescription><para>The word ID </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Test if w is a &quot;real&quot; word, i.e. </para>        </briefdescription>
+        <detaileddescription>
+<para>neither a filler word nor START/FINISH. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="131" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="411" bodyend="422"/>
+        <references refid="structdict__t_1abd48fdafaaa68a8df2fd82163c51a95c" compoundref="dict_8h" startline="86">dict_t::filler_start</references>
+        <references refid="structdict__t_1a3875be5336e2d9888f6d5cb83ded82c5" compoundref="dict_8h" startline="89">dict_t::finishwid</references>
+        <references refid="structdict__t_1a22bc6c52ce9e04c4f3f7d0ba1972ee51" compoundref="dict_8h" startline="88">dict_t::startwid</references>
+        <referencedby refid="dict_8h_1a4bfa8e3b7b9ff30165375d1c97bb04b8" compoundref="dict_8c" startline="221" endline="248">dict_write</referencedby>
+        <referencedby refid="ngram__search_8h_1aee393a136f8f7e8b98161e6eed7b1dd9" compoundref="ngram__search_8c" startline="552" endline="597">ngram_search_bp_hyp</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1ac7372b5c5ec111f6814ce1ba495593e4" compoundref="ps__lattice_8c" startline="1757" endline="1801">ps_astar_hyp</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1a02b07c009d23b852bd4db54700dfac5b" compoundref="ps__lattice_8c" startline="853" endline="907">ps_lattice_hyp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1a24888ac8e24259e553c43c4655b38432" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>s3wid_t</type>
+        <definition>s3wid_t dict_add_word</definition>
+        <argsstring>(dict_t *d, char const *word, s3cipid_t const *p, int32 np)</argsstring>
+        <name>dict_add_word</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>d</declname>
+          <briefdescription><para>The dictionary structure. </para></briefdescription>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>word</declname>
+          <briefdescription><para>The word. </para></briefdescription>
+        </param>
+        <param>
+          <type><ref refid="s3types_8h_1ae5f70241ce62a79747f0611029a6409d" kindref="member">s3cipid_t</ref> const *</type>
+          <declname>p</declname>
+          <briefdescription><para>The pronunciation. </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>np</declname>
+          <briefdescription><para>Number of phones. </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Add a word with the given ciphone pronunciation list to the dictionary. </para>        </briefdescription>
+        <detaileddescription>
+<para>Return value: Result word id if successful, BAD_S3WID otherwise </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="139" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="80" bodyend="145"/>
+        <references refid="structdictword__t_1a84b63cd03706221645f46b2da09e9540" compoundref="dict_8h" startline="70">dictword_t::alt</references>
+        <references refid="s3types_8h_1a5c42410b7125da611210c5a4be29898b" compoundref="s3types_8h" startline="136">BAD_S3WID</references>
+        <references refid="structdictword__t_1a53dd72f96a9de21d8925e246cc7c036f" compoundref="dict_8h" startline="71">dictword_t::basewid</references>
+        <references refid="structdictword__t_1acf5836b5a681485868e9090ad67366d5" compoundref="dict_8h" startline="68">dictword_t::ciphone</references>
+        <references refid="dict_8h_1a3a128531ae9c077be9882119ed05fe3a" compoundref="dict_8c" startline="426" endline="442">dict_word2basestr</references>
+        <references refid="structdict__t_1a7205aae4fbeef3aaa53f94b6af529af2" compoundref="dict_8h" startline="83">dict_t::ht</references>
+        <references refid="structdict__t_1af6142600cef73f846b58ba9bc36b02ac" compoundref="dict_8h" startline="84">dict_t::max_words</references>
+        <references refid="structdict__t_1af00f60319a7025361e291af5addb6b31" compoundref="dict_8h" startline="85">dict_t::n_word</references>
+        <references refid="structdictword__t_1a50509f28a4b64d76519bfadea12f0fa0" compoundref="dict_8h" startline="69">dictword_t::pronlen</references>
+        <references refid="structdictword__t_1a3f3371918a406e26817bd4f2cecd7329" compoundref="dict_8h" startline="67">dictword_t::word</references>
+        <references refid="structdict__t_1a9e6636bbe45936a03381fea430addd31" compoundref="dict_8h" startline="82">dict_t::word</references>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="pocketsphinx_8h_1a5f3c4fcdbef34915c4e785ac9a1c6005" compoundref="pocketsphinx_8c" startline="703" endline="768">ps_add_word</referencedby>
+        <referencedby refid="ps__lattice_8c_1aaf4a101f324943c7635746ec6ba7ab06" compoundref="ps__lattice_8c" startline="410" endline="653">ps_lattice_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1a8587d077f5303554df0e26a181bfb0bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* dict_ciphone_str</definition>
+        <argsstring>(dict_t *d, s3wid_t wid, int32 pos)</argsstring>
+        <name>dict_ciphone_str</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>d</declname>
+          <briefdescription><para>In: Dictionary to look up </para></briefdescription>
+        </param>
+        <param>
+          <type>s3wid_t</type>
+          <declname>wid</declname>
+          <briefdescription><para>In: Component word being looked up </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>pos</declname>
+          <briefdescription><para>In: Pronunciation phone position </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Return value: CI phone string for the given word, phone position. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="148" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="69" bodyend="76"/>
+        <references refid="bin__mdef_8h_1a9498ffff0caf3965060b8a549348be9b" compoundref="bin__mdef_8c" startline="737" endline="742">bin_mdef_ciphone_str</references>
+        <references refid="structdictword__t_1acf5836b5a681485868e9090ad67366d5" compoundref="dict_8h" startline="68">dictword_t::ciphone</references>
+        <references refid="structdict__t_1a3a01eb5a3ebda5652d434be26e0cfdd2" compoundref="dict_8h" startline="81">dict_t::mdef</references>
+        <references refid="structdict__t_1a9e6636bbe45936a03381fea430addd31" compoundref="dict_8h" startline="82">dict_t::word</references>
+        <referencedby refid="dict_8h_1a4bfa8e3b7b9ff30165375d1c97bb04b8" compoundref="dict_8c" startline="221" endline="248">dict_write</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1a3a128531ae9c077be9882119ed05fe3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 dict_word2basestr</definition>
+        <argsstring>(char *word)</argsstring>
+        <name>dict_word2basestr</name>
+        <param>
+          <type>char *</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+<para>If the given word contains a trailing &quot;(....)&quot; (i.e., a Sphinx-II style alternative pronunciation specification), strip that trailing portion from it. </para>        </briefdescription>
+        <detaileddescription>
+<para>Note that the given string is modified. Return value: If string was modified, the character position at which the original string was truncated; otherwise -1. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="193" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="426" bodyend="442"/>
+        <referencedby refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" compoundref="dict_8c" startline="80" endline="145">dict_add_word</referencedby>
+        <referencedby refid="ps__lattice_8c_1aaf4a101f324943c7635746ec6ba7ab06" compoundref="ps__lattice_8c" startline="410" endline="653">ps_lattice_read</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1a0edf70be186e8940af9d21243083cb8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+        <definition>dict_t* dict_retain</definition>
+        <argsstring>(dict_t *d)</argsstring>
+        <name>dict_retain</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Retain a pointer to an <ref refid="structdict__t" kindref="compound">dict_t</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="198" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="445" bodyend="449"/>
+        <referencedby refid="dict2pid_8h_1addd541f2275b79e284575fb11b7986e1" compoundref="dict2pid_8c" startline="388" endline="497">dict2pid_build</referencedby>
+        <referencedby refid="pocketsphinx__internal_8h_1ad848d8d0cf0398542bfb74a2e34dbff3" compoundref="pocketsphinx_8c" startline="1259" endline="1282">ps_search_init</referencedby>
+        <referencedby refid="pocketsphinx__internal_8h_1a307801961f27bd5f4b82a3e6b83e0ca1" compoundref="pocketsphinx_8c" startline="1285" endline="1307">ps_search_base_reinit</referencedby>
+        <referencedby refid="ps__lattice_8c_1aaf4a101f324943c7635746ec6ba7ab06" compoundref="ps__lattice_8c" startline="410" endline="653">ps_lattice_read</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1a606f6ee0fd569dd5829d7f84ae7e61bd" compoundref="ps__lattice_8c" startline="662" endline="678">ps_lattice_init_search</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int dict_free</definition>
+        <argsstring>(dict_t *d)</argsstring>
+        <name>dict_free</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Release a pointer to a dictionary. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="203" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="452" bodyend="480"/>
+        <references refid="structdict__t_1af00f60319a7025361e291af5addb6b31" compoundref="dict_8h" startline="85">dict_t::n_word</references>
+        <references refid="structdict__t_1a9e6636bbe45936a03381fea430addd31" compoundref="dict_8h" startline="82">dict_t::word</references>
+        <references refid="structdictword__t_1a3f3371918a406e26817bd4f2cecd7329" compoundref="dict_8h" startline="67">dictword_t::word</references>
+        <references refid="structdictword__t_1acf5836b5a681485868e9090ad67366d5" compoundref="dict_8h" startline="68">dictword_t::ciphone</references>
+        <references refid="structdict__t_1a7205aae4fbeef3aaa53f94b6af529af2" compoundref="dict_8h" startline="83">dict_t::ht</references>
+        <references refid="structdict__t_1a3a01eb5a3ebda5652d434be26e0cfdd2" compoundref="dict_8h" startline="81">dict_t::mdef</references>
+        <references refid="bin__mdef_8h_1afe7ed87e2a2d22b228c14ed8225e4b2c" compoundref="bin__mdef_8c" startline="272" endline="300">bin_mdef_free</references>
+        <referencedby refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" compoundref="dict_8c" startline="252" endline="379">dict_init</referencedby>
+        <referencedby refid="dict2pid_8h_1a293253226550e812c448ae096b364d0d" compoundref="dict2pid_8c" startline="507" endline="530">dict2pid_free</referencedby>
+        <referencedby refid="pocketsphinx_8h_1a391679e7edb0de1e324aa302ee820287" compoundref="pocketsphinx_8c" startline="213" endline="358">ps_reinit</referencedby>
+        <referencedby refid="pocketsphinx_8h_1ad8fd9b79ae9f87703af3f4755b3ab567" compoundref="pocketsphinx_8c" startline="388" endline="403">ps_free</referencedby>
+        <referencedby refid="pocketsphinx_8h_1a824f46e51681d931b7e2706a86c3d86f" compoundref="pocketsphinx_8c" startline="640" endline="693">ps_load_dict</referencedby>
+        <referencedby refid="pocketsphinx__internal_8h_1a307801961f27bd5f4b82a3e6b83e0ca1" compoundref="pocketsphinx_8c" startline="1285" endline="1307">ps_search_base_reinit</referencedby>
+        <referencedby refid="pocketsphinx__internal_8h_1a1299496b3498166928702d0701934e50" compoundref="pocketsphinx_8c" startline="1310" endline="1318">ps_search_deinit</referencedby>
+        <referencedby refid="ps__lattice_8c_1aed9371a246b6565a2142c3baefd08002" compoundref="ps__lattice_8c" startline="688" endline="702">ps_lattice_free</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="dict_8h_1a41cca433a75fd2663bee115296639666" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dict_report</definition>
+        <argsstring>(dict_t *d)</argsstring>
+        <name>dict_report</name>
+        <param>
+          <type><ref refid="structdict__t" kindref="compound">dict_t</ref> *</type>
+          <declname>d</declname>
+          <briefdescription><para>A dictionary structure </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Report a dictionary structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h" line="206" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.c" bodystart="483" bodyend="489"/>
+        <references refid="structdict__t_1af6142600cef73f846b58ba9bc36b02ac" compoundref="dict_8h" startline="84">dict_t::max_words</references>
+        <references refid="structdict__t_1af00f60319a7025361e291af5addb6b31" compoundref="dict_8h" startline="85">dict_t::n_word</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Operations on dictionary. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_S3_DICT_H_</highlight></codeline>
+<codeline lineno="39"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_S3_DICT_H_</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment">/*<sp/>SphinxBase<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/hash_table.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Local<sp/>headers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="s3types_8h" kindref="compound">s3types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="bin__mdef_8h" kindref="compound">bin_mdef.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;pocketsphinx_export.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>S3DICT_INC_SZ<sp/>4096</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor"></highlight><highlight class="normal">}<sp/></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs<sp/>into<sp/>not<sp/>indenting<sp/>things.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="66" refid="structdictword__t" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67" refid="structdictword__t_1a3f3371918a406e26817bd4f2cecd7329" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structdictword__t_1a3f3371918a406e26817bd4f2cecd7329" kindref="member">word</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68" refid="structdictword__t_1acf5836b5a681485868e9090ad67366d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="s3types_8h_1ae5f70241ce62a79747f0611029a6409d" kindref="member">s3cipid_t</ref><sp/>*<ref refid="structdictword__t_1acf5836b5a681485868e9090ad67366d5" kindref="member">ciphone</ref>;<sp/></highlight></codeline>
+<codeline lineno="69" refid="structdictword__t_1a50509f28a4b64d76519bfadea12f0fa0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structdictword__t_1a50509f28a4b64d76519bfadea12f0fa0" kindref="member">pronlen</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70" refid="structdictword__t_1a84b63cd03706221645f46b2da09e9540" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>s3wid_t<sp/><ref refid="structdictword__t_1a84b63cd03706221645f46b2da09e9540" kindref="member">alt</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71" refid="structdictword__t_1a53dd72f96a9de21d8925e246cc7c036f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>s3wid_t<sp/><ref refid="structdictword__t_1a53dd72f96a9de21d8925e246cc7c036f" kindref="member">basewid</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}<sp/><ref refid="structdictword__t" kindref="compound">dictword_t</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="structdict__t" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>refcnt;</highlight></codeline>
+<codeline lineno="81" refid="structdict__t_1a3a01eb5a3ebda5652d434be26e0cfdd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structbin__mdef__s" kindref="compound">bin_mdef_t</ref><sp/>*<ref refid="structdict__t_1a3a01eb5a3ebda5652d434be26e0cfdd2" kindref="member">mdef</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82" refid="structdict__t_1a9e6636bbe45936a03381fea430addd31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structdictword__t" kindref="compound">dictword_t</ref><sp/>*<ref refid="structdict__t_1a9e6636bbe45936a03381fea430addd31" kindref="member">word</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="83" refid="structdict__t_1a7205aae4fbeef3aaa53f94b6af529af2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>hash_table_t<sp/>*<ref refid="structdict__t_1a7205aae4fbeef3aaa53f94b6af529af2" kindref="member">ht</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84" refid="structdict__t_1af6142600cef73f846b58ba9bc36b02ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structdict__t_1af6142600cef73f846b58ba9bc36b02ac" kindref="member">max_words</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85" refid="structdict__t_1af00f60319a7025361e291af5addb6b31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structdict__t_1af00f60319a7025361e291af5addb6b31" kindref="member">n_word</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86" refid="structdict__t_1abd48fdafaaa68a8df2fd82163c51a95c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structdict__t_1abd48fdafaaa68a8df2fd82163c51a95c" kindref="member">filler_start</ref>;<sp/></highlight></codeline>
+<codeline lineno="87" refid="structdict__t_1a77c6692e56308968804add1292275cb7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structdict__t_1a77c6692e56308968804add1292275cb7" kindref="member">filler_end</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88" refid="structdict__t_1a22bc6c52ce9e04c4f3f7d0ba1972ee51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>s3wid_t<sp/><ref refid="structdict__t_1a22bc6c52ce9e04c4f3f7d0ba1972ee51" kindref="member">startwid</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89" refid="structdict__t_1a3875be5336e2d9888f6d5cb83ded82c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>s3wid_t<sp/><ref refid="structdict__t_1a3875be5336e2d9888f6d5cb83ded82c5" kindref="member">finishwid</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="90" refid="structdict__t_1aad07b22b94c360923f151c02890f6e68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>s3wid_t<sp/><ref refid="structdict__t_1aad07b22b94c360923f151c02890f6e68" kindref="member">silwid</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nocase;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}<sp/><ref refid="structdict__t" kindref="compound">dict_t</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*<ref refid="dict_8h_1a05d8dac3e5fe5399ccb8bf7776e203e2" kindref="member">dict_init</ref>(cmd_ln_t<sp/>*config,<sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structbin__mdef__s" kindref="compound">bin_mdef_t</ref><sp/>*mdef<sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dict_8h_1a4bfa8e3b7b9ff30165375d1c97bb04b8" kindref="member">dict_write</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*dict,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*filename,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*format);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">s3wid_t<sp/><ref refid="dict_8h_1ad3729eb1a02a9a321e17933f7e90c80e" kindref="member">dict_wordid</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*d,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*word);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dict_8h_1aa5cade4dc6464c620718b86344540aff" kindref="member">dict_filler_word</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*d,<sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3wid_t<sp/>w<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal">POCKETSPHINX_EXPORT</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dict_8h_1ad2eba4ca92dd1a3721608e003d95d8c1" kindref="member">dict_real_word</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*d,<sp/><sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3wid_t<sp/>w<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">s3wid_t<sp/><ref refid="dict_8h_1a24888ac8e24259e553c43c4655b38432" kindref="member">dict_add_word</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*d,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*word,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="s3types_8h_1ae5f70241ce62a79747f0611029a6409d" kindref="member">s3cipid_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*p,<sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>np<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="dict_8h_1a8587d077f5303554df0e26a181bfb0bf" kindref="member">dict_ciphone_str</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*d,<sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>s3wid_t<sp/>wid,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>pos<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154" refid="dict_8h_1a361b948b42f9cfdf5c7fa9dfc8a71a94" refkind="member"><highlight class="preprocessor">#define<sp/>dict_size(d)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;n_word)</highlight></codeline>
+<codeline lineno="155"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_num_fillers(d)<sp/><sp/><sp/>(dict_filler_end(d)<sp/>-<sp/>dict_filler_start(d))</highlight></codeline>
+<codeline lineno="156"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="161" refid="dict_8h_1a529d92f69f39e1f8c4a94e60a9509201" refkind="member"><highlight class="preprocessor">#define<sp/>dict_num_real_words(d)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="162"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(dict_size(d)<sp/>-<sp/>(dict_filler_end(d)<sp/>-<sp/>dict_filler_start(d))<sp/>-<sp/>2)</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_basewid(d,w)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;word[w].basewid)</highlight></codeline>
+<codeline lineno="164"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_wordstr(d,w)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((w)<sp/>&lt;<sp/>0<sp/>?<sp/>NULL<sp/>:<sp/>(d)-&gt;word[w].word)</highlight></codeline>
+<codeline lineno="165"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_basestr(d,w)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;word[dict_basewid(d,w)].word)</highlight></codeline>
+<codeline lineno="166"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_nextalt(d,w)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;word[w].alt)</highlight></codeline>
+<codeline lineno="167"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_pronlen(d,w)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;word[w].pronlen)<sp/></highlight></codeline>
+<codeline lineno="168" refid="dict_8h_1a8785ab6264a5c6cf0b8da6bf79a46de4" refkind="member"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_pron(d,w,p)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;word[w].ciphone[p])<sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="preprocessor">#define<sp/>dict_filler_start(d)<sp/><sp/><sp/><sp/>((d)-&gt;filler_start)</highlight></codeline>
+<codeline lineno="170"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_filler_end(d)<sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;filler_end)</highlight></codeline>
+<codeline lineno="171"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_startwid(d)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;startwid)</highlight></codeline>
+<codeline lineno="172"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_finishwid(d)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;finishwid)</highlight></codeline>
+<codeline lineno="173"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_silwid(d)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;silwid)</highlight></codeline>
+<codeline lineno="174"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_is_single_phone(d,w)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>((d)-&gt;word[w].pronlen<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="175"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_first_phone(d,w)<sp/><sp/><sp/>((d)-&gt;word[w].ciphone[0])</highlight></codeline>
+<codeline lineno="176"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_second_phone(d,w)<sp/><sp/>((d)-&gt;word[w].ciphone[1])</highlight></codeline>
+<codeline lineno="177"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_second_last_phone(d,w)<sp/><sp/><sp/><sp/><sp/>((d)-&gt;word[w].ciphone[(d)-&gt;word[w].pronlen<sp/>-<sp/>2])</highlight></codeline>
+<codeline lineno="178"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>dict_last_phone(d,w)<sp/><sp/><sp/><sp/>((d)-&gt;word[w].ciphone[(d)-&gt;word[w].pronlen<sp/>-<sp/>1])</highlight></codeline>
+<codeline lineno="179"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Hard-coded<sp/>special<sp/>words<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>S3_START_WORD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&lt;s&gt;&quot;</highlight></codeline>
+<codeline lineno="182"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>S3_FINISH_WORD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&lt;/s&gt;&quot;</highlight></codeline>
+<codeline lineno="183"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>S3_SILENCE_WORD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&lt;sil&gt;&quot;</highlight></codeline>
+<codeline lineno="184"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>S3_UNKNOWN_WORD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&lt;UNK&gt;&quot;</highlight></codeline>
+<codeline lineno="185"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">int32<sp/><ref refid="dict_8h_1a3a128531ae9c077be9882119ed05fe3a" kindref="member">dict_word2basestr</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*word);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*<ref refid="dict_8h_1a0edf70be186e8940af9d21243083cb8b" kindref="member">dict_retain</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*d);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dict_8h_1a51ee6c067decce8dbc182f95f7b33e91" kindref="member">dict_free</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*d);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dict_8h_1a41cca433a75fd2663bee115296639666" kindref="member">dict_report</ref>(<ref refid="structdict__t" kindref="compound">dict_t</ref><sp/>*d<sp/></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="210"><highlight class="preprocessor"></highlight><highlight class="normal">{<sp/></highlight><highlight class="comment">/*<sp/>Stop<sp/>indent<sp/>from<sp/>complaining<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="212"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="213"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="215"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/dict.h"/>
+  </compounddef>
+</doxygen>

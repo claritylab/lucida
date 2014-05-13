@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structhmm__context__s" kind="struct" prot="public">
+    <compoundname>hmm_context_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhmm__context__s_1a27ba4c5db11110bddf240dd52ed36084" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 hmm_context_s::n_emit_state</definition>
+        <argsstring></argsstring>
+        <name>n_emit_state</name>
+        <briefdescription>
+<para>Number of emitting states in this set of HMMs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" line="151" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhmm__context__s_1a9ef2d83f67525050bea8b05f8a118f44" prot="public" static="no" mutable="no">
+        <type>uint8 **const *</type>
+        <definition>uint8** const* hmm_context_s::tp</definition>
+        <argsstring></argsstring>
+        <name>tp</name>
+        <briefdescription>
+<para>State transition scores tp[id][from][to] (logs3 values). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" line="152" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhmm__context__s_1a1cca9eb94bc20d9c5e60f2da18074397" prot="public" static="no" mutable="no">
+        <type>int16 const *</type>
+        <definition>int16 const* hmm_context_s::senscore</definition>
+        <argsstring></argsstring>
+        <name>senscore</name>
+        <briefdescription>
+<para>State emission scores senscore[senid] (negated scaled logs3 values). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" line="153" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhmm__context__s_1abbb0a32aadcc1938d9f21b04204c52da" prot="public" static="no" mutable="no">
+        <type>uint16 *const *</type>
+        <definition>uint16* const* hmm_context_s::sseq</definition>
+        <argsstring></argsstring>
+        <name>sseq</name>
+        <briefdescription>
+<para>Senone sequence mapping. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" line="155" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhmm__context__s_1a671c02e0443f41914471a7acfac6125c" prot="public" static="no" mutable="no">
+        <type>int32 *</type>
+        <definition>int32* hmm_context_s::st_sen_scr</definition>
+        <argsstring></argsstring>
+        <name>st_sen_scr</name>
+        <briefdescription>
+<para>Temporary array of senone scores (for some topologies). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" line="156" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhmm__context__s_1a63486d186a984a87d060064e65fab564" prot="public" static="no" mutable="no">
+        <type>listelem_alloc_t *</type>
+        <definition>listelem_alloc_t* hmm_context_s::mpx_ssid_alloc</definition>
+        <argsstring></argsstring>
+        <name>mpx_ssid_alloc</name>
+        <briefdescription>
+<para>Allocator for senone sequence ID arrays. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" line="157" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhmm__context__s_1a1f80af93746230d41b4ee7e89786a4c7" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* hmm_context_s::udata</definition>
+        <argsstring></argsstring>
+        <name>udata</name>
+        <briefdescription>
+<para>Whatever you feel like, gosh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" line="158" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" line="150" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/hmm.h" bodystart="150" bodyend="159"/>
+    <listofallmembers>
+      <member refid="structhmm__context__s_1a63486d186a984a87d060064e65fab564" prot="public" virt="non-virtual"><scope>hmm_context_s</scope><name>mpx_ssid_alloc</name></member>
+      <member refid="structhmm__context__s_1a27ba4c5db11110bddf240dd52ed36084" prot="public" virt="non-virtual"><scope>hmm_context_s</scope><name>n_emit_state</name></member>
+      <member refid="structhmm__context__s_1a1cca9eb94bc20d9c5e60f2da18074397" prot="public" virt="non-virtual"><scope>hmm_context_s</scope><name>senscore</name></member>
+      <member refid="structhmm__context__s_1abbb0a32aadcc1938d9f21b04204c52da" prot="public" virt="non-virtual"><scope>hmm_context_s</scope><name>sseq</name></member>
+      <member refid="structhmm__context__s_1a671c02e0443f41914471a7acfac6125c" prot="public" virt="non-virtual"><scope>hmm_context_s</scope><name>st_sen_scr</name></member>
+      <member refid="structhmm__context__s_1a9ef2d83f67525050bea8b05f8a118f44" prot="public" virt="non-virtual"><scope>hmm_context_s</scope><name>tp</name></member>
+      <member refid="structhmm__context__s_1a1f80af93746230d41b4ee7e89786a4c7" prot="public" virt="non-virtual"><scope>hmm_context_s</scope><name>udata</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

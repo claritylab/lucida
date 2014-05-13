@@ -1,0 +1,21 @@
+.TH SPHINX_LM_SORT 1 "2008-06-26"
+.SH NAME
+sphinx_lm_sort \- Order N-Grams in a language model for Sphinx
+.SH SYNOPSIS
+.B sphinx_lm_sort
+<
+.I input_lm
+>
+.I output_lm
+.SH DESCRIPTION
+.PP
+This program arranges the N-Grams in an ARPA-format language model to
+be acceptable to Sphinx.  This is necessary if you created the
+language model with SRILM or any other tool which is not as strict
+about ordering N-Grams in its output.
+.SH AUTHOR
+David Huggins-Daines <dhuggins@cs.cmu.edu>
+.SH COPYRIGHT
+Copyright \(co 2008 Carnegie Mellon University.  See the file
+\fICOPYING\fR included with this package for more information.
+.br

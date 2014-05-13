@@ -1,0 +1,1755 @@
+\section{include/pocketsphinx.h File Reference}
+\label{pocketsphinx_8h}\index{include/pocketsphinx.\-h@{include/pocketsphinx.\-h}}
+
+
+Main header file for the Pocket\-Sphinx decoder.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/cmd\-\_\-ln.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/logmath.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/fe.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/feat.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/fsg\-\_\-model.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/ngram\-\_\-model.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/hash\-\_\-table.\-h$>$}\\*
+{\ttfamily \#include $<$pocketsphinx\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$cmdln\-\_\-macro.\-h$>$}\\*
+{\ttfamily \#include $<$ps\-\_\-lattice.\-h$>$}\\*
+{\ttfamily \#include $<$ps\-\_\-mllr.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries P\-S\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-E\-A\-R\-C\-H}~\char`\"{}default\char`\"{}\label{pocketsphinx_8h_a84a97dd05f15264c6949498feb139671}
+
+\item 
+\#define {\bfseries P\-S\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-K\-W\-S}~\char`\"{}kws\char`\"{}\label{pocketsphinx_8h_ace7921a5c754395cdf2d197039553b05}
+
+\item 
+\#define {\bfseries P\-S\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-F\-S\-G}~\char`\"{}fsg\char`\"{}\label{pocketsphinx_8h_a95d43c0bca0e340b57d679dcd84a8fd0}
+
+\item 
+\#define {\bfseries P\-S\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-N\-G\-R\-A\-M}~\char`\"{}ngram\char`\"{}\label{pocketsphinx_8h_adc5ecfa80f4969c3ff1faa08f3cc001a}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf ps\-\_\-decoder\-\_\-s} {\bf ps\-\_\-decoder\-\_\-t}\label{pocketsphinx_8h_ac6ba825b5a9e1c9003b257221eb6e055}
+
+\begin{DoxyCompactList}\small\item\em Pocket\-Sphinx speech recognizer object. \end{DoxyCompactList}\item 
+typedef struct {\bf ps\-\_\-search\-\_\-iter\-\_\-s} {\bf ps\-\_\-search\-\_\-iter\-\_\-t}\label{pocketsphinx_8h_ae3fe90e6eb1fa74e30783e20468280c1}
+
+\begin{DoxyCompactList}\small\item\em Pocket\-Sphinx search iterator. \end{DoxyCompactList}\item 
+typedef struct {\bf ps\-\_\-astar\-\_\-s} {\bf ps\-\_\-nbest\-\_\-t}\label{pocketsphinx_8h_a73090e41024a1f07f5552b83ac7e0993}
+
+\begin{DoxyCompactList}\small\item\em Pocket\-Sphinx N-\/best hypothesis iterator object. \end{DoxyCompactList}\item 
+typedef struct {\bf ps\-\_\-seg\-\_\-s} {\bf ps\-\_\-seg\-\_\-t}\label{pocketsphinx_8h_a64d3ac229ef945017112bab4c2a5ec94}
+
+\begin{DoxyCompactList}\small\item\em Pocket\-Sphinx segmentation iterator object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ps\-\_\-default\-\_\-search\-\_\-args} (cmd\-\_\-ln\-\_\-t $\ast$)\label{pocketsphinx_8h_a887e4cdcbef98d5594458c5934cc9471}
+
+\begin{DoxyCompactList}\small\item\em Sets default grammar and language model if they are not set explicitly and are present in the default search path. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-decoder\-\_\-t} $\ast$ {\bf ps\-\_\-init} (cmd\-\_\-ln\-\_\-t $\ast$config)
+\begin{DoxyCompactList}\small\item\em Initialize the decoder from a configuration object. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-reinit} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, cmd\-\_\-ln\-\_\-t $\ast$config)
+\begin{DoxyCompactList}\small\item\em Reinitialize the decoder with updated configuration. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T arg\-\_\-t const $\ast$ {\bf ps\-\_\-args} (void)
+\begin{DoxyCompactList}\small\item\em Returns the argument definitions used in \doxyref{ps\-\_\-init()}{p.}{pocketsphinx_8h_ad033da98d0f7785d6ab89a41dac3cc7c}. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-decoder\-\_\-t} $\ast$ {\bf ps\-\_\-retain} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Retain a pointer to the decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-free} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Finalize the decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T cmd\-\_\-ln\-\_\-t $\ast$ {\bf ps\-\_\-get\-\_\-config} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Get the configuration object for this decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T logmath\-\_\-t $\ast$ {\bf ps\-\_\-get\-\_\-logmath} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Get the log-\/math computation object for this decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T fe\-\_\-t $\ast$ {\bf ps\-\_\-get\-\_\-fe} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Get the feature extraction object for this decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T feat\-\_\-t $\ast$ {\bf ps\-\_\-get\-\_\-feat} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Get the dynamic feature computation object for this decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-mllr\-\_\-t} $\ast$ {\bf ps\-\_\-update\-\_\-mllr} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, {\bf ps\-\_\-mllr\-\_\-t} $\ast$mllr)
+\begin{DoxyCompactList}\small\item\em Adapt current acoustic model using a linear transform. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-set\-\_\-search} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Actives search with the provided name. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T const char $\ast$ {\bf ps\-\_\-get\-\_\-search} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Returns name of curent search in decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-unset\-\_\-search} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Unsets the search and releases related resources. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T \\*
+{\bf ps\-\_\-search\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-search\-\_\-iter} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Returns iterator over current searches. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T \\*
+{\bf ps\-\_\-search\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-search\-\_\-iter\-\_\-next} ({\bf ps\-\_\-search\-\_\-iter\-\_\-t} $\ast$itor)
+\begin{DoxyCompactList}\small\item\em Updates search iterator to point to the next position. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T const char $\ast$ {\bf ps\-\_\-search\-\_\-iter\-\_\-val} ({\bf ps\-\_\-search\-\_\-iter\-\_\-t} $\ast$itor)
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the search the iterator points to. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ps\-\_\-search\-\_\-iter\-\_\-free} ({\bf ps\-\_\-search\-\_\-iter\-\_\-t} $\ast$itor)
+\begin{DoxyCompactList}\small\item\em Delete an unfinished search iterator. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T ngram\-\_\-model\-\_\-t $\ast$ {\bf ps\-\_\-get\-\_\-lm} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Get the language model set object for this decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-set\-\_\-lm} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name, ngram\-\_\-model\-\_\-t $\ast$lm)
+\begin{DoxyCompactList}\small\item\em Adds new search based on N-\/gram language model. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-set\-\_\-lm\-\_\-file} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name, const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Adds new search based on N-\/gram language model. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T fsg\-\_\-model\-\_\-t $\ast$ {\bf ps\-\_\-get\-\_\-fsg} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Get the finite-\/state grammar set object for this decoder. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-set\-\_\-fsg} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name, fsg\-\_\-model\-\_\-t $\ast$fsg)
+\begin{DoxyCompactList}\small\item\em Adds new search based on finite state grammar. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-set\-\_\-jsgf\-\_\-file} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name, const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Adds new search using J\-S\-G\-F model. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T const char $\ast$ {\bf ps\-\_\-get\-\_\-kws} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Get the current Key phrase to spot. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-set\-\_\-kws} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name, const char $\ast$keyfile)
+\begin{DoxyCompactList}\small\item\em Adds keywords from a file to spotting. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-set\-\_\-keyphrase} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, const char $\ast$name, const char $\ast$keyphrase)
+\begin{DoxyCompactList}\small\item\em Adds new keyword to spot. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-load\-\_\-dict} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, char const $\ast$dictfile, char const $\ast$fdictfile, char const $\ast$format)
+\begin{DoxyCompactList}\small\item\em Reload the pronunciation dictionary from a file. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-save\-\_\-dict} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, char const $\ast$dictfile, char const $\ast$format)
+\begin{DoxyCompactList}\small\item\em Dump the current pronunciation dictionary to a file. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-add\-\_\-word} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, char const $\ast$word, char const $\ast$phones, int update)
+\begin{DoxyCompactList}\small\item\em Add a word to the pronunciation dictionary. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-decode\-\_\-raw} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, F\-I\-L\-E $\ast$rawfh, char const $\ast$uttid, long maxsamps)
+\begin{DoxyCompactList}\small\item\em Decode a raw audio stream. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-decode\-\_\-senscr} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, F\-I\-L\-E $\ast$senfh, char const $\ast$uttid)
+\begin{DoxyCompactList}\small\item\em Decode a senone score dump file. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-start\-\_\-utt} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, char const $\ast$uttid)
+\begin{DoxyCompactList}\small\item\em Start utterance processing. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const $\ast$ {\bf ps\-\_\-get\-\_\-uttid} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Get current utterance I\-D. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-process\-\_\-raw} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, int16 const $\ast$data, size\-\_\-t n\-\_\-samples, int no\-\_\-search, int full\-\_\-utt)
+\begin{DoxyCompactList}\small\item\em Decode raw audio data. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-process\-\_\-cep} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, mfcc\-\_\-t $\ast$$\ast$data, int n\-\_\-frames, int no\-\_\-search, int full\-\_\-utt)
+\begin{DoxyCompactList}\small\item\em Decode acoustic feature data. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-get\-\_\-n\-\_\-frames} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Get the number of frames of data searched. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int {\bf ps\-\_\-end\-\_\-utt} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em End utterance processing. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const $\ast$ {\bf ps\-\_\-get\-\_\-hyp} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, int32 $\ast$out\-\_\-best\-\_\-score, char const $\ast$$\ast$out\-\_\-uttid)
+\begin{DoxyCompactList}\small\item\em Get hypothesis string and path score. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const $\ast$ {\bf ps\-\_\-get\-\_\-hyp\-\_\-final} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, int32 $\ast$out\-\_\-is\-\_\-final)
+\begin{DoxyCompactList}\small\item\em Get hypothesis string and final flag. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf ps\-\_\-get\-\_\-prob} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, char const $\ast$$\ast$out\-\_\-uttid)
+\begin{DoxyCompactList}\small\item\em Get posterior probability. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-lattice\-\_\-t} $\ast$ {\bf ps\-\_\-get\-\_\-lattice} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Get word lattice. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-seg\-\_\-t} $\ast$ {\bf ps\-\_\-seg\-\_\-iter} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, int32 $\ast$out\-\_\-best\-\_\-score)
+\begin{DoxyCompactList}\small\item\em Get an iterator over the word segmentation for the best hypothesis. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-seg\-\_\-t} $\ast$ {\bf ps\-\_\-seg\-\_\-next} ({\bf ps\-\_\-seg\-\_\-t} $\ast$seg)
+\begin{DoxyCompactList}\small\item\em Get the next segment in a word segmentation. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const $\ast$ {\bf ps\-\_\-seg\-\_\-word} ({\bf ps\-\_\-seg\-\_\-t} $\ast$seg)
+\begin{DoxyCompactList}\small\item\em Get word string from a segmentation iterator. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ps\-\_\-seg\-\_\-frames} ({\bf ps\-\_\-seg\-\_\-t} $\ast$seg, int $\ast$out\-\_\-sf, int $\ast$out\-\_\-ef)
+\begin{DoxyCompactList}\small\item\em Get inclusive start and end frames from a segmentation iterator. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf ps\-\_\-seg\-\_\-prob} ({\bf ps\-\_\-seg\-\_\-t} $\ast$seg, int32 $\ast$out\-\_\-ascr, int32 $\ast$out\-\_\-lscr, int32 $\ast$out\-\_\-lback)
+\begin{DoxyCompactList}\small\item\em Get language, acoustic, and posterior probabilities from a segmentation iterator. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ps\-\_\-seg\-\_\-free} ({\bf ps\-\_\-seg\-\_\-t} $\ast$seg)\label{pocketsphinx_8h_ac02cea69794b0fbd17e6a4c5265b2255}
+
+\begin{DoxyCompactList}\small\item\em Finish iterating over a word segmentation early, freeing resources. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-nbest\-\_\-t} $\ast$ {\bf ps\-\_\-nbest} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, int sf, int ef, char const $\ast$ctx1, char const $\ast$ctx2)
+\begin{DoxyCompactList}\small\item\em Get an iterator over the best hypotheses, optionally within a selected region of the utterance. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-nbest\-\_\-t} $\ast$ {\bf ps\-\_\-nbest\-\_\-next} ({\bf ps\-\_\-nbest\-\_\-t} $\ast$nbest)
+\begin{DoxyCompactList}\small\item\em Move an N-\/best list iterator forward. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const $\ast$ {\bf ps\-\_\-nbest\-\_\-hyp} ({\bf ps\-\_\-nbest\-\_\-t} $\ast$nbest, int32 $\ast$out\-\_\-score)
+\begin{DoxyCompactList}\small\item\em Get the hypothesis string from an N-\/best list iterator. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-seg\-\_\-t} $\ast$ {\bf ps\-\_\-nbest\-\_\-seg} ({\bf ps\-\_\-nbest\-\_\-t} $\ast$nbest, int32 $\ast$out\-\_\-score)
+\begin{DoxyCompactList}\small\item\em Get the word segmentation from an N-\/best list iterator. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ps\-\_\-nbest\-\_\-free} ({\bf ps\-\_\-nbest\-\_\-t} $\ast$nbest)
+\begin{DoxyCompactList}\small\item\em Finish N-\/best search early, releasing resources. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ps\-\_\-get\-\_\-utt\-\_\-time} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, double $\ast$out\-\_\-nspeech, double $\ast$out\-\_\-ncpu, double $\ast$out\-\_\-nwall)
+\begin{DoxyCompactList}\small\item\em Get performance information for the current utterance. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ps\-\_\-get\-\_\-all\-\_\-time} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps, double $\ast$out\-\_\-nspeech, double $\ast$out\-\_\-ncpu, double $\ast$out\-\_\-nwall)
+\begin{DoxyCompactList}\small\item\em Get overall performance information. \end{DoxyCompactList}\item 
+P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T uint8 {\bf ps\-\_\-get\-\_\-vad\-\_\-state} ({\bf ps\-\_\-decoder\-\_\-t} $\ast$ps)
+\begin{DoxyCompactList}\small\item\em Checks if the last feed audio buffer contained speech. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main header file for the Pocket\-Sphinx decoder. 
+
+Definition in file {\bf pocketsphinx.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-add\-\_\-word@{ps\-\_\-add\-\_\-word}}
+\index{ps\-\_\-add\-\_\-word@{ps\-\_\-add\-\_\-word}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-add\-\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-add\-\_\-word (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{char const $\ast$}]{word, }
+\item[{char const $\ast$}]{phones, }
+\item[{int}]{update}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a5f3c4fcdbef34915c4e785ac9a1c6005}
+
+
+Add a word to the pronunciation dictionary. 
+
+This function adds a word to the pronunciation dictionary and the current language model (but, obviously, not to the current F\-S\-G if F\-S\-G mode is enabled). If the word is already present in one or the other, it does whatever is necessary to ensure that the word can be recognized.
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & Word string to add. \\
+\hline
+{\em phones} & Whitespace-\/separated list of phoneme strings describing pronunciation of {\ttfamily word}. \\
+\hline
+{\em update} & If T\-R\-U\-E, update the search module (whichever one is currently active) to recognize the newly added word. If adding multiple words, it is more efficient to pass F\-A\-L\-S\-E here in all but the last word. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The internal I\-D ($>$= 0) of the newly added word, or $<$0 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 703 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, bin\-\_\-mdef\-\_\-ciphone\-\_\-id(), ps\-\_\-decoder\-\_\-s\-::d2p, ps\-\_\-decoder\-\_\-s\-::dict, dict2pid\-\_\-add\-\_\-word(), dict\-\_\-add\-\_\-word(), acmod\-\_\-s\-::mdef, ps\-\_\-decoder\-\_\-s\-::search, and ps\-\_\-decoder\-\_\-s\-::searches.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-args@{ps\-\_\-args}}
+\index{ps\-\_\-args@{ps\-\_\-args}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-args}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T arg\-\_\-t const$\ast$ ps\-\_\-args (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ad873ea6e20f91a3284963d5c34331c58}
+
+
+Returns the argument definitions used in \doxyref{ps\-\_\-init()}{p.}{pocketsphinx_8h_ad033da98d0f7785d6ab89a41dac3cc7c}. 
+
+This is here to avoid exporting global data, which is problematic on Win32 and Symbian (and possibly other platforms). 
+
+Definition at line 375 of file pocketsphinx.\-c.
+
+
+
+Referenced by ps\-\_\-load\-\_\-dict().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-decode\-\_\-raw@{ps\-\_\-decode\-\_\-raw}}
+\index{ps\-\_\-decode\-\_\-raw@{ps\-\_\-decode\-\_\-raw}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-decode\-\_\-raw}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-decode\-\_\-raw (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{F\-I\-L\-E $\ast$}]{rawfh, }
+\item[{char const $\ast$}]{uttid, }
+\item[{long}]{maxsamps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ac9a9a0df5cebda28876c1e95bd197321}
+
+
+Decode a raw audio stream. 
+
+No headers are recognized in this files. The configuration parameters {\ttfamily -\/samprate} and {\ttfamily -\/input\-\_\-endian} are used to determine the sampling rate and endianness of the stream, respectively. Audio is always assumed to be 16-\/bit signed P\-C\-M.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em rawfh} & Previously opened file stream. \\
+\hline
+{\em uttid} & Utterance I\-D (or N\-U\-L\-L to generate automatically). \\
+\hline
+{\em maxsamps} & Maximum number of samples to read from rawfh, or -\/1 to read until end-\/of-\/file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples of audio. 
+\end{DoxyReturn}
+
+
+Definition at line 771 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-end\-\_\-utt(), ps\-\_\-process\-\_\-raw(), and ps\-\_\-start\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-decode\-\_\-senscr@{ps\-\_\-decode\-\_\-senscr}}
+\index{ps\-\_\-decode\-\_\-senscr@{ps\-\_\-decode\-\_\-senscr}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-decode\-\_\-senscr}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-decode\-\_\-senscr (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{F\-I\-L\-E $\ast$}]{senfh, }
+\item[{char const $\ast$}]{uttid}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_aa2957bf4fb90d6a78d1daffd3dd82c3f}
+
+
+Decode a senone score dump file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder \\
+\hline
+{\em fh} & Previously opened file handle positioned at start of file. \\
+\hline
+{\em uttid} & Utterance I\-D (or N\-U\-L\-L to generate automatically). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of frames read. 
+\end{DoxyReturn}
+
+
+Definition at line 916 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, acmod\-\_\-read\-\_\-scores(), acmod\-\_\-set\-\_\-insenfh(), ps\-\_\-end\-\_\-utt(), and ps\-\_\-start\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-end\-\_\-utt@{ps\-\_\-end\-\_\-utt}}
+\index{ps\-\_\-end\-\_\-utt@{ps\-\_\-end\-\_\-utt}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-end\-\_\-utt}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-end\-\_\-utt (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ab9339de730713b68cbd68a7f36dc8730}
+
+
+End utterance processing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success, $<$0 on error 
+\end{DoxyReturn}
+
+
+Definition at line 1005 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, acmod\-\_\-end\-\_\-utt(), ps\-\_\-decoder\-\_\-s\-::config, acmod\-\_\-s\-::output\-\_\-frame, ps\-\_\-decoder\-\_\-s\-::perf, ps\-\_\-decoder\-\_\-s\-::phone\-\_\-loop, ps\-\_\-decoder\-\_\-s\-::pl\-\_\-window, ps\-\_\-get\-\_\-hyp(), ps\-\_\-get\-\_\-logmath(), ps\-\_\-seg\-\_\-frames(), ps\-\_\-seg\-\_\-iter(), ps\-\_\-seg\-\_\-next(), ps\-\_\-seg\-\_\-prob(), ps\-\_\-seg\-\_\-word(), and ps\-\_\-decoder\-\_\-s\-::search.
+
+
+
+Referenced by ps\-\_\-decode\-\_\-raw(), and ps\-\_\-decode\-\_\-senscr().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-free@{ps\-\_\-free}}
+\index{ps\-\_\-free@{ps\-\_\-free}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ad8fd9b79ae9f87703af3f4755b3ab567}
+
+
+Finalize the decoder. 
+
+This releases all resources associated with the decoder, including any language models or grammars which have been added to it, and the initial configuration object passed to \doxyref{ps\-\_\-init()}{p.}{pocketsphinx_8h_ad033da98d0f7785d6ab89a41dac3cc7c}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder to be freed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New reference count (0 if freed). 
+\end{DoxyReturn}
+
+
+Definition at line 388 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, acmod\-\_\-free(), ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::d2p, ps\-\_\-decoder\-\_\-s\-::dict, dict2pid\-\_\-free(), dict\-\_\-free(), ps\-\_\-decoder\-\_\-s\-::lmath, ps\-\_\-decoder\-\_\-s\-::refcount, and ps\-\_\-decoder\-\_\-s\-::uttid.
+
+
+
+Referenced by ps\-\_\-init().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-all\-\_\-time@{ps\-\_\-get\-\_\-all\-\_\-time}}
+\index{ps\-\_\-get\-\_\-all\-\_\-time@{ps\-\_\-get\-\_\-all\-\_\-time}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-all\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void ps\-\_\-get\-\_\-all\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{double $\ast$}]{out\-\_\-nspeech, }
+\item[{double $\ast$}]{out\-\_\-ncpu, }
+\item[{double $\ast$}]{out\-\_\-nwall}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a61fb92154c5c731cf4a24e0976263da0}
+
+
+Get overall performance information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em out\-\_\-nspeech} & Output\-: Number of seconds of speech. \\
+\hline
+{\em out\-\_\-ncpu} & Output\-: Number of seconds of C\-P\-U time used. \\
+\hline
+{\em out\-\_\-nwall} & Output\-: Number of seconds of wall time used. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1241 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::n\-\_\-frame, and ps\-\_\-decoder\-\_\-s\-::perf.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-config@{ps\-\_\-get\-\_\-config}}
+\index{ps\-\_\-get\-\_\-config@{ps\-\_\-get\-\_\-config}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-config}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T cmd\-\_\-ln\-\_\-t$\ast$ ps\-\_\-get\-\_\-config (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_abb9256d8f7217a1e929509090df1f35b}
+
+
+Get the configuration object for this decoder. 
+
+\begin{DoxyReturn}{Returns}
+The configuration object for this decoder. The decoder retains ownership of this pointer, so you should not attempt to free it manually. Use cmd\-\_\-ln\-\_\-retain() if you wish to reuse it elsewhere. 
+\end{DoxyReturn}
+
+
+Definition at line 412 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::config.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-fe@{ps\-\_\-get\-\_\-fe}}
+\index{ps\-\_\-get\-\_\-fe@{ps\-\_\-get\-\_\-fe}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-fe}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T fe\-\_\-t$\ast$ ps\-\_\-get\-\_\-fe (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a6237e2822756f230b88019b533a28724}
+
+
+Get the feature extraction object for this decoder. 
+
+\begin{DoxyReturn}{Returns}
+The feature extraction object for this decoder. The decoder retains ownership of this pointer, so you should not attempt to free it manually. Use fe\-\_\-retain() if you wish to reuse it elsewhere. 
+\end{DoxyReturn}
+
+
+Definition at line 424 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, and acmod\-\_\-s\-::fe.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-feat@{ps\-\_\-get\-\_\-feat}}
+\index{ps\-\_\-get\-\_\-feat@{ps\-\_\-get\-\_\-feat}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-feat}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T feat\-\_\-t$\ast$ ps\-\_\-get\-\_\-feat (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a0d74d90f0db0782386487cc061a09218}
+
+
+Get the dynamic feature computation object for this decoder. 
+
+\begin{DoxyReturn}{Returns}
+The dynamic feature computation object for this decoder. The decoder retains ownership of this pointer, so you should not attempt to free it manually. Use feat\-\_\-retain() if you wish to reuse it elsewhere. 
+\end{DoxyReturn}
+
+
+Definition at line 430 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, and acmod\-\_\-s\-::fcb.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-fsg@{ps\-\_\-get\-\_\-fsg}}
+\index{ps\-\_\-get\-\_\-fsg@{ps\-\_\-get\-\_\-fsg}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-fsg}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T fsg\-\_\-model\-\_\-t$\ast$ ps\-\_\-get\-\_\-fsg (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a3a15f664d2d004d610e999adb4339dbe}
+
+
+Get the finite-\/state grammar set object for this decoder. 
+
+If F\-S\-G decoding is not enabled, this returns N\-U\-L\-L. Call ps\-\_\-update\-\_\-fsgset() to enable it.
+
+\begin{DoxyReturn}{Returns}
+The current F\-S\-G set object for this decoder, or N\-U\-L\-L if none is available. 
+\end{DoxyReturn}
+
+
+Definition at line 511 of file pocketsphinx.\-c.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-hyp@{ps\-\_\-get\-\_\-hyp}}
+\index{ps\-\_\-get\-\_\-hyp@{ps\-\_\-get\-\_\-hyp}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-hyp}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const$\ast$ ps\-\_\-get\-\_\-hyp (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{int32 $\ast$}]{out\-\_\-best\-\_\-score, }
+\item[{char const $\ast$$\ast$}]{out\-\_\-uttid}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ae4130fef938568440c014abae0e4de5e}
+
+
+Get hypothesis string and path score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em out\-\_\-best\-\_\-score} & Output\-: path score corresponding to returned string. \\
+\hline
+{\em out\-\_\-uttid} & Output\-: utterance I\-D for this utterance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String containing best hypothesis at this point in decoding. N\-U\-L\-L if no hypothesis is available. 
+\end{DoxyReturn}
+
+
+Definition at line 1062 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::perf, ps\-\_\-decoder\-\_\-s\-::search, and ps\-\_\-decoder\-\_\-s\-::uttid.
+
+
+
+Referenced by ps\-\_\-end\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-hyp\-\_\-final@{ps\-\_\-get\-\_\-hyp\-\_\-final}}
+\index{ps\-\_\-get\-\_\-hyp\-\_\-final@{ps\-\_\-get\-\_\-hyp\-\_\-final}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-hyp\-\_\-final}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const$\ast$ ps\-\_\-get\-\_\-hyp\-\_\-final (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{int32 $\ast$}]{out\-\_\-is\-\_\-final}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_af3431cf96766564d6ab2a3cc8e056860}
+
+
+Get hypothesis string and final flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em out\-\_\-is\-\_\-best\-\_\-score} & Output\-: if hypothesis is reached final state in the grammar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String containing best hypothesis at this point in decoding. N\-U\-L\-L if no hypothesis is available. 
+\end{DoxyReturn}
+
+
+Definition at line 1075 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::perf, and ps\-\_\-decoder\-\_\-s\-::search.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-kws@{ps\-\_\-get\-\_\-kws}}
+\index{ps\-\_\-get\-\_\-kws@{ps\-\_\-get\-\_\-kws}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-kws}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T const char$\ast$ ps\-\_\-get\-\_\-kws (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a8e2e66391b7c1e6cd1aac24d635ed3ea}
+
+
+Get the current Key phrase to spot. 
+
+If K\-W\-S is not enabled, this returns N\-U\-L\-L. Call ps\-\_\-update\-\_\-kws() to enable it.
+
+\begin{DoxyReturn}{Returns}
+The current keyphrase to spot 
+\end{DoxyReturn}
+
+
+Definition at line 520 of file pocketsphinx.\-c.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-lattice@{ps\-\_\-get\-\_\-lattice}}
+\index{ps\-\_\-get\-\_\-lattice@{ps\-\_\-get\-\_\-lattice}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-lattice}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-lattice\-\_\-t}$\ast$ ps\-\_\-get\-\_\-lattice (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ac7e8897e5eed452f284bef3ee53d2429}
+
+
+Get word lattice. 
+
+There isn't much you can do with this so far, a public A\-P\-I will appear in the future.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Word lattice object containing all hypotheses so far. N\-U\-L\-L if no hypotheses are available. This pointer is owned by the decoder and you should not attempt to free it manually. It is only valid until the next utterance, unless you use \doxyref{ps\-\_\-lattice\-\_\-retain()}{p.}{ps__lattice_8h_a9efc5f2836e2a0bd5d58326303516df5} to retain it. 
+\end{DoxyReturn}
+
+
+Definition at line 1145 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::search.
+
+
+
+Referenced by ps\-\_\-nbest().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-lm@{ps\-\_\-get\-\_\-lm}}
+\index{ps\-\_\-get\-\_\-lm@{ps\-\_\-get\-\_\-lm}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-lm}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T ngram\-\_\-model\-\_\-t$\ast$ ps\-\_\-get\-\_\-lm (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_af55ad6ec21a7e67845f3c74149a34b1a}
+
+
+Get the language model set object for this decoder. 
+
+If N-\/\-Gram decoding is not enabled, this will return N\-U\-L\-L. You will need to enable it using ps\-\_\-update\-\_\-lmset().
+
+\begin{DoxyReturn}{Returns}
+The language model set object for this decoder. The decoder retains ownership of this pointer, so you should not attempt to free it manually. Use ngram\-\_\-model\-\_\-retain() if you wish to reuse it elsewhere. 
+\end{DoxyReturn}
+
+
+Definition at line 502 of file pocketsphinx.\-c.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-logmath@{ps\-\_\-get\-\_\-logmath}}
+\index{ps\-\_\-get\-\_\-logmath@{ps\-\_\-get\-\_\-logmath}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-logmath}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T logmath\-\_\-t$\ast$ ps\-\_\-get\-\_\-logmath (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a249cfc383b7d9111a28b550945a606b5}
+
+
+Get the log-\/math computation object for this decoder. 
+
+\begin{DoxyReturn}{Returns}
+The log-\/math object for this decoder. The decoder retains ownership of this pointer, so you should not attempt to free it manually. Use logmath\-\_\-retain() if you wish to reuse it elsewhere. 
+\end{DoxyReturn}
+
+
+Definition at line 418 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::lmath.
+
+
+
+Referenced by ps\-\_\-end\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-n\-\_\-frames@{ps\-\_\-get\-\_\-n\-\_\-frames}}
+\index{ps\-\_\-get\-\_\-n\-\_\-frames@{ps\-\_\-get\-\_\-n\-\_\-frames}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-n\-\_\-frames}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-get\-\_\-n\-\_\-frames (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_abb3527e41c2f4cd64dccbdbd5f812d1d}
+
+
+Get the number of frames of data searched. 
+
+Note that there is a delay between this and the number of frames of audio which have been input to the system. This is due to the fact that acoustic features are computed using a sliding window of audio, and dynamic features are computed over a sliding window of acoustic features.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of frames of speech data which have been recognized so far. 
+\end{DoxyReturn}
+
+
+Definition at line 1223 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, and acmod\-\_\-s\-::output\-\_\-frame.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-prob@{ps\-\_\-get\-\_\-prob}}
+\index{ps\-\_\-get\-\_\-prob@{ps\-\_\-get\-\_\-prob}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-prob}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int32 ps\-\_\-get\-\_\-prob (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{char const $\ast$$\ast$}]{out\-\_\-uttid}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_afa6631ae5c30a30eec08c7bf1ef41ef5}
+
+
+Get posterior probability. 
+
+\begin{DoxyNote}{Note}
+Unless the -\/bestpath option is enabled, this function will always return zero (corresponding to a posterior probability of 1.\-0). Even if -\/bestpath is enabled, it will also return zero when called on a partial result. Ongoing research into effective confidence annotation for partial hypotheses may result in these restrictions being lifted in future versions.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em out\-\_\-uttid} & Output\-: utterance I\-D for this utterance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Posterior probability of the best hypothesis. 
+\end{DoxyReturn}
+
+
+Definition at line 1087 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::perf, ps\-\_\-decoder\-\_\-s\-::search, and ps\-\_\-decoder\-\_\-s\-::uttid.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-search@{ps\-\_\-get\-\_\-search}}
+\index{ps\-\_\-get\-\_\-search@{ps\-\_\-get\-\_\-search}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-search}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T const char$\ast$ ps\-\_\-get\-\_\-search (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ae2b728c9b05e733605d33fa19472ef8e}
+
+
+Returns name of curent search in decoder. 
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083} 
+\end{DoxySeeAlso}
+
+
+Definition at line 451 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::search, and ps\-\_\-decoder\-\_\-s\-::searches.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-utt\-\_\-time@{ps\-\_\-get\-\_\-utt\-\_\-time}}
+\index{ps\-\_\-get\-\_\-utt\-\_\-time@{ps\-\_\-get\-\_\-utt\-\_\-time}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-utt\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void ps\-\_\-get\-\_\-utt\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{double $\ast$}]{out\-\_\-nspeech, }
+\item[{double $\ast$}]{out\-\_\-ncpu, }
+\item[{double $\ast$}]{out\-\_\-nwall}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_aac7070c934a2d03d0d5b34e19614360f}
+
+
+Get performance information for the current utterance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em out\-\_\-nspeech} & Output\-: Number of seconds of speech. \\
+\hline
+{\em out\-\_\-ncpu} & Output\-: Number of seconds of C\-P\-U time used. \\
+\hline
+{\em out\-\_\-nwall} & Output\-: Number of seconds of wall time used. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1229 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, ps\-\_\-decoder\-\_\-s\-::config, acmod\-\_\-s\-::output\-\_\-frame, and ps\-\_\-decoder\-\_\-s\-::perf.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-uttid@{ps\-\_\-get\-\_\-uttid}}
+\index{ps\-\_\-get\-\_\-uttid@{ps\-\_\-get\-\_\-uttid}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-uttid}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const$\ast$ ps\-\_\-get\-\_\-uttid (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a4a949fc555734d1e1b9f6fd4a19008c2}
+
+
+Get current utterance I\-D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Read-\/only string of the current utterance I\-D. This is valid only until the beginning of the next utterance. 
+\end{DoxyReturn}
+
+
+Definition at line 406 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::uttid.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-get\-\_\-vad\-\_\-state@{ps\-\_\-get\-\_\-vad\-\_\-state}}
+\index{ps\-\_\-get\-\_\-vad\-\_\-state@{ps\-\_\-get\-\_\-vad\-\_\-state}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-get\-\_\-vad\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T uint8 ps\-\_\-get\-\_\-vad\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_aaa22ef950812425d22ec66cbb29e3e7c}
+
+
+Checks if the last feed audio buffer contained speech. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if last buffer contained speech, 0 -\/ otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 1253 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, and acmod\-\_\-s\-::fe.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-init@{ps\-\_\-init}}
+\index{ps\-\_\-init@{ps\-\_\-init}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-decoder\-\_\-t}$\ast$ ps\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{cmd\-\_\-ln\-\_\-t $\ast$}]{config}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ad033da98d0f7785d6ab89a41dac3cc7c}
+
+
+Initialize the decoder from a configuration object. 
+
+\begin{DoxyNote}{Note}
+The decoder retains ownership of the pointer {\ttfamily config}, so you must not attempt to free it manually. If you wish to reuse it elsewhere, call cmd\-\_\-ln\-\_\-retain() on it.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em config} & a command-\/line structure, as created by cmd\-\_\-ln\-\_\-parse\-\_\-r() or cmd\-\_\-ln\-\_\-parse\-\_\-file\-\_\-r(). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 361 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-free(), ps\-\_\-reinit(), and ps\-\_\-decoder\-\_\-s\-::refcount.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-load\-\_\-dict@{ps\-\_\-load\-\_\-dict}}
+\index{ps\-\_\-load\-\_\-dict@{ps\-\_\-load\-\_\-dict}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-load\-\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-load\-\_\-dict (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{char const $\ast$}]{dictfile, }
+\item[{char const $\ast$}]{fdictfile, }
+\item[{char const $\ast$}]{format}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a824f46e51681d931b7e2706a86c3d86f}
+
+
+Reload the pronunciation dictionary from a file. 
+
+This function replaces the current pronunciation dictionary with the one stored in dictfile. This also causes the active search module(s) to be reinitialized, in the same manner as calling \doxyref{ps\-\_\-add\-\_\-word()}{p.}{pocketsphinx_8h_a5f3c4fcdbef34915c4e785ac9a1c6005} with update=T\-R\-U\-E.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dictfile} & Path to dictionary file to load. \\
+\hline
+{\em fdictfile} & Path to filler dictionary to load, or N\-U\-L\-L to keep the existing filler dictionary. \\
+\hline
+{\em format} & Format of the dictionary file, or N\-U\-L\-L to determine automatically (currently unused,should be N\-U\-L\-L) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 640 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::d2p, ps\-\_\-decoder\-\_\-s\-::dict, dict2pid\-\_\-build(), dict2pid\-\_\-free(), dict\-\_\-free(), dict\-\_\-init(), acmod\-\_\-s\-::mdef, ps\-\_\-args(), and ps\-\_\-decoder\-\_\-s\-::searches.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-nbest@{ps\-\_\-nbest}}
+\index{ps\-\_\-nbest@{ps\-\_\-nbest}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-nbest}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-nbest\-\_\-t}$\ast$ ps\-\_\-nbest (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{int}]{sf, }
+\item[{int}]{ef, }
+\item[{char const $\ast$}]{ctx1, }
+\item[{char const $\ast$}]{ctx2}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_af4bb6ba47844a135745db428919d9810}
+
+
+Get an iterator over the best hypotheses, optionally within a selected region of the utterance. 
+
+Iterator is empty now, it must be advanced with ps\-\_\-nbest\-\_\-next first. The function may also return a N\-U\-L\-L which means that there is no hypothesis available for this utterance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em sf} & Start frame for N-\/best search (0 for whole utterance) \\
+\hline
+{\em ef} & End frame for N-\/best search (-\/1 for whole utterance) \\
+\hline
+{\em ctx1} & First word of trigram context (N\-U\-L\-L for whole utterance) \\
+\hline
+{\em ctx2} & First word of trigram context (N\-U\-L\-L for whole utterance) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iterator over N-\/best hypotheses or N\-U\-L\-L if no hypothesis is available 
+\end{DoxyReturn}
+
+
+Definition at line 1151 of file pocketsphinx.\-c.
+
+
+
+References dict\-\_\-wordid(), ps\-\_\-astar\-\_\-start(), ps\-\_\-get\-\_\-lattice(), and ps\-\_\-decoder\-\_\-s\-::search.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-nbest\-\_\-free@{ps\-\_\-nbest\-\_\-free}}
+\index{ps\-\_\-nbest\-\_\-free@{ps\-\_\-nbest\-\_\-free}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-nbest\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void ps\-\_\-nbest\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-nbest\-\_\-t} $\ast$}]{nbest}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a83379b2da95eebdf5070d29196a9b067}
+
+
+Finish N-\/best search early, releasing resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nbest} & N-\/best iterator. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1184 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-astar\-\_\-finish().
+
+
+
+Referenced by ps\-\_\-nbest\-\_\-next().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-nbest\-\_\-hyp@{ps\-\_\-nbest\-\_\-hyp}}
+\index{ps\-\_\-nbest\-\_\-hyp@{ps\-\_\-nbest\-\_\-hyp}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-nbest\-\_\-hyp}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const$\ast$ ps\-\_\-nbest\-\_\-hyp (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-nbest\-\_\-t} $\ast$}]{nbest, }
+\item[{int32 $\ast$}]{out\-\_\-score}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a250c5f72d3addd0d0254f3ceeaa17ace}
+
+
+Get the hypothesis string from an N-\/best list iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nbest} & N-\/best iterator. \\
+\hline
+{\em out\-\_\-score} & Output\-: Path score for this hypothesis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String containing next best hypothesis. 
+\end{DoxyReturn}
+
+
+Definition at line 1203 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-astar\-\_\-hyp(), and ps\-\_\-latpath\-\_\-s\-::score.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-nbest\-\_\-next@{ps\-\_\-nbest\-\_\-next}}
+\index{ps\-\_\-nbest\-\_\-next@{ps\-\_\-nbest\-\_\-next}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-nbest\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-nbest\-\_\-t}$\ast$ ps\-\_\-nbest\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-nbest\-\_\-t} $\ast$}]{nbest}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a0942b8c0570009319a5be20ef1b52821}
+
+
+Move an N-\/best list iterator forward. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nbest} & N-\/best iterator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated N-\/best iterator, or N\-U\-L\-L if no more hypotheses are available (iterator is freed ni this case). 
+\end{DoxyReturn}
+
+
+Definition at line 1190 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-astar\-\_\-next(), and ps\-\_\-nbest\-\_\-free().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-nbest\-\_\-seg@{ps\-\_\-nbest\-\_\-seg}}
+\index{ps\-\_\-nbest\-\_\-seg@{ps\-\_\-nbest\-\_\-seg}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-nbest\-\_\-seg}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-seg\-\_\-t}$\ast$ ps\-\_\-nbest\-\_\-seg (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-nbest\-\_\-t} $\ast$}]{nbest, }
+\item[{int32 $\ast$}]{out\-\_\-score}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a1d2b6fd873d8213bd53a915ff2758785}
+
+
+Get the word segmentation from an N-\/best list iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nbest} & N-\/best iterator. \\
+\hline
+{\em out\-\_\-score} & Output\-: Path score for this hypothesis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iterator over the next best hypothesis. 
+\end{DoxyReturn}
+
+
+Definition at line 1214 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-astar\-\_\-seg\-\_\-iter(), and ps\-\_\-latpath\-\_\-s\-::score.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-process\-\_\-cep@{ps\-\_\-process\-\_\-cep}}
+\index{ps\-\_\-process\-\_\-cep@{ps\-\_\-process\-\_\-cep}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-process\-\_\-cep}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-process\-\_\-cep (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{mfcc\-\_\-t $\ast$$\ast$}]{data, }
+\item[{int}]{n\-\_\-frames, }
+\item[{int}]{no\-\_\-search, }
+\item[{int}]{full\-\_\-utt}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_adc0ab735d6460142126bc31a9e9d2ba0}
+
+
+Decode acoustic feature data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em no\-\_\-search} & If non-\/zero, perform feature extraction but don't do any recognition yet. This may be necessary if your processor has trouble doing recognition in real-\/time. \\
+\hline
+{\em full\-\_\-utt} & If non-\/zero, this block of data is a full utterance worth of data. This may allow the recognizer to produce more accurate results. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of frames of data searched, or $<$0 for error. 
+\end{DoxyReturn}
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-process\-\_\-raw@{ps\-\_\-process\-\_\-raw}}
+\index{ps\-\_\-process\-\_\-raw@{ps\-\_\-process\-\_\-raw}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-process\-\_\-raw}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-process\-\_\-raw (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{int16 const $\ast$}]{data, }
+\item[{size\-\_\-t}]{n\-\_\-samples, }
+\item[{int}]{no\-\_\-search, }
+\item[{int}]{full\-\_\-utt}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a572ad08651b4caae820d178a12c8f95f}
+
+
+Decode raw audio data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em no\-\_\-search} & If non-\/zero, perform feature extraction but don't do any recognition yet. This may be necessary if your processor has trouble doing recognition in real-\/time. \\
+\hline
+{\em full\-\_\-utt} & If non-\/zero, this block of data is a full utterance worth of data. This may allow the recognizer to produce more accurate results. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of frames of data searched, or $<$0 for error. 
+\end{DoxyReturn}
+
+
+Definition at line 938 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, A\-C\-M\-O\-D\-\_\-\-I\-D\-L\-E, acmod\-\_\-process\-\_\-raw(), acmod\-\_\-set\-\_\-grow(), and acmod\-\_\-s\-::state.
+
+
+
+Referenced by ps\-\_\-decode\-\_\-raw().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-reinit@{ps\-\_\-reinit}}
+\index{ps\-\_\-reinit@{ps\-\_\-reinit}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-reinit}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-reinit (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{cmd\-\_\-ln\-\_\-t $\ast$}]{config}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a391679e7edb0de1e324aa302ee820287}
+
+
+Reinitialize the decoder with updated configuration. 
+
+This function allows you to switch the acoustic model, dictionary, or other configuration without creating an entirely new decoding object.
+
+\begin{DoxyNote}{Note}
+The decoder retains ownership of the pointer {\ttfamily config}, so you must not attempt to free it manually. If you wish to reuse it elsewhere, call cmd\-\_\-ln\-\_\-retain() on it.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em config} & An optional new configuration to use. If this is N\-U\-L\-L, the previous configuration will be reloaded, with any changes applied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success, $<$0 for failure. 
+\end{DoxyReturn}
+
+
+Definition at line 213 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, acmod\-\_\-free(), acmod\-\_\-init(), ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::d2p, ps\-\_\-decoder\-\_\-s\-::dict, dict2pid\-\_\-build(), dict2pid\-\_\-free(), dict\-\_\-free(), dict\-\_\-init(), ps\-\_\-decoder\-\_\-s\-::lmath, acmod\-\_\-s\-::mdef, ps\-\_\-decoder\-\_\-s\-::mfclogdir, ps\-\_\-decoder\-\_\-s\-::perf, ps\-\_\-decoder\-\_\-s\-::phone\-\_\-loop, ps\-\_\-decoder\-\_\-s\-::pl\-\_\-window, ps\-\_\-set\-\_\-fsg(), ps\-\_\-set\-\_\-jsgf\-\_\-file(), ps\-\_\-set\-\_\-keyphrase(), ps\-\_\-set\-\_\-kws(), ps\-\_\-set\-\_\-lm(), ps\-\_\-set\-\_\-lm\-\_\-file(), ps\-\_\-set\-\_\-search(), ps\-\_\-decoder\-\_\-s\-::rawlogdir, ps\-\_\-decoder\-\_\-s\-::searches, and ps\-\_\-decoder\-\_\-s\-::senlogdir.
+
+
+
+Referenced by ps\-\_\-init().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-retain@{ps\-\_\-retain}}
+\index{ps\-\_\-retain@{ps\-\_\-retain}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-retain}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-decoder\-\_\-t}$\ast$ ps\-\_\-retain (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a8d912ce9a5fea61b7b10db1750531c34}
+
+
+Retain a pointer to the decoder. 
+
+This increments the reference count on the decoder, allowing it to be shared between multiple parent objects. In general you will not need to use this function, ever. It is mainly here for the convenience of scripting language bindings.
+
+\begin{DoxyReturn}{Returns}
+pointer to retained decoder. 
+\end{DoxyReturn}
+
+
+Definition at line 381 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::refcount.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-save\-\_\-dict@{ps\-\_\-save\-\_\-dict}}
+\index{ps\-\_\-save\-\_\-dict@{ps\-\_\-save\-\_\-dict}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-save\-\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-save\-\_\-dict (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{char const $\ast$}]{dictfile, }
+\item[{char const $\ast$}]{format}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a5e278377cc57d921591ce95b980760d5}
+
+
+Dump the current pronunciation dictionary to a file. 
+
+This function dumps the current pronunciation dictionary to a tex
+
+
+\begin{DoxyParams}{Parameters}
+{\em dictfile} & Path to file where dictionary will be written. \\
+\hline
+{\em format} & Format of the dictionary file, or N\-U\-L\-L for the default (text) format (currently unused, should be N\-U\-L\-L) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 696 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::dict, and dict\-\_\-write().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-search\-\_\-iter@{ps\-\_\-search\-\_\-iter}}
+\index{ps\-\_\-search\-\_\-iter@{ps\-\_\-search\-\_\-iter}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-search\-\_\-iter}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-search\-\_\-iter\-\_\-t}$\ast$ ps\-\_\-search\-\_\-iter (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a661c72707484ec2528319c9f6976fb7c}
+
+
+Returns iterator over current searches. 
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083} 
+\end{DoxySeeAlso}
+
+
+Definition at line 478 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::searches.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-search\-\_\-iter\-\_\-free@{ps\-\_\-search\-\_\-iter\-\_\-free}}
+\index{ps\-\_\-search\-\_\-iter\-\_\-free@{ps\-\_\-search\-\_\-iter\-\_\-free}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-search\-\_\-iter\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void ps\-\_\-search\-\_\-iter\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-search\-\_\-iter\-\_\-t} $\ast$}]{itor}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a41e404de59cbd7bfc32f2da3ec7e6137}
+
+
+Delete an unfinished search iterator. 
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083} 
+\end{DoxySeeAlso}
+
+
+Definition at line 496 of file pocketsphinx.\-c.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-search\-\_\-iter\-\_\-next@{ps\-\_\-search\-\_\-iter\-\_\-next}}
+\index{ps\-\_\-search\-\_\-iter\-\_\-next@{ps\-\_\-search\-\_\-iter\-\_\-next}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-search\-\_\-iter\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-search\-\_\-iter\-\_\-t}$\ast$ ps\-\_\-search\-\_\-iter\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-search\-\_\-iter\-\_\-t} $\ast$}]{itor}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a4bd6d4f2b19be2351987c11694eaec9a}
+
+
+Updates search iterator to point to the next position. 
+
+This function automatically frees the iterator object upon reaching the final entry. \begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083} 
+\end{DoxySeeAlso}
+
+
+Definition at line 484 of file pocketsphinx.\-c.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-search\-\_\-iter\-\_\-val@{ps\-\_\-search\-\_\-iter\-\_\-val}}
+\index{ps\-\_\-search\-\_\-iter\-\_\-val@{ps\-\_\-search\-\_\-iter\-\_\-val}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-search\-\_\-iter\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T const char $\ast$ ps\-\_\-search\-\_\-iter\-\_\-val (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-search\-\_\-iter\-\_\-t} $\ast$}]{itor}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a86d9b5968b9fe317a6335345fb9a2dd0}
+
+
+Retrieves the name of the search the iterator points to. 
+
+Updates search iterator to point to the next position.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083}
+\end{DoxySeeAlso}
+This function automatically frees the iterator object upon reaching the final entry. \begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083} 
+\end{DoxySeeAlso}
+
+
+Definition at line 490 of file pocketsphinx.\-c.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-seg\-\_\-frames@{ps\-\_\-seg\-\_\-frames}}
+\index{ps\-\_\-seg\-\_\-frames@{ps\-\_\-seg\-\_\-frames}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-seg\-\_\-frames}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T void ps\-\_\-seg\-\_\-frames (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-seg\-\_\-t} $\ast$}]{seg, }
+\item[{int $\ast$}]{out\-\_\-sf, }
+\item[{int $\ast$}]{out\-\_\-ef}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a045a044726b816678965514f2ee7d8c7}
+
+
+Get inclusive start and end frames from a segmentation iterator. 
+
+\begin{DoxyNote}{Note}
+These frame numbers are inclusive, i.\-e. the end frame refers to the last frame in which the given word or other segment was active. Therefore, the actual duration is $\ast$out\-\_\-ef -\/ $\ast$out\-\_\-sf + 1.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em seg} & Segment iterator. \\
+\hline
+{\em out\-\_\-sf} & Output\-: First frame index in segment. \\
+\hline
+{\em out\-\_\-sf} & Output\-: Last frame index in segment. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1123 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-seg\-\_\-s\-::ef, and ps\-\_\-seg\-\_\-s\-::sf.
+
+
+
+Referenced by ps\-\_\-end\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-seg\-\_\-iter@{ps\-\_\-seg\-\_\-iter}}
+\index{ps\-\_\-seg\-\_\-iter@{ps\-\_\-seg\-\_\-iter}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-seg\-\_\-iter}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-seg\-\_\-t}$\ast$ ps\-\_\-seg\-\_\-iter (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{int32 $\ast$}]{out\-\_\-best\-\_\-score}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a2216f6ff53f6bc9c78f285ee3fe0d665}
+
+
+Get an iterator over the word segmentation for the best hypothesis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder. \\
+\hline
+{\em out\-\_\-best\-\_\-score} & Output\-: path score corresponding to hypothesis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iterator over the best hypothesis at this point in decoding. N\-U\-L\-L if no hypothesis is available. 
+\end{DoxyReturn}
+
+
+Definition at line 1100 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::perf, and ps\-\_\-decoder\-\_\-s\-::search.
+
+
+
+Referenced by ps\-\_\-end\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-seg\-\_\-next@{ps\-\_\-seg\-\_\-next}}
+\index{ps\-\_\-seg\-\_\-next@{ps\-\_\-seg\-\_\-next}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-seg\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-seg\-\_\-t}$\ast$ ps\-\_\-seg\-\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-seg\-\_\-t} $\ast$}]{seg}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ae16ba181f654ffc9bfbbe861e9315f12}
+
+
+Get the next segment in a word segmentation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seg} & Segment iterator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated iterator with the next segment. N\-U\-L\-L at end of utterance (the iterator will be freed in this case). 
+\end{DoxyReturn}
+
+
+Definition at line 1111 of file pocketsphinx.\-c.
+
+
+
+Referenced by ps\-\_\-end\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-seg\-\_\-prob@{ps\-\_\-seg\-\_\-prob}}
+\index{ps\-\_\-seg\-\_\-prob@{ps\-\_\-seg\-\_\-prob}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-seg\-\_\-prob}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int32 ps\-\_\-seg\-\_\-prob (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-seg\-\_\-t} $\ast$}]{seg, }
+\item[{int32 $\ast$}]{out\-\_\-ascr, }
+\item[{int32 $\ast$}]{out\-\_\-lscr, }
+\item[{int32 $\ast$}]{out\-\_\-lback}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_adfd45d93c3fc9de6b7be89d5417f6abb}
+
+
+Get language, acoustic, and posterior probabilities from a segmentation iterator. 
+
+\begin{DoxyNote}{Note}
+Unless the -\/bestpath option is enabled, this function will always return zero (corresponding to a posterior probability of 1.\-0). Even if -\/bestpath is enabled, it will also return zero when called on a partial result. Ongoing research into effective confidence annotation for partial hypotheses may result in these restrictions being lifted in future versions.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em out\-\_\-ascr} & Output\-: acoustic model score for this segment. \\
+\hline
+{\em out\-\_\-lscr} & Output\-: language model score for this segment. \\
+\hline
+{\em out\-\_\-lback} & Output\-: language model backoff mode for this segment (i.\-e. the number of words used in calculating lscr). This field is, of course, only meaningful for N-\/\-Gram models. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Log posterior probability of current segment. Log is expressed in the log-\/base used in the decoder. To convert to linear floating-\/point, use logmath\-\_\-exp(\doxyref{ps\-\_\-get\-\_\-logmath()}{p.}{pocketsphinx_8h_a249cfc383b7d9111a28b550945a606b5}, pprob). 
+\end{DoxyReturn}
+
+
+Definition at line 1130 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-seg\-\_\-s\-::ascr, ps\-\_\-seg\-\_\-s\-::lback, ps\-\_\-seg\-\_\-s\-::lscr, and ps\-\_\-seg\-\_\-s\-::prob.
+
+
+
+Referenced by ps\-\_\-end\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-seg\-\_\-word@{ps\-\_\-seg\-\_\-word}}
+\index{ps\-\_\-seg\-\_\-word@{ps\-\_\-seg\-\_\-word}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-seg\-\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T char const$\ast$ ps\-\_\-seg\-\_\-word (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-seg\-\_\-t} $\ast$}]{seg}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a8a4fed34b58885627b53e99e90514169}
+
+
+Get word string from a segmentation iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seg} & Segment iterator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Read-\/only string giving string name of this segment. This is only valid until the next call to \doxyref{ps\-\_\-seg\-\_\-next()}{p.}{pocketsphinx_8h_ae16ba181f654ffc9bfbbe861e9315f12}. 
+\end{DoxyReturn}
+
+
+Definition at line 1117 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-seg\-\_\-s\-::word.
+
+
+
+Referenced by ps\-\_\-end\-\_\-utt().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-set\-\_\-fsg@{ps\-\_\-set\-\_\-fsg}}
+\index{ps\-\_\-set\-\_\-fsg@{ps\-\_\-set\-\_\-fsg}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-set\-\_\-fsg}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-set\-\_\-fsg (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name, }
+\item[{fsg\-\_\-model\-\_\-t $\ast$}]{fsg}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_afde3539cbbf8c67cb98a02ca779055af}
+
+
+Adds new search based on finite state grammar. 
+
+Associates F\-S\-G search with the provided name. The search can be activated using \doxyref{ps\-\_\-set\-\_\-search()}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083}.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083} 
+\end{DoxySeeAlso}
+
+
+Definition at line 584 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::d2p, and ps\-\_\-decoder\-\_\-s\-::dict.
+
+
+
+Referenced by ps\-\_\-reinit(), and ps\-\_\-set\-\_\-jsgf\-\_\-file().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-set\-\_\-jsgf\-\_\-file@{ps\-\_\-set\-\_\-jsgf\-\_\-file}}
+\index{ps\-\_\-set\-\_\-jsgf\-\_\-file@{ps\-\_\-set\-\_\-jsgf\-\_\-file}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-set\-\_\-jsgf\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-set\-\_\-jsgf\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_ae845bbf6a3e5b859e833f6cc0d1ba55f}
+
+
+Adds new search using J\-S\-G\-F model. 
+
+Convenient method to load J\-S\-G\-F model and create a search.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-fsg}{p.}{pocketsphinx_8h_afde3539cbbf8c67cb98a02ca779055af} 
+\end{DoxySeeAlso}
+
+
+Definition at line 591 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::lmath, and ps\-\_\-set\-\_\-fsg().
+
+
+
+Referenced by ps\-\_\-reinit().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-set\-\_\-keyphrase@{ps\-\_\-set\-\_\-keyphrase}}
+\index{ps\-\_\-set\-\_\-keyphrase@{ps\-\_\-set\-\_\-keyphrase}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-set\-\_\-keyphrase}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-set\-\_\-keyphrase (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{keyphrase}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a7965534ad5e48f0b46f326d7da186a2a}
+
+
+Adds new keyword to spot. 
+
+Associates K\-W\-S search with the provided name. The search can be activated using \doxyref{ps\-\_\-set\-\_\-search()}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083}.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083} 
+\end{DoxySeeAlso}
+
+
+Definition at line 576 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::d2p, and ps\-\_\-decoder\-\_\-s\-::dict.
+
+
+
+Referenced by ps\-\_\-reinit().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-set\-\_\-kws@{ps\-\_\-set\-\_\-kws}}
+\index{ps\-\_\-set\-\_\-kws@{ps\-\_\-set\-\_\-kws}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-set\-\_\-kws}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-set\-\_\-kws (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{keyfile}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a0780564ad3f12179b0291ac87774cea1}
+
+
+Adds keywords from a file to spotting. 
+
+Associates K\-W\-S search with the provided name. The search can be activated using \doxyref{ps\-\_\-set\-\_\-search()}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083}.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083} 
+\end{DoxySeeAlso}
+
+
+Definition at line 568 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::d2p, and ps\-\_\-decoder\-\_\-s\-::dict.
+
+
+
+Referenced by ps\-\_\-reinit().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-set\-\_\-lm@{ps\-\_\-set\-\_\-lm}}
+\index{ps\-\_\-set\-\_\-lm@{ps\-\_\-set\-\_\-lm}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-set\-\_\-lm}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-set\-\_\-lm (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name, }
+\item[{ngram\-\_\-model\-\_\-t $\ast$}]{lm}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_aa76b495c63c665a21a49d7cb51c66d74}
+
+
+Adds new search based on N-\/gram language model. 
+
+Associates N-\/gram search with the provided name. The search can be activated using \doxyref{ps\-\_\-set\-\_\-search()}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083}.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-search}{p.}{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083}. 
+\end{DoxySeeAlso}
+
+
+Definition at line 545 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::d2p, ps\-\_\-decoder\-\_\-s\-::dict, and ngram\-\_\-search\-\_\-init().
+
+
+
+Referenced by ps\-\_\-reinit(), and ps\-\_\-set\-\_\-lm\-\_\-file().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-set\-\_\-lm\-\_\-file@{ps\-\_\-set\-\_\-lm\-\_\-file}}
+\index{ps\-\_\-set\-\_\-lm\-\_\-file@{ps\-\_\-set\-\_\-lm\-\_\-file}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-set\-\_\-lm\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-set\-\_\-lm\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a78372effd2aa6bddf7b71d6e2e9c3776}
+
+
+Adds new search based on N-\/gram language model. 
+
+Convenient method to load N-\/gram model and create a search.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-lm}{p.}{pocketsphinx_8h_aa76b495c63c665a21a49d7cb51c66d74} 
+\end{DoxySeeAlso}
+
+
+Definition at line 553 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::config, ps\-\_\-decoder\-\_\-s\-::lmath, and ps\-\_\-set\-\_\-lm().
+
+
+
+Referenced by ps\-\_\-reinit().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-set\-\_\-search@{ps\-\_\-set\-\_\-search}}
+\index{ps\-\_\-set\-\_\-search@{ps\-\_\-set\-\_\-search}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-set\-\_\-search}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-set\-\_\-search (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a4072a93e8ce9a4229d17c9bce6ad1083}
+
+
+Actives search with the provided name. 
+
+Activates search with the provided name. The search must be added before using either \doxyref{ps\-\_\-set\-\_\-fsg()}{p.}{pocketsphinx_8h_afde3539cbbf8c67cb98a02ca779055af}, \doxyref{ps\-\_\-set\-\_\-lm()}{p.}{pocketsphinx_8h_aa76b495c63c665a21a49d7cb51c66d74} or \doxyref{ps\-\_\-set\-\_\-kws()}{p.}{pocketsphinx_8h_a0780564ad3f12179b0291ac87774cea1}.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 442 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::search.
+
+
+
+Referenced by ps\-\_\-reinit().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-start\-\_\-utt@{ps\-\_\-start\-\_\-utt}}
+\index{ps\-\_\-start\-\_\-utt@{ps\-\_\-start\-\_\-utt}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-start\-\_\-utt}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-start\-\_\-utt (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{char const $\ast$}]{uttid}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a0b70e54570e21ad3a784b40071818579}
+
+
+Start utterance processing. 
+
+This function should be called before any utterance data is passed to the decoder. It marks the start of a new utterance and reinitializes internal data structures.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ps} & Decoder to be started. \\
+\hline
+{\em uttid} & String uniquely identifying this utterance. If N\-U\-L\-L, one will be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success, $<$0 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 811 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, acmod\-\_\-set\-\_\-mfcfh(), acmod\-\_\-set\-\_\-rawfh(), acmod\-\_\-set\-\_\-senfh(), acmod\-\_\-start\-\_\-utt(), ps\-\_\-search\-\_\-s\-::dag, ps\-\_\-search\-\_\-s\-::hyp\-\_\-str, ps\-\_\-search\-\_\-s\-::last\-\_\-link, ps\-\_\-decoder\-\_\-s\-::mfclogdir, ps\-\_\-decoder\-\_\-s\-::perf, ps\-\_\-decoder\-\_\-s\-::phone\-\_\-loop, ps\-\_\-search\-\_\-s\-::post, ps\-\_\-lattice\-\_\-free(), ps\-\_\-decoder\-\_\-s\-::rawlogdir, ps\-\_\-decoder\-\_\-s\-::search, ps\-\_\-decoder\-\_\-s\-::senlogdir, ps\-\_\-decoder\-\_\-s\-::uttid, and ps\-\_\-decoder\-\_\-s\-::uttno.
+
+
+
+Referenced by ps\-\_\-decode\-\_\-raw(), and ps\-\_\-decode\-\_\-senscr().
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-unset\-\_\-search@{ps\-\_\-unset\-\_\-search}}
+\index{ps\-\_\-unset\-\_\-search@{ps\-\_\-unset\-\_\-search}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-unset\-\_\-search}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T int ps\-\_\-unset\-\_\-search (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a300fd82f4b1621663a0d870da61497b0}
+
+
+Unsets the search and releases related resources. 
+
+Unsets the search previously added with using either \doxyref{ps\-\_\-set\-\_\-fsg()}{p.}{pocketsphinx_8h_afde3539cbbf8c67cb98a02ca779055af}, \doxyref{ps\-\_\-set\-\_\-lm()}{p.}{pocketsphinx_8h_aa76b495c63c665a21a49d7cb51c66d74} or \doxyref{ps\-\_\-set\-\_\-kws()}{p.}{pocketsphinx_8h_a0780564ad3f12179b0291ac87774cea1}.
+
+\begin{DoxySeeAlso}{See Also}
+\doxyref{ps\-\_\-set\-\_\-fsg}{p.}{pocketsphinx_8h_afde3539cbbf8c67cb98a02ca779055af} 
+
+\doxyref{ps\-\_\-set\-\_\-lm}{p.}{pocketsphinx_8h_aa76b495c63c665a21a49d7cb51c66d74} 
+
+\doxyref{ps\-\_\-set\-\_\-kws}{p.}{pocketsphinx_8h_a0780564ad3f12179b0291ac87774cea1} 
+\end{DoxySeeAlso}
+
+
+Definition at line 466 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::search, and ps\-\_\-decoder\-\_\-s\-::searches.
+
+\index{pocketsphinx.\-h@{pocketsphinx.\-h}!ps\-\_\-update\-\_\-mllr@{ps\-\_\-update\-\_\-mllr}}
+\index{ps\-\_\-update\-\_\-mllr@{ps\-\_\-update\-\_\-mllr}!pocketsphinx.h@{pocketsphinx.\-h}}
+\subsubsection[{ps\-\_\-update\-\_\-mllr}]{\setlength{\rightskip}{0pt plus 5cm}P\-O\-C\-K\-E\-T\-S\-P\-H\-I\-N\-X\-\_\-\-E\-X\-P\-O\-R\-T {\bf ps\-\_\-mllr\-\_\-t}$\ast$ ps\-\_\-update\-\_\-mllr (
+\begin{DoxyParamCaption}
+\item[{{\bf ps\-\_\-decoder\-\_\-t} $\ast$}]{ps, }
+\item[{{\bf ps\-\_\-mllr\-\_\-t} $\ast$}]{mllr}
+\end{DoxyParamCaption}
+)}\label{pocketsphinx_8h_a85e04bcbf5366f1bdad555dbb4d73d5d}
+
+
+Adapt current acoustic model using a linear transform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mllr} & The new transform to use, or N\-U\-L\-L to update the existing transform. The decoder retains ownership of this pointer, so you should not attempt to free it manually. Use \doxyref{ps\-\_\-mllr\-\_\-retain()}{p.}{ps__mllr_8h_a2f40deff6976bf03a845aa474494edfb} if you wish to reuse it elsewhere. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated transform object for this decoder, or N\-U\-L\-L on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 436 of file pocketsphinx.\-c.
+
+
+
+References ps\-\_\-decoder\-\_\-s\-::acmod, and acmod\-\_\-update\-\_\-mllr().
+

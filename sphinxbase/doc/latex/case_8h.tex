@@ -1,0 +1,112 @@
+\section{include/sphinxbase/case.h File Reference}
+\label{case_8h}\index{include/sphinxbase/case.\-h@{include/sphinxbase/case.\-h}}
+
+
+Locale-\/independent implementation of case swapping operation.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf U\-P\-P\-E\-R\-\_\-\-C\-A\-S\-E}(c)~((((c) $>$= 'a') \&\& ((c) $<$= 'z')) ? (c-\/32) \-: c)\label{case_8h_a3299c549655d5af1fcbc384ee7fd68e3}
+
+\begin{DoxyCompactList}\small\item\em Return upper case form for c. \end{DoxyCompactList}\item 
+\#define {\bf L\-O\-W\-E\-R\-\_\-\-C\-A\-S\-E}(c)~((((c) $>$= 'A') \&\& ((c) $<$= 'Z')) ? (c+32) \-: c)\label{case_8h_a44403ce2c3f4378aca12ffb732f24cef}
+
+\begin{DoxyCompactList}\small\item\em Return lower case form for c. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ucase} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Convert str to all upper case. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf lcase} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Convert str to all lower case. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf strcmp\-\_\-nocase} (const char $\ast$str1, const char $\ast$str2)
+\begin{DoxyCompactList}\small\item\em (F\-I\-X\-M\-E! The implementation is incorrect!) Case insensitive string compare. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf strncmp\-\_\-nocase} (const char $\ast$str1, const char $\ast$str2, size\-\_\-t len)\label{case_8h_ae7c2a7f29d72b9516a947f5c69a043db}
+
+\begin{DoxyCompactList}\small\item\em Like \doxyref{strcmp\-\_\-nocase()}{p.}{case_8h_ad276a997bd6709d986aa6e1e4e06c210} but with a maximum length. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Locale-\/independent implementation of case swapping operation. This function implements A\-S\-C\-I\-I-\/only case switching and comparison related operations, which do not depend on the locale and are guaranteed to exist on all versions of Windows. 
+
+Definition in file {\bf case.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{case.\-h@{case.\-h}!lcase@{lcase}}
+\index{lcase@{lcase}!case.h@{case.\-h}}
+\subsubsection[{lcase}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void lcase (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{case_8h_ac0e30dac40f15762f39270f65bd8cdba}
+
+
+Convert str to all lower case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & is a string. \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by ngram\-\_\-model\-\_\-casefold().
+
+\index{case.\-h@{case.\-h}!strcmp\-\_\-nocase@{strcmp\-\_\-nocase}}
+\index{strcmp\-\_\-nocase@{strcmp\-\_\-nocase}!case.h@{case.\-h}}
+\subsubsection[{strcmp\-\_\-nocase}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 strcmp\-\_\-nocase (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str1, }
+\item[{const char $\ast$}]{str2}
+\end{DoxyParamCaption}
+)}\label{case_8h_ad276a997bd6709d986aa6e1e4e06c210}
+
+
+(F\-I\-X\-M\-E! The implementation is incorrect!) Case insensitive string compare. 
+
+Return the usual -\/1, 0, +1, depending on str1 $<$, =, $>$ str2 (case insensitive, of course). 
+\begin{DoxyParams}{Parameters}
+{\em str1} & is the first string. \\
+\hline
+{\em str2} & is the second string. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 94 of file case.\-c.
+
+
+
+References U\-P\-P\-E\-R\-\_\-\-C\-A\-S\-E.
+
+
+
+Referenced by ngram\-\_\-file\-\_\-name\-\_\-to\-\_\-type(), and ngram\-\_\-str\-\_\-to\-\_\-type().
+
+\index{case.\-h@{case.\-h}!ucase@{ucase}}
+\index{ucase@{ucase}!case.h@{case.\-h}}
+\subsubsection[{ucase}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void ucase (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{case_8h_a79d99e36b7c2c36dcc6f7f0df746384e}
+
+
+Convert str to all upper case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & is a string. \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by ngram\-\_\-model\-\_\-casefold().
+

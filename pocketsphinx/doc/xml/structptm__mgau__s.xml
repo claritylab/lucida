@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structptm__mgau__s" kind="struct" prot="public">
+    <compoundname>ptm_mgau_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structptm__mgau__s_1ac7ccb744c03564e3c1b360b3436cb3a1" prot="public" static="no" mutable="no">
+        <type><ref refid="acmod_8h_1ab7a75abad7044b2ab494823d2ae8bbd4" kindref="member">ps_mgau_t</ref></type>
+        <definition>ps_mgau_t ptm_mgau_s::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+<para>base structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="69" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1aa9cd83ce89052bd6d112ecff54d118f9" prot="public" static="no" mutable="no">
+        <type>cmd_ln_t *</type>
+        <definition>cmd_ln_t* ptm_mgau_s::config</definition>
+        <argsstring></argsstring>
+        <name>config</name>
+        <briefdescription>
+<para>Configuration parameters. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="70" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1adfba8a590e8d71812ea8082f485e7ad3" prot="public" static="no" mutable="no">
+        <type><ref refid="structgauden__t" kindref="compound">gauden_t</ref> *</type>
+        <definition>gauden_t* ptm_mgau_s::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+<para>Set of Gaussians. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="71" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="ptm__mgau_8h_1ae9fb76ef388e6541bd6c1b20fe8bc094" compoundref="ptm__mgau_8c" startline="401" endline="445">ptm_mgau_frame_eval</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1ab0f6c452efe082383e906ac2a4f75de4" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ptm_mgau_s::n_sen</definition>
+        <argsstring></argsstring>
+        <name>n_sen</name>
+        <briefdescription>
+<para>Number of senones. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="72" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1a5e677255165b8abda63dd1d6dbed1be7" prot="public" static="no" mutable="no">
+        <type>uint8 *</type>
+        <definition>uint8* ptm_mgau_s::sen2cb</definition>
+        <argsstring></argsstring>
+        <name>sen2cb</name>
+        <briefdescription>
+<para>Senone to codebook mapping. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="73" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1af0898f6d5b5b863901a4a4858a10d32a" prot="public" static="no" mutable="no">
+        <type>uint8 ***</type>
+        <definition>uint8*** ptm_mgau_s::mixw</definition>
+        <argsstring></argsstring>
+        <name>mixw</name>
+        <briefdescription>
+<para>Mixture weight distributions by feature, codeword, senone. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="74" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1a51e0c21f32dd4b13a3fcce320c71e375" prot="public" static="no" mutable="no">
+        <type>mmio_file_t *</type>
+        <definition>mmio_file_t* ptm_mgau_s::sendump_mmap</definition>
+        <argsstring></argsstring>
+        <name>sendump_mmap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="75" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1a5a3c76d47b94978f717a65fa0dfb54e8" prot="public" static="no" mutable="no">
+        <type>uint8 *</type>
+        <definition>uint8* ptm_mgau_s::mixw_cb</definition>
+        <argsstring></argsstring>
+        <name>mixw_cb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="76" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1ab397cfdf51d309de4521edc09e80541d" prot="public" static="no" mutable="no">
+        <type>int16</type>
+        <definition>int16 ptm_mgau_s::max_topn</definition>
+        <argsstring></argsstring>
+        <name>max_topn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="77" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1a2254b6ec79c97516b326ad33d22d0050" prot="public" static="no" mutable="no">
+        <type>int16</type>
+        <definition>int16 ptm_mgau_s::ds_ratio</definition>
+        <argsstring></argsstring>
+        <name>ds_ratio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="78" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1a68c75460ebffecc786d7eb2840ed7631" prot="public" static="no" mutable="no">
+        <type><ref refid="structptm__fast__eval__s" kindref="compound">ptm_fast_eval_t</ref> *</type>
+        <definition>ptm_fast_eval_t* ptm_mgau_s::hist</definition>
+        <argsstring></argsstring>
+        <name>hist</name>
+        <briefdescription>
+<para>Fast evaluation info for past frames. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="80" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="80" bodyend="-1"/>
+        <referencedby refid="ptm__mgau_8h_1ae9fb76ef388e6541bd6c1b20fe8bc094" compoundref="ptm__mgau_8c" startline="401" endline="445">ptm_mgau_frame_eval</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1aad0c43234e33c2307ce0df2ddb1c05c9" prot="public" static="no" mutable="no">
+        <type><ref refid="structptm__fast__eval__s" kindref="compound">ptm_fast_eval_t</ref> *</type>
+        <definition>ptm_fast_eval_t* ptm_mgau_s::f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+<para>Fast eval info for current frame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="81" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="81" bodyend="-1"/>
+        <referencedby refid="ptm__mgau_8h_1ae9fb76ef388e6541bd6c1b20fe8bc094" compoundref="ptm__mgau_8c" startline="401" endline="445">ptm_mgau_frame_eval</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1ac491c223199ed5374dfb13fc41854601" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ptm_mgau_s::n_fast_hist</definition>
+        <argsstring></argsstring>
+        <name>n_fast_hist</name>
+        <briefdescription>
+<para>Number of past frames tracked. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="82" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="82" bodyend="-1"/>
+        <referencedby refid="ptm__mgau_8h_1ae9fb76ef388e6541bd6c1b20fe8bc094" compoundref="ptm__mgau_8c" startline="401" endline="445">ptm_mgau_frame_eval</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1ad577181af2afca66f33f1f1e4c576ae8" prot="public" static="no" mutable="no">
+        <type>logmath_t *</type>
+        <definition>logmath_t* ptm_mgau_s::lmath_8b</definition>
+        <argsstring></argsstring>
+        <name>lmath_8b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="85" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structptm__mgau__s_1abbaabfb8678356673a2c0a515e33a378" prot="public" static="no" mutable="no">
+        <type>logmath_t *</type>
+        <definition>logmath_t* ptm_mgau_s::lmath</definition>
+        <argsstring></argsstring>
+        <name>lmath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="87" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="564">
+        <label>ptm_mgau_s</label>
+        <link refid="structptm__mgau__s"/>
+        <childnode refid="565" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+        <childnode refid="567" relation="usage">
+          <edgelabel>g</edgelabel>
+        </childnode>
+        <childnode refid="568" relation="usage">
+          <edgelabel>f</edgelabel>
+          <edgelabel>hist</edgelabel>
+        </childnode>
+      </node>
+      <node id="565">
+        <label>ps_mgau_s</label>
+        <link refid="structps__mgau__s"/>
+        <childnode refid="566" relation="usage">
+          <edgelabel>vt</edgelabel>
+        </childnode>
+      </node>
+      <node id="569">
+        <label>ptm_topn_s</label>
+        <link refid="structptm__topn__s"/>
+      </node>
+      <node id="568">
+        <label>ptm_fast_eval_s</label>
+        <link refid="structptm__fast__eval__s"/>
+        <childnode refid="569" relation="usage">
+          <edgelabel>topn</edgelabel>
+        </childnode>
+      </node>
+      <node id="566">
+        <label>ps_mgaufuncs_s</label>
+        <link refid="structps__mgaufuncs__s"/>
+      </node>
+      <node id="567">
+        <label>gauden_t</label>
+        <link refid="structgauden__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" line="68" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ptm_mgau.h" bodystart="68" bodyend="88"/>
+    <listofallmembers>
+      <member refid="structptm__mgau__s_1ac7ccb744c03564e3c1b360b3436cb3a1" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>base</name></member>
+      <member refid="structptm__mgau__s_1aa9cd83ce89052bd6d112ecff54d118f9" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>config</name></member>
+      <member refid="structptm__mgau__s_1a2254b6ec79c97516b326ad33d22d0050" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>ds_ratio</name></member>
+      <member refid="structptm__mgau__s_1aad0c43234e33c2307ce0df2ddb1c05c9" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>f</name></member>
+      <member refid="structptm__mgau__s_1adfba8a590e8d71812ea8082f485e7ad3" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>g</name></member>
+      <member refid="structptm__mgau__s_1a68c75460ebffecc786d7eb2840ed7631" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>hist</name></member>
+      <member refid="structptm__mgau__s_1abbaabfb8678356673a2c0a515e33a378" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>lmath</name></member>
+      <member refid="structptm__mgau__s_1ad577181af2afca66f33f1f1e4c576ae8" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>lmath_8b</name></member>
+      <member refid="structptm__mgau__s_1ab397cfdf51d309de4521edc09e80541d" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>max_topn</name></member>
+      <member refid="structptm__mgau__s_1af0898f6d5b5b863901a4a4858a10d32a" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>mixw</name></member>
+      <member refid="structptm__mgau__s_1a5a3c76d47b94978f717a65fa0dfb54e8" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>mixw_cb</name></member>
+      <member refid="structptm__mgau__s_1ac491c223199ed5374dfb13fc41854601" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>n_fast_hist</name></member>
+      <member refid="structptm__mgau__s_1ab0f6c452efe082383e906ac2a4f75de4" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>n_sen</name></member>
+      <member refid="structptm__mgau__s_1a5e677255165b8abda63dd1d6dbed1be7" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>sen2cb</name></member>
+      <member refid="structptm__mgau__s_1a51e0c21f32dd4b13a3fcce320c71e375" prot="public" virt="non-virtual"><scope>ptm_mgau_s</scope><name>sendump_mmap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

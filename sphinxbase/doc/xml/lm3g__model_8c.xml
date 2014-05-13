@@ -1,0 +1,644 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="lm3g__model_8c" kind="file">
+    <compoundname>lm3g_model.c</compoundname>
+    <includes local="no">string.h</includes>
+    <includes refid="assert_8h" local="no">assert.h</includes>
+    <includes local="no">limits.h</includes>
+    <includes refid="listelem__alloc_8h" local="yes">sphinxbase/listelem_alloc.h</includes>
+    <includes refid="ckd__alloc_8h" local="yes">sphinxbase/ckd_alloc.h</includes>
+    <includes refid="err_8h" local="yes">sphinxbase/err.h</includes>
+    <includes refid="lm3g__model_8h" local="yes">lm3g_model.h</includes>
+    <incdepgraph>
+      <node id="1902">
+        <label>stdarg.h</label>
+      </node>
+      <node id="1892">
+        <label>assert.h</label>
+        <link refid="assert_8h_source"/>
+      </node>
+      <node id="1904">
+        <label>errno.h</label>
+        <link refid="errno_8h_source"/>
+      </node>
+      <node id="1890">
+        <label>src/libsphinxbase/lm/lm3g_model.c</label>
+        <link refid="lm3g_model.c"/>
+        <childnode refid="1891" relation="include">
+        </childnode>
+        <childnode refid="1892" relation="include">
+        </childnode>
+        <childnode refid="1893" relation="include">
+        </childnode>
+        <childnode refid="1894" relation="include">
+        </childnode>
+        <childnode refid="1899" relation="include">
+        </childnode>
+        <childnode refid="1901" relation="include">
+        </childnode>
+        <childnode refid="1905" relation="include">
+        </childnode>
+      </node>
+      <node id="1905">
+        <label>lm3g_model.h</label>
+        <link refid="lm3g__model_8h_source"/>
+        <childnode refid="1894" relation="include">
+        </childnode>
+        <childnode refid="1906" relation="include">
+        </childnode>
+      </node>
+      <node id="1895">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1900">
+        <label>setjmp.h</label>
+      </node>
+      <node id="1907">
+        <label>sphinxbase/ngram_model.h</label>
+        <link refid="ngram__model_8h"/>
+        <childnode refid="1902" relation="include">
+        </childnode>
+        <childnode refid="1896" relation="include">
+        </childnode>
+        <childnode refid="1897" relation="include">
+        </childnode>
+        <childnode refid="1908" relation="include">
+        </childnode>
+        <childnode refid="1909" relation="include">
+        </childnode>
+        <childnode refid="1910" relation="include">
+        </childnode>
+      </node>
+      <node id="1906">
+        <label>ngram_model_internal.h</label>
+        <link refid="ngram__model__internal_8h_source"/>
+        <childnode refid="1907" relation="include">
+        </childnode>
+        <childnode refid="1911" relation="include">
+        </childnode>
+      </node>
+      <node id="1893">
+        <label>limits.h</label>
+      </node>
+      <node id="1910">
+        <label>sphinxbase/mmio.h</label>
+        <link refid="mmio_8h"/>
+        <childnode refid="1896" relation="include">
+        </childnode>
+      </node>
+      <node id="1898">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="1894">
+        <label>sphinxbase/listelem_alloc.h</label>
+        <link refid="listelem__alloc_8h"/>
+        <childnode refid="1895" relation="include">
+        </childnode>
+        <childnode refid="1896" relation="include">
+        </childnode>
+        <childnode refid="1897" relation="include">
+        </childnode>
+      </node>
+      <node id="1891">
+        <label>string.h</label>
+      </node>
+      <node id="1896">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="1897">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="1898" relation="include">
+        </childnode>
+      </node>
+      <node id="1908">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="1903" relation="include">
+        </childnode>
+        <childnode refid="1902" relation="include">
+        </childnode>
+        <childnode refid="1896" relation="include">
+        </childnode>
+        <childnode refid="1897" relation="include">
+        </childnode>
+      </node>
+      <node id="1909">
+        <label>sphinxbase/logmath.h</label>
+        <link refid="logmath_8h"/>
+        <childnode refid="1896" relation="include">
+        </childnode>
+        <childnode refid="1897" relation="include">
+        </childnode>
+        <childnode refid="1908" relation="include">
+        </childnode>
+      </node>
+      <node id="1911">
+        <label>sphinxbase/hash_table.h</label>
+        <link refid="hash__table_8h"/>
+        <childnode refid="1896" relation="include">
+        </childnode>
+        <childnode refid="1897" relation="include">
+        </childnode>
+        <childnode refid="1912" relation="include">
+        </childnode>
+      </node>
+      <node id="1912">
+        <label>sphinxbase/glist.h</label>
+        <link refid="glist_8h"/>
+        <childnode refid="1895" relation="include">
+        </childnode>
+        <childnode refid="1896" relation="include">
+        </childnode>
+        <childnode refid="1897" relation="include">
+        </childnode>
+      </node>
+      <node id="1899">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="1895" relation="include">
+        </childnode>
+        <childnode refid="1900" relation="include">
+        </childnode>
+        <childnode refid="1896" relation="include">
+        </childnode>
+        <childnode refid="1897" relation="include">
+        </childnode>
+      </node>
+      <node id="1901">
+        <label>sphinxbase/err.h</label>
+        <link refid="err_8h"/>
+        <childnode refid="1902" relation="include">
+        </childnode>
+        <childnode refid="1903" relation="include">
+        </childnode>
+        <childnode refid="1895" relation="include">
+        </childnode>
+        <childnode refid="1904" relation="include">
+        </childnode>
+        <childnode refid="1896" relation="include">
+        </childnode>
+      </node>
+      <node id="1903">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="lm3g__model_8c_1a9b11ffbaec37f9ce333f58b7a41bdfd0" prot="public" static="no">
+        <name>INITIAL_SORTED_ENTRIES</name>
+        <initializer>MAX_UINT16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="178" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="lm3g__model_8c_1a0645810c02795ee366176ef5db5ba878" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lm3g_tginfo_free</definition>
+        <argsstring>(ngram_model_t *base, lm3g_model_t *lm3g)</argsstring>
+        <name>lm3g_tginfo_free</name>
+        <param>
+          <type><ref refid="ngram__model_8h_1afaaf0c00e20056d97efcd97e4cae4ea7" kindref="member">ngram_model_t</ref> *</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref> *</type>
+          <declname>lm3g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="54" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="lm3g__model_8c_1a35b7ec6dd9ad9ccec53a020cdfc5e05e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lm3g_tginfo_reset</definition>
+        <argsstring>(ngram_model_t *base, lm3g_model_t *lm3g)</argsstring>
+        <name>lm3g_tginfo_reset</name>
+        <param>
+          <type><ref refid="ngram__model_8h_1afaaf0c00e20056d97efcd97e4cae4ea7" kindref="member">ngram_model_t</ref> *</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref> *</type>
+          <declname>lm3g</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="63" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="63" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="lm3g__model_8c_1aadc4b23a2a67ab9d68d12f2153727ef0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lm3g_apply_weights</definition>
+        <argsstring>(ngram_model_t *base, lm3g_model_t *lm3g, float32 lw, float32 wip, float32 uw)</argsstring>
+        <name>lm3g_apply_weights</name>
+        <param>
+          <type><ref refid="ngram__model_8h_1afaaf0c00e20056d97efcd97e4cae4ea7" kindref="member">ngram_model_t</ref> *</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref> *</type>
+          <declname>lm3g</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>lw</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>wip</declname>
+        </param>
+        <param>
+          <type>float32</type>
+          <declname>uw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="73" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="73" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="lm3g__model_8c_1acb275ff8152c5227c916ef0b2eb295ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 lm3g_add_ug</definition>
+        <argsstring>(ngram_model_t *base, lm3g_model_t *lm3g, int32 wid, int32 lweight)</argsstring>
+        <name>lm3g_add_ug</name>
+        <param>
+          <type><ref refid="ngram__model_8h_1afaaf0c00e20056d97efcd97e4cae4ea7" kindref="member">ngram_model_t</ref> *</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref> *</type>
+          <declname>lm3g</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>wid</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>lweight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="135" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="135" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="lm3g__model_8c_1ad7fd0ccfcb273cff9de88c8acae044fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init_sorted_list</definition>
+        <argsstring>(sorted_list_t *l)</argsstring>
+        <name>init_sorted_list</name>
+        <param>
+          <type><ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref> *</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Initialize sorted list with the 0-th entry = MIN_PROB_F, which may be needed to replace spurious values in the Darpa LM file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="181" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="181" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="lm3g__model_8c_1aa62b02d86be2e3f5384103b1d6829722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void free_sorted_list</definition>
+        <argsstring>(sorted_list_t *l)</argsstring>
+        <name>free_sorted_list</name>
+        <param>
+          <type><ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref> *</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="192" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="192" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="lm3g__model_8c_1a9b50e0649bc69faa7e017764128e9659" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="unionlmprob__t" kindref="compound">lmprob_t</ref> *</type>
+        <definition>lmprob_t* vals_in_sorted_list</definition>
+        <argsstring>(sorted_list_t *l)</argsstring>
+        <name>vals_in_sorted_list</name>
+        <param>
+          <type><ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref> *</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="198" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="198" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="lm3g__model_8c_1a7c7ad9ccc1f9c1ef41e5f9effb0a5398" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 sorted_id</definition>
+        <argsstring>(sorted_list_t *l, int32 *val)</argsstring>
+        <name>sorted_id</name>
+        <param>
+          <type><ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref> *</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" line="210" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c" bodystart="210" bodyend="258"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2007<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>\file<sp/>lm3g_model.c<sp/>Core<sp/>Sphinx<sp/>3-gram<sp/>code<sp/>used<sp/>in</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>DMP/DMP32/ARPA<sp/>(for<sp/>now)<sp/>model<sp/>code.</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>Author:<sp/>A<sp/>cast<sp/>of<sp/>thousands,<sp/>probably.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="listelem__alloc_8h" kindref="compound">sphinxbase/listelem_alloc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ckd__alloc_8h" kindref="compound">sphinxbase/ckd_alloc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="err_8h" kindref="compound">sphinxbase/err.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lm3g_model.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">lm3g_tginfo_free(<ref refid="structngram__model__s" kindref="compound">ngram_model_t</ref><sp/>*base,<sp/><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref><sp/>*lm3g)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref><sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="listelem__alloc_8h_1a94c02e93a0abaa2bd79636cbac6cced2" kindref="member">listelem_alloc_free</ref>(lm3g-&gt;<ref refid="structlm3g__model__s_1a2c96ba8aa34632e4d42908f9384d1b01" kindref="member">le</ref>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">lm3g_tginfo_reset(<ref refid="structngram__model__s" kindref="compound">ngram_model_t</ref><sp/>*base,<sp/><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref><sp/>*lm3g)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref><sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="listelem__alloc_8h_1a94c02e93a0abaa2bd79636cbac6cced2" kindref="member">listelem_alloc_free</ref>(lm3g-&gt;<ref refid="structlm3g__model__s_1a2c96ba8aa34632e4d42908f9384d1b01" kindref="member">le</ref>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref>,<sp/>0,<sp/>base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0]<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structtginfo__s" kindref="compound">tginfo_t</ref><sp/>*));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>lm3g-&gt;<ref refid="structlm3g__model__s_1a2c96ba8aa34632e4d42908f9384d1b01" kindref="member">le</ref><sp/>=<sp/><ref refid="listelem__alloc_8h_1a4b08b49eaa74cbe9a3c95170cee78de7" kindref="member">listelem_alloc_init</ref>(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structtginfo__s" kindref="compound">tginfo_t</ref>));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal">lm3g_apply_weights(<ref refid="structngram__model__s" kindref="compound">ngram_model_t</ref><sp/>*base,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref><sp/>*lm3g,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float32<sp/>lw,<sp/>float32<sp/>wip,<sp/>float32<sp/>uw)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>log_wip,<sp/>log_uw,<sp/>log_uniform_weight;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Precalculate<sp/>some<sp/>log<sp/>values<sp/>we<sp/>will<sp/>like.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>log_wip<sp/>=<sp/><ref refid="logmath_8h_1aebb4711268322fa7aec31e5798fe7e90" kindref="member">logmath_log</ref>(base-&gt;<ref refid="structngram__model__s_1a2ca373109c651ac998b33153eb38fd95" kindref="member">lmath</ref>,<sp/>wip);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>log_uw<sp/>=<sp/><ref refid="logmath_8h_1aebb4711268322fa7aec31e5798fe7e90" kindref="member">logmath_log</ref>(base-&gt;<ref refid="structngram__model__s_1a2ca373109c651ac998b33153eb38fd95" kindref="member">lmath</ref>,<sp/>uw);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>log_uniform_weight<sp/>=<sp/><ref refid="logmath_8h_1aebb4711268322fa7aec31e5798fe7e90" kindref="member">logmath_log</ref>(base-&gt;<ref refid="structngram__model__s_1a2ca373109c651ac998b33153eb38fd95" kindref="member">lmath</ref>,<sp/>1.0<sp/>-<sp/>uw);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0];<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>prob1,<sp/>bo_wt,<sp/>n_used;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Backoff<sp/>weights<sp/>just<sp/>get<sp/>scaled<sp/>by<sp/>the<sp/>lw.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bo_wt<sp/>=<sp/>(int32)(lm3g-&gt;unigrams[i].<ref refid="structunigram__s_1ad33b4af5b40a8d13ffae932bab003df6" kindref="member">bo_wt1</ref>.l<sp/>/<sp/>base-&gt;<ref refid="structngram__model__s_1a76ea0c65b23de80091e7c602bdb43bde" kindref="member">lw</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Unscaling<sp/>unigram<sp/>probs<sp/>is<sp/>a<sp/>bit<sp/>more<sp/>complicated,<sp/>so<sp/>punt</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>it<sp/>back<sp/>to<sp/>the<sp/>general<sp/>code.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prob1<sp/>=<sp/><ref refid="ngram__model_8h_1a218d8d140b93d3d8008f8933f9e04ec6" kindref="member">ngram_ng_prob</ref>(base,<sp/>i,<sp/>NULL,<sp/>0,<sp/>&amp;n_used);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Now<sp/>compute<sp/>the<sp/>new<sp/>scaled<sp/>probabilities.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lm3g-&gt;unigrams[i].<ref refid="structunigram__s_1ad33b4af5b40a8d13ffae932bab003df6" kindref="member">bo_wt1</ref>.l<sp/>=<sp/>(int32)(bo_wt<sp/>*<sp/>lw);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(base-&gt;<ref refid="structngram__model__s_1ae625e779e340845f03fb3da164e93039" kindref="member">word_str</ref>[i],<sp/></highlight><highlight class="stringliteral">&quot;&lt;s&gt;&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{<sp/></highlight><highlight class="comment">/*<sp/>FIXME:<sp/>configurable<sp/>start_sym<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Apply<sp/>language<sp/>weight<sp/>and<sp/>WIP<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lm3g-&gt;unigrams[i].<ref refid="structunigram__s_1a488db9623272838a933cd4b768409fea" kindref="member">prob1</ref>.l<sp/>=<sp/>(int32)(prob1<sp/>*<sp/>lw)<sp/>+<sp/>log_wip;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Interpolate<sp/>unigram<sp/>probability<sp/>with<sp/>uniform.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prob1<sp/>+=<sp/>log_uw;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prob1<sp/>=<sp/><ref refid="logmath_8h_1a5eb70928578b0115c9c7ac2765396a06" kindref="member">logmath_add</ref>(base-&gt;<ref refid="structngram__model__s_1a2ca373109c651ac998b33153eb38fd95" kindref="member">lmath</ref>,<sp/>prob1,<sp/>base-&gt;<ref refid="structngram__model__s_1a616bf871a67f9cedce17d6b589ee33ea" kindref="member">log_uniform</ref><sp/>+<sp/>log_uniform_weight);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Apply<sp/>language<sp/>weight<sp/>and<sp/>WIP<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lm3g-&gt;unigrams[i].<ref refid="structunigram__s_1a488db9623272838a933cd4b768409fea" kindref="member">prob1</ref>.l<sp/>=<sp/>(int32)(prob1<sp/>*<sp/>lw)<sp/>+<sp/>log_wip;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>lm3g-&gt;<ref refid="structlm3g__model__s_1a273e6ea4c39d1a563cc59f00b4b6ee98" kindref="member">n_prob2</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>prob2;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Can&apos;t<sp/>just<sp/>punt<sp/>this<sp/>back<sp/>to<sp/>general<sp/>code<sp/>since<sp/>it<sp/>is<sp/>quantized.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prob2<sp/>=<sp/>(int32)((lm3g-&gt;<ref refid="structlm3g__model__s_1a34acf8c1ffaa4bb712ce1196eea59678" kindref="member">prob2</ref>[i].l<sp/>-<sp/>base-&gt;<ref refid="structngram__model__s_1a3d6bf5632760a16e52cb881d7010d774" kindref="member">log_wip</ref>)<sp/>/<sp/>base-&gt;<ref refid="structngram__model__s_1a76ea0c65b23de80091e7c602bdb43bde" kindref="member">lw</ref>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lm3g-&gt;<ref refid="structlm3g__model__s_1a34acf8c1ffaa4bb712ce1196eea59678" kindref="member">prob2</ref>[i].l<sp/>=<sp/>(int32)(prob2<sp/>*<sp/>lw)<sp/>+<sp/>log_wip;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(base-&gt;<ref refid="structngram__model__s_1a3c87bc1b678662a2c8930b3b8c33a80f" kindref="member">n</ref><sp/>&gt;<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>lm3g-&gt;<ref refid="structlm3g__model__s_1ad4bbdd65d13712fe653afe8b1de9b096" kindref="member">n_bo_wt2</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lm3g-&gt;<ref refid="structlm3g__model__s_1a7ee629aa1b8e88529127cf4da470d80f" kindref="member">bo_wt2</ref>[i].l<sp/>=<sp/>(int32)(lm3g-&gt;<ref refid="structlm3g__model__s_1a7ee629aa1b8e88529127cf4da470d80f" kindref="member">bo_wt2</ref>[i].l<sp/><sp/>/<sp/>base-&gt;<ref refid="structngram__model__s_1a76ea0c65b23de80091e7c602bdb43bde" kindref="member">lw</ref><sp/>*<sp/>lw);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>lm3g-&gt;<ref refid="structlm3g__model__s_1add28369f51e657ee54deed5291c84d09" kindref="member">n_prob3</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32<sp/>prob3;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Can&apos;t<sp/>just<sp/>punt<sp/>this<sp/>back<sp/>to<sp/>general<sp/>code<sp/>since<sp/>it<sp/>is<sp/>quantized.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prob3<sp/>=<sp/>(int32)((lm3g-&gt;<ref refid="structlm3g__model__s_1adc9ed2ad1f2daefdd40713a9dd371673" kindref="member">prob3</ref>[i].l<sp/>-<sp/>base-&gt;<ref refid="structngram__model__s_1a3d6bf5632760a16e52cb881d7010d774" kindref="member">log_wip</ref>)<sp/>/<sp/>base-&gt;<ref refid="structngram__model__s_1a76ea0c65b23de80091e7c602bdb43bde" kindref="member">lw</ref>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lm3g-&gt;<ref refid="structlm3g__model__s_1adc9ed2ad1f2daefdd40713a9dd371673" kindref="member">prob3</ref>[i].l<sp/>=<sp/>(int32)(prob3<sp/>*<sp/>lw)<sp/>+<sp/>log_wip;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Store<sp/>updated<sp/>values<sp/>in<sp/>the<sp/>model.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>base-&gt;<ref refid="structngram__model__s_1a3d6bf5632760a16e52cb881d7010d774" kindref="member">log_wip</ref><sp/>=<sp/>log_wip;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>base-&gt;<ref refid="structngram__model__s_1a6f0ec7b8b9d13d590bbe4b59df573abc" kindref="member">log_uw</ref><sp/>=<sp/>log_uw;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>base-&gt;<ref refid="structngram__model__s_1aa38c5fdecaefd9a2f43b69f26ae492c1" kindref="member">log_uniform_weight</ref><sp/>=<sp/>log_uniform_weight;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>base-&gt;<ref refid="structngram__model__s_1a76ea0c65b23de80091e7c602bdb43bde" kindref="member">lw</ref><sp/>=<sp/>lw;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">lm3g_add_ug(<ref refid="structngram__model__s" kindref="compound">ngram_model_t</ref><sp/>*base,</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref><sp/>*lm3g,<sp/>int32<sp/>wid,<sp/>int32<sp/>lweight)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>score;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>This<sp/>would<sp/>be<sp/>very<sp/>bad<sp/>if<sp/>this<sp/>happened!<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(!NGRAM_IS_CLASSWID(wid));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reallocate<sp/>unigram<sp/>array.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>lm3g-&gt;unigrams<sp/>=<sp/><ref refid="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" kindref="member">ckd_realloc</ref>(lm3g-&gt;unigrams,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*lm3g-&gt;unigrams)<sp/>*<sp/>base-&gt;<ref refid="structngram__model__s_1a3e41109b30668bdfc077614c1ef49960" kindref="member">n_1g_alloc</ref>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(lm3g-&gt;unigrams<sp/>+<sp/>base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0],<sp/>0,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(base-&gt;<ref refid="structngram__model__s_1a3e41109b30668bdfc077614c1ef49960" kindref="member">n_1g_alloc</ref><sp/>-<sp/>base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0])<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*lm3g-&gt;unigrams));</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reallocate<sp/>tginfo<sp/>array.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref><sp/>=<sp/><ref refid="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" kindref="member">ckd_realloc</ref>(lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref>,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref>)<sp/>*<sp/>base-&gt;<ref refid="structngram__model__s_1a3e41109b30668bdfc077614c1ef49960" kindref="member">n_1g_alloc</ref>);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref><sp/>+<sp/>base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0],<sp/>0,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(base-&gt;<ref refid="structngram__model__s_1a3e41109b30668bdfc077614c1ef49960" kindref="member">n_1g_alloc</ref><sp/>-<sp/>base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0])<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*lm3g-&gt;<ref refid="structlm3g__model__s_1a9be0c8197334e3ef632e9e3abdad6a4f" kindref="member">tginfo</ref>));</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FIXME:<sp/>we<sp/>really<sp/>ought<sp/>to<sp/>update<sp/>base-&gt;log_uniform<sp/>*and*</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>renormalize<sp/>all<sp/>the<sp/>other<sp/>unigrams.<sp/><sp/>This<sp/>is<sp/>really<sp/>slow,<sp/>so<sp/>I</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>will<sp/>probably<sp/>just<sp/>provide<sp/>a<sp/>function<sp/>to<sp/>renormalize<sp/>after</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>adding<sp/>unigrams,<sp/>for<sp/>anyone<sp/>who<sp/>really<sp/>cares.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>This<sp/>could<sp/>be<sp/>simplified<sp/>but<sp/>then<sp/>we<sp/>couldn&apos;t<sp/>do<sp/>it<sp/>in<sp/>logmath<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>score<sp/>=<sp/>lweight<sp/>+<sp/>base-&gt;<ref refid="structngram__model__s_1a616bf871a67f9cedce17d6b589ee33ea" kindref="member">log_uniform</ref><sp/>+<sp/>base-&gt;<ref refid="structngram__model__s_1a6f0ec7b8b9d13d590bbe4b59df573abc" kindref="member">log_uw</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>score<sp/>=<sp/><ref refid="logmath_8h_1a5eb70928578b0115c9c7ac2765396a06" kindref="member">logmath_add</ref>(base-&gt;<ref refid="structngram__model__s_1a2ca373109c651ac998b33153eb38fd95" kindref="member">lmath</ref>,<sp/>score,</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base-&gt;<ref refid="structngram__model__s_1a616bf871a67f9cedce17d6b589ee33ea" kindref="member">log_uniform</ref><sp/>+<sp/>base-&gt;<ref refid="structngram__model__s_1aa38c5fdecaefd9a2f43b69f26ae492c1" kindref="member">log_uniform_weight</ref>);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>lm3g-&gt;unigrams[wid].<ref refid="structunigram__s_1a488db9623272838a933cd4b768409fea" kindref="member">prob1</ref>.l<sp/>=<sp/>score;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>This<sp/>unigram<sp/>by<sp/>definition<sp/>doesn&apos;t<sp/>participate<sp/>in<sp/>any<sp/>bigrams,</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>so<sp/>its<sp/>backoff<sp/>weight<sp/>and<sp/>bigram<sp/>pointer<sp/>are<sp/>both<sp/>undefined.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>lm3g-&gt;unigrams[wid].<ref refid="structunigram__s_1ad33b4af5b40a8d13ffae932bab003df6" kindref="member">bo_wt1</ref>.l<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>lm3g-&gt;unigrams[wid].<ref refid="structunigram__s_1ae148f631c0d9851b14bb9cb31c0c061d" kindref="member">bigrams</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Finally,<sp/>increase<sp/>the<sp/>unigram<sp/>count<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>++base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0];</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FIXME:<sp/>Note<sp/>that<sp/>this<sp/>can<sp/>actually<sp/>be<sp/>quite<sp/>bogus<sp/>due<sp/>to<sp/>the</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>presence<sp/>of<sp/>class<sp/>words.<sp/><sp/>If<sp/>wid<sp/>falls<sp/>outside<sp/>the<sp/>unigram</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>count,<sp/>increase<sp/>it<sp/>to<sp/>compensate,<sp/>at<sp/>the<sp/>cost<sp/>of<sp/>no<sp/>longer</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>really<sp/>knowing<sp/>how<sp/>many<sp/>unigrams<sp/>we<sp/>have<sp/>:(<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(wid<sp/>&gt;=<sp/>base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0])</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base-&gt;<ref refid="structngram__model__s_1a9dcba9b49cc1cd189b257e5838da0eee" kindref="member">n_counts</ref>[0]<sp/>=<sp/>wid<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>score;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INITIAL_SORTED_ENTRIES<sp/><sp/>MAX_UINT16</highlight></codeline>
+<codeline lineno="179"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal">init_sorted_list(<ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref><sp/>*<sp/>l)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;list<sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(INITIAL_SORTED_ENTRIES,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsorted__entry__s" kindref="compound">sorted_entry_t</ref>));</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;list[0].<ref refid="structsorted__entry__s_1a7bfd6c0c9c7240695a5909044177122f" kindref="member">val</ref>.l<sp/>=<sp/>INT_MIN;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;list[0].<ref refid="structsorted__entry__s_1a248960abac597c0f615ab01822f6d559" kindref="member">lower</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;list[0].<ref refid="structsorted__entry__s_1a0b7f0225403703a4daa3780593db7237" kindref="member">higher</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>l-&gt;size<sp/>=<sp/>INITIAL_SORTED_ENTRIES;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal">free_sorted_list(<ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref><sp/>*<sp/>l)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>free(l-&gt;list);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><ref refid="unionlmprob__t" kindref="compound">lmprob_t</ref><sp/>*</highlight></codeline>
+<codeline lineno="198"><highlight class="normal">vals_in_sorted_list(<ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref><sp/>*<sp/>l)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="unionlmprob__t" kindref="compound">lmprob_t</ref><sp/>*vals;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>i;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>vals<sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="unionlmprob__t" kindref="compound">lmprob_t</ref>));</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vals[i]<sp/>=<sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a7bfd6c0c9c7240695a5909044177122f" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>(vals);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal">int32</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">sorted_id(<ref refid="structsorted__list__t" kindref="compound">sorted_list_t</ref><sp/>*<sp/>l,<sp/>int32<sp/>*val)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;;)<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*val<sp/>==<sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a7bfd6c0c9c7240695a5909044177122f" kindref="member">val</ref>.l)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(i);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*val<sp/>&lt;<sp/>l-&gt;list[i].val.l)<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(l-&gt;list[i].<ref refid="structsorted__entry__s_1a248960abac597c0f615ab01822f6d559" kindref="member">lower</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref><sp/>&gt;=<sp/>l-&gt;size)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newsize<sp/>=<sp/>l-&gt;size<sp/>+<sp/>INITIAL_SORTED_ENTRIES;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;list<sp/>=<sp/><ref refid="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" kindref="member">ckd_realloc</ref>(l-&gt;list,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsorted__entry__s" kindref="compound">sorted_entry_t</ref>)<sp/>*<sp/>newsize);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memset(l-&gt;list<sp/>+<sp/>l-&gt;size,<sp/></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>INITIAL_SORTED_ENTRIES<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsorted__entry__s" kindref="compound">sorted_entry_t</ref>));</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;size<sp/>=<sp/>newsize;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a248960abac597c0f615ab01822f6d559" kindref="member">lower</ref><sp/>=<sp/>l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref>;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref>)++;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>=<sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a248960abac597c0f615ab01822f6d559" kindref="member">lower</ref>;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a7bfd6c0c9c7240695a5909044177122f" kindref="member">val</ref>.l<sp/>=<sp/>*val;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(i);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>=<sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a248960abac597c0f615ab01822f6d559" kindref="member">lower</ref>;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(l-&gt;list[i].<ref refid="structsorted__entry__s_1a0b7f0225403703a4daa3780593db7237" kindref="member">higher</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref><sp/>&gt;=<sp/>l-&gt;size)<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newsize<sp/>=<sp/>l-&gt;size<sp/>+<sp/>INITIAL_SORTED_ENTRIES;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;list<sp/>=<sp/><ref refid="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" kindref="member">ckd_realloc</ref>(l-&gt;list,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsorted__entry__s" kindref="compound">sorted_entry_t</ref>)<sp/>*<sp/>newsize);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memset(l-&gt;list<sp/>+<sp/>l-&gt;size,<sp/></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>INITIAL_SORTED_ENTRIES<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structsorted__entry__s" kindref="compound">sorted_entry_t</ref>));</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;size<sp/>=<sp/>newsize;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a0b7f0225403703a4daa3780593db7237" kindref="member">higher</ref><sp/>=<sp/>l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref>;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(l-&gt;<ref refid="structsorted__list__t_1aa7468ec9a2fe7c61d2bc76ba43c575ce" kindref="member">free</ref>)++;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>=<sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a0b7f0225403703a4daa3780593db7237" kindref="member">higher</ref>;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a7bfd6c0c9c7240695a5909044177122f" kindref="member">val</ref>.l<sp/>=<sp/>*val;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(i);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>=<sp/>l-&gt;list[i].<ref refid="structsorted__entry__s_1a0b7f0225403703a4daa3780593db7237" kindref="member">higher</ref>;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/lm3g_model.c"/>
+  </compounddef>
+</doxygen>

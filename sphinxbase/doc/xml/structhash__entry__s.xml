@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structhash__entry__s" kind="struct" prot="public">
+    <compoundname>hash_entry_s</compoundname>
+    <includes refid="hash__table_8h" local="no">hash_table.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhash__entry__s_1a2566ac1233761789585363a283385321" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* hash_entry_s::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" line="150" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhash__entry__s_1af1ec5f16059ced6d9a8ae4d36ca7e2b3" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t hash_entry_s::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <briefdescription>
+<para>Key string, NULL if this is an empty slot. </para>        </briefdescription>
+        <detaileddescription>
+<para>NOTE that the key must not be changed once the entry has been made. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" line="153" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" bodystart="153" bodyend="-1"/>
+        <referencedby refid="hash__table_8h_1a2721f6b601c80ceeeae570589fd12e38" compoundref="hash__table_8c" startline="581" endline="619">hash_table_display</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhash__entry__s_1a0d57012963084fed93886681108aa636" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* hash_entry_s::val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <briefdescription>
+<para>Key-length; the key string does not have to be a C-style NULL terminated string; it can have arbitrary binary bytes. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" line="155" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" bodystart="155" bodyend="-1"/>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+        <referencedby refid="ngram__model_8h_1a9b2a86c23543158754373c5456fe890d" compoundref="ngram__model_8c" startline="1220" endline="1257">ngram_model_read_classdef</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a1389a90bf32110fd7e56a73b6d39fa07" compoundref="ngram__model__set_8c" startline="182" endline="358">ngram_model_set_read</referencedby>
+        <referencedby refid="cmd__ln_8h_1a26707fc85e87d8999e368a680e7873cd" compoundref="cmd__ln_8c" startline="1039" endline="1072">cmd_ln_free_r</referencedby>
+        <referencedby refid="hash__table_8h_1a9a1e5ed410eb96f514b00fdce770fbd7" compoundref="hash__table_8c" startline="309" endline="326">hash_table_lookup</referencedby>
+        <referencedby refid="hash__table_8h_1a91f5b3924c0e3a50f94c86bb5fd078e8" compoundref="hash__table_8c" startline="344" endline="362">hash_table_lookup_bkey</referencedby>
+        <referencedby refid="hash__table_8h_1a2721f6b601c80ceeeae570589fd12e38" compoundref="hash__table_8c" startline="581" endline="619">hash_table_display</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structhash__entry__s_1aa855ac854b9c36cf23f60d9ac8093e7f" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structhash__entry__s" kindref="compound">hash_entry_s</ref> *</type>
+        <definition>struct hash_entry_s* hash_entry_s::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+<para>Value associated with above key. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" line="156" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" bodystart="156" bodyend="-1"/>
+        <referencedby refid="hash__table_8h_1acab374d21e25009d397642e3465308c7" compoundref="hash__table_8c" startline="490" endline="504">hash_table_empty</referencedby>
+        <referencedby refid="hash__table_8h_1a2721f6b601c80ceeeae570589fd12e38" compoundref="hash__table_8c" startline="581" endline="619">hash_table_display</referencedby>
+        <referencedby refid="hash__table_8h_1a61f59389f05d8871003da4692a9c2acc" compoundref="hash__table_8c" startline="623" endline="650">hash_table_tolist</referencedby>
+        <referencedby refid="hash__table_8h_1ad023321efab26a30bd6d855fbdbe08a3" compoundref="hash__table_8c" startline="663" endline="686">hash_table_iter_next</referencedby>
+        <referencedby refid="hash__table_8h_1a0a588c22946f8cc16328973035ed19e3" compoundref="hash__table_8c" startline="695" endline="713">hash_table_free</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A note by ARCHAN at 20050510: Technically what we use is so-called &quot;hash table with buckets&quot; which is very nice way to deal with external hashing. </para>    </briefdescription>
+    <detaileddescription>
+<para>There are definitely better ways to do internal hashing (i.e. when everything is stored in the memory.) In Sphinx 3, this is a reasonable practice because hash table is only used in lookup in initialization or in lookups which is not critical for speed. Another note by ARCHAN at 20050703: To use this data structure properly, it is very important to realize that the users are required to handle memory allocation of the C-style keys. The hash table will not make a copy of the memory allocated for any of the C-style key. It will not allocate memory for it. It will not delete memory for it. As a result, the following code sniplet will cause memory leak.</para><para>while (1){ str=(char*)<ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc(str_length,sizeof(char*))</ref> if(hash_enter(ht,str,id)!=id){ printf(&quot;fail to add key str %s with val id %d\n&quot;,str,id)} } A note by dhuggins on 20061010: Changed this to use void * instead of int32 as the value type, so that arbitrary objects can be inserted into a hash table (in a way that won&apos;t crash on 64-bit machines ;) The hash table structures. Each hash table is identified by a <ref refid="structhash__table__t" kindref="compound">hash_table_t</ref> structure. hash_table_t.table is pre-allocated for a user-controlled max size, and is initially empty. As new entries are created (using hash_enter()), the empty entries get filled. If multiple keys hash to the same entry, new entries are allocated and linked together in a linear list. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="86">
+        <label>hash_entry_s</label>
+        <link refid="structhash__entry__s"/>
+        <childnode refid="86" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" line="149" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/hash_table.h" bodystart="149" bodyend="157"/>
+    <listofallmembers>
+      <member refid="structhash__entry__s_1a2566ac1233761789585363a283385321" prot="public" virt="non-virtual"><scope>hash_entry_s</scope><name>key</name></member>
+      <member refid="structhash__entry__s_1af1ec5f16059ced6d9a8ae4d36ca7e2b3" prot="public" virt="non-virtual"><scope>hash_entry_s</scope><name>len</name></member>
+      <member refid="structhash__entry__s_1aa855ac854b9c36cf23f60d9ac8093e7f" prot="public" virt="non-virtual"><scope>hash_entry_s</scope><name>next</name></member>
+      <member refid="structhash__entry__s_1a0d57012963084fed93886681108aa636" prot="public" virt="non-virtual"><scope>hash_entry_s</scope><name>val</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

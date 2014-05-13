@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structph__lc__s" kind="struct" prot="public">
+    <compoundname>ph_lc_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structph__lc__s_1adfb4e9553a4e2314543f9f1ef661185e" prot="public" static="no" mutable="no">
+        <type>int16</type>
+        <definition>int16 ph_lc_s::lc</definition>
+        <argsstring></argsstring>
+        <name>lc</name>
+        <briefdescription>
+<para>Specific lc for a parent &lt;wpos,ci&gt; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/mdef.h" line="127" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/mdef.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structph__lc__s_1aac24b848d70d96894c312d16050c4051" prot="public" static="no" mutable="no">
+        <type><ref refid="structph__rc__t" kindref="compound">ph_rc_t</ref> *</type>
+        <definition>ph_rc_t* ph_lc_s::rclist</definition>
+        <argsstring></argsstring>
+        <name>rclist</name>
+        <briefdescription>
+<para>rc list for above lc instance </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/mdef.h" line="128" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/mdef.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structph__lc__s_1a5cda7044037678163c2242dde19df13a" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structph__lc__s" kindref="compound">ph_lc_s</ref> *</type>
+        <definition>struct ph_lc_s* ph_lc_s::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+<para>Next lc entry for same parent &lt;wpos,ci&gt; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/mdef.h" line="129" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/mdef.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="320">
+        <label>ph_rc_t</label>
+        <link refid="structph__rc__t"/>
+      </node>
+      <node id="319">
+        <label>ph_lc_s</label>
+        <link refid="structph__lc__s"/>
+        <childnode refid="320" relation="usage">
+          <edgelabel>rclist</edgelabel>
+        </childnode>
+        <childnode refid="319" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/mdef.h" line="126" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/mdef.h" bodystart="126" bodyend="130"/>
+    <listofallmembers>
+      <member refid="structph__lc__s_1adfb4e9553a4e2314543f9f1ef661185e" prot="public" virt="non-virtual"><scope>ph_lc_s</scope><name>lc</name></member>
+      <member refid="structph__lc__s_1a5cda7044037678163c2242dde19df13a" prot="public" virt="non-virtual"><scope>ph_lc_s</scope><name>next</name></member>
+      <member refid="structph__lc__s_1aac24b848d70d96894c312d16050c4051" prot="public" virt="non-virtual"><scope>ph_lc_s</scope><name>rclist</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

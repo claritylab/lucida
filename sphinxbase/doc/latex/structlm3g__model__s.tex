@@ -1,0 +1,85 @@
+\section{lm3g\-\_\-model\-\_\-s Struct Reference}
+\label{structlm3g__model__s}\index{lm3g\-\_\-model\-\_\-s@{lm3g\-\_\-model\-\_\-s}}
+
+
+Common internal structure for Sphinx 3-\/gram models.  
+
+
+
+
+{\ttfamily \#include $<$lm3g\-\_\-model.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf unigram\-\_\-t} $\ast$ {\bfseries unigrams}\label{structlm3g__model__s_a94b4a80531261a20036cbc41b76b3f3a}
+
+\item 
+{\bf bigram\-\_\-t} $\ast$ {\bfseries bigrams}\label{structlm3g__model__s_a58e72d8dd17a928d1e150e95483092ca}
+
+\item 
+{\bf trigram\-\_\-t} $\ast$ {\bfseries trigrams}\label{structlm3g__model__s_a9d10497789f7406433bccae79db63b9f}
+
+\item 
+{\bf lmprob\-\_\-t} $\ast$ {\bf prob2}\label{structlm3g__model__s_a34acf8c1ffaa4bb712ce1196eea59678}
+
+\begin{DoxyCompactList}\small\item\em Table of actual bigram probs. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-prob2}\label{structlm3g__model__s_a273e6ea4c39d1a563cc59f00b4b6ee98}
+
+\begin{DoxyCompactList}\small\item\em prob2 size \end{DoxyCompactList}\item 
+{\bf lmprob\-\_\-t} $\ast$ {\bf bo\-\_\-wt2}\label{structlm3g__model__s_a7ee629aa1b8e88529127cf4da470d80f}
+
+\begin{DoxyCompactList}\small\item\em Table of actual bigram backoff weights. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-bo\-\_\-wt2}\label{structlm3g__model__s_ad4bbdd65d13712fe653afe8b1de9b096}
+
+\begin{DoxyCompactList}\small\item\em bo\-\_\-wt2 size \end{DoxyCompactList}\item 
+{\bf lmprob\-\_\-t} $\ast$ {\bf prob3}\label{structlm3g__model__s_adc9ed2ad1f2daefdd40713a9dd371673}
+
+\begin{DoxyCompactList}\small\item\em Table of actual trigram probs. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-prob3}\label{structlm3g__model__s_add28369f51e657ee54deed5291c84d09}
+
+\begin{DoxyCompactList}\small\item\em prob3 size \end{DoxyCompactList}\item 
+int32 $\ast$ {\bf tseg\-\_\-base}\label{structlm3g__model__s_a6cec34be6a748a9cece94ae3dfc1e8d7}
+
+\begin{DoxyCompactList}\small\item\em tseg\-\_\-base[i$>$$>$L\-O\-G\-\_\-\-B\-G\-\_\-\-S\-E\-G\-\_\-\-S\-Z] = index of 1st trigram for bigram segment (i$>$$>$L\-O\-G\-\_\-\-B\-G\-\_\-\-S\-E\-G\-\_\-\-S\-Z) \end{DoxyCompactList}\item 
+{\bf tginfo\-\_\-t} $\ast$$\ast$ {\bf tginfo}
+\begin{DoxyCompactList}\small\item\em tginfo[lw2] is head of linked list of trigram information for some cached subset of bigrams ($\ast$,lw2). \end{DoxyCompactList}\item 
+{\bf listelem\-\_\-alloc\-\_\-t} $\ast$ {\bf le}
+\begin{DoxyCompactList}\small\item\em List element allocator for tginfo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Common internal structure for Sphinx 3-\/gram models. 
+
+Definition at line 142 of file lm3g\-\_\-model.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{lm3g\-\_\-model\-\_\-s@{lm3g\-\_\-model\-\_\-s}!le@{le}}
+\index{le@{le}!lm3g_model_s@{lm3g\-\_\-model\-\_\-s}}
+\subsubsection[{le}]{\setlength{\rightskip}{0pt plus 5cm}{\bf listelem\-\_\-alloc\-\_\-t}$\ast$ lm3g\-\_\-model\-\_\-s\-::le}\label{structlm3g__model__s_a2c96ba8aa34632e4d42908f9384d1b01}
+
+
+List element allocator for tginfo. 
+
+
+
+Definition at line 156 of file lm3g\-\_\-model.\-h.
+
+\index{lm3g\-\_\-model\-\_\-s@{lm3g\-\_\-model\-\_\-s}!tginfo@{tginfo}}
+\index{tginfo@{tginfo}!lm3g_model_s@{lm3g\-\_\-model\-\_\-s}}
+\subsubsection[{tginfo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tginfo\-\_\-t}$\ast$$\ast$ lm3g\-\_\-model\-\_\-s\-::tginfo}\label{structlm3g__model__s_a9be0c8197334e3ef632e9e3abdad6a4f}
+
+
+tginfo[lw2] is head of linked list of trigram information for some cached subset of bigrams ($\ast$,lw2). 
+
+
+
+Definition at line 154 of file lm3g\-\_\-model.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libsphinxbase/lm/lm3g\-\_\-model.\-h\end{DoxyCompactItemize}

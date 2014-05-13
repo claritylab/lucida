@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structngram__model__dmp__s" kind="struct" prot="public">
+    <compoundname>ngram_model_dmp_s</compoundname>
+    <includes refid="ngram__model__dmp_8h" local="no">ngram_model_dmp.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structngram__model__dmp__s_1afd4571dc9702255aed667b5de62e5332" prot="public" static="no" mutable="no">
+        <type><ref refid="ngram__model_8h_1afaaf0c00e20056d97efcd97e4cae4ea7" kindref="member">ngram_model_t</ref></type>
+        <definition>ngram_model_t ngram_model_dmp_s::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+<para>Base ngram_model_t structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" line="77" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__model__dmp__s_1af889dddcba4b473e782f4a5a11ca47bd" prot="public" static="no" mutable="no">
+        <type><ref refid="structlm3g__model__s" kindref="compound">lm3g_model_t</ref></type>
+        <definition>lm3g_model_t ngram_model_dmp_s::lm3g</definition>
+        <argsstring></argsstring>
+        <name>lm3g</name>
+        <briefdescription>
+<para>Common lm3g_model_t structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" line="78" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structngram__model__dmp__s_1ae86e39a2c9e3078f0d9cffc6cf384702" prot="public" static="no" mutable="no">
+        <type><ref refid="mmio_8h_1ae27ed04d8142d77aae885c8cb8c9fa3b" kindref="member">mmio_file_t</ref> *</type>
+        <definition>mmio_file_t* ngram_model_dmp_s::dump_mmap</definition>
+        <argsstring></argsstring>
+        <name>dump_mmap</name>
+        <briefdescription>
+<para>mmap() of dump file (or NULL if none) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" line="79" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Subclass of ngram_model for DMP file reading. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="252">
+        <label>lmprob_t</label>
+        <link refid="unionlmprob__t"/>
+      </node>
+      <node id="248">
+        <label>trigram_s</label>
+        <link refid="structtrigram__s"/>
+      </node>
+      <node id="261">
+        <label>ngram_funcs_s</label>
+        <link refid="structngram__funcs__s"/>
+        <childnode refid="262" relation="usage">
+          <edgelabel>mgrams</edgelabel>
+          <edgelabel>iter_next</edgelabel>
+          <edgelabel>successors</edgelabel>
+          <edgelabel>iter</edgelabel>
+        </childnode>
+      </node>
+      <node id="253">
+        <label>unigram_s</label>
+        <link refid="structunigram__s"/>
+        <childnode refid="252" relation="usage">
+          <edgelabel>bo_wt1</edgelabel>
+          <edgelabel>prob1</edgelabel>
+        </childnode>
+      </node>
+      <node id="246">
+        <label>lm3g_model_s</label>
+        <link refid="structlm3g__model__s"/>
+        <childnode refid="247" relation="usage">
+          <edgelabel>tginfo</edgelabel>
+        </childnode>
+        <childnode refid="249" relation="usage">
+          <edgelabel>le</edgelabel>
+        </childnode>
+        <childnode refid="252" relation="usage">
+          <edgelabel>bo_wt2</edgelabel>
+          <edgelabel>prob2</edgelabel>
+          <edgelabel>prob3</edgelabel>
+        </childnode>
+        <childnode refid="248" relation="usage">
+          <edgelabel>trigrams</edgelabel>
+        </childnode>
+        <childnode refid="253" relation="usage">
+          <edgelabel>unigrams</edgelabel>
+        </childnode>
+        <childnode refid="254" relation="usage">
+          <edgelabel>bigrams</edgelabel>
+        </childnode>
+      </node>
+      <node id="250">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="250" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="251" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="254">
+        <label>bigram_s</label>
+        <link refid="structbigram__s"/>
+      </node>
+      <node id="251">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="264">
+        <label>ngram_class_s::ngram_hash_s</label>
+        <link refid="structngram__class__s_1_1ngram__hash__s"/>
+      </node>
+      <node id="258">
+        <label>hash_entry_s</label>
+        <link refid="structhash__entry__s"/>
+        <childnode refid="258" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="257">
+        <label>hash_table_t</label>
+        <link refid="structhash__table__t"/>
+        <childnode refid="258" relation="usage">
+          <edgelabel>table</edgelabel>
+        </childnode>
+      </node>
+      <node id="247">
+        <label>tginfo_s</label>
+        <link refid="structtginfo__s"/>
+        <childnode refid="247" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="248" relation="usage">
+          <edgelabel>tg</edgelabel>
+        </childnode>
+      </node>
+      <node id="262">
+        <label>ngram_iter_s</label>
+        <link refid="structngram__iter__s"/>
+        <childnode refid="256" relation="usage">
+          <edgelabel>model</edgelabel>
+        </childnode>
+      </node>
+      <node id="249">
+        <label>listelem_alloc_s</label>
+        <link refid="structlistelem__alloc__s"/>
+        <childnode refid="250" relation="usage">
+          <edgelabel>blocks</edgelabel>
+          <edgelabel>blocksize</edgelabel>
+        </childnode>
+      </node>
+      <node id="245">
+        <label>ngram_model_dmp_s</label>
+        <link refid="structngram__model__dmp__s"/>
+        <childnode refid="246" relation="usage">
+          <edgelabel>lm3g</edgelabel>
+        </childnode>
+        <childnode refid="255" relation="usage">
+          <edgelabel>dump_mmap</edgelabel>
+        </childnode>
+        <childnode refid="256" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+      <node id="263">
+        <label>ngram_class_s</label>
+        <link refid="structngram__class__s"/>
+        <childnode refid="264" relation="usage">
+          <edgelabel>nword_hash</edgelabel>
+        </childnode>
+      </node>
+      <node id="259">
+        <label>logmath_s</label>
+        <link refid="structlogmath__s"/>
+        <childnode refid="260" relation="usage">
+          <edgelabel>t</edgelabel>
+        </childnode>
+        <childnode refid="255" relation="usage">
+          <edgelabel>filemap</edgelabel>
+        </childnode>
+      </node>
+      <node id="260">
+        <label>logadd_s</label>
+        <link refid="structlogadd__s"/>
+      </node>
+      <node id="255">
+        <label>mmio_file_s</label>
+        <link refid="structmmio__file__s"/>
+      </node>
+      <node id="256">
+        <label>ngram_model_s</label>
+        <link refid="structngram__model__s"/>
+        <childnode refid="257" relation="usage">
+          <edgelabel>wid</edgelabel>
+        </childnode>
+        <childnode refid="259" relation="usage">
+          <edgelabel>lmath</edgelabel>
+        </childnode>
+        <childnode refid="261" relation="usage">
+          <edgelabel>funcs</edgelabel>
+        </childnode>
+        <childnode refid="263" relation="usage">
+          <edgelabel>classes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" line="76" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h" bodystart="76" bodyend="80"/>
+    <listofallmembers>
+      <member refid="structngram__model__dmp__s_1afd4571dc9702255aed667b5de62e5332" prot="public" virt="non-virtual"><scope>ngram_model_dmp_s</scope><name>base</name></member>
+      <member refid="structngram__model__dmp__s_1ae86e39a2c9e3078f0d9cffc6cf384702" prot="public" virt="non-virtual"><scope>ngram_model_dmp_s</scope><name>dump_mmap</name></member>
+      <member refid="structngram__model__dmp__s_1af889dddcba4b473e782f4a5a11ca47bd" prot="public" virt="non-virtual"><scope>ngram_model_dmp_s</scope><name>lm3g</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

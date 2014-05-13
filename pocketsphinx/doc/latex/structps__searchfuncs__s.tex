@@ -1,0 +1,56 @@
+\section{ps\-\_\-searchfuncs\-\_\-s Struct Reference}
+\label{structps__searchfuncs__s}\index{ps\-\_\-searchfuncs\-\_\-s@{ps\-\_\-searchfuncs\-\_\-s}}
+
+
+V-\/table for search algorithm.  
+
+
+
+
+{\ttfamily \#include $<$pocketsphinx\-\_\-internal.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char const $\ast$ {\bfseries name}\label{structps__searchfuncs__s_a0a227b1bbc134ced7d7980bc873d39d6}
+
+\item 
+int($\ast$ {\bfseries start} )({\bf ps\-\_\-search\-\_\-t} $\ast$search)\label{structps__searchfuncs__s_a74ab853abe9f12ce016c5e92e10f0fe2}
+
+\item 
+int($\ast$ {\bfseries step} )({\bf ps\-\_\-search\-\_\-t} $\ast$search, int frame\-\_\-idx)\label{structps__searchfuncs__s_a7c92cba8683e766c1d4988118fc883f7}
+
+\item 
+int($\ast$ {\bfseries finish} )({\bf ps\-\_\-search\-\_\-t} $\ast$search)\label{structps__searchfuncs__s_a20a8de3b54011ce526e1a80ad42bb7c4}
+
+\item 
+int($\ast$ {\bfseries reinit} )({\bf ps\-\_\-search\-\_\-t} $\ast$search, {\bf dict\-\_\-t} $\ast$dict, {\bf dict2pid\-\_\-t} $\ast$d2p)\label{structps__searchfuncs__s_ac72f755ca7e66ee559a117982cf1a374}
+
+\item 
+void($\ast$ {\bfseries free} )({\bf ps\-\_\-search\-\_\-t} $\ast$search)\label{structps__searchfuncs__s_ad1f76bab9eede4b2fd1dd0e65bd6c60b}
+
+\item 
+{\bf ps\-\_\-lattice\-\_\-t} $\ast$($\ast$ {\bfseries lattice} )({\bf ps\-\_\-search\-\_\-t} $\ast$search)\label{structps__searchfuncs__s_aeaeebdd2e5852aef04a25eb2291139e1}
+
+\item 
+char const $\ast$($\ast$ {\bfseries hyp} )({\bf ps\-\_\-search\-\_\-t} $\ast$search, int32 $\ast$out\-\_\-score, int32 $\ast$out\-\_\-is\-\_\-final)\label{structps__searchfuncs__s_ab35d758b994ad40cc693d1015552c3a2}
+
+\item 
+int32($\ast$ {\bfseries prob} )({\bf ps\-\_\-search\-\_\-t} $\ast$search)\label{structps__searchfuncs__s_abf94b8e4523c3f3c39fde4454f78fe16}
+
+\item 
+{\bf ps\-\_\-seg\-\_\-t} $\ast$($\ast$ {\bfseries seg\-\_\-iter} )({\bf ps\-\_\-search\-\_\-t} $\ast$search, int32 $\ast$out\-\_\-score)\label{structps__searchfuncs__s_a6b27a306eac9b96f05413aa8d6b9da61}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+V-\/table for search algorithm. 
+
+Definition at line 87 of file pocketsphinx\-\_\-internal.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf pocketsphinx\-\_\-internal.\-h}\end{DoxyCompactItemize}

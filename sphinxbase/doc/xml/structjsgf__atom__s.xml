@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structjsgf__atom__s" kind="struct" prot="public">
+    <compoundname>jsgf_atom_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjsgf__atom__s_1ac7473e48f49258c5e5ef65bbb669b19e" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* jsgf_atom_s::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>Rule or token name. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="105" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__atom__s_1a4ecab128d84fd748efe52e338e7e2ecb" prot="public" static="no" mutable="no">
+        <type><ref refid="structgnode__s" kindref="compound">glist_t</ref></type>
+        <definition>glist_t jsgf_atom_s::tags</definition>
+        <argsstring></argsstring>
+        <name>tags</name>
+        <briefdescription>
+<para>Tags, if any (glist_t of char *) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="106" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjsgf__atom__s_1a50672ba6d1e24c55bf8b58b97114effa" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float jsgf_atom_s::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <briefdescription>
+<para>Weight (default 1) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="107" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="115">
+        <label>gnode_s</label>
+        <link refid="structgnode__s"/>
+        <childnode refid="115" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="116" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="116">
+        <label>anytype_s</label>
+        <link refid="unionanytype__s"/>
+      </node>
+      <node id="114">
+        <label>jsgf_atom_s</label>
+        <link refid="structjsgf__atom__s"/>
+        <childnode refid="115" relation="usage">
+          <edgelabel>tags</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" line="104" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h" bodystart="104" bodyend="108"/>
+    <listofallmembers>
+      <member refid="structjsgf__atom__s_1ac7473e48f49258c5e5ef65bbb669b19e" prot="public" virt="non-virtual"><scope>jsgf_atom_s</scope><name>name</name></member>
+      <member refid="structjsgf__atom__s_1a4ecab128d84fd748efe52e338e7e2ecb" prot="public" virt="non-virtual"><scope>jsgf_atom_s</scope><name>tags</name></member>
+      <member refid="structjsgf__atom__s_1a50672ba6d1e24c55bf8b58b97114effa" prot="public" virt="non-virtual"><scope>jsgf_atom_s</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,204 @@
+dnl Welcome to the Sphinx automated build system.
+dnl try not to hurt yourself ;)
+
+AC_INIT(pocketsphinx, 5prealpha)
+AM_INIT_AUTOMAKE([no-define foreign])
+AC_CONFIG_MACRO_DIR([m4])
+
+CFLAGS=${CFLAGS:--g -O2 -Wall}
+
+AC_CANONICAL_HOST
+
+dnl
+dnl Set proper compiler flags and such for some platforms
+dnl
+case $host in
+     arm-wince-pe*)
+	CFLAGS=${CFLAGS:--march=armv4 -mapcs-32 -malignment-traps}
+	LIBS='-lc -lgcc -lwinsock -lcoredll'
+	CFLAGS="$CFLAGS -DNEWLIB -DSARM -DWIN32 -DGNUWINCE"
+	;;
+     *apple*)
+        LIBS="$LIBS -framework CoreAudio -framework AudioToolbox"
+        ;;
+     *uclinux*)
+	# uClinux needs special "flat" binaries
+	LDFLAGS="$LDFLAGS -Wl,-elf2flt"
+	;;
+     *)
+     ;;
+esac     
+
+AC_PROG_CC
+AM_PROG_LIBTOOL
+AC_WORDS_BIGENDIAN
+AC_CHECK_TYPES(long long)
+AC_CHECK_SIZEOF(long long)
+AC_CHECK_FUNCS(dup2)
+
+dnl
+dnl Check for pkgconfig
+dnl
+AC_CHECK_PROG(HAVE_PKGCONFIG, pkg-config, yes, no)
+
+dnl
+dnl Check for Doxygen, and build dox if present
+dnl
+AC_CHECK_PROG(HAVE_DOXYGEN, doxygen, yes, no)
+AM_CONDITIONAL(BUILD_DOXYGEN, test "x$HAVE_DOXYGEN" = "xyes")
+
+dnl Check for SWIG and Python
+AC_ARG_WITH(swig-python,
+	AS_HELP_STRING([--with-swig-python],
+                 [Enable Python extension, built with swig, enabled by default]))
+
+if test "x${with_swig_python}" != "xno"; then
+  AM_PATH_PYTHON(2.4, [], [AC_MSG_ERROR([python not found])])
+  AC_MSG_CHECKING([for python include path])
+  if test -z "$PYTHON_CPPFLAGS"; then
+    python_path=`$PYTHON -c "import distutils.sysconfig; \
+      print (distutils.sysconfig.get_python_inc ());"`
+    plat_python_path=`$PYTHON -c "import distutils.sysconfig; \
+    print (distutils.sysconfig.get_python_inc (plat_specific=1));"`
+    if test -n "${python_path}"; then
+      if test "${plat_python_path}" != "${python_path}"; then
+        python_path="-I$python_path -I$plat_python_path"
+      else
+        python_path="-I$python_path"
+      fi
+    fi
+    PYTHON_CPPFLAGS=$python_path
+  fi
+  AC_MSG_RESULT([$PYTHON_CPPFLAGS])
+  AX_PKG_SWIG(2.0, [], [AC_MSG_ERROR([swig not found])])
+fi
+
+AC_SUBST([PYTHON_CPPFLAGS])
+AM_CONDITIONAL(BUILD_SWIG, test "x$SWIG" != "x")
+
+dnl swig python check
+
+dnl
+dnl Now check for GStreamer, and build the plugin if it's available
+dnl
+GST_MAJORMINOR=0.10
+PKG_CHECK_MODULES(GStreamer, [gstreamer-$GST_MAJORMINOR >= 0.10.0
+		       gstreamer-base-$GST_MAJORMINOR >= 0.10.0
+		       gstreamer-plugins-base-$GST_MAJORMINOR >= 0.10.0],
+                  HAVE_GST=yes, HAVE_GST=no)
+dnl Don't build GStreamer when cross-compiling
+AM_CONDITIONAL(BUILD_GST, test x$cross_compiling != xyes && test "x$HAVE_GST" = "xyes")
+GST_CFLAGS="$GStreamer_CFLAGS $GStreamer_ERROR"
+GST_LIBS="$GStreamer_LIBS"
+AC_SUBST(GST_MAJORMINOR)
+AC_SUBST(GST_CFLAGS)
+AC_SUBST(GST_LIBS)
+
+dnl set the plugindir where plugins should be installed
+if test "x${prefix}" = "x$HOME"; then
+  plugindir="$HOME/.gstreamer-$GST_MAJORMINOR/plugins"
+else
+  plugindir="\$(libdir)/gstreamer-$GST_MAJORMINOR"
+fi
+AC_SUBST(plugindir)
+
+dnl set proper LDFLAGS for plugins
+GST_PLUGIN_LDFLAGS='-module -avoid-version -export-symbols-regex [_]*\(gst_\|Gst\|GST_\).*'
+AC_SUBST(GST_PLUGIN_LDFLAGS)
+
+dnl
+dnl Get SphinxBase source from command line if given
+dnl
+AC_ARG_WITH(sphinxbase,
+	AS_HELP_STRING([--with-sphinxbase=DIRECTORY],
+			[Look for SphinxBase source files in DIRECTORY.  If this is 'auto',
+			 the system-wide installation will be used.]),
+			 sphinxbase=$withval)
+
+
+dnl
+dnl Check for SphinxBase in parent directories
+dnl
+if test x$sphinxbase = x; then
+   dn=`dirname $0`
+   case "$dn" in
+	.)
+	sbdir="`pwd`/.."
+	;;
+	[\\/]* | ?:[\\/]*)
+	sbdir="$dn/.."
+	;;
+	*)
+	sbdir="`pwd`/$dn/.."
+	;;
+   esac
+   # Look for sphinxbase in the parent directory
+   for sb in "$sbdir/sphinxbase" \
+	  "$sbdir/sphinxbase"*; do
+       AC_MSG_CHECKING([for sphinxbase in $sb])
+       if test -f "$sb/src/libsphinxbase/libsphinxbase.la"; then
+          sphinxbase="$sb"
+	  AC_MSG_RESULT(yes)
+	  break
+       else
+	  AC_MSG_RESULT(no)
+       fi
+   done
+fi
+
+dnl
+dnl Check for system SphinxBase if none was passed to us
+dnl Also allow --with-sphinxbase=auto to use system one explicitly
+dnl
+if test x$sphinxbase = x || test x$sphinxbase = xauto; then
+   sphinxbase=
+
+   if test "x$HAVE_PKGCONFIG" = "xno"; then
+      SPHINXBASE_CFLAGS = "-I/usr/include/sphinxbase -I/usr/local/include/sphinxbase"
+      SPHINXBASE_LIBS = "-lsphinxbase"
+      SPHINXBASE_PREFIX="/usr/local"
+   else
+      PKG_CHECK_MODULES(SPHINXBASE, [sphinxbase],,[
+      AC_MSG_FAILURE(dnl
+[SphinxBase was not found on your system.
+Make sure that you have installed it and that the
+PKG_CONFIG_PATH environment variable is set correctly, if
+it was installed in a non-standard prefix.])])
+      SPHINXBASE_PREFIX=`pkg-config --variable=prefix sphinxbase`
+   fi
+   
+   LIBS="$LIBS $SPHINXBASE_LIBS"
+   CPPFLAGS="$CPPFLAGS $SPHINXBASE_CFLAGS"
+   SPHINXBASE_SWIG="$SPHINXBASE_PREFIX/share/sphinxbase/swig"
+   AC_CHECK_HEADER(sphinx_config.h,,[AC_MSG_FAILURE([SphinxBase was not found on your system.])])
+else
+   LIBS="$LIBS -lsphinxbase"
+   LDFLAGS="$LDFLAGS -L$sphinxbase/src/libsphinxad \
+		     -L$sphinxbase/src/libsphinxbase"
+   CPPFLAGS="$CPPFLAGS -I$sphinxbase/include"
+   SPHINXBASE_SWIG="$sphinxbase/swig"
+fi
+
+AC_SUBST(SPHINXBASE_SWIG)
+
+AC_OUTPUT([
+pocketsphinx.pc
+Makefile
+include/Makefile
+src/Makefile
+swig/Makefile
+swig/python/Makefile
+swig/python/test/Makefile
+src/libpocketsphinx/Makefile
+src/programs/Makefile
+src/gst-plugin/Makefile
+doc/Makefile
+doc/doxyfile
+model/Makefile
+model/hmm/Makefile
+model/lm/Makefile
+test/Makefile
+test/testfuncs.sh
+test/unit/Makefile
+test/regression/Makefile
+])

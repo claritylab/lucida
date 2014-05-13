@@ -1,0 +1,82 @@
+\section{src/libpocketsphinx/ps\-\_\-alignment.c File Reference}
+\label{ps__alignment_8c}\index{src/libpocketsphinx/ps\-\_\-alignment.\-c@{src/libpocketsphinx/ps\-\_\-alignment.\-c}}
+
+
+Multi-\/level alignment structure.  
+
+
+{\ttfamily \#include $<$sphinxbase/ckd\-\_\-alloc.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ps\-\_\-alignment.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries V\-E\-C\-T\-O\-R\-\_\-\-G\-R\-O\-W}~10\label{ps__alignment_8c_af4a1705d5cc1103ccf95a9b5401d4c6e}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-alignment\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-init} ({\bf dict2pid\-\_\-t} $\ast$d2p)\label{ps__alignment_8c_abe7668d9a53be1401896623ed42f02be}
+
+\begin{DoxyCompactList}\small\item\em Create a new, empty alignment. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-free} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_ab8fa505f155e38d7e6f8b7dbbd070282}
+
+\begin{DoxyCompactList}\small\item\em Release an alignment. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-add\-\_\-word} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al, int32 wid, int duration)\label{ps__alignment_8c_ab6264685976a8270971c86deae7a488e}
+
+\begin{DoxyCompactList}\small\item\em Append a word. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-populate} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_a59e81853dad3d935755dcb309d8cc926}
+
+\begin{DoxyCompactList}\small\item\em Populate lower layers using available word information. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-populate\-\_\-ci} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_ae17f691c36070955e32a2c987910acde}
+
+\begin{DoxyCompactList}\small\item\em Populate lower layers using context-\/independent phones. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-propagate} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_adc8ea5411f8500a0affcec636d65fa8d}
+
+\begin{DoxyCompactList}\small\item\em Propagate timing information up from state sequence. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-n\-\_\-words} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_a89fdf321c5a6ee6edeb9c2757d7509cf}
+
+\begin{DoxyCompactList}\small\item\em Number of words. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-n\-\_\-phones} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_ab541dcf586611d20e84fd9ec562e7a52}
+
+\begin{DoxyCompactList}\small\item\em Number of phones. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-n\-\_\-states} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_acfed230b07c1e09fae89eeb74c468460}
+
+\begin{DoxyCompactList}\small\item\em Number of states. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-words} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_a8d2b39bad3a4f6018155e9101dee63f8}
+
+\begin{DoxyCompactList}\small\item\em Iterate over the alignment starting at the first word. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-phones} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_a5d4fe03d7eef6a96ca8f1b21b9fd3a33}
+
+\begin{DoxyCompactList}\small\item\em Iterate over the alignment starting at the first phone. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-states} ({\bf ps\-\_\-alignment\-\_\-t} $\ast$al)\label{ps__alignment_8c_a8c6ba334f7dcf512f8485ca7a0b2d2c0}
+
+\begin{DoxyCompactList}\small\item\em Iterate over the alignment starting at the first state. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-entry\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-iter\-\_\-get} ({\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$itor)\label{ps__alignment_8c_aa2962940b54a4e2b73a9a4937d1b245a}
+
+\begin{DoxyCompactList}\small\item\em Get the alignment entry pointed to by an iterator. \end{DoxyCompactList}\item 
+int {\bf ps\-\_\-alignment\-\_\-iter\-\_\-free} ({\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$itor)\label{ps__alignment_8c_a80e0020539ea622706bf63883e24d301}
+
+\begin{DoxyCompactList}\small\item\em Release an iterator before completing all iterations. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-iter\-\_\-goto} ({\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$itor, int pos)\label{ps__alignment_8c_a7cec3eabbedf8d94295d98541bbbaa10}
+
+\begin{DoxyCompactList}\small\item\em Move alignment iterator to given index. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-iter\-\_\-next} ({\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$itor)\label{ps__alignment_8c_aa7fdb0dbac92be80e2182d340be8b8e1}
+
+\begin{DoxyCompactList}\small\item\em Move an alignment iterator forward. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-iter\-\_\-prev} ({\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$itor)\label{ps__alignment_8c_a75e333f3b8a0d14b29d4853a7245b0f9}
+
+\begin{DoxyCompactList}\small\item\em Move an alignment iterator back. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-iter\-\_\-up} ({\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$itor)\label{ps__alignment_8c_ae546c5daf7bc78fe2924200b99187aa0}
+
+\begin{DoxyCompactList}\small\item\em Get a new iterator starting at the parent of the current node. \end{DoxyCompactList}\item 
+{\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$ {\bf ps\-\_\-alignment\-\_\-iter\-\_\-down} ({\bf ps\-\_\-alignment\-\_\-iter\-\_\-t} $\ast$itor)\label{ps__alignment_8c_a6356f643a01e2071c6f00f8a5d56565a}
+
+\begin{DoxyCompactList}\small\item\em Get a new iterator starting at the first child of the current node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Multi-\/level alignment structure. 
+
+Definition in file {\bf ps\-\_\-alignment.\-c}.
+

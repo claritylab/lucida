@@ -1,0 +1,27 @@
+var ad_8h =
+[
+    [ "ad_rec_t", "structad__rec__t.html", "structad__rec__t" ],
+    [ "ad_play_t", "structad__play__t.html", "structad__play__t" ],
+    [ "AD_EOF", "ad_8h.html#a8aa969c2d485c3c17cf9abfd1bb88bdd", null ],
+    [ "AD_ERR_GEN", "ad_8h.html#ad75f71249c0e72e6867599af315fe27d", null ],
+    [ "AD_ERR_NOT_OPEN", "ad_8h.html#a7ac31adbbd108d40792fc6ba3d14929f", null ],
+    [ "AD_ERR_WAVE", "ad_8h.html#abdeca1c656c9ed4699402adb3556ae39", null ],
+    [ "AD_OK", "ad_8h.html#a8d1358baba080a2f6b0d350928af7a89", null ],
+    [ "AD_SAMPLE_SIZE", "ad_8h.html#a21e7cf6f08592c2fa2f78eb069f0e161", null ],
+    [ "DEFAULT_DEVICE", "ad_8h.html#a84cb8bbda8042a324f49102bc200cc54", null ],
+    [ "DEFAULT_SAMPLES_PER_SEC", "ad_8h.html#af6fb753bcfbd8dedec800ba4d0fb8546", null ],
+    [ "ad_close", "ad_8h.html#a6bcf3ed5e9d0c2d51086cae93bc3b3fc", null ],
+    [ "ad_close_play", "ad_8h.html#aa65454c205e3f573f4f3433a6a044448", null ],
+    [ "ad_mu2li", "ad_8h.html#a7eab4d2f35d221c569b85d4240b83600", null ],
+    [ "ad_open", "ad_8h.html#a3def0da951e840fb4c72ef9259540686", null ],
+    [ "ad_open_dev", "ad_8h.html#a43f66257a2457d6c711dc5c694bfc02f", null ],
+    [ "ad_open_play", "ad_8h.html#a859bfe925f634f6bb3faa1a52c013388", null ],
+    [ "ad_open_play_sps", "ad_8h.html#a89f8a1820e1c5ea658e692d2d15a7315", null ],
+    [ "ad_open_sps", "ad_8h.html#a71b4eec805fbe5c398ea0897816de6f0", null ],
+    [ "ad_read", "ad_8h.html#ad4a5f4ab5267003169f6d3e15e54f697", null ],
+    [ "ad_start_play", "ad_8h.html#a899e10aaecde4ab33b9849ed7bb9fb73", null ],
+    [ "ad_start_rec", "ad_8h.html#a9cb212b93cb439ba04dec2109ca043ff", null ],
+    [ "ad_stop_play", "ad_8h.html#a823c2efb2892ff2c9b112ffcda58ce17", null ],
+    [ "ad_stop_rec", "ad_8h.html#a20fb285a5f93e172f6a6e04359216aa5", null ],
+    [ "ad_write", "ad_8h.html#aea278a0c26051f4fe011778f225ea9c4", null ]
+];

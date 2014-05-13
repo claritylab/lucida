@@ -1,0 +1,616 @@
+\section{include/sphinxbase/feat.h File Reference}
+\label{feat_8h}\index{include/sphinxbase/feat.\-h@{include/sphinxbase/feat.\-h}}
+
+
+compute the dynamic coefficients from the cepstral vector.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/fe.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/cmn.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/agc.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf feat\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries L\-I\-V\-E\-B\-U\-F\-B\-L\-O\-C\-K\-S\-I\-Z\-E}
+\item 
+\#define {\bfseries S3\-\_\-\-M\-A\-X\-\_\-\-F\-R\-A\-M\-E\-S}~15000    /$\ast$ R\-A\-H, I believe this is still too large, but better than before $\ast$/\label{feat_8h_a7858f0e32903e11a6cb9d659ad4f6542}
+
+\item 
+\#define {\bfseries cepstral\-\_\-to\-\_\-feature\-\_\-command\-\_\-line\-\_\-macro}()\label{feat_8h_ada461d1a4db89192fbd7d8a7e15ca22d}
+
+\item 
+\#define {\bf feat\-\_\-name}(f)~((f)-\/$>$name)\label{feat_8h_a196b41ab9dfffcea885ee1a9075ede9e}
+
+\begin{DoxyCompactList}\small\item\em Name of feature type. \end{DoxyCompactList}\item 
+\#define {\bf feat\-\_\-cepsize}(f)~((f)-\/$>$cepsize)\label{feat_8h_ac691993ec890de3daefbcffe89788f5a}
+
+\begin{DoxyCompactList}\small\item\em Input dimensionality of feature. \end{DoxyCompactList}\item 
+\#define {\bf feat\-\_\-window\-\_\-size}(f)~((f)-\/$>$window\-\_\-size)\label{feat_8h_a69cdcd91578c26565c7653ad6f2eb510}
+
+\begin{DoxyCompactList}\small\item\em Size of dynamic feature window. \end{DoxyCompactList}\item 
+\#define {\bf feat\-\_\-n\-\_\-stream}(f)~((f)-\/$>$n\-\_\-stream)
+\begin{DoxyCompactList}\small\item\em Number of feature streams. \end{DoxyCompactList}\item 
+\#define {\bf feat\-\_\-stream\-\_\-len}(f, i)~((f)-\/$>$stream\-\_\-len[i])
+\begin{DoxyCompactList}\small\item\em Length of feature stream i. \end{DoxyCompactList}\item 
+\#define {\bf feat\-\_\-dimension1}(f)~((f)-\/$>$n\-\_\-sv ? (f)-\/$>$n\-\_\-sv \-: f-\/$>$n\-\_\-stream)\label{feat_8h_abadd19e2cc72df33e81e9d73a7ddffdb}
+
+\begin{DoxyCompactList}\small\item\em Number of streams or subvectors in feature output. \end{DoxyCompactList}\item 
+\#define {\bf feat\-\_\-dimension2}(f, i)~((f)-\/$>$lda ? (f)-\/$>$out\-\_\-dim \-: ((f)-\/$>$sv\-\_\-len ? (f)-\/$>$sv\-\_\-len[i] \-: f-\/$>$stream\-\_\-len[i]))\label{feat_8h_a5bd29a80c7f23f281d55555757f97f34}
+
+\begin{DoxyCompactList}\small\item\em Dimensionality of stream/subvector i in feature output. \end{DoxyCompactList}\item 
+\#define {\bf feat\-\_\-dimension}(f)~((f)-\/$>$out\-\_\-dim)\label{feat_8h_a66dc16aeea4307bf36ec4e08e05d0c7c}
+
+\begin{DoxyCompactList}\small\item\em Total dimensionality of feature output. \end{DoxyCompactList}\item 
+\#define {\bf feat\-\_\-stream\-\_\-lengths}(f)~((f)-\/$>$lda ? (\&(f)-\/$>$out\-\_\-dim) \-: (f)-\/$>$sv\-\_\-len ? (f)-\/$>$sv\-\_\-len \-: f-\/$>$stream\-\_\-len)\label{feat_8h_afc74f6114cc2151cef1c9e40bdd45e46}
+
+\begin{DoxyCompactList}\small\item\em Array with stream/subvector lengths. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf feat\-\_\-s} {\bfseries feat\-\_\-t}\label{feat_8h_acce3586bdd820afe9518147a6ada8bd9}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 $\ast$$\ast$ {\bf parse\-\_\-subvecs} (char const $\ast$str)
+\begin{DoxyCompactList}\small\item\em Parse subvector specification string. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf subvecs\-\_\-free} (int32 $\ast$$\ast$subvecs)\label{feat_8h_ad209a1028b315a96a3a2447eccdb8605}
+
+\begin{DoxyCompactList}\small\item\em Free array of subvector specs. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T mfcc\-\_\-t $\ast$$\ast$$\ast$ {\bf feat\-\_\-array\-\_\-alloc} ({\bf feat\-\_\-t} $\ast$fcb, int32 nfr)
+\begin{DoxyCompactList}\small\item\em Allocate an array to hold several frames worth of feature vectors. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T mfcc\-\_\-t $\ast$$\ast$$\ast$ {\bf feat\-\_\-array\-\_\-realloc} ({\bf feat\-\_\-t} $\ast$fcb, mfcc\-\_\-t $\ast$$\ast$$\ast$old\-\_\-feat, int32 ofr, int32 nfr)
+\begin{DoxyCompactList}\small\item\em Realloate the array of features. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf feat\-\_\-array\-\_\-free} (mfcc\-\_\-t $\ast$$\ast$$\ast$feat)\label{feat_8h_ad5c87f80af670b7a949af65bc3ba82a8}
+
+\begin{DoxyCompactList}\small\item\em Free a buffer allocated with \doxyref{feat\-\_\-array\-\_\-alloc()}{p.}{feat_8h_a03071d6d5c6b233117871f583c258b1e} \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf feat\-\_\-t} $\ast$ {\bf feat\-\_\-init} (char const $\ast$type, {\bf cmn\-\_\-type\-\_\-t} {\bf cmn}, int32 varnorm, {\bf agc\-\_\-type\-\_\-t} agc, int32 breport, int32 cepsize)
+\begin{DoxyCompactList}\small\item\em Initialize feature module to use the selected type of feature stream. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf feat\-\_\-read\-\_\-lda} ({\bf feat\-\_\-t} $\ast$feat, const char $\ast$ldafile, int32 dim)
+\begin{DoxyCompactList}\small\item\em Add an L\-D\-A transformation to the feature module from a file. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf feat\-\_\-lda\-\_\-transform} ({\bf feat\-\_\-t} $\ast$fcb, mfcc\-\_\-t $\ast$$\ast$$\ast$inout\-\_\-feat, uint32 nfr)
+\begin{DoxyCompactList}\small\item\em Transform a block of features using the feature module's L\-D\-A transform. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf feat\-\_\-set\-\_\-subvecs} ({\bf feat\-\_\-t} $\ast$fcb, int32 $\ast$$\ast$subvecs)
+\begin{DoxyCompactList}\small\item\em Add a subvector specification to the feature module. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf feat\-\_\-print} ({\bf feat\-\_\-t} $\ast$fcb, mfcc\-\_\-t $\ast$$\ast$$\ast$feat, int32 nfr, F\-I\-L\-E $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Print the given block of feature vectors to the given F\-I\-L\-E. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf feat\-\_\-s2mfc2feat} ({\bf feat\-\_\-t} $\ast$fcb, const char $\ast$file, const char $\ast$dir, const char $\ast$cepext, int32 sf, int32 ef, mfcc\-\_\-t $\ast$$\ast$$\ast$feat, int32 maxfr)
+\begin{DoxyCompactList}\small\item\em Read a specified M\-F\-C file (or given segment within it), perform C\-M\-N/\-A\-G\-C as indicated by {\ttfamily fcb}, and compute feature vectors. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf feat\-\_\-s2mfc2feat\-\_\-live} ({\bf feat\-\_\-t} $\ast$fcb, mfcc\-\_\-t $\ast$$\ast$uttcep, int32 $\ast$inout\-\_\-ncep, int32 beginutt, int32 endutt, mfcc\-\_\-t $\ast$$\ast$$\ast$ofeat)
+\begin{DoxyCompactList}\small\item\em Feature computation routine for live mode decoder. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf feat\-\_\-t} $\ast$ {\bf feat\-\_\-retain} ({\bf feat\-\_\-t} $\ast$f)
+\begin{DoxyCompactList}\small\item\em Retain ownership of \doxyref{feat\-\_\-t}{p.}{structfeat__t}. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf feat\-\_\-free} ({\bf feat\-\_\-t} $\ast$f)
+\begin{DoxyCompactList}\small\item\em Release resource associated with \doxyref{feat\-\_\-t}{p.}{structfeat__t}. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf feat\-\_\-report} ({\bf feat\-\_\-t} $\ast$f)
+\begin{DoxyCompactList}\small\item\em Report the \doxyref{feat\-\_\-t}{p.}{structfeat__t} data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+compute the dynamic coefficients from the cepstral vector. 
+
+Definition in file {\bf feat.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\index{feat.\-h@{feat.\-h}!feat\-\_\-n\-\_\-stream@{feat\-\_\-n\-\_\-stream}}
+\index{feat\-\_\-n\-\_\-stream@{feat\-\_\-n\-\_\-stream}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-n\-\_\-stream}]{\setlength{\rightskip}{0pt plus 5cm}\#define feat\-\_\-n\-\_\-stream(
+\begin{DoxyParamCaption}
+\item[{}]{f}
+\end{DoxyParamCaption}
+)~((f)-\/$>$n\-\_\-stream)}\label{feat_8h_a1fe686c88d5b0598d7509af21acd9b76}
+
+
+Number of feature streams. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Do not use this, use \doxyref{feat\-\_\-dimension1()}{p.}{feat_8h_abadd19e2cc72df33e81e9d73a7ddffdb} instead. \end{DoxyRefDesc}
+
+
+Definition at line 219 of file feat.\-h.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-stream\-\_\-len@{feat\-\_\-stream\-\_\-len}}
+\index{feat\-\_\-stream\-\_\-len@{feat\-\_\-stream\-\_\-len}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-stream\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}\#define feat\-\_\-stream\-\_\-len(
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~((f)-\/$>$stream\-\_\-len[i])}\label{feat_8h_a3d50283fc416fff87f3b907a12c2c11e}
+
+
+Length of feature stream i. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Do not use this, use \doxyref{feat\-\_\-dimension2()}{p.}{feat_8h_a5bd29a80c7f23f281d55555757f97f34} instead. \end{DoxyRefDesc}
+
+
+Definition at line 225 of file feat.\-h.
+
+\index{feat.\-h@{feat.\-h}!L\-I\-V\-E\-B\-U\-F\-B\-L\-O\-C\-K\-S\-I\-Z\-E@{L\-I\-V\-E\-B\-U\-F\-B\-L\-O\-C\-K\-S\-I\-Z\-E}}
+\index{L\-I\-V\-E\-B\-U\-F\-B\-L\-O\-C\-K\-S\-I\-Z\-E@{L\-I\-V\-E\-B\-U\-F\-B\-L\-O\-C\-K\-S\-I\-Z\-E}!feat.h@{feat.\-h}}
+\subsubsection[{L\-I\-V\-E\-B\-U\-F\-B\-L\-O\-C\-K\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-I\-V\-E\-B\-U\-F\-B\-L\-O\-C\-K\-S\-I\-Z\-E}\label{feat_8h_a0e0d4a6b5ad951229bec259ce9637325}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+256    
+\end{DoxyCode}
+
+
+Definition at line 102 of file feat.\-h.
+
+
+
+\subsection{Function Documentation}
+\index{feat.\-h@{feat.\-h}!feat\-\_\-array\-\_\-alloc@{feat\-\_\-array\-\_\-alloc}}
+\index{feat\-\_\-array\-\_\-alloc@{feat\-\_\-array\-\_\-alloc}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-array\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T mfcc\-\_\-t$\ast$$\ast$$\ast$ feat\-\_\-array\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{fcb, }
+\item[{int32}]{nfr}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a03071d6d5c6b233117871f583c258b1e}
+
+
+Allocate an array to hold several frames worth of feature vectors. 
+
+The returned value is the mfcc\-\_\-t $\ast$$\ast$$\ast$data array, organized as follows\-:
+
+
+\begin{DoxyItemize}
+\item data[0][0] = frame 0 stream 0 vector, data[0][1] = frame 0 stream 1 vector, ...
+\item data[1][0] = frame 1 stream 0 vector, data[0][1] = frame 1 stream 1 vector, ...
+\item data[2][0] = frame 2 stream 0 vector, data[0][1] = frame 2 stream 1 vector, ...
+\item ...
+\end{DoxyItemize}
+
+N\-O\-T\-E\-: For I/\-O convenience, the entire data area is allocated as one contiguous block. \begin{DoxyReturn}{Returns}
+pointer to the allocated space if successful, N\-U\-L\-L if any error. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em fcb} & In\-: Descriptor from \doxyref{feat\-\_\-init()}{p.}{feat_8h_a7a5e2e02e99e368e1e9e3b1ded35e3dc}, used to obtain number of streams and stream sizes \\
+\hline
+{\em nfr} & In\-: Number of frames for which to allocate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 356 of file feat.\-c.
+
+
+
+References ckd\-\_\-calloc, ckd\-\_\-calloc\-\_\-2d, feat\-\_\-dimension, feat\-\_\-dimension1, and feat\-\_\-dimension2.
+
+
+
+Referenced by feat\-\_\-array\-\_\-realloc().
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-array\-\_\-realloc@{feat\-\_\-array\-\_\-realloc}}
+\index{feat\-\_\-array\-\_\-realloc@{feat\-\_\-array\-\_\-realloc}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-array\-\_\-realloc}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T mfcc\-\_\-t$\ast$$\ast$$\ast$ feat\-\_\-array\-\_\-realloc (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{fcb, }
+\item[{mfcc\-\_\-t $\ast$$\ast$$\ast$}]{old\-\_\-feat, }
+\item[{int32}]{ofr, }
+\item[{int32}]{nfr}
+\end{DoxyParamCaption}
+)}\label{feat_8h_aba5f4070ae18062a19c5abac3ba1ac89}
+
+
+Realloate the array of features. 
+
+Requires us to know the old size 
+\begin{DoxyParams}{Parameters}
+{\em fcb} & In\-: Descriptor from \doxyref{feat\-\_\-init()}{p.}{feat_8h_a7a5e2e02e99e368e1e9e3b1ded35e3dc}, used to obtain number of streams and stream sizes \\
+\hline
+{\em old\-\_\-feat} & Feature array. Freed \\
+\hline
+{\em ofr} & In\-: Previous number of frames \\
+\hline
+{\em nfr} & In\-: Number of frames for which to allocate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 389 of file feat.\-c.
+
+
+
+References feat\-\_\-array\-\_\-alloc(), feat\-\_\-array\-\_\-free(), and feat\-\_\-dimension.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-free@{feat\-\_\-free}}
+\index{feat\-\_\-free@{feat\-\_\-free}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int feat\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{f}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a98463b4ab5fe4265fc817523b0e25ee9}
+
+
+Release resource associated with \doxyref{feat\-\_\-t}{p.}{structfeat__t}. 
+
+\begin{DoxyReturn}{Returns}
+new reference count (0 if freed) 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & In\-: \doxyref{feat\-\_\-t}{p.}{structfeat__t} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1430 of file feat.\-c.
+
+
+
+References agc\-\_\-free(), ckd\-\_\-free(), ckd\-\_\-free\-\_\-2d(), ckd\-\_\-free\-\_\-3d(), and subvecs\-\_\-free().
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-init@{feat\-\_\-init}}
+\index{feat\-\_\-init@{feat\-\_\-init}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf feat\-\_\-t}$\ast$ feat\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{type, }
+\item[{{\bf cmn\-\_\-type\-\_\-t}}]{cmn, }
+\item[{int32}]{varnorm, }
+\item[{{\bf agc\-\_\-type\-\_\-t}}]{agc, }
+\item[{int32}]{breport, }
+\item[{int32}]{cepsize}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a7a5e2e02e99e368e1e9e3b1ded35e3dc}
+
+
+Initialize feature module to use the selected type of feature stream. 
+
+One-\/time only initialization at the beginning of the program. Input type is a string defining the kind of input-\/$>$feature conversion desired\-:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}s2\-\_\-4x\char`\"{}\-: s2mfc-\/$>$Sphinx-\/\-I\-I 4-\/feature stream,
+\item \char`\"{}1s\-\_\-c\-\_\-d\-\_\-dd\char`\"{}\-: s2mfc-\/$>$Sphinx 3.\-x single feature stream,
+\item \char`\"{}s3\-\_\-1x39\char`\"{}\-: s2mfc-\/$>$Sphinx 3.\-0 single feature stream,
+\item \char`\"{}n1,n2,n3,...\char`\"{}\-: Explicit feature vector layout spec. with comma-\/separated feature stream lengths. In this case, the input data is already in the feature format and there is no conversion necessary.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+(\doxyref{feat\-\_\-t}{p.}{structfeat__t} $\ast$) descriptor if successful, N\-U\-L\-L if error. Caller must not directly modify the contents of the returned value. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em type} & In\-: Type of feature stream \\
+\hline
+{\em cmn} & In\-: Type of cepstram mean normalization to be done before feature computation; can be C\-M\-N\-\_\-\-N\-O\-N\-E (for none) \\
+\hline
+{\em varnorm} & In\-: (boolean) Whether variance normalization done on each utt; only applicable if C\-M\-N also done \\
+\hline
+{\em agc} & In\-: Type of automatic gain control to be done before feature computation \\
+\hline
+{\em breport} & In\-: Whether to show a report for \doxyref{feat\-\_\-t}{p.}{structfeat__t} \\
+\hline
+{\em cepsize} & Number of components in the input vector (or 0 for the default for this feature type, which is usually 13) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 705 of file feat.\-c.
+
+
+
+References agc\-\_\-emax\-\_\-set(), agc\-\_\-init(), agc\-\_\-type\-\_\-str, ckd\-\_\-calloc, ckd\-\_\-calloc\-\_\-2d, ckd\-\_\-free(), ckd\-\_\-salloc, cmn(), cmn\-\_\-type\-\_\-str, E\-\_\-\-E\-R\-R\-O\-R, E\-\_\-\-F\-A\-T\-A\-L, E\-\_\-\-I\-N\-F\-O, feat\-\_\-cepsize, and feat\-\_\-window\-\_\-size.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-lda\-\_\-transform@{feat\-\_\-lda\-\_\-transform}}
+\index{feat\-\_\-lda\-\_\-transform@{feat\-\_\-lda\-\_\-transform}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-lda\-\_\-transform}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void feat\-\_\-lda\-\_\-transform (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{fcb, }
+\item[{mfcc\-\_\-t $\ast$$\ast$$\ast$}]{inout\-\_\-feat, }
+\item[{uint32}]{nfr}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a7452702cb435ea9244c7e1f61bbf5da1}
+
+
+Transform a block of features using the feature module's L\-D\-A transform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fcb} & In\-: Descriptor from \doxyref{feat\-\_\-init()}{p.}{feat_8h_a7a5e2e02e99e368e1e9e3b1ded35e3dc} \\
+\hline
+{\em inout\-\_\-feat} & Feature block to transform. \\
+\hline
+{\em nfr} & In\-: Number of frames in inout\-\_\-feat. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 139 of file lda.\-c.
+
+
+
+References ckd\-\_\-calloc, ckd\-\_\-free(), and feat\-\_\-dimension.
+
+
+
+Referenced by feat\-\_\-s2mfc2feat\-\_\-live().
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-print@{feat\-\_\-print}}
+\index{feat\-\_\-print@{feat\-\_\-print}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void feat\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{fcb, }
+\item[{mfcc\-\_\-t $\ast$$\ast$$\ast$}]{feat, }
+\item[{int32}]{nfr, }
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{feat_8h_afeaef030a5ec32c2164b5bd55e912714}
+
+
+Print the given block of feature vectors to the given F\-I\-L\-E. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fcb} & In\-: Descriptor from \doxyref{feat\-\_\-init()}{p.}{feat_8h_a7a5e2e02e99e368e1e9e3b1ded35e3dc} \\
+\hline
+{\em feat} & In\-: Feature data to be printed \\
+\hline
+{\em nfr} & In\-: Number of frames of feature data above \\
+\hline
+{\em fp} & In\-: Output file pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 895 of file feat.\-c.
+
+
+
+References feat\-\_\-dimension1, and feat\-\_\-dimension2.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-read\-\_\-lda@{feat\-\_\-read\-\_\-lda}}
+\index{feat\-\_\-read\-\_\-lda@{feat\-\_\-read\-\_\-lda}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-read\-\_\-lda}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 feat\-\_\-read\-\_\-lda (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{feat, }
+\item[{const char $\ast$}]{ldafile, }
+\item[{int32}]{dim}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a7639fbc34e3328d7e3259e61372c64b8}
+
+
+Add an L\-D\-A transformation to the feature module from a file. 
+
+\begin{DoxyReturn}{Returns}
+0 for success or -\/1 if reading the L\-D\-A file failed. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em feat} & In\-: Descriptor from \doxyref{feat\-\_\-init()}{p.}{feat_8h_a7a5e2e02e99e368e1e9e3b1ded35e3dc} \\
+\hline
+{\em ldafile} & In\-: File to read the L\-D\-A matrix from. \\
+\hline
+{\em dim} & In\-: Dimensionality of L\-D\-A output. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file lda.\-c.
+
+
+
+References bio\-\_\-fread\-\_\-3d(), bio\-\_\-hdrarg\-\_\-free(), bio\-\_\-readhdr(), ckd\-\_\-free\-\_\-3d(), E\-\_\-\-E\-R\-R\-O\-R, E\-\_\-\-E\-R\-R\-O\-R\-\_\-\-S\-Y\-S\-T\-E\-M, E\-\_\-\-F\-A\-T\-A\-L, and E\-\_\-\-W\-A\-R\-N.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-report@{feat\-\_\-report}}
+\index{feat\-\_\-report@{feat\-\_\-report}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-report}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void feat\-\_\-report (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{f}
+\end{DoxyParamCaption}
+)}\label{feat_8h_ae3e67bd629f9756ddb6c5a599d223f6e}
+
+
+Report the \doxyref{feat\-\_\-t}{p.}{structfeat__t} data structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & In\-: \doxyref{feat\-\_\-t}{p.}{structfeat__t} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1461 of file feat.\-c.
+
+
+
+References E\-\_\-\-I\-N\-F\-O\-\_\-\-N\-O\-F\-N, and E\-\_\-\-I\-N\-F\-O\-C\-O\-N\-T.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-retain@{feat\-\_\-retain}}
+\index{feat\-\_\-retain@{feat\-\_\-retain}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-retain}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf feat\-\_\-t}$\ast$ feat\-\_\-retain (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{f}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a80d6eabf01ff119d324a07c1de8fda80}
+
+
+Retain ownership of \doxyref{feat\-\_\-t}{p.}{structfeat__t}. 
+
+\begin{DoxyReturn}{Returns}
+pointer to retained \doxyref{feat\-\_\-t}{p.}{structfeat__t}. 
+\end{DoxyReturn}
+
+
+Definition at line 1423 of file feat.\-c.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-s2mfc2feat@{feat\-\_\-s2mfc2feat}}
+\index{feat\-\_\-s2mfc2feat@{feat\-\_\-s2mfc2feat}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-s2mfc2feat}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 feat\-\_\-s2mfc2feat (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{fcb, }
+\item[{const char $\ast$}]{file, }
+\item[{const char $\ast$}]{dir, }
+\item[{const char $\ast$}]{cepext, }
+\item[{int32}]{sf, }
+\item[{int32}]{ef, }
+\item[{mfcc\-\_\-t $\ast$$\ast$$\ast$}]{feat, }
+\item[{int32}]{maxfr}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a918e21c2b28a6951a83c64f7023126a7}
+
+
+Read a specified M\-F\-C file (or given segment within it), perform C\-M\-N/\-A\-G\-C as indicated by {\ttfamily fcb}, and compute feature vectors. 
+
+Feature vectors are computed for the entire segment specified, by including additional surrounding or padding frames to accommodate the feature windows.
+
+\begin{DoxyReturn}{Returns}
+Number of frames of feature vectors computed if successful; -\/1 if any error. {\ttfamily If} feat is N\-U\-L\-L, then no actual computation will be done, and the number of frames which must be allocated will be returned.
+\end{DoxyReturn}
+A note on how the file path is constructed\-: If the control file already specifies extension or absolute path, then these are not applied. The default extension is defined by the application. 
+\begin{DoxyParams}{Parameters}
+{\em fcb} & In\-: Descriptor from \doxyref{feat\-\_\-init()}{p.}{feat_8h_a7a5e2e02e99e368e1e9e3b1ded35e3dc} \\
+\hline
+{\em file} & In\-: File to be read \\
+\hline
+{\em dir} & In\-: Directory prefix for file, if needed; can be N\-U\-L\-L \\
+\hline
+{\em cepext} & In\-: Extension of the cepstrum file.\-It cannot be N\-U\-L\-L \\
+\hline
+{\em feat} & Out\-: Computed feature vectors; caller must allocate this space \\
+\hline
+{\em maxfr} & In\-: Available space (number of frames) in above feat array; it must be sufficient to hold the result. Pass -\/1 for no limit. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1169 of file feat.\-c.
+
+
+
+References ckd\-\_\-calloc, ckd\-\_\-free(), ckd\-\_\-free\-\_\-2d(), ckd\-\_\-realloc, E\-\_\-\-E\-R\-R\-O\-R, E\-\_\-\-I\-N\-F\-O, and feat\-\_\-window\-\_\-size.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-s2mfc2feat\-\_\-live@{feat\-\_\-s2mfc2feat\-\_\-live}}
+\index{feat\-\_\-s2mfc2feat\-\_\-live@{feat\-\_\-s2mfc2feat\-\_\-live}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-s2mfc2feat\-\_\-live}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 feat\-\_\-s2mfc2feat\-\_\-live (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{fcb, }
+\item[{mfcc\-\_\-t $\ast$$\ast$}]{uttcep, }
+\item[{int32 $\ast$}]{inout\-\_\-ncep, }
+\item[{int32}]{beginutt, }
+\item[{int32}]{endutt, }
+\item[{mfcc\-\_\-t $\ast$$\ast$$\ast$}]{ofeat}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a68bf7d2c15e3f76b08833449eb254aed}
+
+
+Feature computation routine for live mode decoder. 
+
+This function computes features for blocks of incoming data. It retains an internal buffer for computing deltas, which means that the number of output frames will not necessarily equal the number of input frames.
+
+{\bfseries It is very important} to realize that the number of output frames can be {\bfseries greater than} the number of input frames, specifically when {\ttfamily endutt} is true. It is guaranteed to never exceed {\ttfamily $\ast$inout\-\_\-ncep + \doxyref{feat\-\_\-window\-\_\-size(fcb)}{p.}{feat_8h_a69cdcd91578c26565c7653ad6f2eb510}}. You {\bfseries M\-U\-S\-T} have allocated at least that many frames in {\ttfamily ofeat}, or you will experience a buffer overflow.
+
+If beginutt and endutt are both true, C\-M\-N\-\_\-\-C\-U\-R\-R\-E\-N\-T and A\-G\-C\-\_\-\-M\-A\-X will be done. Otherwise only C\-M\-N\-\_\-\-P\-R\-I\-O\-R and A\-G\-C\-\_\-\-E\-M\-A\-X will be done.
+
+If beginutt is false, endutt is true, and the number of input frames exceeds the input size, then end-\/of-\/utterance processing won't actually be done. This condition can easily be checked, because {\ttfamily $\ast$inout\-\_\-ncep} will equal the return value on exit, and will also be smaller than the value of {\ttfamily $\ast$inout\-\_\-ncep} on entry.
+
+\begin{DoxyReturn}{Returns}
+The number of output frames actually computed. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em fcb} & In\-: Descriptor from \doxyref{feat\-\_\-init()}{p.}{feat_8h_a7a5e2e02e99e368e1e9e3b1ded35e3dc} \\
+\hline
+{\em uttcep} & In\-: Incoming cepstral buffer \\
+\hline
+{\em inout\-\_\-ncep} & In\-: Size of incoming buffer. Out\-: Number of incoming frames consumed. \\
+\hline
+{\em beginutt} & In\-: Begining of utterance flag \\
+\hline
+{\em endutt} & In\-: End of utterance flag \\
+\hline
+{\em ofeat} & In\-: Output feature buffer. See {\bfseries V\-E\-R\-Y I\-M\-P\-O\-R\-T\-A\-N\-T} note about the size of this buffer above. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1307 of file feat.\-c.
+
+
+
+References feat\-\_\-cepsize, feat\-\_\-lda\-\_\-transform(), and feat\-\_\-window\-\_\-size.
+
+\index{feat.\-h@{feat.\-h}!feat\-\_\-set\-\_\-subvecs@{feat\-\_\-set\-\_\-subvecs}}
+\index{feat\-\_\-set\-\_\-subvecs@{feat\-\_\-set\-\_\-subvecs}!feat.h@{feat.\-h}}
+\subsubsection[{feat\-\_\-set\-\_\-subvecs}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int feat\-\_\-set\-\_\-subvecs (
+\begin{DoxyParamCaption}
+\item[{{\bf feat\-\_\-t} $\ast$}]{fcb, }
+\item[{int32 $\ast$$\ast$}]{subvecs}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a9a79c7278d484fa8178cd7c06156b794}
+
+
+Add a subvector specification to the feature module. 
+
+The subvector splitting will be performed after dynamic feature computation, C\-M\-N, A\-G\-C, and any L\-D\-A transformation. The number of streams in the dynamic feature type must be one, as with L\-D\-A.
+
+After adding a subvector specification, the output of feature computation will be split into multiple subvectors, and \doxyref{feat\-\_\-array\-\_\-alloc()}{p.}{feat_8h_a03071d6d5c6b233117871f583c258b1e} will allocate pointers accordingly. The number of {\itshape streams} will remain the
+
+
+\begin{DoxyParams}{Parameters}
+{\em fcb} & the feature descriptor. \\
+\hline
+{\em subvecs} & subvector specification. This pointer is retained by the \doxyref{feat\-\_\-t}{p.}{structfeat__t} and should not be freed manually. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success or -\/1 if the subvector specification was invalid. 
+\end{DoxyReturn}
+
+
+Definition at line 277 of file feat.\-c.
+
+
+
+References ckd\-\_\-calloc, ckd\-\_\-free(), E\-\_\-\-E\-R\-R\-O\-R, feat\-\_\-dimension, and subvecs\-\_\-free().
+
+\index{feat.\-h@{feat.\-h}!parse\-\_\-subvecs@{parse\-\_\-subvecs}}
+\index{parse\-\_\-subvecs@{parse\-\_\-subvecs}!feat.h@{feat.\-h}}
+\subsubsection[{parse\-\_\-subvecs}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32$\ast$$\ast$ parse\-\_\-subvecs (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{feat_8h_a613aca09a7f45f5ddc550efe685cb83b}
+
+
+Parse subvector specification string. 
+
+Format of specification\-: \begin{DoxyItemize}
+\item '/' separated list of subvectors \item each subvector is a ',' separated list of subranges \item each subrange is a single\begin{DoxyVerb}<number> \end{DoxyVerb}
+ or \begin{DoxyVerb}<number>-<number> \end{DoxyVerb}
+ (inclusive), where \begin{DoxyVerb}<number> \end{DoxyVerb}
+ is a feature vector dimension specifier.\end{DoxyItemize}
+E.\-g., \char`\"{}24,0-\/11/25,12-\/23/26,27-\/38\char`\"{} has\-: \begin{DoxyItemize}
+\item 3 subvectors \item the 1st subvector has feature dims\-: 24, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 11. \item etc.\end{DoxyItemize}
+
+\begin{DoxyParams}{Parameters}
+{\em str} & subvector specification string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+allocated 2-\/\-D array of subvector specs (free with \doxyref{subvecs\-\_\-free()}{p.}{feat_8h_ad209a1028b315a96a3a2447eccdb8605}). If there are N subvectors specified, subvec[N] = N\-U\-L\-L; and each subvec[0]..subvec[N-\/1] is -\/1 terminated vector of feature dims. 
+\end{DoxyReturn}
+
+
+Definition at line 169 of file feat.\-c.
+
+
+
+References ckd\-\_\-calloc, E\-\_\-\-F\-A\-T\-A\-L, glist\-\_\-add\-\_\-int32(), glist\-\_\-add\-\_\-ptr(), glist\-\_\-count(), glist\-\_\-free(), and gnode\-\_\-ptr.
+

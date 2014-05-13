@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structcmd__ln__s" kind="struct" prot="public">
+    <compoundname>cmd_ln_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcmd__ln__s_1a63fe07841bd076831696553d41fa5d2e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int cmd_ln_s::refcount</definition>
+        <argsstring></argsstring>
+        <name>refcount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" line="91" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcmd__ln__s_1a108567dbe131b18b5c795a7cec122748" prot="public" static="no" mutable="no">
+        <type><ref refid="structhash__table__t" kindref="compound">hash_table_t</ref> *</type>
+        <definition>hash_table_t* cmd_ln_s::ht</definition>
+        <argsstring></argsstring>
+        <name>ht</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" line="92" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcmd__ln__s_1a1c4c926ebe10d7fd9664573f4b173aa8" prot="public" static="no" mutable="no">
+        <type>char **</type>
+        <definition>char** cmd_ln_s::f_argv</definition>
+        <argsstring></argsstring>
+        <name>f_argv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" line="93" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcmd__ln__s_1a51088e3e7e8477f185ebc07aeb20d63f" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 cmd_ln_s::f_argc</definition>
+        <argsstring></argsstring>
+        <name>f_argc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" line="94" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="29">
+        <label>cmd_ln_s</label>
+        <link refid="structcmd__ln__s"/>
+        <childnode refid="30" relation="usage">
+          <edgelabel>ht</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>hash_entry_s</label>
+        <link refid="structhash__entry__s"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>hash_table_t</label>
+        <link refid="structhash__table__t"/>
+        <childnode refid="31" relation="usage">
+          <edgelabel>table</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" line="90" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/cmd_ln.c" bodystart="90" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structcmd__ln__s_1a51088e3e7e8477f185ebc07aeb20d63f" prot="public" virt="non-virtual"><scope>cmd_ln_s</scope><name>f_argc</name></member>
+      <member refid="structcmd__ln__s_1a1c4c926ebe10d7fd9664573f4b173aa8" prot="public" virt="non-virtual"><scope>cmd_ln_s</scope><name>f_argv</name></member>
+      <member refid="structcmd__ln__s_1a108567dbe131b18b5c795a7cec122748" prot="public" virt="non-virtual"><scope>cmd_ln_s</scope><name>ht</name></member>
+      <member refid="structcmd__ln__s_1a63fe07841bd076831696553d41fa5d2e" prot="public" virt="non-virtual"><scope>cmd_ln_s</scope><name>refcount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

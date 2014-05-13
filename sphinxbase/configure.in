@@ -1,0 +1,308 @@
+dnl Welcome to the Sphinx automated build system.
+dnl try not to hurt yourself ;)
+
+AC_INIT([sphinxbase], 5prealpha)
+AC_CONFIG_HEADERS([include/config.h include/sphinx_config.h])
+AM_INIT_AUTOMAKE([no-define foreign])
+AC_CONFIG_MACRO_DIR([m4])
+
+CFLAGS=${CFLAGS:--g -O2 -Wall}
+
+AC_CANONICAL_HOST
+
+dnl
+dnl Set proper compiler flags and such for some platforms
+dnl
+case $host in
+     arm-wince-pe*)
+	CFLAGS=${CFLAGS:--march=armv4 -mapcs-32 -malignment-traps}
+	LIBS='-lc -lgcc -lwinsock -lcoredll'
+	CFLAGS="$CFLAGS -DNEWLIB -DSARM -DWIN32 -DGNUWINCE"
+	;;
+     *uclinux*)
+	# uClinux needs special "flat" binaries
+	LDFLAGS="$LDFLAGS -Wl,-elf2flt"
+	;;
+     *)
+     ;;
+esac     
+
+AC_ISC_POSIX
+AC_PROG_CC
+AC_PROG_CC_STDC
+
+# We don't bother ourselves with flex checks until the rest of the world has an up-to-date Flex
+# We need specific bison extensions, so check for bison
+AC_CHECK_PROG(YACC, bison, [bison -y], no)
+if test "x$YACC" = "xno";
+then
+    AC_MSG_ERROR([You need to install bison])
+fi
+AC_ARG_VAR(YACC,[Bison command])
+
+AC_HEADER_STDC
+AC_C_BIGENDIAN
+AC_TYPE_SIGNAL
+AC_CHECK_TYPES(long long)
+AC_CHECK_SIZEOF(long long)
+AC_CHECK_SIZEOF(long)
+AC_CHECK_FUNCS([popen perror snprintf])
+AC_CHECK_HEADER(errno.h)
+AM_ICONV
+
+dnl
+dnl Check for Lapack stuff unless disabled
+dnl
+use_lapack=true
+use_internal_lapack=false
+AC_ARG_WITH(lapack,
+	AS_HELP_STRING([--without-lapack],
+		       [Disable matrix algebra support (depends on LAPACK)]),[
+if test x$withval = xno; then
+   use_lapack=false
+fi
+])
+if test x$use_lapack = xtrue; then
+   AC_CHECK_LIB(lapack, sgesv_,,use_internal_lapack=true)
+   if test x$use_internal_lapack != xtrue; then
+      AC_CHECK_LIB(blas, sgemm_,,use_internal_lapack=true)
+   fi
+   AC_DEFINE(WITH_LAPACK, [], [Enable matrix algebra with LAPACK])
+fi
+AM_CONDITIONAL(LAPACK_LITE, test x$use_internal_lapack = xtrue)
+AM_CONDITIONAL(USE_LAPACK, test x$use_lapack = xtrue)
+
+dnl
+dnl Just make sure we have this...
+dnl
+AC_CHECK_LIB(m, log)
+
+dnl
+dnl Enable thread-safe versions of some internal functions
+dnl
+threadsafe=auto
+AC_ARG_ENABLE(threads,
+	AS_HELP_STRING([--disable-threads],
+		       [Disable thread-safe versions of memory allocation functions (default: check)]),[
+if test x$enableval != x; then
+   threadsafe=$enableval
+fi
+])
+if test x$threadsafe != xno; then
+   threads=false
+   dnl
+   dnl Can't seem to check for Windows API functions, but that's okay
+   dnl because we know they will be there...
+   dnl
+   case $host in
+     *cygwin*|*mingw*|*wince*)
+	threads=true
+     ;;
+     *)
+        AC_CHECK_HEADERS([pthread.h], [threads=true])
+	AC_CHECK_LIB(pthread, pthread_create)
+     ;;
+   esac
+   if test x$threads = xtrue; then
+     AC_DEFINE(ENABLE_THREADS, [], [Enable thread safety])
+     threadsafe=yes
+   elif test x$threadsafe = xyes; then
+     AC_MSG_ERROR(--enable-threads was given but test for thread functions failed!)
+   else
+     threadsafe=no
+   fi
+fi
+AM_CONDITIONAL(USE_THREADS, test x$threadsafe = xyes)
+
+dnl
+dnl Allow compilation for fixed or floating-point MFCC and GMM computation
+dnl
+fixed_point=false
+AC_ARG_ENABLE(fixed,
+	AS_HELP_STRING([--enable-fixed=RADIX],
+		       [Use 32-bit fixed-point for MFCC and GMM computation,
+		        optionally specifying a radix point]),[
+if test x$enableval = xyes; then
+   AC_DEFINE(FIXED_POINT)
+   fixed_point=true
+else
+   AC_DEFINE(FIXED_POINT, [], [Use fixed-point computation])
+   AC_DEFINE_UNQUOTED(DEFAULT_RADIX,$enableval,[Default radix point for fixed-point])
+fi])
+AM_CONDITIONAL(FIXED_POINT, test x$fixed_point = xtrue)
+
+dnl
+dnl Enable 16-bit fixed-point (Q15) format for MFCC (less accurate, more fast)
+dnl
+AC_ARG_ENABLE(fixed16,
+	AS_HELP_STRING([--enable-fixed16],
+		       [Use 16-bit fixed-point for MFCC computation]),[
+if test x$enableval = xyes; then
+   AC_DEFINE(FIXED_POINT, [], [Use fixed-point computation])
+   AC_DEFINE(FIXED16, [], [Use Q15 fixed-point computation])
+fi])
+
+dnl
+dnl Enable debugging
+dnl
+AC_ARG_ENABLE(debug,
+	AS_HELP_STRING([--enable-debug],
+			[Enable debugging output]),
+	AC_DEFINE(SPHINX_DEBUG, [],
+	          [Enable debugging output]))
+
+dnl
+dnl determine audio type or use none if none supported on this platform
+dnl
+case $host in
+	*-*-linux*|*-*-uclinux*|*-*-freebsd*|*-*-netbsd*|*-*-openbsd*)
+		# Check for PulseAudio, JACK, then fallback ALSA, then fall back to OSS
+		AC_CHECK_HEADER(pulse/pulseaudio.h,[
+			AC_DEFINE(AD_BACKEND_PULSEAUDIO, [],
+				 [Use PulseAudio library for sound I/O])
+			ad_files="ad_pulse.lo"
+			ad_backend="AD_BACKEND_PULSEAUDIO"
+			AC_CHECK_LIB(pulse-simple, pa_simple_new)
+			AC_CHECK_LIB(pulse, pa_strerror)
+                        ],[
+                AC_CHECK_HEADER(jack/jack.h,[
+                        AC_DEFINE(AD_BACKEND_JACK, [],
+                                 [Use Jack library for sound I/O])
+                        ad_files="ad_jack.lo"
+                        ad_backend="AD_BACKEND_JACK"
+                        AC_CHECK_LIB(jack, jack_connect)],[
+		AC_CHECK_HEADER(alsa/asoundlib.h,[
+			AC_DEFINE(AD_BACKEND_ALSA, [],
+				 [Use ALSA library for sound I/O])
+			ad_files="ad_alsa.lo"
+			ad_backend="AD_BACKEND_ALSA"
+			AC_CHECK_LIB(asound, snd_pcm_open)],[
+		AC_DEFINE(AD_BACKEND_OSS, [],
+				 [Use OSS for sound I/O])
+			ad_files="ad_oss.lo"
+			ad_backend="AD_BACKEND_OSS"
+			])
+		])
+                ])
+		;;
+	*-*-*cygwin*|*-*-*mingw*)
+		ad_files="play_win32.lo rec_win32.lo"
+		ad_libs="-lwinmm"
+		ad_backend="AD_BACKEND_WIN32"
+		AC_DEFINE(AD_BACKEND_WIN32, [], [Use WinMM interface for sound I/O])
+		;;
+	*)
+		ad_files="ad_base.lo"
+		ad_backend="AD_BACKEND_NONE"
+		AC_MSG_RESULT([No audio interface for host type $host.])
+		AC_DEFINE(AD_BACKEND_NONE, [], [No interface for sound I/O])
+		;;
+esac
+
+AC_SUBST(ad_files)
+AC_SUBST(ad_libs)
+AC_SUBST(ad_backend)
+
+AM_PROG_LIBTOOL
+
+dnl
+dnl Check for Doxygen, and build dox if present
+dnl
+AC_CHECK_PROG(HAVE_DOXYGEN, doxygen, yes, no)
+AM_CONDITIONAL(BUILD_DOXYGEN, test "x$HAVE_DOXYGEN" = "xyes")
+
+
+dnl Check for SWIG and Python
+AC_ARG_WITH(swig-python,
+	AS_HELP_STRING([--with-swig-python],
+                 [Enable Python extension, built with swig, enabled by default]))
+
+if test "x${with_swig_python}" != "xno"; then
+  AM_PATH_PYTHON(2.4, [], [AC_MSG_ERROR([python not found])])
+  AC_MSG_CHECKING([for python include path])
+  if test -z "$PYTHON_CPPFLAGS"; then
+    python_path=`$PYTHON -c "import distutils.sysconfig; \
+      print (distutils.sysconfig.get_python_inc ());"`
+    plat_python_path=`$PYTHON -c "import distutils.sysconfig; \
+    print (distutils.sysconfig.get_python_inc (plat_specific=1));"`
+    if test -n "${python_path}"; then
+      if test "${plat_python_path}" != "${python_path}"; then
+        python_path="-I$python_path -I$plat_python_path"
+      else
+        python_path="-I$python_path"
+      fi
+    fi
+    PYTHON_CPPFLAGS=$python_path
+  fi
+  AC_MSG_RESULT([$PYTHON_CPPFLAGS])
+  AX_PKG_SWIG(2.0, [], [AC_MSG_ERROR([swig not found])])
+fi
+
+AC_SUBST([PYTHON_CPPFLAGS])
+AM_CONDITIONAL(BUILD_SWIG, test "x$SWIG" != "x")
+dnl swig python check
+
+
+dnl
+dnl Check for pkgconfig
+dnl
+AC_CHECK_PROG(HAVE_PKGCONFIG, pkg-config, yes, no)
+
+dnl
+dnl Check for libsndfile
+dnl
+if test "x$HAVE_PKGCONFIG" = "xyes"; then
+   PKG_CHECK_MODULES(SNDFILE,sndfile,,true)
+   AC_CHECK_HEADERS([sndfile.h])
+   PKG_CHECK_MODULES(SAMPLERATE,samplerate,,true)
+   AC_CHECK_HEADERS([samplerate.h])
+fi
+AC_SUBST(SNDFILE_LIBS)
+AC_SUBST(SNDFILE_CFLAGS)
+AC_SUBST(SAMPLERATE_LIBS)
+AC_SUBST(SAMPLERATE_CFLAGS)
+
+AC_CONFIG_FILES([
+sphinxbase.pc
+Makefile
+include/Makefile
+include/sphinxbase/Makefile
+src/Makefile
+src/libsphinxad/Makefile
+src/libsphinxbase/Makefile
+src/libsphinxbase/util/Makefile
+src/libsphinxbase/feat/Makefile
+src/libsphinxbase/fe/Makefile
+src/libsphinxbase/lm/Makefile
+src/sphinx_fe/Makefile
+src/sphinx_cepview/Makefile
+src/sphinx_jsgf2fsg/Makefile
+src/sphinx_adtools/Makefile
+src/sphinx_lmtools/Makefile
+doc/Makefile
+doc/doxyfile
+test/Makefile
+test/unit/testfuncs.sh
+test/unit/Makefile
+test/unit/test_ad/Makefile
+test/unit/test_alloc/Makefile
+test/unit/test_bitvec/Makefile
+test/unit/test_case/Makefile
+test/unit/test_string/Makefile
+test/unit/test_cmdln/Makefile
+test/unit/test_hash/Makefile
+test/unit/test_matrix/Makefile
+test/unit/test_feat/Makefile
+test/unit/test_fe/Makefile
+test/unit/test_logmath/Makefile
+test/unit/test_lineiter/Makefile
+test/unit/test_ngram/Makefile
+test/unit/test_fsg/Makefile
+test/unit/test_thread/Makefile
+test/unit/test_util/Makefile
+test/regression/testfuncs.sh
+test/regression/Makefile
+swig/Makefile
+swig/python/Makefile
+])
+AC_OUTPUT

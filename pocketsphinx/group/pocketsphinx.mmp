@@ -1,0 +1,27 @@
+/*
+============================================================================
+ Name		: pocketsphinx.mmp
+ Author	  : 
+ Copyright   : Your copyright notice
+ Description : This is the project specification file for pocketsphinx.
+============================================================================
+*/
+
+TARGET		  pocketsphinx.dll
+TARGETTYPE	  STDDLL
+UID 0x20004C45 0xe000acd3
+EPOCALLOWDLLDATA
+EPOCSTACKSIZE	 0x14000
+
+USERINCLUDE	 ..\include ..\src\libpocketsphinx ..\..\sphinxbase\include\s60 ..\..\sphinxbase\include\sphinxbase ..\..\sphinxbase\include
+SYSTEMINCLUDE   \epoc32\include \epoc32\include\stdapis \epoc32\include\stdapis\sys
+
+SOURCEPATH ..\src\libpocketsphinx
+SOURCE acmod.c bin_mdef.c blkarray_list.c dict2pid.c dict.c fsg_history.c fsg_lextree.c fsg_search.c hmm.c mdef.c ms_gauden.c ms_mgau.c ms_senone.c ngram_search.c ngram_search_fwdflat.c ngram_search_fwdtree.c phone_loop_search.c pocketsphinx.c ps_lattice.c ps_mllr.c ptm_mgau.c s2_semi_mgau.c tmat.c vector.c
+
+LIBRARY libm.lib sphinxbase.lib
+CAPABILITY AllFiles MultimediaDD UserEnvironment
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif

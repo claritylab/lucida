@@ -1,0 +1,151 @@
+\section{ptm\-\_\-mgau\-\_\-s Struct Reference}
+\label{structptm__mgau__s}\index{ptm\-\_\-mgau\-\_\-s@{ptm\-\_\-mgau\-\_\-s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-mgau\-\_\-t} {\bf base}
+\begin{DoxyCompactList}\small\item\em base structure. \end{DoxyCompactList}\item 
+cmd\-\_\-ln\-\_\-t $\ast$ {\bf config}\label{structptm__mgau__s_aa9cd83ce89052bd6d112ecff54d118f9}
+
+\begin{DoxyCompactList}\small\item\em Configuration parameters. \end{DoxyCompactList}\item 
+{\bf gauden\-\_\-t} $\ast$ {\bf g}
+\begin{DoxyCompactList}\small\item\em Set of Gaussians. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-sen}
+\begin{DoxyCompactList}\small\item\em Number of senones. \end{DoxyCompactList}\item 
+uint8 $\ast$ {\bf sen2cb}
+\begin{DoxyCompactList}\small\item\em Senone to codebook mapping. \end{DoxyCompactList}\item 
+uint8 $\ast$$\ast$$\ast$ {\bf mixw}\label{structptm__mgau__s_af0898f6d5b5b863901a4a4858a10d32a}
+
+\begin{DoxyCompactList}\small\item\em Mixture weight distributions by feature, codeword, senone. \end{DoxyCompactList}\item 
+mmio\-\_\-file\-\_\-t $\ast$ {\bfseries sendump\-\_\-mmap}\label{structptm__mgau__s_a51e0c21f32dd4b13a3fcce320c71e375}
+
+\item 
+uint8 $\ast$ {\bfseries mixw\-\_\-cb}\label{structptm__mgau__s_a5a3c76d47b94978f717a65fa0dfb54e8}
+
+\item 
+int16 {\bfseries max\-\_\-topn}\label{structptm__mgau__s_ab397cfdf51d309de4521edc09e80541d}
+
+\item 
+int16 {\bfseries ds\-\_\-ratio}\label{structptm__mgau__s_a2254b6ec79c97516b326ad33d22d0050}
+
+\item 
+{\bf ptm\-\_\-fast\-\_\-eval\-\_\-t} $\ast$ {\bf hist}
+\begin{DoxyCompactList}\small\item\em Fast evaluation info for past frames. \end{DoxyCompactList}\item 
+{\bf ptm\-\_\-fast\-\_\-eval\-\_\-t} $\ast$ {\bf f}
+\begin{DoxyCompactList}\small\item\em Fast eval info for current frame. \end{DoxyCompactList}\item 
+int {\bf n\-\_\-fast\-\_\-hist}
+\begin{DoxyCompactList}\small\item\em Number of past frames tracked. \end{DoxyCompactList}\item 
+logmath\-\_\-t $\ast$ {\bfseries lmath\-\_\-8b}\label{structptm__mgau__s_ad577181af2afca66f33f1f1e4c576ae8}
+
+\item 
+logmath\-\_\-t $\ast$ {\bfseries lmath}\label{structptm__mgau__s_abbaabfb8678356673a2c0a515e33a378}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 68 of file ptm\-\_\-mgau.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{ptm\-\_\-mgau\-\_\-s@{ptm\-\_\-mgau\-\_\-s}!base@{base}}
+\index{base@{base}!ptm_mgau_s@{ptm\-\_\-mgau\-\_\-s}}
+\subsubsection[{base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-mgau\-\_\-t} ptm\-\_\-mgau\-\_\-s\-::base}\label{structptm__mgau__s_ac7ccb744c03564e3c1b360b3436cb3a1}
+
+
+base structure. 
+
+
+
+Definition at line 69 of file ptm\-\_\-mgau.\-h.
+
+\index{ptm\-\_\-mgau\-\_\-s@{ptm\-\_\-mgau\-\_\-s}!f@{f}}
+\index{f@{f}!ptm_mgau_s@{ptm\-\_\-mgau\-\_\-s}}
+\subsubsection[{f}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ptm\-\_\-fast\-\_\-eval\-\_\-t}$\ast$ ptm\-\_\-mgau\-\_\-s\-::f}\label{structptm__mgau__s_aad0c43234e33c2307ce0df2ddb1c05c9}
+
+
+Fast eval info for current frame. 
+
+
+
+Definition at line 81 of file ptm\-\_\-mgau.\-h.
+
+
+
+Referenced by ptm\-\_\-mgau\-\_\-frame\-\_\-eval().
+
+\index{ptm\-\_\-mgau\-\_\-s@{ptm\-\_\-mgau\-\_\-s}!g@{g}}
+\index{g@{g}!ptm_mgau_s@{ptm\-\_\-mgau\-\_\-s}}
+\subsubsection[{g}]{\setlength{\rightskip}{0pt plus 5cm}{\bf gauden\-\_\-t}$\ast$ ptm\-\_\-mgau\-\_\-s\-::g}\label{structptm__mgau__s_adfba8a590e8d71812ea8082f485e7ad3}
+
+
+Set of Gaussians. 
+
+
+
+Definition at line 71 of file ptm\-\_\-mgau.\-h.
+
+
+
+Referenced by ptm\-\_\-mgau\-\_\-frame\-\_\-eval().
+
+\index{ptm\-\_\-mgau\-\_\-s@{ptm\-\_\-mgau\-\_\-s}!hist@{hist}}
+\index{hist@{hist}!ptm_mgau_s@{ptm\-\_\-mgau\-\_\-s}}
+\subsubsection[{hist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ptm\-\_\-fast\-\_\-eval\-\_\-t}$\ast$ ptm\-\_\-mgau\-\_\-s\-::hist}\label{structptm__mgau__s_a68c75460ebffecc786d7eb2840ed7631}
+
+
+Fast evaluation info for past frames. 
+
+
+
+Definition at line 80 of file ptm\-\_\-mgau.\-h.
+
+
+
+Referenced by ptm\-\_\-mgau\-\_\-frame\-\_\-eval().
+
+\index{ptm\-\_\-mgau\-\_\-s@{ptm\-\_\-mgau\-\_\-s}!n\-\_\-fast\-\_\-hist@{n\-\_\-fast\-\_\-hist}}
+\index{n\-\_\-fast\-\_\-hist@{n\-\_\-fast\-\_\-hist}!ptm_mgau_s@{ptm\-\_\-mgau\-\_\-s}}
+\subsubsection[{n\-\_\-fast\-\_\-hist}]{\setlength{\rightskip}{0pt plus 5cm}int ptm\-\_\-mgau\-\_\-s\-::n\-\_\-fast\-\_\-hist}\label{structptm__mgau__s_ac491c223199ed5374dfb13fc41854601}
+
+
+Number of past frames tracked. 
+
+
+
+Definition at line 82 of file ptm\-\_\-mgau.\-h.
+
+
+
+Referenced by ptm\-\_\-mgau\-\_\-frame\-\_\-eval().
+
+\index{ptm\-\_\-mgau\-\_\-s@{ptm\-\_\-mgau\-\_\-s}!n\-\_\-sen@{n\-\_\-sen}}
+\index{n\-\_\-sen@{n\-\_\-sen}!ptm_mgau_s@{ptm\-\_\-mgau\-\_\-s}}
+\subsubsection[{n\-\_\-sen}]{\setlength{\rightskip}{0pt plus 5cm}int32 ptm\-\_\-mgau\-\_\-s\-::n\-\_\-sen}\label{structptm__mgau__s_ab0f6c452efe082383e906ac2a4f75de4}
+
+
+Number of senones. 
+
+
+
+Definition at line 72 of file ptm\-\_\-mgau.\-h.
+
+\index{ptm\-\_\-mgau\-\_\-s@{ptm\-\_\-mgau\-\_\-s}!sen2cb@{sen2cb}}
+\index{sen2cb@{sen2cb}!ptm_mgau_s@{ptm\-\_\-mgau\-\_\-s}}
+\subsubsection[{sen2cb}]{\setlength{\rightskip}{0pt plus 5cm}uint8$\ast$ ptm\-\_\-mgau\-\_\-s\-::sen2cb}\label{structptm__mgau__s_a5e677255165b8abda63dd1d6dbed1be7}
+
+
+Senone to codebook mapping. 
+
+
+
+Definition at line 73 of file ptm\-\_\-mgau.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf ptm\-\_\-mgau.\-h}\end{DoxyCompactItemize}

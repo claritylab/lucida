@@ -1,0 +1,34 @@
+\section{latlink\-\_\-list\-\_\-s Struct Reference}
+\label{structlatlink__list__s}\index{latlink\-\_\-list\-\_\-s@{latlink\-\_\-list\-\_\-s}}
+
+
+Linked list of D\-A\-G link pointers.  
+
+
+
+
+{\ttfamily \#include $<$ps\-\_\-lattice\-\_\-internal.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-latlink\-\_\-t} $\ast$ {\bfseries link}\label{structlatlink__list__s_accd8f5fdb23871b66b81c830e3808068}
+
+\item 
+struct {\bf latlink\-\_\-list\-\_\-s} $\ast$ {\bfseries next}\label{structlatlink__list__s_a17b319bb0f536542267496afecc8de10}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Linked list of D\-A\-G link pointers. 
+
+Because the same link structure is used for forward and reverse links, as well as for the agenda used in bestpath search, we can't store the list pointer inside latlink\-\_\-t. We could use glist\-\_\-t here, but it wastes 4 bytes per entry on 32-\/bit machines. 
+
+Definition at line 53 of file ps\-\_\-lattice\-\_\-internal.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf ps\-\_\-lattice\-\_\-internal.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,228 @@
+\section{src/libsphinxbase/lm/jsgf.c File Reference}
+\label{jsgf_8c}\index{src/libsphinxbase/lm/jsgf.\-c@{src/libsphinxbase/lm/jsgf.\-c}}
+
+
+This file implements the data structures for parsing J\-S\-G\-F grammars into Sphinx finite-\/state grammars.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}sphinxbase/ckd\-\_\-alloc.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sphinxbase/strfuncs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sphinxbase/hash\-\_\-table.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sphinxbase/err.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}jsgf\-\_\-internal.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}jsgf\-\_\-parser.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}jsgf\-\_\-scanner.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries N\-O\-\_\-\-N\-O\-D\-E}~-\/1\label{jsgf_8c_adfa80cc857b10a19d8c8146856d390fe}
+
+\item 
+\#define {\bfseries R\-E\-C\-U\-R\-S\-I\-V\-E\-\_\-\-N\-O\-D\-E}~-\/2\label{jsgf_8c_a4448ba03f4e83edea66815cdf2352afd}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries yyparse} (void $\ast$scanner, {\bf jsgf\-\_\-t} $\ast$jsgf)\label{jsgf_8c_a2e5efb18e6e2f1ab5ef7a658ce85d7da}
+
+\item 
+{\bf jsgf\-\_\-atom\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-atom\-\_\-new} (char $\ast$name, float weight)\label{jsgf_8c_a0e59b63784fa8761358bb2bdf568bec1}
+
+\item 
+int {\bfseries jsgf\-\_\-atom\-\_\-free} ({\bf jsgf\-\_\-atom\-\_\-t} $\ast$atom)\label{jsgf_8c_a289d683bf62d1a5aaac6917fa64f54f2}
+
+\item 
+{\bf jsgf\-\_\-t} $\ast$ {\bf jsgf\-\_\-grammar\-\_\-new} ({\bf jsgf\-\_\-t} $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Create a new J\-S\-G\-F grammar. \end{DoxyCompactList}\item 
+void {\bf jsgf\-\_\-grammar\-\_\-free} ({\bf jsgf\-\_\-t} $\ast$jsgf)\label{jsgf_8c_a0a5185af0b0f1c19d85ae553c5ecc51b}
+
+\begin{DoxyCompactList}\small\item\em Free a J\-S\-G\-F grammar. \end{DoxyCompactList}\item 
+{\bf jsgf\-\_\-atom\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-kleene\-\_\-new} ({\bf jsgf\-\_\-t} $\ast$jsgf, {\bf jsgf\-\_\-atom\-\_\-t} $\ast$atom, int plus)\label{jsgf_8c_ab9dc2ab39224cda76c43822150cf7e67}
+
+\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-optional\-\_\-new} ({\bf jsgf\-\_\-t} $\ast$jsgf, {\bf jsgf\-\_\-rhs\-\_\-t} $\ast$exp)\label{jsgf_8c_a4a07cb0721add8783f0ea24dfacd6c0f}
+
+\item 
+void {\bfseries jsgf\-\_\-add\-\_\-link} ({\bf jsgf\-\_\-t} $\ast$grammar, {\bf jsgf\-\_\-atom\-\_\-t} $\ast$atom, int from, int to)\label{jsgf_8c_acb5af4a04abc56a8584eba9b937f8154}
+
+\item 
+char const $\ast$ {\bf jsgf\-\_\-grammar\-\_\-name} ({\bf jsgf\-\_\-t} $\ast$jsgf)\label{jsgf_8c_a5c84e0a3cebe022d4f7ab8b204c8da43}
+
+\begin{DoxyCompactList}\small\item\em Get the grammar name from the file. \end{DoxyCompactList}\item 
+{\bf jsgf\-\_\-rule\-\_\-iter\-\_\-t} $\ast$ {\bf jsgf\-\_\-rule\-\_\-iter} ({\bf jsgf\-\_\-t} $\ast$grammar)\label{jsgf_8c_afd426d7e3799f54b4d5c0acff7684233}
+
+\begin{DoxyCompactList}\small\item\em Get an iterator over all rules in a grammar. \end{DoxyCompactList}\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bf jsgf\-\_\-get\-\_\-rule} ({\bf jsgf\-\_\-t} $\ast$grammar, char const $\ast$name)\label{jsgf_8c_a18fc91b6b6e79fb183147502df372b5e}
+
+\begin{DoxyCompactList}\small\item\em Get a rule by name from a grammar. \end{DoxyCompactList}\item 
+char const $\ast$ {\bf jsgf\-\_\-rule\-\_\-name} ({\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule)\label{jsgf_8c_a94a20b28b8bb3a179e567caec972d002}
+
+\begin{DoxyCompactList}\small\item\em Get the rule name from a rule. \end{DoxyCompactList}\item 
+int {\bf jsgf\-\_\-rule\-\_\-public} ({\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule)\label{jsgf_8c_a49d5d9f6c1edda3bb087545ecfa21809}
+
+\begin{DoxyCompactList}\small\item\em Test if a rule is public or not. \end{DoxyCompactList}\item 
+{\bf fsg\-\_\-model\-\_\-t} $\ast$ {\bf jsgf\-\_\-build\-\_\-fsg} ({\bf jsgf\-\_\-t} $\ast$grammar, {\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule, {\bf logmath\-\_\-t} $\ast$lmath, float32 lw)\label{jsgf_8c_a2a3f3ade56bed13c58059a6ede5fd1dc}
+
+\begin{DoxyCompactList}\small\item\em Build a Sphinx F\-S\-G object from a J\-S\-G\-F rule. \end{DoxyCompactList}\item 
+{\bf fsg\-\_\-model\-\_\-t} $\ast$ {\bf jsgf\-\_\-build\-\_\-fsg\-\_\-raw} ({\bf jsgf\-\_\-t} $\ast$grammar, {\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule, {\bf logmath\-\_\-t} $\ast$lmath, float32 lw)
+\begin{DoxyCompactList}\small\item\em Build a Sphinx F\-S\-G object from a J\-S\-G\-F rule. \end{DoxyCompactList}\item 
+{\bf fsg\-\_\-model\-\_\-t} $\ast$ {\bf jsgf\-\_\-read\-\_\-file} (const char $\ast$file, {\bf logmath\-\_\-t} $\ast$lmath, float32 lw)
+\begin{DoxyCompactList}\small\item\em Read J\-S\-G\-F from file and return F\-S\-G object from it. \end{DoxyCompactList}\item 
+int {\bf jsgf\-\_\-write\-\_\-fsg} ({\bf jsgf\-\_\-t} $\ast$grammar, {\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule, F\-I\-L\-E $\ast$outfh)
+\begin{DoxyCompactList}\small\item\em Convert a J\-S\-G\-F rule to Sphinx F\-S\-G text form. \end{DoxyCompactList}\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-define\-\_\-rule} ({\bf jsgf\-\_\-t} $\ast$jsgf, char $\ast$name, {\bf jsgf\-\_\-rhs\-\_\-t} $\ast$rhs, int is\-\_\-public)\label{jsgf_8c_ae7e6644fc37252110c3c0ea0edd229f7}
+
+\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-rule\-\_\-retain} ({\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule)\label{jsgf_8c_ad152a23eb0f0d9af8417919fc93074fd}
+
+\item 
+int {\bfseries jsgf\-\_\-rule\-\_\-free} ({\bf jsgf\-\_\-rule\-\_\-t} $\ast$rule)\label{jsgf_8c_af2faf6fb74ad1e4d43cf990c1bcec672}
+
+\item 
+{\bf jsgf\-\_\-rule\-\_\-t} $\ast$ {\bfseries jsgf\-\_\-import\-\_\-rule} ({\bf jsgf\-\_\-t} $\ast$jsgf, char $\ast$name)\label{jsgf_8c_afe1e47584e4dd80929552ffed77373f2}
+
+\item 
+{\bf jsgf\-\_\-t} $\ast$ {\bf jsgf\-\_\-parse\-\_\-file} (const char $\ast$filename, {\bf jsgf\-\_\-t} $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Parse a J\-S\-G\-F grammar from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file implements the data structures for parsing J\-S\-G\-F grammars into Sphinx finite-\/state grammars. 
+
+Definition in file {\bf jsgf.\-c}.
+
+
+
+\subsection{Function Documentation}
+\index{jsgf.\-c@{jsgf.\-c}!jsgf\-\_\-build\-\_\-fsg\-\_\-raw@{jsgf\-\_\-build\-\_\-fsg\-\_\-raw}}
+\index{jsgf\-\_\-build\-\_\-fsg\-\_\-raw@{jsgf\-\_\-build\-\_\-fsg\-\_\-raw}!jsgf.c@{jsgf.\-c}}
+\subsubsection[{jsgf\-\_\-build\-\_\-fsg\-\_\-raw}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fsg\-\_\-model\-\_\-t}$\ast$ jsgf\-\_\-build\-\_\-fsg\-\_\-raw (
+\begin{DoxyParamCaption}
+\item[{{\bf jsgf\-\_\-t} $\ast$}]{grammar, }
+\item[{{\bf jsgf\-\_\-rule\-\_\-t} $\ast$}]{rule, }
+\item[{{\bf logmath\-\_\-t} $\ast$}]{lmath, }
+\item[{float32}]{lw}
+\end{DoxyParamCaption}
+)}\label{jsgf_8c_a68e2c50712a3d1da5d9d6cb25a7198ee}
+
+
+Build a Sphinx F\-S\-G object from a J\-S\-G\-F rule. 
+
+This differs from \doxyref{jsgf\-\_\-build\-\_\-fsg()}{p.}{jsgf_8h_ac355893a25aa071eba6874fae1d51ad2} in that it does not do closure on epsilon transitions or any other postprocessing. For the time being this is necessary in order to write it to a file -\/ the F\-S\-G code will be fixed soon. 
+
+Definition at line 584 of file jsgf.\-c.
+
+
+
+Referenced by jsgf\-\_\-write\-\_\-fsg().
+
+\index{jsgf.\-c@{jsgf.\-c}!jsgf\-\_\-grammar\-\_\-new@{jsgf\-\_\-grammar\-\_\-new}}
+\index{jsgf\-\_\-grammar\-\_\-new@{jsgf\-\_\-grammar\-\_\-new}!jsgf.c@{jsgf.\-c}}
+\subsubsection[{jsgf\-\_\-grammar\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsgf\-\_\-t}$\ast$ jsgf\-\_\-grammar\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf jsgf\-\_\-t} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}\label{jsgf_8c_a2f4a4ef97090210de6c73361de1d9561}
+
+
+Create a new J\-S\-G\-F grammar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & optional parent grammar for this one (N\-U\-L\-L, usually). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new J\-S\-G\-F grammar object, or N\-U\-L\-L on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file jsgf.\-c.
+
+
+
+References ckd\-\_\-calloc, ckd\-\_\-salloc, glist\-\_\-add\-\_\-ptr(), glist\-\_\-reverse(), hash\-\_\-table\-\_\-new(), jsgf\-\_\-s\-::imports, jsgf\-\_\-s\-::parent, jsgf\-\_\-s\-::rules, and jsgf\-\_\-s\-::searchpath.
+
+
+
+Referenced by jsgf\-\_\-parse\-\_\-file().
+
+\index{jsgf.\-c@{jsgf.\-c}!jsgf\-\_\-parse\-\_\-file@{jsgf\-\_\-parse\-\_\-file}}
+\index{jsgf\-\_\-parse\-\_\-file@{jsgf\-\_\-parse\-\_\-file}!jsgf.c@{jsgf.\-c}}
+\subsubsection[{jsgf\-\_\-parse\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}{\bf jsgf\-\_\-t}$\ast$ jsgf\-\_\-parse\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{{\bf jsgf\-\_\-t} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}\label{jsgf_8c_a322da18b1c115f1b3a1b7c766cf9e778}
+
+
+Parse a J\-S\-G\-F grammar from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file to parse. \\
+\hline
+{\em parent} & optional parent grammar for this one (N\-U\-L\-L, usually). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new J\-S\-G\-F grammar object, or N\-U\-L\-L on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 815 of file jsgf.\-c.
+
+
+
+References E\-\_\-\-E\-R\-R\-O\-R, E\-\_\-\-E\-R\-R\-O\-R\-\_\-\-S\-Y\-S\-T\-E\-M, jsgf\-\_\-grammar\-\_\-free(), and jsgf\-\_\-grammar\-\_\-new().
+
+
+
+Referenced by jsgf\-\_\-read\-\_\-file().
+
+\index{jsgf.\-c@{jsgf.\-c}!jsgf\-\_\-read\-\_\-file@{jsgf\-\_\-read\-\_\-file}}
+\index{jsgf\-\_\-read\-\_\-file@{jsgf\-\_\-read\-\_\-file}!jsgf.c@{jsgf.\-c}}
+\subsubsection[{jsgf\-\_\-read\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fsg\-\_\-model\-\_\-t}$\ast$ jsgf\-\_\-read\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{file, }
+\item[{{\bf logmath\-\_\-t} $\ast$}]{lmath, }
+\item[{float32}]{lw}
+\end{DoxyParamCaption}
+)}\label{jsgf_8c_adfb0b4d697fcd8760d051c38689c85e2}
+
+
+Read J\-S\-G\-F from file and return F\-S\-G object from it. 
+
+This function looks for a first public rule in jsgf and constructs J\-S\-G\-F from it. 
+
+Definition at line 591 of file jsgf.\-c.
+
+
+
+References E\-\_\-\-E\-R\-R\-O\-R, jsgf\-\_\-build\-\_\-fsg(), jsgf\-\_\-grammar\-\_\-free(), jsgf\-\_\-parse\-\_\-file(), jsgf\-\_\-rule\-\_\-iter(), jsgf\-\_\-rule\-\_\-iter\-\_\-free, jsgf\-\_\-rule\-\_\-iter\-\_\-next, jsgf\-\_\-rule\-\_\-iter\-\_\-rule, and jsgf\-\_\-rule\-\_\-public().
+
+\index{jsgf.\-c@{jsgf.\-c}!jsgf\-\_\-write\-\_\-fsg@{jsgf\-\_\-write\-\_\-fsg}}
+\index{jsgf\-\_\-write\-\_\-fsg@{jsgf\-\_\-write\-\_\-fsg}!jsgf.c@{jsgf.\-c}}
+\subsubsection[{jsgf\-\_\-write\-\_\-fsg}]{\setlength{\rightskip}{0pt plus 5cm}int jsgf\-\_\-write\-\_\-fsg (
+\begin{DoxyParamCaption}
+\item[{{\bf jsgf\-\_\-t} $\ast$}]{grammar, }
+\item[{{\bf jsgf\-\_\-rule\-\_\-t} $\ast$}]{rule, }
+\item[{F\-I\-L\-E $\ast$}]{outfh}
+\end{DoxyParamCaption}
+)}\label{jsgf_8c_ab9454daf3cdf0c857b0f4780b600632c}
+
+
+Convert a J\-S\-G\-F rule to Sphinx F\-S\-G text form. 
+
+This does a direct conversion without doing transitive closure on null transitions and so forth. 
+
+Definition at line 622 of file jsgf.\-c.
+
+
+
+References jsgf\-\_\-build\-\_\-fsg\-\_\-raw(), logmath\-\_\-free(), and logmath\-\_\-init().
+

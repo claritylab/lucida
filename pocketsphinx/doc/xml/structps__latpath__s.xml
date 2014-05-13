@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structps__latpath__s" kind="struct" prot="public">
+    <compoundname>ps_latpath_s</compoundname>
+    <includes refid="ps__lattice__internal_8h" local="no">ps_lattice_internal.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structps__latpath__s_1a9672f7a5002d994985039aece2a69250" prot="public" static="no" mutable="no">
+        <type><ref refid="ps__lattice_8h_1ad570c45dd72ad9ea8d57391fd2cd1c07" kindref="member">ps_latnode_t</ref> *</type>
+        <definition>ps_latnode_t* ps_latpath_s::node</definition>
+        <argsstring></argsstring>
+        <name>node</name>
+        <briefdescription>
+<para>Node ending this path. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" line="154" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" bodystart="154" bodyend="-1"/>
+        <referencedby refid="ps__lattice__internal_8h_1ac7372b5c5ec111f6814ce1ba495593e4" compoundref="ps__lattice_8c" startline="1757" endline="1801">ps_astar_hyp</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1a6bea95f8fb827af790bbe6ce1920908c" compoundref="ps__lattice_8c" startline="1724" endline="1754">ps_astar_next</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1ac8e3dff7276c03c93377d0cb79fbdbd7" compoundref="ps__lattice_8c" startline="1851" endline="1875">ps_astar_seg_iter</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1aaf9aedd3cd8bd1d45053e10828215a25" compoundref="ps__lattice_8c" startline="1665" endline="1721">ps_astar_start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__latpath__s_1a87acd26322fca11aa1432cdf9d1a2128" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structps__latpath__s" kindref="compound">ps_latpath_s</ref> *</type>
+        <definition>struct ps_latpath_s* ps_latpath_s::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <briefdescription>
+<para>Previous element in this path. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" line="155" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" bodystart="155" bodyend="-1"/>
+        <referencedby refid="ps__lattice__internal_8h_1ac7372b5c5ec111f6814ce1ba495593e4" compoundref="ps__lattice_8c" startline="1757" endline="1801">ps_astar_hyp</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1ac8e3dff7276c03c93377d0cb79fbdbd7" compoundref="ps__lattice_8c" startline="1851" endline="1875">ps_astar_seg_iter</referencedby>
+        <referencedby refid="ps__lattice__internal_8h_1aaf9aedd3cd8bd1d45053e10828215a25" compoundref="ps__lattice_8c" startline="1665" endline="1721">ps_astar_start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__latpath__s_1a614ad4a857fb07f76959d385abf50a6d" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structps__latpath__s" kindref="compound">ps_latpath_s</ref> *</type>
+        <definition>struct ps_latpath_s* ps_latpath_s::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+<para>Pointer to next path in list of paths. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" line="156" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" bodystart="156" bodyend="-1"/>
+        <referencedby refid="ps__lattice__internal_8h_1a6bea95f8fb827af790bbe6ce1920908c" compoundref="ps__lattice_8c" startline="1724" endline="1754">ps_astar_next</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structps__latpath__s_1a9249fb528f754db992df1d494a69b580" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ps_latpath_s::score</definition>
+        <argsstring></argsstring>
+        <name>score</name>
+        <briefdescription>
+<para>Exact score from start node up to node-&gt;sf. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" line="157" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" bodystart="157" bodyend="-1"/>
+        <referencedby refid="ps__lattice__internal_8h_1aaf9aedd3cd8bd1d45053e10828215a25" compoundref="ps__lattice_8c" startline="1665" endline="1721">ps_astar_start</referencedby>
+        <referencedby refid="pocketsphinx_8h_1a250c5f72d3addd0d0254f3ceeaa17ace" compoundref="pocketsphinx_8c" startline="1203" endline="1211">ps_nbest_hyp</referencedby>
+        <referencedby refid="pocketsphinx_8h_1a1d2b6fd873d8213bd53a915ff2758785" compoundref="pocketsphinx_8c" startline="1214" endline="1220">ps_nbest_seg</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Partial path structure used in N-best (A*) search. </para>    </briefdescription>
+    <detaileddescription>
+<para>Each partial path (latpath_t) is constructed by extending another partial path<ndash/>parent<ndash/>by one node. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="444">
+        <label>latlink_list_s</label>
+        <link refid="structlatlink__list__s"/>
+        <childnode refid="445" relation="usage">
+          <edgelabel>link</edgelabel>
+        </childnode>
+        <childnode refid="444" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="443">
+        <label>ps_latnode_s</label>
+        <link refid="structps__latnode__s"/>
+        <childnode refid="443" relation="usage">
+          <edgelabel>alt</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="444" relation="usage">
+          <edgelabel>exits</edgelabel>
+          <edgelabel>entries</edgelabel>
+        </childnode>
+      </node>
+      <node id="445">
+        <label>ps_latlink_s</label>
+        <link refid="structps__latlink__s"/>
+        <childnode refid="445" relation="usage">
+          <edgelabel>best_prev</edgelabel>
+        </childnode>
+        <childnode refid="443" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>to</edgelabel>
+        </childnode>
+      </node>
+      <node id="442">
+        <label>ps_latpath_s</label>
+        <link refid="structps__latpath__s"/>
+        <childnode refid="442" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>parent</edgelabel>
+        </childnode>
+        <childnode refid="443" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" line="153" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/ps_lattice_internal.h" bodystart="153" bodyend="158"/>
+    <listofallmembers>
+      <member refid="structps__latpath__s_1a614ad4a857fb07f76959d385abf50a6d" prot="public" virt="non-virtual"><scope>ps_latpath_s</scope><name>next</name></member>
+      <member refid="structps__latpath__s_1a9672f7a5002d994985039aece2a69250" prot="public" virt="non-virtual"><scope>ps_latpath_s</scope><name>node</name></member>
+      <member refid="structps__latpath__s_1a87acd26322fca11aa1432cdf9d1a2128" prot="public" virt="non-virtual"><scope>ps_latpath_s</scope><name>parent</name></member>
+      <member refid="structps__latpath__s_1a9249fb528f754db992df1d494a69b580" prot="public" virt="non-virtual"><scope>ps_latpath_s</scope><name>score</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

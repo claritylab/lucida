@@ -1,0 +1,650 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="heap_8c" kind="file">
+    <compoundname>heap.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="assert_8h" local="no">assert.h</includes>
+    <includes refid="heap_8h" local="yes">sphinxbase/heap.h</includes>
+    <includes refid="err_8h" local="yes">sphinxbase/err.h</includes>
+    <includes refid="ckd__alloc_8h" local="yes">sphinxbase/ckd_alloc.h</includes>
+    <incdepgraph>
+      <node id="2313">
+        <label>stdarg.h</label>
+      </node>
+      <node id="2307">
+        <label>assert.h</label>
+        <link refid="assert_8h_source"/>
+      </node>
+      <node id="2314">
+        <label>errno.h</label>
+        <link refid="errno_8h_source"/>
+      </node>
+      <node id="2305">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2316">
+        <label>setjmp.h</label>
+      </node>
+      <node id="2303">
+        <label>src/libsphinxbase/util/heap.c</label>
+        <link refid="heap.c"/>
+        <childnode refid="2304" relation="include">
+        </childnode>
+        <childnode refid="2305" relation="include">
+        </childnode>
+        <childnode refid="2306" relation="include">
+        </childnode>
+        <childnode refid="2307" relation="include">
+        </childnode>
+        <childnode refid="2308" relation="include">
+        </childnode>
+        <childnode refid="2312" relation="include">
+        </childnode>
+        <childnode refid="2315" relation="include">
+        </childnode>
+      </node>
+      <node id="2311">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="2306">
+        <label>string.h</label>
+      </node>
+      <node id="2308">
+        <label>sphinxbase/heap.h</label>
+        <link refid="heap_8h"/>
+        <childnode refid="2305" relation="include">
+        </childnode>
+        <childnode refid="2309" relation="include">
+        </childnode>
+        <childnode refid="2310" relation="include">
+        </childnode>
+      </node>
+      <node id="2309">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="2310">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="2311" relation="include">
+        </childnode>
+      </node>
+      <node id="2315">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="2305" relation="include">
+        </childnode>
+        <childnode refid="2316" relation="include">
+        </childnode>
+        <childnode refid="2309" relation="include">
+        </childnode>
+        <childnode refid="2310" relation="include">
+        </childnode>
+      </node>
+      <node id="2312">
+        <label>sphinxbase/err.h</label>
+        <link refid="err_8h"/>
+        <childnode refid="2313" relation="include">
+        </childnode>
+        <childnode refid="2304" relation="include">
+        </childnode>
+        <childnode refid="2305" relation="include">
+        </childnode>
+        <childnode refid="2314" relation="include">
+        </childnode>
+        <childnode refid="2309" relation="include">
+        </childnode>
+      </node>
+      <node id="2304">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structheapnode__s" prot="public">heapnode_s</innerclass>
+    <innerclass refid="structheap__s" prot="public">heap_s</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="heap_8c_1a0c363dd828cabf9e6d4199ae71784aa8" prot="public" static="no">
+        <type>struct <ref refid="structheapnode__s" kindref="compound">heapnode_s</ref></type>
+        <definition>typedef struct heapnode_s  heapnode_t</definition>
+        <argsstring></argsstring>
+        <name>heapnode_t</name>
+        <briefdescription>
+<para>One node on the heap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="84" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="heap_8c_1a676b42ec4e722ba7b860210888051137" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structheap__s" kindref="compound">heap_t</ref> *</type>
+        <definition>heap_t* heap_new</definition>
+        <argsstring>(void)</argsstring>
+        <name>heap_new</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Allocate a new heap and return handle to it. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="113" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="113" bodyend="117"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <referencedby refid="huff__code_8h_1a278b925caf4f2c93cbb63adc8f77bfa6" compoundref="huff__code_8c" startline="229" endline="266">huff_code_build_int</referencedby>
+        <referencedby refid="huff__code_8h_1af5d0c85a2ad206c277ecde2a085af790" compoundref="huff__code_8c" startline="269" endline="306">huff_code_build_str</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1a63c39e3bec89bdb1adcac8bb0f4e8ef5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref> *</type>
+        <definition>static heapnode_t* subheap_insert</definition>
+        <argsstring>(heapnode_t *root, void *data, int32 val)</argsstring>
+        <name>subheap_insert</name>
+        <param>
+          <type><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref> *</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="121" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="121" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1a27f77c8a57d78a1a55fb7dd08934decf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int heap_insert</definition>
+        <argsstring>(heap_t *heap, void *data, int32 val)</argsstring>
+        <name>heap_insert</name>
+        <param>
+          <type><ref refid="structheap__s" kindref="compound">heap_t</ref> *</type>
+          <declname>heap</declname>
+          <briefdescription><para>In: Heap into which item is to be inserted </para></briefdescription>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+          <briefdescription><para>In: Application-determined data pointer </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>val</declname>
+          <briefdescription><para>In: According to item entered in sorted heap </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Insert a new item into the given heap. </para>        </briefdescription>
+        <detaileddescription>
+<para>Return value: 0 if successful, -1 otherwise. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="161" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="161" bodyend="165"/>
+        <referencedby refid="huff__code_8h_1a278b925caf4f2c93cbb63adc8f77bfa6" compoundref="huff__code_8c" startline="229" endline="266">huff_code_build_int</referencedby>
+        <referencedby refid="huff__code_8h_1af5d0c85a2ad206c277ecde2a085af790" compoundref="huff__code_8c" startline="269" endline="306">huff_code_build_str</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1a12e14456a989aee84695fbb366da214f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref> *</type>
+        <definition>static heapnode_t* subheap_pop</definition>
+        <argsstring>(heapnode_t *root)</argsstring>
+        <name>subheap_pop</name>
+        <param>
+          <type><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref> *</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="169" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="169" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1aab9c9bd2819b53da912b8d3e3a15dfbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int heap_pop</definition>
+        <argsstring>(heap_t *heap, void **data, int32 *val)</argsstring>
+        <name>heap_pop</name>
+        <param>
+          <type><ref refid="structheap__s" kindref="compound">heap_t</ref> *</type>
+          <declname>heap</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Like heap_top but also pop the top item off the heap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="209" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="209" bodyend="217"/>
+        <references refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" compoundref="heap_8c" startline="78">heapnode_s::data</references>
+        <references refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" compoundref="heap_8c" startline="79">heapnode_s::val</references>
+        <referencedby refid="heap_8h_1ab12b1efd6392eb574d2da9c981e7320c" compoundref="heap_8c" startline="281" endline="292">heap_destroy</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1ad4b71f55622d79fff6e15f57549a4944" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int heap_top</definition>
+        <argsstring>(heap_t *heap, void **data, int32 *val)</argsstring>
+        <name>heap_top</name>
+        <param>
+          <type><ref refid="structheap__s" kindref="compound">heap_t</ref> *</type>
+          <declname>heap</declname>
+          <briefdescription><para>In: Heap whose topmost item is to be returned </para></briefdescription>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>data</declname>
+          <briefdescription><para>Out: Data pointer associated with the topmost item </para></briefdescription>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>val</declname>
+          <briefdescription><para>Out: Value associated with the topmost item </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>Return the topmost item in the heap. </para>        </briefdescription>
+        <detaileddescription>
+<para>Return value: 1 if heap is not empty and the topmost value is returned; 0 if heap is empty; -1 if some error occurred. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="221" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="221" bodyend="228"/>
+        <references refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" compoundref="heap_8c" startline="78">heapnode_s::data</references>
+        <references refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" compoundref="heap_8c" startline="79">heapnode_s::val</references>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1a3f361b44022ae7a4a5d29a33ac8e0d8a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int heap_remove_one</definition>
+        <argsstring>(heap_t *heap, heapnode_t *top, void *data)</argsstring>
+        <name>heap_remove_one</name>
+        <param>
+          <type><ref refid="structheap__s" kindref="compound">heap_t</ref> *</type>
+          <declname>heap</declname>
+        </param>
+        <param>
+          <type><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref> *</type>
+          <declname>top</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="231" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="231" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1a5f708f15ef845951277d46151d8ce633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int heap_remove</definition>
+        <argsstring>(heap_t *heap, void *data)</argsstring>
+        <name>heap_remove</name>
+        <param>
+          <type><ref refid="structheap__s" kindref="compound">heap_t</ref> *</type>
+          <declname>heap</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Remove an item from the heap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="266" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="266" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1ac92f0622ea9142be2738fb2c73671927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t heap_size</definition>
+        <argsstring>(heap_t *heap)</argsstring>
+        <name>heap_size</name>
+        <param>
+          <type><ref refid="structheap__s" kindref="compound">heap_t</ref> *</type>
+          <declname>heap</declname>
+        </param>
+        <briefdescription>
+<para>Return the number of items in the heap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="273" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="273" bodyend="278"/>
+        <references refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" compoundref="heap_8c" startline="81">heapnode_s::nr</references>
+      </memberdef>
+      <memberdef kind="function" id="heap_8c_1a420e0b6e39c03e74d7e853bfcdb05843" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int heap_destroy</definition>
+        <argsstring>(heap_t *heap)</argsstring>
+        <name>heap_destroy</name>
+        <param>
+          <type><ref refid="structheap__s" kindref="compound">heap_t</ref> *</type>
+          <declname>heap</declname>
+        </param>
+        <briefdescription>
+<para>Destroy the given heap; free the heap nodes. </para>        </briefdescription>
+        <detaileddescription>
+<para>NOTE: Data pointers in the nodes are NOT freed. Return value: 0 if successful, -1 otherwise. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" line="281" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c" bodystart="281" bodyend="292"/>
+        <references refid="heap_8h_1a387c8913b4c62ad1a5c4702a4e6dbdbf" compoundref="heap_8c" startline="209" endline="217">heap_pop</references>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="huff__code_8h_1a278b925caf4f2c93cbb63adc8f77bfa6" compoundref="huff__code_8c" startline="229" endline="266">huff_code_build_int</referencedby>
+        <referencedby refid="huff__code_8h_1af5d0c85a2ad206c277ecde2a085af790" compoundref="huff__code_8c" startline="269" endline="306">huff_code_build_str</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>heap.c<sp/>--<sp/>Generic<sp/>heap<sp/>structure<sp/>for<sp/>inserting<sp/>in<sp/>any<sp/>and<sp/>popping<sp/>in<sp/>sorted</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>order.</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>heap.c,v<sp/>$</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.4<sp/><sp/>2005/06/22<sp/>03:05:49<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>1,<sp/>Fixed<sp/>doxygen<sp/>documentation,<sp/>2,<sp/>Add<sp/><sp/>keyword.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:48<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>05-Mar-99<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Fixed<sp/>bug<sp/>in<sp/>heap_destroy()<sp/>(in<sp/>while<sp/>loop<sp/>exit<sp/>condition).</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>23-Dec-96<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Started.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="heap_8h" kindref="compound">sphinxbase/heap.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="err_8h" kindref="compound">sphinxbase/err.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ckd__alloc_8h" kindref="compound">sphinxbase/ckd_alloc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="structheapnode__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structheapnode__s" kindref="compound">heapnode_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="78" refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79" refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/><ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81" refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>nl,<sp/><ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82" refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structheapnode__s" kindref="compound">heapnode_s</ref><sp/>*<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="83" refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structheapnode__s" kindref="compound">heapnode_s</ref><sp/>*<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}<sp/><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="structheap__s" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structheap__s" kindref="compound">heap_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*top;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">heap_dump(<ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*<sp/>top,<sp/>int32<sp/>level)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>i;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!top)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>level;<sp/>i++)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>print<sp/>top<sp/>info<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>heap_dump(top-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref>,<sp/>level<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>heap_dump(top-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref>,<sp/>level<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="110"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*</highlight></codeline>
+<codeline lineno="113" refid="heap_8h_1a9bc21333ce58caaf58e802d8b0190efd" refkind="member"><highlight class="normal"><ref refid="heap_8h_1a9bc21333ce58caaf58e802d8b0190efd" kindref="member">heap_new</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*h<sp/>=<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*h));</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">subheap_insert(<ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*<sp/>root,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,<sp/>int32<sp/>val)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*h;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*tmpdata;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>tmpval;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!root)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h<sp/>=<sp/>(<ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*)<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structheapnode__s" kindref="compound">heapnode_t</ref>));</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref><sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref><sp/>=<sp/>val;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref><sp/>=<sp/>h-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h-&gt;nl<sp/>=<sp/>h-&gt;<ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>h;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Root<sp/>already<sp/>exists;<sp/>if<sp/>new<sp/>value<sp/>is<sp/>less,<sp/>replace<sp/>root<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(root-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref><sp/>&gt;<sp/>val)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmpdata<sp/>=<sp/>root-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmpval<sp/>=<sp/>root-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref><sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref><sp/>=<sp/>val;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>=<sp/>tmpdata;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>val<sp/>=<sp/>tmpval;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Insert<sp/>new<sp/>or<sp/>old<sp/>(replaced)<sp/>node<sp/>in<sp/>right<sp/>or<sp/>left<sp/>subtree;<sp/>keep<sp/>them<sp/>balanced<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(root-&gt;nl<sp/>&gt;<sp/>root-&gt;<ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref><sp/>=<sp/>subheap_insert(root-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref>,<sp/>data,<sp/>val);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref>++;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref><sp/>=<sp/>subheap_insert(root-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref>,<sp/>data,<sp/>val);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;nl++;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>root;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="heap_8h_1a64bcded2de5086c5d246ff760caa74a3" refkind="member"><highlight class="normal"><ref refid="heap_8h_1a64bcded2de5086c5d246ff760caa74a3" kindref="member">heap_insert</ref>(<ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*heap,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,<sp/>int32<sp/>val)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>heap-&gt;top<sp/>=<sp/>subheap_insert(heap-&gt;top,<sp/>data,<sp/>val);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">subheap_pop(<ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*<sp/>root)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*l,<sp/>*r;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Propagate<sp/>best<sp/>value<sp/>from<sp/>below<sp/>into<sp/>root,<sp/>if<sp/>any<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>l<sp/>=<sp/>root-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref>;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>r<sp/>=<sp/>root-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref>;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!l)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!r)<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)<sp/>root);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref><sp/>=<sp/>r-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref><sp/>=<sp/>r-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref><sp/>=<sp/>subheap_pop(r);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref>--;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((!r)<sp/>||<sp/>(l-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref><sp/>&lt;<sp/>r-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref><sp/>=<sp/>l-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref><sp/>=<sp/>l-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref><sp/>=<sp/>subheap_pop(l);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;nl--;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref><sp/>=<sp/>r-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref><sp/>=<sp/>r-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref><sp/>=<sp/>subheap_pop(r);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>root-&gt;<ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref>--;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>root;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="heap_8h_1a387c8913b4c62ad1a5c4702a4e6dbdbf" refkind="member"><highlight class="normal"><ref refid="heap_8h_1a387c8913b4c62ad1a5c4702a4e6dbdbf" kindref="member">heap_pop</ref>(<ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*heap,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**data,<sp/>int32<sp/>*<sp/>val)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(heap-&gt;top<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>*data<sp/>=<sp/>heap-&gt;top-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>*val<sp/>=<sp/>heap-&gt;top-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>heap-&gt;top<sp/>=<sp/>subheap_pop(heap-&gt;top);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="heap_8h_1ae70da6b59215654c2cd5ec177eaf2aec" refkind="member"><highlight class="normal"><ref refid="heap_8h_1ae70da6b59215654c2cd5ec177eaf2aec" kindref="member">heap_top</ref>(<ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*heap,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**data,<sp/>int32<sp/>*<sp/>val)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(heap-&gt;top<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>*data<sp/>=<sp/>heap-&gt;top-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>*val<sp/>=<sp/>heap-&gt;top-&gt;<ref refid="structheapnode__s_1a02a74be7915860cf3fc436d5fed6fe7d" kindref="member">val</ref>;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal">heap_remove_one(<ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*heap,<sp/><ref refid="structheapnode__s" kindref="compound">heapnode_t</ref><sp/>*top,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(top<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(top-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref><sp/>==<sp/>data)<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert(top<sp/>==<sp/>heap-&gt;top);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>heap-&gt;top<sp/>=<sp/>subheap_pop(heap-&gt;top);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(top-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(top-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref>-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref><sp/>==<sp/>data)<sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>top-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref><sp/>=<sp/>subheap_pop(top-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref>);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--top-&gt;nl;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(heap_remove_one(heap,<sp/>top-&gt;<ref refid="structheapnode__s_1af25b6bfb16162294dd35851e04ad6c6b" kindref="member">l</ref>,<sp/>data)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--top-&gt;nl;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(top-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(top-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref>-&gt;<ref refid="structheapnode__s_1a2cac1684dd94b922db98de988232efeb" kindref="member">data</ref><sp/>==<sp/>data)<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>top-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref><sp/>=<sp/>subheap_pop(top-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref>);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--top-&gt;<ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref>;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(heap_remove_one(heap,<sp/>top-&gt;<ref refid="structheapnode__s_1a92c30e27e1ccdbaea15f28aa49b0f7ea" kindref="member">r</ref>,<sp/>data)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--top-&gt;<ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref>;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="heap_8h_1aa2dbc059f9707e434098694e8c69157e" refkind="member"><highlight class="normal"><ref refid="heap_8h_1aa2dbc059f9707e434098694e8c69157e" kindref="member">heap_remove</ref>(<ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*heap,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data)</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>heap_remove_one(heap,<sp/>heap-&gt;top,<sp/>data);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273" refid="heap_8h_1a1c713d67123e96974505edfa4346cb0f" refkind="member"><highlight class="normal"><ref refid="heap_8h_1a1c713d67123e96974505edfa4346cb0f" kindref="member">heap_size</ref>(<ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*heap)</highlight></codeline>
+<codeline lineno="274"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(heap-&gt;top<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>heap-&gt;top-&gt;nl<sp/>+<sp/>heap-&gt;top-&gt;<ref refid="structheapnode__s_1ab5a21ee1a48ce5359bbcca1d416a51eb" kindref="member">nr</ref><sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281" refid="heap_8h_1ab12b1efd6392eb574d2da9c981e7320c" refkind="member"><highlight class="normal"><ref refid="heap_8h_1ab12b1efd6392eb574d2da9c981e7320c" kindref="member">heap_destroy</ref>(<ref refid="structheap__s" kindref="compound">heap_t</ref><sp/>*heap)</highlight></codeline>
+<codeline lineno="282"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>val;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Empty<sp/>the<sp/>heap<sp/>and<sp/>free<sp/>it<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="heap_8h_1a387c8913b4c62ad1a5c4702a4e6dbdbf" kindref="member">heap_pop</ref>(heap,<sp/>&amp;data,<sp/>&amp;val)<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(heap);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/heap.c"/>
+  </compounddef>
+</doxygen>

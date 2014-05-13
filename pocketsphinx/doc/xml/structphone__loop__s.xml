@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="structphone__loop__s" kind="struct" prot="public">
+    <compoundname>phone_loop_s</compoundname>
+    <includes refid="phone__loop__search_8h" local="no">phone_loop_search.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structphone__loop__s_1ad5812b40537df9b570dfc78f5352d112" prot="public" static="no" mutable="no">
+        <type><ref refid="structhmm__t" kindref="compound">hmm_t</ref></type>
+        <definition>hmm_t phone_loop_s::hmm</definition>
+        <argsstring></argsstring>
+        <name>hmm</name>
+        <briefdescription>
+<para>Basic HMM structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/phone_loop_search.h" line="64" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/phone_loop_search.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structphone__loop__s_1a471523bb294d53b6c17799dfb5946e59" prot="public" static="no" mutable="no">
+        <type>int16</type>
+        <definition>int16 phone_loop_s::ciphone</definition>
+        <argsstring></argsstring>
+        <name>ciphone</name>
+        <briefdescription>
+<para>Context-independent phone ID. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/phone_loop_search.h" line="65" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/phone_loop_search.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structphone__loop__s_1abd028e1ca731cc00d0b8bdf090289242" prot="public" static="no" mutable="no">
+        <type>int16</type>
+        <definition>int16 phone_loop_s::frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <briefdescription>
+<para>Last frame this phone was active. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/phone_loop_search.h" line="66" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/phone_loop_search.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Phone loop structure. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="330">
+        <label>phone_loop_s</label>
+        <link refid="structphone__loop__s"/>
+        <childnode refid="331" relation="usage">
+          <edgelabel>hmm</edgelabel>
+        </childnode>
+      </node>
+      <node id="331">
+        <label>hmm_s</label>
+        <link refid="structhmm__s"/>
+        <childnode refid="332" relation="usage">
+          <edgelabel>ctx</edgelabel>
+        </childnode>
+      </node>
+      <node id="332">
+        <label>hmm_context_t</label>
+        <link refid="structhmm__context__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/phone_loop_search.h" line="63" column="1" bodyfile="/home/gpuser/cmusphinx-code/pocketsphinx/src/libpocketsphinx/phone_loop_search.h" bodystart="63" bodyend="67"/>
+    <listofallmembers>
+      <member refid="structphone__loop__s_1a471523bb294d53b6c17799dfb5946e59" prot="public" virt="non-virtual"><scope>phone_loop_s</scope><name>ciphone</name></member>
+      <member refid="structphone__loop__s_1abd028e1ca731cc00d0b8bdf090289242" prot="public" virt="non-virtual"><scope>phone_loop_s</scope><name>frame</name></member>
+      <member refid="structphone__loop__s_1ad5812b40537df9b570dfc78f5352d112" prot="public" virt="non-virtual"><scope>phone_loop_s</scope><name>hmm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

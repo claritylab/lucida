@@ -1,0 +1,10 @@
+# This crontab is installed at sphinx@batman
+#
+# Use this as a template. The actual crontab files are located
+# at ~sphinx/script/crontab.regression.batman (or .mangueira)
+MAILTO=sphinx+regression@cs.cmu.edu
+0 0 * * * $HOME/script/DailyDoxygen.sh
+0 1 * * * (. $HOME/.profile; svn up $SF_ROOT/sphinx3/src/tests/regression/run_dailySTD.sh; $SF_ROOT/sphinx3/src/tests/regression/run_dailySTD.sh)
+0 0 * * 3,7 (. $HOME/.profile; svn up $SF_ROOT/sphinx3/src/tests/regression/run_PERFFULL.sh; $SF_ROOT/sphinx3/src/tests/regression/run_PERFFULL.sh)
+20 07 * * * (. $HOME/.profile; svn up $SF_ROOT/sphinxbase/test/regression/tutorial-check.sh; qsub -o $SF_ROOT/regression/`hostname`/tutorial.out -j oe $SF_ROOT/sphinxbase/test/regression/tutorial-check.sh)
+20 05 * * * (. $HOME/.profile; svn up $SF_ROOT/sphinxbase/test/regression/launchCompileCheck.sh; $SF_ROOT/sphinxbase/test/regression/launchCompileCheck.sh)

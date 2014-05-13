@@ -1,0 +1,230 @@
+\section{include/sphinxbase/logmath.h File Reference}
+\label{logmath_8h}\index{include/sphinxbase/logmath.\-h@{include/sphinxbase/logmath.\-h}}
+
+
+Fast integer logarithmic addition operations.  
+
+
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/cmd\-\_\-ln.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf logadd\-\_\-s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf L\-O\-G\-M\-A\-T\-H\-\_\-\-T\-A\-B\-L\-E}(lm)~(({\bf logadd\-\_\-t} $\ast$)lm)\label{logmath_8h_ae5c5ce106e9f8f1e763d419de53317a8}
+
+\begin{DoxyCompactList}\small\item\em Obtain the log-\/add table from a logmath\-\_\-t $\ast$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf logadd\-\_\-s} {\bf logadd\-\_\-t}
+\begin{DoxyCompactList}\small\item\em Integer log math computation table. \end{DoxyCompactList}\item 
+typedef struct {\bf logmath\-\_\-s} {\bf logmath\-\_\-t}\label{logmath_8h_ae613aa7db1dd40ff56a80a7dadb22cc8}
+
+\begin{DoxyCompactList}\small\item\em Integer log math computation class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf logmath\-\_\-t} $\ast$ {\bf logmath\-\_\-init} (float64 base, int shift, int use\-\_\-table)
+\begin{DoxyCompactList}\small\item\em Initialize a log math computation table. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf logmath\-\_\-t} $\ast$ {\bf logmath\-\_\-read} (const char $\ast$filename)\label{logmath_8h_afbed298ba0bc4736415d78880fe5c7c2}
+
+\begin{DoxyCompactList}\small\item\em Memory-\/map (or read) a log table from a file. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf logmath\-\_\-write} ({\bf logmath\-\_\-t} $\ast$lmath, const char $\ast$filename)\label{logmath_8h_a787070f5e689878348ef219245fc7c44}
+
+\begin{DoxyCompactList}\small\item\em Write a log table to a file. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf logmath\-\_\-get\-\_\-table\-\_\-shape} ({\bf logmath\-\_\-t} $\ast$lmath, uint32 $\ast$out\-\_\-size, uint32 $\ast$out\-\_\-width, uint32 $\ast$out\-\_\-shift)\label{logmath_8h_a3280500e77bf27aa7cda23268b8eb8b3}
+
+\begin{DoxyCompactList}\small\item\em Get the log table size and dimensions. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T float64 {\bf logmath\-\_\-get\-\_\-base} ({\bf logmath\-\_\-t} $\ast$lmath)\label{logmath_8h_a6114206ec0321d7015c42fc7b81cb83e}
+
+\begin{DoxyCompactList}\small\item\em Get the log base. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-get\-\_\-zero} ({\bf logmath\-\_\-t} $\ast$lmath)\label{logmath_8h_a1c160c28a9e7d25923f391773b1028c0}
+
+\begin{DoxyCompactList}\small\item\em Get the smallest possible value represented in this base. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-get\-\_\-width} ({\bf logmath\-\_\-t} $\ast$lmath)\label{logmath_8h_a0cd690d2a414aebb5e126b8cabbfabde}
+
+\begin{DoxyCompactList}\small\item\em Get the width of the values in a log table. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-get\-\_\-shift} ({\bf logmath\-\_\-t} $\ast$lmath)\label{logmath_8h_aed009aca9736612bebdda57444ec63a6}
+
+\begin{DoxyCompactList}\small\item\em Get the shift of the values in a log table. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf logmath\-\_\-t} $\ast$ {\bf logmath\-\_\-retain} ({\bf logmath\-\_\-t} $\ast$lmath)
+\begin{DoxyCompactList}\small\item\em Retain ownership of a log table. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-free} ({\bf logmath\-\_\-t} $\ast$lmath)
+\begin{DoxyCompactList}\small\item\em Free a log table. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-add\-\_\-exact} ({\bf logmath\-\_\-t} $\ast$lmath, int logb\-\_\-p, int logb\-\_\-q)\label{logmath_8h_a61bf79c70a38f00ca060b69b0efd7489}
+
+\begin{DoxyCompactList}\small\item\em Add two values in log space exactly and slowly (without using add table). \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-add} ({\bf logmath\-\_\-t} $\ast$lmath, int logb\-\_\-p, int logb\-\_\-q)
+\begin{DoxyCompactList}\small\item\em Add two values in log space (i.\-e. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-log} ({\bf logmath\-\_\-t} $\ast$lmath, float64 p)\label{logmath_8h_aebb4711268322fa7aec31e5798fe7e90}
+
+\begin{DoxyCompactList}\small\item\em Convert linear floating point number to integer log in base B. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T float64 {\bf logmath\-\_\-exp} ({\bf logmath\-\_\-t} $\ast$lmath, int logb\-\_\-p)\label{logmath_8h_ae8b0a168e29e448c0d6de66dc46e099e}
+
+\begin{DoxyCompactList}\small\item\em Convert integer log in base B to linear floating point. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-ln\-\_\-to\-\_\-log} ({\bf logmath\-\_\-t} $\ast$lmath, float64 log\-\_\-p)\label{logmath_8h_a52eff2c778ad758888b03ac5efcdccea}
+
+\begin{DoxyCompactList}\small\item\em Convert natural log (in floating point) to integer log in base B. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T float64 {\bf logmath\-\_\-log\-\_\-to\-\_\-ln} ({\bf logmath\-\_\-t} $\ast$lmath, int logb\-\_\-p)\label{logmath_8h_a8035e176636eae8b4e02fe488f25457a}
+
+\begin{DoxyCompactList}\small\item\em Convert integer log in base B to natural log (in floating point). \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int {\bf logmath\-\_\-log10\-\_\-to\-\_\-log} ({\bf logmath\-\_\-t} $\ast$lmath, float64 log\-\_\-p)\label{logmath_8h_aacb4dddeed63a61fb927915f7e3a642e}
+
+\begin{DoxyCompactList}\small\item\em Convert base 10 log (in floating point) to integer log in base B. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T float64 {\bf logmath\-\_\-log\-\_\-to\-\_\-log10} ({\bf logmath\-\_\-t} $\ast$lmath, int logb\-\_\-p)\label{logmath_8h_a7c17cb624003975e84fbd141ca6e2e06}
+
+\begin{DoxyCompactList}\small\item\em Convert integer log in base B to base 10 log (in floating point). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fast integer logarithmic addition operations. In evaluating H\-M\-M models, probability values are often kept in log domain, to avoid overflow. To enable these logprob values to be held in int32 variables without significant loss of precision, a logbase of (1+epsilon) (where epsilon $<$ 0.\-01 or so) is used. This module maintains this logbase (B).
+
+However, maintaining probabilities in log domain creates a problem when adding two probability values. This problem can be solved by table lookup. Note that\-:
+
+
+\begin{DoxyItemize}
+\item $ b^z = b^x + b^y $
+\item $ b^z = b^x(1 + b^{y-x}) = b^y(1 + e^{x-y}) $
+\item $ z = x + log_b(1 + b^{y-x}) = y + log_b(1 + b^{x-y}) $
+\end{DoxyItemize}
+
+So\-:
+
+
+\begin{DoxyItemize}
+\item when $ y > x, z = y + logadd\_table[-(x-y)] $
+\item when $ x > y, z = x + logadd\_table[-(y-x)] $
+\item where $ logadd\_table[n] = log_b(1 + b^{-n}) $
+\end{DoxyItemize}
+
+The first entry in {\itshape logadd\-\_\-table} is simply $ log_b(2.0) $, for the case where $ y = x $ and thus $ z = log_b(2x) = log_b(2) + x $. The last entry is zero, where $ log_b(x+y) = x = y $ due to loss of precision.
+
+Since this table can be quite large particularly for small logbases, an option is provided to compress it by dropping the least significant bits of the table. 
+
+Definition in file {\bf logmath.\-h}.
+
+
+
+\subsection{Typedef Documentation}
+\index{logmath.\-h@{logmath.\-h}!logadd\-\_\-t@{logadd\-\_\-t}}
+\index{logadd\-\_\-t@{logadd\-\_\-t}!logmath.h@{logmath.\-h}}
+\subsubsection[{logadd\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf logadd\-\_\-s} {\bf logadd\-\_\-t}}\label{logmath_8h_a8c04c94e2c6364f6cf3b649eb4ce5bfd}
+
+
+Integer log math computation table. 
+
+This is exposed here to allow log-\/add computations to be inlined. 
+
+Definition at line 93 of file logmath.\-h.
+
+
+
+\subsection{Function Documentation}
+\index{logmath.\-h@{logmath.\-h}!logmath\-\_\-add@{logmath\-\_\-add}}
+\index{logmath\-\_\-add@{logmath\-\_\-add}!logmath.h@{logmath.\-h}}
+\subsubsection[{logmath\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int logmath\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{{\bf logmath\-\_\-t} $\ast$}]{lmath, }
+\item[{int}]{logb\-\_\-p, }
+\item[{int}]{logb\-\_\-q}
+\end{DoxyParamCaption}
+)}\label{logmath_8h_a5eb70928578b0115c9c7ac2765396a06}
+
+
+Add two values in log space (i.\-e. 
+
+return log(exp(p)+exp(q))) 
+
+Definition at line 392 of file logmath.\-c.
+
+
+
+References logmath\-\_\-add\-\_\-exact(), L\-O\-G\-M\-A\-T\-H\-\_\-\-T\-A\-B\-L\-E, logadd\-\_\-s\-::table, logadd\-\_\-s\-::table\-\_\-size, and logadd\-\_\-s\-::width.
+
+\index{logmath.\-h@{logmath.\-h}!logmath\-\_\-free@{logmath\-\_\-free}}
+\index{logmath\-\_\-free@{logmath\-\_\-free}!logmath.h@{logmath.\-h}}
+\subsubsection[{logmath\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int logmath\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{{\bf logmath\-\_\-t} $\ast$}]{lmath}
+\end{DoxyParamCaption}
+)}\label{logmath_8h_a97865ef8bc1e8e2525a2329e0627ecfb}
+
+
+Free a log table. 
+
+\begin{DoxyReturn}{Returns}
+new reference count (0 if freed completely) 
+\end{DoxyReturn}
+
+
+Definition at line 342 of file logmath.\-c.
+
+
+
+References ckd\-\_\-free(), mmio\-\_\-file\-\_\-unmap(), and logadd\-\_\-s\-::table.
+
+
+
+Referenced by jsgf\-\_\-write\-\_\-fsg(), and logmath\-\_\-read().
+
+\index{logmath.\-h@{logmath.\-h}!logmath\-\_\-init@{logmath\-\_\-init}}
+\index{logmath\-\_\-init@{logmath\-\_\-init}!logmath.h@{logmath.\-h}}
+\subsubsection[{logmath\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf logmath\-\_\-t}$\ast$ logmath\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{float64}]{base, }
+\item[{int}]{shift, }
+\item[{int}]{use\-\_\-table}
+\end{DoxyParamCaption}
+)}\label{logmath_8h_a5835860c5f6a703c80c0214f816f0b11}
+
+
+Initialize a log math computation table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base} & The base B in which computation is to be done. \\
+\hline
+{\em shift} & Log values are shifted right by this many bits. \\
+\hline
+{\em use\-\_\-table} & Whether to use an add table or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The newly created log math table. 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file logmath.\-c.
+
+
+
+References ckd\-\_\-calloc, E\-\_\-\-E\-R\-R\-O\-R, logadd\-\_\-s\-::shift, logadd\-\_\-s\-::table, logadd\-\_\-s\-::table\-\_\-size, and logadd\-\_\-s\-::width.
+
+
+
+Referenced by jsgf\-\_\-write\-\_\-fsg().
+
+\index{logmath.\-h@{logmath.\-h}!logmath\-\_\-retain@{logmath\-\_\-retain}}
+\index{logmath\-\_\-retain@{logmath\-\_\-retain}!logmath.h@{logmath.\-h}}
+\subsubsection[{logmath\-\_\-retain}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf logmath\-\_\-t}$\ast$ logmath\-\_\-retain (
+\begin{DoxyParamCaption}
+\item[{{\bf logmath\-\_\-t} $\ast$}]{lmath}
+\end{DoxyParamCaption}
+)}\label{logmath_8h_a1c1b2ba3b137a39e9e835a8f3e27d381}
+
+
+Retain ownership of a log table. 
+
+\begin{DoxyReturn}{Returns}
+pointer to retained log table. 
+\end{DoxyReturn}
+
+
+Definition at line 335 of file logmath.\-c.
+

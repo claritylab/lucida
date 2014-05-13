@@ -1,0 +1,10 @@
+#!/bin/sh
+. ../testfuncs.sh
+
+set -e
+testname=`basename $0 .test`
+./cmdln_parse_r -a 42 > $testname.out 2>&1
+sed -ne 's,^-,-,p' < $testname.out > $testname.tmp.out \
+    && mv $testname.tmp.out $testname.out
+compare_table defaults $testname.out $tests/unit/test_cmdln/$testname.res 100
+rm -f $testname.out

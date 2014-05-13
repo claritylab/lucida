@@ -1,0 +1,99 @@
+\section{ps\-\_\-latpath\-\_\-s Struct Reference}
+\label{structps__latpath__s}\index{ps\-\_\-latpath\-\_\-s@{ps\-\_\-latpath\-\_\-s}}
+
+
+Partial path structure used in N-\/best (A$\ast$) search.  
+
+
+
+
+{\ttfamily \#include $<$ps\-\_\-lattice\-\_\-internal.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-latnode\-\_\-t} $\ast$ {\bf node}
+\begin{DoxyCompactList}\small\item\em Node ending this path. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-latpath\-\_\-s} $\ast$ {\bf parent}
+\begin{DoxyCompactList}\small\item\em Previous element in this path. \end{DoxyCompactList}\item 
+struct {\bf ps\-\_\-latpath\-\_\-s} $\ast$ {\bf next}
+\begin{DoxyCompactList}\small\item\em Pointer to next path in list of paths. \end{DoxyCompactList}\item 
+int32 {\bf score}
+\begin{DoxyCompactList}\small\item\em Exact score from start node up to node-\/$>$sf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Partial path structure used in N-\/best (A$\ast$) search. 
+
+Each partial path (latpath\-\_\-t) is constructed by extending another partial path--parent--by one node. 
+
+Definition at line 153 of file ps\-\_\-lattice\-\_\-internal.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{ps\-\_\-latpath\-\_\-s@{ps\-\_\-latpath\-\_\-s}!next@{next}}
+\index{next@{next}!ps_latpath_s@{ps\-\_\-latpath\-\_\-s}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ps\-\_\-latpath\-\_\-s}$\ast$ ps\-\_\-latpath\-\_\-s\-::next}\label{structps__latpath__s_a614ad4a857fb07f76959d385abf50a6d}
+
+
+Pointer to next path in list of paths. 
+
+
+
+Definition at line 156 of file ps\-\_\-lattice\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-astar\-\_\-next().
+
+\index{ps\-\_\-latpath\-\_\-s@{ps\-\_\-latpath\-\_\-s}!node@{node}}
+\index{node@{node}!ps_latpath_s@{ps\-\_\-latpath\-\_\-s}}
+\subsubsection[{node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ps\-\_\-latnode\-\_\-t}$\ast$ ps\-\_\-latpath\-\_\-s\-::node}\label{structps__latpath__s_a9672f7a5002d994985039aece2a69250}
+
+
+Node ending this path. 
+
+
+
+Definition at line 154 of file ps\-\_\-lattice\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-astar\-\_\-hyp(), ps\-\_\-astar\-\_\-next(), ps\-\_\-astar\-\_\-seg\-\_\-iter(), and ps\-\_\-astar\-\_\-start().
+
+\index{ps\-\_\-latpath\-\_\-s@{ps\-\_\-latpath\-\_\-s}!parent@{parent}}
+\index{parent@{parent}!ps_latpath_s@{ps\-\_\-latpath\-\_\-s}}
+\subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ps\-\_\-latpath\-\_\-s}$\ast$ ps\-\_\-latpath\-\_\-s\-::parent}\label{structps__latpath__s_a87acd26322fca11aa1432cdf9d1a2128}
+
+
+Previous element in this path. 
+
+
+
+Definition at line 155 of file ps\-\_\-lattice\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-astar\-\_\-hyp(), ps\-\_\-astar\-\_\-seg\-\_\-iter(), and ps\-\_\-astar\-\_\-start().
+
+\index{ps\-\_\-latpath\-\_\-s@{ps\-\_\-latpath\-\_\-s}!score@{score}}
+\index{score@{score}!ps_latpath_s@{ps\-\_\-latpath\-\_\-s}}
+\subsubsection[{score}]{\setlength{\rightskip}{0pt plus 5cm}int32 ps\-\_\-latpath\-\_\-s\-::score}\label{structps__latpath__s_a9249fb528f754db992df1d494a69b580}
+
+
+Exact score from start node up to node-\/$>$sf. 
+
+
+
+Definition at line 157 of file ps\-\_\-lattice\-\_\-internal.\-h.
+
+
+
+Referenced by ps\-\_\-astar\-\_\-start(), ps\-\_\-nbest\-\_\-hyp(), and ps\-\_\-nbest\-\_\-seg().
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/{\bf ps\-\_\-lattice\-\_\-internal.\-h}\end{DoxyCompactItemize}

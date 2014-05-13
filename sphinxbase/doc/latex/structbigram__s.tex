@@ -1,0 +1,77 @@
+\section{bigram\-\_\-s Struct Reference}
+\label{structbigram__s}\index{bigram\-\_\-s@{bigram\-\_\-s}}
+
+
+Bigram structure.  
+
+
+
+
+{\ttfamily \#include $<$ngram\-\_\-model\-\_\-arpa.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32 {\bf wid}
+\begin{DoxyCompactList}\small\item\em Index of unigram entry for this. \end{DoxyCompactList}\item 
+uint16 {\bf prob2}\label{structbigram__s_a769b8a54f864ac4844e37cfa17ed1af0}
+
+\begin{DoxyCompactList}\small\item\em Index into array of actual bigram probs. \end{DoxyCompactList}\item 
+uint16 {\bf bo\-\_\-wt2}\label{structbigram__s_a410991054e81251285cbc209964cdaf4}
+
+\begin{DoxyCompactList}\small\item\em Index into array of actual bigram backoff wts. \end{DoxyCompactList}\item 
+uint16 {\bf trigrams}
+\begin{DoxyCompactList}\small\item\em Index of 1st entry in lm\-\_\-t.\-trigrams[], R\-E\-L\-A\-T\-I\-V\-E T\-O its segment base (see above) \end{DoxyCompactList}\item 
+uint16 {\bf wid}
+\begin{DoxyCompactList}\small\item\em Index of unigram entry for this. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Bigram structure. 
+
+On-\/disk representation of bigrams. 
+
+Definition at line 52 of file ngram\-\_\-model\-\_\-arpa.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{bigram\-\_\-s@{bigram\-\_\-s}!trigrams@{trigrams}}
+\index{trigrams@{trigrams}!bigram_s@{bigram\-\_\-s}}
+\subsubsection[{trigrams}]{\setlength{\rightskip}{0pt plus 5cm}uint16 bigram\-\_\-s\-::trigrams}\label{structbigram__s_a11c1cb1d7c40de624f09c372b36a6857}
+
+
+Index of 1st entry in lm\-\_\-t.\-trigrams[], R\-E\-L\-A\-T\-I\-V\-E T\-O its segment base (see above) 
+
+Index of 1st entry in lm\-\_\-t.\-trigrams[], R\-E\-L\-A\-T\-I\-V\-E T\-O its segment base (see \doxyref{lm3g\-\_\-model.\-h}{p.}{lm3g__model_8h_source}) 
+
+Definition at line 56 of file ngram\-\_\-model\-\_\-arpa.\-h.
+
+\index{bigram\-\_\-s@{bigram\-\_\-s}!wid@{wid}}
+\index{wid@{wid}!bigram_s@{bigram\-\_\-s}}
+\subsubsection[{wid}]{\setlength{\rightskip}{0pt plus 5cm}uint32 bigram\-\_\-s\-::wid}\label{structbigram__s_af66faad954d56f5ceaf6ba47cdcd9b1f}
+
+
+Index of unigram entry for this. 
+
+(N\-O\-T dictionary id.) 
+
+Definition at line 53 of file ngram\-\_\-model\-\_\-arpa.\-h.
+
+\index{bigram\-\_\-s@{bigram\-\_\-s}!wid@{wid}}
+\index{wid@{wid}!bigram_s@{bigram\-\_\-s}}
+\subsubsection[{wid}]{\setlength{\rightskip}{0pt plus 5cm}uint16 bigram\-\_\-s\-::wid}\label{structbigram__s_ab35dcd789b6ff87406b516493cf97854}
+
+
+Index of unigram entry for this. 
+
+(N\-O\-T dictionary id.) 
+
+Definition at line 55 of file ngram\-\_\-model\-\_\-dmp.\-h.
+
+
+
+The documentation for this struct was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/libsphinxbase/lm/ngram\-\_\-model\-\_\-arpa.\-h\item 
+src/libsphinxbase/lm/ngram\-\_\-model\-\_\-dmp.\-h\end{DoxyCompactItemize}

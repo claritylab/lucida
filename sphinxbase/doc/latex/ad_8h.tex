@@ -1,0 +1,177 @@
+\section{include/sphinxbase/ad.h File Reference}
+\label{ad_8h}\index{include/sphinxbase/ad.\-h@{include/sphinxbase/ad.\-h}}
+
+
+generic live audio interface for recording and playback  
+
+
+{\ttfamily \#include $<$sphinx\-\_\-config.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf ad\-\_\-rec\-\_\-t}
+\item 
+struct {\bf ad\-\_\-play\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries A\-D\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-S\-I\-Z\-E}~(sizeof(int16))\label{ad_8h_a21e7cf6f08592c2fa2f78eb069f0e161}
+
+\item 
+\#define {\bfseries D\-E\-F\-A\-U\-L\-T\-\_\-\-S\-A\-M\-P\-L\-E\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C}~16000\label{ad_8h_af6fb753bcfbd8dedec800ba4d0fb8546}
+
+\item 
+\#define {\bfseries A\-D\-\_\-\-O\-K}~0\label{ad_8h_a8d1358baba080a2f6b0d350928af7a89}
+
+\item 
+\#define {\bfseries A\-D\-\_\-\-E\-O\-F}~-\/1\label{ad_8h_a8aa969c2d485c3c17cf9abfd1bb88bdd}
+
+\item 
+\#define {\bfseries A\-D\-\_\-\-E\-R\-R\-\_\-\-G\-E\-N}~-\/1\label{ad_8h_ad75f71249c0e72e6867599af315fe27d}
+
+\item 
+\#define {\bfseries A\-D\-\_\-\-E\-R\-R\-\_\-\-N\-O\-T\-\_\-\-O\-P\-E\-N}~-\/2\label{ad_8h_a7ac31adbbd108d40792fc6ba3d14929f}
+
+\item 
+\#define {\bfseries A\-D\-\_\-\-E\-R\-R\-\_\-\-W\-A\-V\-E}~-\/3\label{ad_8h_abdeca1c656c9ed4699402adb3556ae39}
+
+\item 
+\#define {\bfseries D\-E\-F\-A\-U\-L\-T\-\_\-\-D\-E\-V\-I\-C\-E}~N\-U\-L\-L\label{ad_8h_a84cb8bbda8042a324f49102bc200cc54}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf ad\-\_\-rec\-\_\-t} $\ast$ {\bf ad\-\_\-open\-\_\-dev} (const char $\ast$dev, int32 samples\-\_\-per\-\_\-sec)
+\begin{DoxyCompactList}\small\item\em Open a specific audio device for recording. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf ad\-\_\-rec\-\_\-t} $\ast$ {\bf ad\-\_\-open\-\_\-sps} (int32 samples\-\_\-per\-\_\-sec)
+\begin{DoxyCompactList}\small\item\em Open the default audio device with a given sampling rate. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf ad\-\_\-rec\-\_\-t} $\ast$ {\bf ad\-\_\-open} (void)\label{ad_8h_a3def0da951e840fb4c72ef9259540686}
+
+\begin{DoxyCompactList}\small\item\em Open the default audio device. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bfseries ad\-\_\-start\-\_\-rec} ({\bf ad\-\_\-rec\-\_\-t} $\ast$)\label{ad_8h_a9cb212b93cb439ba04dec2109ca043ff}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bfseries ad\-\_\-stop\-\_\-rec} ({\bf ad\-\_\-rec\-\_\-t} $\ast$)\label{ad_8h_a20fb285a5f93e172f6a6e04359216aa5}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bfseries ad\-\_\-close} ({\bf ad\-\_\-rec\-\_\-t} $\ast$)\label{ad_8h_a6bcf3ed5e9d0c2d51086cae93bc3b3fc}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bfseries ad\-\_\-read} ({\bf ad\-\_\-rec\-\_\-t} $\ast$, int16 $\ast$buf, int32 max)\label{ad_8h_ad4a5f4ab5267003169f6d3e15e54f697}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf ad\-\_\-play\-\_\-t} $\ast$ {\bfseries ad\-\_\-open\-\_\-play\-\_\-sps} (int32 samples\-\_\-per\-\_\-sec)\label{ad_8h_a89f8a1820e1c5ea658e692d2d15a7315}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf ad\-\_\-play\-\_\-t} $\ast$ {\bfseries ad\-\_\-open\-\_\-play} (void)\label{ad_8h_a859bfe925f634f6bb3faa1a52c013388}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bfseries ad\-\_\-start\-\_\-play} ({\bf ad\-\_\-play\-\_\-t} $\ast$)\label{ad_8h_a899e10aaecde4ab33b9849ed7bb9fb73}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bfseries ad\-\_\-stop\-\_\-play} ({\bf ad\-\_\-play\-\_\-t} $\ast$)\label{ad_8h_a823c2efb2892ff2c9b112ffcda58ce17}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bfseries ad\-\_\-close\-\_\-play} ({\bf ad\-\_\-play\-\_\-t} $\ast$)\label{ad_8h_aa65454c205e3f573f4f3433a6a044448}
+
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 {\bf ad\-\_\-write} ({\bf ad\-\_\-play\-\_\-t} $\ast$, int16 $\ast$buf, int32 len)
+\begin{DoxyCompactList}\small\item\em Queue a block of audio samples for playback. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T void {\bf ad\-\_\-mu2li} (int16 $\ast$outbuf, unsigned char $\ast$inbuf, int32 n\-\_\-samp)\label{ad_8h_a7eab4d2f35d221c569b85d4240b83600}
+
+\begin{DoxyCompactList}\small\item\em Convert mu-\/law data to int16 linear P\-C\-M format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+generic live audio interface for recording and playback 
+
+Definition in file {\bf ad.\-h}.
+
+
+
+\subsection{Function Documentation}
+\index{ad.\-h@{ad.\-h}!ad\-\_\-open\-\_\-dev@{ad\-\_\-open\-\_\-dev}}
+\index{ad\-\_\-open\-\_\-dev@{ad\-\_\-open\-\_\-dev}!ad.h@{ad.\-h}}
+\subsubsection[{ad\-\_\-open\-\_\-dev}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf ad\-\_\-rec\-\_\-t}$\ast$ ad\-\_\-open\-\_\-dev (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{dev, }
+\item[{int32}]{samples\-\_\-per\-\_\-sec}
+\end{DoxyParamCaption}
+)}\label{ad_8h_a43f66257a2457d6c711dc5c694bfc02f}
+
+
+Open a specific audio device for recording. 
+
+The device is opened in non-\/blocking mode and placed in idle state.
+
+\begin{DoxyReturn}{Returns}
+pointer to read-\/only \doxyref{ad\-\_\-rec\-\_\-t}{p.}{structad__rec__t} structure if successful, N\-U\-L\-L otherwise. The return value to be used as the first argument to other recording functions. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em dev} & Device name (platform-\/specific) \\
+\hline
+{\em samples\-\_\-per\-\_\-sec} & Samples per second \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 252 of file ad\-\_\-alsa.\-c.
+
+
+
+References ad\-\_\-rec\-\_\-t\-::bps, and ad\-\_\-rec\-\_\-t\-::sps.
+
+
+
+Referenced by ad\-\_\-open\-\_\-sps().
+
+\index{ad.\-h@{ad.\-h}!ad\-\_\-open\-\_\-sps@{ad\-\_\-open\-\_\-sps}}
+\index{ad\-\_\-open\-\_\-sps@{ad\-\_\-open\-\_\-sps}!ad.h@{ad.\-h}}
+\subsubsection[{ad\-\_\-open\-\_\-sps}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T {\bf ad\-\_\-rec\-\_\-t}$\ast$ ad\-\_\-open\-\_\-sps (
+\begin{DoxyParamCaption}
+\item[{int32}]{samples\-\_\-per\-\_\-sec}
+\end{DoxyParamCaption}
+)}\label{ad_8h_a71b4eec805fbe5c398ea0897816de6f0}
+
+
+Open the default audio device with a given sampling rate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples\-\_\-per\-\_\-sec} & Samples per second \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 290 of file ad\-\_\-alsa.\-c.
+
+
+
+References ad\-\_\-open\-\_\-dev().
+
+
+
+Referenced by ad\-\_\-open().
+
+\index{ad.\-h@{ad.\-h}!ad\-\_\-write@{ad\-\_\-write}}
+\index{ad\-\_\-write@{ad\-\_\-write}!ad.h@{ad.\-h}}
+\subsubsection[{ad\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T int32 ad\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf ad\-\_\-play\-\_\-t} $\ast$}]{, }
+\item[{int16 $\ast$}]{buf, }
+\item[{int32}]{len}
+\end{DoxyParamCaption}
+)}\label{ad_8h_aea278a0c26051f4fe011778f225ea9c4}
+
+
+Queue a block of audio samples for playback. 
+
+Write the next block of [len] samples from rawbuf to the A/\-D device for playback. The device may queue less than len samples, possibly 0, since it is non-\/blocking. The application should resubmit the remaining data to be played. Return value\-: \# samples accepted for playback; -\/1 if error. 
+
+Definition at line 373 of file play\-\_\-win32.\-c.
+

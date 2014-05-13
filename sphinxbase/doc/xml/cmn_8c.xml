@@ -1,0 +1,513 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="cmn_8c" kind="file">
+    <compoundname>cmn.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="assert_8h" local="no">assert.h</includes>
+    <includes local="no">math.h</includes>
+    <includes refid="ckd__alloc_8h" local="yes">sphinxbase/ckd_alloc.h</includes>
+    <includes refid="err_8h" local="yes">sphinxbase/err.h</includes>
+    <includes refid="cmn_8h" local="yes">sphinxbase/cmn.h</includes>
+    <incdepgraph>
+      <node id="1681">
+        <label>stdarg.h</label>
+      </node>
+      <node id="1673">
+        <label>assert.h</label>
+        <link refid="assert_8h_source"/>
+      </node>
+      <node id="1682">
+        <label>errno.h</label>
+        <link refid="errno_8h_source"/>
+      </node>
+      <node id="1671">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1676">
+        <label>setjmp.h</label>
+      </node>
+      <node id="1669">
+        <label>src/libsphinxbase/feat/cmn.c</label>
+        <link refid="cmn.c"/>
+        <childnode refid="1670" relation="include">
+        </childnode>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1672" relation="include">
+        </childnode>
+        <childnode refid="1673" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+        <childnode refid="1675" relation="include">
+        </childnode>
+        <childnode refid="1680" relation="include">
+        </childnode>
+        <childnode refid="1683" relation="include">
+        </childnode>
+      </node>
+      <node id="1687">
+        <label>limits.h</label>
+      </node>
+      <node id="1679">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="1672">
+        <label>string.h</label>
+      </node>
+      <node id="1686">
+        <label>sphinxbase/fixpoint.h</label>
+        <link refid="fixpoint_8h_source"/>
+        <childnode refid="1687" relation="include">
+        </childnode>
+        <childnode refid="1677" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+      </node>
+      <node id="1677">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="1678">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="1679" relation="include">
+        </childnode>
+      </node>
+      <node id="1685">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="1670" relation="include">
+        </childnode>
+        <childnode refid="1681" relation="include">
+        </childnode>
+        <childnode refid="1677" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+      </node>
+      <node id="1684">
+        <label>sphinxbase/fe.h</label>
+        <link refid="fe_8h_source"/>
+        <childnode refid="1677" relation="include">
+        </childnode>
+        <childnode refid="1685" relation="include">
+        </childnode>
+        <childnode refid="1686" relation="include">
+        </childnode>
+      </node>
+      <node id="1683">
+        <label>sphinxbase/cmn.h</label>
+        <link refid="cmn_8h"/>
+        <childnode refid="1677" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+        <childnode refid="1684" relation="include">
+        </childnode>
+      </node>
+      <node id="1674">
+        <label>math.h</label>
+      </node>
+      <node id="1675">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1676" relation="include">
+        </childnode>
+        <childnode refid="1677" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+      </node>
+      <node id="1680">
+        <label>sphinxbase/err.h</label>
+        <link refid="err_8h"/>
+        <childnode refid="1681" relation="include">
+        </childnode>
+        <childnode refid="1670" relation="include">
+        </childnode>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1682" relation="include">
+        </childnode>
+        <childnode refid="1677" relation="include">
+        </childnode>
+      </node>
+      <node id="1670">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="cmn_8c_1adc0edb99041ae7837079a5222f36fdf2" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* cmn_type_str[]</definition>
+        <argsstring>[]</argsstring>
+        <name>cmn_type_str</name>
+        <initializer>= {
+    &quot;none&quot;,
+    &quot;current&quot;,
+    &quot;prior&quot;
+}</initializer>
+        <briefdescription>
+<para>String representations of cmn_type_t values. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" line="110" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="110" bodyend="-1"/>
+        <referencedby refid="cmn_8h_1acf5e65a03a0d74630add4a400fed0ce8" compoundref="cmn_8c" startline="118" endline="128">cmn_type_from_str</referencedby>
+        <referencedby refid="feat_8h_1a7a5e2e02e99e368e1e9e3b1ded35e3dc" compoundref="feat_8c" startline="705" endline="891">feat_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="cmn_8c_1ab64fd84a3617b67f08ab1d7f4ebbab7b" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int n_cmn_type_str</definition>
+        <argsstring></argsstring>
+        <name>n_cmn_type_str</name>
+        <initializer>= sizeof(<ref refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" kindref="member">cmn_type_str</ref>)/sizeof(<ref refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" kindref="member">cmn_type_str</ref>[0])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" line="115" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="cmn_8c_1af16ac3ac98cbe8457d6e061269c1bb06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="cmn_8h_1a9384c411b10e9db9745cfb550a5c7652" kindref="member">cmn_type_t</ref></type>
+        <definition>cmn_type_t cmn_type_from_str</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>cmn_type_from_str</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Convert string representation (from command-line) to cmn_type_t. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" line="118" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="118" bodyend="128"/>
+        <references refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" compoundref="cmn_8c" startline="110">cmn_type_str</references>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8c_1a49c9a692204be3fc6b4b9f4c24aca22b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+        <definition>cmn_t* cmn_init</definition>
+        <argsstring>(int32 veclen)</argsstring>
+        <name>cmn_init</name>
+        <param>
+          <type>int32</type>
+          <declname>veclen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" line="131" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="131" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8c_1a2810283e8b5a64e164723394c0993910" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void cmn</definition>
+        <argsstring>(cmn_t *cmn, mfcc_t **mfc, int32 varnorm, int32 n_frame)</argsstring>
+        <name>cmn</name>
+        <param>
+          <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+          <declname>cmn</declname>
+          <briefdescription><para>In/Out: cmn normalization, which contains the cmn_mean and cmn_var) </para></briefdescription>
+        </param>
+        <param>
+          <type>mfcc_t **</type>
+          <declname>mfc</declname>
+          <briefdescription><para>In/Out: mfc[f] = mfc vector in frame f </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>varnorm</declname>
+          <briefdescription><para>In: if not FALSE, variance normalize the input vectors to have unit variance (along each dimension independently); Irrelevant if no cmn is performed </para></briefdescription>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>n_frame</declname>
+          <briefdescription><para>In: Number of frames of mfc vectors </para></briefdescription>
+        </param>
+        <briefdescription>
+<para>CMN for the whole sentence. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" line="150" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="150" bodyend="210"/>
+        <references refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" compoundref="cmn_8h" startline="129">cmn_t::cmn_mean</references>
+        <references refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" compoundref="cmn_8h" startline="133">cmn_t::veclen</references>
+        <references refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" compoundref="err_8h" startline="131">E_INFO</references>
+        <references refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" compoundref="err_8h" startline="136">E_INFOCONT</references>
+        <references refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" compoundref="cmn_8h" startline="130">cmn_t::cmn_var</references>
+        <referencedby refid="feat_8h_1a7a5e2e02e99e368e1e9e3b1ded35e3dc" compoundref="feat_8c" startline="705" endline="891">feat_init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="cmn_8c_1a69715b926f0ff845734aeb80de8563af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void cmn_free</definition>
+        <argsstring>(cmn_t *cmn)</argsstring>
+        <name>cmn_free</name>
+        <param>
+          <type><ref refid="structcmn__t" kindref="compound">cmn_t</ref> *</type>
+          <declname>cmn</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" line="216" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c" bodystart="216" bodyend="230"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>cmn.c<sp/>--<sp/>Various<sp/>forms<sp/>of<sp/>cepstral<sp/>mean<sp/>normalization</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1996<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>$Log$</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.14<sp/><sp/>2006/02/24<sp/><sp/>15:57:47<sp/><sp/>egouvea</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>Removed<sp/>cmn<sp/>=<sp/>NULL<sp/>from<sp/>the<sp/>cmn_free(),<sp/>since<sp/>it&apos;s<sp/>pointless<sp/>(my<sp/>bad!).</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Removed<sp/>cmn_prior,<sp/>which<sp/>was<sp/>surrounded<sp/>by<sp/>#if<sp/>0/#endif,<sp/>since<sp/>the</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>function<sp/>is<sp/>already<sp/>in<sp/>cmn_prior.c</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.13<sp/><sp/>2006/02/23<sp/>03:47:49<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>Used<sp/>Evandro&apos;s<sp/>changes.<sp/>Resolved<sp/>conflicts.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.12<sp/><sp/>2006/02/23<sp/>00:48:23<sp/><sp/>egouvea</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>Replaced<sp/>loops<sp/>resetting<sp/>vectors<sp/>with<sp/>the<sp/>more<sp/>efficient<sp/>memset()</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.11<sp/><sp/>2006/02/22<sp/>23:43:55<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>Merged<sp/>from<sp/>the<sp/>branch<sp/>SPHINX3_5_2_RCI_IRII_BRANCH:<sp/>Put<sp/>data<sp/>structure<sp/>into<sp/>the<sp/>cmn_t<sp/>structure.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.10.4.2<sp/><sp/>2005/10/17<sp/>04:45:57<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>Free<sp/>stuffs<sp/>in<sp/>cmn<sp/>and<sp/>feat<sp/>corectly.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.10.4.1<sp/><sp/>2005/07/05<sp/>06:25:08<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>dox-doc.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.10<sp/><sp/>2005/06/21<sp/>19:28:00<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>1,<sp/>Fixed<sp/>doxygen<sp/>documentation.<sp/>2,<sp/>Added<sp/>$<sp/>keyword.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:46<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*<sp/>20.Apr.2001<sp/><sp/>RAH<sp/>(rhoughton@mediasite.com,<sp/>ricky.houghton@cs.cmu.edu)</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Added<sp/>cmn_free()<sp/>and<sp/>moved<sp/>*mean<sp/>and<sp/>*var<sp/>out<sp/>global<sp/>space<sp/>and<sp/>named<sp/>them<sp/>cmn_mean<sp/>and<sp/>cmn_var</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>28-Apr-1999<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Changed<sp/>the<sp/>name<sp/>norm_mean()<sp/>to<sp/>cmn().</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*<sp/>19-Jun-1996<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Changed<sp/>to<sp/>compute<sp/>CMN<sp/>over<sp/>ALL<sp/>dimensions<sp/>of<sp/>cep<sp/>instead<sp/>of<sp/>1..12.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*<sp/>04-Nov-1995<sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Created.</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>HAVE_CONFIG_H</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;config.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_MSC_VER</highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#pragma<sp/>warning<sp/>(disable:<sp/>4244)</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ckd__alloc_8h" kindref="compound">sphinxbase/ckd_alloc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="err_8h" kindref="compound">sphinxbase/err.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="cmn_8h" kindref="compound">sphinxbase/cmn.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>NOTE!<sp/><sp/>These<sp/>must<sp/>match<sp/>the<sp/>enum<sp/>in<sp/>cmn.h<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" kindref="member">cmn_type_str</ref>[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;none&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;current&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;prior&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_cmn_type_str<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" kindref="member">cmn_type_str</ref>)/</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" kindref="member">cmn_type_str</ref>[0]);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><ref refid="cmn_8h_1a9384c411b10e9db9745cfb550a5c7652" kindref="member">cmn_type_t</ref></highlight></codeline>
+<codeline lineno="118" refid="cmn_8h_1acf5e65a03a0d74630add4a400fed0ce8" refkind="member"><highlight class="normal"><ref refid="cmn_8h_1acf5e65a03a0d74630add4a400fed0ce8" kindref="member">cmn_type_from_str</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*str)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_cmn_type_str;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(0<sp/>==<sp/>strcmp(str,<sp/><ref refid="cmn_8h_1ae2ab0bad7168386076c43fc2a421867f" kindref="member">cmn_type_str</ref>[i]))</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="cmn_8h_1a9384c411b10e9db9745cfb550a5c7652" kindref="member">cmn_type_t</ref>)i;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;Unknown<sp/>CMN<sp/>type<sp/>&apos;%s&apos;\n&quot;</highlight><highlight class="normal">,<sp/>str);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CMN_NONE;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">cmn_init(int32<sp/>veclen)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*<ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>cmn<sp/>=<sp/>(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*)<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structcmn__t" kindref="compound">cmn_t</ref>));</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref><sp/>=<sp/>veclen;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref><sp/>=<sp/>(mfcc_t<sp/>*)<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(veclen,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(mfcc_t));</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref><sp/>=<sp/>(mfcc_t<sp/>*)<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(veclen,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(mfcc_t));</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1adb70819b1ca822d5a4ee6dc94b3b48e7" kindref="member">sum</ref><sp/>=<sp/>(mfcc_t<sp/>*)<sp/><ref refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" kindref="member">ckd_calloc</ref>(veclen,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(mfcc_t));</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>A<sp/>front-end<sp/>dependent<sp/>magic<sp/>number<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>[0]<sp/>=<sp/>FLOAT2MFCC(12.0);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1a456cc3313e93fa3057b658fef64a0c53" kindref="member">nframe</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" kindref="member">E_INFO</ref>(</highlight><highlight class="stringliteral">&quot;mean[0]=<sp/>%.2f,<sp/>mean[1..%d]=<sp/>0.0\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MFCC2FLOAT(cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>[0]),<sp/>veclen<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" refkind="member"><highlight class="normal"><ref refid="cmn_8h_1accf10de8ef4d98b4bf591529cf16565e" kindref="member">cmn</ref>(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*cmn,<sp/>mfcc_t<sp/>**<sp/>mfc,<sp/>int32<sp/>varnorm,<sp/>int32<sp/>n_frame)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>mfcc_t<sp/>*mfcp;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>mfcc_t<sp/>t;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>i,<sp/>f;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(mfc<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n_frame<sp/>&lt;=<sp/>0)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>cmn-&gt;cmn_mean<sp/>wasn&apos;t<sp/>NULL,<sp/>we<sp/>need<sp/>to<sp/>zero<sp/>the<sp/>contents<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>,<sp/>0,<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(mfcc_t));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Find<sp/>mean<sp/>cep<sp/>vector<sp/>for<sp/>this<sp/>utterance<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(f<sp/>=<sp/>0;<sp/>f<sp/>&lt;<sp/>n_frame;<sp/>f++)<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mfcp<sp/>=<sp/>mfc[f];</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>[i]<sp/>+=<sp/>mfcp[i];</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>[i]<sp/>/=<sp/>n_frame;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" kindref="member">E_INFO</ref>(</highlight><highlight class="stringliteral">&quot;CMN:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" kindref="member">E_INFOCONT</ref>(</highlight><highlight class="stringliteral">&quot;%5.2f<sp/>&quot;</highlight><highlight class="normal">,<sp/>MFCC2FLOAT(cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>[i]));</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" kindref="member">E_INFOCONT</ref>(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!varnorm)<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Subtract<sp/>mean<sp/>from<sp/>each<sp/>cep<sp/>vector<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(f<sp/>=<sp/>0;<sp/>f<sp/>&lt;<sp/>n_frame;<sp/>f++)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mfcp<sp/>=<sp/>mfc[f];</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mfcp[i]<sp/>-=<sp/>cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>[i];</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Scale<sp/>cep<sp/>vectors<sp/>to<sp/>have<sp/>unit<sp/>variance<sp/>along<sp/>each<sp/>dimension,<sp/>and<sp/>subtract<sp/>means<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>cmn-&gt;cmn_var<sp/>wasn&apos;t<sp/>NULL,<sp/>we<sp/>need<sp/>to<sp/>zero<sp/>the<sp/>contents<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memset(cmn-&gt;<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref>,<sp/>0,<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(mfcc_t));</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(f<sp/>=<sp/>0;<sp/>f<sp/>&lt;<sp/>n_frame;<sp/>f++)<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mfcp<sp/>=<sp/>mfc[f];</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t<sp/>=<sp/>mfcp[i]<sp/>-<sp/>cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>[i];</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref>[i]<sp/>+=<sp/>MFCCMUL(t,<sp/>t);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Inverse<sp/>Std.<sp/>Dev,<sp/>RAH<sp/>added<sp/>type<sp/>case<sp/>from<sp/>sqrt<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmn-&gt;<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref>[i]<sp/>=<sp/>FLOAT2MFCC(sqrt((float64)n_frame<sp/>/<sp/>MFCC2FLOAT(cmn-&gt;<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref>[i])));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(f<sp/>=<sp/>0;<sp/>f<sp/>&lt;<sp/>n_frame;<sp/>f++)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mfcp<sp/>=<sp/>mfc[f];</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>cmn-&gt;<ref refid="structcmn__t_1a10472e0ad9272f764b512ade43f37d69" kindref="member">veclen</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mfcp[i]<sp/>=<sp/>MFCCMUL((mfcp[i]<sp/>-<sp/>cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>[i]),<sp/>cmn-&gt;<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref>[i]);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*<sp/>RAH,<sp/>free<sp/>previously<sp/>allocated<sp/>memory</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal">cmn_free(<ref refid="structcmn__t" kindref="compound">cmn_t</ref><sp/>*<sp/>cmn)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cmn<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cmn-&gt;<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref>)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<sp/>cmn-&gt;<ref refid="structcmn__t_1a72813f1c9423186f5bd66ecb39099eb5" kindref="member">cmn_var</ref>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<sp/>cmn-&gt;<ref refid="structcmn__t_1aef0faa6cd93f1d9cf12659c5980aefd2" kindref="member">cmn_mean</ref>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cmn-&gt;<ref refid="structcmn__t_1adb70819b1ca822d5a4ee6dc94b3b48e7" kindref="member">sum</ref>)</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<sp/>cmn-&gt;<ref refid="structcmn__t_1adb70819b1ca822d5a4ee6dc94b3b48e7" kindref="member">sum</ref>);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<sp/>cmn);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/feat/cmn.c"/>
+  </compounddef>
+</doxygen>

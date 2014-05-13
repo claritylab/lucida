@@ -1,0 +1,1331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="ckd__alloc_8h" kind="file">
+    <compoundname>ckd_alloc.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">setjmp.h</includes>
+    <includes refid="sphinxbase__export_8h" local="no">sphinxbase/sphinxbase_export.h</includes>
+    <includes refid="prim__type_8h" local="no">sphinxbase/prim_type.h</includes>
+    <includedby refid="bitvec_8h" local="no">include/sphinxbase/bitvec.h</includedby>
+    <includedby refid="fe__interface_8c" local="yes">src/libsphinxbase/fe/fe_interface.c</includedby>
+    <includedby refid="fe__noise_8c" local="yes">src/libsphinxbase/fe/fe_noise.c</includedby>
+    <includedby refid="fe__prespch__buf_8c" local="yes">src/libsphinxbase/fe/fe_prespch_buf.c</includedby>
+    <includedby refid="fe__sigproc_8c" local="yes">src/libsphinxbase/fe/fe_sigproc.c</includedby>
+    <includedby refid="yin_8c" local="yes">src/libsphinxbase/fe/yin.c</includedby>
+    <includedby refid="agc_8c" local="yes">src/libsphinxbase/feat/agc.c</includedby>
+    <includedby refid="cmn_8c" local="yes">src/libsphinxbase/feat/cmn.c</includedby>
+    <includedby refid="cmn__prior_8c" local="yes">src/libsphinxbase/feat/cmn_prior.c</includedby>
+    <includedby refid="feat_8c" local="yes">src/libsphinxbase/feat/feat.c</includedby>
+    <includedby refid="lda_8c" local="yes">src/libsphinxbase/feat/lda.c</includedby>
+    <includedby refid="fsg__model_8c" local="yes">src/libsphinxbase/lm/fsg_model.c</includedby>
+    <includedby refid="jsgf_8c" local="yes">src/libsphinxbase/lm/jsgf.c</includedby>
+    <includedby refid="jsgf__parser_8c" local="no">src/libsphinxbase/lm/jsgf_parser.c</includedby>
+    <includedby refid="lm3g__model_8c" local="yes">src/libsphinxbase/lm/lm3g_model.c</includedby>
+    <includedby refid="ngram__model_8c" local="yes">src/libsphinxbase/lm/ngram_model.c</includedby>
+    <includedby refid="ngram__model__arpa_8c" local="yes">src/libsphinxbase/lm/ngram_model_arpa.c</includedby>
+    <includedby refid="ngram__model__dmp_8c" local="yes">src/libsphinxbase/lm/ngram_model_dmp.c</includedby>
+    <includedby refid="ngram__model__dmp32_8c" local="yes">src/libsphinxbase/lm/ngram_model_dmp32.c</includedby>
+    <includedby refid="ngram__model__set_8c" local="yes">src/libsphinxbase/lm/ngram_model_set.c</includedby>
+    <includedby refid="bio_8c" local="yes">src/libsphinxbase/util/bio.c</includedby>
+    <includedby refid="ckd__alloc_8c" local="yes">src/libsphinxbase/util/ckd_alloc.c</includedby>
+    <includedby refid="cmd__ln_8c" local="yes">src/libsphinxbase/util/cmd_ln.c</includedby>
+    <includedby refid="dtoa_8c" local="yes">src/libsphinxbase/util/dtoa.c</includedby>
+    <includedby refid="glist_8c" local="yes">src/libsphinxbase/util/glist.c</includedby>
+    <includedby refid="hash__table_8c" local="yes">src/libsphinxbase/util/hash_table.c</includedby>
+    <includedby refid="heap_8c" local="yes">src/libsphinxbase/util/heap.c</includedby>
+    <includedby refid="huff__code_8c" local="yes">src/libsphinxbase/util/huff_code.c</includedby>
+    <includedby refid="listelem__alloc_8c" local="yes">src/libsphinxbase/util/listelem_alloc.c</includedby>
+    <includedby refid="logmath_8c" local="yes">src/libsphinxbase/util/logmath.c</includedby>
+    <includedby refid="matrix_8c" local="yes">src/libsphinxbase/util/matrix.c</includedby>
+    <includedby refid="mmio_8c" local="yes">src/libsphinxbase/util/mmio.c</includedby>
+    <includedby refid="pio_8c" local="yes">src/libsphinxbase/util/pio.c</includedby>
+    <includedby refid="profile_8c" local="yes">src/libsphinxbase/util/profile.c</includedby>
+    <includedby refid="sbthread_8c" local="yes">src/libsphinxbase/util/sbthread.c</includedby>
+    <includedby refid="strfuncs_8c" local="yes">src/libsphinxbase/util/strfuncs.c</includedby>
+    <includedby refid="cont__seg_8c" local="no">src/sphinx_adtools/cont_seg.c</includedby>
+    <includedby refid="sphinx__pitch_8c" local="no">src/sphinx_adtools/sphinx_pitch.c</includedby>
+    <includedby refid="main__cepview_8c" local="no">src/sphinx_cepview/main_cepview.c</includedby>
+    <includedby refid="sphinx__fe_8c" local="no">src/sphinx_fe/sphinx_fe.c</includedby>
+    <includedby refid="sphinx__lm__convert_8c" local="no">src/sphinx_lmtools/sphinx_lm_convert.c</includedby>
+    <includedby refid="sphinx__lm__eval_8c" local="no">src/sphinx_lmtools/sphinx_lm_eval.c</includedby>
+    <incdepgraph>
+      <node id="231">
+        <label>stdlib.h</label>
+      </node>
+      <node id="232">
+        <label>setjmp.h</label>
+      </node>
+      <node id="235">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="233">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="234">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="235" relation="include">
+        </childnode>
+      </node>
+      <node id="230">
+        <label>include/sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd_alloc.h"/>
+        <childnode refid="231" relation="include">
+        </childnode>
+        <childnode refid="232" relation="include">
+        </childnode>
+        <childnode refid="233" relation="include">
+        </childnode>
+        <childnode refid="234" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="264">
+        <label>src/libsphinxbase/util/ckd_alloc.c</label>
+        <link refid="ckd__alloc_8c_source"/>
+      </node>
+      <node id="262">
+        <label>src/libsphinxbase/lm/ngram_model_set.c</label>
+        <link refid="ngram__model__set_8c"/>
+      </node>
+      <node id="281">
+        <label>src/sphinx_cepview/main_cepview.c</label>
+        <link refid="main__cepview_8c"/>
+      </node>
+      <node id="284">
+        <label>src/sphinx_lmtools/sphinx_lm_eval.c</label>
+        <link refid="sphinx__lm__eval_8c"/>
+      </node>
+      <node id="242">
+        <label>src/libsphinxbase/lm/jsgf_parser.c</label>
+        <link refid="jsgf__parser_8c_source"/>
+      </node>
+      <node id="237">
+        <label>include/sphinxbase/bitvec.h</label>
+        <link refid="bitvec_8h"/>
+        <childnode refid="238" relation="include">
+        </childnode>
+        <childnode refid="246" relation="include">
+        </childnode>
+      </node>
+      <node id="282">
+        <label>src/sphinx_fe/sphinx_fe.c</label>
+        <link refid="sphinx__fe_8c_source"/>
+      </node>
+      <node id="257">
+        <label>src/libsphinxbase/lm/lm3g_model.c</label>
+        <link refid="lm3g__model_8c_source"/>
+      </node>
+      <node id="251">
+        <label>src/libsphinxbase/fe/yin.c</label>
+        <link refid="yin_8c"/>
+      </node>
+      <node id="254">
+        <label>src/libsphinxbase/feat/cmn_prior.c</label>
+        <link refid="cmn__prior_8c_source"/>
+      </node>
+      <node id="266">
+        <label>src/libsphinxbase/util/dtoa.c</label>
+        <link refid="dtoa_8c_source"/>
+      </node>
+      <node id="245">
+        <label>src/libsphinxbase/lm/fsg_model.c</label>
+        <link refid="fsg__model_8c_source"/>
+      </node>
+      <node id="246">
+        <label>src/libsphinxbase/util/bitvec.c</label>
+        <link refid="bitvec_8c_source"/>
+      </node>
+      <node id="271">
+        <label>src/libsphinxbase/util/listelem_alloc.c</label>
+        <link refid="listelem__alloc_8c_source"/>
+      </node>
+      <node id="278">
+        <label>src/libsphinxbase/util/strfuncs.c</label>
+        <link refid="strfuncs_8c_source"/>
+      </node>
+      <node id="276">
+        <label>src/libsphinxbase/util/profile.c</label>
+        <link refid="profile_8c_source"/>
+      </node>
+      <node id="250">
+        <label>src/libsphinxbase/fe/fe_sigproc.c</label>
+        <link refid="fe__sigproc_8c_source"/>
+      </node>
+      <node id="253">
+        <label>src/libsphinxbase/feat/cmn.c</label>
+        <link refid="cmn_8c_source"/>
+      </node>
+      <node id="272">
+        <label>src/libsphinxbase/util/logmath.c</label>
+        <link refid="logmath_8c_source"/>
+      </node>
+      <node id="280">
+        <label>src/sphinx_adtools/sphinx_pitch.c</label>
+        <link refid="sphinx__pitch_8c_source"/>
+      </node>
+      <node id="269">
+        <label>src/libsphinxbase/util/heap.c</label>
+        <link refid="heap_8c_source"/>
+      </node>
+      <node id="244">
+        <label>src/sphinx_jsgf2fsg/main.c</label>
+        <link refid="main_8c_source"/>
+      </node>
+      <node id="240">
+        <label>src/libsphinxbase/lm/jsgf_internal.h</label>
+        <link refid="jsgf__internal_8h"/>
+        <childnode refid="241" relation="include">
+        </childnode>
+        <childnode refid="242" relation="include">
+        </childnode>
+        <childnode refid="243" relation="include">
+        </childnode>
+      </node>
+      <node id="238">
+        <label>include/sphinxbase/fsg_model.h</label>
+        <link refid="fsg__model_8h_source"/>
+        <childnode refid="239" relation="include">
+        </childnode>
+        <childnode refid="245" relation="include">
+        </childnode>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="244" relation="include">
+        </childnode>
+      </node>
+      <node id="255">
+        <label>src/libsphinxbase/feat/feat.c</label>
+        <link refid="feat_8c_source"/>
+      </node>
+      <node id="275">
+        <label>src/libsphinxbase/util/pio.c</label>
+        <link refid="pio_8c_source"/>
+      </node>
+      <node id="249">
+        <label>src/libsphinxbase/fe/fe_prespch_buf.c</label>
+        <link refid="fe__prespch__buf_8c_source"/>
+      </node>
+      <node id="265">
+        <label>src/libsphinxbase/util/cmd_ln.c</label>
+        <link refid="cmd__ln_8c_source"/>
+      </node>
+      <node id="261">
+        <label>src/libsphinxbase/lm/ngram_model_dmp32.c</label>
+        <link refid="ngram__model__dmp32_8c_source"/>
+      </node>
+      <node id="274">
+        <label>src/libsphinxbase/util/mmio.c</label>
+        <link refid="mmio_8c_source"/>
+      </node>
+      <node id="277">
+        <label>src/libsphinxbase/util/sbthread.c</label>
+        <link refid="sbthread_8c"/>
+      </node>
+      <node id="268">
+        <label>src/libsphinxbase/util/hash_table.c</label>
+        <link refid="hash__table_8c_source"/>
+      </node>
+      <node id="260">
+        <label>src/libsphinxbase/lm/ngram_model_dmp.c</label>
+        <link refid="ngram__model__dmp_8c_source"/>
+      </node>
+      <node id="247">
+        <label>src/libsphinxbase/fe/fe_interface.c</label>
+        <link refid="fe__interface_8c_source"/>
+      </node>
+      <node id="241">
+        <label>src/libsphinxbase/lm/jsgf.c</label>
+        <link refid="jsgf_8c"/>
+      </node>
+      <node id="252">
+        <label>src/libsphinxbase/feat/agc.c</label>
+        <link refid="agc_8c_source"/>
+      </node>
+      <node id="236">
+        <label>include/sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd_alloc.h"/>
+        <childnode refid="237" relation="include">
+        </childnode>
+        <childnode refid="247" relation="include">
+        </childnode>
+        <childnode refid="248" relation="include">
+        </childnode>
+        <childnode refid="249" relation="include">
+        </childnode>
+        <childnode refid="250" relation="include">
+        </childnode>
+        <childnode refid="251" relation="include">
+        </childnode>
+        <childnode refid="252" relation="include">
+        </childnode>
+        <childnode refid="253" relation="include">
+        </childnode>
+        <childnode refid="254" relation="include">
+        </childnode>
+        <childnode refid="255" relation="include">
+        </childnode>
+        <childnode refid="256" relation="include">
+        </childnode>
+        <childnode refid="245" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+        <childnode refid="242" relation="include">
+        </childnode>
+        <childnode refid="257" relation="include">
+        </childnode>
+        <childnode refid="258" relation="include">
+        </childnode>
+        <childnode refid="259" relation="include">
+        </childnode>
+        <childnode refid="260" relation="include">
+        </childnode>
+        <childnode refid="261" relation="include">
+        </childnode>
+        <childnode refid="262" relation="include">
+        </childnode>
+        <childnode refid="263" relation="include">
+        </childnode>
+        <childnode refid="264" relation="include">
+        </childnode>
+        <childnode refid="265" relation="include">
+        </childnode>
+        <childnode refid="266" relation="include">
+        </childnode>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="268" relation="include">
+        </childnode>
+        <childnode refid="269" relation="include">
+        </childnode>
+        <childnode refid="270" relation="include">
+        </childnode>
+        <childnode refid="271" relation="include">
+        </childnode>
+        <childnode refid="272" relation="include">
+        </childnode>
+        <childnode refid="273" relation="include">
+        </childnode>
+        <childnode refid="274" relation="include">
+        </childnode>
+        <childnode refid="275" relation="include">
+        </childnode>
+        <childnode refid="276" relation="include">
+        </childnode>
+        <childnode refid="277" relation="include">
+        </childnode>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="280" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+        <childnode refid="282" relation="include">
+        </childnode>
+        <childnode refid="283" relation="include">
+        </childnode>
+        <childnode refid="284" relation="include">
+        </childnode>
+      </node>
+      <node id="270">
+        <label>src/libsphinxbase/util/huff_code.c</label>
+        <link refid="huff__code_8c_source"/>
+      </node>
+      <node id="258">
+        <label>src/libsphinxbase/lm/ngram_model.c</label>
+        <link refid="ngram__model_8c_source"/>
+      </node>
+      <node id="283">
+        <label>src/sphinx_lmtools/sphinx_lm_convert.c</label>
+        <link refid="sphinx__lm__convert_8c"/>
+      </node>
+      <node id="267">
+        <label>src/libsphinxbase/util/glist.c</label>
+        <link refid="glist_8c_source"/>
+      </node>
+      <node id="259">
+        <label>src/libsphinxbase/lm/ngram_model_arpa.c</label>
+        <link refid="ngram__model__arpa_8c_source"/>
+      </node>
+      <node id="243">
+        <label>src/libsphinxbase/lm/jsgf_scanner.c</label>
+        <link refid="jsgf__scanner_8c_source"/>
+      </node>
+      <node id="279">
+        <label>src/sphinx_adtools/cont_seg.c</label>
+        <link refid="cont__seg_8c_source"/>
+      </node>
+      <node id="263">
+        <label>src/libsphinxbase/util/bio.c</label>
+        <link refid="bio_8c_source"/>
+      </node>
+      <node id="256">
+        <label>src/libsphinxbase/feat/lda.c</label>
+        <link refid="lda_8c_source"/>
+      </node>
+      <node id="248">
+        <label>src/libsphinxbase/fe/fe_noise.c</label>
+        <link refid="fe__noise_8c_source"/>
+      </node>
+      <node id="239">
+        <label>include/sphinxbase/jsgf.h</label>
+        <link refid="jsgf_8h"/>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="244" relation="include">
+        </childnode>
+      </node>
+      <node id="273">
+        <label>src/libsphinxbase/util/matrix.c</label>
+        <link refid="matrix_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" prot="public" static="no">
+        <name>ckd_calloc</name>
+        <param><defname>n</defname></param>
+        <param><defname>sz</defname></param>
+        <initializer>__ckd_calloc__((n),(sz),__FILE__,__LINE__)</initializer>
+        <briefdescription>
+<para>Macros to simplify the use of above functions. </para>        </briefdescription>
+        <detaileddescription>
+<para>One should use these, rather than target functions directly. Macro for <bold>ckd_calloc</bold> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="248" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="248" bodyend="-1"/>
+        <referencedby refid="ckd__alloc_8h_1a7881d3a852b82336f644f504453bb839" compoundref="ckd__alloc_8c" startline="310" endline="361">__ckd_calloc_4d__</referencedby>
+        <referencedby refid="agc_8h_1a5c7ee7b19f8dcfd0c28b4dc76a283dc7" compoundref="agc_8c" startline="91" endline="98">agc_init</referencedby>
+        <referencedby refid="bio_8h_1aaeda1ca5a5c0ca5a9e5b4820c442bbe5" compoundref="bio_8c" startline="364" endline="381">bio_fread_1d</referencedby>
+        <referencedby refid="bio_8h_1a144651e14134242035793d69918fd407" compoundref="bio_8c" startline="342" endline="361">bio_fwrite</referencedby>
+        <referencedby refid="bio_8h_1afb2a720bfe1c63d5280d343715292d61" compoundref="bio_8c" startline="592" endline="644">bio_read_wavfile</referencedby>
+        <referencedby refid="bio_8h_1a7a155ff51740f1d9a31f7bb7b6e4bc3a" compoundref="bio_8c" startline="187" endline="262">bio_readhdr</referencedby>
+        <referencedby refid="pio_8h_1a82e4694a4c13c96550f2410f8c63b1f5" compoundref="pio_8c" startline="538" endline="546">bit_encode_attach</referencedby>
+        <referencedby refid="cmd__ln_8h_1afdba0ab4dfe8a3ad9d49a6732bd62c42" compoundref="cmd__ln_8c" startline="722" endline="756">cmd_ln_init</referencedby>
+        <referencedby refid="cmd__ln_8h_1a57f54649952a07b8bef888af4e416550" compoundref="cmd__ln_8c" startline="777" endline="904">cmd_ln_parse_file_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" compoundref="cmd__ln_8c" startline="552" endline="719">cmd_ln_parse_r</referencedby>
+        <referencedby refid="feat_8h_1a03071d6d5c6b233117871f583c258b1e" compoundref="feat_8c" startline="356" endline="386">feat_array_alloc</referencedby>
+        <referencedby refid="feat_8h_1a7a5e2e02e99e368e1e9e3b1ded35e3dc" compoundref="feat_8c" startline="705" endline="891">feat_init</referencedby>
+        <referencedby refid="feat_8h_1a7452702cb435ea9244c7e1f61bbf5da1" compoundref="lda_8c" startline="139" endline="158">feat_lda_transform</referencedby>
+        <referencedby refid="feat_8h_1a918e21c2b28a6951a83c64f7023126a7" compoundref="feat_8c" startline="1169" endline="1271">feat_s2mfc2feat</referencedby>
+        <referencedby refid="feat_8h_1a9a79c7278d484fa8178cd7c06156b794" compoundref="feat_8c" startline="277" endline="328">feat_set_subvecs</referencedby>
+        <referencedby refid="pio_8h_1addfd26392f118f811584721b8d4854ce" compoundref="pio_8c" startline="192" endline="252">fopen_compchk</referencedby>
+        <referencedby refid="glist_8h_1a4fc4db2fbebd7b659554227d411f6737" compoundref="glist_8c" startline="110" endline="118">glist_add_float32</referencedby>
+        <referencedby refid="glist_8h_1a5bdd11639ef5846abb7ceb6caf059f4e" compoundref="glist_8c" startline="122" endline="130">glist_add_float64</referencedby>
+        <referencedby refid="glist_8h_1a28adfcc24a784aaed1a0b3c4c4de4c42" compoundref="glist_8c" startline="86" endline="94">glist_add_int32</referencedby>
+        <referencedby refid="glist_8h_1a77a9c20b7df5a289477af405ab778377" compoundref="glist_8c" startline="74" endline="82">glist_add_ptr</referencedby>
+        <referencedby refid="glist_8h_1aeb741d435322f34df5e5d3a99abf00de" compoundref="glist_8c" startline="98" endline="106">glist_add_uint32</referencedby>
+        <referencedby refid="glist_8h_1aff08aed022168872fc9d30cd299df2ce" compoundref="glist_8c" startline="230" endline="240">glist_insert_float32</referencedby>
+        <referencedby refid="glist_8h_1a97a682e38319dd8f67765732467110f9" compoundref="glist_8c" startline="244" endline="254">glist_insert_float64</referencedby>
+        <referencedby refid="glist_8h_1a327b6478ee05ac17e3c3b3189579413e" compoundref="glist_8c" startline="201" endline="211">glist_insert_int32</referencedby>
+        <referencedby refid="glist_8h_1a2d641da6b349c1c939e3b954382513ba" compoundref="glist_8c" startline="187" endline="197">glist_insert_ptr</referencedby>
+        <referencedby refid="glist_8h_1ab7e58ee641d3648f047eef70a20a4647" compoundref="glist_8c" startline="215" endline="226">glist_insert_uint32</referencedby>
+        <referencedby refid="hash__table_8h_1aae6e6373d3c371d57861a9a875edb207" compoundref="hash__table_8c" startline="653" endline="660">hash_table_iter</referencedby>
+        <referencedby refid="hash__table_8h_1a56d93e8c03e066b77377ac6eab50cfae" compoundref="hash__table_8c" startline="158" endline="169">hash_table_new</referencedby>
+        <referencedby refid="heap_8h_1a9bc21333ce58caaf58e802d8b0190efd" compoundref="heap_8c" startline="113" endline="117">heap_new</referencedby>
+        <referencedby refid="huff__code_8h_1a278b925caf4f2c93cbb63adc8f77bfa6" compoundref="huff__code_8c" startline="229" endline="266">huff_code_build_int</referencedby>
+        <referencedby refid="huff__code_8h_1af5d0c85a2ad206c277ecde2a085af790" compoundref="huff__code_8c" startline="269" endline="306">huff_code_build_str</referencedby>
+        <referencedby refid="huff__code_8h_1a873745b79dac884cbb1b5bdf12e069e6" compoundref="huff__code_8c" startline="309" endline="365">huff_code_read</referencedby>
+        <referencedby refid="jsgf_8c_1a2f4a4ef97090210de6c73361de1d9561" compoundref="jsgf_8c" startline="83" endline="126">jsgf_grammar_new</referencedby>
+        <referencedby refid="pio_8h_1a22d0125ab198f02f8bbe543417d99566" compoundref="pio_8c" startline="255" endline="276">lineiter_start</referencedby>
+        <referencedby refid="listelem__alloc_8h_1a4b08b49eaa74cbe9a3c95170cee78de7" compoundref="listelem__alloc_8c" startline="87" endline="118">listelem_alloc_init</referencedby>
+        <referencedby refid="logmath_8h_1a5835860c5f6a703c80c0214f816f0b11" compoundref="logmath_8c" startline="62" endline="161">logmath_init</referencedby>
+        <referencedby refid="logmath_8h_1afbed298ba0bc4736415d78880fe5c7c2" compoundref="logmath_8c" startline="164" endline="269">logmath_read</referencedby>
+        <referencedby refid="mmio_8h_1ae3367a51a50a6108178ecfdd6c983c61" compoundref="mmio_8c" startline="207" endline="238">mmio_file_read</referencedby>
+        <referencedby refid="ngram__model_8h_1ad988e0f41447ee404050caf7c7bb7b63" compoundref="ngram__model_8c" startline="722" endline="748">ngram_iter</referencedby>
+        <referencedby refid="ngram__model_8h_1a0481b03a2bf03ef0a197da0a1f7d1caa" compoundref="ngram__model_8c" startline="1026" endline="1074">ngram_model_add_class</referencedby>
+        <referencedby refid="ngram__model__set_8c_1aa4cc619035ac8091759c07d6a3b2fb7c" compoundref="ngram__model__set_8c" startline="121" endline="179">ngram_model_set_init</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a5a1593344017a1210569beb63e4089d3" compoundref="ngram__model__set_8c" startline="368" endline="378">ngram_model_set_iter</referencedby>
+        <referencedby refid="ngram__model__set_8c_1af3ac3bbec3eed0b9638c4e64c8b75949" compoundref="ngram__model__set_8c" startline="637" endline="665">ngram_model_set_map_words</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a1389a90bf32110fd7e56a73b6d39fa07" compoundref="ngram__model__set_8c" startline="182" endline="358">ngram_model_set_read</referencedby>
+        <referencedby refid="ngram__model_8h_1a4700c49fadd4ffb686536d4a77c9427c" compoundref="ngram__model_8c" startline="631" endline="648">ngram_prob</referencedby>
+        <referencedby refid="ngram__model_8h_1a710db3c3e42f6c1d088f2196b9d6c7d1" compoundref="ngram__model_8c" startline="600" endline="628">ngram_probv</referencedby>
+        <referencedby refid="ngram__model_8h_1a9c23d79885af400e17ac2a1b7169660d" compoundref="ngram__model_8c" startline="524" endline="552">ngram_score</referencedby>
+        <referencedby refid="feat_8h_1a613aca09a7f45f5ddc550efe685cb83b" compoundref="feat_8c" startline="169" endline="264">parse_subvecs</referencedby>
+        <referencedby refid="profile_8h_1acc5bd9ca1cc61377433a308b082d34b8" compoundref="profile_8c" startline="107" endline="116">pctr_new</referencedby>
+        <referencedby refid="sbthread_8c_1ad6f018be06301acbfd2b41888ca1d345" compoundref="sbthread_8c" startline="611" endline="629">sbevent_init</referencedby>
+        <referencedby refid="sbthread_8c_1a76852d201655b6f08ed6c35f6ebf8b4b" compoundref="sbthread_8c" startline="444" endline="462">sbmsgq_init</referencedby>
+        <referencedby refid="sbthread_8c_1a690fb21b06b7ef9f958a4a204bc04269" compoundref="sbthread_8c" startline="671" endline="681">sbmtx_init</referencedby>
+        <referencedby refid="sbthread_8c_1a0ba06f52feda5c218dc38373e930017c" compoundref="sbthread_8c" startline="406" endline="422">sbthread_start</referencedby>
+        <referencedby refid="strfuncs_8h_1a317522f23d291311e366de34ef86b777" compoundref="strfuncs_8c" startline="62" endline="86">string_join</referencedby>
+        <referencedby refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" compoundref="yin_8c" startline="130" endline="146">yin_init</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1a8e89a31c3c70710a8e023a177084bff2" prot="public" static="no">
+        <name>ckd_malloc</name>
+        <param><defname>sz</defname></param>
+        <initializer>__ckd_malloc__((sz),__FILE__,__LINE__)</initializer>
+        <briefdescription>
+<para>Macro for <bold>ckd_malloc</bold> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="253" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="253" bodyend="-1"/>
+        <referencedby refid="pio_8h_1a22d0125ab198f02f8bbe543417d99566" compoundref="pio_8c" startline="255" endline="276">lineiter_start</referencedby>
+        <referencedby refid="pio_8h_1a11e0daa4f315d01c2e030d3a0abe702c" compoundref="pio_8c" startline="367" endline="393">fread_line</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" prot="public" static="no">
+        <name>ckd_realloc</name>
+        <param><defname>ptr</defname></param>
+        <param><defname>sz</defname></param>
+        <initializer>__ckd_realloc__(ptr,(sz),__FILE__,__LINE__)</initializer>
+        <briefdescription>
+<para>Macro for <bold>ckd_realloc</bold> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="258" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="258" bodyend="-1"/>
+        <referencedby refid="feat_8h_1a918e21c2b28a6951a83c64f7023126a7" compoundref="feat_8c" startline="1169" endline="1271">feat_s2mfc2feat</referencedby>
+        <referencedby refid="ngram__model_8h_1a0481b03a2bf03ef0a197da0a1f7d1caa" compoundref="ngram__model_8c" startline="1026" endline="1074">ngram_model_add_class</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a53071575bca9465361740c809666349d" compoundref="ngram__model__set_8c" startline="520" endline="577">ngram_model_set_add</referencedby>
+        <referencedby refid="bitvec_8h_1a617e9fca97ca02a5e959f989c5c1a4e4" compoundref="bitvec_8c" startline="64" endline="77">bitvec_realloc</referencedby>
+        <referencedby refid="cmd__ln_8h_1a57f54649952a07b8bef888af4e416550" compoundref="cmd__ln_8c" startline="777" endline="904">cmd_ln_parse_file_r</referencedby>
+        <referencedby refid="pio_8h_1a11e0daa4f315d01c2e030d3a0abe702c" compoundref="pio_8c" startline="367" endline="393">fread_line</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" prot="public" static="no">
+        <name>ckd_salloc</name>
+        <param><defname>ptr</defname></param>
+        <initializer><ref refid="ckd__alloc_8h_1ad92dae54c994a4f90c842e42d05c494a" kindref="member">__ckd_salloc__</ref>(ptr,__FILE__,__LINE__)</initializer>
+        <briefdescription>
+<para>Macro for <bold>ckd_salloc</bold> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="264" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="264" bodyend="-1"/>
+        <referencedby refid="feat_8h_1a7a5e2e02e99e368e1e9e3b1ded35e3dc" compoundref="feat_8c" startline="705" endline="891">feat_init</referencedby>
+        <referencedby refid="jsgf_8c_1a2f4a4ef97090210de6c73361de1d9561" compoundref="jsgf_8c" startline="83" endline="126">jsgf_grammar_new</referencedby>
+        <referencedby refid="ngram__model_8h_1a41b938a2c4b129dc0df37b2312d65506" compoundref="ngram__model_8c" startline="299" endline="348">ngram_model_casefold</referencedby>
+        <referencedby refid="ngram__model__set_8c_1aa4cc619035ac8091759c07d6a3b2fb7c" compoundref="ngram__model__set_8c" startline="121" endline="179">ngram_model_set_init</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a1389a90bf32110fd7e56a73b6d39fa07" compoundref="ngram__model__set_8c" startline="182" endline="358">ngram_model_set_read</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a53071575bca9465361740c809666349d" compoundref="ngram__model__set_8c" startline="520" endline="577">ngram_model_set_add</referencedby>
+        <referencedby refid="ngram__model__set_8c_1af3ac3bbec3eed0b9638c4e64c8b75949" compoundref="ngram__model__set_8c" startline="637" endline="665">ngram_model_set_map_words</referencedby>
+        <referencedby refid="bio_8h_1a7a155ff51740f1d9a31f7bb7b6e4bc3a" compoundref="bio_8c" startline="187" endline="262">bio_readhdr</referencedby>
+        <referencedby refid="cmd__ln_8h_1afdba0ab4dfe8a3ad9d49a6732bd62c42" compoundref="cmd__ln_8c" startline="722" endline="756">cmd_ln_init</referencedby>
+        <referencedby refid="cmd__ln_8h_1a57f54649952a07b8bef888af4e416550" compoundref="cmd__ln_8c" startline="777" endline="904">cmd_ln_parse_file_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1a3868b219fd3eaf64e902db38145c1c59" compoundref="cmd__ln_8c" startline="992" endline="1005">cmd_ln_set_str_r</referencedby>
+        <referencedby refid="profile_8h_1acc5bd9ca1cc61377433a308b082d34b8" compoundref="profile_8c" startline="107" endline="116">pctr_new</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1a949e7b50fcd9697b1563fa57f50e9c4f" prot="public" static="no">
+        <name>ckd_calloc_2d</name>
+        <param><defname>d1</defname></param>
+        <param><defname>d2</defname></param>
+        <param><defname>sz</defname></param>
+        <initializer><ref refid="ckd__alloc_8h_1a141713f7d0ac99eac338d6d8ae35b771" kindref="member">__ckd_calloc_2d__</ref>((d1),(d2),(sz),__FILE__,__LINE__)</initializer>
+        <briefdescription>
+<para>Macro for <bold>ckd_calloc_2d</bold> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="270" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="270" bodyend="-1"/>
+        <referencedby refid="yin_8c_1adeaf7df902787daf9fa9d7453798c01e" compoundref="yin_8c" startline="130" endline="146">yin_init</referencedby>
+        <referencedby refid="feat_8h_1a03071d6d5c6b233117871f583c258b1e" compoundref="feat_8c" startline="356" endline="386">feat_array_alloc</referencedby>
+        <referencedby refid="feat_8h_1a7a5e2e02e99e368e1e9e3b1ded35e3dc" compoundref="feat_8c" startline="705" endline="891">feat_init</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a53071575bca9465361740c809666349d" compoundref="ngram__model__set_8c" startline="520" endline="577">ngram_model_set_add</referencedby>
+        <referencedby refid="ngram__model__set_8c_1af3ac3bbec3eed0b9638c4e64c8b75949" compoundref="ngram__model__set_8c" startline="637" endline="665">ngram_model_set_map_words</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1af716d69c9fbde1d8b2678da9c260ddc7" prot="public" static="no">
+        <name>ckd_calloc_3d</name>
+        <param><defname>d1</defname></param>
+        <param><defname>d2</defname></param>
+        <param><defname>d3</defname></param>
+        <param><defname>sz</defname></param>
+        <initializer><ref refid="ckd__alloc_8h_1a19c770c65f642488f6045c442f53fc0c" kindref="member">__ckd_calloc_3d__</ref>((d1),(d2),(d3),(sz),__FILE__,__LINE__)</initializer>
+        <briefdescription>
+<para>Macro for <bold>ckd_calloc_3d</bold> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="276" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1a5364600029b5bd488e41f29d6c5ffb11" prot="public" static="no">
+        <name>ckd_calloc_4d</name>
+        <param><defname>d1</defname></param>
+        <param><defname>d2</defname></param>
+        <param><defname>d3</defname></param>
+        <param><defname>d4</defname></param>
+        <param><defname>s</defname></param>
+        <initializer><ref refid="ckd__alloc_8h_1a7881d3a852b82336f644f504453bb839" kindref="member">__ckd_calloc_4d__</ref>((d1), (d2), (d3), (d4), (s), __FILE__, __LINE__)</initializer>
+        <briefdescription>
+<para>Macro for <bold>ckd_calloc_4d</bold> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="281" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1ad5d0dce212e97207af42803a3add00e1" prot="public" static="no">
+        <name>ckd_alloc_2d_ptr</name>
+        <param><defname>d1</defname></param>
+        <param><defname>d2</defname></param>
+        <param><defname>bf</defname></param>
+        <param><defname>sz</defname></param>
+        <initializer><ref refid="ckd__alloc_8h_1a965f553ee64bbfbeda048d43393ae04b" kindref="member">__ckd_alloc_2d_ptr</ref>((d1), (d2), (bf), (sz), __FILE__, __LINE__)</initializer>
+        <briefdescription>
+<para>Macro for <bold>ckd_alloc_2d_ptr</bold> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="287" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="287" bodyend="-1"/>
+        <referencedby refid="bio_8h_1a70604d0f8035f0868f9284fa82e4fdb8" compoundref="bio_8c" startline="384" endline="427">bio_fread_2d</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1a0afe1152d34da544602e6ab1635e05b1" prot="public" static="no">
+        <name>ckd_free_2d_ptr</name>
+        <param><defname>bf</defname></param>
+        <initializer><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(bf)</initializer>
+        <briefdescription>
+<para>Free only the pointer arrays allocated with <ref refid="ckd__alloc_8h_1ad5d0dce212e97207af42803a3add00e1" kindref="member">ckd_alloc_2d_ptr()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="292" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1ab29a3fbbd58bc59aa2827eaeda090d06" prot="public" static="no">
+        <name>ckd_alloc_3d_ptr</name>
+        <param><defname>d1</defname></param>
+        <param><defname>d2</defname></param>
+        <param><defname>d3</defname></param>
+        <param><defname>bf</defname></param>
+        <param><defname>sz</defname></param>
+        <initializer><ref refid="ckd__alloc_8h_1af9a3ef2d363ee6a53429427d1d9327a6" kindref="member">__ckd_alloc_3d_ptr</ref>((d1), (d2), (d3), (bf), (sz), __FILE__, __LINE__)</initializer>
+        <briefdescription>
+<para>Macro for <bold>ckd_alloc_3d_ptr</bold> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="298" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="298" bodyend="-1"/>
+        <referencedby refid="bio_8h_1aca6a6b71d02b9e5ca6b136a28640e0c1" compoundref="bio_8c" startline="430" endline="489">bio_fread_3d</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ckd__alloc_8h_1af03a0583f358dbee5200910d151b490e" prot="public" static="no">
+        <name>ckd_free_3d_ptr</name>
+        <param><defname>bf</defname></param>
+        <initializer><ref refid="ckd__alloc_8h_1a8246c071ac12e98b7e1df9fe6da15aef" kindref="member">ckd_free_2d</ref>(bf)</initializer>
+        <briefdescription>
+<para>Free only the pointer arrays allocated with <ref refid="ckd__alloc_8h_1ab29a3fbbd58bc59aa2827eaeda090d06" kindref="member">ckd_alloc_3d_ptr()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="303" column="9" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ckd__alloc_8h_1a0ec6d92241b1912b10f59519d553acb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>jmp_buf *</type>
+        <definition>jmp_buf* ckd_set_jump</definition>
+        <argsstring>(jmp_buf *env, int abort)</argsstring>
+        <name>ckd_set_jump</name>
+        <param>
+          <type>jmp_buf *</type>
+          <declname>env</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>abort</declname>
+        </param>
+        <briefdescription>
+<para>Control behaviour of the program when allocation fails. </para>        </briefdescription>
+        <detaileddescription>
+<para>Although your program is probably toast when memory allocation fails, it is also probably a good idea to be able to catch these errors and alert the user in some way. Either that, or you might want the program to call abort() so that you can debug the failed code. This function allows you to control that behaviour.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>env</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a <computeroutput>jmp_buf</computeroutput> initialized with setjmp(), or NULL to remove a previously set jump target. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>abort</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If non-zero, the program will call abort() when allocation fails rather than exiting or calling longjmp(). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to a previously set <computeroutput>jmp_buf</computeroutput>, if any. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="127" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="109" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1ab81dfe13d2237c64182f06f66fab7b0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ckd_fail</definition>
+        <argsstring>(char *format,...)</argsstring>
+        <name>ckd_fail</name>
+        <param>
+          <type>char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+<para>Fail (with a message) according to behaviour specified by <ref refid="ckd__alloc_8h_1a0ec6d92241b1912b10f59519d553acb9" kindref="member">ckd_set_jump()</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="132" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="122" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a903aef4c99a8f19b555a34c9e31c61f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* __ckd_calloc__</definition>
+        <argsstring>(size_t n_elem, size_t elem_size, const char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_calloc__</name>
+        <param>
+          <type>size_t</type>
+          <declname>n_elem</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>elem_size</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="143" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="144" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a861f3b9f9730dd87a1dfaf3be2218fd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* __ckd_malloc__</definition>
+        <argsstring>(size_t size, const char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_malloc__</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="147" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="169" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a138dd425d0b3329aa214597cb3bd62bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* __ckd_realloc__</definition>
+        <argsstring>(void *ptr, size_t new_size, const char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_realloc__</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>new_size</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="151" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="187" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1ad92dae54c994a4f90c842e42d05c494a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT char *</type>
+        <definition>SPHINXBASE_EXPORT char* __ckd_salloc__</definition>
+        <argsstring>(const char *origstr, const char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_salloc__</name>
+        <param>
+          <type>const char *</type>
+          <declname>origstr</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+<para>Like strdup, except that if an error occurs it prints a diagnostic message and exits. </para>        </briefdescription>
+        <detaileddescription>
+<para>If origin in NULL the function also returns NULL. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="159" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="205" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a141713f7d0ac99eac338d6d8ae35b771" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* __ckd_calloc_2d__</definition>
+        <argsstring>(size_t d1, size_t d2, size_t elemsize, const char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_calloc_2d__</name>
+        <param>
+          <type>size_t</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>elemsize</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+<para>Allocate a 2-D array and return ptr to it (ie, ptr to vector of ptrs). </para>        </briefdescription>
+        <detaileddescription>
+<para>The data area is allocated in one block so it can also be treated as a 1-D array. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="167" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="223" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a19c770c65f642488f6045c442f53fc0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* __ckd_calloc_3d__</definition>
+        <argsstring>(size_t d1, size_t d2, size_t d3, size_t elemsize, const char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_calloc_3d__</name>
+        <param>
+          <type>size_t</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d3</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>elemsize</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+<para>Allocate a 3-D array and return ptr to it. </para>        </briefdescription>
+        <detaileddescription>
+<para>The data area is allocated in one block so it can also be treated as a 1-D array. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="176" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="265" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a7881d3a852b82336f644f504453bb839" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void ****</type>
+        <definition>SPHINXBASE_EXPORT void**** __ckd_calloc_4d__</definition>
+        <argsstring>(size_t d1, size_t d2, size_t d3, size_t d4, size_t elem_size, char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_calloc_4d__</name>
+        <param>
+          <type>size_t</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d3</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d4</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>elem_size</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+<para>Allocate a 34D array and return ptr to it. </para>        </briefdescription>
+        <detaileddescription>
+<para>The data area is allocated in one block so it can also be treated as a 1-D array. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="185" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="310" bodyend="361"/>
+        <references refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" compoundref="ckd__alloc_8h" startline="248">ckd_calloc</references>
+        <references refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" compoundref="err_8h" startline="83">E_FATAL</references>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1af9a3ef2d363ee6a53429427d1d9327a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* __ckd_alloc_3d_ptr</definition>
+        <argsstring>(size_t d1, size_t d2, size_t d3, void *store, size_t elem_size, char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_alloc_3d_ptr</name>
+        <param>
+          <type>size_t</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d3</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>store</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>elem_size</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+<para>Overlay a 3-D array over a previously allocated storage area. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="197" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="380" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a965f553ee64bbfbeda048d43393ae04b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void *</type>
+        <definition>SPHINXBASE_EXPORT void* __ckd_alloc_2d_ptr</definition>
+        <argsstring>(size_t d1, size_t d2, void *store, size_t elem_size, char *caller_file, int caller_line)</argsstring>
+        <name>__ckd_alloc_2d_ptr</name>
+        <param>
+          <type>size_t</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>store</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>elem_size</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>caller_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>caller_line</declname>
+        </param>
+        <briefdescription>
+<para>Overlay a s-D array over a previously allocated storage area. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="209" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="408" bodyend="425"/>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ckd_free</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>ckd_free</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Test and free a 1-D array. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="220" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="244" bodyend="252"/>
+        <referencedby refid="yin_8c_1a98f2ed13316b8ab9bf93feb4b6d3e7bd" compoundref="yin_8c" startline="149" endline="154">yin_free</referencedby>
+        <referencedby refid="agc_8h_1a6a050fc4b079be05b1946636d5d7f3aa" compoundref="agc_8c" startline="100" endline="103">agc_free</referencedby>
+        <referencedby refid="feat_8h_1ad209a1028b315a96a3a2447eccdb8605" compoundref="feat_8c" startline="267" endline="274">subvecs_free</referencedby>
+        <referencedby refid="feat_8h_1a9a79c7278d484fa8178cd7c06156b794" compoundref="feat_8c" startline="277" endline="328">feat_set_subvecs</referencedby>
+        <referencedby refid="feat_8h_1ad5c87f80af670b7a949af65bc3ba82a8" compoundref="feat_8c" startline="418" endline="422">feat_array_free</referencedby>
+        <referencedby refid="feat_8h_1a7a5e2e02e99e368e1e9e3b1ded35e3dc" compoundref="feat_8c" startline="705" endline="891">feat_init</referencedby>
+        <referencedby refid="feat_8h_1a918e21c2b28a6951a83c64f7023126a7" compoundref="feat_8c" startline="1169" endline="1271">feat_s2mfc2feat</referencedby>
+        <referencedby refid="feat_8h_1a98463b4ab5fe4265fc817523b0e25ee9" compoundref="feat_8c" startline="1430" endline="1457">feat_free</referencedby>
+        <referencedby refid="feat_8h_1a7452702cb435ea9244c7e1f61bbf5da1" compoundref="lda_8c" startline="139" endline="158">feat_lda_transform</referencedby>
+        <referencedby refid="jsgf_8c_1a0a5185af0b0f1c19d85ae553c5ecc51b" compoundref="jsgf_8c" startline="129" endline="160">jsgf_grammar_free</referencedby>
+        <referencedby refid="ngram__model_8h_1aec73d28e7285e539a0b44a7ac0cbe489" compoundref="ngram__model_8c" startline="254" endline="296">ngram_model_free</referencedby>
+        <referencedby refid="ngram__model_8h_1a9c23d79885af400e17ac2a1b7169660d" compoundref="ngram__model_8c" startline="524" endline="552">ngram_score</referencedby>
+        <referencedby refid="ngram__model_8h_1a710db3c3e42f6c1d088f2196b9d6c7d1" compoundref="ngram__model_8c" startline="600" endline="628">ngram_probv</referencedby>
+        <referencedby refid="ngram__model_8h_1a4700c49fadd4ffb686536d4a77c9427c" compoundref="ngram__model_8c" startline="631" endline="648">ngram_prob</referencedby>
+        <referencedby refid="ngram__model_8h_1ad988e0f41447ee404050caf7c7bb7b63" compoundref="ngram__model_8c" startline="722" endline="748">ngram_iter</referencedby>
+        <referencedby refid="ngram__model_8h_1ac9f746c8a5db78ef8b2fb7c312be4a22" compoundref="ngram__model_8c" startline="784" endline="788">ngram_iter_free</referencedby>
+        <referencedby refid="ngram__model_8h_1a9b2a86c23543158754373c5456fe890d" compoundref="ngram__model_8c" startline="1220" endline="1257">ngram_model_read_classdef</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a1389a90bf32110fd7e56a73b6d39fa07" compoundref="ngram__model__set_8c" startline="182" endline="358">ngram_model_set_read</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a532787b5b709d0c5f0ad57e3df0d1d73" compoundref="ngram__model__set_8c" startline="391" endline="394">ngram_model_set_iter_free</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a1fadaf8cdc6799869b74a39a8652a7e0" compoundref="ngram__model__set_8c" startline="580" endline="634">ngram_model_set_remove</referencedby>
+        <referencedby refid="ngram__model__set_8c_1af3ac3bbec3eed0b9638c4e64c8b75949" compoundref="ngram__model__set_8c" startline="637" endline="665">ngram_model_set_map_words</referencedby>
+        <referencedby refid="bio_8h_1adb3c858a50381aeff022ccd4271af2d9" compoundref="bio_8c" startline="121" endline="133">bio_hdrarg_free</referencedby>
+        <referencedby refid="bio_8h_1a144651e14134242035793d69918fd407" compoundref="bio_8c" startline="342" endline="361">bio_fwrite</referencedby>
+        <referencedby refid="bio_8h_1afb2a720bfe1c63d5280d343715292d61" compoundref="bio_8c" startline="592" endline="644">bio_read_wavfile</referencedby>
+        <referencedby refid="ckd__alloc_8h_1a8246c071ac12e98b7e1df9fe6da15aef" compoundref="ckd__alloc_8c" startline="255" endline="261">ckd_free_2d</referencedby>
+        <referencedby refid="ckd__alloc_8h_1a443accde4663a4a07c6d147088614d57" compoundref="ckd__alloc_8c" startline="297" endline="306">ckd_free_3d</referencedby>
+        <referencedby refid="ckd__alloc_8h_1a2fb0211c16bcbd89d932f383e28b9a7a" compoundref="ckd__alloc_8c" startline="364" endline="376">ckd_free_4d</referencedby>
+        <referencedby refid="cmd__ln_8h_1a57f54649952a07b8bef888af4e416550" compoundref="cmd__ln_8c" startline="777" endline="904">cmd_ln_parse_file_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1a3868b219fd3eaf64e902db38145c1c59" compoundref="cmd__ln_8c" startline="992" endline="1005">cmd_ln_set_str_r</referencedby>
+        <referencedby refid="cmd__ln_8h_1a26707fc85e87d8999e368a680e7873cd" compoundref="cmd__ln_8c" startline="1039" endline="1072">cmd_ln_free_r</referencedby>
+        <referencedby refid="glist_8h_1a45380e15d2c33afc554fd60a8828580c" compoundref="glist_8c" startline="133" endline="142">glist_free</referencedby>
+        <referencedby refid="glist_8h_1a68b51aea4de463b284a19668a713d502" compoundref="glist_8c" startline="257" endline="271">gnode_free</referencedby>
+        <referencedby refid="hash__table_8h_1a91f5b3924c0e3a50f94c86bb5fd078e8" compoundref="hash__table_8c" startline="344" endline="362">hash_table_lookup_bkey</referencedby>
+        <referencedby refid="hash__table_8h_1acab374d21e25009d397642e3465308c7" compoundref="hash__table_8c" startline="490" endline="504">hash_table_empty</referencedby>
+        <referencedby refid="hash__table_8h_1a6f5752fadefe2662adb2c141f1511062" compoundref="hash__table_8c" startline="542" endline="552">hash_table_enter_bkey</referencedby>
+        <referencedby refid="hash__table_8h_1a273237d63833e5625c830f421d9463de" compoundref="hash__table_8c" startline="555" endline="565">hash_table_replace_bkey</referencedby>
+        <referencedby refid="hash__table_8h_1aa2ab1f5eb2f1b4689645d1e1c19dc887" compoundref="hash__table_8c" startline="568" endline="578">hash_table_delete_bkey</referencedby>
+        <referencedby refid="hash__table_8h_1a7aa43b228d7dc24f5221d281debeb025" compoundref="hash__table_8c" startline="689" endline="692">hash_table_iter_free</referencedby>
+        <referencedby refid="hash__table_8h_1a0a588c22946f8cc16328973035ed19e3" compoundref="hash__table_8c" startline="695" endline="713">hash_table_free</referencedby>
+        <referencedby refid="heap_8h_1ab12b1efd6392eb574d2da9c981e7320c" compoundref="heap_8c" startline="281" endline="292">heap_destroy</referencedby>
+        <referencedby refid="huff__code_8h_1ac8678d07a65af1963cc0b3bd8b10d646" compoundref="huff__code_8c" startline="450" endline="472">huff_code_free</referencedby>
+        <referencedby refid="listelem__alloc_8h_1a4b08b49eaa74cbe9a3c95170cee78de7" compoundref="listelem__alloc_8c" startline="87" endline="118">listelem_alloc_init</referencedby>
+        <referencedby refid="listelem__alloc_8h_1a94c02e93a0abaa2bd79636cbac6cced2" compoundref="listelem__alloc_8c" startline="121" endline="131">listelem_alloc_free</referencedby>
+        <referencedby refid="logmath_8h_1a97865ef8bc1e8e2525a2329e0627ecfb" compoundref="logmath_8c" startline="342" endline="354">logmath_free</referencedby>
+        <referencedby refid="mmio_8h_1a341a9c1cc8a3c4bddfd2d29a1b0993f6" compoundref="mmio_8c" startline="241" endline="249">mmio_file_unmap</referencedby>
+        <referencedby refid="pio_8h_1aa3d71506049eb49cf03eff1b89ef281f" compoundref="pio_8c" startline="98" endline="171">fopen_comp</referencedby>
+        <referencedby refid="pio_8h_1addfd26392f118f811584721b8d4854ce" compoundref="pio_8c" startline="192" endline="252">fopen_compchk</referencedby>
+        <referencedby refid="pio_8h_1a3f80e5d4d666426cef229dd41237d9cf" compoundref="pio_8c" startline="358" endline="364">lineiter_free</referencedby>
+        <referencedby refid="pio_8h_1a8330637520174419771670ed740c9049" compoundref="pio_8c" startline="556" endline="565">bit_encode_free</referencedby>
+        <referencedby refid="profile_8h_1a90821b8f5c4593ead9f8ebea8ca6994c" compoundref="profile_8c" startline="140" endline="147">pctr_free</referencedby>
+        <referencedby refid="sbthread_8c_1a76852d201655b6f08ed6c35f6ebf8b4b" compoundref="sbthread_8c" startline="444" endline="462">sbmsgq_init</referencedby>
+        <referencedby refid="sbthread_8c_1aa8483d06a1456207643abcfebc3b2e0a" compoundref="sbthread_8c" startline="465" endline="472">sbmsgq_free</referencedby>
+        <referencedby refid="sbthread_8c_1ad6f018be06301acbfd2b41888ca1d345" compoundref="sbthread_8c" startline="611" endline="629">sbevent_init</referencedby>
+        <referencedby refid="sbthread_8c_1abba6d18d863334a98eecbaf5ffe81ab1" compoundref="sbthread_8c" startline="632" endline="637">sbevent_free</referencedby>
+        <referencedby refid="sbthread_8c_1a690fb21b06b7ef9f958a4a204bc04269" compoundref="sbthread_8c" startline="671" endline="681">sbmtx_init</referencedby>
+        <referencedby refid="sbthread_8c_1af1f9eb876ca9fc93d6c548120af14197" compoundref="sbthread_8c" startline="702" endline="706">sbmtx_free</referencedby>
+        <referencedby refid="sbthread_8c_1a2b80d955dab72ff602d9048551dc7489" compoundref="sbthread_8c" startline="734" endline="739">sbthread_free</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a8246c071ac12e98b7e1df9fe6da15aef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ckd_free_2d</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>ckd_free_2d</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Free a 2-D array (ptr) previously allocated by ckd_calloc_2d. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="226" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="255" bodyend="261"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="yin_8c_1a98f2ed13316b8ab9bf93feb4b6d3e7bd" compoundref="yin_8c" startline="149" endline="154">yin_free</referencedby>
+        <referencedby refid="feat_8h_1ad5c87f80af670b7a949af65bc3ba82a8" compoundref="feat_8c" startline="418" endline="422">feat_array_free</referencedby>
+        <referencedby refid="feat_8h_1a918e21c2b28a6951a83c64f7023126a7" compoundref="feat_8c" startline="1169" endline="1271">feat_s2mfc2feat</referencedby>
+        <referencedby refid="feat_8h_1a98463b4ab5fe4265fc817523b0e25ee9" compoundref="feat_8c" startline="1430" endline="1457">feat_free</referencedby>
+        <referencedby refid="ngram__model__set_8c_1a53071575bca9465361740c809666349d" compoundref="ngram__model__set_8c" startline="520" endline="577">ngram_model_set_add</referencedby>
+        <referencedby refid="ngram__model__set_8c_1af3ac3bbec3eed0b9638c4e64c8b75949" compoundref="ngram__model__set_8c" startline="637" endline="665">ngram_model_set_map_words</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a443accde4663a4a07c6d147088614d57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ckd_free_3d</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>ckd_free_3d</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Free a 3-D array (ptr) previously allocated by ckd_calloc_3d. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="232" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="297" bodyend="306"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+        <referencedby refid="feat_8h_1a98463b4ab5fe4265fc817523b0e25ee9" compoundref="feat_8c" startline="1430" endline="1457">feat_free</referencedby>
+        <referencedby refid="feat_8h_1a7639fbc34e3328d7e3259e61372c64b8" compoundref="lda_8c" startline="61" endline="136">feat_read_lda</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="ckd__alloc_8h_1a2fb0211c16bcbd89d932f383e28b9a7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SPHINXBASE_EXPORT void</type>
+        <definition>SPHINXBASE_EXPORT void ckd_free_4d</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>ckd_free_4d</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Free a 4-D array (ptr) previously allocated by ckd_calloc_4d. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h" line="238" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/libsphinxbase/util/ckd_alloc.c" bodystart="364" bodyend="376"/>
+        <references refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" compoundref="ckd__alloc_8c" startline="244" endline="252">ckd_free</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Sphinx&apos;s memory allocation/deallocation routines. </para>    </briefdescription>
+    <detaileddescription>
+<para>Implementation of efficient memory allocation deallocation for multiple dimensional arrays. </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999-2004<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>ckd_alloc.h<sp/>--<sp/>Memory<sp/>allocation<sp/>package.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>CMU<sp/>ARPA<sp/>Speech<sp/>Project</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1999<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>ALL<sp/>RIGHTS<sp/>RESERVED.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>**********************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>HISTORY</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>$Log:<sp/>ckd_alloc.h,v<sp/>$</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.10<sp/><sp/>2005/06/22<sp/>02:59:25<sp/><sp/>arthchan2003</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>Added<sp/><sp/>keyword</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Revision<sp/>1.3<sp/><sp/>2005/03/30<sp/>01:22:48<sp/><sp/>archan</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Fixed<sp/>mistakes<sp/>in<sp/>last<sp/>updates.<sp/>Add</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>19-Jun-97<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Removed<sp/>file,line<sp/>arguments<sp/>from<sp/>free<sp/>functions.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>01-Jan-96<sp/><sp/><sp/><sp/>M<sp/>K<sp/>Ravishankar<sp/>(rkm@cs.cmu.edu)<sp/>at<sp/>Carnegie<sp/>Mellon<sp/>University</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Created.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">/*********************************************************************</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>$Header:<sp/>/cvsroot/cmusphinx/sphinx3/src/libutil/ckd_alloc.h,v<sp/>1.10<sp/>2005/06/22<sp/>02:59:25<sp/>arthchan2003<sp/>Exp<sp/>$</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>Carnegie<sp/>Mellon<sp/>ARPA<sp/>Speech<sp/>Group</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>1994<sp/>Carnegie<sp/>Mellon<sp/>University.</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*********************************************************************</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>file:<sp/>ckd_alloc.h</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>traceability:</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/>description:</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>author:</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*********************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_LIBUTIL_CKD_ALLOC_H_</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_LIBUTIL_CKD_ALLOC_H_</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;setjmp.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Win32/WinCE<sp/>DLL<sp/>gunk<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sphinxbase/sphinxbase_export.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="prim__type_8h" kindref="compound">sphinxbase/prim_type.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#if<sp/>0</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Fool<sp/>Emacs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">jmp_buf<sp/>*<ref refid="ckd__alloc_8h_1a0ec6d92241b1912b10f59519d553acb9" kindref="member">ckd_set_jump</ref>(jmp_buf<sp/>*env,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>abort);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ckd__alloc_8h_1ab81dfe13d2237c64182f06f66fab7b0e" kindref="member">ckd_fail</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*format,<sp/>...);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>The<sp/>following<sp/>functions<sp/>are<sp/>similar<sp/>to<sp/>the<sp/>malloc<sp/>family,<sp/>except</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>that<sp/>they<sp/>have<sp/>two<sp/>additional<sp/>parameters,<sp/>caller_file<sp/>and</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>caller_line,<sp/>for<sp/>error<sp/>reporting.<sp/><sp/>All<sp/>functions<sp/>print<sp/>a<sp/>diagnostic</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>message<sp/>if<sp/>any<sp/>error<sp/>occurs,<sp/>with<sp/>any<sp/>other<sp/>behaviour<sp/>determined<sp/>by</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>ckd_set_jump(),<sp/>above.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*__ckd_calloc__(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>n_elem,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>elem_size,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*__ckd_malloc__(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*__ckd_realloc__(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*ptr,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>new_size,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="ckd__alloc_8h_1ad92dae54c994a4f90c842e42d05c494a" kindref="member">__ckd_salloc__</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*origstr,</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="ckd__alloc_8h_1a141713f7d0ac99eac338d6d8ae35b771" kindref="member">__ckd_calloc_2d__</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d1,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d2,<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In:<sp/>#elements<sp/>in<sp/>the<sp/>2<sp/>dimensions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>elemsize,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In:<sp/>Size<sp/>(#bytes)<sp/>of<sp/>each<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="ckd__alloc_8h_1a19c770c65f642488f6045c442f53fc0c" kindref="member">__ckd_calloc_3d__</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d1,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d2,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d3,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In:<sp/>#elems<sp/>in<sp/>the<sp/>dims<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>elemsize,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In:<sp/>Size<sp/>(#bytes)<sp/>per<sp/>element<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>In<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>****<ref refid="ckd__alloc_8h_1a7881d3a852b82336f644f504453bb839" kindref="member">__ckd_calloc_4d__</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d1,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d2,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d3,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d4,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>elem_size,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><ref refid="ckd__alloc_8h_1af9a3ef2d363ee6a53429427d1d9327a6" kindref="member">__ckd_alloc_3d_ptr</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d1,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d2,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d3,</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*store,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>elem_size,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="ckd__alloc_8h_1a965f553ee64bbfbeda048d43393ae04b" kindref="member">__ckd_alloc_2d_ptr</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d1,</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>d2,</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*store,</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>elem_size,</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*caller_file,</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>caller_line);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ckd__alloc_8h_1a31c6b405558620ac37599737b5722fbf" kindref="member">ckd_free</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*ptr);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ckd__alloc_8h_1a8246c071ac12e98b7e1df9fe6da15aef" kindref="member">ckd_free_2d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*ptr);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ckd__alloc_8h_1a443accde4663a4a07c6d147088614d57" kindref="member">ckd_free_3d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*ptr);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal">SPHINXBASE_EXPORT</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ckd__alloc_8h_1a2fb0211c16bcbd89d932f383e28b9a7a" kindref="member">ckd_free_4d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*ptr);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248" refid="ckd__alloc_8h_1aa00ef21903bc4f8a972488417adc8d2e" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_calloc(n,sz)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ckd_calloc__((n),(sz),__FILE__,__LINE__)</highlight></codeline>
+<codeline lineno="249"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="253" refid="ckd__alloc_8h_1a8e89a31c3c70710a8e023a177084bff2" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_malloc(sz)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ckd_malloc__((sz),__FILE__,__LINE__)</highlight></codeline>
+<codeline lineno="254"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="258" refid="ckd__alloc_8h_1afd496738b3e114bd494c5a0955f1bfb3" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_realloc(ptr,sz)<sp/><sp/><sp/><sp/><sp/>__ckd_realloc__(ptr,(sz),__FILE__,__LINE__)</highlight></codeline>
+<codeline lineno="259"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="264" refid="ckd__alloc_8h_1ad313f92478859f9e4ea99d0f6e78c393" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_salloc(ptr)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>__ckd_salloc__(ptr,__FILE__,__LINE__)</highlight></codeline>
+<codeline lineno="265"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="270" refid="ckd__alloc_8h_1a949e7b50fcd9697b1563fa57f50e9c4f" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_calloc_2d(d1,d2,sz)<sp/>__ckd_calloc_2d__((d1),(d2),(sz),__FILE__,__LINE__)</highlight></codeline>
+<codeline lineno="271"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="276" refid="ckd__alloc_8h_1af716d69c9fbde1d8b2678da9c260ddc7" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_calloc_3d(d1,d2,d3,sz)<sp/>__ckd_calloc_3d__((d1),(d2),(d3),(sz),__FILE__,__LINE__)</highlight></codeline>
+<codeline lineno="277"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="281" refid="ckd__alloc_8h_1a5364600029b5bd488e41f29d6c5ffb11" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_calloc_4d(d1,<sp/>d2,<sp/>d3,<sp/>d4,<sp/>s)<sp/><sp/>__ckd_calloc_4d__((d1),<sp/>(d2),<sp/>(d3),<sp/>(d4),<sp/>(s),<sp/>__FILE__,<sp/>__LINE__)</highlight></codeline>
+<codeline lineno="282"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="287" refid="ckd__alloc_8h_1ad5d0dce212e97207af42803a3add00e1" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_alloc_2d_ptr(d1,<sp/>d2,<sp/>bf,<sp/>sz)<sp/><sp/><sp/><sp/>__ckd_alloc_2d_ptr((d1),<sp/>(d2),<sp/>(bf),<sp/>(sz),<sp/>__FILE__,<sp/>__LINE__)</highlight></codeline>
+<codeline lineno="288"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="292" refid="ckd__alloc_8h_1a0afe1152d34da544602e6ab1635e05b1" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_free_2d_ptr(bf)<sp/>ckd_free(bf)</highlight></codeline>
+<codeline lineno="293"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="298" refid="ckd__alloc_8h_1ab29a3fbbd58bc59aa2827eaeda090d06" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_alloc_3d_ptr(d1,<sp/>d2,<sp/>d3,<sp/>bf,<sp/>sz)<sp/>__ckd_alloc_3d_ptr((d1),<sp/>(d2),<sp/>(d3),<sp/>(bf),<sp/>(sz),<sp/>__FILE__,<sp/>__LINE__)</highlight></codeline>
+<codeline lineno="299"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="303" refid="ckd__alloc_8h_1af03a0583f358dbee5200910d151b490e" refkind="member"><highlight class="preprocessor">#define<sp/>ckd_free_3d_ptr(bf)<sp/>ckd_free_2d(bf)</highlight></codeline>
+<codeline lineno="304"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight></codeline>
+<codeline lineno="307"><highlight class="preprocessor"></highlight><highlight class="normal">}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="309"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/include/sphinxbase/ckd_alloc.h"/>
+  </compounddef>
+</doxygen>

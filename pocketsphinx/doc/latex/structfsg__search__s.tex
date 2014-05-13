@@ -1,0 +1,170 @@
+\section{fsg\-\_\-search\-\_\-s Struct Reference}
+\label{structfsg__search__s}\index{fsg\-\_\-search\-\_\-s@{fsg\-\_\-search\-\_\-s}}
+
+
+Implementation of F\-S\-G search (and \char`\"{}\-F\-S\-G set\char`\"{}) structure.  
+
+
+
+
+{\ttfamily \#include $<$fsg\-\_\-search\-\_\-internal.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bf ps\-\_\-search\-\_\-t} {\bfseries base}\label{structfsg__search__s_a75f0e3fd5396d62616b9f84eab7ea355}
+
+\item 
+{\bf hmm\-\_\-context\-\_\-t} $\ast$ {\bf hmmctx}
+\begin{DoxyCompactList}\small\item\em H\-M\-M context. \end{DoxyCompactList}\item 
+fsg\-\_\-model\-\_\-t $\ast$ {\bf fsg}\label{structfsg__search__s_ab1877ffe7d77ddb79bab53fb95577946}
+
+\begin{DoxyCompactList}\small\item\em F\-S\-G model. \end{DoxyCompactList}\item 
+struct {\bf fsg\-\_\-lextree\-\_\-s} $\ast$ {\bf lextree}\label{structfsg__search__s_ac2c756ff6c1a2f1059011756d22441f8}
+
+\begin{DoxyCompactList}\small\item\em Lextree structure for the currently active F\-S\-G. \end{DoxyCompactList}\item 
+struct {\bf fsg\-\_\-history\-\_\-s} $\ast$ {\bf history}\label{structfsg__search__s_abc949ccaab380bcf5b452d1cac54469b}
+
+\begin{DoxyCompactList}\small\item\em For storing the Viterbi search history. \end{DoxyCompactList}\item 
+glist\-\_\-t {\bf pnode\-\_\-active}\label{structfsg__search__s_a318ff42978c1e645f01962345ac08215}
+
+\begin{DoxyCompactList}\small\item\em Those active in this frame. \end{DoxyCompactList}\item 
+glist\-\_\-t {\bf pnode\-\_\-active\-\_\-next}\label{structfsg__search__s_aa2dfc00e1f34041dacd9572b0d659775}
+
+\begin{DoxyCompactList}\small\item\em Those activated for the next frame. \end{DoxyCompactList}\item 
+int32 {\bf beam\-\_\-orig}\label{structfsg__search__s_a0cdf7dc3d3eed0d37f46cb71fdea206e}
+
+\begin{DoxyCompactList}\small\item\em Global pruning threshold. \end{DoxyCompactList}\item 
+int32 {\bf pbeam\-\_\-orig}\label{structfsg__search__s_a7cdf0ab2591b95d89940d51e3ab01529}
+
+\begin{DoxyCompactList}\small\item\em Pruning threshold for phone transition. \end{DoxyCompactList}\item 
+int32 {\bf wbeam\-\_\-orig}\label{structfsg__search__s_a7f3ecc2f769143e42ed958744478db3c}
+
+\begin{DoxyCompactList}\small\item\em Pruning threshold for word exit. \end{DoxyCompactList}\item 
+float32 {\bf beam\-\_\-factor}
+\begin{DoxyCompactList}\small\item\em Dynamic/adaptive factor ($<$=1) applied to above beams to determine actual effective beams. \end{DoxyCompactList}\item 
+int32 {\bfseries beam}\label{structfsg__search__s_a1dbc28682f610fef5b79fd8a182f4395}
+
+\item 
+int32 {\bfseries pbeam}\label{structfsg__search__s_a373ffd62c4bcb07a6f28378ea33161e1}
+
+\item 
+int32 {\bf wbeam}\label{structfsg__search__s_af28ddecbb5115a50712c61f8a72dcf51}
+
+\begin{DoxyCompactList}\small\item\em Effective beams after applying beam\-\_\-factor. \end{DoxyCompactList}\item 
+int32 {\bfseries lw}\label{structfsg__search__s_a77c1f7f228ca66e48fb05e1ac2b2714a}
+
+\item 
+int32 {\bfseries pip}\label{structfsg__search__s_a2163d2c02c2dfe84a83c10fdb2d330a3}
+
+\item 
+int32 {\bf wip}\label{structfsg__search__s_ae9ddc3b50d0f164926392f8ab4b019a0}
+
+\begin{DoxyCompactList}\small\item\em Language weights. \end{DoxyCompactList}\item 
+{\bf frame\-\_\-idx\-\_\-t} {\bf frame}
+\begin{DoxyCompactList}\small\item\em Current frame. \end{DoxyCompactList}\item 
+uint8 {\bf final}
+\begin{DoxyCompactList}\small\item\em Decoding is finished for this utterance. \end{DoxyCompactList}\item 
+uint8 {\bf bestpath}
+\begin{DoxyCompactList}\small\item\em Whether to run bestpath search and confidence annotation at end. \end{DoxyCompactList}\item 
+float32 {\bf ascale}
+\begin{DoxyCompactList}\small\item\em Acoustic score scale for posterior probabilities. \end{DoxyCompactList}\item 
+int32 {\bf bestscore}\label{structfsg__search__s_a52880ad440412d76f7aae7e05977ba4b}
+
+\begin{DoxyCompactList}\small\item\em For beam pruning. \end{DoxyCompactList}\item 
+int32 {\bf bpidx\-\_\-start}\label{structfsg__search__s_a24d59609008ac132dca256d36a89f9c8}
+
+\begin{DoxyCompactList}\small\item\em First history entry index this frame. \end{DoxyCompactList}\item 
+int32 {\bfseries ascr}\label{structfsg__search__s_aac3c130a5777edd2a227fd064eaefbf2}
+
+\item 
+int32 {\bf lscr}\label{structfsg__search__s_a709277a80e9418ecc3e63296f8eb6bbf}
+
+\begin{DoxyCompactList}\small\item\em Total acoustic and lm score for utt. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-hmm\-\_\-eval}\label{structfsg__search__s_a7e3d7375b4a33af339e8b55885677faa}
+
+\begin{DoxyCompactList}\small\item\em Total H\-M\-Ms evaluated this utt. \end{DoxyCompactList}\item 
+int32 {\bf n\-\_\-sen\-\_\-eval}\label{structfsg__search__s_a56494e3b30d0c66367c7ef055b8addb2}
+
+\begin{DoxyCompactList}\small\item\em Total senones evaluated this utt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of F\-S\-G search (and \char`\"{}\-F\-S\-G set\char`\"{}) structure. 
+
+Definition at line 68 of file fsg\-\_\-search\-\_\-internal.\-h.
+
+
+
+\subsection{Field Documentation}
+\index{fsg\-\_\-search\-\_\-s@{fsg\-\_\-search\-\_\-s}!ascale@{ascale}}
+\index{ascale@{ascale}!fsg_search_s@{fsg\-\_\-search\-\_\-s}}
+\subsubsection[{ascale}]{\setlength{\rightskip}{0pt plus 5cm}float32 fsg\-\_\-search\-\_\-s\-::ascale}\label{structfsg__search__s_a4d13fff2e14882b0125386fc27a4097f}
+
+
+Acoustic score scale for posterior probabilities. 
+
+
+
+Definition at line 94 of file fsg\-\_\-search\-\_\-internal.\-h.
+
+\index{fsg\-\_\-search\-\_\-s@{fsg\-\_\-search\-\_\-s}!beam\-\_\-factor@{beam\-\_\-factor}}
+\index{beam\-\_\-factor@{beam\-\_\-factor}!fsg_search_s@{fsg\-\_\-search\-\_\-s}}
+\subsubsection[{beam\-\_\-factor}]{\setlength{\rightskip}{0pt plus 5cm}float32 fsg\-\_\-search\-\_\-s\-::beam\-\_\-factor}\label{structfsg__search__s_a8e86d9f82189f8429d71ee2f67ecaaa2}
+
+
+Dynamic/adaptive factor ($<$=1) applied to above beams to determine actual effective beams. 
+
+For implementing absolute pruning. 
+
+Definition at line 84 of file fsg\-\_\-search\-\_\-internal.\-h.
+
+\index{fsg\-\_\-search\-\_\-s@{fsg\-\_\-search\-\_\-s}!bestpath@{bestpath}}
+\index{bestpath@{bestpath}!fsg_search_s@{fsg\-\_\-search\-\_\-s}}
+\subsubsection[{bestpath}]{\setlength{\rightskip}{0pt plus 5cm}uint8 fsg\-\_\-search\-\_\-s\-::bestpath}\label{structfsg__search__s_aba7eff57919c5a1de55eab3a62ff055a}
+
+
+Whether to run bestpath search and confidence annotation at end. 
+
+
+
+Definition at line 92 of file fsg\-\_\-search\-\_\-internal.\-h.
+
+\index{fsg\-\_\-search\-\_\-s@{fsg\-\_\-search\-\_\-s}!final@{final}}
+\index{final@{final}!fsg_search_s@{fsg\-\_\-search\-\_\-s}}
+\subsubsection[{final}]{\setlength{\rightskip}{0pt plus 5cm}uint8 fsg\-\_\-search\-\_\-s\-::final}\label{structfsg__search__s_a5139d7ab35ae18407e06e78e1778f857}
+
+
+Decoding is finished for this utterance. 
+
+
+
+Definition at line 91 of file fsg\-\_\-search\-\_\-internal.\-h.
+
+\index{fsg\-\_\-search\-\_\-s@{fsg\-\_\-search\-\_\-s}!frame@{frame}}
+\index{frame@{frame}!fsg_search_s@{fsg\-\_\-search\-\_\-s}}
+\subsubsection[{frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf frame\-\_\-idx\-\_\-t} fsg\-\_\-search\-\_\-s\-::frame}\label{structfsg__search__s_acdac4164d14d531b14c11a823dd22893}
+
+
+Current frame. 
+
+
+
+Definition at line 90 of file fsg\-\_\-search\-\_\-internal.\-h.
+
+\index{fsg\-\_\-search\-\_\-s@{fsg\-\_\-search\-\_\-s}!hmmctx@{hmmctx}}
+\index{hmmctx@{hmmctx}!fsg_search_s@{fsg\-\_\-search\-\_\-s}}
+\subsubsection[{hmmctx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hmm\-\_\-context\-\_\-t}$\ast$ fsg\-\_\-search\-\_\-s\-::hmmctx}\label{structfsg__search__s_a7407bdf5f311caf9d46817b3387b798c}
+
+
+H\-M\-M context. 
+
+
+
+Definition at line 71 of file fsg\-\_\-search\-\_\-internal.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/libpocketsphinx/fsg\-\_\-search\-\_\-internal.\-h\end{DoxyCompactItemize}

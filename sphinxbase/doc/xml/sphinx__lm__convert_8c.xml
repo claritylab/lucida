@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="sphinx__lm__convert_8c" kind="file">
+    <compoundname>sphinx_lm_convert.c</compoundname>
+    <includes refid="logmath_8h" local="no">sphinxbase/logmath.h</includes>
+    <includes refid="ngram__model_8h" local="no">sphinxbase/ngram_model.h</includes>
+    <includes refid="cmd__ln_8h" local="no">sphinxbase/cmd_ln.h</includes>
+    <includes refid="ckd__alloc_8h" local="no">sphinxbase/ckd_alloc.h</includes>
+    <includes refid="err_8h" local="no">sphinxbase/err.h</includes>
+    <includes refid="pio_8h" local="no">sphinxbase/pio.h</includes>
+    <includes refid="strfuncs_8h" local="no">sphinxbase/strfuncs.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">math.h</includes>
+    <incdepgraph>
+      <node id="2675">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="2666">
+        <label>stdarg.h</label>
+      </node>
+      <node id="2673">
+        <label>errno.h</label>
+        <link refid="errno_8h_source"/>
+      </node>
+      <node id="2670">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2671">
+        <label>setjmp.h</label>
+      </node>
+      <node id="2667">
+        <label>sphinxbase/ngram_model.h</label>
+        <link refid="ngram__model_8h"/>
+        <childnode refid="2666" relation="include">
+        </childnode>
+        <childnode refid="2661" relation="include">
+        </childnode>
+        <childnode refid="2662" relation="include">
+        </childnode>
+        <childnode refid="2664" relation="include">
+        </childnode>
+        <childnode refid="2660" relation="include">
+        </childnode>
+        <childnode refid="2668" relation="include">
+        </childnode>
+      </node>
+      <node id="2676">
+        <label>sphinxbase/strfuncs.h</label>
+        <link refid="strfuncs_8h"/>
+        <childnode refid="2666" relation="include">
+        </childnode>
+        <childnode refid="2661" relation="include">
+        </childnode>
+        <childnode refid="2662" relation="include">
+        </childnode>
+      </node>
+      <node id="2668">
+        <label>sphinxbase/mmio.h</label>
+        <link refid="mmio_8h"/>
+        <childnode refid="2661" relation="include">
+        </childnode>
+      </node>
+      <node id="2663">
+        <label>sphinx_config.h</label>
+      </node>
+      <node id="2677">
+        <label>string.h</label>
+      </node>
+      <node id="2661">
+        <label>sphinxbase/sphinxbase_export.h</label>
+        <link refid="sphinxbase__export_8h_source"/>
+      </node>
+      <node id="2662">
+        <label>sphinxbase/prim_type.h</label>
+        <link refid="prim__type_8h"/>
+        <childnode refid="2663" relation="include">
+        </childnode>
+      </node>
+      <node id="2664">
+        <label>sphinxbase/cmd_ln.h</label>
+        <link refid="cmd__ln_8h"/>
+        <childnode refid="2665" relation="include">
+        </childnode>
+        <childnode refid="2666" relation="include">
+        </childnode>
+        <childnode refid="2661" relation="include">
+        </childnode>
+        <childnode refid="2662" relation="include">
+        </childnode>
+      </node>
+      <node id="2660">
+        <label>sphinxbase/logmath.h</label>
+        <link refid="logmath_8h"/>
+        <childnode refid="2661" relation="include">
+        </childnode>
+        <childnode refid="2662" relation="include">
+        </childnode>
+        <childnode refid="2664" relation="include">
+        </childnode>
+      </node>
+      <node id="2674">
+        <label>sphinxbase/pio.h</label>
+        <link refid="pio_8h"/>
+        <childnode refid="2665" relation="include">
+        </childnode>
+        <childnode refid="2675" relation="include">
+        </childnode>
+        <childnode refid="2661" relation="include">
+        </childnode>
+        <childnode refid="2662" relation="include">
+        </childnode>
+      </node>
+      <node id="2678">
+        <label>math.h</label>
+      </node>
+      <node id="2669">
+        <label>sphinxbase/ckd_alloc.h</label>
+        <link refid="ckd__alloc_8h"/>
+        <childnode refid="2670" relation="include">
+        </childnode>
+        <childnode refid="2671" relation="include">
+        </childnode>
+        <childnode refid="2661" relation="include">
+        </childnode>
+        <childnode refid="2662" relation="include">
+        </childnode>
+      </node>
+      <node id="2672">
+        <label>sphinxbase/err.h</label>
+        <link refid="err_8h"/>
+        <childnode refid="2666" relation="include">
+        </childnode>
+        <childnode refid="2665" relation="include">
+        </childnode>
+        <childnode refid="2670" relation="include">
+        </childnode>
+        <childnode refid="2673" relation="include">
+        </childnode>
+        <childnode refid="2661" relation="include">
+        </childnode>
+      </node>
+      <node id="2659">
+        <label>src/sphinx_lmtools/sphinx_lm_convert.c</label>
+        <link refid="sphinx_lm_convert.c"/>
+        <childnode refid="2660" relation="include">
+        </childnode>
+        <childnode refid="2667" relation="include">
+        </childnode>
+        <childnode refid="2664" relation="include">
+        </childnode>
+        <childnode refid="2669" relation="include">
+        </childnode>
+        <childnode refid="2672" relation="include">
+        </childnode>
+        <childnode refid="2674" relation="include">
+        </childnode>
+        <childnode refid="2676" relation="include">
+        </childnode>
+        <childnode refid="2665" relation="include">
+        </childnode>
+        <childnode refid="2677" relation="include">
+        </childnode>
+        <childnode refid="2678" relation="include">
+        </childnode>
+      </node>
+      <node id="2665">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="sphinx__lm__convert_8c_1aa9dfc89dc142d39345012c421fd32059" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="structarg__t" kindref="compound">arg_t</ref></type>
+        <definition>const arg_t defn[]</definition>
+        <argsstring>[]</argsstring>
+        <name>defn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/sphinx_lmtools/sphinx_lm_convert.c" line="53" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/sphinx_lmtools/sphinx_lm_convert.c" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="sphinx__lm__convert_8c_1aea9fcf1fc2566b69e2f784e8b4a4bdeb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void usagemsg</definition>
+        <argsstring>(char *pgm)</argsstring>
+        <name>usagemsg</name>
+        <param>
+          <type>char *</type>
+          <declname>pgm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/sphinx_lmtools/sphinx_lm_convert.c" line="114" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/sphinx_lmtools/sphinx_lm_convert.c" bodystart="114" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="sphinx__lm__convert_8c_1a0ddf1224851353fc92bfbff6f499fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/sphinx_lmtools/sphinx_lm_convert.c" line="125" column="1" bodyfile="/home/gpuser/cmusphinx-code/sphinxbase/src/sphinx_lmtools/sphinx_lm_convert.c" bodystart="125" bodyend="224"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Language model conversion tool. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>c-basic-offset:<sp/>4;<sp/>indent-tabs-mode:<sp/>nil<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2009<sp/>Carnegie<sp/>Mellon<sp/>University.<sp/><sp/>All<sp/>rights<sp/></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>the<sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>distribution.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>This<sp/>work<sp/>was<sp/>supported<sp/>in<sp/>part<sp/>by<sp/>funding<sp/>from<sp/>the<sp/>Defense<sp/>Advanced<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>Research<sp/>Projects<sp/>Agency<sp/>and<sp/>the<sp/>National<sp/>Science<sp/>Foundation<sp/>of<sp/>the<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>United<sp/>States<sp/>of<sp/>America,<sp/>and<sp/>the<sp/>CMU<sp/>Sphinx<sp/>Speech<sp/>Consortium.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY<sp/>``AS<sp/>IS&apos;&apos;<sp/>AND<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>ANY<sp/>EXPRESSED<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/><sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>CARNEGIE<sp/>MELLON<sp/>UNIVERSITY</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>NOR<sp/>ITS<sp/>EMPLOYEES<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>====================================================================</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="logmath_8h" kindref="compound">sphinxbase/logmath.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ngram__model_8h" kindref="compound">sphinxbase/ngram_model.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="cmd__ln_8h" kindref="compound">sphinxbase/cmd_ln.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ckd__alloc_8h" kindref="compound">sphinxbase/ckd_alloc.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="err_8h" kindref="compound">sphinxbase/err.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="pio_8h" kindref="compound">sphinxbase/pio.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="strfuncs_8h" kindref="compound">sphinxbase/strfuncs.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structarg__t" kindref="compound">arg_t</ref><sp/>defn[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-help&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1ac7d08ff59bb6905c3375162e75913e88" kindref="member">ARG_BOOLEAN</ref>,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;no&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Shows<sp/>the<sp/>usage<sp/>of<sp/>the<sp/>tool&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-logbase&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1aceb617c8572cf5ad6257b35e6d8919e7" kindref="member">ARG_FLOAT64</ref>,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;1.0001&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Base<sp/>in<sp/>which<sp/>all<sp/>log-likelihoods<sp/>calculated&quot;</highlight><highlight class="normal"><sp/>},</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-i&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1abaf37a6c677dde76bb1a211b818541bb" kindref="member">REQARG_STRING</ref>,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>language<sp/>model<sp/>file<sp/>(required)&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-o&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1abaf37a6c677dde76bb1a211b818541bb" kindref="member">REQARG_STRING</ref>,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Output<sp/>language<sp/>model<sp/>file<sp/>(required)&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-ifmt&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" kindref="member">ARG_STRING</ref>,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>language<sp/>model<sp/>format<sp/>(will<sp/>guess<sp/>if<sp/>not<sp/>specified)&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-ofmt&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" kindref="member">ARG_STRING</ref>,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Output<sp/>language<sp/>model<sp/>file<sp/>(will<sp/>guess<sp/>if<sp/>not<sp/>specified)&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-ienc&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" kindref="member">ARG_STRING</ref>,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Input<sp/>language<sp/>model<sp/>text<sp/>encoding<sp/>(no<sp/>conversion<sp/>done<sp/>if<sp/>not<sp/>specified)&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-oenc&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" kindref="member">ARG_STRING</ref>,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;utf8&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Output<sp/>language<sp/>model<sp/>text<sp/>encoding&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-case&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1a4de5ed5fcf59a18b24bc9f6449cc9356" kindref="member">ARG_STRING</ref>,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Ether<sp/>&apos;lower&apos;<sp/>or<sp/>&apos;upper&apos;<sp/>-<sp/>case<sp/>fold<sp/>to<sp/>lower/upper<sp/>case<sp/>(NOT<sp/>UNICODE<sp/>AWARE)&quot;</highlight><highlight class="normal"><sp/>},</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-mmap&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1ac7d08ff59bb6905c3375162e75913e88" kindref="member">ARG_BOOLEAN</ref>,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;no&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Use<sp/>memory-mapped<sp/>I/O<sp/>for<sp/>reading<sp/>binary<sp/>LM<sp/>files&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>{<sp/></highlight><highlight class="stringliteral">&quot;-debug&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1a7ca1061dca6e8d4e7882bcefe1d15722" kindref="member">ARG_INT32</ref>,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>NULL,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Verbosity<sp/>level<sp/>for<sp/>debugging<sp/>messages&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>},</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>{<sp/>NULL,<sp/>0,<sp/>NULL,<sp/>NULL<sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">usagemsg(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*pgm)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1a92dbeb77b8e1facc7b15abab6ad19b73" kindref="member">E_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Usage:<sp/>%s<sp/>-i<sp/>&lt;input.lm&gt;<sp/>\\\n&quot;</highlight><highlight class="normal">,<sp/>pgm);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" kindref="member">E_INFOCONT</ref>(</highlight><highlight class="stringliteral">&quot;\t[-ifmt<sp/>txt]<sp/>[-ofmt<sp/>dmp]\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="err_8h_1aaf6601c7c08a803c55f2d55fcd8d5759" kindref="member">E_INFOCONT</ref>(</highlight><highlight class="stringliteral">&quot;\t-o<sp/>&lt;output.lm.DMP&gt;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>exit(0);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[])</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structcmd__ln__t" kindref="compound">cmd_ln_t</ref><sp/>*<ref refid="structsphinx__wave2feat__s_1a484d308befbde315664da8520ebc410d" kindref="member">config</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structngram__model__s" kindref="compound">ngram_model_t</ref><sp/>*lm<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structlogmath__s" kindref="compound">logmath_t</ref><sp/>*lmath;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>itype,<sp/>otype;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*kase;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((config<sp/>=<sp/><ref refid="cmd__ln_8h_1aa5a3a9e49198d8fd0dd3424fb880b6b6" kindref="member">cmd_ln_parse_r</ref>(NULL,<sp/>defn,<sp/>argc,<sp/>argv,<sp/>TRUE))<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="cmd__ln_8h_1a159e691c95089689cf9a8f85a67830a6" kindref="member">cmd_ln_boolean_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-help&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>usagemsg(argv[0]);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1ab77fa009824260d9f103308272dc89b8" kindref="member">err_set_debug_level</ref>(cmd_ln_int32_r(config,<sp/></highlight><highlight class="stringliteral">&quot;-debug&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>log<sp/>math<sp/>object.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((lmath<sp/>=<sp/><ref refid="logmath_8h_1a5835860c5f6a703c80c0214f816f0b11" kindref="member">logmath_init</ref></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(cmd_ln_float64_r(config,<sp/></highlight><highlight class="stringliteral">&quot;-logbase&quot;</highlight><highlight class="normal">),<sp/>0,<sp/>0))<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>initialize<sp/>log<sp/>math\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-i&quot;</highlight><highlight class="normal">)<sp/>==<sp/>NULL<sp/>||<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-i&quot;</highlight><highlight class="normal">)<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Please<sp/>specify<sp/>both<sp/>input<sp/>and<sp/>output<sp/>models\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Load<sp/>the<sp/>input<sp/>language<sp/>model.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ifmt&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((itype<sp/>=<sp/><ref refid="ngram__model_8h_1affb3d938049e58c191e72858a7191e9c" kindref="member">ngram_str_to_type</ref>(<ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ifmt&quot;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>==<sp/><ref refid="ngram__model_8h_1a406c0d64c15a9d1749d07c8ab6e0ae74a2cf596c8b0c63a3a0ba1fe33326cc796" kindref="member">NGRAM_INVALID</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>input<sp/>type<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ifmt&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lm<sp/>=<sp/><ref refid="ngram__model_8h_1ab0c840f2bdfc38cea08bb70054f76624" kindref="member">ngram_model_read</ref>(config,<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-i&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>itype,<sp/>lmath);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lm<sp/>=<sp/><ref refid="ngram__model_8h_1ab0c840f2bdfc38cea08bb70054f76624" kindref="member">ngram_model_read</ref>(config,<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-i&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ngram__model_8h_1a406c0d64c15a9d1749d07c8ab6e0ae74a441701bf8ae0a2b79716feb31b5f257a" kindref="member">NGRAM_AUTO</ref>,<sp/>lmath);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lm<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1abaacffc3c0f14e4dd180b1e38c62c5a0" kindref="member">E_FATAL</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>read<sp/>the<sp/>model<sp/>from<sp/>the<sp/>file<sp/>&apos;%s&apos;&quot;</highlight><highlight class="normal">,<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-i&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Guess<sp/>or<sp/>set<sp/>the<sp/>output<sp/>language<sp/>model<sp/>type.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ofmt&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((otype<sp/>=<sp/><ref refid="ngram__model_8h_1affb3d938049e58c191e72858a7191e9c" kindref="member">ngram_str_to_type</ref>(<ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ofmt&quot;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>==<sp/><ref refid="ngram__model_8h_1a406c0d64c15a9d1749d07c8ab6e0ae74a2cf596c8b0c63a3a0ba1fe33326cc796" kindref="member">NGRAM_INVALID</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>output<sp/>type<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ofmt&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>otype<sp/>=<sp/><ref refid="ngram__model_8h_1ad758d3f491d501bdec2ada8088e9b656" kindref="member">ngram_file_name_to_type</ref>(<ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-o&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Recode<sp/>the<sp/>language<sp/>model<sp/>if<sp/>desired.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ienc&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="ngram__model_8h_1aac2b3fd054597c2fdfbb59db97d72ec0" kindref="member">ngram_model_recode</ref>(lm,<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ienc&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-oenc&quot;</highlight><highlight class="normal">))<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>recode<sp/>language<sp/>model<sp/>from<sp/>%s<sp/>to<sp/>%s\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-ienc&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-oenc&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Case<sp/>fold<sp/>if<sp/>requested.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((kase<sp/>=<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-case&quot;</highlight><highlight class="normal">)))<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(0<sp/>==<sp/>strcmp(kase,<sp/></highlight><highlight class="stringliteral">&quot;lower&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ngram__model_8h_1a41b938a2c4b129dc0df37b2312d65506" kindref="member">ngram_model_casefold</ref>(lm,<sp/>NGRAM_LOWER);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(0<sp/>==<sp/>strcmp(kase,<sp/></highlight><highlight class="stringliteral">&quot;upper&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ngram__model_8h_1a41b938a2c4b129dc0df37b2312d65506" kindref="member">ngram_model_casefold</ref>(lm,<sp/>NGRAM_UPPER);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Unknown<sp/>value<sp/>for<sp/>-case:<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>kase);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Write<sp/>the<sp/>output<sp/>language<sp/>model.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="ngram__model_8h_1ac8ff04e1bccbef23bde9e81fb61c57fe" kindref="member">ngram_model_write</ref>(lm,<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-o&quot;</highlight><highlight class="normal">),<sp/>otype)<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="err_8h_1a87a0a12135a290cf16d06b63fcfa0ccf" kindref="member">E_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>write<sp/>language<sp/>model<sp/>in<sp/>format<sp/>%s<sp/>to<sp/>%s\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ngram__model_8h_1a992b8a8d7f623e2662ae94991f6aec55" kindref="member">ngram_type_to_str</ref>(otype),<sp/><ref refid="cmd__ln_8h_1af0aa15288e06fc8271298e4fa7cdc91a" kindref="member">cmd_ln_str_r</ref>(config,<sp/></highlight><highlight class="stringliteral">&quot;-o&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">goto</highlight><highlight class="normal"><sp/>error_out;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>That&apos;s<sp/>all<sp/>folks!<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ngram__model_8h_1aec73d28e7285e539a0b44a7ac0cbe489" kindref="member">ngram_model_free</ref>(lm);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal">error_out:</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ngram__model_8h_1aec73d28e7285e539a0b44a7ac0cbe489" kindref="member">ngram_model_free</ref>(lm);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/gpuser/cmusphinx-code/sphinxbase/src/sphinx_lmtools/sphinx_lm_convert.c"/>
+  </compounddef>
+</doxygen>

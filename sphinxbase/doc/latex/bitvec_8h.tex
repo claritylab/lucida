@@ -1,0 +1,240 @@
+\section{include/sphinxbase/bitvec.h File Reference}
+\label{bitvec_8h}\index{include/sphinxbase/bitvec.\-h@{include/sphinxbase/bitvec.\-h}}
+
+
+An implementation of bit vectors.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/sphinxbase\-\_\-export.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/prim\-\_\-type.\-h$>$}\\*
+{\ttfamily \#include $<$sphinxbase/ckd\-\_\-alloc.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S}~32\label{bitvec_8h_aa992f8d4c7dbe0b71bfd1e01ce279167}
+
+\item 
+\#define {\bf bitvec\-\_\-size}(n)~(((n)+B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S-\/1)/B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S)\label{bitvec_8h_a1d82193826583f234a71cba32267d3f3}
+
+\begin{DoxyCompactList}\small\item\em Number of bitvec\-\_\-t in a bit vector. \end{DoxyCompactList}\item 
+\#define {\bf bitvec\-\_\-alloc}(n)~{\bf ckd\-\_\-calloc}({\bf bitvec\-\_\-size}(n), sizeof(bitvec\-\_\-t))\label{bitvec_8h_a866043a7ac23e137f6c2f2466f4abc70}
+
+\begin{DoxyCompactList}\small\item\em Allocate a bit vector, all bits are clear. \end{DoxyCompactList}\item 
+\#define {\bf bitvec\-\_\-free}(v)~{\bf ckd\-\_\-free}(v)\label{bitvec_8h_a5628e35c88ac7e91b99dce916758824a}
+
+\begin{DoxyCompactList}\small\item\em Free a bit vector. \end{DoxyCompactList}\item 
+\#define {\bf bitvec\-\_\-set}(v, b)~(v[(b)/B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S] $\vert$= (1\-U\-L $<$$<$ ((b) \& (\-B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S-\/1))))
+\begin{DoxyCompactList}\small\item\em Set the b-\/th bit of bit vector v. \end{DoxyCompactList}\item 
+\#define {\bf bitvec\-\_\-set\-\_\-all}(v, n)
+\begin{DoxyCompactList}\small\item\em Set all n bits in bit vector v. \end{DoxyCompactList}\item 
+\#define {\bf bitvec\-\_\-clear}(v, b)~(v[(b)/B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S] \&= $\sim$(1\-U\-L $<$$<$ ((b) \& (\-B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S-\/1))))
+\begin{DoxyCompactList}\small\item\em Clear the b-\/th bit of bit vector v. \end{DoxyCompactList}\item 
+\#define {\bf bitvec\-\_\-clear\-\_\-all}(v, n)
+\begin{DoxyCompactList}\small\item\em Clear all n bits in bit vector v. \end{DoxyCompactList}\item 
+\#define {\bf bitvec\-\_\-is\-\_\-set}(v, b)~(v[(b)/B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S] \& (1\-U\-L $<$$<$ ((b) \& (\-B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S-\/1))))
+\begin{DoxyCompactList}\small\item\em Check whether the b-\/th bit is set in vector v. \end{DoxyCompactList}\item 
+\#define {\bf bitvec\-\_\-is\-\_\-clear}(v, b)~(! ({\bf bitvec\-\_\-is\-\_\-set}(v,b)))
+\begin{DoxyCompactList}\small\item\em Check whether the b-\/th bit is cleared in vector v. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32 {\bfseries bitvec\-\_\-t}\label{bitvec_8h_ade0d20aa7e2ccec4e6fcf06419251f71}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T bitvec\-\_\-t $\ast$ {\bf bitvec\-\_\-realloc} (bitvec\-\_\-t $\ast$vec, size\-\_\-t old\-\_\-len, size\-\_\-t new\-\_\-len)\label{bitvec_8h_a617e9fca97ca02a5e959f989c5c1a4e4}
+
+\begin{DoxyCompactList}\small\item\em Resize a bit vector, clear the remaining bits. \end{DoxyCompactList}\item 
+S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T size\-\_\-t {\bf bitvec\-\_\-count\-\_\-set} (bitvec\-\_\-t $\ast$vec, size\-\_\-t len)
+\begin{DoxyCompactList}\small\item\em Return the number of bits set in the given bitvector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An implementation of bit vectors. Implementation of basic operations of bit vectors. 
+
+Definition in file {\bf bitvec.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\index{bitvec.\-h@{bitvec.\-h}!bitvec\-\_\-clear@{bitvec\-\_\-clear}}
+\index{bitvec\-\_\-clear@{bitvec\-\_\-clear}!bitvec.h@{bitvec.\-h}}
+\subsubsection[{bitvec\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}\#define bitvec\-\_\-clear(
+\begin{DoxyParamCaption}
+\item[{}]{v, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~(v[(b)/B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S] \&= $\sim$(1\-U\-L $<$$<$ ((b) \& (\-B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S-\/1))))}\label{bitvec_8h_a74b3387345ca2730a8067626878843fc}
+
+
+Clear the b-\/th bit of bit vector v. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & is a vector \\
+\hline
+{\em b} & is the bit which will be set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 112 of file bitvec.\-h.
+
+\index{bitvec.\-h@{bitvec.\-h}!bitvec\-\_\-clear\-\_\-all@{bitvec\-\_\-clear\-\_\-all}}
+\index{bitvec\-\_\-clear\-\_\-all@{bitvec\-\_\-clear\-\_\-all}!bitvec.h@{bitvec.\-h}}
+\subsubsection[{bitvec\-\_\-clear\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}\#define bitvec\-\_\-clear\-\_\-all(
+\begin{DoxyParamCaption}
+\item[{}]{v, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)}\label{bitvec_8h_a89f80d7a8040e9225f3c1c9bf102ae1d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+memset(v, 0, (((n)+BITVEC\_BITS-1)/BITVEC\_BITS) * \(\backslash\)
+                                       \textcolor{keyword}{sizeof}(bitvec\_t))
+\end{DoxyCode}
+
+
+Clear all n bits in bit vector v. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & is a vector \\
+\hline
+{\em n} & is the number of bits \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 120 of file bitvec.\-h.
+
+\index{bitvec.\-h@{bitvec.\-h}!bitvec\-\_\-is\-\_\-clear@{bitvec\-\_\-is\-\_\-clear}}
+\index{bitvec\-\_\-is\-\_\-clear@{bitvec\-\_\-is\-\_\-clear}!bitvec.h@{bitvec.\-h}}
+\subsubsection[{bitvec\-\_\-is\-\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}\#define bitvec\-\_\-is\-\_\-clear(
+\begin{DoxyParamCaption}
+\item[{}]{v, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~(! ({\bf bitvec\-\_\-is\-\_\-set}(v,b)))}\label{bitvec_8h_a8154409a6e05e7c1ed7f21eff5ed06d4}
+
+
+Check whether the b-\/th bit is cleared in vector v. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & is a vector \\
+\hline
+{\em b} & is the bit which will be checked \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 137 of file bitvec.\-h.
+
+\index{bitvec.\-h@{bitvec.\-h}!bitvec\-\_\-is\-\_\-set@{bitvec\-\_\-is\-\_\-set}}
+\index{bitvec\-\_\-is\-\_\-set@{bitvec\-\_\-is\-\_\-set}!bitvec.h@{bitvec.\-h}}
+\subsubsection[{bitvec\-\_\-is\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}\#define bitvec\-\_\-is\-\_\-set(
+\begin{DoxyParamCaption}
+\item[{}]{v, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~(v[(b)/B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S] \& (1\-U\-L $<$$<$ ((b) \& (\-B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S-\/1))))}\label{bitvec_8h_ae323f80288b2ff946d6d8b0e38f791c9}
+
+
+Check whether the b-\/th bit is set in vector v. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & is a vector \\
+\hline
+{\em b} & is the bit which will be checked \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file bitvec.\-h.
+
+\index{bitvec.\-h@{bitvec.\-h}!bitvec\-\_\-set@{bitvec\-\_\-set}}
+\index{bitvec\-\_\-set@{bitvec\-\_\-set}!bitvec.h@{bitvec.\-h}}
+\subsubsection[{bitvec\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}\#define bitvec\-\_\-set(
+\begin{DoxyParamCaption}
+\item[{}]{v, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~(v[(b)/B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S] $\vert$= (1\-U\-L $<$$<$ ((b) \& (\-B\-I\-T\-V\-E\-C\-\_\-\-B\-I\-T\-S-\/1))))}\label{bitvec_8h_ae90878b8f2316f5733d83a3f47d378ac}
+
+
+Set the b-\/th bit of bit vector v. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & is a vector \\
+\hline
+{\em b} & is the bit which will be set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file bitvec.\-h.
+
+\index{bitvec.\-h@{bitvec.\-h}!bitvec\-\_\-set\-\_\-all@{bitvec\-\_\-set\-\_\-all}}
+\index{bitvec\-\_\-set\-\_\-all@{bitvec\-\_\-set\-\_\-all}!bitvec.h@{bitvec.\-h}}
+\subsubsection[{bitvec\-\_\-set\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}\#define bitvec\-\_\-set\-\_\-all(
+\begin{DoxyParamCaption}
+\item[{}]{v, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)}\label{bitvec_8h_ab7abefb917e02790e9384d3149ff461e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+memset(v, (bitvec\_t)-1, \(\backslash\)
+                                       (((n)+BITVEC\_BITS-1)/BITVEC\_BITS) * \(\backslash\)
+                                       \textcolor{keyword}{sizeof}(bitvec\_t))
+\end{DoxyCode}
+
+
+Set all n bits in bit vector v. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & is a vector \\
+\hline
+{\em n} & is the number of bits \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 103 of file bitvec.\-h.
+
+
+
+\subsection{Function Documentation}
+\index{bitvec.\-h@{bitvec.\-h}!bitvec\-\_\-count\-\_\-set@{bitvec\-\_\-count\-\_\-set}}
+\index{bitvec\-\_\-count\-\_\-set@{bitvec\-\_\-count\-\_\-set}!bitvec.h@{bitvec.\-h}}
+\subsubsection[{bitvec\-\_\-count\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}S\-P\-H\-I\-N\-X\-B\-A\-S\-E\-\_\-\-E\-X\-P\-O\-R\-T size\-\_\-t bitvec\-\_\-count\-\_\-set (
+\begin{DoxyParamCaption}
+\item[{bitvec\-\_\-t $\ast$}]{vec, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}\label{bitvec_8h_ac8eeaf487cd029e23fffe676f9a77a10}
+
+
+Return the number of bits set in the given bitvector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & is the bit vector \\
+\hline
+{\em len} & is the length of bit vector {\ttfamily vec} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of bits being set in vector {\ttfamily vec} 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file bitvec.\-c.
+
