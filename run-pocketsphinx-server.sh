@@ -1,3 +1,4 @@
+#!/bin/bash
 
 export MODELS_PATH="/home/vinicius/umvoice/models/"
 
