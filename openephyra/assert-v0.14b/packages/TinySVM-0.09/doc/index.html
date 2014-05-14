@@ -1,0 +1,395 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+         "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<link rev=made href="mailto:taku-ku@is.aist-nara.ac.jp">
+<title>TinySVM: Support Vector Machines</title>
+<link rel=stylesheet href="tinysvm.css">
+</head>
+<body>
+
+<h1>TinySVM: Support Vector Machines</h1>
+<p>Last update: $Date: 2002/08/20 06:14:22 $</p>
+<hr>
+
+<h2>TinySVM</h2>
+<p>
+TinySVM is an implementation of Support Vector Machines (SVMs) <a
+href="#vapnik95">[Vapnik 95]</a>, <a href="#vapnik98">[Vapnik 98]</a> 
+for the problem of pattern recognition. Support Vector Machines is a new generation learning algorithms
+based on recent advances in statistical learning theory, and applied to
+large number of real-world applications, such as text categorization, hand-written
+character recognition.
+</p>
+
+<h2>List of Contents</h2>
+<ul>
+<li><a href="#news">What's new</a>
+<li><a href="#characteristics">Features</a>
+<li><a href="libtinysvm.html">libtinysvm Reference Manual</a>
+<li><a href="#usage-tools">Using included tools</a>
+<li><a href="#download">Download</a>
+  <ul>
+  <li><a href="#source">Sources</a>
+  <li><a href="#rpm">RPM package for RedHat Linux</a>
+  <li><a href="#windows">Binary package for MS-Windows</a>
+  <li><a href="#cvs">CVS</a>
+  </ul>
+<li><a href="#install">Install</a>
+<li><a href="#bindings">Language Bindings</a>
+  <ul>
+  <li><a href="#perl">Perl</a>
+  <li><a href="#ruby">Ruby</a>
+  <li><a href="#python">Python</a>
+  <li><a href="#java">Java</a>
+  </ul>
+<li><a href="#contacts">Questions and Bug Reports</a>
+<li><a href="#todo">TODO</a>
+<li><a href="#bib">References</a>
+<li><a href="#links">Related Link</a>
+</ul>
+
+<h2><a name="news">What's new</a></h2>
+<ul>
+<li><strong>2002-08-20</strong>: <a href="#download">TinySVM 0.09</a> Released<br>
+<ul>
+ <li>Fix bug in -W option
+ <li>Support Intel C++ compiler for Linux 6.0 (e.g. %env CC=icc CXX=icc ./configure --disable-shared; make )
+ <li>Support Borland C++ (use src/Makefile.bcc32)
+ <li>Support Microsoft Visual Studio .NET/C++ (use src/Makefile.msvc)
+ <li>Change extention of source files from .cc to .cpp
+</ul>
+<li><strong>2002-03-08</strong>
+<ul>
+ <li>Support Mac OS X
+ </ul>
+<li><strong>2002-01-05</strong>
+<ul>
+ <li>Fix fatal bug in cache.h. (Thanks to Hideki Isozaki)
+</ul>
+<li><strong>2001-12-07</strong>
+<ul>
+ <li>Support One-Class-SVM, (experimental) use -s option.
+</ul>
+<li><strong>2001-09-03</strong>
+<ul>
+ <li>Support RBF, Neural, and ANOVA kernels
+ <li>Script bindings for perl/ruby are rewritten with <a href="http://www.swig.org/">SWIG</a>
+ <li>python and java interfaces are available
+</ul>
+<li><strong>2001-08-25</strong>: 0.04<br>
+<ul>
+ <li>Fix memory leak bug in Claassify::classify().
+ <li>Implement a simple Garbage Collector (reference count) to handle training data effectively.
+ <li>The following new options are added:
+      <ul>
+       <li>-I: svm_learn creates the optional file  (MODEL.idx) 
+	   which lists up alpha and G (gradient) of all training
+	   examples. Each line of MODEL.idx corresponds to the each training instance.
+       <li>-M model_file: carry out incremental training with model_file
+	   and model_file.idx as a initial condition. You can reduce
+	   computational cost with this option.
+<pre>
+Sample:
+% svm_learn -I train model
+% ls
+model model.idx
+% cat new_train >> train
+% svm_learn -M model train model2
+</pre>
+       <li>-W : When linear kernel is used, single vector w (w * x + b)
+	   is directly obtained instead of lists of alpha.
+      </ul>
+ <li>The following new API functions are added:
+      <ul>
+       <li>BaseExample::readSVindex() 
+       <li>BaseExample::writeSVindex()
+       <li>BaseExample::set()
+       <li>Example::rebuildSVindex()
+       <li>Model::compress()
+      </ul>
+ <li>Add new API functions to perl/ruby interface, each of which 
+      corresponds to the original C++ new API.
+</ul>
+<li><strong>2001-06-29</strong> 0.03
+<ul>
+  <li>Delete -t option from svm_classify. 
+  <li>Bug fix in calculation of VC dimension.
+</ul>
+<li><strong>2001-01-17</strong> 0.02
+<ul>
+ <li>Support Support Vector Regression
+ <li>Ruby module is available
+</ul>
+</ul>
+
+<h2><a name="characteristics">Features</a></h2>
+<ul>
+<li>Support standard C-SVR and C-SVM.
+<li>Uses sparse vector representation
+<li>Can handle several ten-thousands of training examples, and
+     hundred-thousands of feature dimension.
+<li>Fast optimization algorithms stemming from <a href="#svmlight">SVM_light</a>,<a href="#joachims99">[Joachims/99a]</a>.
+<ul> 
+ <li>Working set selection based on steepest feasible descent.
+ <li>"Shrinking" (an effective heuristics to reduce working sets
+     dynamically)<a href="#joachims99">[Joachims/99a]</a>
+ <li>Use LRU cache algorithm for store gram matrix.
+</ul>
+<li>Optimization for handling binary features, twice faster than <a
+    href="#svmlight">SVM_light</a>.
+<li>Provide well-known model selection criteria such as Leave-One-Out
+     bound, VC dimension and Xi-Alpha estimation.
+<li>Written in C++ with OO style. Provides useful <a href="libtinysvm.html">class libraries</a>.
+<li>Provide Perl/Ruby/Python/Java module
+<li>Multi-platform,  Unix/Windows
+</ul>
+
+<h2><a name="usage-tools">Using the included Tools</a></h2>
+<ul>
+<h3>Format of training data</h3>
+<p>
+TinySVM accepts the same representation of training data as <a href="#svmlight">SVM_light</a> uses.
+This format has potential to handle large sparse feature vectors.
+The format of training and test data file is:
+</p>
+
+<p>
+(BNF-like representation)<br>
+&lt;class&gt; .=. +1 | -1 <br>
+&lt;feature&gt; .=. integer (&gt;=1)<br>
+&lt;value&gt; .=. real<br>
+&lt;line&gt; .=. &lt;class&gt; &lt;feature&gt;:&lt;value&gt;&lt;feature&gt;:&lt;value&gt; ... &lt;feature&gt;:&lt;value&gt;<br>
+</p>
+
+<pre>
+Example (SVM)
++1 201:1.2 3148:1.8 3983:1 4882:1
+-1 874:0.3 3652:1.1 3963:1 6179:1
++1 1168:1.2 3318:1.2 3938:1.8 4481:1
++1 350:1 3082:1.5 3965:1 6122:0.2
+-1 99:1 3057:1 3957:1 5838:0.3
+</pre>
+See tests/train.svmdata and tests/test.svmdata in the package.
+
+<p>
+In the case of SVR, you can give real value as class label
+</p>
+
+<pre>
+Example (SVR)
+0.23 201:1.2 3148:1.8 3983:1 4882:1
+0.33 874:0.3 3652:1.1 3963:1 6179:1
+-0.12 1168:1.2 3318:1.2 3938:1.8 4481:1
+</pre>
+See tests/train.svrdata in the package
+
+<h3><a name="svm_learn">svm_learn (learner)</a></h3>
+<p>
+"svm_learn" accepts two arguments --- file name of training data
+and model file in which the SVs and their weights (alpha) are
+stored after training.  <br>Try --help option for finding out <a href="svm_learn.html">other options</a>.
+</p>
+<pre>
+% svm_learn -t 1 -d 2 -c 1 train.svmdata model
+TinySVM - tiny SVM package
+Copyright (C) 2000 Taku Kudoh All rights reserved.
+
+  1000 examples, cache size: 1524
+....................   1000   1000 0.0165 1286/ 64.3%   1286/ 64.3%
+............
+Checking optimality of inactive variables  re-activated: 0
+
+Done! 1627 iterations
+
+Number of SVs (BSVs)            719 (4)
+Empirical Risk:                 0.002 (2/1000)
+L1 Loss:                        4.22975
+CPU Time:                       0:00:01
+
+% ls -al model
+  -rw-r--r--    1 taku-ku  is-stude    26455 Dec  7 13:40
+</pre>
+
+TinySVM prints the following messages during the learning iterations,
+<pre>
+....................   1000  15865  2412 1.6001  33.2%  33.2%
+....................   2000  15864  2412 1.3847  39.5%  36.4%
+</pre>
+<ul>
+<li>1st column: One <lit>"."</lit> means 50 iterations.
+<li>2nd column: Represents the total iterations processed
+<li>3rd column: Represents the size of current working set. It will
+    become smaller during the <lit>shrinking</lit> process. 
+<li>4th column: Represents the current cache size.
+<li>5th column: Max KKT violation value. If this value reaches
+<lit>termination-criterion</lit> (default 0.001), it means that the 1st stage of
+the learning process has completed.
+<li>7th column: Cache hit rate during last 1000 iterations. 
+<li>7th column: Cache hit rate during all iterations.
+</ul>
+
+<h3><a name="sary">svm_classify (simple classifier)</a></h3>
+<p>
+"svm_classify" accepts two arguments --- file name of test data and model file generated by svm_learn.
+"svm_classify" simply displays the accuracy of given test data. 
+You can also employ interactive classification by giving "-" as file name of test example.
+<br>Try --help option for finding out <a href="svm_classify.html">other options</a>.
+</p>
+<pre>
+% svm_classify test.svmdata model
+Accuracy:   77.80000% (389/500)
+Precision:  66.82927% (137/205)
+Recall:     76.11111% (137/180)
+System/Answer p/p p/n n/p n/n: 137 68 43 252
+
+% svm_classify -V test.svmdata model
+-1 -1.04404
+-1 -1.26626
+-1 -0.545195
+.. snip
+Accuracy:   77.80000% (389/500)
+</pre>
+
+<h3><a name="sary">svm_model (model browser)</a></h3>
+<p>
+"svm_model" displays the estimated margin, VC dimension and number of SVs
+of given some model file. 
+<br>Try --help option for finding out <a href="svm_model.html">other options</a>.
+</p>
+<pre>
+% svm_model model
+File Name:                      model
+Margin:                         0.181666
+Number of SVs:                  719
+Number of BSVs:                 4
+Size of training data:          1000
+L1 Loss (Empirical Risk):       4.16917
+Estimated VC dimension:         728.219
+Estimated xi-alpha(2):          573
+</pre>
+</ul>
+<h2><a name="download">Download</a></h2>
+<ul>
+TinySVM is free software distributed under the <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a>.
+<h3><a name="source">Source</a></h3>
+<ul>
+<li>TinySVM-0.09.tar.gz:
+<a href="./src/TinySVM-0.09.tar.gz">HTTP</a>
+</ul>
+
+<h3><a name="rpm">Binary/Source package for RedHat Linux</a></h3>
+<ul>
+<li>RedHat 6.x i386:
+<a href="./redhat-6.x/RPMS/i386/">HTTP</a>
+<li>RedHat 6.x SRPMS: 
+<a href="./redhat-6.x/SRPMS/">HTTP</a>
+
+<li>RedHat 7.x i386:
+<a href="./redhat-7.x/RPMS/i386/">HTTP</a>
+<li>RedHat 7.x SRPMS: 
+<a href="./redhat-7.x/SRPMS/">HTTP</a>
+</ul>
+
+<h3><a name="rpm">Binary package for MS-Windows</a></h3>
+<ul>
+<li>
+<a href="./win/">HTTP</a>
+</ul>
+
+<h3><a name="cvs">CVS</a></h3>
+<ul>
+Development of TinySVM uses CVS. So latest developing version is
+available at CVS. <br>
+We are willing to welcome you to join CVS based development.
+<pre>
+% cvs -d :pserver:anonymous@chasen.aist-nara.ac.jp:/cvsroot login
+CVS password:   # Just hit return/enter.
+% cvs -d :pserver:anonymous@chasen.aist-nara.ac.jp:/cvsroot co TinySVM
+</pre>
+</ul>
+</ul>
+
+<h2><a name="install">Install</a></h2>
+<ul>
+<pre>
+ % ./configure 
+ % make
+ % make check
+ % su
+ # make install
+</pre>
+You can change default install path by using --prefix option of
+configure script.  <br>Try --help option for finding out other options.
+</ul>
+
+<h2><a name="bindings">Language Bindings</a></h2>
+<ul>
+<li><a name="perl">Perl</a>: see perl/README file.
+<li><a name="ruby">Ruby</a>: see ruby/README file
+<li><a name="python">Python</a>: see python/README file
+<li><a name="java">Java</a>: see java/README file
+</ul>
+
+<h2><a name="contacts">Questions and Bug Reports</a></h2>
+<ul>
+If you find bugs or you have any questions
+please contact me via email taku-ku@is.aist-nara.ac.jp.<br>
+(Japanese mail is also (more) acceptable.)
+</ul>
+
+<h2><a name="todo">TODO</a></h2>
+<ul>
+<li>MultiClass SVM (one-for-all-others, pairwise)
+<li>nu-SVM and nu-SVR <a href="#scholkopf1998">[Sch&ouml;lkopf1998]</a>
+<li>Transductive SVM <a href="#vapnik98">[Vapnik 98]</a>,<a href="#joachims99c">[Joachims 99]</a>
+<li>Span SVM <a href="#vapnik2000">[Vapnik 2000]</a>
+<li>Ordinal SVR <a href="#herbrich2000">[Herbrich 2000]</a>
+<li>Provide some Wrapper class to handle STRING features.
+<li>Provide DLL (Dynamic Link Libraries) for Windows environment.
+<li>Provide an API for user customizable kernel function.<br>
+</ul>
+
+<h2><a name="bib">References</a></h2>
+<ul>
+<li> <a name="joachims99">[Joachims 99a] T. Joachims, 
+     11 in: Making large-Scale SVM Learning Practical. Advances in Kernel Methods pp.169-</a>
+<li> <a name="vapnik95">[Vapnik 95] Vladimir N. Vapnik, 
+     The Nature of Statistical Learning Theory. Springer, 1998.</a>
+<li> <a name="vapnik95">[Vapnik 98] Vladimir N. Vapnik, 
+     The Statisitcal Learning Theory. Springer, 1998.</a>
+<li> <a name="joachims99c">[Joachims 99c] T. Joachims, 
+     Transductive Inference for Text Classification using Support Vector Machines. 
+     International Conference on Machine Learning (ICML), 1999.</a>
+<li> <a name="vapnik2000">[Vapnik 2000] Vladimir N. Vapnik, 
+     14 in: Bounds on Error Expectation for SVM.
+     in Advances in Large Margin Classifiers. pp. 261-</a>
+<li> <a name="herbrich2000">[Herbrich 2000] Ralf Herbrich et al,
+     7 in: Large Margin Rank Boundaries for Ordinal Regression.
+     in Advances in Large Margin Classifiers. pp. 116-</a>
+<li> <a name="scholkopf1998">[Sch&ouml;lkopf 1998] B. Sch&ouml;lkopf,
+     A. Smola,
+     R. Williamson, and P. L. Bartlett. New support vector algorithms. 
+     NeuroCOLT Technical Report NC-TR-98-031, Royal Holloway College, 
+     University of London, UK, 1998. To appear in Neural Computation.</a>
+</ul>
+
+<h2><a name="bib">Related Links</a></h2>
+<ul>
+<li> <a name="svmlight"><a href="http://www-ai.cs.uni-dortmund.de/SOFTWARE/SVM_LIGHT/index.eng.html">SVM_light</a></a>
+<li> <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm">libsvm</a> 
+     Yet another Fast and useful SVM package
+<li><a href="http://www.kernel-machines.org/">Kernel Machine Website</a>
+<li><a href="http://www.clopinet.com/isabelle/Projects/SVM/applist.html">SVM Application List</a>
+<li><a href="http://svm.research.bell-labs.com/">Support Vectors and Kernel Methods</a>
+<li><a href="http://www.support-vector.net/">An introduction to Suppor Vector Machines</a>
+</ul>
+<hr>
+<p>
+$Id: index.html,v 1.26 2002/08/20 06:14:22 taku-ku Exp $;
+</p>
+<address>
+taku-ku@is.aist-nara.ac.jp
+</address>
+</body>
+</html>

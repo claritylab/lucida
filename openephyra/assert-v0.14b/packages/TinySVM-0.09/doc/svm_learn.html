@@ -1,0 +1,124 @@
+Content-type: text/html
+
+<HTML><HEAD><TITLE>Manpage of SVM_LEARN</TITLE>
+</HEAD><BODY>
+<H1>SVM_LEARN</H1>
+Section: TinySVM (1)<BR>Updated: August 2002<BR><A HREF="#index">Index</A>
+<A HREF="http://localhost/cgi-bin/man/man2html">Return to Main Contents</A><HR>
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+svm_learn - manual page for svm_learn of 0.09
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<B>svm_learn</B>
+
+[<I>options</I>] <I>training-file model-file</I>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+TinySVM - tiny SVM package
+Copyright (C) 2000-2002 Taku Kudo, All rights reserved.
+<A NAME="lbAE">&nbsp;</A>
+<H3>Solver Type:</H3>
+
+<DL COMPACT>
+<DT><B>-l</B>, <B>--solver-type</B>=<I>INT</I><DD>
+select type of solver.
+TYPE:  0 - C-SVM (default)
+<DT><DD>
+1 - C-SVR
+2 - One-Class-SVM (experimental)
+</DL>
+<A NAME="lbAF">&nbsp;</A>
+<H3>Kernel Parameter:</H3>
+
+<DL COMPACT>
+<DT><B>-t</B>, <B>--kernel-type</B>=<I>INT</I><DD>
+select type of kernel function.
+TYPE:  0 - linear      (w * x)  (default)
+<DT>1 - polynomial<DD>
+(s w * x + r)^d
+<DT>2 - neural<DD>
+tanh (s w * x + r)
+<DT>3 - RBF<DD>
+exp (-s * ||w-x||^2)
+<DT>4 - ANOVA<DD>
+(sum_i [exp(-s * ||w_i-x_i||^2)])^d
+<DT><B>-d</B>, <B>--kernel-degree</B>=<I>INT</I><DD>
+set INT for parameter d in polynomial kernel. (default 1)
+<DT><B>-r</B>, <B>--kernel-param-r</B>=<I>FLOAT</I><DD>
+set FLOAT for parameter r in polynomial kernel. (default 1)
+<DT><B>-s</B>, <B>--kernel-param-s</B>=<I>FLOAT</I><DD>
+set FLOAT for parameter s in polynomial kernel. (default 1)
+</DL>
+<A NAME="lbAG">&nbsp;</A>
+<H3>Optimization Parameter:</H3>
+
+<DL COMPACT>
+<DT><B>-m</B>, <B>--cache-size</B>=<I>FLOAT</I><DD>
+set FLOAT for cache memory size (MB). (default 40.0)
+<DT><B>-c</B>, <B>--cost</B>=<I>FLOAT</I><DD>
+set FLOAT for cost C of constraints violation,
+trade-off between training error and margin. (default 1.0)
+<DT><B>-e</B>, <B>--termination-criterion</B>=<I>FLOAT</I><DD>
+set FLOAT for tolerance of termination criterion.
+(default 0.001)
+<DT><B>-H</B>, <B>--shrinking-size</B>=<I>INT</I><DD>
+set INT for number of iterations variable needs to
+be optimal before considered for shrinking. (default 100)
+<DT><B>-p</B>, <B>--shrinking-eps</B>=<I>FLOAT</I><DD>
+set FLOAT for initial threshold value of shrinking process.
+(default 2.0)
+<DT><B>-f</B>, <B>--do-final-check</B>=<I>INT</I><DD>
+do final optimality check for variables removed
+by shrinking. (default 1)
+<DT><B>-i</B>, <B>--insensitive-loss</B>=<I>FLOAT</I><DD>
+set FLOAT for epsilon in epsilon-insensitive loss function
+used in C-SVR cost evaluation. (default 0.1)
+</DL>
+<A NAME="lbAH">&nbsp;</A>
+<H3>Miscellaneous:</H3>
+
+<DL COMPACT>
+<DT><B>-M</B>, <B>--model</B>=<I>FILE</I><DD>
+set FILE, FILE.idx for initial condition model file.
+<DT><B>-I</B>, <B>--sv-index</B><DD>
+write all alpha and gradient to MODEL.idx.
+<DT><B>-W</B>, <B>--compress</B><DD>
+calculate vector w (w * x + b), instead of alpha.
+<DT><B>-V</B>, <B>--verbose</B><DD>
+set verbose mode.
+<DT><B>-v</B>, <B>--version</B><DD>
+show the version of TinySVM and exit.
+<DT><B>-h</B>, <B>--help</B><DD>
+show this help and exit.
+</DL>
+<P>
+
+TinySVM - tiny SVM package
+Copyright (C) 2000-2002 Taku Kudo, All rights reserved.
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DL>
+<DT><A HREF="#lbAE">Solver Type:</A><DD>
+<DT><A HREF="#lbAF">Kernel Parameter:</A><DD>
+<DT><A HREF="#lbAG">Optimization Parameter:</A><DD>
+<DT><A HREF="#lbAH">Miscellaneous:</A><DD>
+</DL>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://localhost/cgi-bin/man/man2html">man2html</A>,
+using the manual pages.<BR>
+Time: 06:05:57 GMT, August 20, 2002
+</BODY>
+</HTML>

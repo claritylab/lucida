@@ -1,0 +1,32 @@
+CC   = cl
+CXXC = cl
+CFLAGS = -O2 -GX -GB -W3 -nologo
+LDFLAGS = -ML -ADVAPI32.LIB
+DEFS = -DHAVE_GETENV -DHAVE_CTYPE_H -DHAVE_MATH_H -DHAVE_STDIO_H \
+       -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_WINDOWS_H -DHAVE_MEMCPY \
+       -DHAVE_MEMSET -DVERSION="\"@VERSION@\"" -DPACKAGE="\"TinySVM\""
+INC = -I. -I..
+DEL = del
+
+OBJ = getopt.obj getopt1.obj base_example.obj example.obj  oneclass_solver.obj  q_matrix.obj \
+      svr_solver.obj svm_solver.obj classifier.obj  model.obj  param.obj  qp_solver.obj
+ 
+.cpp.obj:
+	$(CXXC) $(CFLAGS) $(INC) $(DEFS) -c $<
+
+.c.obj:
+	$(CC) $(CFLAGS) $(INC) $(DEFS) -c  $<
+			      
+all: svm_learn svm_classify svm_model
+
+svm_learn: $(OBJ) svm_learn.obj
+	$(CXXC) $(LDFLAGS) -e$@.exe svm_learn.obj $(OBJ)
+
+svm_classify: $(OBJ) svm_classify.obj
+	$(CXXC) $(LDFLAGS) -e$@.exe svm_classify.obj $(OBJ)
+
+svm_model: $(OBJ) svm_model.obj
+	$(CXXC) $(LDFLAGS) -e$@.exe svm_model.obj $(OBJ)
+
+clean:
+	$(DEL) *.exe *.obj *.dll *.a *.lib *.o *.exp *.def

@@ -1,0 +1,31 @@
+# Generated automatically from Makefile.bcc32.in by configure.
+CC   = bcc32
+CXXC = bcc32 -P
+CFLAGS = -w- -O2 -WC
+DEFS = -DHAVE_WINDOWS_H -DVERSION="\"0.23\"" -DMODEL_VERSION=0.3 -DPACKAGE="\"yamcha\""
+INC = -I. -I..
+DEL = del
+
+OBJ = chunker.obj  feature_index.obj  param.obj  svm.obj
+
+.cpp.obj:
+	$(CXXC) $(CFLAGS) $(INC) $(DEFS) -c $<
+	              
+.c.obj:
+	$(CC) $(CFLAGS) $(INC) $(DEFS) -c  $<
+			      
+all: yamcha libyamcha
+
+all: libyamcha yamcha mkdarts
+
+libyamcha: $(OBJ)
+	tlib /a libyamcha_bcc32.lib $(OBJ)
+			      
+yamcha: $(OBJ) yamcha.obj
+	$(CXXC) $(LDFLAGS) -e$@.exe yamcha.obj $(OBJ)
+	
+mkdarts:	
+	$(CXXC) $(CFLAGS) $(LDFLAGS) -I. -e..\libexec\$@.exe ..\libexec\mkdarts.cpp
+	
+clean:
+	$(DEL) *.exe *.obj *.dll *.a *.lib *.o *.exp *.def

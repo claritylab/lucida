@@ -1,0 +1,219 @@
+#!@PERL@
+#
+# svm_learn.pl : Multi Class Wrappper for svm_learn
+#
+# taku-ku@is.aist-nara.ac.jp
+#
+# $Id: svm_learn_wrapper.in,v 1.4 2001/08/11 12:01:36 taku-ku Exp $;
+#
+
+local %arg;
+use Getopt::Std;
+getopts("t:d:p:o:s:", \%arg);
+my $type   = $arg{t} || 1;
+my $para   = $arg{p} || 1;
+my $dup    = $arg{d} || 0;
+my $param  = $arg{o};
+my $prog   = $arg{s} || $ENV{"SVM_LEARN"} || "svm_learn";
+my $SYSTEM = $^O;
+my $train  = shift (@ARGV);
+my $model  = shift (@ARGV);
+
+# main
+my $svm = new SVM ($train,$model,$param,$type,$para,$dup,$prog);
+$svm->learn();
+
+# Package for SVM
+package SVM;
+use IO::File;
+
+my $tmp_train;
+my $tmp_model;
+
+# Public method
+sub new()
+{
+    my ($self,$data,$model,$param,$type,$para,$dup,$prog) = @_;
+    $self = {};
+    $self->{DataFile}  = $data;
+    $self->{ModelFile} = $model;
+    $self->{Param}     = $param;
+    $self->{Prog}      = $prog;
+    $self->{Para}      = $para;
+    $self->{Dup}       =  $dup;
+    $self->{Type}      = $type;
+    bless($self);
+}
+
+sub learn()
+{
+    my $self  = shift;
+    $self->{DataFile} = shift || $self->{DataFile};
+
+    unlink($self->{ModelFile});
+    $self->_openTrainingData($self->{DataFile},$self->{Type});
+
+    if ($para <= 1 && $SYSTEM ne "MSWin32" && $SYSTEM ne "os2") {
+	for (@{$self->{List}}) {
+	    my($class1,$class2) = @{$_};
+	    die if ($self->_learnsubModel($class1,$class2));
+	}
+    } else {     # Win32 dose not work 
+	my $proc = 0;
+	my $pid;
+
+	for (@{$self->{List}}) {
+	    my($class1,$class2) = @{$_};
+	    if ($pid = fork()) { # parent
+		if (++$proc == $para) { wait; $proc--; };
+		die if ($?);
+		next;
+	    } elsif (defined $pid) {
+        	exit($self->_learnsubModel($class1,$class2));
+	    } else {
+		die "FATAL: cannot fork\n";
+	    }
+	}
+	while (wait != -1) {}; # wait for all processes
+    }
+}
+
+# private method
+sub _openTrainingData()
+{
+    my $self = shift;
+    my $file = shift;
+    my $type = shift || 1; # one for all others or pairwise
+
+    my $fh = _open ($file);
+    my %class;
+
+    while(<$fh>) {
+	chomp;
+	next if (/^\#/);
+	my($class_name) = (split(/\s+/,$_,2))[0];
+	die "FATAL: Fromat error :$_\n"	if ($class_name eq "");
+	$class{$class_name}++;
+    }
+    $fh->close();
+
+    # delete unsupervised (unlabeled) data
+    my $unlabeled = $class{"0"};
+    delete $class{"0"};
+
+    die           "# This is Single Class. exit\n"    if (scalar(keys(%class)) == 1);
+    printf STDERR "%d labeled  classes are found\n", scalar(keys(%class));
+    printf STDERR "1  unlabeld class   is  found\n"  if ($unlabeled);
+
+    my(@tmp) = sort keys %class;
+    for (@tmp) {
+	printf STDERR " %10s : %d\n", $_, $class{$_};
+    }
+    printf STDERR " %10s: %d\n", "___UNLABELED___", $unlabeled if ($unlabeled);
+
+    my(@list) = ();
+    if ($type == 1) {  # pairwise
+	for $i (0..$#tmp) {
+	    for $j ($i+1..$#tmp) {
+		push @list, [$tmp[$i],$tmp[$j]];
+	    }
+	}
+    } elsif ($type == 2) { # one for all others
+	for $i (0..$#tmp) {
+	    push @list, [$tmp[$i],"___OTHER___"];
+	}
+    } else {
+	die "FATAL: Unknown mode for multi-class classification\n";
+    }
+
+    $self->{List} = [@list];
+}
+
+sub _learnsubModel()
+{
+    my ($self,$class1,$class2) = @_;
+    $tmp_train = $self->{DataFile}   . ".$$";
+    $tmp_model = $self->{ModelFile}  . ".$$";
+    my $train  = $self->{DataFile};
+    my $model  = $self->{ModelFile};
+    my $param  = $self->{Param};
+    my $para   = $self->{Para};
+    my $dup    = $self->{Dup};
+    my $prog   = $self->{Prog};
+    
+    sub clean_exit 
+    {
+	print STDERR "SIGNAL Caught Exitting ....\n"; 
+	unlink $tmp_train; 
+	unlink $tmp_model;
+	exit(0);
+    }
+ 
+    $SIG{INT}  = \&clean_exit;
+    $SIG{KILL} = \&clean_exit;
+    $SIG{TERM} = \&clean_exit;
+    $SIG{STOP} = \&clean_exit;
+    $SIG{QUIT} = \&clean_exit;
+    $SIG{HUP}  = \&clean_exit;
+
+    my $ttfh = _open ("> $tmp_train");
+    my $otfh = _open ($train);
+    my %valueHash;
+    my $dupnum = 0;
+
+    while(<$otfh>) {
+	next if (/^\#/); 
+	my ($class, $value) = split(/\s+/,$_,2);
+	if ($class eq $class1) {
+	    print $ttfh "+1 $value";
+	    $valueHash{$value} = 1 if ($dup);
+	} elsif ($class eq $class2 ||  # pairwise
+		 ($class2 eq "___OTHER___" && $class ne $class1) # One vs. Rest 
+		 ) {
+	    if ($dup && defined $valueHash{$value}) {
+		$dupnum++;
+		next;
+	    }
+	    # if value is already assgined to positive class, ignored
+	    print $ttfh "-1 $value";
+	} elsif ($class eq "0") {
+	    print $ttfh "0 $value";
+	}
+    }
+    $ttfh->close();
+    $otfh->close();
+
+    my $command = "$prog $param $tmp_train $tmp_model";
+    print STDERR "\n\nLearning $class1 vs $class2 $dupnum ($command)\n";
+    unlink $tmp_model;
+    system $command; 
+    unless (-f $tmp_model) {
+	unlink $tmp_train; 
+	unlink $tmp_model;
+	warn "FATAL: $tmp_model is not created. ($command) exits abnomaly.\n";
+	return 1;
+    } else {
+	my $omfh = _open(">> $model");
+	while (! flock($omfh,2)) { sleep 1 };
+	print $omfh "MULTI_CLASS $class1 $class2\n";
+	my $tmfh = _open($tmp_model);
+	while(<$tmfh>) { print $omfh $_; }
+	print $omfh "\n";
+	flock ($omfh,8);
+	$omfh->close();
+	$tmfh->close();
+    }
+    unlink($tmp_model);
+    unlink($tmp_train);
+    return 0;
+}
+
+sub _open {
+    my $file = shift;
+    my $fh;
+    $fh = new IO::File;
+    $fh->open ($file) || die "FATAL: [$file] cannot open.\n";
+    return $fh;
+}
+
+1;

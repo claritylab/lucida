@@ -1,0 +1,95 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; Linux 2.2.16-22 i686) [Netscape]">
+   <title>ASSERT -- Automatic Statistical SEmantic Role Tagger</title>
+<script LANGUAGE="JavaScript">
+questionArray=new Array("Enter the sentence to be parsed", 
+                        "The organisation opposes the Oslo peace process.",
+						"The symbolic juxtaposition of peace and violence defines Arafat's political life.",
+						"On September 13, 1993 representatives of the State of Israel and the Palestine Liberation Organization (PLO) signed the \"Declaration of Principles On Interim Self-Government Arrangements\", a document also known as the \"Oslo Accords\".",
+						"In Gaza City, Palestinian witnesses said that the Hamas founder and spiritual leader Sheikh Ahmed Yassin was lightly wounded in an Israeli F-16 missile strike.",
+						"The agreement provides a framework for a solution, rather than a solution.",
+						"Hamas accuses Arafat's regime of being corrupt.",
+						"The world was treated to the unlikely spectacle of Yasser Arafat and Yizhak Rabin shaking hands.",
+						"Abbas' resignation will seriously impede efforts to overcome the crisis in the Palestinian-Israeli settlement.",
+						"The Oslo DOP  and subsequent agreements make no mention of a Palestinian state.",
+						"The Hamas became active in the early stages of the Intifada.");
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+
+<center><table BORDER=0 WIDTH="75%" NOSAVE >
+<tr ALIGN=CENTER VALIGN=BOTTOM NOSAVE>
+<td align=center NOSAVE><img SRC="directions.jpg"></td>
+<td align=center><img SRC="assert.jpg" height=100></td>
+<td></td>
+</tr>
+</table></center>
+
+<br>
+<p><form name="labyrinth" action="http://localhost/cgi-bin/assert/assert-cgi.py" method="post">
+<center><table CELLSPACING=0 CELLPADDING=5 COLS=2 WIDTH="90%" BGCOLOR="#A8D5FF" NOSAVE summary="Table of form components, for better layout" >
+
+<tr NOSAVE>
+<td width="20%" VALIGN=CENTER><b><font size=+1>Sentence</font> </b></td>
+<td width="80%"><input size=100 name="sentence" type="text" value="Enter a sentence to be parsed, OR select from the following sample sentences"></td>
+</tr>
+
+<tr>
+<td><b><font size=+1>Sample Sentences</font> </b></td>
+<td><select name="framenetQuestion" onchange="document.labyrinth.sentence.value=questionArray[selectedIndex]">
+<option>Select a sample sentence to parse.
+<option>The organisation opposes the Oslo peace process.
+<option>The symbolic juxtaposition of peace and violence defines Arafat's political life.
+<option>On September 13, 1993 representatives of the State of Israel and the Palestine Liberation ...
+<option>In Gaza City, Palestinian witnesses said that the Hamas founder and spiritual leader ...
+<option>The agreement provides a framework for a solution, rather than a solution.
+<option>Hamas accuses Arafat's regime of being corrupt.
+<option>The world was treated to the unlikely spectacle of Yasser Arafat and Yizhak ... 
+<option>Abbas' resignation will seriously impede efforts to overcome the crisis in the ...
+<option>The Oslo DOP  and subsequent agreements make no mention of a Palestinian state.
+<option>The Hamas became active in the early stages of the Intifada.
+</select>
+</td>
+</tr>
+
+<tr>
+<td><b><font size=+1>Tagging style</font> </b></td>
+<td><select name="tagging">
+<option>PropBank Arguments
+<option>Thematic Roles
+<option>Opinion and Opinion Holder
+</select>
+</td>
+</tr>
+
+<tr>
+<td><b><font size=+1>Output format</font> </b></td>
+<td><select name="format">
+<option>HTML
+</select>
+</td>
+</tr>
+
+<tr NOSAVE>
+<td ALIGN=RIGHT>&nbsp;</td>
+<td ALIGN=center><b><input type="submit" value="   Parse  "> <input type="reset" value="   Reset   "></b></td>
+</tr>
+</table></center>
+</form>
+<hr>
+
+<table BORDER=0 COLS=3 WIDTH="100%" NOSAVE >
+<tr ALIGN=CENTER VALIGN=BOTTOM NOSAVE>
+<td NOSAVE><img SRC="colorado.gif" HSPACE=40 ></td>
+
+<td></td>
+
+<td><img SRC="arda_logo.gif" HSPACE=40 ></td>
+</tr>
+</table>
+</body>
+</html>
+

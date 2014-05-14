@@ -1,0 +1,1241 @@
+#passages: 1184
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEmusicalInstrument> )?[^<]*?<PO_NEnumber>
+#correct: 153
+#incorrect: 61
+
+<TO> [^<]*?(?:<NEsport> )?(?:<NEmusicalInstrument> )?[^<]*?<PO_NEnumber>
+#correct: 152
+#incorrect: 61
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?<PO_NEnumber>
+#correct: 149
+#incorrect: 60
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NEnumber>
+#correct: 131
+#incorrect: 60
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?<PO_NEnumber>
+#correct: 126
+#incorrect: 56
+
+<TO> [^<]*?(?:<NEacronym> )?<PO_NEnumber>
+#correct: 121
+#incorrect: 56
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?<PO_NEnumber>
+#correct: 121
+#incorrect: 57
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?<PO_NEnumber>
+#correct: 121
+#incorrect: 64
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 119
+#incorrect: 90
+
+<TO> [^<]*?<PO_NEnumber>
+#correct: 119
+#incorrect: 56
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 105
+#incorrect: 85
+
+<TO> [^<]*?(?:<NEpercentage> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 95
+#incorrect: 82
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 93
+#incorrect: 82
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 93
+#incorrect: 82
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 92
+#incorrect: 82
+
+<TO> ' s <PO_NEnumber>
+#correct: 34
+#incorrect: 1
+
+<TO> ' s <PO> -
+#correct: 22
+#incorrect: 14
+
+<TO> [^<]*?s <PO> -
+#correct: 22
+#incorrect: 14
+
+<TO> <PO> -
+#correct: 18
+#incorrect: 100
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?\( <PO> -
+#correct: 17
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEsport> )?\( <PO> -
+#correct: 16
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEnumber> )?[^<]*?in <PO> fights
+#correct: 16
+#incorrect: 4
+
+<TO> [^<]*?\( <PO> -
+#correct: 15
+#incorrect: 11
+
+<TO> [^<]*?won [^<]*?(?:<NEmusicalInstrument> )?[^<]*?<PO_NEnumber>
+#correct: 12
+#incorrect: 0
+
+<TO> knocked out <NEperson> to make it <PO> wins
+#correct: 12
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?it <PO> wins
+#correct: 12
+#incorrect: 0
+
+<TO> knocked out <NEperson> to make it <PO_NEnumber>
+#correct: 12
+#incorrect: 0
+
+<TO> [^<]*?won [^<]*?<PO_NEnumber>
+#correct: 11
+#incorrect: 0
+
+<TO> \( <PO_NEnumber>
+#correct: 9
+#incorrect: 13
+
+<TO> \( <PO> -
+#correct: 9
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?his <PO> fights
+#correct: 9
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 90
+
+<PO_NEnumber> [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 8
+#incorrect: 90
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?, <PO> -
+#correct: 8
+#incorrect: 14
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEmusicalInstrument> )?of <PO> -
+#correct: 8
+#incorrect: 8
+
+<PO_NEnumber> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 91
+
+<PO_NEnumber> [^<]*?(?:<NEnumber> )?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 104
+
+<TO> [^<]*?won <PO_NEnumber>
+#correct: 7
+#incorrect: 0
+
+<TO> - the <NEorganization> the champion fighter who never lost one of his <PO> fights
+#correct: 7
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?<TO>
+#correct: 7
+#incorrect: 90
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?of <PO> wins
+#correct: 7
+#incorrect: 3
+
+<TO> ' s <PO> and
+#correct: 7
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEsport> )?(?:<NEmusicalInstrument> )?of <PO> -
+#correct: 7
+#incorrect: 8
+
+<TO> [^<]*?s <PO> and
+#correct: 7
+#incorrect: 3
+
+<TO> - the <NEorganization> the champion fighter who never lost one of his <PO_NEnumber>
+#correct: 7
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEpercentage> )?[^<]*?won (?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 6
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?of <PO> -
+#correct: 6
+#incorrect: 8
+
+<TO> [^<]*?away <PO> straight
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?a <PO> -
+#correct: 6
+#incorrect: 16
+
+<TO> put away <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?, <PO> -
+#correct: 6
+#incorrect: 14
+
+<TO> put away <PO> straight
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?a <PO> -
+#correct: 6
+#incorrect: 16
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?of <PO> wins
+#correct: 6
+#incorrect: 3
+
+<TO> ' s <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> won [^<]*?<PO_NEnumber>
+#correct: 5
+#incorrect: 0
+
+<TO> , <PO> -
+#correct: 5
+#incorrect: 10
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?fights [^<]*?<PO_NEnumber>
+#correct: 5
+#incorrect: 0
+
+<TO> , <PO_NEnumber>
+#correct: 5
+#incorrect: 4
+
+<TO> [^<]*?won <PO> lost
+#correct: 4
+#incorrect: 1
+
+<TO> - won <PO> lost
+#correct: 4
+#incorrect: 0
+
+<TO> - won <PO_NEnumber>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?a <PO> -
+#correct: 4
+#incorrect: 14
+
+<TO> , who was unbeaten in <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?<PO_NEnumber>
+#correct: 3
+#incorrect: 10
+
+<TO> finished a stellar career with a <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?of <PO> straight
+#correct: 3
+#incorrect: 0
+
+<PO_NEnumber> <TO>
+#correct: 3
+#incorrect: 5
+
+<TO> finished a stellar career with a <PO> -
+#correct: 3
+#incorrect: 0
+
+<TO> won <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?s <PO> straight
+#correct: 3
+#incorrect: 3
+
+<TO> , whose <NEmusicalInstrument> of <PO> wins
+#correct: 3
+#incorrect: 0
+
+<TO> ' s career , one only needs to know : <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcapital> )?[^<]*?winning [^<]*?<PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?in <PO> fights
+#correct: 3
+#incorrect: 3
+
+<TO> , whose <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?fights <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?fights <PO> wins
+#correct: 3
+#incorrect: 0
+
+<TO> ' s <PO> straight
+#correct: 3
+#incorrect: 3
+
+<TO> , who was unbeaten in <PO> fights
+#correct: 3
+#incorrect: 0
+
+<TO> <PO_NEnumber>
+#correct: 2
+#incorrect: 10
+
+<TO> [^<]*?: <PO> #
+#correct: 2
+#incorrect: 23
+
+<TO> retired with a <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?fights [^<]*?\( <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?his <PO> fights
+#correct: 2
+#incorrect: 0
+
+<TO> won all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> : fights <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> , the only undefeated heavyweight champion of the world \( <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> , the only undefeated heavyweight champion of the world \( <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> of the most fights undefeated for a world champion \( <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?of <PO> -
+#correct: 2
+#incorrect: 6
+
+<TO> ' s perfect <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> ' s perfect <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> of the most fights undefeated for a world champion \( <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> have in his <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> wins [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?winning [^<]*?<PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?time [^<]*?(?:<NEmusicalInstrument> )?[^<]*?<PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?: <PO> -
+#correct: 2
+#incorrect: 4
+
+<TO> \. <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?winning [^<]*?<PO_NEnumber>
+#correct: 2
+#incorrect: 1
+
+<TO> : fights <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> won <PO> straight
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?<NEacronym> <PO> -
+#correct: 2
+#incorrect: 6
+
+<TO> ' s career , one only needs to know : <PO> #
+#correct: 2
+#incorrect: 1
+
+<TO> ' s <NEmusicalInstrument> of <PO> straight
+#correct: 2
+#incorrect: 0
+
+<TO> -- the only heavyweight champion with a perfect <NEmusicalInstrument> , <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+: <PO> <TO>
+#correct: 2
+#incorrect: 21
+
+of <PO> wins [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?after <PO> fights
+#correct: 2
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> was <PO_NEnumber>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?fights <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> had <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?was <PO> -
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?perfect <PO> -
+#correct: 2
+#incorrect: 5
+
+<TO> retired with a <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> -- the only heavyweight champion with a perfect <NEmusicalInstrument> , <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> \. <PO> victories
+#correct: 2
+#incorrect: 0
+
+<TO> because of his <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> and perhaps have taken him out , though after <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ` s <NEmusicalInstrument> with <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s outstanding <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> ' s undefeated streak <NEmusicalInstrument> of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?time [^<]*?his <PO> fights
+#correct: 1
+#incorrect: 0
+
+<TO> ' s undefeated winning streak of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?won [^<]*?his <PO> professional
+#correct: 1
+#incorrect: 0
+
+<TO> retires from <NEsport> as the undefeated heavyweight champion of the world after <PO> fights
+#correct: 1
+#incorrect: 0
+
+<TO> fought <PO> pro
+#correct: 1
+#incorrect: 1
+
+<TO> retiring as heavyweight champ with a <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> of course , <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> is the only heavyweight champion to retire undefeated \( <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> is the only world heavyweight champion to retire with a perfect <NEmusicalInstrument> \( <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?# <PO> after
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?with <PO> victories
+#correct: 1
+#incorrect: 0
+
+<TO> of course , <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> was one of the greatest boxers of all time with his <PO> fights
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?after <PO> fights
+#correct: 1
+#incorrect: 0
+
+<TO> , grew up in the <NElocation_NEcapital> area and left his sport with the longest consecutive winning streak , <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?time [^<]*?<PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> won all <PO> of
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <PO> bout
+#correct: 1
+#incorrect: 2
+
+<TO> chipped in with just <NEpercentage> , even though he won <NEnumber> of his <PO> fights
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?(?:<NEnumber> )?[^<]*?than <PO> -
+#correct: 1
+#incorrect: 0
+
+the <PO> - 0 <NEmusicalInstrument> turned in by the late <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?that <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> ' s string of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?s <PO> win
+#correct: 1
+#incorrect: 9
+
+<TO> , grew up in the <NElocation_NEcapital> area and left his sport with the longest consecutive winning streak , <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , undefeated world heavyweight champion , ran his unbeaten string to <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - 0 <NEmusicalInstrument> turned in by the late <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the only undefeated champion in any weight class in the history of gloved - <NEsport> \( <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> : professional <NEmusicalInstrument> : <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> : <NEpercentage> \( <NEnumber> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> won all <PO> fights
+#correct: 1
+#incorrect: 1
+
+<TO> , with <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> retired from <NEsport> with an unblemished <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?to <PO> professional
+#correct: 1
+#incorrect: 0
+
+<TO> amassed a <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> : professional <NEmusicalInstrument> : <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , who retired undefeated with a <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEpercentage> )?[^<]*?(?:<NEnumber> )?of <PO> \)
+#correct: 1
+#incorrect: 2
+
+<TO> retired in <NEdate_NEyear_NEnumber> with a <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?of <PO> victories
+#correct: 1
+#incorrect: 2
+
+<TO> retires as the only undefeated heavyweight champion of the world with a perfect <NEmusicalInstrument> \( <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> retires as the only undefeated heavyweight champion of the world with a perfect <NEmusicalInstrument> \( <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s career <NEmusicalInstrument> of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> is the only heavyweight champ who won every fight \( <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> ' s all - time heavyweight <NEmusicalInstrument> of <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> , who won all his <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEpercentage> )?[^<]*?won (?:<NEnumber> )?[^<]*?his <PO> fights
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> - <NEmusicalInstrument> : <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?won [^<]*?fight \( <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> earned the last of his <PO> consecutive
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?only <PO> fights
+#correct: 1
+#incorrect: 0
+
+of <PO> wins <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> <NEacronym> <PO> -
+#correct: 1
+#incorrect: 5
+
+<TO> ' s historic <NEmusicalInstrument> streak of <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> unbeaten in <PO> straight
+#correct: 1
+#incorrect: 0
+
+<TO> have in his <PO> fights
+#correct: 1
+#incorrect: 0
+
+<TO> \?\? <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> " <NEmusicalInstrument> : <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s all - time heavyweight <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?of <PO> bouts
+#correct: 1
+#incorrect: 0
+
+<TO> , who retired undefeated with a <NEmusicalInstrument> of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?winning <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s string of <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> retiring with a <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?his <PO> -
+#correct: 1
+#incorrect: 1
+
+<TO> chipped in with just <NEpercentage> , even though he won <NEnumber> of his <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> gave up the heavyweight title , stepping down with a <NEmusicalInstrument> of <PO> wins
+#correct: 1
+#incorrect: 0
+
+reach <PO> - 0 , the same <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> got that <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s career <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> got that <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> have in his <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?a <PO> and
+#correct: 1
+#incorrect: 3
+
+of <PO> wins without a defeat , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <PO> win
+#correct: 1
+#incorrect: 9
+
+<TO> is the only heavyweight champ who won every fight \( <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> was unbeaten but with only <PO> fights
+#correct: 1
+#incorrect: 0
+
+<TO> retires from <NEsport> as the undefeated heavyweight champion of the world after <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?s <PO> pro
+#correct: 1
+#incorrect: 2
+
+<TO> and perhaps have taken him out , though after <PO> fights
+#correct: 1
+#incorrect: 0
+
+of <PO> - 0 , prompting <NEperson> to utter the famous words , " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> had a <NEsport> <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - 0 , prompting <NEperson> to utter the famous words , " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?, <PO> wins
+#correct: 1
+#incorrect: 5
+
+<TO> gave up the heavyweight title , stepping down with a <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> of <PO> bouts
+#correct: 1
+#incorrect: 0
+
+<TO> , who won all his <PO> professional
+#correct: 1
+#incorrect: 0
+
+<TO> : <NEpercentage> \( <NEnumber> of <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?: <PO> wins
+#correct: 1
+#incorrect: 3
+
+<TO> ' s undefeated winning streak of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> was <PO> -
+#correct: 1
+#incorrect: 1
+
+reach <PO> - [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> retires undefeated with his perfect <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?winning [^<]*?of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?s <PO> bout
+#correct: 1
+#incorrect: 2
+
+<TO> , the only world champion boxer to retire undefeated \( <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEnumber> , announces his retirement from the ring with a career log of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> was <NEnumber> - 0 rather than <PO> -
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> wins without a defeat , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the only undefeated champion in any weight class in the history of gloved - <NEsport> \( <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s career , one only needs to know : <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> is the only world heavyweight champion to retire with a perfect <NEmusicalInstrument> \( <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> in winning <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> of <PO> -
+#correct: 1
+#incorrect: 2
+
+<TO> ' s undefeated streak <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+of <PO> straight victims <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> ' s <NEmusicalInstrument> was <PO> #
+#correct: 1
+#incorrect: 1
+
+\( <PO> - [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?of <PO> undefeated
+#correct: 1
+#incorrect: 3
+
+<TO> is the only heavyweight champ to retire undefeated \( <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> was <PO> -
+#correct: 1
+#incorrect: 1
+
+<TO> in round <NEnumber> , for a <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> was one of the greatest boxers of all time with his <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> was unbeaten but with only <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+\( <PO> - 0 \) world champion <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> was <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - 0 , the same <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> " <NEmusicalInstrument> : <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <PO> pro
+#correct: 1
+#incorrect: 1
+
+<TO> retiring as heavyweight champ with a <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s outstanding <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> earned the last of his <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , with <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcapital> )?[^<]*?winning [^<]*?, <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , undefeated world heavyweight champion , ran his unbeaten string to <PO> professional
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEacronym> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> straight victims <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> at <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> retired from <NEsport> with an unblemished <NEmusicalInstrument> of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?won [^<]*?fight [^<]*?<PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+of <PO> - [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> in round <NEnumber> , for a <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <PO> consecutive
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEnumber> , announces his retirement from the ring with a career log of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> in winning <PO> professional
+#correct: 1
+#incorrect: 0
+
+<TO> amassed a <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> won <PO> consecutive
+#correct: 1
+#incorrect: 0
+
+<TO> ' s historic <NEmusicalInstrument> streak of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> total fights <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - 0 \) world champion <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?won [^<]*?(?:<NEmusicalInstrument> )?was <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> had a <NEsport> <NEmusicalInstrument> of <PO> -
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> wins <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> retiring with a <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?his <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?winning <PO> professional
+#correct: 1
+#incorrect: 0
+
+<TO> total fights <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?his <PO> consecutive
+#correct: 1
+#incorrect: 0
+
+<TO> retired in <NEdate_NEyear_NEnumber> with a <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?in <PO> straight
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?time [^<]*?(?:<NEmusicalInstrument> )?of <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> ` s <NEmusicalInstrument> with <PO> victories
+#correct: 1
+#incorrect: 0
+
+<TO> unbeaten in <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s legendary <NEmusicalInstrument> of <PO> straight
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEacronym> <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> ' s legendary <NEmusicalInstrument> of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> is the only heavyweight champ to retire undefeated \( <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , the only world champion boxer to retire undefeated \( <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> wins
+#correct: 1
+#incorrect: 1
+
+<TO> - <NEmusicalInstrument> : <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> because of his <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?s <PO> consecutive
+#correct: 1
+#incorrect: 0
+
+<TO> \?\? <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> had <PO> wins
+#correct: 1
+#incorrect: 0
+
+<TO> is the only heavyweight champion to retire undefeated \( <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> of <PO> victories
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?: <PO> -
+#correct: 1
+#incorrect: 4
+
+<TO> at <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> \( # <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s won - and - lost <NEmusicalInstrument> was <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?outstanding <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> -
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?was <PO> #
+#correct: 1
+#incorrect: 30
+
+<TO> [^<]*?with <PO> wins
+#correct: 1
+#incorrect: 1
+
+<TO> retires undefeated with his perfect <NEmusicalInstrument> of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> when
+#correct: 1
+#incorrect: 0
+
+the <PO> - [^<]*?(?:<NEmusicalInstrument> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> fought <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> \( # <PO> after
+#correct: 1
+#incorrect: 0
+
+<TO> ' s won - and - lost <NEmusicalInstrument> was <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEmusicalInstrument> of <PO> undefeated
+#correct: 1
+#incorrect: 2
+
+<TO> ' s <NEmusicalInstrument> was <NEnumber> - 0 rather than <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+of <PO> straight [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> had <PO> professional
+#correct: 1
+#incorrect: 0

@@ -1,0 +1,73 @@
+
+Running the parser on plain text:
+--------------------------------
+
+The parser can be run either in batch mode or client mode.  It is very
+important that the input constists of a pre-segmented text file with
+one sentence per line.
+
+The top-level script for both batch and client modes is:
+
+assert-v0.14b/scripts/assert
+
+It can be invoked with the following options:
+
+Usage: assert [OPTIONS] <filename.ext>
+
+Options:
+  [--tag[=argument|theta|opinion|custom]] default: argument
+  [--targets-file[=filename]] default: all targets
+  [--mode[=batch|client|remote] default: batch
+  [--model-file=[model-file]] required for --tag=custom option
+  [--feature-extractor=[custom feature-extraction-script]] required for --tag=custom option
+  [--plain|--html] default: plain
+  [--url=[URL]] URL where the server is running
+  [--help]
+  [--version] 
+
+NOTES: 
+- Currently you will need to have an extension to the file, like "filestem.txt" or "filestem.text", etc
+- The list of targets in the targets-file, are expected to be target lemmas
+
+STARTING/STOPPING servers:
+-------------------------
+In order for the parser to run in client mode, the following servers should be
+running on the machine.  
+
+1. Charniak parser server
+2. Feature extractor server
+
+ The script to start/stop the servers are located under assert-v0.1b/server/
+ directory.
+
+ The script to start the servers is:  assert-v0.1b/server/start-servers.csh
+ And, to stop them is:  assert-v0.1b/server/kill-servers.csh
+
+
+Parser output:
+-------------
+
+As there can be multiple predicates in a sentences, and therefore
+multiple parses per sentence, the parser output line consists of the
+original line number (starting with 0) followed by the sentence tagged
+with the predicate and its arguments.  The predicate, also called
+TARGET, and the arguments boundaries are identified with left and
+right square brackets.  Immediately following the opening square
+bracket, is the label that the segment enclosed within the square
+bracket is assigned by the parser.  
+
+Troubleshooting:
+---------------
+
+ - Sometimes, the default temporary directory that "sort" uses is not
+   large enough to hold the temporary files created by yamcha during
+   training.  If that happens, yamcha will fail with a strange error
+   message.  In that case, make the following change to the Makefile
+   under $ASSERT/data
+
+   SORT = sort  => SORT = sort -T <dir>
+
+   where, <dir> is the directory that you know has enough space on it.
+
+
+  

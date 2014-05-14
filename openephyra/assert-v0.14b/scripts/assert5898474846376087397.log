@@ -1,0 +1,14 @@
+/home/vinicius/siri/assert-v0.14b/bin/prepare-for-framenet-all-targets-batch.csh assert5898474846376087397.sentences assert5898474846376087397.fn-test
+parseStdin: max sentence length set to 399
+classifying passive targets.
+Traceback (most recent call last):
+  File "/home/vinicius/siri/assert-v0.14b/bin/classify_passives.py", line 66, in <module>
+    os.remove(sys.argv[3])
+OSError: [Errno 2] No such file or directory: 'assert5898474846376087397.tmp'
+Illegal variable name.
+/home/vinicius/siri/assert-v0.14b//scripts/assert: line 255: assert5898474846376087397.data: No such file or directory
+Traceback (most recent call last):
+  File "/home/vinicius/siri/assert-v0.14b/bin/remove-overlaps.py", line 17, in <module>
+    score_file_lines       = open(sys.argv[1]).readlines()
+IOError: [Errno 2] No such file or directory: 'assert5898474846376087397.svm-scores'
+ERROR: Found an empty input file... exiting.

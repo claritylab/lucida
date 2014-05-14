@@ -1,0 +1,1 @@
+<s> sed 's/>/\&gt;/g; s/</\&lt;/g' $1.POS > $1.POS.1 #/bin/mv $1.POS.1 $1.POS /tag-all-verb-targets.py $1.POS stop-verbs $MORPH/data/morph_english_verbs.flat $1.SGML $1.line-index-file sed 's/_[^] ][^] ]*//g'  $1.target-tagged-pos > $1.target-tagged ./convert-target-tagged-to-SGML.csh $1.target-tagged  endif if( -e "error") then /bin/rm -f error echo "ERROR" exit endif </s>

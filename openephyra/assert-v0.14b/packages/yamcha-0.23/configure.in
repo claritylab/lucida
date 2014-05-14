@@ -1,0 +1,319 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(src/yamcha.cpp)
+AM_INIT_AUTOMAKE(yamcha, 0.23)
+AC_DEFINE(MODEL_VERSION, 0.3)
+MODEL_VERSION=0.3
+AC_SUBST(MODEL_VERSION)
+
+# Before making a release, the LTVERSION string should be modified.
+# The string is of the form C:R:A.
+# - If interfaces have been changed or added, but binary compatibility has
+#   been preserved, change to C+1:0:A+1
+# - If binary compatibility has been broken (eg removed or changed interfaces)
+#   change to C+1:0:0
+# - If the interface is the same as the previous version, change to C:R+1:A
+
+LTVERSION="2:0:1"
+AC_SUBST(LTVERSION)
+
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_GCC_TRADITIONAL
+AC_PROG_MAKE_SET
+AC_LIBTOOL_WIN32_DLL
+AM_PROG_LIBTOOL
+AC_ISC_POSIX
+AC_CYGWIN
+AC_LANG_CPLUSPLUS
+
+dnl Checks for libraries.
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(string.h stdlib.h unistd.h fcntl.h \
+	        math.h ctype.h sys/types.h sys/stat.h sys/mman.h \
+		sys/times.h windows.h)
+
+dnl dnl Checks for typedefs, structures, and compiler characteristics.
+dnl AC_TYPE_SIZE_T
+
+dnl Checks for library functions
+AC_CHECK_FUNCS(mmap)
+
+dnl Checks for libraries.
+AC_CHECK_LIB(m, pow, M_LIBS="-lm")
+AC_CHECK_LIB(stdc++, main, STDCPP_LIBS="-lstdc++")
+LIBS="$LIBS $M_LIBS $STDCPP_LIBS"
+YAMCHA_LIBS="$LIBS"
+AC_SUBST(YAMCHA_LIBS)
+
+dnl
+dnl Check for GNU make
+dnl
+AC_MSG_CHECKING(whether make is GNU Make)
+if $ac_make --version 2>/dev/null | grep '^GNU Make ' >/dev/null ; then
+        AC_MSG_RESULT(yes)
+else
+        AC_MSG_RESULT(no)
+        if test "$host_vendor" = "sun" ; then
+                AC_MSG_ERROR("SUN make does not work for building TinySVM. Please install GNU make")
+        fi
+fi
+
+dnl
+dnl check gcc
+dnl
+if test -n "$GCC"; then
+   CFLAGS="-O3 -Wall"
+   CXXFLAGS="-O3 -Wall"
+fi
+
+dnl
+dnl check C++ features
+dnl
+AC_DEFUN(CHECK_CXX_STL, [
+  AC_MSG_CHECKING(if ${CXX-c++} supports stl <$1> (required))
+  AC_TRY_COMPILE(
+	[
+	  #include <$1>
+	], [
+	;
+	], [
+	  ac_stl_$1=yes
+	], [
+	  config_error=yes
+	  AC_WARN(${CXX-c++} stl <$1> does not work)
+        ])
+  AC_MSG_RESULT([$ac_stl_$1])
+])
+
+dnl Checks extra packages
+AC_ARG_WITH(
+        perl5,
+        [  --with-perl5=PATH       set perl 5.004 or later location [search path]],
+        AC_MSG_RESULT(using $with_perl5 for perl5)
+	PERL=$with_perl5,
+	[AC_PATH_PROGS(PERL, perl5 perl, no)]
+)
+if test $PERL = "no" || $PERL -e 'exit ($] >= 5.004)';
+then
+    AC_MSG_ERROR(perl 5.004 or later required)
+fi
+AC_SUBST(PERL)
+
+AC_ARG_WITH(
+        svm-learn,
+        [  --with-svm-learn=PATH    set svm_learn (TinySVM or SVM^light) location [search path]],
+        AC_MSG_RESULT(using $with_svm_learn for svm_learn)
+	SVM_LEARN=$with_svm_learn,
+	[AC_PATH_PROGS(SVM_LEARN, svm_learn, no)]
+)
+
+if test $SVM_LEARN = "no";
+then
+    AC_MSG_ERROR(svm_learn (TinySVM or SVM^light) required for training)
+fi    
+AC_SUBST(SVM_LEARN)
+
+AC_PATH_PROG(GZIP,gzip,no)
+if test $GZIP = "no";
+then
+    AC_MSG_ERROR(gzip required for training)
+fi    
+AC_SUBST(GZIP)
+
+CHECK_CXX_STL(vector)
+CHECK_CXX_STL(map)
+CHECK_CXX_STL(functional)
+CHECK_CXX_STL(algorithm)
+CHECK_CXX_STL(string)
+CHECK_CXX_STL(iostream)
+CHECK_CXX_STL(strstream)
+CHECK_CXX_STL(fstream)
+CHECK_CXX_STL(iterator)
+CHECK_CXX_STL(stdexcept)
+
+# check for const_cast
+AC_MSG_CHECKING([if ${CXX-c++} supports template <class T> (required)])
+AC_TRY_COMPILE(
+[
+   template <class T> T foo (T &i) { return i++; };
+],[
+   int i = 0;
+   double d = 0.0;
+   foo(i); foo(d);
+],[
+  ac_template=yes
+],[
+  AC_WARN(${CXX-c++} template <class T> does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_template])
+
+# check for const_cast
+AC_MSG_CHECKING([if ${CXX-c++} supports const_cast<> (required)])
+AC_TRY_COMPILE(
+[
+   class foo;
+],[
+   const foo *c=0;
+   foo *c1=const_cast<foo*>(c);
+],[
+  ac_const_cast=yes
+],[
+  AC_WARN(${CXX-c++} const_cast<> does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_const_cast])
+
+# check for static_cast<>
+AC_MSG_CHECKING(if ${CXX-c++} supports static_cast<> (required))
+AC_TRY_COMPILE(
+[
+   class foo;
+],[
+   foo *c = 0;
+   void *c1 = static_cast<void *>(c);
+],[
+  ac_static_cast=yes
+],[
+  AC_WARN(${CXX-c++} static_cast<> does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_static_cast])
+
+# check for dynamic_cast<>
+AC_MSG_CHECKING(if ${CXX-c++} supports dynamic_cast<> (required))
+AC_TRY_COMPILE(
+[
+   class foo {};
+   class bar: public foo {};
+],[
+   bar *c = 0;
+   foo *c1 = dynamic_cast<foo *>(c);
+],[
+  ac_dynamic_cast=yes
+],[
+  AC_WARN(${CXX-c++} dynamic_cast<> does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_dynamic_cast])
+
+# check for try
+AC_MSG_CHECKING(if ${CXX-c++} supports exception handler (required))
+AC_TRY_COMPILE(
+[
+  ;
+],[
+   try {
+      int i = 0;
+   }
+   catch (char *e) {
+   }
+   
+   catch (...) {
+   }
+],[
+  ac_exception=yes
+],[
+  AC_WARN(${CXX-c++} exception does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_exception])
+
+# check for namespaces
+AC_MSG_CHECKING(if ${CXX-c++} supports namespaces (required) )
+AC_TRY_COMPILE(
+[
+namespace Foo { struct A {}; }
+using namespace Foo;
+],[
+A a;
+],[
+ ac_namespaces=yes
+dnl AC_DEFINE(HAVE_CXX_NAMESPACE)
+],[
+ config_error=yes
+ ac_namespaces=no
+])
+AC_MSG_RESULT([$ac_namespaces])
+
+# namespace
+if test "x$ac_namespaces" = xyes ; then
+AC_MSG_CHECKING(if ${CXX-c++} uses std namespace )
+AC_TRY_COMPILE(
+[
+#include <iostream>
+namespace std{}
+using namespace std;
+],[
+cout << "test" << endl;
+],[
+ ac_std_namespace=yes
+ AC_DEFINE(HAVE_CXX_STD_NAMESPACE)
+],[
+ ac_std_namespace=maybe
+])
+
+# std namespace
+if test "x$ac_std_namespace" = xmaybe ; then
+AC_TRY_COMPILE(
+[
+#include <iostream.h>
+namespace std{}
+using namespace std;
+],[
+cout << "test" << endl;
+],[
+ ac_std_namespace=yes
+ AC_DEFINE(HAVE_CXX_STD_NAMESPACE)
+],[
+ ac_std_namespace=no
+])
+fi
+AC_MSG_RESULT([$ac_std_namespace])
+fi
+
+AC_MSG_CHECKING(if ${CXX-c++} environment provides all required features)
+if test "x$config_error" = xyes ; then
+  AC_MSG_RESULT([no])
+  AC_MSG_ERROR([Your compiler is not powerful enough to compile YamCha. \
+        If it should be, see config.log for more information of why it failed.])
+fi
+AC_MSG_RESULT([yes])
+
+AM_CONFIG_HEADER(config.h)
+AC_OUTPUT([
+            Makefile 
+	    src/Makefile
+	    src/Makefile.bcc32
+	    src/Makefile.msvc
+	    doc/Makefile
+	    training/Makefile
+	    tests/Makefile
+	    libexec/Makefile
+	    man/Makefile
+	    yamcha-config
+	    yamcha.spec
+	    libexec/mkmodel
+	    libexec/mksvmdata
+	    libexec/svm_learn_wrapper
+	    libexec/mkparam
+	    libexec/showse
+	    libexec/zipmodel
+	    libexec/changeRepr.pl
+	    libexec/conlleval.pl
+	    libexec/selecttag
+	   ],
+	   chmod +x yamcha-config \
+	    libexec/mkmodel  \
+	    libexec/mksvmdata \
+	    libexec/svm_learn_wrapper \
+	    libexec/mkparam \
+	    libexec/showse \
+	    libexec/zipmodel \
+	    libexec/changeRepr.pl \
+	    libexec/conlleval.pl \
+	    libexec/selecttag
+	   )

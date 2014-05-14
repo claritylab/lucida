@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl -w
+
+my $feature = shift;
+my @atts = @ARGV;
+
+#open (INFO, "featInfo.$feature");
+#<INFO>;
+#<INFO>;
+#while (<INFO>) {
+  #my ($num1, $name, $num2, $parent, @rest) = split;
+#}
+
+open (G, "$feature.g");
+my $lastseek = 0;
+my $depth = 0;
+ATT:
+foreach my $att (@atts) {
+  --$depth if $att eq 'A';
+  my $search = '^(?:' . '\t' x ($depth) . $att . '\s' .
+  		($depth ? '|(' . '\t' x ($depth-1) . '\S)' : '') . ')';
+  #print $search, "\n";
+  while (<G>) {
+    next unless /$search/;
+    last ATT if $1;
+    $lastseek = tell unless $att eq 'A';
+    print "Line #$.:\t";
+    print;
+    do { $_ = <G> } until /^\s*$/g;
+    last;
+  }
+  ++$depth;
+}
+
+print "Probabilities: \n";
+seek G, $lastseek, 0;
+while (<G>) {
+  last if /^\s*$/;
+  print "\t\t";
+  print;
+}

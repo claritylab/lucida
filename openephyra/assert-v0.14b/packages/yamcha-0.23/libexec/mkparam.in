@@ -1,0 +1,54 @@
+#!@PERL@ -w
+ 
+use Getopt::Std;
+my %arg;
+getopts("o:",\%arg);
+
+my $outFileNamePrefix = $arg{o} || pop(@ARGV);
+
+die "Usage: $0 -o output_filename_prefix [-s] < files....\n" unless ($outFileNamePrefix);
+
+my $paramFileName = $outFileNamePrefix  . ".param";
+my $param;
+my %dicHash = ();
+my %classHash = ();
+
+while(<>) {
+  last if (/^\s*$/);
+  $param .= $_;
+}
+
+while(<>) {
+    chomp;
+    next if (/^\s*$/);
+    my @a = split;
+    my $class = shift @a;
+    $classHash{$class} = 1;
+    for (@a) {
+	$dicHash{$_} = 1;
+    }
+}
+
+open(S, "> $paramFileName") || die "$! $paramFileName\n";
+print S $param;
+print S "Date: ", &gettime(), "\n";
+print S "User: ", getlogin() || (getpwuid($<))[0] || "UNKNOWN" , "\n";
+print S "Class_List: ", join(" ",sort keys %classHash) , "\n";
+print S "\n";
+
+my $id = 1;
+for (sort keys %dicHash) {
+    $dicHash{$_} = $id;
+    print S "$dicHash{$_} $_\n";
+    $id++;
+}
+
+print S "\n";
+close(S);
+
+sub gettime
+{
+   my($sec,$min,$hour,$mday,$mon,$year) = localtime;
+   return sprintf("%04d/%02d/%02d %02d:%02d:%02d",
+        $year+1900,$mon+1,$mday,$hour,$min,$sec);
+}

@@ -1,0 +1,32 @@
+                               DRUtils
+                  Doug Rohde's Utilities C Library
+                             version 2.21
+
+This package includes the source code for compiling a C library that includes
+many useful functions for a variety of things.  This library is used by many
+of the programs written by Doug Rohde, including TGrep2 and SLG.
+
+To build the libdrutils.a library, run make.  You may find that you must use
+the GNU version of make.  If you are using Windows, you should first install
+the Cygwin utilities, including make and gcc.  Before compiling, you may need
+to run:
+
+> export HOSTTYPE=$HOSTTYPE
+
+It's a good idea to put that in your .bashrc or .bash_profile.
+
+If there are compile errors, you may need to customize things for your machine.
+You can do this by adding definitions or overriding other definitions in the
+sysext.h file, which is included by system.h.
+
+If you need to make customizations for your machine, you should create a new
+machine definition in the Makefile, like -DMACHINE_FOOBAR, which matches your
+HOSTTYPE.
+
+Then place the code in sysext.h that is specific to the FOOBAR machine inside:
+
+#ifdef MACHINE_FOOBAR
+.
+.
+.
+#endif /* MACHINE_FOOBAR */
