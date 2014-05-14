@@ -178,3 +178,229 @@
 		</docid>
 	</result>
 </factoid>
+<factoid>
+	<time>
+		Wed May 14 10:06:51 EDT 2014
+	</time>
+	<question>
+		test
+	</question>
+	<normalization>
+		test
+	</normalization>
+</factoid>
+<factoid>
+	<time>
+		Wed May 14 10:07:18 EDT 2014
+	</time>
+	<question>
+		tesls
+	</question>
+	<normalization>
+		tesl
+	</normalization>
+</factoid>
+<factoid>
+	<time>
+		Wed May 14 10:07:57 EDT 2014
+	</time>
+	<question>
+		a
+	</question>
+	<normalization>
+		a
+	</normalization>
+</factoid>
+<factoid>
+	<time>
+		Wed May 14 10:08:58 EDT 2014
+	</time>
+	<question>
+		a
+	</question>
+	<normalization>
+		a
+	</normalization>
+</factoid>
+<factoid>
+	<time>
+		Wed May 14 11:09:51 EDT 2014
+	</time>
+	<question>
+		who
+	</question>
+	<normalization>
+		who
+	</normalization>
+	<answertype>
+		NEproperName->NEperson
+	</answertype>
+	<querystring>
+		
+	</querystring>
+	<querystring>
+		
+	</querystring>
+<factoid>
+	<time>
+		Wed May 14 11:10:41 EDT 2014
+	</time>
+	<question>
+		who is
+	</question>
+	<normalization>
+		who be
+	</normalization>
+	<answertype>
+		NEproperName->NEperson
+	</answertype>
+	<querystring>
+		
+	</querystring>
+	<querystring>
+		
+	</querystring>
+	<querystring>
+		"is"
+	</querystring>
+<factoid>
+	<time>
+		Wed May 14 11:11:31 EDT 2014
+	</time>
+	<question>
+		who is the president of
+	</question>
+	<normalization>
+		who be the president of
+	</normalization>
+	<answertype>
+		NEproperName->NEperson
+	</answertype>
+	<querystring>
+		president
+	</querystring>
+	<querystring>
+		president
+	</querystring>
+	<querystring>
+		"the president of is"
+	</querystring>
+	<querystring>
+		"is the president of"
+	</querystring>
+	<result>
+		<answer>
+			John F
+		</answer>
+		<score>
+			0.56424195
+		</score>
+		<docid>
+			32759
+		</docid>
+	</result>
+</factoid>
+<factoid>
+	<time>
+		Wed May 14 11:17:44 EDT 2014
+	</time>
+	<question>
+		who is the president of the united states
+	</question>
+	<normalization>
+		who be the president of the unite state
+	</normalization>
+	<answertype>
+		NEproperName->NEperson
+	</answertype>
+	<interpretation>
+		<property>
+			LEADER
+		</property>
+		<target>
+			united states
+		</target>
+	</interpretation>
+	<querystring>
+		president united states
+	</querystring>
+	<querystring>
+		president ("united states" OR U.S.A. OR U.S. OR "the States" OR USA OR US OR "United States of America" OR America)
+	</querystring>
+	<querystring>
+		"united states" president united states
+	</querystring>
+	<querystring>
+		"the president of the is united states"
+	</querystring>
+	<result>
+		<answer>
+			Obama
+		</answer>
+		<score>
+			1.2923621
+		</score>
+		<docid>
+			24113
+		</docid>
+	</result>
+</factoid>
+<factoid>
+	<time>
+		Wed May 14 11:22:37 EDT 2014
+	</time>
+	<question>
+		Who is the current president of the united states
+	</question>
+	<normalization>
+		who be the current president of the unite state
+	</normalization>
+	<answertype>
+		NEproperName->NEperson
+	</answertype>
+	<interpretation>
+		<property>
+			NAME
+		</property>
+		<target>
+			current president
+		</target>
+		<context>
+			united states
+		</context>
+	</interpretation>
+	<querystring>
+		current president united states
+	</querystring>
+	<querystring>
+		current president ("united states" OR U.S.A. OR U.S. OR "the States" OR USA OR US OR "United States of America" OR America)
+	</querystring>
+	<querystring>
+		"current president" "united states" current president united states
+	</querystring>
+	<querystring>
+		"the current president of the is united states"
+	</querystring>
+	<result>
+		<answer>
+			Barack Obama
+		</answer>
+		<score>
+			1.8183733
+		</score>
+		<docid>
+			37825066
+		</docid>
+		<interpretation>
+			<property>
+				NAME
+			</property>
+			<target>
+				current president
+			</target>
+			<context>
+				united states
+			</context>
+		</interpretation>
+	</result>
+</factoid>

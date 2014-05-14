@@ -26,13 +26,13 @@ import lemurproject.indri.ScoredExtentResult;
 public class IndriKM extends KnowledgeMiner {
 	/** Maximum total number of search results. */
 //	private static final int MAX_RESULTS_TOTAL = 500;
-	private static final int MAX_RESULTS_TOTAL = 20;	
+	private static final int MAX_RESULTS_TOTAL = 25;	
 	/** Maximum number of search results per query. */
 //	private static final int MAX_RESULTS_PERQUERY = 500;
-	private static final int MAX_RESULTS_PERQUERY = 20;	
+	private static final int MAX_RESULTS_PERQUERY = 25;	
 	/** Maximum number of documents fetched at a time. */
 //	private static final int MAX_DOCS = 500;
-	private static final int MAX_DOCS = 20;	
+	private static final int MAX_DOCS = 25;	
 	/**
 	 * <p>Regular expression that matches characters that cause problems in
 	 * Indri queries and thus should be removed from query strings.</p>
