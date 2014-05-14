@@ -42,6 +42,7 @@ import info.ephyra.questionanalysis.QuestionNormalizer;
 import info.ephyra.search.Result;
 import info.ephyra.search.Search;
 import info.ephyra.search.searchers.IndriKM;
+import info.ephyra.search.searchers.IndriDocumentKM;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -358,7 +359,8 @@ public class OpenEphyraServer extends AbstractHandler {
 //		Search.addKnowledgeMiner(new GoogleKM());
 //		Search.addKnowledgeMiner(new YahooKM());
 		for (String[] indriIndices : IndriKM.getIndriIndices())
-			Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
+			//Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
+			Search.addKnowledgeMiner(new IndriDocumentKM(indriIndices, false));
 //		for (String[] indriServers : IndriKM.getIndriServers())
 //			Search.addKnowledgeMiner(new IndriKM(indriServers, true));
 		// - knowledge annotators for (semi-)structured knowledge sources
@@ -370,7 +372,7 @@ public class OpenEphyraServer extends AbstractHandler {
 		// - answer extraction filters
 		AnswerSelection.addFilter(new AnswerTypeFilter());
 		AnswerSelection.addFilter(new AnswerPatternFilter());
-		AnswerSelection.addFilter(new WebDocumentFetcherFilter());
+		//AnswerSelection.addFilter(new WebDocumentFetcherFilter());
 		AnswerSelection.addFilter(new PredicateExtractionFilter());
 		AnswerSelection.addFilter(new FactoidsFromPredicatesFilter());
 		AnswerSelection.addFilter(new TruncationFilter());
