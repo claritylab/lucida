@@ -1,0 +1,1614 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+
+Copyright 1999-2004 Carnegie Mellon University.
+Portions Copyright 2004 Sun Microsystems, Inc.
+Portions Copyright 2004 Mitsubishi Electric Research Laboratories.
+All Rights Reserved.  Use is subject to license terms.
+
+See the file "license.terms" for information on usage and
+redistribution of this file, and for a DISCLAIMER OF ALL
+WARRANTIES.
+
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 14 June 2007), see www.w3.org" />
+
+  <title>Sphinx-4 Application Programmer's Guide</title>
+  <style type="text/css">
+/*<![CDATA[*/
+     pre { padding: 2mm; border-style: ridge; background: #f0f8ff; color: teal;}
+     code {font-size: medium; color: teal}
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table bgcolor="#99CCFF" width="100%">
+    <tr>
+      <td align="center" width="100%">
+        <div style="text-align: center;">
+          <h1>Sphinx-4 Application Programmer's Guide</h1>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <p>This tutorial shows you how to write Sphinx-4 applications. We
+  will use the HelloWorld demo as an example to show how a simple
+  application can be written. We will then proceed to a more
+  complex example. Consequently, this tutorial is divided into the
+  following parts:</p>
+
+  <ol>
+    <li>
+      <a href="#helloworld">Simple Example - HelloWorld</a>
+
+      <ul>
+        <li><a href="#helloCodeWalk">Code Walk -
+        HelloWorld.java</a></li>
+
+        <li>
+          <a href="#helloConfigWalk">Configuration File Walk -
+          helloworld.config.xml</a>
+
+          <ul>
+            <li><a href="#recognizer">Recognizer</a></li>
+
+            <li><a href="#decoder">Decoder</a></li>
+
+            <li><a href="#linguist">Linguist</a></li>
+
+            <li><a href="#acoustic">Acoustic Model</a></li>
+
+            <li><a href="#frontend">Front End</a></li>
+
+            <li><a href="#instrumentation">Instrumentation</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li style="list-style: none"><br />
+    <br /></li>
+
+    <li>
+      <a href="#hellongram">More Complex Example - Hello NGram</a>
+
+      <ul>
+        <li><a href="#ngramCodeWalk">Code Walk -
+        HelloNGram.java</a></li>
+
+        <li><a href="#ngramFile">N-Gram Language Model</a></li>
+
+        <li><a href="#ngramConfigWalk">Configuration File Walk -
+        hellongram.config.xml</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a href="#configurationOptions">Two ways of configuring
+      Sphinx4</a>
+
+      <ul>
+        <li><a href="#configurationManagement">Configuration
+        Management</a></li>
+
+        <li><a href="#rawConfiguration">Raw Configuration</a></li>
+      </ul><br />
+    </li>
+
+    <li><a href="#interpretResult">Interpreting the Recognition
+    Result</a></li>
+
+    <li>
+      <a href="#writingScripts">Writing Sphinx4 Scripts</a>
+
+      <ul>
+        <li><a href="#groovyExample">Groovy</a></li>
+
+        <li><a href="#pythonExample">Python</a></li>
+
+        <li><a href="#clojureExample">Clojure</a></li>
+      </ul>
+    </li>
+  </ol>
+  <hr />
+
+  <h2><a name="helloworld" id="helloworld">1. Simple Example -
+  HelloWorld</a></h2>
+
+  <p>We will look at a very simple Sphinx-4 speech application, the
+  HelloWorld demo. This application recognizes very restricted type of
+  speech - greetings. As you will see, the code is very simple.
+  The harder part is understanding the configuration, but we will guide
+  you through every step of it. Lets look at the code first.</p>
+
+  <h3><a name="helloCodeWalk" id="helloCodeWalk">Code Walk -
+  HelloWorld.java</a></h3>
+
+  <p>All the source code of the HelloWorld demo is in one short
+  file
+  <code>sphinx4/src/apps/edu/cmu/sphinx/demo/helloworld/HelloWorld.java</code>:</p>
+<pre>
+package edu.cmu.sphinx.demo.helloworld;
+
+import edu.cmu.sphinx.frontend.util.Microphone;
+import edu.cmu.sphinx.recognizer.Recognizer;
+import edu.cmu.sphinx.result.Result;
+import edu.cmu.sphinx.util.props.ConfigurationManager;
+
+/**
+ * A simple HelloWorld demo showing a simple speech application built using Sphinx-4. This application uses the Sphinx-4
+ * endpointer, which automatically segments incoming audio into utterances and silences.
+ */
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        ConfigurationManager cm;
+
+        if (args.length > 0) {
+            cm = new ConfigurationManager(args[0]);
+        } else {
+            cm = new ConfigurationManager(HelloWorld.class.getResource("helloworld.config.xml"));
+        }
+
+        Recognizer recognizer = (Recognizer) cm.lookup("recognizer");
+        recognizer.allocate();
+
+        // start the microphone or exit if the programm if this is not possible
+        Microphone microphone = (Microphone) cm.lookup("microphone");
+        if (!microphone.startRecording()) {
+            System.out.println("Cannot start microphone.");
+            recognizer.deallocate();
+            System.exit(1);
+        }
+
+        System.out.println("Say: (Good morning | Hello) ( Bhiksha | Evandro | Paul | Philip | Rita | Will )");
+
+        // loop the recognition until the programm exits.
+        while (true) {
+            System.out.println("Start speaking. Press Ctrl-C to quit.\n");
+
+            Result result = recognizer.recognize();
+
+            if (result != null) {
+                String resultText = result.getBestFinalResultNoFiller();
+                System.out.println("You said: " + resultText + '\n');
+            } else {
+                System.out.println("I can't hear what you said.\n");
+            }
+        }
+    }
+}
+
+</pre><br />
+  This demo imports several important classes in Sphinx-4:<br />
+  <code><br />
+  <a href=
+  "../javadoc/edu/cmu/sphinx/recognizer/Recognizer.html">edu.cmu.sphinx.recognizer.Recognizer</a><br />
+
+  <a href=
+  "../javadoc/edu/cmu/sphinx/result/Result.html">edu.cmu.sphinx.result.Result</a><br />
+
+  <a href=
+  "../javadoc/edu/cmu/sphinx/util/props/ConfigurationManager.html">edu.cmu.sphinx.util.props.ConfigurationManager</a></code>
+
+  <p>The <code>Recognizer</code> is the main class any application
+  should interact with. The <code>Result</code> is returned by the
+  Recognizer to the application after recognition completes. The
+  <code>ConfigurationManager</code> creates the entire Sphinx-4
+  system according to the configuration specified by the user.</p>
+
+  <p>Lets look at the <code>main()</code> method. The first few
+  lines creates the URL of the XML-based configuration file. A
+  <code>ConfigurationManager</code> is then created using that URL.
+  The ConfigurationManager then reads in the file internally. Since
+  the configuration file specifies the components
+  <code>"recognizer"</code> and <code>"microphone"</code> (we will
+  look at the configuration file next), we perform a <a href=
+  "../javadoc/edu/cmu/sphinx/util/props/ConfigurationManager.html#lookup(java.lang.String)">
+  <code>lookup()</code></a> in the ConfigurationManager to obtain
+  these components. The <a href=
+  "../javadoc/edu/cmu/sphinx/recognizer/Recognizer.html#allocate()">
+  <code>allocate()</code></a> method of the Recognizer is then
+  called to allocate the resources need for the recognizer. The
+  Microphone class is used for capturing live audio from the system
+  audio device. Both the Recognizer and the Microphone is
+  configured as specified in the configuration file.</p>
+
+  <p>Once all the necessary components are created, we can start
+  running the demo. The program first turns on the Microphone
+  (<a href=
+  "../javadoc/edu/cmu/sphinx/frontend/util/Microphone.html#startRecording()"><code>microphone.startRecording()</code></a>).
+  After the microphone is turned on successfully, the program
+  enters a loop that repeats the following. It tries to recognize
+  what the user is saying, using the <a href=
+  "../javadoc/edu/cmu/sphinx/recognizer/Recognizer.html#recognize()">
+  <code>Recognizer.recognize()</code></a> method. Recognition stops
+  when the user stops speaking, which is detected by the endpointer
+  built into the front end by configuration. Once an utterance is
+  recognized, the recognized text, which is returned by the method
+  <a href=
+  "../javadoc/edu/cmu/sphinx/result/Result.html#getBestResultNoFiller()">
+  <code>Result.getBestResultNoFiller()</code></a>, is printed out.
+  If the Recognizer recognized nothing (i.e., <code>result</code>
+  is null), then it will print out a message saying that. Finally,
+  if the demo program cannot turn on the microphone in the first
+  place, the Recognizer will be deallocated, and the program exits.
+  It is generally a good practice to call the method <a href=
+  "../javadoc/edu/cmu/sphinx/recognizer/Recognizer.html#deallocate()">
+  <code>deallocate()</code></a> after the work is done to release
+  all the resources.</p>
+
+  <p>Note that several exceptions are thrown. These exceptions
+  should be caught and handled appropriately.</p>
+
+  <p>Hopefully, by this point, you will have some idea of how to
+  write a simple Sphinx-4 application. We will now turn to the
+  harder part, understanding the various components necessary to
+  create a grammar-based recognizer. These components are
+  specified in the configuration file, which we will now explain in
+  depth.</p>
+
+  <h3><a name="helloConfigWalk" id="helloConfigWalk">Configuration
+  File Walk - helloworld.config.xml</a></h3>
+
+  <p>In this section, we will explain the various Sphinx-4
+  components that are used for the HelloWorld demo, as specified
+  in the configuration file. We will look at each section of the
+  config file in depth. If you want to learn about the format of
+  these configuration files, please refer to the document <a href=
+  "../javadoc/edu/cmu/sphinx/util/props/doc-files/ConfigurationManagement.html">
+  Sphinx-4 Configuration Management</a>.</p>
+
+  <p>The lines below define the frequently tuned properties. They
+  are located at the top of the configuration file so that they can
+  be edited quickly.</p>
+  <pre>
+    &lt;property name="logLevel" value="WARNING"/&gt;
+    
+    &lt;property name="absoluteBeamWidth" value="-1"/&gt;
+    &lt;property name="relativeBeamWidth" value="1E-80"/&gt;
+    &lt;property name="wordInsertionProbability" value="1E-36"/&gt;
+    &lt;property name="languageWeight" value="8"/&gt;
+    
+    &lt;property name="frontend" value="epFrontEnd"/&gt;
+    &lt;property name="recognizer" value="recognizer"/&gt;
+    &lt;property name="showCreations" value="false"/&gt;
+</pre>
+
+  <h4><a name="recognizer" id="recognizer">Recognizer</a></h4>
+
+  <p>The lines below define the recognizer component that performs
+  speech recognition. It defines the name and class of the
+  recognizer, Recognizer. This is the class that any application
+  should interact with. If you look at the javadoc of the <a href=
+  "../javadoc/edu/cmu/sphinx/recognizer/Recognizer.html">Recognizer</a>
+  class, you will see that it has two properties, 'decoder' and
+  'monitors'. This configuration file is where the value of these
+  properties are defined.</p>
+  <pre>
+    &lt;component name="recognizer" type="edu.cmu.sphinx.recognizer.Recognizer"&gt;
+        &lt;property name="decoder" value="decoder"/&gt;
+        &lt;propertylist name="monitors"&gt;
+            &lt;item&gt;accuracyTracker &lt;/item&gt;
+            &lt;item&gt;speedTracker &lt;/item&gt;
+            &lt;item&gt;memoryTracker &lt;/item&gt;
+        &lt;/propertylist&gt;
+    &lt;/component&gt;
+</pre>
+
+  <p>We will explain the monitors later. For now, lets look at the
+  decoder.</p>
+
+  <h4><a name="decoder" id="decoder">Decoder</a></h4>The 'decoder'
+  property of the recognizer is set to the component called
+  'decoder', which is defined as:
+  <pre>
+    &lt;component name="decoder" type="edu.cmu.sphinx.decoder.Decoder"&gt;
+        &lt;property name="searchManager" value="searchManager"/&gt;
+    &lt;/component&gt;
+</pre>The decoder component is of class <a href=
+"../javadoc/edu/cmu/sphinx/decoder/Decoder.html">edu.cmu.sphinx.decoder.Decoder</a>.
+Its property 'searchManager' is set to the component
+'searchManager', defined as:
+  <pre>
+    &lt;component name="searchManager" 
+        type="edu.cmu.sphinx.decoder.search.SimpleBreadthFirstSearchManager"&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+        &lt;property name="linguist" value="flatLinguist"/&gt;
+        &lt;property name="pruner" value="trivialPruner"/&gt;
+        &lt;property name="scorer" value="threadedScorer"/&gt;
+        &lt;property name="activeListFactory" value="activeList"/&gt;
+    &lt;/component&gt;
+</pre>The searchManager is of class <a href=
+"../javadoc/edu/cmu/sphinx/decoder/search/SimpleBreadthFirstSearchManager.html">
+  edu.cmu.sphinx.decoder.search.SimpleBreadthFirstSearchManager</a>.
+  This class performs a simple breadth-first search through the
+  search graph during the decoding process to find the best path.
+  This search manager is suitable for small to medium sized
+  vocabulary decoding. The logMath property is the log math that is
+  used for calculation of scores during the search process. It is
+  defined as having the log base of 1.0001. Note that typically the
+  same log base should be used throughout all components, and
+  therefore there should only be one logMath definition in a
+  configuration file:
+  <pre>
+    &lt;component name="logMath" type="edu.cmu.sphinx.util.LogMath"&gt;
+        &lt;property name="logBase" value="1.0001"/&gt;
+        &lt;property name="useAddTable" value="true"/&gt;
+    &lt;/component&gt;
+</pre>The linguist of the searchManager is set to the component
+'flatLinguist' (which we will look at later), which again is
+suitable for small to medium sized vocabulary decoding. The pruner
+is set to the 'trivialPruner':
+  <pre>
+    &lt;component name="trivialPruner" 
+                type="edu.cmu.sphinx.decoder.pruner.SimplePruner"/&gt;
+</pre>which is of class <a href=
+"../javadoc/edu/cmu/sphinx/decoder/pruner/SimplePruner.html">edu.cmu.sphinx.decoder.pruner.SimplePruner</a>.
+This pruner performs simple absolute beam and relative beam pruning
+based on the scores of the tokens. The scorer of the searchManager
+is set to the component 'threadedScorer', which is of class
+  <a href="../javadoc/edu/cmu/sphinx/decoder/scorer/ThreadedAcousticScorer.html">
+  edu.cmu.sphinx.decoder.scorer.ThreadedAcousticScorer</a>. It can
+  use multiple threads (usually one per CPU) to score the tokens in
+  the active list. Scoring is one of the most time-consuming step
+  of the decoding process. Tokens can be scored independently of
+  each other, so using multiple CPUs will definitely speed things
+  up. The threadedScorer is defined as follows:
+  <pre>
+    &lt;component name="threadedScorer" 
+                type="edu.cmu.sphinx.decoder.scorer.ThreadedAcousticScorer"&gt;
+        &lt;property name="frontend" value="${frontend}"/&gt;
+        &lt;property name="isCpuRelative" value="true"/&gt;
+        &lt;property name="numThreads" value="0"/&gt;
+        &lt;property name="minScoreablesPerThread" value="10"/&gt;
+        &lt;property name="scoreablesKeepFeature" value="true"/&gt;
+    &lt;/component&gt;
+</pre>The 'frontend' property is the front end from which features
+are obtained. For details about the other properties of the
+threadedScorer, please refer to <a href=
+"../javadoc/edu/cmu/sphinx/decoder/scorer/ThreadedAcousticScorer.html">
+  javadoc for ThreadedAcousticScorer</a>. Finally, the
+  activeListFactory property of the searchManager is set to the
+  component 'activeList', which is defined as follows:
+  <pre>
+    &lt;component name="activeList" 
+             type="edu.cmu.sphinx.decoder.search.PartitionActiveListFactory"&lt;
+        &lt;property name="logMath" value="logMath"/&lt;
+        &lt;property name="absoluteBeamWidth" value="${absoluteBeamWidth}"/&lt;
+        &lt;property name="relativeBeamWidth" value="${relativeBeamWidth}"/&lt;
+    &lt;/component&lt;
+</pre>It is of class <a href=
+"../javadoc/edu/cmu/sphinx/decoder/search/PartitionActiveListFactory.html">
+  edu.cmu.sphinx.decoder.search.PartitionActiveListFactory</a>. It
+  uses a partitioning algorithm to select the top N highest scoring
+  tokens when performing absolute beam pruning. The 'logMath'
+  property specifies the logMath used for score calculation, which
+  is the same LogMath used in the searchManager. The property
+  'absoluteBeamWidth' is set to the value given at the very top of
+  the configuration file using <code>${absoluteBeamWidth}</code>.
+  The same is for <code>${relativeBeamWidth}</code>.
+
+  <h4><a name="linguist" id="linguist">Linguist</a></h4>Now lets
+  look at the flatLinguist component (a component inside the
+  searchManager). The linguist is the component that generates the
+  search graph using the guidance from the grammar, and knowledge
+  from the dictionary, acoustic model, and language model.
+  <pre>
+    &lt;component name="flatLinguist" 
+                type="edu.cmu.sphinx.linguist.flat.FlatLinguist"&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+        &lt;property name="grammar" value="jsgfGrammar"/&gt;
+        &lt;property name="acousticModel" value="wsj"/&gt;
+        &lt;property name="wordInsertionProbability" 
+                value="${wordInsertionProbability}"/&gt;
+        &lt;property name="languageWeight" value="${languageWeight}"/&gt;
+    &lt;/component&gt;
+</pre>It also uses the logMath that we've seen already. The grammar
+used is the component called 'jsgfGrammar', which is a BNF-style
+grammar:
+  <pre>
+    &lt;component name="jsgfGrammar" type="edu.cmu.sphinx.jsapi.JSGFGrammar"&gt;
+        &lt;property name="grammarLocation" value="resource:/demo/sphinx/helloworld/"/&gt;
+        &lt;property name="dictionary" value="dictionary"/&gt;
+        &lt;property name="grammarName" value="hello"/&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+    &lt;/component&gt;
+</pre>
+
+  <p>JSGF grammars are defined in <a href=
+  "http://java.sun.com/products/java-media/speech/">JSAPI</a>. The
+  class that translates JSGF into a form that Sphinx-4 understands
+  is <a href=
+  "../javadoc/edu/cmu/sphinx/jsgf/JSGFGrammar.html">edu.cmu.sphinx.jsapi.JSGFGrammar</a>.
+  Note that this link to the javadoc also describes the limitations
+  of the current implementation). The property 'grammarLocation'
+  can take two kinds of values. If it is a URL, it specifies the
+  URL of the directory where JSGF grammar files are to be found.
+  Otherwise, it is interpreted as resource locator. In our example,
+  the HelloWorld demo is being deployed as a JAR file. The
+  'grammarLocation' property is therefore used to specify the
+  location of the resource <a href=
+  "../src/apps/edu/cmu/sphinx/demo/helloworld/hello.gram">hello.gram</a>
+  within the JAR file. Note that it is not necessary to the JAR
+  file within which to search. The 'grammarName' property specifies
+  the grammar to use when creating the search graph. 'logMath' is
+  the same log math as the other components. The 'dictionary' is
+  the component that maps words to their phonemes. It is almost
+  always the dictionary of the acoustic model, which lists all the
+  words that were used to train the acoustic model:</p>
+
+<pre>
+    &lt;component name="dictionary" 
+        type="edu.cmu.sphinx.linguist.dictionary.FastDictionary"&gt;
+        &lt;property name="dictionaryPath" value=
+                  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d"/&gt;
+        &lt;property name="fillerPath"
+                  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/noisedict"/&gt;
+        &lt;property name="addSilEndingPronunciation" value="false"/&gt;
+        &lt;property name="wordReplacement" value="&lt;sil&gt;"/&gt;
+    &lt;/component&gt;
+</pre>
+
+  <p>The locations of these dictionary files are specified using
+  the Sphinx-4 resource mechanism. The dictionary for filler words
+  like "BREATH" and "LIP_SMACK" is the file
+  <code>noisedict</code>.</p>
+
+  <p>For details about the other possible properties, please refer
+  to the <a href=
+  "../javadoc/edu/cmu/sphinx/linguist/dictionary/FastDictionary.html">
+  javadoc for FastDictionary</a>.</p>
+
+  <h4><a name="acoustic" id="acoustic">Acoustic Model</a></h4>
+
+  <p>The next important property of the flatLinguist is the
+  acoustic model which describes sounds of the language. It is defined as:</p>
+
+<pre>
+    &lt;component name="dictionary" 
+        type="edu.cmu.sphinx.linguist.dictionary.FastDictionary"&gt;
+        &lt;property name="dictionaryPath" value=
+                  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d"/&gt;
+        &lt;property name="fillerPath"
+                  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/noisedict"/&gt;
+        &lt;property name="addSilEndingPronunciation" value="false"/&gt;
+        &lt;property name="wordReplacement" value="&lt;sil&gt;"/&gt;
+    &lt;/component&gt;
+</pre>
+
+  <p>'wsj' stands for the Wall Street Journal acoustic models.
+  Sphinx-4 can load acoustic models trained by Sphinxtrain. Common
+  models are packed into JAR files during build and located in
+  <code>lib</code> folder. <a href=
+  "../javadoc/edu/cmu/sphinx/linguist/acoustic/tiedstate/Sphinx3Loader.html">
+  Sphinx3Loader class</a>. is used to load them. The JAR needs to
+  be included into classpath. The JAR file for the WSJ models is
+  called <code>WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar</code>,
+  and is in the <code>sphinx4/lib</code> directory. As a
+  programmer, all you need to do is to specify the class of the
+  AcousticModel, and the loader of the AcousticModel, as shown
+  above (note that if you are using the WSJ model in other
+  applications, these lines should be the same, except that you
+  might have called your 'logMath' component something else).
+  is in the <code>sphinx4/lib</code> directory. Acoustic model
+  could be located in filesystem or on any other resource. You need
+  to specify the model location in location property then.</p>
+  
+  <p>The
+  next properties of the flatLinguist are the
+  'wordInsertionProbability' and 'languageWeight'. These properties
+  are usually for fine tuning the system. Below are the default
+  values we used for the various tasks. You can tune your system
+  accordingly:</p>
+
+  <table width="100%">
+    <tr>
+      <td><b>Vocabulary Size</b></td>
+
+      <td><b>Word Insertion Probability</b></td>
+
+      <td><b>Language Weight</b></td>
+    </tr>
+
+    <tr>
+      <td>Digits (11 words - TIDIGITS)</td>
+
+      <td>1E-36</td>
+
+      <td>8</td>
+    </tr>
+
+    <tr>
+      <td>Small (80 words - AN4)</td>
+
+      <td>1E-26</td>
+
+      <td>7</td>
+    </tr>
+
+    <tr>
+      <td>Medium (1000 words - RM1)</td>
+
+      <td>1E-10</td>
+
+      <td>7</td>
+    </tr>
+
+    <tr>
+      <td>Large (64000 words - HUB4)</td>
+
+      <td>0.2</td>
+
+      <td>10.5</td>
+    </tr>
+  </table>
+
+  <h4><a name="frontend" id="frontend">Front End</a></h4>The last
+  big piece in the configuration file is the front end. There are
+  two different front ends listed in the configuration file:
+  'frontend' and 'epFrontEnd'. The 'frontend' is good for batch
+  mode decoding (or decoding without endpointing), while
+  'epFrontEnd' is good for live mode decoding with endpointing.
+  Note that you can also perform live mode decoding with the
+  'frontend' (i.e., without endpointing), but that you need to
+  explicitly signal the start and end of speech (e.g., by asking
+  the user to explicitly turn on/off the microphone). The
+  definitions for these front ends are:
+  <pre>
+    &lt;!-- ******************************************************** --&gt;
+    &lt;!-- The frontend configuration                               --&gt;
+    &lt;!-- ******************************************************** --&gt;
+    
+    &lt;component name="frontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+        &lt;propertylist name="pipeline"&gt;
+            &lt;item&gt;microphone &lt;/item&gt;
+            &lt;item&gt;premphasizer &lt;/item&gt;
+            &lt;item&gt;windower &lt;/item&gt;
+            &lt;item&gt;fft &lt;/item&gt;
+            &lt;item&gt;melFilterBank &lt;/item&gt;
+            &lt;item&gt;dct &lt;/item&gt;
+            &lt;item&gt;liveCMN &lt;/item&gt;
+            &lt;item&gt;featureExtraction &lt;/item&gt;
+        &lt;/propertylist&gt;
+    &lt;/component&gt;
+    
+    &lt;!-- ******************************************************** --&gt;
+    &lt;!-- The live frontend configuration                          --&gt;
+    &lt;!-- ******************************************************** --&gt;
+    &lt;component name="epFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+        &lt;propertylist name="pipeline"&gt;
+            &lt;item&gt;microphone &lt;/item&gt;
+            &lt;item&gt;speechClassifier &lt;/item&gt;
+            &lt;item&gt;speechMarker &lt;/item&gt;
+            &lt;item&gt;nonSpeechDataFilter &lt;/item&gt;
+            &lt;item&gt;premphasizer &lt;/item&gt;
+            &lt;item&gt;windower &lt;/item&gt;
+            &lt;item&gt;fft &lt;/item&gt;
+            &lt;item&gt;melFilterBank &lt;/item&gt;
+            &lt;item&gt;dct &lt;/item&gt;
+            &lt;item&gt;liveCMN &lt;/item&gt;
+            &lt;item&gt;featureExtraction &lt;/item&gt;
+        &lt;/propertylist&gt;
+    &lt;/component&gt;
+</pre>As you might notice, the only different between these two
+front ends is that the live front end (epFrontEnd) has the
+additional components <code>speechClassifier</code>,
+<code>speechMarker</code> and <code>nonSpeechDataFilter</code>.
+These three components make up the default endpointer of Sphinx-4.
+Below is a listing of all the components of both front ends, and
+those properties which have values different from the default:
+  <pre>
+
+    &lt;component name="speechClassifier" 
+               type="edu.cmu.sphinx.frontend.endpoint.SpeechClassifier"&gt;
+        &lt;property name="threshold" value="13"/&gt;
+    &lt;/component&gt;
+    
+    &lt;component name="nonSpeechDataFilter" 
+               type="edu.cmu.sphinx.frontend.endpoint.NonSpeechDataFilter"/&gt;
+    
+    &lt;component name="speechMarker" 
+               type="edu.cmu.sphinx.frontend.endpoint.SpeechMarker" &gt;
+        &lt;property name="speechTrailer" value="50"/&gt;
+    &lt;/component&gt;
+    
+    
+    &lt;component name="premphasizer" 
+               type="edu.cmu.sphinx.frontend.filter.Preemphasizer"/&gt;
+    
+    &lt;component name="windower" 
+               type="edu.cmu.sphinx.frontend.window.RaisedCosineWindower"&gt;
+    &lt;/component&gt;
+    
+    &lt;component name="fft" 
+            type="edu.cmu.sphinx.frontend.transform.DiscreteFourierTransform"/&gt;
+    
+    &lt;component name="melFilterBank" 
+        type="edu.cmu.sphinx.frontend.frequencywarp.MelFrequencyFilterBank"&gt;
+    &lt;/component&gt;
+    
+    &lt;component name="dct" 
+            type="edu.cmu.sphinx.frontend.transform.DiscreteCosineTransform"/&gt;
+    
+    &lt;component name="batchCMN" 
+               type="edu.cmu.sphinx.frontend.feature.BatchCMN"/&gt;
+
+    &lt;component name="liveCMN" 
+               type="edu.cmu.sphinx.frontend.feature.LiveCMN"/&gt;
+        
+    &lt;component name="featureExtraction" 
+               type="edu.cmu.sphinx.frontend.feature.DeltasFeatureExtractor"/&gt;
+       
+    &lt;component name="microphone" 
+               type="edu.cmu.sphinx.frontend.util.Microphone"&gt;
+        &lt;property name="msecPerRead" value="10"/&gt;
+        &lt;property name="closeBetweenUtterances" value="false"/&gt;
+    &lt;/component&gt;
+</pre>Lets explain some of the properties set here that have values
+different from the default. The property <a href=
+"../javadoc/edu/cmu/sphinx/frontend/endpoint/SpeechClassifier.html#PROP_THRESHOLD">
+  'threshold'</a> of the SpeechClassifier specifies the minimum
+  difference between the input signal level and the background
+  signal level in order that the input signal is classified as
+  speech. Therefore, the smaller this number, the more sensitive
+  the endpointer, and vice versa. The property <a href=
+  "../javadoc/edu/cmu/sphinx/frontend/endpoint/SpeechMarker.html#PROP_SPEECH_TRAILER">
+  'speechTrailer'</a> of the SpeechMarker specifies the length of
+  non-speech signal to be included after the end of speech to make
+  sure that no speech signal is lost. Here, it is set at 50
+  milliseconds. The property <a href=
+  "../javadoc/edu/cmu/sphinx/frontend/util/Microphone.html#PROP_MSEC_PER_READ">
+  'msecPerRead'</a> of the Microphone specifies the number of
+  milliseconds of data to read at a time from the system audio
+  device. The value specified here is 10ms. The property <a href=
+  "../javadoc/edu/cmu/sphinx/frontend/util/Microphone.html#PROP_CLOSE_BETWEEN_UTTERANCES">
+  'closeBetweenUtterances'</a> specifies whether the system audio
+  device should be released between utterances. It is set to false
+  here, meaning that the system audio device will not be released
+  between utterances. This is set as so because on certain systems
+  (Linux for one), closing and reopening the audio does not work
+  too well.
+
+  <h4><a name="instrumentation" id=
+  "instrumentation">Instrumentation</a></h4>Finally, we will
+  explain the various monitors which make up the <a href=
+  "../javadoc/edu/cmu/sphinx/instrumentation/package-summary.html">instrumentation
+  package</a>. These monitors are components of the recognizer (see
+  above). They are responsible for tracking the accuracy, speed and
+  memory usage of Sphinx-4.
+  <pre>
+    &lt;component name="accuracyTracker" 
+                type="edu.cmu.sphinx.instrumentation.BestPathAccuracyTracker"&gt;
+        &lt;property name="recognizer" value="${recognizer}"/&gt;
+        &lt;property name="showAlignedResults" value="false"/&gt;
+        &lt;property name="showRawResults" value="false"/&gt;
+    &lt;/component&gt;
+    
+    &lt;component name="memoryTracker" 
+                type="edu.cmu.sphinx.instrumentation.MemoryTracker"&gt;
+        &lt;property name="recognizer" value="${recognizer}"/&gt;
+        &lt;property name="showSummary" value="false"/&gt;
+        &lt;property name="showDetails" value="false"/&gt;
+    &lt;/component&gt;
+    
+    &lt;component name="speedTracker" 
+                type="edu.cmu.sphinx.instrumentation.SpeedTracker"&gt;
+        &lt;property name="recognizer" value="${recognizer}"/&gt;
+        &lt;property name="frontend" value="${frontend}"/&gt;
+        &lt;property name="showSummary" value="true"/&gt;
+        &lt;property name="showDetails" value="false"/&gt;
+    &lt;/component&gt;
+</pre>
+
+  <p>The various knobs of these monitors mainly control whether
+  statistical information about accuracy, speed and memory usage
+  should be printed out. Moreover, the monitors monitor the
+  behavior of a recognizer, so they need a reference to the
+  recognizer that they are monitoring.</p>
+  <hr />
+
+  <h2><a name="hellongram" id="hellongram">1. More Complex Example
+  - HelloNGram</a></h2>
+
+  <p>HelloWorld uses a very small vocabulary and a guided grammar.
+  What if you want to use a larger vocabulary, and there is no
+  guided grammar for your application? One way to do it would be to
+  use what is known as a language model, which describes the
+  probability of occurrence of a series of words. The HelloNGram
+  demo shows you how to do this with Sphinx-4.</p>
+
+  <h3><a name="ngramCodeWalk" id="ngramCodeWalk">Code Walk -
+  HelloNGram.java</a></h3>
+
+  <p>The source code for the HelloNGram demo is exactly the same as
+  that of the HelloWorld demo, except for the names of the demo
+  class. The demo runs exactly the same way: it keeps listening to
+  and recognizes what you say, and when it was detected the end of
+  an utterance, it will show the recognition result.</p>
+
+  <h3><a name="ngramFile" id="ngramFile">N-Gram Language
+  Model</a></h3>
+
+  <p>Sphinx-4 supports the n-gram language model (both ascii and
+  binary versions) generated by the <a href=
+  "http://www.speech.cs.cmu.edu/SLM_info.html">Carnegie Mellon
+  University Statistical Language Modeling toolkit</a>. The input
+  file is a long list of sample utterances. Using the occurrence of
+  words and sequences of words in this input file, a language model
+  can be trained. The resulting trigram language model file is
+  <a href=
+  "../src/apps/edu/cmu/sphinx/demo/hellongram/hellongram.trigram.lm">
+  hellongram.trigram.lm</a>.</p>
+
+  <h3><a name="ngramConfigWalk" id="ngramConfigWalk">Configuration
+  File Walk - hellongram.config.xml</a></h3>In this section, we
+  will explain the various Sphinx-4 components that are used for
+  the HelloNGram demo, as specified in the configuration file. We
+  will look at each section of the config file in depth. If you
+  want to learn about the format of these configuration files,
+  please refer to the document <a href=
+  "../javadoc/edu/cmu/sphinx/util/props/doc-files/ConfigurationManagement.html">
+  Sphinx-4 Configuration Management</a>.
+  <pre>
+    &lt;!-- ******************************************************** --&gt;
+    &lt;!-- frequently tuned properties                              --&gt;
+    &lt;!-- ******************************************************** --&gt; 
+
+    &lt;property name="absoluteBeamWidth"  value="500"/&gt;
+    &lt;property name="relativeBeamWidth"  value="1E-80"/&gt;
+    &lt;property name="absoluteWordBeamWidth" value="20"/&gt;
+    &lt;property name="relativeWordBeamWidth" value="1E-60"/&gt;
+    &lt;property name="wordInsertionProbability" value="1E-16"/&gt;
+    &lt;property name="languageWeight" value="7.0"/&gt;
+    &lt;property name="silenceInsertionProbability" value=".1"/&gt;
+    &lt;property name="frontend" value="epFrontEnd"/&gt;
+    &lt;property name="recognizer" value="recognizer"/&gt;
+    &lt;property name="showCreations" value="false"/&gt;
+</pre>The above lines defines frequently tuned properties. They are
+located at the top of the configuration file so that they can be
+edited quickly.
+
+  <h4><a name="recognizer" id="recognizer">Recognizer</a></h4>
+  <pre>
+    &lt;component name="recognizer" 
+               type="edu.cmu.sphinx.recognizer.Recognizer"&gt;
+        &lt;property name="decoder" value="decoder"/&gt;
+        &lt;propertylist name="monitors"&gt;
+            &lt;item&gt;accuracyTracker &lt;/item&gt;
+            &lt;item&gt;speedTracker &lt;/item&gt;
+            &lt;item&gt;memoryTracker &lt;/item&gt;
+            &lt;item&gt;recognizerMonitor &lt;/item&gt;
+        &lt;/propertylist&gt;
+    &lt;/component&gt;
+</pre>The above lines define the recognizer component that performs
+speech recognition. It defines the name and class of the
+recognizer. This is the class that any application should interact
+with. If you look at the <a href=
+"../javadoc/edu/cmu/sphinx/recognizer/Recognizer.html">javadoc of
+the Recognizer class</a>, you will see that it has two properties,
+'decoder' and 'monitors'. This configuration file is where the
+value of these properties are defined.
+
+  <h4><a name="decoder" id="decoder">Decoder</a></h4>The 'decoder'
+  property of the recognizer is set to the component called
+  'decoder':
+  <pre>
+    &lt;component name="decoder" type="edu.cmu.sphinx.decoder.Decoder"&gt;
+        &lt;property name="searchManager" value="wordPruningSearchManager"/&gt;
+        &lt;property name="featureBlockSize" value="50"/&gt;
+    &lt;/component&gt;
+</pre>The decoder component is defined to be of class
+  <code><a href="../javadoc/edu/cmu/sphinx/decoder/Decoder.html">edu.cmu.sphinx.decoder.Decoder</a></code>.
+  Its property 'searchManager' is set to the component
+  'wordPruningSearchManager':
+  <pre>
+    &lt;component name="wordPruningSearchManager" 
+              type="edu.cmu.sphinx.decoder.search.WordPruningBreadthFirstSearchManager"&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+        &lt;property name="linguist" value="lexTreeLinguist"/&gt;
+        &lt;property name="pruner" value="trivialPruner"/&gt;
+        &lt;property name="scorer" value="threadedScorer"/&gt;
+        &lt;property name="activeListManager" value="activeListManager"/&gt;
+        &lt;property name="growSkipInterval" value="0"/&gt;
+        &lt;property name="checkStateOrder" value="false"/&gt;
+        &lt;property name="buildWordLattice" value="false"/&gt;
+        &lt;property name="acousticLookaheadFrames" value="1.7"/&gt;
+        &lt;property name="relativeBeamWidth" value="${relativeBeamWidth}"/&gt;
+    &lt;/component&gt;
+</pre>The searchManager is of class <code><a href=
+"../javadoc/edu/cmu/sphinx/decoder/search/WordPruningBreadthFirstSearchManager.html">
+  edu.cmu.sphinx.decoder.search.WordPruningBreadthFirstSearchManager</a></code>.
+  It is better than the SimpleBreadthFirstSearchManager for larger
+  vocabulary recognition. This class also performs a simple
+  breadth-first search through the search graph, but at each frame
+  it also prunes the different types of states separately. The
+  logMath property is the log math that is used for calculation of
+  scores during the search process. It is defined as having the log
+  base of 1.0001. Note that typically the same log base should be
+  used throughout all components, and therefore there should only
+  be one logMath definition:
+  <pre>
+    &lt;component name="logMath" type="edu.cmu.sphinx.util.LogMath"&gt;
+        &lt;property name="logBase" value="1.0001"/&gt;
+        &lt;property name="useAddTable" value="true"/&gt;
+    &lt;/component&gt;
+</pre>The linguist of the searchManager is set to the component
+'lexTreeLinguist' (which we will look at later), which again is
+suitable for large vocabulary recognition. The pruner is set to the
+'trivialPruner':
+  <pre>
+    &lt;component name="trivialPruner" 
+                type="edu.cmu.sphinx.decoder.pruner.SimplePruner"/&gt;
+</pre>which is of class <code><a href=
+"../javadoc/edu/cmu/sphinx/decoder/pruner/SimplePruner.html">edu.cmu.sphinx.decoder.pruner.SimplePruner</a></code>.
+This pruner performs simple absolute beam and relative beam pruning
+based on the scores of the tokens. The scorer of the searchManager
+is set to the component 'threadedScorer', which is of class <code>
+  <a href=
+  "../javadoc/edu/cmu/sphinx/decoder/scorer/ThreadedAcousticScorer.html">
+  edu.cmu.sphinx.decoder.scorer.ThreadedAcousticScorer</a></code>.
+  It can use multiple threads (usually one per CPU) to score the
+  tokens in the active list. Scoring is one of the most
+  time-consuming step of the decoding process. Tokens can be scored
+  independently of each other, so using multiple CPUs will
+  definitely speed things up. The threadedScorer is defined as
+  follows:
+  <pre>
+    &lt;component name="threadedScorer" 
+                type="edu.cmu.sphinx.decoder.scorer.ThreadedAcousticScorer"&gt;
+        &lt;property name="frontend" value="${frontend}"/&gt;
+        &lt;property name="isCpuRelative" value="true"/&gt;
+        &lt;property name="numThreads" value="0"/&gt;
+        &lt;property name="minScoreablesPerThread" value="10"/&gt;
+        &lt;property name="scoreablesKeepFeature" value="true"/&gt;
+    &lt;/component&gt;
+</pre>The 'frontend' property is the front end from which features
+are obtained. For details about the other properties of the
+threadedScorer, please refer to <a href=
+"../javadoc/edu/cmu/sphinx/decoder/scorer/ThreadedAcousticScorer.html">
+  javadoc for ThreadedAcousticScorer</a>. Finally, the
+  'activeListManager' property of the wordPruningSearchManager is
+  set to the component 'activeListManager', which is defined as
+  follows:
+  <pre>
+    &lt;component name="activeListManager" 
+             type="edu.cmu.sphinx.decoder.search.SimpleActiveListManager"&gt;
+        &lt;propertylist name="activeListFactories"&gt;
+            &lt;item&gt;standardActiveListFactory&lt;/item&gt;
+            &lt;item&gt;wordActiveListFactory&lt;/item&gt;
+            &lt;item&gt;wordActiveListFactory&lt;/item&gt;
+            &lt;item&gt;standardActiveListFactory&lt;/item&gt;
+            &lt;item&gt;standardActiveListFactory&lt;/item&gt;
+            &lt;item&gt;standardActiveListFactory&lt;/item&gt;
+        &lt;/propertylist&gt;
+    &lt;/component&gt;
+    
+    &lt;component name="standardActiveListFactory" 
+             type="edu.cmu.sphinx.decoder.search.PartitionActiveListFactory"&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+        &lt;property name="absoluteBeamWidth" value="${absoluteBeamWidth}"/&gt;
+        &lt;property name="relativeBeamWidth" value="${relativeBeamWidth}"/&gt;
+    &lt;/component&gt;
+    
+    &lt;component name="wordActiveListFactory" 
+             type="edu.cmu.sphinx.decoder.search.PartitionActiveListFactory"&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+        &lt;property name="absoluteBeamWidth" value="${absoluteWordBeamWidth}"/&gt;
+        &lt;property name="relativeBeamWidth" value="${relativeWordBeamWidth}"/&gt;
+    &lt;/component&gt;
+</pre>The SimpleActiveListManager is of class <code><a href=
+"../javadoc/edu/cmu/sphinx/decoder/search/SimpleActiveListManager.html">
+  edu.cmu.sphinx.decoder.search.SimpleActiveListManager</a></code>.
+  Since the word-pruning search manager performs pruning on
+  different search state types separately, we need a different
+  active list for each state type. Therefore, you see different
+  active list factories being listed in the
+  SimpleActiveListManager, one for each type. So how do we know
+  which active list factory is for which state type? It depends on
+  the 'search order' as returned by the search graph (which in this
+  case is generated by the LexTreeLinguist). The search state order
+  and active list factory used here are:
+
+  <table border="1">
+    <tr>
+      <td><b>State Type</b></td>
+
+      <td><b>ActiveListFactory</b></td>
+    </tr>
+
+    <tr>
+      <td>LexTreeNonEmittingHMMState</td>
+
+      <td>standardActiveListFactory</td>
+    </tr>
+
+    <tr>
+      <td>LexTreeWordState</td>
+
+      <td>wordActiveListFactory</td>
+    </tr>
+
+    <tr>
+      <td>LexTreeEndWordState</td>
+
+      <td>wordActiveListFactory</td>
+    </tr>
+
+    <tr>
+      <td>LexTreeEndUnitState</td>
+
+      <td>standardActiveListFactory</td>
+    </tr>
+
+    <tr>
+      <td>LexTreeUnitState</td>
+
+      <td>standardActiveListFactory</td>
+    </tr>
+
+    <tr>
+      <td>LexTreeHMMState</td>
+
+      <td>standardActiveListFactory</td>
+    </tr>
+  </table>There are two types of active list factories used here,
+  the standard and the word. If you look at the 'frequently tuned
+  properties' above, you will find that the word active list has a
+  much smaller beam size than the standard active list. The beam
+  size for the word active list is set by 'absoluteWordBeamWidth'
+  and 'relativeWordBeamWidth', while the beam size for the standard
+  active list is set by 'absoluteBeamWidth' and
+  'relativeBeamWidth'. The SimpleActiveListManager allows us to
+  control the beam size of different types of states.
+
+  <h4><a name="linguist" id="linguist">Linguist</a></h4>Lets look
+  at the 'lexTreeLinguist' (a component inside the
+  wordPruningSearchManager). The linguist is the component that
+  generates the search graph using the guidance from the grammar,
+  and knowledge from the dictionary, acoustic model, and language
+  model.
+  <pre>
+    &lt;component name="lexTreeLinguist" 
+               type="edu.cmu.sphinx.linguist.lextree.LexTreeLinguist"&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+        &lt;property name="acousticModel" value="wsj"/&gt;
+        &lt;property name="languageModel" value="trigramModel"/&gt;
+        &lt;property name="dictionary" value="dictionary"/&gt;
+        &lt;property name="addFillerWords" value="false"/&gt;
+        &lt;property name="fillerInsertionProbability" value="1E-10"/&gt;
+        &lt;property name="generateUnitStates" value="false"/&gt;
+        &lt;property name="wantUnigramSmear" value="true"/&gt;
+        &lt;property name="unigramSmearWeight" value="1"/&gt;
+        &lt;property name="wordInsertionProbability" 
+                  value="${wordInsertionProbability}"/&gt;
+        &lt;property name="silenceInsertionProbability" 
+                  value="${silenceInsertionProbability}"/&gt;
+        &lt;property name="languageWeight" value="${languageWeight}"/&gt;
+    &lt;/component&gt;
+</pre>
+
+  <p>For details about the LexTreeLinguist, please refer to the
+  <a href=
+  "../javadoc/edu/cmu/sphinx/linguist/lextree/LexTreeLinguist.html">
+  Javadocs of the LexTreeLinguist</a>. In general, the
+  LexTreeLinguist is the one to use for large vocabulary speech
+  recognition, and the FlatLinguist is the one to use for small
+  vocabulary speech recognition. The LexTreeLinguist has a lot of
+  properties that can be set, but the ones that are must be set are
+  the 'logMath', the 'acousticModel', the 'languageModel', and the
+  'dictionary'. These properties are the necessary sources of
+  information for the LexTreeLinguist to build the search graph.
+  The rest of the properties are for controlling the speed and
+  accuracy performance of the linguist, and you can read more about
+  them in the Javadocs of the LexTreeLinguist.</p>
+
+  <h4>Acoustic Model</h4>
+
+  <p>The 'acousticModel' is where the LexTreeLinguist obtains the
+  HMM for the words or units. For the HelloNGram demo it's the same
+  wsj model as for HelloDigits:</p>
+
+<pre>
+    &lt;component name="wsj"
+               type="edu.cmu.sphinx.linguist.acoustic.tiedstate.TiedStateAcousticModel"&gt;
+        &lt;property name="loader" value="wsjLoader"/&gt;
+        &lt;property name="unitManager" value="unitManager"/&gt;
+    &lt;/component&gt;
+
+    &lt;component name="wsjLoader" type="edu.cmu.sphinx.linguist.acoustic.tiedstate.Sphinx3Loader"&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+        &lt;property name="unitManager" value="unitManager"/&gt;
+        &lt;property name="location" value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz"/&gt;
+        &lt;property name="modelDefinition" value="etc/WSJ_clean_13dCep_16k_40mel_130Hz_6800Hz.4000.mdef"/&gt;
+        &lt;property name="dataLocation" value="cd_continuous_8gau/"/&gt;
+    &lt;/component&gt;
+</pre>
+
+<h4>Language Model</h4>
+
+<p>The 'languageModel' component of the
+lexTreeLinguist is called the 'trigramModel', because it is a
+trigram language model. It is defined as follows:</p>
+
+  <pre>
+    &lt;component name="trigramModel" 
+        type="edu.cmu.sphinx.linguist.language.ngram.SimpleNGramModel"&gt;
+        &lt;property name="location" 
+            value="resource:/edu/cmu/sphinx/demo/hellongram/hellongram.trigram.lm"/&gt;
+        &lt;property name="logMath" value="logMath"/&gt;
+        &lt;property name="dictionary" value="dictionary"/&gt;
+        &lt;property name="maxDepth" value="3"/&gt;
+        &lt;property name="unigramWeight" value=".7"/&gt;
+    &lt;/component&gt;
+</pre>
+
+  <p>The language model is generated by the CMU Statistical
+  Language Modeling Toolkit. It is in text format, which can be
+  loaded by the <a href=
+  "../javadoc/edu/cmu/sphinx/linguist/language/ngram/SimpleNGramModel.html">
+  SimpleNGramModel</a> class. For this class, you also need to
+  specify the dictionary that you are using, which is the same as
+  the one used by the lexTreeLinguist. Same for 'logMath' (note
+  that the same logMath component should be used throughout the
+  system). The 'maxDepth' property is 3, since this is a trigram
+  language model. The 'unigramWeight' should normally be set to
+  0.7.</p>
+
+  <h4>Dictionary</h4>
+
+  <p>The last important component of the LexTreeLinguist is the
+  'dictionary', which is defined as follows:</p>
+  <pre>
+    &lt;component name="dictionary" 
+        type="edu.cmu.sphinx.linguist.dictionary.FastDictionary"&gt;
+        &lt;property name="dictionaryPath" value=
+                  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d"/&gt;
+        &lt;property name="fillerPath"
+                  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/noisedict"/&gt;
+        &lt;property name="addSilEndingPronunciation" value="false"/&gt;
+        &lt;property name="wordReplacement" value="&lt;sil&gt;"/&gt;
+    &lt;/component&gt;
+</pre>
+
+  <p>As you might realize, it is using the dictionary inside the
+  JAR file of the Wall Street journal acoustic model. The main
+  dictionary for words is the
+  <code>WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d</code>
+  file inside the JAR file, and the dictionary for filler words
+  like "BREATH" and "LIP_SMACK" is
+  <code>WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/noisedict</code>.
+  You can inspect the contents of a JAR file by (assuming your JAR
+  file is called myJar.jar)</p>
+  <pre>
+jar tvf myJar.jar
+</pre>You can see the contents of the WSJ JAR file by:
+  <pre>
+sphinx4&gt; jar tvf lib/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar
+
+       0 Mon Mar 07 01:20:36 MSK 2011 META-INF/
+     106 Mon Mar 07 01:20:34 MSK 2011 META-INF/MANIFEST.MF
+       0 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/
+       0 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/
+     934 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/README
+     354 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/alpha.dict
+ 4718935 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d
+     373 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/digits.dict
+     101 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/feat.params
+    1797 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/license.terms
+ 5654967 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/mdef
+ 5175518 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/means
+  132762 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/mixture_weights
+     204 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/noisedict
+    2410 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/transition_matrices
+ 5175518 Mon Mar 07 01:20:34 MSK 2011 WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/variances
+                                     
+
+</pre>The locations of the dictionary files with the JAR file are
+specified using the Sphinx-4 resource mechanism. In short, this
+mechanism looks for all JAR files for specified path to the
+resource. The general syntax is:
+  <pre>
+resource:/{location in the JAR file of the desired resource}
+</pre>Take the 'dictionaryPath' property, for example. The
+"location in the JAR file of the desired resource" is
+<code>WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d</code>.
+This gives the string:
+<code>resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d</code>.
+
+  <p>For details about the other properties, please refer to the
+  <a href=
+  "../javadoc/edu/cmu/sphinx/linguist/dictionary/FastDictionary.html">
+  javadoc for FastDictionary</a>.</p>
+
+  <p>The rest of the configuration file, which includes the front
+  end configuration and the configuration of the monitors, are the
+  same as in the HelloWorld demo. Therefore, please refer to those
+  sections for explanations. This concludes the walkthrough of the
+  simple HelloNGram example.</p>
+  <hr />
+
+  <h2><a name="configurationOptions" id="configurationOptions">3.
+  Two ways of configuring Sphinx4</a></h2>
+
+  <p>There are two options for configuring Sphinx4. Both methods
+  work in many types of applications, and the choice is really just
+  a question of taste.</p>
+
+  <h3><a name="configurationManagement" id=
+  "configurationManagement">Configuration Management</a></h3>
+
+  <p>In ConfiguationManagement the configuration is described by an
+  XML file which is interpreted when the application initializes.
+  ConfigurationManagement is described in detail here <a href=
+  "../javadoc/edu/cmu/sphinx/util/props/doc-files/ConfigurationManagement.html">
+  Sphinx-4 Configuration Management</a>. ConfigurationManagement
+  offers the advantage of keeping the configuration and the code
+  separate. With this choice one can alter the configuration
+  without touching the application code. Here is an example of the
+  front end configuration described by XML.</p>
+  <pre>
+      &lt;!-- ******************************************************** --&gt;
+      &lt;!-- The live frontend configuration                          --&gt;
+      &lt;!-- ******************************************************** --&gt;
+      &lt;component name="epFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+          &lt;propertylist name="pipeline"&gt;
+              &lt;item&gt;audioFileDataSource &lt;/item&gt;
+              &lt;item&gt;dataBlocker &lt;/item&gt;
+              &lt;item&gt;speechClassifier &lt;/item&gt;
+              &lt;item&gt;speechMarker &lt;/item&gt;
+              &lt;item&gt;nonSpeechDataFilter &lt;/item&gt;
+              &lt;item&gt;preemphasizer &lt;/item&gt;
+              &lt;item&gt;windower &lt;/item&gt;
+              &lt;item&gt;fft &lt;/item&gt;
+              &lt;item&gt;melFilterBank &lt;/item&gt;
+              &lt;item&gt;dct &lt;/item&gt;
+              &lt;item&gt;liveCMN &lt;/item&gt;
+              &lt;item&gt;featureExtraction &lt;/item&gt;
+          &lt;/propertylist&gt;
+      &lt;/component&gt;
+
+      &lt;!-- ******************************************************** --&gt;
+      &lt;!-- The frontend pipelines                                   --&gt;
+      &lt;!-- ******************************************************** --&gt;
+
+      &lt;component name="audioFileDataSource" type="edu.cmu.sphinx.frontend.util.AudioFileDataSource"/&gt;
+
+      &lt;component name="dataBlocker" type="edu.cmu.sphinx.frontend.DataBlocker"/&gt;
+
+      &lt;component name="speechClassifier" type="edu.cmu.sphinx.frontend.endpoint.SpeechClassifier"/&gt;
+
+      &lt;component name="nonSpeechDataFilter"
+                 type="edu.cmu.sphinx.frontend.endpoint.NonSpeechDataFilter"/&gt;
+
+      &lt;component name="speechMarker" type="edu.cmu.sphinx.frontend.endpoint.SpeechMarker" /&gt;
+
+      &lt;component name="preemphasizer"
+                 type="edu.cmu.sphinx.frontend.filter.Preemphasizer"/&gt;
+
+      &lt;component name="windower"
+                 type="edu.cmu.sphinx.frontend.window.RaisedCosineWindower"&gt;
+      &lt;/component&gt;
+
+      &lt;component name="fft"
+              type="edu.cmu.sphinx.frontend.transform.DiscreteFourierTransform"&gt;
+      &lt;/component&gt;
+
+      &lt;component name="melFilterBank"
+          type="edu.cmu.sphinx.frontend.frequencywarp.MelFrequencyFilterBank"&gt;
+      &lt;/component&gt;
+
+      &lt;component name="dct"
+              type="edu.cmu.sphinx.frontend.transform.DiscreteCosineTransform"/&gt;
+
+      &lt;component name="liveCMN"
+                 type="edu.cmu.sphinx.frontend.feature.LiveCMN"/&gt;
+
+      &lt;component name="featureExtraction"
+                 type="edu.cmu.sphinx.frontend.feature.DeltasFeatureExtractor"/&gt;      
+  
+</pre>
+
+  <h3><a name="rawConfiguration" id="rawConfiguration">Raw
+  Configuration</a></h3>
+
+  <p>The other configuration option is to call the constructors
+  directly. This is referred to as "raw" configuration.</p>
+
+  <p>Raw configuration is useful when the configuation is not
+  easily described by a static XML structure. This occurs in
+  applications that require extremely complex, or dynamic
+  configuration</p>
+
+  <p>Raw configuration is also preferred when writing <a href=
+  "#writingScripts">scripts</a>. In this case it is not desirable
+  to separate the configuration and the code.</p>
+
+  <p>Here is an example of "raw" configuration:</p>
+  <pre>
+      protected void initFrontEnd() {
+
+           this.dataBlocker = new DataBlocker(
+                   10 // blockSizeMs
+           );
+           this.speechClassifier = new SpeechClassifier(
+                   10,     // frameLengthMs,
+                   0.003, // adjustment,
+                   10,     // threshold,
+                   0       // minSignal
+           );
+
+           this.speechMarker = new SpeechMarker(
+                   200, // startSpeechTime,
+                   500, // endSilenceTime,
+                   100, // speechLeader,
+                   50,  // speechLeaderFrames
+                   100  // speechTrailer
+           );
+
+           this.nonSpeechDataFilter = new NonSpeechDataFilter();
+
+           this.premphasizer = new Preemphasizer(
+                   0.97 // preemphasisFactor
+           );
+           this.windower = new RaisedCosineWindower(
+                   0.46, // double alpha
+                   25.625f, // windowSizeInMs
+                   10.0f // windowShiftInMs
+           );
+           this.fft = new DiscreteFourierTransform(
+                   -1, // numberFftPoints
+                   false // invert
+           );
+           this.melFilterBank = new MelFrequencyFilterBank(
+                   130.0, // minFreq,
+                   6800.0, // maxFreq,
+                   40 // numberFilters
+           );
+           this.dct = new DiscreteCosineTransform(
+                   40, // numberMelFilters,
+                   13  // cepstrumSize
+           );
+           this.cmn = new LiveCMN(
+                   12.0, // initialMean,
+                   100,  // cmnWindow,
+                   160   // cmnShiftWindow
+           );
+           this.featureExtraction = new DeltasFeatureExtractor(
+                   3 // window
+           );
+
+           ArrayList pipeline = new ArrayList();
+           pipeline.add(audioDataSource);
+           pipeline.add(dataBlocker);
+           pipeline.add(speechClassifier);
+           pipeline.add(speechMarker);
+           pipeline.add(nonSpeechDataFilter);
+           pipeline.add(premphasizer);
+           pipeline.add(windower);
+           pipeline.add(fft);
+           pipeline.add(melFilterBank);
+           pipeline.add(dct);
+           pipeline.add(cmn);
+           pipeline.add(featureExtraction);
+
+           this.frontend = new FrontEnd(pipeline);
+
+       }
+  
+</pre>
+
+  <p>This example was taken from the RawTranscriber demo.</p><br />
+  <a href=
+  "../src/apps/edu/cmu/sphinx/demo/raw/RawTranscriber.java">RawTranscriber.java</a><br />
+
+  <a href=
+  "../src/apps/edu/cmu/sphinx/demo/raw/TranscriberConfiguration.java">
+  TranscriberConfiguration.java</a><br />
+  <a href=
+  "../src/apps/edu/cmu/sphinx/demo/raw/CommonConfiguration.java">CommonConfiguration.java</a>
+
+  <h2><a name="interpretResult" id="interpretResult">4.
+  Interpreting the Recognition Result</a></h2>
+
+  <p>As you can see from the above examples, the Recognizer returns
+  a Result object which provides the recognition results. The
+  Result object essentially contains all the paths during the
+  recognition search that have reached the final state (or end of
+  sentence, usually denoted by "&lt;/s&gt;"). They are ranked by
+  the ending score of the path, and the one with the highest score
+  is the best hypothesis. Moreover, the Result also contains all
+  the active paths (that have not reached the final state) at the
+  end of the recognition. Usually, one would call the <a href=
+  "../javadoc/edu/cmu/sphinx/result/Result.html#getBestResultNoFiller()">
+  <code>Result.getBestResultNoFiller</code></a> method to obtain a
+  string of the best result that has no filler words like
+  "++SMACK++". This method first attempts to return the best path
+  that has reached the final state. If no paths have reached the
+  final state, it returns the best path out of the paths that have
+  not reached the final state. If you only want to return those
+  paths that have reached the final state, you should call the
+  method <a href=
+  "../javadoc/edu/cmu/sphinx/result/Result.html#getBestFinalResultNoFiller()">
+  <code>Result.getBestFinalResultNoFiller</code></a>. For example,
+  the HelloWorld demo uses this method to avoid treating any
+  partial sentence in the grammar as the result.</p>
+
+  <p>There are other methods in the Result object that can give you
+  more information, e.g., the N-best results. You will also notice
+  that there are a number of methods that return Tokens. Tokens are
+  objects along a search path that record where we are at the
+  search, and the various scores at that particular location. For
+  example, the Token object has a <code>getWord</code> method that
+  tells you which word the search is in. For details about the
+  Token object please refer to the <a href=
+  "../javadoc/edu/cmu/sphinx/decoder/search/Token.html">javadoc for
+  Token</a>. For details about the Result object, please refer to
+  the <a href=
+  "../javadoc/edu/cmu/sphinx/result/Result.html">javadoc for
+  Result</a>.</p>
+
+  <h2><a name="writingScripts" id="writingScripts">5. Writing
+  Scripts</a></h2>
+
+  <p>One of the huge advantages of working in Java is the wealth of
+  scripting options. These options include Groovy, Ruby, Python and
+  Clojure and many other choices to suit every programming taste
+  and philosophy. All these languages compile to the JVM, and are
+  are trivially able to call Java code. Hence Sphinx4 can be
+  scripted in any of these popular languages.</p>
+
+  <p>While the XML configuration files can be used with scripting
+  languages, it is generally more elegant and readable to call Java
+  constructors directly. Compare the following Front End set up
+  from the Goovy, Python and Clojure examples to the <a href=
+  "#configurationOptions">XML and Raw configurations described
+  above</a>.</p>
+
+  <h3><a name="groovyExample" id="groovyExample">Groovy
+  Example</a></h3><a href=
+  "../src/scripts/groovy/GroovyTranscriber.groovy">GroovyTranscriber.groovy</a>
+  <pre>
+    // init audio data
+    def audioSource = new AudioFileDataSource(3200, null)
+
+    def audioURL = (args.length &gt; 1) ?
+      new File(args[0]).toURI().toURL() :
+      new URL("file:" + root + "/src/apps/edu/cmu/sphinx/demo/transcriber/10001-90210-01803.wav")
+
+    audioSource.setAudioFile(audioURL, null)
+
+    // init front end
+    def dataBlocker = new DataBlocker(
+            10 // blockSizeMs
+    )
+
+    def speechClassifier = new SpeechClassifier(
+            10,     // frameLengthMs,
+            0.003, // adjustment,
+            10,     // threshold,
+            0       // minSignal
+    )
+
+    def speechMarker = new SpeechMarker(
+            200, // startSpeechTime,
+            500, // endSilenceTime,
+            100, // speechLeader,
+            50,  // speechLeaderFrames
+            100  // speechTrailer
+    )
+
+    def nonSpeechDataFilter = new NonSpeechDataFilter()
+
+    def premphasizer = new Preemphasizer(
+            0.97 // preemphasisFactor
+    )
+    def windower = new RaisedCosineWindower(
+            0.46, // double alpha
+            25.625f, // windowSizeInMs
+            10.0f // windowShiftInMs
+    )
+    def fft = new DiscreteFourierTransform(
+            -1, // numberFftPoints
+            false // invert
+    )
+    def melFilterBank = new MelFrequencyFilterBank(
+            130.0, // minFreq,
+            6800.0, // maxFreq,
+            40 // numberFilters
+    )
+    def dct = new DiscreteCosineTransform(
+            40, // numberMelFilters,
+            13  // cepstrumSize
+    )
+    def cmn = new LiveCMN(
+            12.0, // initialMean,
+            100,  // cmnWindow,
+            160   // cmnShiftWindow
+    )
+    def featureExtraction = new DeltasFeatureExtractor(
+            3 // window
+    )
+
+    def pipeline = [
+            audioSource,
+            dataBlocker,
+            speechClassifier,
+            speechMarker,
+            nonSpeechDataFilter,
+            premphasizer,
+            windower,
+            fft,
+            melFilterBank,
+            dct,
+            cmn,
+            featureExtraction
+    ]
+
+    def frontend = new FrontEnd(pipeline)
+  
+</pre>
+
+  <h3><a name="pythonExample" id="pythonExample">Python
+  Example</a></h3><a href=
+  "../src/scripts/python/PythonTranscriber.py">PythonTranscriber.py</a>
+  <pre>
+      # init audio data
+      audioSource = AudioFileDataSource(3200, None)
+      audioURL =  URL("file:" + root + "/src/apps/edu/cmu/sphinx/demo/transcriber/10001-90210-01803.wav")
+
+      audioSource.setAudioFile(audioURL, None)
+
+      # init front end
+      dataBlocker = DataBlocker(
+              10 # blockSizeMs
+      )
+      speechClassifier = SpeechClassifier(
+              10,     # frameLengthMs,
+              0.003, # adjustment,
+              10,     # threshold,
+              0       # minSignal
+      )
+
+      speechMarker = SpeechMarker(
+              200, # startSpeechTime,
+              500, # endSilenceTime,
+              100, # speechLeader,
+              50,  # speechLeaderFrames
+              100  # speechTrailer
+      )
+
+      nonSpeechDataFilter = NonSpeechDataFilter()
+
+      premphasizer = Preemphasizer(
+              0.97 # preemphasisFactor
+      )
+      windower = RaisedCosineWindower(
+              0.46, # double alpha
+              25.625, # windowSizeInMs
+              10.0 # windowShiftInMs
+      )
+      fft = DiscreteFourierTransform(
+              -1, # numberFftPoints
+              false # invert
+      )
+      melFilterBank = MelFrequencyFilterBank(
+              130.0, # minFreq,
+              6800.0, # maxFreq,
+              40 # numberFilters
+      )
+      dct = DiscreteCosineTransform(
+              40, # numberMelFilters,
+              13  # cepstrumSize
+      )
+      cmn = LiveCMN(
+              12.0, # initialMean,
+              100,  # cmnWindow,
+              160   # cmnShiftWindow
+      )
+      featureExtraction = DeltasFeatureExtractor(
+              3 # window
+      )
+
+      pipeline = [
+              audioSource,
+              dataBlocker,
+              speechClassifier,
+              speechMarker,
+              nonSpeechDataFilter,
+              premphasizer,
+              windower,
+              fft,
+              melFilterBank,
+              dct,
+              cmn,
+              featureExtraction
+      ]
+
+      frontend = FrontEnd(pipeline)
+  
+</pre>
+
+  <h3><a name="clojureExample" id="clojureExample">Clojure
+  Example</a></h3><a href=
+  "../src/scripts/clojure/ClojureTranscriber.clj">ClojureTranscriber.clj</a>
+  <pre>
+      ;; init audio data
+      (def audioSource (new AudioFileDataSource 3200 nil))
+      (def audioURL (new URL (str "file:" root "/src/apps/edu/cmu/sphinx/demo/transcriber/10001-90210-01803.wav")))
+      (.setAudioFile audioSource audioURL nil)
+
+      ;;init front end
+      (def dataBlocker (new DataBlocker
+        10)) ;; blockSizeMs
+
+      (def speechClassifier (new SpeechClassifier
+        10  ;; frameLengthMs
+        0.003 ;; adjustment
+        10  ;; threshold
+        0)) ;; minSignal
+
+      (def speechMarker (new SpeechMarker
+        200 ;; startSpeechTime
+        500 ;; endSilenceTime
+        100 ;; speechLeader
+        50  ;; speechLeaderFrames
+        100)) ;; speechTrailer
+
+      (def nonSpeechDataFilter (new NonSpeechDataFilter))
+
+      (def premphasizer (new Preemphasizer
+        0.97)) ;; preemphasisFactor
+
+      (def windower (new RaisedCosineWindower
+        0.46 ;; double alpha
+        25.625 ;; windowSizeInMs
+        10.0)) ;; windowShiftInMs
+
+      (def fft (new DiscreteFourierTransform
+        -1 ;; numberFftPoints
+        false)) ;; invert
+
+      (def melFilterBank (new MelFrequencyFilterBank
+        130.0 ;; minFreq
+        6800.0 ;; maxFreq
+        40)) ;; numberFilters
+
+      (def dct (new DiscreteCosineTransform
+        40 ;; numberMelFilters
+        13)) ;; cepstrumSize
+
+      (def cmn (new LiveCMN
+        12.0 ;; initialMean
+        100 ;; cmnWindow
+        160)) ;; cmnShiftWindow
+
+      (def featureExtraction (new DeltasFeatureExtractor
+        3)) ;; window
+
+      (def pipeline [
+        audioSource
+        dataBlocker
+        speechClassifier
+        speechMarker
+        nonSpeechDataFilter
+        premphasizer
+        windower
+        fft
+        melFilterBank
+        dct
+        cmn
+        featureExtraction])
+
+      (def frontend (new FrontEnd pipeline))
+  
+</pre>
+</body>
+</html>

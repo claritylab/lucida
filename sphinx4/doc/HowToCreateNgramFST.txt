@@ -1,0 +1,67 @@
+How To Create N-Gram Language Model and FST files?
+==================================================
+
+							December, 2002
+							Philip Kwok
+Purpose
+-------
+
+Sphinx 4 supports N-Gram language models, as well as FSTs. This document
+describes the process of creating N-Gram language model files and FST files.
+
+
+Creating N-Gram Language Model
+------------------------------
+
+We use the "CMU-Cambridge Statistical Language Modeling Tookit v2" to
+create N-Gram language models. It can be found at:
+
+/lab/speech/ThirdPartySoftware/CMU-Cam_Toolkit_v2
+
+Specifically, we use the following binaries:
+
+bin/text2wfreq
+bin/wfreq2vocab
+bin/text2idngram
+bin/idngram2lm
+
+Suppose that our corpus is called "simple.txt", with the following contents:
+
+<s> one two three two one two one three two </s>
+
+IMPORTANT: Each sentence in the corpus MUST begin with <s> and end with </s>.
+Otherwise, the MIT FST tools will crash!
+
+This is the series of step to obtain the N-Gram language 
+model file (simple.arpa, in ascii format):
+
+cat simple.txt | text2wfreq > simple.wfreq
+cat simple.wfreq | wfreq2vocab > simple.vocab
+cat simple.txt | text2idngram -vocab simple.vocab > simple.idngram
+idngram2lm -idngram simple.idngram -vocab simple.vocab -arpa simple.arpa
+
+
+Creating the FST
+----------------
+
+We use the MIT FST tools to convert the N-Gram LM to FST. The tools
+are currently located under Rita's directory on mangueira:
+
+/usr0/rsingh
+
+The MIT FST tools take an N-Gram LM file in ascii format. 
+This is why we specified the "-arpa" format in "idngram2lm" instead of
+"-binary".
+
+To convert from LM to FST:
+
+/usr0/rsingh/ngram_fst -n 3 simple.arpa simple.fst
+
+This creates the binary simple.fst. To convert to ASCII:
+
+/usr0/rsingh/fst_ascii simple.fst simple.fst.ascii
+
+which creates the ASCII FST.
+
+
+			--- END OF DOCUMENT ---

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--    Sphinx-4 Configuration file which gives an example for configfile-extendsion. -->
+
+<config extends="ConfigurationManagerTest.testconfig.sxl">
+    <!--  properties can be overridden  -->
+    <property name="myalpha" value="-5"/>
+    <property name="newProperty" value="lalala"/>
+
+
+    <!--  component can be overridden as a whole. it is not possible to override specific component properties -->
+    <component name="duco" type="edu.cmu.sphinx.util.props.DummyComp">
+        <property name="beamWidth" value="4711"/>
+        <property name="frontend" value="newFrontEnd"/>
+        <property name="anotherFrontend" value="edu.cmu.sphinx.util.props.DummyFrontEnd"/>        
+    </component>
+    
+
+
+    <component name="newFrontEnd" type="edu.cmu.sphinx.util.props.DummyFrontEnd">
+        <propertylist name="dataProcs"/>
+    </component>
+</config>
