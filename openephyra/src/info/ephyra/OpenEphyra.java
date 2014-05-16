@@ -42,6 +42,7 @@ import info.ephyra.questionanalysis.QuestionNormalizer;
 import info.ephyra.search.Result;
 import info.ephyra.search.Search;
 import info.ephyra.search.searchers.BingKM;
+import info.ephyra.search.searchers.IndriKM;
 
 import java.util.ArrayList;
 
@@ -267,11 +268,11 @@ public class OpenEphyra {
 		// search
 		// - knowledge miners for unstructured knowledge sources
 		Search.clearKnowledgeMiners();
-		Search.addKnowledgeMiner(new BingKM());
+//		Search.addKnowledgeMiner(new BingKM());
 //		Search.addKnowledgeMiner(new GoogleKM());
 //		Search.addKnowledgeMiner(new YahooKM());
-//		for (String[] indriIndices : IndriKM.getIndriIndices())
-//			Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
+		for (String[] indriIndices : IndriKM.getIndriIndices())
+			Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
 //		for (String[] indriServers : IndriKM.getIndriServers())
 //			Search.addKnowledgeMiner(new IndriKM(indriServers, true));
 		// - knowledge annotators for (semi-)structured knowledge sources
