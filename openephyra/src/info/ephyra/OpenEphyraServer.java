@@ -359,8 +359,8 @@ public class OpenEphyraServer extends AbstractHandler {
 //		Search.addKnowledgeMiner(new GoogleKM());
 //		Search.addKnowledgeMiner(new YahooKM());
 		for (String[] indriIndices : IndriKM.getIndriIndices())
-			//Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
-			Search.addKnowledgeMiner(new IndriDocumentKM(indriIndices, false));
+			Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
+			//Search.addKnowledgeMiner(new IndriDocumentKM(indriIndices, false));
 //		for (String[] indriServers : IndriKM.getIndriServers())
 //			Search.addKnowledgeMiner(new IndriKM(indriServers, true));
 		// - knowledge annotators for (semi-)structured knowledge sources
