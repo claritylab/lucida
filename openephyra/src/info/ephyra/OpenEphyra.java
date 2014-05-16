@@ -284,7 +284,7 @@ public class OpenEphyra {
 		// - answer extraction filters
 		AnswerSelection.addFilter(new AnswerTypeFilter());
 		AnswerSelection.addFilter(new AnswerPatternFilter());
-		AnswerSelection.addFilter(new WebDocumentFetcherFilter());
+		//AnswerSelection.addFilter(new WebDocumentFetcherFilter());
 		AnswerSelection.addFilter(new PredicateExtractionFilter());
 		AnswerSelection.addFilter(new FactoidsFromPredicatesFilter());
 		AnswerSelection.addFilter(new TruncationFilter());
