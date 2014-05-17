@@ -72,6 +72,10 @@
           <configuration>
             <source>1.5</source>
             <target>1.5</target>
+        <meminitial>512m</meminitial>
+        <maxmem>2048m</maxmem>
+            <fork>true</fork>
+            <argLine>-Xmx2048m</argLine>
           </configuration>
         </plugin>
         <plugin>
@@ -79,6 +83,9 @@
           <artifactId>lifecycle-mapping</artifactId>
           <version>1.0.0</version>
           <configuration>
+    <argLine>-Xmx2048m</argLine>
+            <fork>true</fork>
+
             <lifecycleMappingMetadata>
               <pluginExecutions>
                 <pluginExecution>
@@ -98,7 +105,16 @@
             </lifecycleMappingMetadata>
           </configuration>
         </plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>2.4.1</version>
+  <configuration>
+    <argLine>-Xmx512m</argLine>
+  </configuration>
+</plugin>
       </plugins>
+
     </pluginManagement>
   </build>
 </project>
