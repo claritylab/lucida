@@ -1,0 +1,69 @@
+Iteration 1:
+-Parallelized getScore unit,
+-Full usage of DSPs for fp_adder and fp_subtracter
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:           28809  out of  301440     9%  
+ Number of Slice LUTs:                24670  out of  150720    16%  
+    Number used as Logic:             22743  out of  150720    15%  
+    Number used as Memory:             1927  out of  58400     3%  
+       Number used as SRL:             1927
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:  41357
+   Number with an unused Flip Flop:   12548  out of  41357    30%  
+   Number with an unused LUT:         16687  out of  41357    40%  
+   Number of fully used LUT-FF pairs: 12122  out of  41357    29%  
+   Number of unique control sets:       203
+
+IO Utilization: 
+ Number of IOs:                        2817
+ Number of bonded IOBs:                2817  out of    600   469% (*) 
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+ Number of DSP48E1s:                    230  out of    768    29%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------------------------------------------------
+
+Result: BAD. Almost 30% DSP usage with only 1 getScore unit
+
+=====================================================================
+
+Iteration 2:
+-Parallelized getScore unit,
+-No usage of DSPs for fp_adder and fp_subtracter
+
+Slice Logic Utilization: 
+ Number of Slice Registers:           41207  out of  301440    13%  
+ Number of Slice LUTs:                33335  out of  150720    22%  
+    Number used as Logic:             29783  out of  150720    19%  
+    Number used as Memory:             3552  out of  58400     6%  
+       Number used as SRL:             3552
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:  58128
+   Number with an unused Flip Flop:   16921  out of  58128    29%  
+   Number with an unused LUT:         24793  out of  58128    42%  
+   Number of fully used LUT-FF pairs: 16414  out of  58128    28%  
+   Number of unique control sets:       174
+
+IO Utilization: 
+ Number of IOs:                        2817
+ Number of bonded IOBs:                2817  out of    600   469% (*) 
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+ Number of DSP48E1s:                    116  out of    768    15%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------------------------------------------------
+
+Result: A little better, DSP usage cut in half while slice registers
+        and LUT usage was only bumped up a little.
+
+=====================================================================
