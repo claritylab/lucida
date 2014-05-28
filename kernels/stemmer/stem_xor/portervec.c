@@ -130,7 +130,7 @@ static int cons(struct stemmer * z, int i)
      ....
 */
 
-static int m(struct stemmer * z)
+static int m2(struct stemmer * z)
 {  char A[16]={'a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a'};
    char E[16]={'e','e','e','e','e','e','e','e','e','e','e','e','e','e','e','e'};
    char I[16]={'i','i','i','i','i','i','i','i','i','i','i','i','i','i','i','i'};
@@ -243,7 +243,7 @@ static int m(struct stemmer * z)
 }
 
 
-static int m2(struct stemmer * z)
+static int m(struct stemmer * z)
 {  int n = 0;
   int i = 0;
   int j = z->j;
