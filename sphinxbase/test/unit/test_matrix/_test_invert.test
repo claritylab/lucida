@@ -1,7 +1,0 @@
-#!/bin/sh
-. ../testfuncs.sh
-
-set -e
-./test_invert | sed -e 's,-0\.0,0.0,g' > _test_invert.out
-compare_table invert _test_invert.out $tests/unit/test_matrix/_test_invert.res
-rm -f _test_invert.out
