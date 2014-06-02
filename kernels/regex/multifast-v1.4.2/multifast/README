@@ -1,0 +1,125 @@
+multifast search tool
+---------------------
+Fast multiple string search utility
+
+
+COMPILE
+-------
+First you must compile ahocorasick library. if you have not compiled it yet, 
+please go to ../ahocorasick/ and make it.
+
+$ cd multifast
+$ make 
+
+
+RUN
+---
+examples:
+$ build/multifast -P test/cities.pat -drp test/input1.txt
+$ build/multifast -P test/cities.pat -drp test/input1.txt test/input2.txt
+$ build/multifast -P test/cities.pat -ndrp /etc/
+$ build/multifast -P test/sample.pat -xrp test/input2.txt
+$ build/multifast -P test/sample.pat -xrp /bin/rmdir
+$ find /var/www/ -type f -print0 | xargs -0 build/multifast -P test/cities.pat -xrpf
+$ cat test/input1.txt | ./build/multifast -P test/cities.pat -dp -
+$ cat /etc/services | ./build/multifast -P test/cities.pat -dp -
+
+
+MANUAL
+------
+Usage : 
+multifast -P pattern_file [-ndxrpfivh] file1 [file2 ...]
+
+-P  specifies pattern file
+-n  show match number
+-d  show start position (decimal)
+-x  show start position (hex)
+-r  show representative string for the pattern
+-p  show pattern
+-f  find first only
+-i  search case insensitive
+-v  show verbose output
+-h  print help
+
+example:
+$ cd build/
+$ ./multifast -P ../test/cities.pat -nxrpiv ../test/input1.txt
+$ ./multifast -P ../test/cities.pat -nxrp ../test/input1.txt ../test/input2.txt
+$ ./multifast -P ../test/cities.pat -ndrpfv /var/www/
+
+Input file
+----------
+Input file(s) could be a single file name, multiple file names, standard 
+input (-), or single directory name. in last case only regular file of the 
+directory will be searched. multiple file names must be separated by space. 
+using find and xargs utilities you can generate multiple file names 
+for multifast:
+
+$ find /var/www/ -type f -print0 | xargs -0 ./multifast -P ../test/cities.pat -nxrpf
+
+It is strongly suggested that use find and xargs to produce multiple files 
+instead of using directory name. the following has same effect, But the 
+second one is faster:
+
+$ ./multifast -P ../test/cities.pat -ndrpf /var/www/
+$ find /var/www/ -type f -print0 | xargs -0 ./multifast -P ../test/cities.pat -ndrpf
+
+you cat feed multifast from standard input; to do so you need to write a 
+single dash (-) instead of file name. These are examples:
+$ cat test/input1.txt | ./build/multifast -P test/cities.pat -dp -
+$ cat /etc/services | ./build/multifast -P test/cities.pat -dp -
+
+Pattern file
+------------
+Patter file includes patterns. the structure of pattern file
+is very simple. every pattern is defined in a 3-part expression:
+
+AX (REP) {PAT}
+
+1. The first part (we call it AX) can take only 2 values: 'a' or 'x'. the 'a'
+stands for ASCII and 'x' stands for hexadecimal. this part is mandatory. the 
+interpretation of the 3rd part, PAT, will be done according to the value of AX.
+
+2. The second part (REP) defines a meaningful representative for the pattern.
+for hex patterns or large string patterns it helps to improve the 
+intelligibility of output. this part is optional. for patterns without 
+representative the program will assign an automatic representative. the
+second part is enclosed by parenthesis and only can take 0-9, a-zA-Z and _
+(no space allowed).
+
+3. The third part is the main part which defines the string of character or 
+bytes. the definition of the string could be done in two war: ASCII or HEX.
+this is determined by the first part (AX). for ASCII mode you must put your
+string inside brackets. if your string contains brackets you must escape it.
+e.g. {abc\{dd\}g}. you also would escape backslashes too. e.g. {dro\\des} is 
+equal to dro\des. be careful about initial and final spaces between your
+string and the brackets. they are taken into account. e.g. { remmg} is equal
+to " remmg" not "remmg". in ASCII mode everything you put inside the brackets
+(including line breaks) will be taken into account.
+For HEX mode, only hex digits (0-9, a-fA-F) are allowed inside the brackets.
+the number of digits inside the bracket must be even. no other constraints 
+are available. there could be spaces between digits.
+NOTE:
+- You can define a pattern in several line
+- Multiple patterns could be defined in one line
+- You can add comment to pattern file using #
+- You can not put comment inside {} or ()
+
+Example Pattern File:
+#----------------------------------
+# comments
+a (hooloo)  {over and over again}
+a   {disclosed }
+x (maloos)  {56 10 23 Ef EB 
+1D e9 09 d3 7c a4}
+#
+# comments
+a (firy)  {from \{23\} to  }
+x  {20 b3 7e 0a 40 97 79 ff ac 
+    2d 84 2c 0c 3d 60 8d} # comments
+  x(popy)  {50 55 42 5 1 6 c c c 0 a}
+x (wood)  {00 00 00 fe002345 e3}
+#----------------------------------
+
+See more example of pattern file in the test folder.
+

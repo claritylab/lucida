@@ -1,0 +1,36 @@
+CC = cl
+CXXC = cl
+LINK=link
+CFLAGS = /O2 /GA /GL /Gy /Oi /Ob2 /nologo /W3 /EHsc /MT /wd4244
+LDFLAGS = /link /OPT:REF /OPT:ICF /LTCG /NXCOMPAT /DYNAMICBASE ADVAPI32.LIB
+DEFS =  -D_CRT_SECURE_NO_DEPRECATE -DDLL_EXPORT \
+        -DUNICODE -D_UNICODE \
+        -DHAVE_WINDOWS_H -DVERSION="\"0.58\"" -DPACKAGE="\"CRF++\""
+INC = -I. -I..
+DEL = del
+
+OBJ = encoder.obj feature.obj feature_cache.obj libcrfpp.obj \
+      feature_index.obj node.obj param.obj path.obj tagger.obj lbfgs.obj
+
+.c.obj:
+	$(CXXC) $(CFLAGS) $(INC) $(DEFS) -c $<
+
+.cpp.obj:
+	$(CXXC) $(CFLAGS) $(INC) $(DEFS) -c $<
+
+.c.obj:
+	$(CC) $(CFLAGS) $(INC) $(DEFS) -c  $<
+
+all: libcrfpp crf_learn crf_test
+
+libcrfpp: $(OBJ)
+        $(LINK) $(LDFLAGS) /out:$@.dll $(OBJ) /dll
+
+crf_learn: $(OBJ) crf_learn.obj
+	$(LINK) $(LDFLAGS) /out:$@.exe crf_learn.obj libcrfpp.lib
+
+crf_test: $(OBJ) crf_test.obj
+	$(LINK) $(LDFLAGS) /out:$@.exe crf_test.obj libcrfpp.lib
+
+clean:
+	del *.obj crf_learn.exe crf_test.exe *.dll

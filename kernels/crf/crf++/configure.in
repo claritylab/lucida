@@ -1,0 +1,290 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(crf_learn.cpp)
+AH_TEMPLATE([HAVE_TLS_KEYWORD], [])
+AH_TEMPLATE([HAVE_SYS_CONF_SC_NPROCESSORS_CONF], [])
+AM_INIT_AUTOMAKE(CRF++, 0.58)
+
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_GCC_TRADITIONAL
+AC_PROG_MAKE_SET
+AC_ISC_POSIX
+AC_CYGWIN
+AC_LANG_CPLUSPLUS
+AC_PROG_LIBTOOL
+AC_CONFIG_MACRO_DIR([m4])
+
+dnl Checks for libraries.
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(string.h stdlib.h unistd.h fcntl.h \
+                sys/stat.h sys/mman.h sys/times.h \
+                ctype.h sys/types.h math.h pthread.h)
+
+AC_TYPE_SIZE_T
+
+dnl Checks for libraries.
+AC_CHECK_LIB(m,pow)
+AC_CHECK_LIB(m,exp)
+AC_CHECK_LIB(m,log)
+AC_CHECK_LIB(pthread,pthread_create)
+AC_CHECK_LIB(pthread,pthread_join)
+AC_FUNC_MMAP
+
+dnl
+dnl Check for GNU make
+dnl
+AC_MSG_CHECKING(whether make is GNU Make)
+if $ac_make --version 2>/dev/null | grep '^GNU Make ' >/dev/null ; then
+        AC_MSG_RESULT(yes)
+else
+        AC_MSG_RESULT(no)
+        if test "$host_vendor" = "sun" ; then
+                AC_MSG_ERROR("SUN make does not work for building maxent. Please install GNU make")
+        fi
+fi
+
+dnl
+dnl check gcc
+dnl
+if test -n "$GCC"; then
+   CFLAGS="-O3 -Wall";
+   CXXFLAGS="-O3 -Wall";
+fi
+
+AC_DEFUN(ADD_CC_FLAG, [
+  AC_MSG_CHECKING(whether ${CC-cc} accepts $1)
+  AC_LANG_SAVE
+  AC_LANG_C
+  XCFLAGS="$CFLAGS"
+  CFLAGS="$CFLAGS $1"
+  AC_TRY_LINK([], [],
+        [AC_MSG_RESULT([ ok, adding $1 to CFLAGS])],
+        [CFLAGS="$XCFLAGS"])
+  AC_LANG_RESTORE
+])
+
+AC_DEFUN(ADD_CXX_FLAG, [
+  AC_MSG_CHECKING(whether ${CXX-c++} accepts $1)
+  AC_LANG_SAVE
+  AC_LANG_CPLUSPLUS
+  XCXXFLAGS="$CXXFLAGS"
+  CXXFLAGS="$CXXFLAGS $1"
+  AC_TRY_LINK([], [],
+        [AC_MSG_RESULT([ ok, adding $1 to CXXFLAGS])],
+        [CXXFLAGS="$XCXXFLAGS"])
+  AC_LANG_RESTORE
+])
+
+# On Intel systems with gcc, we may need to compile with -mieee-fp to
+#  get full support for IEEE floating point.
+#
+# On Alpha/OSF systems, we need -mieee.
+#
+# On AIX systems, we need to limit the amount of stuff that goes in
+# the TOC.
+case "$host" in
+changequote(,)dnl
+  i[3456789]86-*-*)
+changequote([,])dnl
+    ADD_CC_FLAG(-mieee-fp)
+    ADD_CXX_FLAG(-mieee-fp)
+  ;;
+  alpha*-*-*)
+    ADD_CC_FLAG(-mieee)
+    ADD_CXX_FLAG(-mieee)
+  ;;
+  *ibm-aix4*)
+    ADD_CC_FLAG(-mminimal-toc)
+    ADD_CXX_FLAG(-mminimal-toc)
+  ;;
+esac
+
+dnl
+dnl check C++ features
+dnl
+AC_DEFUN(CHECK_CXX_STL, [
+  AC_MSG_CHECKING(if ${CXX-c++} supports stl <$1> (required))
+  AC_TRY_COMPILE(
+	[
+	  #include <$1>
+	], [
+	;
+	], [
+	  ac_stl_$1=yes
+	], [
+	  config_error=yes
+	  AC_WARN(${CXX-c++} stl <$1> does not work)
+        ])
+  AC_MSG_RESULT([$ac_stl_$1])
+])
+
+CHECK_CXX_STL(string)
+CHECK_CXX_STL(vector)
+CHECK_CXX_STL(map)
+CHECK_CXX_STL(set)
+CHECK_CXX_STL(iostream)
+CHECK_CXX_STL(fstream)
+CHECK_CXX_STL(sstream)
+CHECK_CXX_STL(stdexcept)
+
+# check for const_cast
+AC_MSG_CHECKING([if ${CXX-c++} supports template <class T> (required)])
+AC_TRY_COMPILE(
+[
+   template <class T> T foo (T &i) { return i++; };
+],[
+   int i = 0;
+   double d = 0.0;
+   foo(i); foo(d);
+],[
+  ac_template=yes
+],[
+  AC_WARN(${CXX-c++} template <class T> does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_template])
+
+# check for const_cast
+AC_MSG_CHECKING([if ${CXX-c++} supports const_cast<> (required)])
+AC_TRY_COMPILE(
+[
+   class foo;
+],[
+   const foo *c=0;
+   foo *c1=const_cast<foo*>(c);
+],[
+  ac_const_cast=yes
+],[
+  AC_WARN(${CXX-c++} const_cast<> does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_const_cast])
+
+# check for static_cast<>
+AC_MSG_CHECKING(if ${CXX-c++} supports static_cast<> (required))
+AC_TRY_COMPILE(
+[
+   class foo;
+],[
+   foo *c = 0;
+   void *c1 = static_cast<void *>(c);
+],[
+  ac_static_cast=yes
+],[
+  AC_WARN(${CXX-c++} static_cast<> does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_static_cast])
+
+# check for dynamic_cast<>
+AC_MSG_CHECKING(if ${CXX-c++} supports dynamic_cast<> (required))
+AC_TRY_COMPILE(
+[
+   class foo {};
+   class bar: public foo {};
+],[
+   bar *c = 0;
+   foo *c1 = dynamic_cast<foo *>(c);
+],[
+  ac_dynamic_cast=yes
+],[
+  AC_WARN(${CXX-c++} dynamic_cast<> does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_dynamic_cast])
+
+# check for try
+AC_MSG_CHECKING(if ${CXX-c++} supports exception handler (required))
+AC_TRY_COMPILE(
+[
+  ;
+],[
+   try {
+      int i = 0;
+   }
+   catch (char *e) {
+   }
+   catch (...) {
+   }
+],[
+  ac_exception=yes
+],[
+  AC_WARN(${CXX-c++} exception does not work)
+  config_error=yes
+])
+AC_MSG_RESULT([$ac_exception])
+
+# check for namespaces
+AC_MSG_CHECKING(if ${CXX-c++} supports namespaces (required) )
+AC_TRY_COMPILE(
+[
+namespace Foo { struct A {}; }
+using namespace Foo;
+],[
+A a;
+],[
+ ac_namespaces=yes
+dnl AC_DEFINE(HAVE_CXX_NAMESPACE)
+],[
+ config_error=yes
+ ac_namespaces=no
+])
+AC_MSG_RESULT([$ac_namespaces])
+
+
+dnl __thread keyword
+AC_MSG_CHECKING([if ${CXX-c++} supports __thread (optional)])
+AC_TRY_COMPILE(
+[
+__thread int a = 0;
+],[
+  a = 10;
+],[
+ enable_tls=yes
+],[
+ enable_tls=no
+])
+AC_MSG_RESULT([$enable_tls])
+
+if test "$enable_tls" = "no"; then
+AC_MSG_WARN([__thread keyword is not supported on this environment. \
+Error handling of CRF++, e.g., CRFPP::getLastError(), is not thread safe.])
+else
+AC_DEFINE([HAVE_TLS_KEYWORD])
+fi
+
+AC_MSG_CHECKING([if ${CXX-c++} supports _SC_NPROCESSORS_CONF (optional)])
+AC_TRY_COMPILE(
+[
+  #include <unistd.h>
+  long n = sysconf(_SC_NPROCESSORS_CONF);
+],[
+  n = 10;
+],[
+ enable_sysconf_sc_nprocessors_conf=yes
+],[
+ enable_sysconf_sc_nprocessors_conf=no
+])
+AC_MSG_RESULT([$enable_sysconf_sc_nprocessors_conf])
+
+if test "$enable_sysconf_sc_nprocessors_conf" = "no"; then
+AC_MSG_WARN([_SC_NPROCESSORS_CONF on this environment.])
+else
+AC_DEFINE([HAVE_SYS_CONF_SC_NPROCESSORS_CONF])
+fi
+
+AC_MSG_CHECKING(if ${CXX-c++} environment provides all required features)
+if test "x$config_error" = xyes ; then
+  AC_MSG_RESULT([no])
+  AC_MSG_ERROR([Your compiler is not powerful enough to compile CRF++. \
+        If it should be, see config.log for more information of why it failed.])
+fi
+AC_MSG_RESULT([yes])
+
+AC_SUBST(datarootdir)
+AM_CONFIG_HEADER(config.h)
+AC_OUTPUT([Makefile Makefile.msvc swig/version.h])
+

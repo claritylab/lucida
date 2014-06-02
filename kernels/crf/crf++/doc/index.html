@@ -1,0 +1,831 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <link rev="made" href="mailto:taku@chasen.org">
+    <title>CRF++: Yet Another CRF toolkit</title>
+    <link type="text/css" rel="stylesheet" href="default.css">
+  </head>
+
+  <body>
+    <h1>CRF++: Yet Another CRF toolkit</h1>
+
+    <h2>Introduction</h2>
+
+      <p><b>CRF++</b> is a simple, customizable, and open source
+      implementation of <a href="http://www.cis.upenn.edu/~pereira/papers/crf.pdf">Conditional Random Fields (CRFs)</a>
+      for segmenting/labeling sequential data. CRF++ is designed for generic purpose and will be applied to a variety of NLP tasks, such as 
+      Named Entity Recognition, Information Extraction and Text Chunking.
+
+    <h2>Table of contents</h2>
+    <ul>
+      <li><a href="#features">Features</a></li>
+
+      <li><a href="#news">News</a></li>
+      <li><a href="#download">Download</a> </li>
+        <ul>
+          <li><a href="#source">Source</a></li>
+          <li><a href="#windows">Binary package for MS-Windows</a></li>
+        </ul>
+
+      <li><a href="#install">Installation</a></li>
+
+      <li>
+        <a href="#usage">Usage</a> 
+
+        <ul>
+          <li><a href="#format">Training and Test file formats</a></li>
+          <li><a href="#templ">Preparing feature templates</a></li>
+          <li><a href="#training">Training (encoding)</a></li>
+          <li><a href="#testing">Testing (decoding)</a></li>
+
+        </ul>
+      </li>
+
+      <li><a href="#tips">Case studies</a></li>
+      <li><a href="#tips">Useful Tips</a></li>
+      <li><a href="#todo">To do</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+
+    <h2><a name="features">Features</a></h2>
+
+    <ul>
+     <li>Can redefine feature sets</li>
+     <li>Written in C++ with STL</li>
+     <li>Fast training based on <a href="http://www-fp.mcs.anl.gov/otc/Guide/SoftwareGuide/Blurbs/lbfgs.html">LBFGS</a>, a quasi-newton algorithm
+	 for large scale numerical optimization problem</li>
+     <li>Less memory usage both in training and testing</li>
+     <li>encoding/decoding in practical time</li>
+     <li>Can perform n-best outputs</li>
+     <li>Can perform single-best MIRA training</li>
+     <li>Can output marginal probabilities for all candidates</li>
+	 <li>Available as an open source software</li>
+    </ul>
+
+    <h2><a name="news">News</a></h2>
+    <ul>
+    
+    <strong>2013-02-13</strong>: <a href="#download">CRF++ 0.58</a> Released<br>
+    <ul>
+     <li>Added createModelFromArray() method to load model file from fixed buffer.
+     <li>Added getTemplate() method to get template string.
+    </ul>
+    
+    <strong>2012-03-25</strong><br>
+    <ul>
+     <li>Fixed build issue around libtool.
+     <li>Fixed C++11 compatible issue.
+    </ul>
+  
+    <strong>2012-02-24</strong><br>
+    <ul>
+     <li>Added CRFPP:Tagger::set_model() method.
+     <li>Fixed minor bugs
+    </ul>
+
+
+    <strong>2012-02-15</strong>: CRF++ 0.55<br>
+    <ul>
+     <li>Added new CRFPP:Model class so that multiple threads can share single CRF++ model.
+     <li>Added Tagger::set_penalty and Tagger::penalty() method for dual decompositon decoding
+     <li>Fixed crash bug on Windows
+     <li>Fixed minor bugs
+    </ul>
+   
+    <strong>2010-05-16</strong>: CRF++ 0.54</a> Released<br>
+    <ul>
+     <li>fixed the bug in L1 regularization. Reported by Fujii Yasuhisa</li>
+    </ul>
+    
+    <strong>2009-05-06</strong>: CRF++ 0.5 Released<br>
+    <ul>
+     <li>fixed build failure on libtool
+    </ul>
+   
+    <strong>2009-04-19</strong>: CRF++ 0.52<br>
+    <ul>
+     <li>Code clean up
+     <li>replaced obsolete sstream with stringstream
+    </ul>
+    
+    <strong>2007-07-12</strong>: CRF++ 0.51</a><br>
+    <ul>
+     <li>Fixed a compilation error on gcc 4.3
+    </ul>
+    
+    <strong>2007-12-09</strong>: CRF++ 0.50<br>
+    <ul>
+     <li>Bug fix in --convert mode (Could not generate model from text file)
+    </ul>
+    
+    <strong>2007-08-18</strong>: CRF++ 0.49<br>
+    <ul>
+     <li>Added setter/getter for nbest, cost_factor and vlevel to API
+    </ul>
+
+    <strong>2007-07-07</strong>: CRF++ 0.48 Released<br>
+    <ul>
+     <li>Support L1-CRF. use -a CRF-L1 option to enable L1 regularization.
+    </ul>  
+
+    <strong>2007-03-07</strong>: CRF++ 0.47 Released<br>
+    <ul>
+     <li>Fixed a bug in MIRA training
+    </ul>  
+    
+    <strong>2007-02-12</strong>: CRF++ 0.46 Released<br>
+    <ul>
+     <li>Changed the licence from LGPL to LGPL/BSD dual
+          license
+     <li>Perl/Ruby/Python/Java binding supports (see
+         perl/ruby/python/java directory respectively)
+     <li>Code refactoring
+    </ul>  
+
+    <strong>2006-11-26</strong>: CRF++ 0.45<br>
+    <ul>
+      <li>Support 1-best MIRA training (use -a MIRA option)
+    </ul>  
+    
+    <strong>2006-08-18</strong>: CRF++ 0.44<br>
+    <ul>
+      <li>Fixed a bug in feature extraction</li>
+      <li>Allowed redundant spaces in training/test files</li>
+      <li>Determined real column size by looking at template</li>
+      <li>Added sample code of API (sdk/example.cpp)
+      <li>Described usage of each API function (crfpp.h)
+    </ul>  
+    <strong>2006-08-07</strong>: CRF++ 0.43<br>
+     <ul>
+      <li>implemented several API functions to get lattice
+          information</li>
+      <li>added -c option to control cost-factor
+     </ul>
+
+    <strong>2006-03-31</strong>: CRF++ 0.42<br>
+     <ul>
+      <li>Fixed a bug in feature extraction</li>
+     </ul>
+
+    <strong>2006-03-30</strong>: CRF++ 0.41<br>
+     <ul>
+      <li>Support parallel training</li>
+     </ul>
+    
+    <strong>2006-03-21</strong>: CRF++ 0.40<br>
+     <ul>
+      <li>Fixed a fatal memory leak bug</li>
+      <li>make CRF++ API</li>
+      </ul>
+    
+    <strong>2005-10-29</strong>: CRF++ 0.3</a>
+      <ul>
+      <li>added -t option that enables you to have not only binary
+      model but also text model
+      <li>added -C option for converting a text model to a binary model
+      </ul>
+      
+     <strong>2005-07-04</strong>: CRF++ 0.2
+     Released<br>
+       <ul>
+        <li>Fixed several bugs</li>
+       </ul>
+    
+     <strong>2005-05-28</strong>: CRF++ 0.1
+     Released<br>
+       <ul>
+        <li>Initial Release</li>
+       </ul>
+    </ul>
+
+    <h2><a name="download">Download</a></h2>
+
+    <ul>
+      <li><b>CRF++</b> is free software; you can redistribute it
+      and/or modify it under the terms of the <a href=
+      "http://www.gnu.org/copyleft/lesser.html">GNU Lesser General
+      Public License</a> or <a
+href="http://www.opensource.org/licenses/bsd-license.php">new BSD License</a></li>
+
+      <li>
+        Please let <a href=
+        "mailto:taku@chasen.org">me</a> know if you use
+        <b>CRF++</b> for research purpose or find any research
+        publications where <b>CRF++</b> is applied. 
+
+        <h3><a name="source">Source</a></h3>
+        <ul>
+          <li>CRF++-0.58.tar.gz: <a href="http://code.google.com/p/crfpp/downloads/list">HTTP</a></li>
+        </ul>
+
+        <h3><a name="windows">Binary package for MS-Windows</a></h3>
+        <ul>
+          <li><a href="http://code.google.com/p/crfpp/downloads/list">HTTP</a><br>
+        </ul>
+
+      </li>
+    </ul>
+
+    <h2><a name="install">Installation</a></h2>
+
+    <ul>
+      <li>
+        Requirements 
+
+        <ul>
+          <li>C++ compiler (gcc 3.0 or higher)</li>
+        </ul>
+      </li>
+
+      <li>
+        How to make 
+<pre>
+% ./configure 
+% make
+% su
+# make install
+</pre>
+        You can change default install path by using --prefix
+        option of configure script.<br>
+        Try --help option for finding out other options.
+      </li>
+    </ul>
+
+  <h2><a name="usage">Usage</a></h2>
+
+  <h3><a name="format">Training and Test file formats</a></h3> 
+
+        <p>Both the training file and the test file need to be in a
+        particular format for <b>CRF++</b> to work properly.
+        Generally speaking, training and test file must consist of
+        multiple <b>tokens</b>. In addition, a <b>token</b>
+        consists of multiple (but fixed-numbers) columns. The
+        definition of tokens depends on tasks, however, in 
+        most of typical cases, they simply correspond to 
+        <b>words</b>. Each token must be represented in one line,
+        with the columns separated by white space (spaces or
+        tabular characters). A sequence of token becomes a
+        <b>sentence</b>. To identify the boundary between
+        sentences, an empty line is put.</p>
+
+        <p>You can give as many columns as you like, however the
+        number of columns must be fixed through all tokens.
+        Furthermore, there are some kinds of "semantics" among the
+        columns. For example, 1st column is 'word', second column
+        is 'POS tag' third column is 'sub-category of POS' and so
+        on.</p>
+
+        <p>The last column represents a true answer tag which is going
+        to be trained by CRF.</p>
+
+        <p>Here's an example of such a file: (data for CoNLL shared
+        task)</p>
+<pre>
+He        PRP  B-NP
+reckons   VBZ  B-VP
+the       DT   B-NP
+current   JJ   I-NP
+account   NN   I-NP
+deficit   NN   I-NP
+will      MD   B-VP
+narrow    VB   I-VP
+to        TO   B-PP
+only      RB   B-NP
+#         #    I-NP
+1.8       CD   I-NP
+billion   CD   I-NP
+in        IN   B-PP
+September NNP  B-NP
+.         .    O
+
+He        PRP  B-NP
+reckons   VBZ  B-VP
+..
+</pre>
+
+  <p>There are 3 columns for each token.</p>
+
+  <ul>
+   <li>The word itself (e.g. reckons);</li>
+   <li>part-of-speech associated with the word (e.g. VBZ);</li>
+   <li>Chunk(answer) tag represented in IOB2 format;</li>
+  </ul>
+
+  <p>The following data is invalid, since the number of
+  columns of second and third are 2. (They have no POS
+  column.) The number of columns should be fixed.</p>
+<pre>
+He        PRP  B-NP
+reckons   B-VP
+the       B-NP
+current   JJ   I-NP
+account   NN   I-NP
+..
+</pre>
+
+  <h3><a name="templ">Preparing feature templates</a></h3> 
+  <p>
+  As CRF++ is designed as a general purpose tool, you have to
+  specify the feature templates in advance. This file describes
+  which features are used in training and testing.
+  </p>
+
+  <ul>
+  <li>Template basic and macro</li>
+  <p>
+  Each line in the template file denotes one <i>template</i>.
+  In each template, special macro <i>%x[row,col]</i> will be
+  used to specify a token in the input data. <i>row</i> specfies the
+  relative position from the current focusing token
+  and <i>col</i> specifies the absolute position of the column.
+  </p>
+
+<p>Here you can find some examples for the replacements</p>
+<pre>
+Input: Data
+He        PRP  B-NP
+reckons   VBZ  B-VP
+the       DT   B-NP &lt;&lt; CURRENT TOKEN
+current   JJ   I-NP 
+account   NN   I-NP
+</pre>
+
+<p>
+<table border>
+<tr>
+<td>template</td>
+<td>expanded feature</td>
+</tr>
+<tr>
+<td><b>%x[0,0]</b></td>
+<td>the</td>
+</tr>
+<tr>
+<td><b>%x[0,1]</b></td>
+<td>DT</td>
+</tr>
+<tr>
+<td><b>%x[-1,0]</b></td>
+<td>rokens</td>
+</tr>
+<tr>
+<td><b>%x[-2,1]</b></td>
+<td>PRP</td>
+</tr>
+<tr>
+<td><b>%x[0,0]/%x[0,1]</b></td>
+<td>the/DT</td>
+</tr>
+<tr>
+<td><b>ABC%x[0,1]123</b></td>
+<td>ABCDT123</td>
+</tr>
+</table>
+</p>
+<br>
+
+
+<li>Template type</li>
+<p>Note also that  there are two types of templates.
+  The types are specified with the first character of templates.
+</p>
+  <ul>
+
+   <li>Unigram template: first character, <b>'U'</b></li>
+       <p>
+       This is a template to describe unigram features.
+       When you give a template "U01:%x[0,1]", CRF++ automatically
+       generates a set of feature functions (func1 ... funcN) like:
+       </p>
+       
+       <pre>
+func1 = if (output = B-NP and feature="U01:DT") return 1&nbsp;else return 0
+func2 = if (output = I-NP and feature="U01:DT") return 1&nbsp;else return 0
+func3 = if (output = O and feature="U01:DT") return 1&nbsp; else return 0
+....
+funcXX = if (output = B-NP and feature="U01:NN") return 1&nbsp; else return 0
+funcXY = if (output = O and feature="U01:NN") return 1&nbsp; else return 0
+...</pre>
+
+       <p>
+       The number of feature functions generated by a template amounts to
+       (L * N), where L is the number of output classes and N is the
+       number of unique string expanded from the given template.
+       </p>
+
+   <li>Bigram template: first character, <b>'B'</b></li>
+       <p>
+       This is a template to describe bigram features.
+       With this template, a combination of the current output token and previous output token
+       (bigram) is automatically generated. Note that this type of template generates a total of 
+       (L * L * N) distinct features, where L is the
+       number of output classes and N is the number
+       of unique features generated by the templates.
+       When the number of classes is large, this type of templates would produce
+       a tons of distinct features that would cause inefficiency both
+       in training/testing. 
+       </p>
+       
+    <li>What is the diffrence between unigram and bigram features?</li>
+     <p>
+     The words unigram/bigram are confusing, since a macro for unigram-features
+     does allow you to write word-level bigram like %x[-1,0]%x[0,0]. Here,
+     unigram and bigram features mean uni/bigrams of output tags.</p>
+     <ul>
+     <li>unigram: |output tag| x |all possible strings expanded with a macro|</li>
+     <li>bigram: |output tag| x |output tag| x |all possible strings expanded with a macro|</li>
+     </ul>
+     <p></p>
+</ul>
+
+<li>Identifiers for distinguishing relative positions</li>
+<p>
+You also need to put an identifier in templates when relative positions of
+tokens must be distinguished. 
+</p>
+<p>
+In the following case, the macro "%x[-2,1]" and "%x[1,1]" will be replaced
+into "DT". But they indicates different "DT".
+</p>
+<pre>
+The       DT  B-NP
+pen       NN  I-NP
+is        VB  B-VP << CURRENT TOKEN
+a         DT  B-NP
+</pre>
+
+<p>To distinguish both two, put an unique identifier (U01: or U02:) in the
+template:</p>
+<pre>
+U01:%x[-2,1]
+U02:%x[1,1]
+</pre>
+<p>
+In this case both two templates are regarded as different ones, as
+they are expanded into different features, "U01:DT" and "U02:DT".
+You can use any identifier whatever you like, but
+it is useful to use numerical numbers to manage them, because they simply 
+correspond to feature IDs.
+</p>
+
+<p>
+If you want to use "bag-of-words" feature, in other words,
+not to care the relative position of features, You don't need to
+put such identifiers.
+</p>
+
+<li>Example</li>
+<p>Here is the template example for <a href="http://www.cnts.ua.ac.be/conll2000/chunking/">CoNLL 2000</a> shared task and Base-NP chunking
+task. Only one bigram template ('B') is used. This means that
+only  combinations of previous output token and current token are
+used as bigram features. The lines starting from # or empty lines are
+discarded as comments</p>
+<pre>
+# Unigram
+U00:%x[-2,0]
+U01:%x[-1,0]
+U02:%x[0,0]
+U03:%x[1,0]
+U04:%x[2,0]
+U05:%x[-1,0]/%x[0,0]
+U06:%x[0,0]/%x[1,0]
+
+U10:%x[-2,1]
+U11:%x[-1,1]
+U12:%x[0,1]q
+U13:%x[1,1]
+U14:%x[2,1]
+U15:%x[-2,1]/%x[-1,1]
+U16:%x[-1,1]/%x[0,1]
+U17:%x[0,1]/%x[1,1]
+U18:%x[1,1]/%x[2,1]
+
+U20:%x[-2,1]/%x[-1,1]/%x[0,1]
+U21:%x[-1,1]/%x[0,1]/%x[1,1]
+U22:%x[0,1]/%x[1,1]/%x[2,1]
+
+# Bigram
+B
+</pre>
+</ul>
+</ul>
+
+
+ <h3><a name="training">Training (encoding)</a></h3> 
+
+<p>Use <i>crf_learn</i> command:
+  <pre>
+% crf_learn template_file train_file model_file
+</pre>
+<p>
+where <i>template_file</i> and <i>train_file</i>
+are the files you need to prepare in advance.
+<i>crf_learn</i> generates the trained model file in
+<i>model_file</i>.
+</p>
+
+<p>crf_learn outputs the following information.</p>
+<pre>
+CRF++: Yet Another CRF Tool Kit
+Copyright(C) 2005 Taku Kudo, All rights reserved.
+
+reading training data: 100.. 200.. 300.. 400.. 500.. 600.. 700.. 800.. 
+Done! 1.94 s
+
+Number of sentences: 823
+Number of features:  1075862
+Number of thread(s): 1
+Freq:                1
+eta:                 0.00010
+C:                   1.00000
+shrinking size:      20
+Algorithm:           CRF
+
+iter=0 terr=0.99103 serr=1.00000 obj=54318.36623 diff=1.00000
+iter=1 terr=0.35260 serr=0.98177 obj=44996.53537 diff=0.17161
+iter=2 terr=0.35260 serr=0.98177 obj=21032.70195 diff=0.53257
+iter=3 terr=0.23879 serr=0.94532 obj=13642.32067 diff=0.35138
+iter=4 terr=0.15324 serr=0.88700 obj=8985.70071 diff=0.34134
+iter=5 terr=0.11605 serr=0.80680 obj=7118.89846 diff=0.20775
+iter=6 terr=0.09305 serr=0.72175 obj=5531.31015 diff=0.22301
+iter=7 terr=0.08132 serr=0.68408 obj=4618.24644 diff=0.16507
+iter=8 terr=0.06228 serr=0.59174 obj=3742.93171 diff=0.18953
+</pre>
+
+<ul>
+<li>iter: number of iterations processed</li>
+<li>terr: error rate with respect to tags. (# of error tags/# of all tag)</li>
+<li>serr: error rate with respect to sentences. (# of error sentences/#
+    of all sentences)</li>
+<li>obj: current object value. When this value converges to a
+    fixed point, CRF++ stops the iteration.</li>
+<li>diff: relative difference from the previous object value.</li>
+</ul>
+
+<p>
+There are 4 major parameters to control the training condition
+<ul>
+ <li>-a CRF-L2 or CRF-L1:<br>
+     Changing the regularization algorithm. Default setting is L2.
+     Generally speaking, L2 performs slightly better than L1, while
+     the number of non-zero features in L1 is drastically smaller than
+     that in L2.
+ <li>-c float: <br>
+     With this option, you can change the hyper-parameter for the CRFs.
+     With larger C value, CRF tends to overfit to the give training corpus.
+     This parameter trades the balance between overfitting and
+     underfitting. The results will significantly be influenced by
+     this parameter. You can find an optimal value by using
+     held-out data or more general model selection method such as
+     cross validation.
+ <li>-f NUM:<br>
+     This parameter sets the cut-off threshold for the features.
+     CRF++ uses the features that occurs no less than NUM times
+     in the given training data. The default value is 1.
+     When you apply CRF++ to large data, the number of unique features
+     would amount to several millions. This option is useful in such cases.
+ <li>-p NUM:<br>
+    If the PC has multiple CPUs, you can make the training faster
+    by using multi-threading. NUM is the number of threads.
+</ul>
+
+<p>Here is the example where these two parameters are used.</p>
+  <pre>
+% crf_learn -f 3 -c 1.5 template_file train_file model_file
+</pre>
+<p>Since version 0.45, CRF++ supports single-best MIRA training. 
+MIRA training is used when -a MIRA option is set.
+<pre>
+% crf_learn -a MIRA template train.data model
+CRF++: Yet Another CRF Tool Kit
+Copyright(C) 2005 Taku Kudo, All rights reserved.
+
+reading training data: 100.. 200.. 300.. 400.. 500.. 600.. 700.. 800.. 
+Done! 1.92 s
+
+Number of sentences: 823
+Number of features:  1075862
+Number of thread(s): 1
+Freq:                1
+eta:                 0.00010
+C:                   1.00000
+shrinking size:      20
+Algorithm:           MIRA
+
+iter=0 terr=0.11381 serr=0.74605 act=823 uact=0 obj=24.13498 kkt=28.00000
+iter=1 terr=0.04710 serr=0.49818 act=823 uact=0 obj=35.42289 kkt=7.60929
+iter=2 terr=0.02352 serr=0.30741 act=823 uact=0 obj=41.86775 kkt=5.74464
+iter=3 terr=0.01836 serr=0.25881 act=823 uact=0 obj=47.29565 kkt=6.64895
+iter=4 terr=0.01106 serr=0.17011 act=823 uact=0 obj=50.68792 kkt=3.81902
+iter=5 terr=0.00610 serr=0.10085 act=823 uact=0 obj=52.58096 kkt=3.98915
+iter=0 terr=0.11381 serr=0.74605 act=823 uact=0 obj=24.13498 kkt=28.00000
+...
+</pre>
+
+<ul>
+<li>iter, terr, serror: same as CRF training</li>
+<li>act: number of active examples in working set</li>
+<li>uact: number of examples whose dual parameters reach soft margin
+    upper-bound C. 0 uact suggests that given training data was
+    linear separable</li>
+<li>obj: current object value, ||w||^2</li>
+<li>kkt: max kkt violation value. When it gets 0.0, MIRA training finishes</li>
+</ul>
+
+<p>There are some parameters to control the MIRA training condition</p>
+<ul>
+ <li>-c float: <br>
+     Changes soft margin parameter, which is an analogue to the soft margin
+     parameter C in Support Vector Machines.
+     The definition is basically the same as -c option in CRF training.
+     With larger C value, MIRA tends to overfit to the give training
+     corpus. 
+ <li>-f NUM:<br>
+     Same as CRF
+ <li>-H NUM:<br>
+     Changes shrinking size. When a training sentence is not used
+     in updating parameter vector NUM times, we can consider that the 
+     instance doesn't contribute training any more. MIRA tries to
+     remove such instances. The process is called
+     "shrinking". When setting smaller NUM, shrinking occurs in early
+     stage, which drastically reduces
+     training time. However, too small NUM is not recommended.
+     When training finishes, MIRA tries to go through all training 
+     examples again to know whether or not all KKT conditions are really
+     satisfied. Too small NUM would increase the chances of recheck.
+</ul>
+
+<h3><a name="testing">Testing (decoding)</a></h3> 
+
+<p>Use <i>crf_test</i> command:
+  <pre>
+% crf_test -m model_file test_files ...
+</pre>
+<p>
+where <i>model_file</i> is the file <i>crf_learn</i>creates.
+In the testing, you don't need to specify the template file,
+because the model file has the same information for the template.
+<i>test_file</i> is the test data you want to assign sequential tags.
+This file has to be written in the same format as training file.
+</p>
+
+
+<p>
+Here is an output of <i>crf_test</i>:</p>
+
+<pre>
+% crf_test -m model test.data
+Rockwell        NNP     B       B
+International   NNP     I       I
+Corp.   NNP     I       I
+'s      POS     B       B
+Tulsa   NNP     I       I
+unit    NN      I       I
+..
+</pre>
+
+<p>The last column is given (estimated) tag. 
+If the 3rd column is true answer tag , you can evaluate the accuracy 
+by simply seeing the difference between the 3rd and 4th columns.</p>
+
+
+<ul>
+<li>verbose level</li>
+<p>The <b>-v</b> option sets verbose level. default
+value is 0. By increasing the level, you can have an
+extra information from CRF++</p>
+
+<ul>
+<li>level 1 <br>
+    You can also have marginal probabilities for each tag
+    (a kind of confidece measure for each output tag) 
+    and a conditional probably for the output (confidence measure for
+    the entire output). 
+<pre>
+% crf_test -v1 -m model test.data| head
+# 0.478113
+Rockwell        NNP     B       B/0.992465
+International   NNP     I       I/0.979089
+Corp.   NNP     I       I/0.954883
+'s      POS     B       B/0.986396
+Tulsa   NNP     I       I/0.991966
+...
+</pre>
+<p>
+The first line "# 0.478113" shows the conditional probably for the output.
+Also, each output tag has a probability represented like "B/0.992465".
+</p>
+
+<li>level 2<br>
+<p>You can also have marginal probabilities for all other candidates.</p>
+<pre>
+% crf_test -v2 -m model test.data
+# 0.478113
+Rockwell        NNP     B       B/0.992465      B/0.992465      I/0.00144946    O/0.00608594
+International   NNP     I       I/0.979089      B/0.0105273     I/0.979089      O/0.0103833
+Corp.   NNP     I       I/0.954883      B/0.00477976    I/0.954883      O/0.040337
+'s      POS     B       B/0.986396      B/0.986396      I/0.00655976    O/0.00704426
+Tulsa   NNP     I       I/0.991966      B/0.00787494    I/0.991966      O/0.00015949
+unit    NN      I       I/0.996169      B/0.00283111    I/0.996169      O/0.000999975
+..
+</pre>
+</ul>
+
+<li>N-best outputs</li>
+<p>
+With the <b>-n</b> option, you can obtain N-best results
+sorted by the conditional probability of CRF. 
+With n-best output mode, CRF++ first gives one additional line like "# N prob", where N means that
+rank of the output starting from 0 and prob denotes the conditional
+probability for the output. </p>
+
+<p>Note that CRF++ sometimes
+discards enumerating N-best results if it cannot find candidates any
+more. This is the case when you give CRF++ a short
+sentence.</p>
+ 
+<p>CRF++ uses a combination of forward Viterbi and backward A* search. This combination
+yields the exact list of n-best results. </p>
+
+<p>Here is the example of the N-best results. </p>
+<pre>
+% crf_test -n 20 -m model test.data
+# 0 0.478113
+Rockwell        NNP     B       B
+International   NNP     I       I
+Corp.   NNP     I       I
+'s      POS     B       B
+...
+
+# 1 0.194335
+Rockwell        NNP     B       B
+International   NNP     I       I
+</pre>
+</ul>
+</ul>
+
+<h2><a name="testing">Tips</a></h2> 
+<ul>
+ <li>CRF++ uses the exactly same data format as <a
+     href="http://chasen.org/~taku/software/yamcha/">YamCha</a> uses.
+     You may use both two toolkits for an input data and compare the
+     performance between CRF and SVM
+ <li>The output of CRF++ is also compatible to <a href="http://www.cnts.ua.ac.be/conll2000/chunking/">CoNLL 2000</a> shared task.
+     This allows us to use the perl script 
+     <a href="http://www.cnts.ua.ac.be/conll2000/chunking/output.html">
+     conlleval.pl</a> to
+     evaluate system outputs. This script is very useful and
+     give us a list of F-measures for all chunk types
+</ul>
+
+<h2><a name="training">Case studies</a></h2> 
+ <p>
+ In the example directories, you can find three case studies, baseNP
+ chunking, Text Chunking, and Japanese named entity recognition, to use CRF++. 
+ </p>
+
+ <p>
+ In each directory, please try the following commands
+ </p>
+
+ <pre> % crf_learn template train model
+ % crf_test  -m model test </pre>
+
+<h2><a name="todo">To Do</a></h2>
+    <ul>
+     <li>Support <a
+	 href="http://www-2.cs.cmu.edu/~wcohen/postscript/semiCRF.pdf">semi-Markov
+	 CRF</a>
+     <li>Support <a
+	 href="http://www.cs.umass.edu/~mccallum/papers/lcrf-nips2004.pdf">
+	 piece-wise CRF</a>
+     <li>Provide useful C++/C API (Currently no APIs are available)
+    </ul>
+
+<h2><a name="links">References</a></h2>
+    <ul>
+     <li>J. Lafferty, A. McCallum, and F. Pereira. 
+      <a href="http://www.cis.upenn.edu/~pereira/papers/crf.pdf">Conditional random fields: Probabilistic models for segmenting and
+      labeling sequence data</a>, In Proc. of ICML, pp.282-289, 2001
+
+     <li>F. Sha and F. Pereira. <a
+      href="http://www.cis.upenn.edu/~feisha/pubs/shallow03.pdf">Shallow
+      parsing with conditional random fields</a>, In Proc. of HLT/NAACL 2003
+      <li><a
+	 href="http://staff.science.uva.nl/~erikt/research/np-chunking.html">NP chunking</a></li>
+      <li><a href= "http://www.cnts.ua.ac.be/conll2000/chunking/">CoNLL
+	 2000 shared task: Chunking</a></li>
+    </ul>
+    <hr>
+
+    <p>$Id: index.html,v 1.23 2003/01/06 13:11:21 taku-ku Exp
+    $;</p>
+
+    <address>
+      taku@chasen.org
+    </address>
+  </body>
+</html>
+
