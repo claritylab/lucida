@@ -1,7 +1,0 @@
-#!/bin/sh
-. ../testfuncs.sh
-
-set -e
-./test_determinant | sed -e 's,-0\.0,0.0,g' > _test_determinant.out
-compare_table determinant _test_determinant.out $tests/unit/test_matrix/_test_determinant.res
-rm -f _test_determinant.out

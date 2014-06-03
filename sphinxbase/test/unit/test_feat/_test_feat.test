@@ -1,7 +1,0 @@
-#!/bin/sh
-. ../testfuncs.sh
-
-set -e
-./test_feat > _test_feat.out
-compare_table feat _test_feat.out $tests/unit/test_feat/_test_feat.res
-rm -f _test_feat.out
