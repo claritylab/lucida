@@ -506,9 +506,6 @@ static int ends(struct stemmer * z, char * s)
   return TRUE;
 }
 
-
-
-
 static int ends2(struct stemmer *z, char *s)
 {
    int length=s[0];

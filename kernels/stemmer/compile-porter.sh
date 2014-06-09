@@ -7,5 +7,4 @@
 
 #nvcc -arch=sm_30 porter.cu -o cuda_porter -lrt
 
-gcc -std=gnu99 -o porter porter.c -lpthread -lrt
-
+gcc -std=gnu99 -o porter portervec.c -lpthread -lrt
