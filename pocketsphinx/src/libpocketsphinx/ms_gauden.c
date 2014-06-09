@@ -473,10 +473,12 @@ compute_dist(gauden_dist_t * out_dist, int32 n_top,
         return (compute_dist_all
                 (out_dist, obs, featlen, mean, var, det, n_density));
 
+    #pragma acc kernels 
     for (i = 0; i < n_top; i++)
         out_dist[i].dist = WORST_DIST;
     worst = &(out_dist[n_top - 1]);
 
+    #pragma acc kernels 
     for (d = 0; d < n_density; d++) {
         mfcc_t *m;
         mfcc_t *v;
@@ -486,6 +488,7 @@ compute_dist(gauden_dist_t * out_dist, int32 n_top,
         v = var[d];
         dval = det[d];
 
+        #pragma acc kernels 
         for (i = 0; (i < featlen) && (dval >= worst->dist); i++) {
             mfcc_t diff;
 #ifdef FIXED_POINT

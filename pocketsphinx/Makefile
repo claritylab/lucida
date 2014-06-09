@@ -231,8 +231,10 @@ AUTOCONF = ${SHELL} /home/gpuser/cmusphinx-code/pocketsphinx/missing autoconf
 AUTOHEADER = ${SHELL} /home/gpuser/cmusphinx-code/pocketsphinx/missing autoheader
 AUTOMAKE = ${SHELL} /home/gpuser/cmusphinx-code/pocketsphinx/missing automake-1.13
 AWK = gawk
+#CC = gcc
 CC = gcc
 CCDEPMODE = depmode=gcc3
+#CFLAGS = -g -O2 -Wall
 CFLAGS = -g -O2 -Wall
 CPP = gcc -E
 CPPFLAGS =  -I/home/gpuser/cmusphinx-code/pocketsphinx/../sphinxbase/include
