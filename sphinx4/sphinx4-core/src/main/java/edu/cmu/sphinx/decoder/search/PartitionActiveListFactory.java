@@ -177,9 +177,9 @@ public class PartitionActiveListFactory extends ActiveListFactory {
          * @return the beam threshold
          */
         public float getBeamThreshold() {
+          //  System.out.println("logRelativeBeamWidth: " + logRelativeBeamWidth);
             return getBestScore() + logRelativeBeamWidth;
         }
-
 
         /**
          * gets the best score in the list

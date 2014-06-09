@@ -9,7 +9,9 @@ import edu.cmu.sphinx.util.props.ConfigurableAdapter;
 import edu.cmu.sphinx.util.props.PropertyException;
 import edu.cmu.sphinx.util.props.PropertySheet;
 import edu.cmu.sphinx.util.props.S4Component;
-
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -82,7 +84,15 @@ public class SimpleAcousticScorer extends ConfigurableAdapter implements Acousti
             // convert the data to FloatData if not yet done
             if (data instanceof DoubleData)
                 data = DataUtil.DoubleData2FloatData((DoubleData) data);
-
+            
+           /* float[] featureVector = FloatData.toFloatData(data).getValues();
+            PrintWriter pw = new PrintWriter(new FileOutputStream(new File("feat_data.txt"),true));   
+            for (int f=0; f < featureVector.length; f++) {          
+                pw.printf("%f ", featureVector[f]);
+             }   
+            pw.printf("\n");
+            pw.close();*/
+            
             Scoreable bestToken = doScoring(scoreableList, data);
 
             // apply optional score normalization

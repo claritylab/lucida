@@ -176,7 +176,9 @@ public class Sphinx3Loader implements Loader {
     private Pool<float[]> varianceTransformationVectorPool;
 
     protected float[][] transformMatrix;
-    protected Pool<Senone> senonePool;
+    
+    // vini changed
+    public static Pool<Senone> senonePool;
 
     private Map<String, Unit> contextIndependentUnits;
     private HMMManager hmmManager;

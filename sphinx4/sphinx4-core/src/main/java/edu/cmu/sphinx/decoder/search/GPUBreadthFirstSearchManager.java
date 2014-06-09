@@ -24,11 +24,15 @@ import edu.cmu.sphinx.util.StatisticsVariable;
 import edu.cmu.sphinx.util.Timer;
 import edu.cmu.sphinx.util.TimerPool;
 import edu.cmu.sphinx.util.props.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.io.IOException;
 
 /**
  * Provides the breadth first search. To perform recognition an application should call initialize before recognition
@@ -42,7 +46,7 @@ import java.io.IOException;
  */
 
 // TODO - need to add in timing code.
-public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
+public class GPUBreadthFirstSearchManager extends TokenSearchManager {
 
     /** The property that defines the name of the linguist to be used by this search manager. */
     @S4Component(type = Linguist.class)
@@ -96,6 +100,9 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
     private AcousticScorer scorer; // used to score the active list
     protected int currentFrameNumber; // the current frame number
     protected ActiveList activeList; // the list of active tokens
+    
+    protected ActiveList activeList2; // the list of active tokens
+
     protected List<Token> resultList; // the current set of results
     protected LogMath logMath;
 
@@ -131,8 +138,12 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
     private int growSkipInterval;
     protected ActiveListFactory activeListFactory;
     protected boolean streamEnd;
+    
+    PrintWriter pw_in = null; 
+    PrintWriter pw_out = null;    
+    PrintWriter pw_actlist = null;    
 
-    public SimpleBreadthFirstSearchManager() {
+    public GPUBreadthFirstSearchManager() {
         
     }
 
@@ -147,7 +158,7 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
      * @param growSkipInterval
      * @param wantEntryPruning
      */
-    public SimpleBreadthFirstSearchManager(Linguist linguist, Pruner pruner,
+    public GPUBreadthFirstSearchManager(Linguist linguist, Pruner pruner,
                                            AcousticScorer scorer, ActiveListFactory activeListFactory,
                                            boolean showTokenCount, double relativeWordBeamWidth,
                                            int growSkipInterval, boolean wantEntryPruning) {
@@ -209,6 +220,8 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
      * @return the current result or null if there is no Result (due to the lack of frames to recognize)
      */
     public Result recognize(int nFrames) {
+        
+      //  System.out.println("nFrames: " + nFrames);
         boolean done = false;
         Result result = null;
         streamEnd = false;
@@ -216,12 +229,38 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
         for (int i = 0; i < nFrames && !done; i++) {
             done = recognize();
         }
-
+        
+  
+      /*  try {
+                pw_out = new PrintWriter(new FileOutputStream(new File("hmm_data_out.txt"),false));
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(SimpleBreadthFirstSearchManager.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        
+        // print final activeList
+        pw_out.printf("%d\n", activeList.size());
+        for (Token token : activeList) {
+            pw_out.printf("%d ",  token.hashCode());
+        }
+        pw_out.printf("\n");
+        pw_out.printf("%d\n", resultList.size());
+        // print final resultList
+        for (Token token : resultList) {
+            pw_out.printf("%d ",  token.hashCode());
+        }
+        pw_out.printf("\n");*/
+         
         // generate a new temporary result if the current token is based on a final search state
         // remark: the first check for not null is necessary in cases that the search space does not contain scoreable tokens.
         if (activeList.getBestToken() != null) {
             // to make the current result as correct as possible we undo the last search graph expansion here
             ActiveList fixedList = undoLastGrowStep();
+            
+            // print final fixedList
+         /*   pw_out.printf("%d\n", fixedList.size());
+            for (Token token : fixedList) {
+                pw_out.printf("%d ",  token.hashCode());
+            }*/
             	
             // Now create the result using the fixed active-list.
             if (!streamEnd)
@@ -232,6 +271,9 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
         if (showTokenCount) {
             showTokenCount();
         }
+        
+        /*pw_out.printf("\n");    
+        pw_out.close();*/
 
         return result;
     }
@@ -271,6 +313,8 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
         pruner.stopRecognition();
         linguist.stopRecognition();
 
+        System.out.println("Total time: " + getTotalTime());
+                
         logger.finer("recognition stopped");
     }
 
@@ -285,6 +329,16 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
         if (more) {
             pruneBranches(); // eliminate poor branches
             currentFrameNumber++;
+            
+          /*  pw_actlist.printf("%d %d %d %f\n", currentFrameNumber, activeList.size(), activeList.getBestToken().hashCode(), activeList.getBestScore());
+            for (Token token : activeList) {
+                pw_actlist.printf("%d ",  token.hashCode());
+            }
+            pw_actlist.printf("\n");
+            for (Token token : activeList) {
+                collectSuccessorTokens2(token);
+            }*/
+            
             if (growSkipInterval == 0
                     || (currentFrameNumber % growSkipInterval) != 0) {
                 growBranches(); // extend remaining branches
@@ -295,20 +349,48 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
 
 
     /** Gets the initial grammar node from the linguist and creates a GrammarNodeToken */
-    protected void localStart() {
+    protected void localStart() {    
+       /* try {
+            pw_in = new PrintWriter(new FileOutputStream(new File("hmm_data_in.txt"),false));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SimpleBreadthFirstSearchManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            pw_actlist = new PrintWriter(new FileOutputStream(new File("hmm_data_actlist.txt"),false));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SimpleBreadthFirstSearchManager.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        
         currentFrameNumber = 0;
         curTokensScored.value = 0;
         ActiveList newActiveList = activeListFactory.newInstance();
         SearchState state = linguist.getSearchGraph().getInitialState();
         newActiveList.add(new Token(state, currentFrameNumber));
         activeList = newActiveList;
+        
+      /*  pw_actlist.printf("%d %d %d %f\n", currentFrameNumber, activeList.size(), activeList.getBestToken().hashCode(), activeList.getBestScore());
+        for (Token token : activeList) {
+            pw_actlist.printf("%d ",  token.hashCode());
+        }
+        pw_actlist.printf("\n");*/
+        
+     //   System.out.println("Initial state: " + state.toPrettyString());
 
+     /*   for (Token token : activeList) {
+            collectSuccessorTokens2(token);
+        }*/
+                
         growBranches();
+        
     }
-
 
     /** Local cleanup for this search manager */
     protected void localStop() {
+        
+     //   pw_in.close();
+     //   pw_actlist.close();
+            
     }
 
 
@@ -326,13 +408,23 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
         ActiveList oldActiveList = activeList;
         resultList = new LinkedList<Token>();
         activeList = activeListFactory.newInstance();
+        
+        //activeList2 = activeListFactory.newInstance();
+
         threshold = oldActiveList.getBeamThreshold();
         wordThreshold = oldActiveList.getBestScore() + logRelativeWordBeamWidth;
-
+        
+        //System.out.println("logRelativeWordBeamWidth: " + logRelativeWordBeamWidth);
+        
         for (Token token : oldActiveList) {
             collectSuccessorTokens(token);
         }
         growTimer.stop();
+        
+        totalHmms += activeList.size();       
+      //  System.out.println("Frame: " + currentFrameNumber + " Hmms: "
+      //              + activeList.size() + "  total " + totalHmms);
+                    
         if (logger.isLoggable(Level.FINE)) {
             int hmms = activeList.size();
             totalHmms += hmms;
@@ -395,7 +487,10 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
     protected void pruneBranches() {
         int startSize = activeList.size();
         pruneTimer.start();
+      //  System.out.println("Size before: " + startSize);
         activeList = pruner.prune(activeList);
+       // System.out.println("Size after: " + activeList.size());
+
         beamPruned.value += startSize - activeList.size();
         pruneTimer.stop();
     }
@@ -409,12 +504,12 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
      */
     protected Token getBestToken(SearchState state) {
         Token best = bestTokenMap.get(state);
+      //  System.out.println("BT " + best + " for state " + state);
         if (logger.isLoggable(Level.FINER) && best != null) {
             logger.finer("BT " + best + " for state " + state);
         }
         return best;
     }
-
 
     /**
      * Sets the best token for a given state
@@ -427,12 +522,50 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
         return bestTokenMap.put(state, token);
     }
 
-
     public ActiveList getActiveList() {
         return activeList;
     }
 
+    protected void collectSuccessorTokens2(Token token) {
+        SearchState state = token.getSearchState();
 
+        SearchStateArc[] arcs = state.getSuccessors();
+
+        pw_in.printf("%d %d %d %f %d %d\n", currentFrameNumber, arcs.length, token.hashCode(), token.getScore(), (token.isFinal()) ? 1 : 0, (state instanceof WordSearchState) ? 1:0);
+        
+        for (SearchStateArc arc : arcs) {
+            
+            SearchState nextState = arc.getState();
+            
+          //  String sig = nextState.getSignature();
+            Token predecessor = getResultListPredecessor(token);
+            float logEntryScore = token.getScore() + arc.getProbability();
+
+            Token newToken = new Token(predecessor, nextState, logEntryScore,
+                        arc.getInsertionProbability(),
+                        arc.getLanguageProbability(), 
+                        currentFrameNumber);
+            
+            pw_in.printf("%d %f %d %d %f\n", newToken.hashCode(), newToken.getScore(), nextState.hashCode(), (nextState.isEmitting()) ? 1:0, arc.getProbability());
+                
+            if (!newToken.isEmitting()) {
+                    // if not emitting, check to see if we've already visited
+                    // this state during this frame. Expand the token only if we
+                    // haven't visited it already. This prevents the search
+                    // from getting stuck in a loop of states with no
+                    // intervening emitting nodes. This can happen with nasty
+                    // jsgf grammars such as ((foo*)*)*
+                if (!isVisited(newToken)) {
+                        collectSuccessorTokens2(newToken);
+                }        
+            }
+                    
+           // activeList2.add(newToken);
+
+        }
+
+    }
+    
     /**
      * Collects the next set of emitting tokens from a token and accumulates them in the active or result lists
      *
@@ -465,6 +598,7 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
             // We're actually multiplying the variables, but since
             // these come in log(), multiply gets converted to add
             float logEntryScore = token.getScore() + arc.getProbability();
+            
             if (wantEntryPruning) { // false by default
                 if (logEntryScore < threshold) {
                     continue;
@@ -493,6 +627,7 @@ public class SimpleBreadthFirstSearchManager extends TokenSearchManager {
                     // jsgf grammars such as ((foo*)*)*
                     if (!isVisited(newToken)) {
                         collectSuccessorTokens(newToken);
+                       // System.out.println("here!!");
                     }
                 } else {
                     if (firstToken) {

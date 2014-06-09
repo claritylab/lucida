@@ -345,5 +345,17 @@ public class MixtureComponent implements Cloneable, Serializable {
     public String toString() {
         return "mu=" + Arrays.toString(mean) + " cov=" + Arrays.toString(variance);
     }
+
+    public float[] getMeanTransformed() {
+        return meanTransformed;
+    }
+
+    public float[] getPrecisionTransformed() {
+        return precisionTransformed;
+    }
+
+    public float getLogPreComputedGaussianFactor() {
+        return logPreComputedGaussianFactor;
+    }
 }
 

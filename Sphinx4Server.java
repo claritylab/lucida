@@ -42,7 +42,7 @@ import java.io.InputStreamReader;
 import edu.cmu.sphinx.frontend.util.AudioFileDataSource;
 import edu.cmu.sphinx.frontend.util.StreamDataSource;
 import edu.cmu.sphinx.recognizer.Recognizer;
-//import edu.cmu.sphinx.result.Result;
+import edu.cmu.sphinx.result.Result;
 import edu.cmu.sphinx.util.props.ConfigurationManager;
 
 public class Sphinx4Server extends AbstractHandler
@@ -89,10 +89,6 @@ public class Sphinx4Server extends AbstractHandler
     }
           
     
-      static {
-           System.loadLibrary("pocketsphinx_jni");
-      }        
-      
 
     protected String decode_voice_sphinx4(ByteArrayInputStream bin) {
 
@@ -125,13 +121,10 @@ public class Sphinx4Server extends AbstractHandler
 //		MsgPrinter.printStatusMsg("allocate recognizer, now will recognize");		
         try {
 
-            edu.cmu.sphinx.result.Result result;
+            Result result = recognizer.recognize();
+            result_text = result.getBestResultNoFiller();
+            System.out.println("result_text: " + result_text);
 
-            while ((result = recognizer.recognize()) != null) {
-                result_text = result.getBestResultNoFiller();
-                System.out.println("result_text: " + result_text);
-                break;
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -11,7 +11,7 @@
 <config>
 
 
-  <property name="logLevel" value="SEVERE"/> 
+  <property name="logLevel" value="SEVERE"/>
   
   
     <!-- ******************************************************** -->
@@ -61,7 +61,8 @@
     <!-- ******************************************************** -->
 
     <component name="decoder" type="edu.cmu.sphinx.decoder.Decoder">
-<!--        <property name="searchManager" value="wordPruningSearchManager"/> -->
+<!--        <property name="searchManager" value="wordPruningSearchManager"/>
+        <property name="searchManager" value="gpuSearchManager"/> -->
         <property name="searchManager" value="simpleSearchManager"/>
         <property name="featureBlockSize" value="50"/>
     </component>
@@ -75,9 +76,9 @@
         <property name="logMath" value="logMath"/>
         <property name="linguist" value="lexTreeLinguist"/>
         <property name="pruner" value="trivialPruner"/>
-        <property name="scorer" value="threadedScorer"/> 
-<!--        <property name="scorer" value="simpleScorer"/> -->
-<!--        <property name="scorer" value="cudaScorer"/>        -->
+  <!--      <property name="scorer" value="threadedScorer"/>
+        <property name="scorer" value="simpleScorer"/> -->
+<!--        <property name="scorer" value="cudaScorer"/>   -->
         <property name="activeListManager" value="activeListManager"/>
         <property name="growSkipInterval" value="0"/>
         <property name="checkStateOrder" value="false"/>
@@ -95,9 +96,10 @@
         <property name="activeListFactory" value="standardActiveListFactory" />
 
         <property name="pruner" value="trivialPruner"/>
-        <property name="scorer" value="threadedScorer"/> 
-<!--        <property name="scorer" value="simpleScorer"/> -->
-<!--        <property name="scorer" value="cudaScorer"/>        -->
+      <property name="scorer" value="threadedScorer"/>
+    <!--      <property name="scorer" value="simpleScorer"/> -->
+<!--        <property name="scorer" value="cudaScorer"/>
+     <property name="scorer" value="gpuScorer"/> -->
         <property name="activeListManager" value="activeListManager"/>
         <property name="growSkipInterval" value="0"/>
         <property name="checkStateOrder" value="false"/>
@@ -106,7 +108,25 @@
         <property name="relativeBeamWidth" value="${relativeBeamWidth}"/>
     </component>
 
-
+<component name="gpuSearchManager"
+    type="edu.cmu.sphinx.decoder.search.GPUBreadthFirstSearchManager">
+    <property name="logMath" value="logMath"/>
+    <property name="linguist" value="lexTreeLinguist"/>
+    
+    <property name="activeListFactory" value="standardActiveListFactory" />
+    
+    <property name="pruner" value="trivialPruner"/>
+    <property name="scorer" value="simpleScorer"/>
+   <!--  <property name="scorer" value="threadedScorer"/> -->
+    <!--        <property name="scorer" value="cudaScorer"/>
+    <property name="scorer" value="gpuScorer"/>  -->
+    <property name="activeListManager" value="activeListManager"/>
+    <property name="growSkipInterval" value="0"/>
+    <property name="checkStateOrder" value="false"/>
+    <property name="buildWordLattice" value="false"/>
+    <property name="acousticLookaheadFrames" value="1.7"/>
+    <property name="relativeBeamWidth" value="${relativeBeamWidth}"/>
+</component>
 
     <!-- ******************************************************** -->
     <!-- The Active Lists                                         -->
@@ -156,6 +176,12 @@
                 type="edu.cmu.sphinx.decoder.scorer.SimpleAcousticScorer">
         <property name="frontend" value="${frontend}"/>
     </component>
+
+<component name="gpuScorer"
+    type="edu.cmu.sphinx.decoder.scorer.GPUAcousticScorer">
+    <property name="frontend" value="${frontend}"/>
+</component>
+
 
     <component name="cudaScorer"
                 type="edu.cmu.sphinx.decoder.scorer.CudaAcousticScorer">

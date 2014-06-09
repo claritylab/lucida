@@ -44,8 +44,24 @@ public class Token implements Scoreable {
 
     private final float logLanguageScore;
     private float logTotalScore;
+
+    public float getLogTotalScore() {
+        return logTotalScore;
+    }
+
+    public void setLogTotalScore(float logTotalScore) {
+        this.logTotalScore = logTotalScore;
+    }
     private float logInsertionScore;
     private float logAcousticScore;
+
+    public void setLogAcousticScore(float logAcousticScore) {
+        this.logAcousticScore = logAcousticScore;
+    }
+
+    public float getLogAcousticScore() {
+        return logAcousticScore;
+    }
     private float logWorkingScore;
     
     private final SearchState searchState;

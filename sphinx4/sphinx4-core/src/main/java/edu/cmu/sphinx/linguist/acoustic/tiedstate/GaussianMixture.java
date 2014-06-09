@@ -194,4 +194,8 @@ public class GaussianMixture extends ScoreCachingSenone {
     public float getLogComponentWeight(int index) {
         return logMixtureWeights[index];
     }
+
+    public float[] getLogMixtureWeights() {
+        return logMixtureWeights;   
+    }
 }
