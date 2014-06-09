@@ -1,0 +1,92 @@
+CRFsuite Python module via SWIG
+
+* HOW TO BUILD
+
+0. Build CRFsuite and install it (the library and include files are necessary)
+
+1. Generate a SWIG wrapper
+$ ./prepare.sh --swig
+
+2. Build the binding.
+$ python setup.py build_ext
+
+3. Install the binding.
+$ python setup.py install
+
+4. Run the binding.
+$ python
+Python 2.6.6 (r266:84292, Sep 15 2010, 16:22:56)
+[GCC 4.4.5] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import crfsuite
+>>>
+
+
+* SAMPLE PROGRAMS
+Refer to sample_train.py and sample_test.py
+
+
+
+* NOTES FOR INSTALLING CRFSUITE IN A NON-DEFAULT DIRECTORY
+
+If you have changed the installation directory of CRFsuite using --prefix
+option for the configure script, please specify the include and library
+directories to setup.py; for example, if you have installed CRFsuite into
+$HOME/local directory, run:
+
+$ python setup.py build_ext --include-dir=$HOME/local/include --library-dirs=$HOME/local/lib
+
+Be sure to set LD_LIBRARY_PATH so that the Python binding can find the shared
+library of CRFsuite (crfsuite.so). For example,
+
+$ export LD_LIBRARY_PATH=$HOME/local/lib
+
+Otherwise, you will get this kind of an error:
+
+$ python
+Python 2.6.6 (r266:84292, Sep 15 2010, 16:22:56)
+[GCC 4.4.5] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import crfsuite
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "crfsuite.py", line 25, in <module>
+    _crfsuite = swig_import_helper()
+  File "crfsuite.py", line 21, in swig_import_helper
+    _mod = imp.load_module('_crfsuite', fp, pathname, description)
+ImportError: libcrfsuite-0.12.so: cannot open shared object file: No such
+file or directory
+
+
+
+* NOTES FOR TESTING THE PYTHON MODULE WITHOUT INSTALLING IT
+
+Adding "--inplace" option to the command-line argument of setup.py builds
+_crfsuite.so in the current directory. If these files are placed on the
+directory included in the module path of Python (e.g., the current directory
+where a Python process is created), one can try the module without running
+"python setup.py install"
+
+$ python setup.py build_ext --inplace
+
+
+
+* NOTES FOR GENERATING WRAPPER CODE USING SWIG.
+
+The script "prepare.sh" can generate a SWIG wrapper with "--swig" option.
+$ ./prepare.sh --swig
+
+However, we may get a compiling error for the wrapper code (export_wrap.cpp)
+even with the latest version of SWIG (2.0.4):
+
+export_wrap.cpp:5019: error: redefinition of ?struct swig::traits<std::vector<
+CRFSuite::Attribute, std::allocator<CRFSuite::Attribute> > >
+export_wrap.cpp:4918: error: previous definition of ?struct swig::traits<std::
+vector<CRFSuite::Attribute, std::allocator<CRFSuite::Attribute> > >
+error: command 'g++' failed with exit status 1
+
+Having no idea how to fix this problem elegantly, I simply remove the latter
+definition from export_wrap.cpp manually. This is why I end up including
+the wrapper code into the source repository.
+
+
