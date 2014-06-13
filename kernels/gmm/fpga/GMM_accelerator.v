@@ -1,41 +1,95 @@
 `timescale 1ns / 1ps
+`include "GMM_accelerator.vh"
 module GMM_accelerator(
 
+     `ifdef ENABLE_ROM_1KB
      input  wire        aclk,
-     input  wire [31:0] feature1 , mean1 , prec1 , feature2 , mean2 , prec2 ,
-                        feature3 , mean3 , prec3 , feature4 , mean4 , prec4 ,
-                        feature5 , mean5 , prec5 , feature6 , mean6 , prec6 ,
-                        feature7 , mean7 , prec7 , feature8 , mean8 , prec8 ,
-                        feature9 , mean9 , prec9 , feature10, mean10, prec10,
-                        feature11, mean11, prec11, feature12, mean12, prec12,
-                        feature13, mean13, prec13, feature14, mean14, prec14,
-                        feature15, mean15, prec15, feature16, mean16, prec16,
-                        feature17, mean17, prec17, feature18, mean18, prec18,
-                        feature19, mean19, prec19, feature20, mean20, prec20,
-                        feature21, mean21, prec21, feature22, mean22, prec22,
-                        feature23, mean23, prec23, feature24, mean24, prec24,
-                        feature25, mean25, prec25, feature26, mean26, prec26,
-                        feature27, mean27, prec27, feature28, mean28, prec28,
-                        feature29, mean29, prec29,
-     output wire [31:0] logDval
+     output wire [31:0] data
+     `ifdef DEBUG
+    ,output wire [ 4:0] count
+     `endif //DEBUG
+     `endif //ENABLE_ROM_1KB
+       
+     `ifdef ENABLE_GETSCORE
+     input  wire        aclk,
+     input  wire [(32*`score_units - 1):0] feature, mean, prec,
+     output wire [31:0] logDval,
+     output wire        valid
+     `ifdef DEBUG
+    ,output wire [(32*`score_units - 1):0] logDval_component,
+     output wire [31:0] fp_adder1_out,
+     output wire        score_unit1_counter,
+     output wire [31:0] score_unit1_reg,
+     output wire [31:0] fp_adder1_in1, fp_adder1_in2, fp_adder1_out,
+     output wire        fp_adder1_in2_valid
+     `endif //DEBUG
+     `endif //ENABLE_GETSCORE
+       
+     `ifdef ENABLE_BASE_CNV
+     input  wire        aclk,
+     output wire        isLogZero,
+     output wire [31:0] logDval_converted,
+     output wire [(`base_cnv_reg_length - 1):0] logZero_shift_reg
+     `ifdef DEBUG
+     `endif //DEBUG
+     `endif //ENABLE_BASE_CNV
+       
+     `ifdef ENABLE_ADD_FACT
+     input  wire        aclk,
+     input  wire [31:0] factor
+     `ifdef DEBUG
+    ,output wire        overflow,
+     output wire [31:0] logDval_sub
+     `endif //DEBUG
+     `endif //ENABLE_ADD_FACT
      );
 
-     getScore_unit getScore(aclk,
-          feature1 , mean1 , prec1 , feature2 , mean2 , prec2 ,
-          feature3 , mean3 , prec3 , feature4 , mean4 , prec4 ,
-          feature5 , mean5 , prec5 , feature6 , mean6 , prec6 ,
-          feature7 , mean7 , prec7 , feature8 , mean8 , prec8 ,
-          feature9 , mean9 , prec9 , feature10, mean10, prec10,
-          feature11, mean11, prec11, feature12, mean12, prec12,
-          feature13, mean13, prec13, feature14, mean14, prec14,
-          feature15, mean15, prec15, feature16, mean16, prec16,
-          feature17, mean17, prec17, feature18, mean18, prec18,
-          feature19, mean19, prec19, feature20, mean20, prec20,
-          feature21, mean21, prec21, feature22, mean22, prec22,
-          feature23, mean23, prec23, feature24, mean24, prec24,
-          feature25, mean25, prec25, feature26, mean26, prec26,
-          feature27, mean27, prec27, feature28, mean28, prec28,
-          feature29, mean29, prec29, logDval);
+     `ifdef ENABLE_ROM_1KB
+     `ifndef DEBUG
+     wire [4:0] count;
+     `endif //DEBUG
+     `endif //ENABLE_ROM_1KB
+     
+     `ifdef ENABLE_GETSCORE
+     getScore_unit getScore (
+          aclk, feature, mean, prec, valid, logDval
+          `ifdef DEBUG
+         ,logDval_component, fp_adder1_out, score_unit1_counter, score_unit1_reg,
+          fp_adder1_in1, fp_adder1_in2, fp_adder1_out, fp_adder1_in2_valid
+          `endif //DEBUG
+          );
+     `endif //ENABLE_GETSCORE                  
+
+     `ifdef ENABLE_BASE_CNV
+     base_converter base_cnv1(
+          aclk, 1'b1, 1'b1, logDval_in, logDval_in_ready, valid, logDval
+          `ifdef DEBUG
+         ,logDval_converted, isLogZero, logZero_shift_reg
+          `endif
+          );
+     `endif //ENABLE_BASE_CNV
+
+     `ifdef ENABLE_ADD_FACT
+       add_fact add_fact1(
+          aclk, 1'b1, 1'b1, 1'b1, logDval_in, factor, logDval_in_ready,
+          valid, logDval
+          `ifdef DEBUG
+         ,overflow, logDval_sub
+          `endif //DEBUG
+          );
+       `endif //ENABLE_BASE_CNV
+       
+     `ifdef ENABLE_ROM_1KB
+     rom_1kb your_instance_name (
+          .clka   (aclk), // input clka
+          .addra  (count), // input [4 : 0] addra
+          .douta  (data) // output [31 : 0] douta
+          );
+     counter cntr (
+          .clk (aclk), // input clk
+          .q   (count) // output [4 : 0] q
+          );
+     `endif //ENABLE_ROM_1KB
 
 endmodule
 
