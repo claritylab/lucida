@@ -31,11 +31,9 @@
 /* $Id$ */
 
 
-#include <cuda_runtime.h>
-
-#include<cuda.h>
-
-#include<cuda_runtime_api.h>
+//#include <cuda_runtime.h>
+//#include<cuda.h>
+//#include<cuda_runtime_api.h>
 
 //#include <os.h>
 
@@ -573,7 +571,7 @@ static floatval_t viterbi(crf1d_context_t* ctx, int *labels) {
 
 #define CHUNK_SIZE      12
 
-static int read_uint32(uint8_t* buffer, uint32_t* value) {
+int read_uint32(uint8_t* buffer, uint32_t* value) {
     *value = ((uint32_t) buffer[0]);
     *value |= ((uint32_t) buffer[1] << 8);
     *value |= ((uint32_t) buffer[2] << 16);
@@ -597,7 +595,7 @@ static int read_uint32(uint8_t* buffer, uint32_t* value) {
     return 0;
 }*/
 
-__host__ __device__ void crf1dt_state_score(crf1dt_t *crf1dt, crfsuite_instance_t *inst) {
+void crf1dt_state_score(crf1dt_t *crf1dt, crfsuite_instance_t *inst) {
     int a, i, l, t, r, fid;
     crf1dm_feature_t f;
     feature_refs_t attr;
@@ -640,7 +638,7 @@ __host__ __device__ void crf1dt_state_score(crf1dt_t *crf1dt, crfsuite_instance_
     }
 }
 
-__host__ __device__ int crf1dm_get_attrref(crf1dm_t* model, int aid, feature_refs_t* ref)
+/*int crf1dm_get_attrref(crf1dm_t* model, int aid, feature_refs_t* ref)
 {
     uint8_t *p = model->buffer;
     uint32_t offset;
@@ -656,18 +654,18 @@ __host__ __device__ int crf1dm_get_attrref(crf1dm_t* model, int aid, feature_ref
     return 0;
 }
 
-__host__ __device__ int crf1dm_get_featureid(feature_refs_t* ref, int i)
+int crf1dm_get_featureid(feature_refs_t* ref, int i)
 {
     uint32_t fid;
     uint8_t* p = (uint8_t*)ref->fids;
     p += sizeof(uint32_t) * i;
     read_uint32(p, &fid);
     return (int)fid;
-}
+}*/
 
 #define FEATURE_SIZE    20
 
-__host__ __device__ int crf1dm_get_feature(crf1dm_t* model, int fid, crf1dm_feature_t* f)
+/*int crf1dm_get_feature(crf1dm_t* model, int fid, crf1dm_feature_t* f)
 {
     uint8_t *p = NULL;
     uint32_t val = 0;
@@ -684,7 +682,7 @@ __host__ __device__ int crf1dm_get_feature(crf1dm_t* model, int fid, crf1dm_feat
     return 0;
 }
 
-__host__ __device__ int read_float(uint8_t* buffer, floatval_t* value)
+int read_float(uint8_t* buffer, floatval_t* value)
 {
     uint64_t iv;
     iv  = ((uint64_t)buffer[0]);
@@ -697,9 +695,9 @@ __host__ __device__ int read_float(uint8_t* buffer, floatval_t* value)
     iv |= ((uint64_t)buffer[7] << 56);
     memcpy(value, &iv, sizeof(*value));
     return sizeof(*value);
-}
+}*/
 
-__host__ __device__ void crf1dt_state_score(crf1dt_t *crf1dt, const crfsuite_instance_t *inst)
+/*void crf1dt_state_score(crf1dt_t *crf1dt, const crfsuite_instance_t *inst)
 {
     int a, i, l, t, r, fid;
     crf1dm_feature_t f;
@@ -711,23 +709,23 @@ __host__ __device__ void crf1dt_state_score(crf1dt_t *crf1dt, const crfsuite_ins
     const int T = inst->num_items;
     const int L = crf1dt->num_labels;
 
-    /* Loop over the items in the sequence. */
+    // Loop over the items in the sequence. 
     for (t = 0;t < T;++t) {
         item = &inst->items[t];
         state = STATE_SCORE(ctx, t);
 
-        /* Loop over the contents (attributes) attached to the item. */
+        // Loop over the contents (attributes) attached to the item. 
         for (i = 0;i < item->num_contents;++i) {
-            /* Access the list of state features associated with the attribute. */
+            // Access the list of state features associated with the attribute.
             a = item->contents[i].aid;
             crf1dm_get_attrref(model, a, &attr);
-            /* A scale usually represents the atrribute frequency in the item. */
+            // A scale usually represents the atrribute frequency in the item. 
             value = item->contents[i].value;
 
-            /* Loop over the state features associated with the attribute. */
+            // Loop over the state features associated with the attribute. 
             for (r = 0;r < attr.num_features;++r) {
-                /* The state feature #(attr->fids[r]), which is represented by
-                   the attribute #a, outputs the label #(f->dst). */
+                // The state feature #(attr->fids[r]), which is represented by
+                //   the attribute #a, outputs the label #(f->dst). 
                 fid = crf1dm_get_featureid(&attr, r);
                 crf1dm_get_feature(model, fid, &f);
                 l = f.dst;
@@ -735,10 +733,9 @@ __host__ __device__ void crf1dt_state_score(crf1dt_t *crf1dt, const crfsuite_ins
             }
         }
     }
-}
+}*/
 
-
-__host__ __device__ int tagger_set(crfsuite_tagger_t* tagger, crfsuite_instance_t *inst) {
+static int tagger_set(crfsuite_tagger_t* tagger, crfsuite_instance_t *inst) {
     crf1dt_t* crf1dt = (crf1dt_t*) tagger->internal;
     crf1d_context_t* ctx = crf1dt->ctx;
     crf1dc_set_num_items(ctx, inst->num_items);
@@ -750,7 +747,7 @@ __host__ __device__ int tagger_set(crfsuite_tagger_t* tagger, crfsuite_instance_
     return 0;
 }
 
-__global__ void cuda_tag(crfsuite_tagger_t *tagger, crfsuite_instance_t **inst_vect, int N, int *output, floatval_t *score) {
+/*__global__ void cuda_tag(crfsuite_tagger_t *tagger, crfsuite_instance_t **inst_vect, int N, int *output, floatval_t *score) {
 
     int k = blockIdx.x * blockDim.x + threadIdx.x;
     // Set the instance to the tagger. 
@@ -764,7 +761,7 @@ __global__ void cuda_tag(crfsuite_tagger_t *tagger, crfsuite_instance_t **inst_v
     //            score_cpu[k] = score;
 
     //  free(output);
-}
+}*/
 
 
 
@@ -910,7 +907,7 @@ int main_tag(int argc, char *argv[], const char *argv0) {
         
         // CUDA 
         
-        int blockSize, gridSize;
+/*        int blockSize, gridSize;
         floatval_t *score2 = (floatval_t *) malloc(sizeof(floatval_t));
         
         // CALL CUDA   
@@ -920,7 +917,7 @@ int main_tag(int argc, char *argv[], const char *argv0) {
         // Number of thread blocks in grid
         gridSize = (int)ceil((float) N /blockSize);
 
-        cuda_tag<<<gridSize, blockSize>>>(tagger,  inst_vect, N, output1, score2);       
+        cuda_tag<<<gridSize, blockSize>>>(tagger,  inst_vect, N, output1, score2);       */
             
     }
 

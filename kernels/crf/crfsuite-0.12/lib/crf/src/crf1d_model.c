@@ -36,7 +36,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include <cqdb.h>
+#include "../../cqdb/include/cqdb.h"
+
+#include <cuda_runtime.h>
 
 #include <crfsuite.h>
 #include "crf1d.h"
@@ -138,7 +140,7 @@ static int write_uint32(FILE *fp, uint32_t value)
     return fwrite(buffer, sizeof(uint8_t), 4, fp) == 4 ? 0 : 1;
 }
 
-static int read_uint32(uint8_t* buffer, uint32_t* value)
+__host__ __device__ static int read_uint32(uint8_t* buffer, uint32_t* value)
 {
     *value  = ((uint32_t)buffer[0]);
     *value |= ((uint32_t)buffer[1] << 8);
@@ -853,7 +855,7 @@ int crf1dm_get_labelref(crf1dm_t* model, int lid, feature_refs_t* ref)
     return 0;
 }
 
-int crf1dm_get_attrref(crf1dm_t* model, int aid, feature_refs_t* ref)
+__host__ __device__ int crf1dm_get_attrref(crf1dm_t* model, int aid, feature_refs_t* ref)
 {
     uint8_t *p = model->buffer;
     uint32_t offset;
@@ -869,7 +871,7 @@ int crf1dm_get_attrref(crf1dm_t* model, int aid, feature_refs_t* ref)
     return 0;
 }
 
-int crf1dm_get_featureid(feature_refs_t* ref, int i)
+__host__ __device__ int crf1dm_get_featureid(feature_refs_t* ref, int i)
 {
     uint32_t fid;
     uint8_t* p = (uint8_t*)ref->fids;
@@ -878,7 +880,7 @@ int crf1dm_get_featureid(feature_refs_t* ref, int i)
     return (int)fid;
 }
 
-int crf1dm_get_feature(crf1dm_t* model, int fid, crf1dm_feature_t* f)
+__host__ __device__ int crf1dm_get_feature(crf1dm_t* model, int fid, crf1dm_feature_t* f)
 {
     uint8_t *p = NULL;
     uint32_t val = 0;

@@ -91,6 +91,9 @@ int read_data(FILE *fpi, FILE *fpo, crfsuite_data_t* data, int group)
         current = (int)((offset - begin) * 100.0 / (double)filesize);
         prev = progress(fpo, prev, current);
 
+  //  fprintf(fpo, "%d\n", token->type);
+   // fflush(fpo);
+
         switch (token->type) {
         case IWA_BOI:
             /* Initialize an item. */

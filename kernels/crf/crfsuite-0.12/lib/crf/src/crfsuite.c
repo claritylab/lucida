@@ -149,9 +149,6 @@ int  crfsuite_item_empty(crfsuite_item_t* item)
     return (item->num_contents == 0);
 }
 
-
-
-
 void crfsuite_instance_init(crfsuite_instance_t* inst)
 {
     memset(inst, 0, sizeof(*inst));
