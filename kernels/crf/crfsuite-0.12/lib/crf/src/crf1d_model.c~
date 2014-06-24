@@ -140,7 +140,7 @@ static int write_uint32(FILE *fp, uint32_t value)
     return fwrite(buffer, sizeof(uint8_t), 4, fp) == 4 ? 0 : 1;
 }
 
-static int read_uint32(uint8_t* buffer, uint32_t* value)
+__host__ __device__ static int read_uint32(uint8_t* buffer, uint32_t* value)
 {
     *value  = ((uint32_t)buffer[0]);
     *value |= ((uint32_t)buffer[1] << 8);
