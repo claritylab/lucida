@@ -30,8 +30,16 @@
 
 /* $Id$ */
 
-#include <os.h>
 
+#include <cuda_runtime.h>
+
+#include<cuda.h>
+
+#include<cuda_runtime_api.h>
+
+//#include <os.h>
+
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -42,6 +50,10 @@
 #include "option.h"
 #include "iwa.h"
 
+#include "../lib/crf/src/crf1d.h"
+
+
+#include <float.h>
 #include <sys/time.h>
 
 
@@ -57,6 +69,20 @@ void show_copyright(FILE *fp);
 crfsuite_tagger_t *tagger;
 crfsuite_instance_t **inst_vect;
 int N = 0;
+
+enum {
+    LEVEL_NONE = 0,
+    LEVEL_SET,
+    LEVEL_ALPHABETA,
+};
+
+typedef struct {
+    crf1dm_t *model; /**< CRF model. */
+    crf1d_context_t *ctx; /**< CRF context. */
+    int num_labels; /**< Number of distinct output labels (L). */
+    int num_attributes; /**< Number of distinct attributes (A). */
+    int level;
+} crf1dt_t;
 
 /*typedef struct {
   int *array;
@@ -103,31 +129,28 @@ typedef struct {
     FILE *fpe;
 } tagger_option_t;
 
-static char* mystrdup(const char *src)
-{
-    char *dst = (char*)malloc(strlen(src)+1);
+static char* mystrdup(const char *src) {
+    char *dst = (char*) malloc(strlen(src) + 1);
     if (dst != NULL) {
         strcpy(dst, src);
     }
     return dst;
 }
 
-static void tagger_option_init(tagger_option_t* opt)
-{
-    memset(opt, 0, sizeof(*opt));
+static void tagger_option_init(tagger_option_t* opt) {
+    memset(opt, 0, sizeof (*opt));
     opt->fpi = stdin;
     opt->fpo = stdout;
     opt->fpe = stderr;
     opt->model = mystrdup("");
 }
 
-static void tagger_option_finish(tagger_option_t* opt)
-{
+static void tagger_option_finish(tagger_option_t* opt) {
     int i;
 
     free(opt->input);
     free(opt->model);
-    for (i = 0;i < opt->num_params;++i) {
+    for (i = 0; i < opt->num_params; ++i) {
         free(opt->params[i]);
     }
     free(opt->params);
@@ -135,37 +158,36 @@ static void tagger_option_finish(tagger_option_t* opt)
 
 BEGIN_OPTION_MAP(parse_tagger_options, tagger_option_t)
 
-    ON_OPTION_WITH_ARG(SHORTOPT('m') || LONGOPT("model"))
-        free(opt->model);
-        opt->model = mystrdup(arg);
+ON_OPTION_WITH_ARG(SHORTOPT('m') || LONGOPT("model"))
+free(opt->model);
+opt->model = mystrdup(arg);
 
-    ON_OPTION(SHORTOPT('t') || LONGOPT("test"))
-        opt->evaluate = 1;
+ON_OPTION(SHORTOPT('t') || LONGOPT("test"))
+opt->evaluate = 1;
 
-    ON_OPTION(SHORTOPT('r') || LONGOPT("reference"))
-        opt->reference = 1;
+ON_OPTION(SHORTOPT('r') || LONGOPT("reference"))
+opt->reference = 1;
 
-    ON_OPTION(SHORTOPT('p') || LONGOPT("probability"))
-        opt->probability = 1;
+ON_OPTION(SHORTOPT('p') || LONGOPT("probability"))
+opt->probability = 1;
 
-    ON_OPTION(SHORTOPT('i') || LONGOPT("marginal"))
-        opt->marginal = 1;
+ON_OPTION(SHORTOPT('i') || LONGOPT("marginal"))
+opt->marginal = 1;
 
-    ON_OPTION(SHORTOPT('q') || LONGOPT("quiet"))
-        opt->quiet = 1;
+ON_OPTION(SHORTOPT('q') || LONGOPT("quiet"))
+opt->quiet = 1;
 
-    ON_OPTION(SHORTOPT('h') || LONGOPT("help"))
-        opt->help = 1;
+ON_OPTION(SHORTOPT('h') || LONGOPT("help"))
+opt->help = 1;
 
-    ON_OPTION_WITH_ARG(SHORTOPT('p') || LONGOPT("param"))
-        opt->params = (char **)realloc(opt->params, sizeof(char*) * (opt->num_params + 1));
-        opt->params[opt->num_params] = mystrdup(arg);
-        ++opt->num_params;
+ON_OPTION_WITH_ARG(SHORTOPT('p') || LONGOPT("param"))
+opt->params = (char **) realloc(opt->params, sizeof (char*) * (opt->num_params + 1));
+opt->params[opt->num_params] = mystrdup(arg);
+++opt->num_params;
 
 END_OPTION_MAP()
 
-static void show_usage(FILE *fp, const char *argv0, const char *command)
-{
+static void show_usage(FILE *fp, const char *argv0, const char *command) {
     fprintf(fp, "USAGE: %s %s [OPTIONS] [DATA]\n", argv0, command);
     fprintf(fp, "Assign suitable labels to the instances in the data set given by a file (DATA).\n");
     fprintf(fp, "If the argument DATA is omitted or '-', this utility reads a data from STDIN.\n");
@@ -181,19 +203,16 @@ static void show_usage(FILE *fp, const char *argv0, const char *command)
     fprintf(fp, "    -h, --help          Show the usage of this command and exit\n");
 }
 
-
-
 static void
 output_result(
-    FILE *fpo,
-    crfsuite_tagger_t *tagger,
-    const crfsuite_instance_t *inst,
-    int *output,
-    crfsuite_dictionary_t *labels,
-    floatval_t score,
-    const tagger_option_t* opt
-    )
-{
+        FILE *fpo,
+        crfsuite_tagger_t *tagger,
+        const crfsuite_instance_t *inst,
+        int *output,
+        crfsuite_dictionary_t *labels,
+        floatval_t score,
+        const tagger_option_t* opt
+        ) {
     int i;
 
     if (opt->probability) {
@@ -202,7 +221,7 @@ output_result(
         fprintf(fpo, "@probability\t%f\n", exp(score - lognorm));
     }
 
-    for (i = 0;i < inst->num_items;++i) {
+    for (i = 0; i < inst->num_items; ++i) {
         const char *label = NULL;
 
         if (opt->reference) {
@@ -228,21 +247,20 @@ output_result(
 
 static void
 output_instance(
-    FILE *fpo,
-    const crfsuite_instance_t *inst,
-    crfsuite_dictionary_t *labels,
-    crfsuite_dictionary_t *attrs
-    )
-{
+        FILE *fpo,
+        const crfsuite_instance_t *inst,
+        crfsuite_dictionary_t *labels,
+        crfsuite_dictionary_t *attrs
+        ) {
     int i, j;
 
-    for (i = 0;i < inst->num_items;++i) {
+    for (i = 0; i < inst->num_items; ++i) {
         const char *label = NULL;
         labels->to_string(labels, inst->labels[i], &label);
         fprintf(fpo, "%s", label);
         labels->free(labels, label);
 
-        for (j = 0;j < inst->items[i].num_contents;++j) {
+        for (j = 0; j < inst->items[i].num_contents; ++j) {
             const char *attr = NULL;
             attrs->to_string(attrs, inst->items[i].contents[j].aid, &attr);
             fprintf(fpo, "\t%s:%f", attr, inst->items[i].contents[j].value);
@@ -254,19 +272,17 @@ output_instance(
     fprintf(fpo, "\n");
 }
 
-static int message_callback(void *instance, const char *format, va_list args)
-{
-    FILE *fp = (FILE*)instance;
+static int message_callback(void *instance, const char *format, va_list args) {
+    FILE *fp = (FILE*) instance;
     vfprintf(fp, format, args);
     fflush(fp);
     return 0;
 }
 
-static int tag_read(tagger_option_t* opt, crfsuite_model_t* model)
-{
+static int tag_read(tagger_option_t* opt, crfsuite_model_t* model) {
     int L = 0, ret = 0, lid = -1;
     clock_t clk0, clk1;
-   // crfsuite_instance_t *inst;
+    // crfsuite_instance_t *inst;
     crfsuite_item_t *item;
     crfsuite_attribute_t cont;
     crfsuite_evaluation_t eval;
@@ -295,11 +311,11 @@ static int tag_read(tagger_option_t* opt, crfsuite_model_t* model)
         goto force_exit;
     }
 
-//    item_vect = (crfsuite_item_t **)malloc(cur_inst_size * sizeof(crfsuite_item_t *));
-//    item_vect[N] = (crfsuite_item_t *)malloc(sizeof(crfsuite_item_t));
+    //    item_vect = (crfsuite_item_t **)malloc(cur_inst_size * sizeof(crfsuite_item_t *));
+    //    item_vect[N] = (crfsuite_item_t *)malloc(sizeof(crfsuite_item_t));
 
-    inst_vect = (crfsuite_instance_t **)malloc(cur_inst_size * sizeof(crfsuite_instance_t *));
-    inst_vect[N] = (crfsuite_instance_t *)malloc(sizeof(crfsuite_instance_t));
+    inst_vect = (crfsuite_instance_t **) malloc(cur_inst_size * sizeof (crfsuite_instance_t *));
+    inst_vect[N] = (crfsuite_instance_t *) malloc(sizeof (crfsuite_instance_t));
 
     /* Initialize the objects for instance and evaluation. */
     L = labels->num(labels);
@@ -327,104 +343,104 @@ static int tag_read(tagger_option_t* opt, crfsuite_model_t* model)
     clk0 = clock();
     while (token = iwa_read(iwa), token != NULL) {
         switch (token->type) {
-        case IWA_BOI:
-            /* Initialize an item. */
-            lid = -1;
-            item = (crfsuite_item_t *)malloc(sizeof(crfsuite_item_t));
-            crfsuite_item_init(item);
-            free(comment);
-            comment = NULL;
-            break;
-        case IWA_EOI:
-            /* Append the item to the instance. */
-            crfsuite_instance_append(inst_vect[N], item, lid);
-            //crfsuite_item_finish(item_vect[N]);
-            break;
-        case IWA_ITEM:
-            if (lid == -1) {
-                /* The first field in a line presents a label. */
-                lid = labels->to_id(labels, token->attr);
-                if (lid < 0) lid = L;    /* #L stands for a unknown label. */
-            } else {
-                /* Fields after the first field present attributes. */
-                int aid = attrs->to_id(attrs, token->attr);
-                /* Ignore attributes 'unknown' to the model. */
-                if (0 <= aid) {
-                    /* Associate the attribute with the current item. */
-                    if (token->value && *token->value) {
-                        crfsuite_attribute_set(&cont, aid, atof(token->value));
-                    } else {
-                        crfsuite_attribute_set(&cont, aid, 1.0);
+            case IWA_BOI:
+                /* Initialize an item. */
+                lid = -1;
+                item = (crfsuite_item_t *) malloc(sizeof (crfsuite_item_t));
+                crfsuite_item_init(item);
+                free(comment);
+                comment = NULL;
+                break;
+            case IWA_EOI:
+                /* Append the item to the instance. */
+                crfsuite_instance_append(inst_vect[N], item, lid);
+                //crfsuite_item_finish(item_vect[N]);
+                break;
+            case IWA_ITEM:
+                if (lid == -1) {
+                    /* The first field in a line presents a label. */
+                    lid = labels->to_id(labels, token->attr);
+                    if (lid < 0) lid = L; /* #L stands for a unknown label. */
+                } else {
+                    /* Fields after the first field present attributes. */
+                    int aid = attrs->to_id(attrs, token->attr);
+                    /* Ignore attributes 'unknown' to the model. */
+                    if (0 <= aid) {
+                        /* Associate the attribute with the current item. */
+                        if (token->value && *token->value) {
+                            crfsuite_attribute_set(&cont, aid, atof(token->value));
+                        } else {
+                            crfsuite_attribute_set(&cont, aid, 1.0);
+                        }
+                        crfsuite_item_append_attribute(item, &cont);
                     }
-                    crfsuite_item_append_attribute(item, &cont);
                 }
-            }
-            break;
-        case IWA_NONE:
-        case IWA_EOF:
+                break;
+            case IWA_NONE:
+            case IWA_EOF:
 
-            if (!crfsuite_instance_empty(inst_vect[N])) {
+                if (!crfsuite_instance_empty(inst_vect[N])) {
 
-                 N++;
+                    N++;
 
-                 inst_vect[N] = (crfsuite_instance_t *)malloc(sizeof(crfsuite_instance_t));
+                    inst_vect[N] = (crfsuite_instance_t *) malloc(sizeof (crfsuite_instance_t));
 
-                 crfsuite_instance_init(inst_vect[N]);
-
-
-    //fprintf(fpo, "N = %d\n", N);
-   // fflush(fpo);
+                    crfsuite_instance_init(inst_vect[N]);
 
 
-                 /*if (N > cur_inst_size)  {
-                    cur_inst_size *= 2;
-                    inst_vect = (crfsuite_instance_t **)realloc(inst_vect, cur_inst_size * sizeof(crfsuite_instance_t *));
+                    //fprintf(fpo, "N = %d\n", N);
+                    // fflush(fpo);
 
-                 }*/
 
-            }
-            break;
-           /* if (!crfsuite_instance_empty(&inst)) {
-                // Initialize the object to receive the tagging result. 
-                floatval_t score = 0;
-                int *output = calloc(sizeof(int), inst.num_items);
+                    /*if (N > cur_inst_size)  {
+                       cur_inst_size *= 2;
+                       inst_vect = (crfsuite_instance_t **)realloc(inst_vect, cur_inst_size * sizeof(crfsuite_instance_t *));
 
-                // Set the instance to the tagger. 
-                if ((ret = tagger->set(tagger, &inst))) {
-                    goto force_exit;
+                    }*/
+
                 }
+                break;
+                /* if (!crfsuite_instance_empty(&inst)) {
+                     // Initialize the object to receive the tagging result. 
+                     floatval_t score = 0;
+                     int *output = calloc(sizeof(int), inst.num_items);
 
-                // Obtain the viterbi label sequence. 
-                if ((ret = tagger->viterbi(tagger, output, &score))) {
-                    goto force_exit;
-                }
+                     // Set the instance to the tagger. 
+                     if ((ret = tagger->set(tagger, &inst))) {
+                         goto force_exit;
+                     }
 
-                ++N;
+                     // Obtain the viterbi label sequence. 
+                     if ((ret = tagger->viterbi(tagger, output, &score))) {
+                         goto force_exit;
+                     }
 
-                // Accumulate the tagging performance. 
-                if (opt->evaluate) {
-                    crfsuite_evaluation_accmulate(&eval, inst.labels, output, inst.num_items);
-                }
+                     ++N;
 
-                if (!opt->quiet) {
-                    output_result(fpo, tagger, &inst, output, labels, score, opt);
-                }
+                     // Accumulate the tagging performance. 
+                     if (opt->evaluate) {
+                         crfsuite_evaluation_accmulate(&eval, inst.labels, output, inst.num_items);
+                     }
+
+                     if (!opt->quiet) {
+                         output_result(fpo, tagger, &inst, output, labels, score, opt);
+                     }
 
 
-                free(output);
-                crfsuite_instance_finish(&inst);
-            }
-            break;*/
+                     free(output);
+                     crfsuite_instance_finish(&inst);
+                 }
+                 break;*/
         }
     }
     clk1 = clock();
 
-  //  fprintf(fpo, "N = %d\n", N);
-   // fflush(fpo);
+    //  fprintf(fpo, "N = %d\n", N);
+    // fflush(fpo);
 
     /* Compute the performance if specified. */
     if (opt->evaluate) {
-        double sec = (clk1 - clk0) / (double)CLOCKS_PER_SEC;
+        double sec = (clk1 - clk0) / (double) CLOCKS_PER_SEC;
         crfsuite_evaluation_finalize(&eval);
         crfsuite_evaluation_output(&eval, labels, message_callback, stdout);
         fprintf(fpo, "Elapsed time: %f [sec] (%.1f [instance/sec])\n", sec, N / sec);
@@ -444,7 +460,7 @@ force_exit:
     free(comment);
     //for (k=0; k < N;k++)
     //  crfsuite_instance_finish(inst_vect[k]);
-//    crfsuite_evaluation_finish(&eval);
+    //    crfsuite_evaluation_finish(&eval);
 
     //SAFE_RELEASE(tagger);
     //SAFE_RELEASE(attrs);
@@ -454,43 +470,305 @@ force_exit:
 }
 
 float calculateMiliseconds(struct timeval t1, struct timeval t2) {
-	float elapsedTime;
-	elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-	elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-	return elapsedTime;
+    float elapsedTime;
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
+    return elapsedTime;
 }
 
+void *tag_thread(void *tid) {
+    int k, start, *mytid, end;
 
-void *tag_thread(void *tid)
-{
+    int iterations = N / NTHREADS;
 
-	int k, start, *mytid, end;
+    mytid = (int *) tid;
+    start = (*mytid * iterations);
+    end = start + iterations;
+    //	printf ("Thread %d doing iterations %d to %d\n",*mytid,start,end-1);
 
-        int iterations = N / NTHREADS;
+    for (k = start; k < end; k++) {
 
-	mytid = (int *) tid;
-	start = (*mytid * iterations);
-	end = start + iterations;
-//	printf ("Thread %d doing iterations %d to %d\n",*mytid,start,end-1);
+        floatval_t score = 0;
+        int *output = (int *)calloc(sizeof (int), inst_vect[k]->num_items);
 
-	 for (k=start; k < end ; k++) {
+        // Set the instance to the tagger. 
+        tagger->set(tagger, inst_vect[k]);
 
-                floatval_t score = 0;
-                int *output = calloc(sizeof(int), inst_vect[k]->num_items);
+        // Obtain the viterbi label sequence. 
+        tagger->viterbi(tagger, output, &score);
 
-                // Set the instance to the tagger. 
-                tagger->set(tagger, inst_vect[k]);
+        //free(output);
+    }
+}
 
-                // Obtain the viterbi label sequence. 
-                tagger->viterbi(tagger, output, &score);
-                   
-                //free(output);
+static floatval_t viterbi(crf1d_context_t* ctx, int *labels) {
+    int i, j, t;
+    int *back = NULL;
+    floatval_t max_score, score, *cur = NULL;
+    const floatval_t *prev = NULL, *state = NULL, *trans = NULL;
+    const int T = ctx->num_items;
+    const int L = ctx->num_labels;
+
+    //fprintf(stdout, "Num items (T): %d\n", T);   
+    //fprintf(stdout, "Num labels (T): %d\n", L);
+
+    /*
+        This function assumes state and trans scores to be in the logarithm domain.
+     */
+
+    /* Compute the scores at (0, *). */
+    cur = ALPHA_SCORE(ctx, 0);
+    state = STATE_SCORE(ctx, 0);
+    for (j = 0; j < L; ++j) {
+        cur[j] = state[j];
     }
 
+    /* Compute the scores at (t, *). */
+    for (t = 1; t < T; ++t) {
+        prev = ALPHA_SCORE(ctx, t - 1);
+        cur = ALPHA_SCORE(ctx, t);
+        state = STATE_SCORE(ctx, t);
+        back = BACKWARD_EDGE_AT(ctx, t);
+
+        /* Compute the score of (t, j). */
+        for (j = 0; j < L; ++j) {
+            max_score = -FLOAT_MAX;
+
+            for (i = 0; i < L; ++i) {
+                /* Transit from (t-1, i) to (t, j). */
+                trans = TRANS_SCORE(ctx, i);
+                score = prev[i] + trans[j];
+
+                /* Store this path if it has the maximum score. */
+                if (max_score < score) {
+                    max_score = score;
+                    /* Backward link (#t, #j) -> (#t-1, #i). */
+                    back[j] = i;
+                }
+            }
+            /* Add the state score on (t, j). */
+            cur[j] = max_score + state[j];
+        }
+    }
+
+    /* Find the node (#T, #i) that reaches EOS with the maximum score. */
+    max_score = -FLOAT_MAX;
+    prev = ALPHA_SCORE(ctx, T - 1);
+    for (i = 0; i < L; ++i) {
+        if (max_score < prev[i]) {
+            max_score = prev[i];
+            labels[T - 1] = i; /* Tag the item #T. */
+        }
+    }
+
+    /* Tag labels by tracing the backward links. */
+    for (t = T - 2; 0 <= t; --t) {
+        back = BACKWARD_EDGE_AT(ctx, t + 1);
+        labels[t] = back[labels[t + 1]];
+    }
+
+    /* Return the maximum score (without the normalization factor subtracted). */
+    return max_score;
 }
 
-int main_tag(int argc, char *argv[], const char *argv0)
+#define CHUNK_SIZE      12
+
+static int read_uint32(uint8_t* buffer, uint32_t* value) {
+    *value = ((uint32_t) buffer[0]);
+    *value |= ((uint32_t) buffer[1] << 8);
+    *value |= ((uint32_t) buffer[2] << 16);
+    *value |= ((uint32_t) buffer[3] << 24);
+    return sizeof (*value);
+}
+
+/*int crf1dm_get_attrref(crf1dm_t* model, int aid, feature_refs_t* ref)
 {
+    uint8_t *p = model->buffer;
+    uint32_t offset;
+
+    p += model->header->off_attrrefs;
+    p += CHUNK_SIZE;
+    p += sizeof(uint32_t) * aid;
+    read_uint32(p, &offset);
+
+    p = model->buffer + offset;
+    p += read_uint32(p, &ref->num_features);
+    ref->fids = (int*)p;
+    return 0;
+}*/
+
+__host__ __device__ void crf1dt_state_score(crf1dt_t *crf1dt, crfsuite_instance_t *inst) {
+    int a, i, l, t, r, fid;
+    crf1dm_feature_t f;
+    feature_refs_t attr;
+    floatval_t value, *state = NULL;
+    crf1dm_t* model = crf1dt->model;
+    crf1d_context_t* ctx = crf1dt->ctx;
+    const crfsuite_item_t* item = NULL;
+    const int T = inst->num_items;
+    const int L = crf1dt->num_labels;
+
+    //printf("size of T = %d\n", T);
+
+    /* Loop over the items in the sequence. */
+    for (t = 0; t < T; ++t) {
+        item = &inst->items[t];
+        state = STATE_SCORE(ctx, t);
+
+        //printf("size of item contents = %d\n", item->num_contents);
+
+        /* Loop over the contents (attributes) attached to the item. */
+        for (i = 0; i < item->num_contents; ++i) {
+            /* Access the list of state features associated with the attribute. */
+            a = item->contents[i].aid;
+            crf1dm_get_attrref(model, a, &attr);
+            /* A scale usually represents the atrribute frequency in the item. */
+            value = item->contents[i].value;
+
+            //printf("size of attr features = %d\n", attr.num_features);
+
+            /* Loop over the state features associated with the attribute. */
+            for (r = 0; r < attr.num_features; ++r) {
+                /* The state feature #(attr->fids[r]), which is represented by
+                   the attribute #a, outputs the label #(f->dst). */
+                fid = crf1dm_get_featureid(&attr, r);
+                crf1dm_get_feature(model, fid, &f);
+                l = f.dst;
+                state[l] += f.weight * value;
+            }
+        }
+    }
+}
+
+__host__ __device__ int crf1dm_get_attrref(crf1dm_t* model, int aid, feature_refs_t* ref)
+{
+    uint8_t *p = model->buffer;
+    uint32_t offset;
+
+    p += model->header->off_attrrefs;
+    p += CHUNK_SIZE;
+    p += sizeof(uint32_t) * aid;
+    read_uint32(p, &offset);
+
+    p = model->buffer + offset;
+    p += read_uint32(p, &ref->num_features);
+    ref->fids = (int*)p;
+    return 0;
+}
+
+__host__ __device__ int crf1dm_get_featureid(feature_refs_t* ref, int i)
+{
+    uint32_t fid;
+    uint8_t* p = (uint8_t*)ref->fids;
+    p += sizeof(uint32_t) * i;
+    read_uint32(p, &fid);
+    return (int)fid;
+}
+
+#define FEATURE_SIZE    20
+
+__host__ __device__ int crf1dm_get_feature(crf1dm_t* model, int fid, crf1dm_feature_t* f)
+{
+    uint8_t *p = NULL;
+    uint32_t val = 0;
+    uint32_t offset = model->header->off_features + CHUNK_SIZE;
+    offset += FEATURE_SIZE * fid;
+    p = model->buffer + offset;
+    p += read_uint32(p, &val);
+    f->type = val;
+    p += read_uint32(p, &val);
+    f->src = val;
+    p += read_uint32(p, &val);
+    f->dst = val;
+    p += read_float(p, &f->weight);
+    return 0;
+}
+
+__host__ __device__ int read_float(uint8_t* buffer, floatval_t* value)
+{
+    uint64_t iv;
+    iv  = ((uint64_t)buffer[0]);
+    iv |= ((uint64_t)buffer[1] << 8);
+    iv |= ((uint64_t)buffer[2] << 16);
+    iv |= ((uint64_t)buffer[3] << 24);
+    iv |= ((uint64_t)buffer[4] << 32);
+    iv |= ((uint64_t)buffer[5] << 40);
+    iv |= ((uint64_t)buffer[6] << 48);
+    iv |= ((uint64_t)buffer[7] << 56);
+    memcpy(value, &iv, sizeof(*value));
+    return sizeof(*value);
+}
+
+__host__ __device__ void crf1dt_state_score(crf1dt_t *crf1dt, const crfsuite_instance_t *inst)
+{
+    int a, i, l, t, r, fid;
+    crf1dm_feature_t f;
+    feature_refs_t attr;
+    floatval_t value, *state = NULL;
+    crf1dm_t* model = crf1dt->model;
+    crf1d_context_t* ctx = crf1dt->ctx;
+    const crfsuite_item_t* item = NULL;
+    const int T = inst->num_items;
+    const int L = crf1dt->num_labels;
+
+    /* Loop over the items in the sequence. */
+    for (t = 0;t < T;++t) {
+        item = &inst->items[t];
+        state = STATE_SCORE(ctx, t);
+
+        /* Loop over the contents (attributes) attached to the item. */
+        for (i = 0;i < item->num_contents;++i) {
+            /* Access the list of state features associated with the attribute. */
+            a = item->contents[i].aid;
+            crf1dm_get_attrref(model, a, &attr);
+            /* A scale usually represents the atrribute frequency in the item. */
+            value = item->contents[i].value;
+
+            /* Loop over the state features associated with the attribute. */
+            for (r = 0;r < attr.num_features;++r) {
+                /* The state feature #(attr->fids[r]), which is represented by
+                   the attribute #a, outputs the label #(f->dst). */
+                fid = crf1dm_get_featureid(&attr, r);
+                crf1dm_get_feature(model, fid, &f);
+                l = f.dst;
+                state[l] += f.weight * value;
+            }
+        }
+    }
+}
+
+
+__host__ __device__ int tagger_set(crfsuite_tagger_t* tagger, crfsuite_instance_t *inst) {
+    crf1dt_t* crf1dt = (crf1dt_t*) tagger->internal;
+    crf1d_context_t* ctx = crf1dt->ctx;
+    crf1dc_set_num_items(ctx, inst->num_items);
+    crf1dc_reset(crf1dt->ctx, RF_STATE);
+   
+    crf1dt_state_score(crf1dt, inst);
+
+    crf1dt->level = LEVEL_SET;
+    return 0;
+}
+
+__global__ void cuda_tag(crfsuite_tagger_t *tagger, crfsuite_instance_t **inst_vect, int N, int *output, floatval_t *score) {
+
+    int k = blockIdx.x * blockDim.x + threadIdx.x;
+    // Set the instance to the tagger. 
+
+    tagger_set(tagger, inst_vect[k]);
+
+    // Obtain the viterbi label sequence. 
+    tagger->viterbi(tagger, output, score);
+
+    //  output_cpu[k] = output1;
+    //            score_cpu[k] = score;
+
+    //  free(output);
+}
+
+
+
+int main_tag(int argc, char *argv[], const char *argv0) {
     int ret = 0, arg_used = 0;
     tagger_option_t opt;
     const char *command = argv[0];
@@ -499,142 +777,156 @@ int main_tag(int argc, char *argv[], const char *argv0)
     crfsuite_data_t* input_data;
     int n, k;
 
-	struct timeval t1,t2;
-	float cuda_elapsedTime;
-	float cpu_elapsedTime;
-	float par_elapsedTime;
+    struct timeval t1, t2;
+    float cuda_elapsedTime;
+    float cpu_elapsedTime;
+    float par_elapsedTime;
 
-
-	  int i, start, tids[NTHREADS];
-	  pthread_t threads[NTHREADS];
-	  pthread_attr_t attr;
+    int i, start, tids[NTHREADS];
+    pthread_t threads[NTHREADS];
+    pthread_attr_t attr;
 
     /* Parse the command-line option. */
     tagger_option_init(&opt);
     arg_used = option_parse(++argv, --argc, parse_tagger_options, &opt);
     if (arg_used < 0) {
         ret = 1;
-        goto force_exit;
+        //goto force_exit;
     }
 
     /* Show the help message for this command if specified. */
     if (opt.help) {
         show_copyright(fpo);
         show_usage(fpo, argv0, command);
-        goto force_exit;
+        //goto force_exit;
     }
 
     /* Set an input file. */
     if (arg_used < argc) {
         opt.input = mystrdup(argv[arg_used]);
     } else {
-        opt.input = mystrdup("-");    /* STDIN. */
+        opt.input = mystrdup("-"); /* STDIN. */
     }
 
     /* Read the model. */
     if (opt.model != NULL) {
         /* Create a model instance corresponding to the model file. */
-        if (ret = crfsuite_create_instance_from_file(opt.model, (void**)&model)) {
-            goto force_exit;
+        if (ret = crfsuite_create_instance_from_file(opt.model, (void**) &model)) {
+          //  goto force_exit;
         }
 
-       /* Open the stream for the input data. */
-       fpi = (strcmp(opt.input, "-") == 0) ? fpi : fopen(opt.input, "r");
-       if (fpi == NULL) {
-           fprintf(fpo, "ERROR: failed to open the stream for the input data,\n");
-           fprintf(fpo, "  %s\n", opt.input);
-           ret = 1;
-           goto force_exit;
-       }
+        /* Open the stream for the input data. */
+        fpi = (strcmp(opt.input, "-") == 0) ? fpi : fopen(opt.input, "r");
+        if (fpi == NULL) {
+            fprintf(fpo, "ERROR: failed to open the stream for the input data,\n");
+            fprintf(fpo, "  %s\n", opt.input);
+            ret = 1;
+           // goto force_exit;
+        }
 
         /* read input data */
-       // n = read_data(fpi, fpo, &input_data, 0);
-       // fprintf(fpo, "Number of instances: %d\n", n);
+        // n = read_data(fpi, fpo, &input_data, 0);
+        // fprintf(fpo, "Number of instances: %d\n", n);
 
         /* read the input data. */
         tag_read(&opt, model);
 
+        //      int **output_vect 
 
-//      int **output_vect 
+        /* Obtain the tagger interface. */
+        if (ret = model->get_tagger(model, &tagger)) {
+         //   goto force_exit;
+        }
 
+        // SEQ ALGO
 
-       /* Obtain the tagger interface. */
-       if (ret = model->get_tagger(model, &tagger)) {
-           goto force_exit;
-       }
+        // fprintf(fpo, "%d\n", inst_vect[0]->num_items);
+        fprintf(fpo, "N = %d\n", N);
 
-    // SEQ ALGO
+        gettimeofday(&t1, NULL);
 
-   // fprintf(fpo, "%d\n", inst_vect[0]->num_items);
-    fprintf(fpo, "N = %d\n", N);
+        //    int **output_cpu = (int **)malloc(N * sizeof(int *));
 
-	gettimeofday(&t1, NULL);
+        //    int *score_cpu = 
 
-//    int **output_cpu = (int **)malloc(N * sizeof(int *));
+        //static int 
+        int *output1;
 
-//    int *score_cpu = 
+        for (k = 0; k < N; k++) {
 
-    for (k=0; k < N;k++) {
+            floatval_t score = 0;
+            output1 = (int *) calloc(sizeof (int), inst_vect[k]->num_items);
 
-                floatval_t score = 0;
-                int *output1 = calloc(sizeof(int), inst_vect[k]->num_items);
+            // Set the instance to the tagger. 
 
-                // Set the instance to the tagger. 
-                if ((ret = tagger->set(tagger, inst_vect[k]))) {
-                    goto force_exit;
-                }
+            if ((ret = tagger_set(tagger, inst_vect[k]))) {
+     //           goto force_exit;
+            }
 
-                // Obtain the viterbi label sequence. 
-                if ((ret = tagger->viterbi(tagger, output1, &score))) {
-                    goto force_exit;
-                }
+            // Obtain the viterbi label sequence. 
+            if ((ret = tagger->viterbi(tagger, output1, &score))) {
+       //         goto force_exit;
+            }
 
-              //  output_cpu[k] = output1;
-  //            score_cpu[k] = score;
+            //  output_cpu[k] = output1;
+            //            score_cpu[k] = score;
 
-              //  free(output);
-    }
+            //  free(output);
+        }
 
-      gettimeofday(&t2, NULL);
+        gettimeofday(&t2, NULL);
 
-      cpu_elapsedTime = calculateMiliseconds(t1,t2);
-	  printf("\nCPU SEQ Time=%4.3f ms\n",  cpu_elapsedTime);
+        cpu_elapsedTime = calculateMiliseconds(t1, t2);
+        printf("\nCPU SEQ Time=%4.3f ms\n", cpu_elapsedTime);
 
+        // PTHREAD	
 
-    // PTHREAD	
+        int **output_pthread = (int **) malloc(N * sizeof (int *));
 
-    int **output_pthread = (int **)malloc(N * sizeof(int *));
+        pthread_attr_init(&attr);
+        pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+        for (i = 0; i < NTHREADS; i++) {
+            tids[i] = i;
+            pthread_create(&threads[i], &attr, tag_thread, (void *) &tids[i]);
+        }
 
-	  pthread_attr_init(&attr);
-	  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
-	  for (i=0; i<NTHREADS; i++) {
-	    tids[i] = i;
-	    pthread_create(&threads[i], &attr, tag_thread, (void *) &tids[i]);
-	  }
+        gettimeofday(&t1, NULL);
 
-         gettimeofday(&t1, NULL);
+        //  printf ("Waiting for threads to finish.");
+        for (i = 0; i < NTHREADS; i++) {
+            pthread_join(threads[i], NULL);
+        }
+        //  printf("Done.");
 
-	//  printf ("Waiting for threads to finish.");
-	  for (i=0; i<NTHREADS; i++) {
-	    pthread_join(threads[i], NULL);
-	  }
-	//  printf("Done.");
+        gettimeofday(&t2, NULL);
 
-      gettimeofday(&t2, NULL);
-
-      par_elapsedTime = calculateMiliseconds(t1,t2);
-	  printf("\nCPU Par Time=%4.3f ms\n",  par_elapsedTime);
-
-
+        par_elapsedTime = calculateMiliseconds(t1, t2);
+        printf("\nCPU Par Time=%4.3f ms\n", par_elapsedTime);
 
         // free inst vect
-   //     for (k=0; k < N;k++) 
- //           crfsuite_instance_finish(inst_vect[k]);
+        //     for (k=0; k < N;k++) 
+        //           crfsuite_instance_finish(inst_vect[k]);
+        
+        
+        // CUDA 
+        
+        int blockSize, gridSize;
+        floatval_t *score2 = (floatval_t *) malloc(sizeof(floatval_t));
+        
+        // CALL CUDA   
+        // Number of threads in each thread block
+         blockSize = 512;
 
+        // Number of thread blocks in grid
+        gridSize = (int)ceil((float) N /blockSize);
+
+        cuda_tag<<<gridSize, blockSize>>>(tagger,  inst_vect, N, output1, score2);       
+            
     }
 
-force_exit:
-    SAFE_RELEASE(model);
-    tagger_option_finish(&opt);
+//force_exit:
+  //  SAFE_RELEASE(model);
+    //tagger_option_finish(&opt);
+    //printf("bah...");
     return ret;
 }
