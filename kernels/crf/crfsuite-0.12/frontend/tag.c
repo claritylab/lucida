@@ -68,6 +68,8 @@ crfsuite_tagger_t *tagger;
 crfsuite_instance_t **inst_vect;
 int N = 0;
 
+int **global_out;
+
 enum {
     LEVEL_NONE = 0,
     LEVEL_SET,
@@ -484,19 +486,20 @@ void *tag_thread(void *tid) {
     end = start + iterations;
     //	printf ("Thread %d doing iterations %d to %d\n",*mytid,start,end-1);
 
+
     for (k = start; k < end; k++) {
 
         floatval_t score = 0;
-        int *output = (int *)calloc(sizeof (int), inst_vect[k]->num_items);
 
         // Set the instance to the tagger. 
         tagger->set(tagger, inst_vect[k]);
 
         // Obtain the viterbi label sequence. 
-        tagger->viterbi(tagger, output, &score);
+        tagger->viterbi(tagger, global_out[k], &score);
 
-        //free(output);
+
     }
+//    free(output);
 }
 
 static floatval_t viterbi(crf1d_context_t* ctx, int *labels) {
@@ -847,12 +850,15 @@ int main_tag(int argc, char *argv[], const char *argv0) {
         //    int *score_cpu = 
 
         //static int 
-        int *output1;
-
+        
+        global_out = (int **)calloc(sizeof (int*), N);
+      
         for (k = 0; k < N; k++) {
 
             floatval_t score = 0;
-            output1 = (int *) calloc(sizeof (int), inst_vect[k]->num_items);
+            int *output1 = (int *) calloc(sizeof (int), inst_vect[k]->num_items);
+
+            global_out[k] = (int *)calloc(sizeof (int), inst_vect[k]->num_items);
 
             // Set the instance to the tagger. 
 
@@ -868,7 +874,7 @@ int main_tag(int argc, char *argv[], const char *argv0) {
             //  output_cpu[k] = output1;
             //            score_cpu[k] = score;
 
-            //  free(output);
+              free(output1);
         }
 
         gettimeofday(&t2, NULL);
@@ -878,7 +884,7 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
         // PTHREAD	
 
-        int **output_pthread = (int **) malloc(N * sizeof (int *));
+//        int **output_pthread = (int **) malloc(N * sizeof (int *));
 
         pthread_attr_init(&attr);
         pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);

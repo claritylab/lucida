@@ -217,7 +217,7 @@ AUTOMAKE = automake-1.14
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -mfpmath=sse -msse2 -DUSE_SSE -DPROFILE -pg -DDEBUG -O -g -std=c99 
+CFLAGS = -mfpmath=sse -msse2 -DUSE_SSE -O3 -fomit-frame-pointer -ffast-math -Winline -std=c99 
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -229,10 +229,10 @@ DUMPBIN =
 ECHO_C = 
 ECHO_N = -n
 ECHO_T = 
-EGREP = /usr/bin/grep -E
+EGREP = /bin/grep -E
 EXEEXT = 
-FGREP = /usr/bin/grep -F
-GREP = /usr/bin/grep
+FGREP = /bin/grep -F
+GREP = /bin/grep
 INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/include -I$(srcdir)
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
@@ -242,7 +242,7 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
 LIBOBJS = 
-LIBS = -llbfgs -lm -lpthread 
+LIBS = -llbfgs -lm 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
@@ -250,7 +250,7 @@ LTLIBOBJS =
 MAINT = #
 MAKEINFO = makeinfo
 MANIFEST_TOOL = :
-MKDIR_P = /usr/bin/mkdir -p
+MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
 NMEDIT = 
 OBJDUMP = objdump
@@ -266,15 +266,15 @@ PACKAGE_URL =
 PACKAGE_VERSION = 
 PATH_SEPARATOR = :
 RANLIB = ranlib
-SED = /usr/bin/sed
+SED = /bin/sed
 SET_MAKE = 
-SHELL = /bin/sh
+SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.12
-abs_builddir = /home/gpuser/umvoice/kernels/crf/crfsuite-0.12/lib/crf
-abs_srcdir = /home/gpuser/umvoice/kernels/crf/crfsuite-0.12/lib/crf
-abs_top_builddir = /home/gpuser/umvoice/kernels/crf/crfsuite-0.12
-abs_top_srcdir = /home/gpuser/umvoice/kernels/crf/crfsuite-0.12
+abs_builddir = /home/cheng/crf/kernels/crf/crfsuite-0.12/lib/crf
+abs_srcdir = /home/cheng/crf/kernels/crf/crfsuite-0.12/lib/crf
+abs_top_builddir = /home/cheng/crf/kernels/crf/crfsuite-0.12
+abs_top_srcdir = /home/cheng/crf/kernels/crf/crfsuite-0.12
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -303,7 +303,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/gpuser/umvoice/kernels/crf/crfsuite-0.12/install-sh
+install_sh = ${SHELL} /home/cheng/crf/kernels/crf/crfsuite-0.12/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -363,7 +363,7 @@ libcrfsuite_la_LDFLAGS = \
 libcrfsuite_la_LIBADD = \
 	$(top_builddir)/lib/cqdb/libcqdb.la
 
-AM_CFLAGS = -mfpmath=sse -msse2 -DUSE_SSE -DPROFILE -pg -DDEBUG -O -g -std=c99 
+AM_CFLAGS = -mfpmath=sse -msse2 -DUSE_SSE -O3 -fomit-frame-pointer -ffast-math -Winline -std=c99 
 all: all-am
 
 .SUFFIXES:
@@ -576,9 +576,8 @@ libcrfsuite_la-crf1d_context.lo: src/crf1d_context.c
 #	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrfsuite_la_CFLAGS) $(CFLAGS) -c -o libcrfsuite_la-crf1d_context.lo `test -f 'src/crf1d_context.c' || echo '$(srcdir)/'`src/crf1d_context.c
 
 libcrfsuite_la-crf1d_model.lo: src/crf1d_model.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) -c -o libcrfsuite_la-crf1d_model.lo `test -f 'src/crf1d_model.c' || echo '$(srcdir)/'`src/crf1d_model.c
-#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile nvcc -arch=sm_30 $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) -c -o libcrfsuite_la-crf1d_model.lo `test -f 'src/crf1d_model.c' || echo '$(srcdir)/'`src/crf1d_model.c
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/libcrfsuite_la-crf1d_model.Tpo $(DEPDIR)/libcrfsuite_la-crf1d_model.Plo
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrfsuite_la_CFLAGS) $(CFLAGS) -MT libcrfsuite_la-crf1d_model.lo -MD -MP -MF $(DEPDIR)/libcrfsuite_la-crf1d_model.Tpo -c -o libcrfsuite_la-crf1d_model.lo `test -f 'src/crf1d_model.c' || echo '$(srcdir)/'`src/crf1d_model.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libcrfsuite_la-crf1d_model.Tpo $(DEPDIR)/libcrfsuite_la-crf1d_model.Plo
 #	$(AM_V_CC)source='src/crf1d_model.c' object='libcrfsuite_la-crf1d_model.lo' libtool=yes \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcrfsuite_la_CFLAGS) $(CFLAGS) -c -o libcrfsuite_la-crf1d_model.lo `test -f 'src/crf1d_model.c' || echo '$(srcdir)/'`src/crf1d_model.c

@@ -180,11 +180,9 @@ AUTOCONF = autoconf
 AUTOHEADER = autoheader
 AUTOMAKE = automake-1.14
 AWK = gawk
-#CC = nvcc
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -mfpmath=sse -msse2 -DUSE_SSE -DPROFILE -pg -DDEBUG -O -g -std=c99 
-#CFLAGS = -arch=sm_30 
+CFLAGS = -mfpmath=sse -msse2 -DUSE_SSE -O3 -fomit-frame-pointer -ffast-math -Winline -std=c99 
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -196,10 +194,10 @@ DUMPBIN =
 ECHO_C = 
 ECHO_N = -n
 ECHO_T = 
-EGREP = /usr/bin/grep -E
+EGREP = /bin/grep -E
 EXEEXT = 
-FGREP = /usr/bin/grep -F
-GREP = /usr/bin/grep
+FGREP = /bin/grep -F
+GREP = /bin/grep
 INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/include -I$(srcdir)
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
@@ -209,7 +207,7 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
 LIBOBJS = 
-LIBS = -llbfgs -lm 
+LIBS = -llbfgs -lm -lpthread
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
@@ -217,7 +215,7 @@ LTLIBOBJS =
 MAINT = #
 MAKEINFO = makeinfo
 MANIFEST_TOOL = :
-MKDIR_P = /usr/bin/mkdir -p
+MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
 NMEDIT = 
 OBJDUMP = objdump
@@ -233,15 +231,15 @@ PACKAGE_URL =
 PACKAGE_VERSION = 
 PATH_SEPARATOR = :
 RANLIB = ranlib
-SED = /usr/bin/sed
+SED = /bin/sed
 SET_MAKE = 
-SHELL = /bin/sh
+SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.12
-abs_builddir = /home/gpuser/umvoice/kernels/crf/crfsuite-0.12/frontend
-abs_srcdir = /home/gpuser/umvoice/kernels/crf/crfsuite-0.12/frontend
-abs_top_builddir = /home/gpuser/umvoice/kernels/crf/crfsuite-0.12
-abs_top_srcdir = /home/gpuser/umvoice/kernels/crf/crfsuite-0.12
+abs_builddir = /home/cheng/crf/kernels/crf/crfsuite-0.12/frontend
+abs_srcdir = /home/cheng/crf/kernels/crf/crfsuite-0.12/frontend
+abs_top_builddir = /home/cheng/crf/kernels/crf/crfsuite-0.12
+abs_top_srcdir = /home/cheng/crf/kernels/crf/crfsuite-0.12
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -270,7 +268,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/gpuser/umvoice/kernels/crf/crfsuite-0.12/install-sh
+install_sh = ${SHELL} /home/cheng/crf/kernels/crf/crfsuite-0.12/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -309,7 +307,7 @@ crfsuite_SOURCES = \
 
 
 #crfsuite_CPPFLAGS =
-AM_CFLAGS = -mfpmath=sse -msse2 -DUSE_SSE -DPROFILE -pg -DDEBUG -O -g -std=c99 
+AM_CFLAGS = -mfpmath=sse -msse2 -DUSE_SSE -O3 -fomit-frame-pointer -ffast-math -Winline -std=c99 
 AM_LDFLAGS = 
 crfsuite_CFLAGS = -I$(top_builddir)/include
 crfsuite_LDADD = $(top_builddir)/lib/crf/libcrfsuite.la
@@ -416,122 +414,120 @@ include ./$(DEPDIR)/crfsuite-reader.Po
 include ./$(DEPDIR)/crfsuite-tag.Po
 
 .c.o:
-	$(AM_V_CC)$(COMPILE)  -c -o $@ $<
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
 #	$(AM_V_CC)source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(COMPILE) -c -o $@ $<
 
 .c.obj:
-	$(AM_V_CC)$(COMPILE)  -o $@ `$(CYGPATH_W) '$<'`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
 #	$(AM_V_CC)source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 .c.lo:
-	$(AM_V_CC)$(LTCOMPILE)  -c -o $@ $<
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+	$(AM_V_CC)$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
 #	$(AM_V_CC)source='$<' object='$@' libtool=yes \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(LTCOMPILE) -c -o $@ $<
 
 crfsuite-iwa.o: iwa.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-iwa.o `test -f 'iwa.c' || echo '$(srcdir)/'`iwa.c
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-iwa.Tpo $(DEPDIR)/crfsuite-iwa.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-iwa.o -MD -MP -MF $(DEPDIR)/crfsuite-iwa.Tpo -c -o crfsuite-iwa.o `test -f 'iwa.c' || echo '$(srcdir)/'`iwa.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-iwa.Tpo $(DEPDIR)/crfsuite-iwa.Po
 #	$(AM_V_CC)source='iwa.c' object='crfsuite-iwa.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-iwa.o `test -f 'iwa.c' || echo '$(srcdir)/'`iwa.c
 
 crfsuite-iwa.obj: iwa.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-iwa.obj `if test -f 'iwa.c'; then $(CYGPATH_W) 'iwa.c'; else $(CYGPATH_W) '$(srcdir)/iwa.c'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-iwa.Tpo $(DEPDIR)/crfsuite-iwa.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-iwa.obj -MD -MP -MF $(DEPDIR)/crfsuite-iwa.Tpo -c -o crfsuite-iwa.obj `if test -f 'iwa.c'; then $(CYGPATH_W) 'iwa.c'; else $(CYGPATH_W) '$(srcdir)/iwa.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-iwa.Tpo $(DEPDIR)/crfsuite-iwa.Po
 #	$(AM_V_CC)source='iwa.c' object='crfsuite-iwa.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-iwa.obj `if test -f 'iwa.c'; then $(CYGPATH_W) 'iwa.c'; else $(CYGPATH_W) '$(srcdir)/iwa.c'; fi`
 
 crfsuite-option.o: option.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-option.o `test -f 'option.c' || echo '$(srcdir)/'`option.c
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-option.Tpo $(DEPDIR)/crfsuite-option.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-option.o -MD -MP -MF $(DEPDIR)/crfsuite-option.Tpo -c -o crfsuite-option.o `test -f 'option.c' || echo '$(srcdir)/'`option.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-option.Tpo $(DEPDIR)/crfsuite-option.Po
 #	$(AM_V_CC)source='option.c' object='crfsuite-option.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-option.o `test -f 'option.c' || echo '$(srcdir)/'`option.c
 
 crfsuite-option.obj: option.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-option.obj `if test -f 'option.c'; then $(CYGPATH_W) 'option.c'; else $(CYGPATH_W) '$(srcdir)/option.c'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-option.Tpo $(DEPDIR)/crfsuite-option.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-option.obj -MD -MP -MF $(DEPDIR)/crfsuite-option.Tpo -c -o crfsuite-option.obj `if test -f 'option.c'; then $(CYGPATH_W) 'option.c'; else $(CYGPATH_W) '$(srcdir)/option.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-option.Tpo $(DEPDIR)/crfsuite-option.Po
 #	$(AM_V_CC)source='option.c' object='crfsuite-option.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-option.obj `if test -f 'option.c'; then $(CYGPATH_W) 'option.c'; else $(CYGPATH_W) '$(srcdir)/option.c'; fi`
 
 crfsuite-reader.o: reader.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-reader.o `test -f 'reader.c' || echo '$(srcdir)/'`reader.c
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-reader.Tpo $(DEPDIR)/crfsuite-reader.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-reader.o -MD -MP -MF $(DEPDIR)/crfsuite-reader.Tpo -c -o crfsuite-reader.o `test -f 'reader.c' || echo '$(srcdir)/'`reader.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-reader.Tpo $(DEPDIR)/crfsuite-reader.Po
 #	$(AM_V_CC)source='reader.c' object='crfsuite-reader.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-reader.o `test -f 'reader.c' || echo '$(srcdir)/'`reader.c
 
 crfsuite-reader.obj: reader.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-reader.obj `if test -f 'reader.c'; then $(CYGPATH_W) 'reader.c'; else $(CYGPATH_W) '$(srcdir)/reader.c'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-reader.Tpo $(DEPDIR)/crfsuite-reader.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-reader.obj -MD -MP -MF $(DEPDIR)/crfsuite-reader.Tpo -c -o crfsuite-reader.obj `if test -f 'reader.c'; then $(CYGPATH_W) 'reader.c'; else $(CYGPATH_W) '$(srcdir)/reader.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-reader.Tpo $(DEPDIR)/crfsuite-reader.Po
 #	$(AM_V_CC)source='reader.c' object='crfsuite-reader.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-reader.obj `if test -f 'reader.c'; then $(CYGPATH_W) 'reader.c'; else $(CYGPATH_W) '$(srcdir)/reader.c'; fi`
 
 crfsuite-learn.o: learn.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-learn.o `test -f 'learn.c' || echo '$(srcdir)/'`learn.c
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-learn.Tpo $(DEPDIR)/crfsuite-learn.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-learn.o -MD -MP -MF $(DEPDIR)/crfsuite-learn.Tpo -c -o crfsuite-learn.o `test -f 'learn.c' || echo '$(srcdir)/'`learn.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-learn.Tpo $(DEPDIR)/crfsuite-learn.Po
 #	$(AM_V_CC)source='learn.c' object='crfsuite-learn.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-learn.o `test -f 'learn.c' || echo '$(srcdir)/'`learn.c
 
 crfsuite-learn.obj: learn.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-learn.obj `if test -f 'learn.c'; then $(CYGPATH_W) 'learn.c'; else $(CYGPATH_W) '$(srcdir)/learn.c'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-learn.Tpo $(DEPDIR)/crfsuite-learn.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-learn.obj -MD -MP -MF $(DEPDIR)/crfsuite-learn.Tpo -c -o crfsuite-learn.obj `if test -f 'learn.c'; then $(CYGPATH_W) 'learn.c'; else $(CYGPATH_W) '$(srcdir)/learn.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-learn.Tpo $(DEPDIR)/crfsuite-learn.Po
 #	$(AM_V_CC)source='learn.c' object='crfsuite-learn.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-learn.obj `if test -f 'learn.c'; then $(CYGPATH_W) 'learn.c'; else $(CYGPATH_W) '$(srcdir)/learn.c'; fi`
 
 crfsuite-tag.o: tag.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-tag.o `test -f 'tag.c' || echo '$(srcdir)/'`tag.c
-#	nvcc -arch=sm_30 -x cu tag.c -lpthread -c -o crfsuite-tag.o 
-#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-tag.o -MD -MP -MF $(DEPDIR)/crfsuite-tag.Tpo -c -o crfsuite-tag.o `test -f 'tag.c' || echo '$(srcdir)/'`tag.c
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-tag.Tpo $(DEPDIR)/crfsuite-tag.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-tag.o -MD -MP -MF $(DEPDIR)/crfsuite-tag.Tpo -c -o crfsuite-tag.o `test -f 'tag.c' || echo '$(srcdir)/'`tag.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-tag.Tpo $(DEPDIR)/crfsuite-tag.Po
 #	$(AM_V_CC)source='tag.c' object='crfsuite-tag.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-tag.o `test -f 'tag.c' || echo '$(srcdir)/'`tag.c
 
 crfsuite-tag.obj: tag.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-tag.obj `if test -f 'tag.c'; then $(CYGPATH_W) 'tag.c'; else $(CYGPATH_W) '$(srcdir)/tag.c'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-tag.Tpo $(DEPDIR)/crfsuite-tag.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-tag.obj -MD -MP -MF $(DEPDIR)/crfsuite-tag.Tpo -c -o crfsuite-tag.obj `if test -f 'tag.c'; then $(CYGPATH_W) 'tag.c'; else $(CYGPATH_W) '$(srcdir)/tag.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-tag.Tpo $(DEPDIR)/crfsuite-tag.Po
 #	$(AM_V_CC)source='tag.c' object='crfsuite-tag.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-tag.obj `if test -f 'tag.c'; then $(CYGPATH_W) 'tag.c'; else $(CYGPATH_W) '$(srcdir)/tag.c'; fi`
 
 crfsuite-dump.o: dump.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-dump.o `test -f 'dump.c' || echo '$(srcdir)/'`dump.c
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-dump.Tpo $(DEPDIR)/crfsuite-dump.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-dump.o -MD -MP -MF $(DEPDIR)/crfsuite-dump.Tpo -c -o crfsuite-dump.o `test -f 'dump.c' || echo '$(srcdir)/'`dump.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-dump.Tpo $(DEPDIR)/crfsuite-dump.Po
 #	$(AM_V_CC)source='dump.c' object='crfsuite-dump.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-dump.o `test -f 'dump.c' || echo '$(srcdir)/'`dump.c
 
 crfsuite-dump.obj: dump.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-dump.obj `if test -f 'dump.c'; then $(CYGPATH_W) 'dump.c'; else $(CYGPATH_W) '$(srcdir)/dump.c'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-dump.Tpo $(DEPDIR)/crfsuite-dump.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-dump.obj -MD -MP -MF $(DEPDIR)/crfsuite-dump.Tpo -c -o crfsuite-dump.obj `if test -f 'dump.c'; then $(CYGPATH_W) 'dump.c'; else $(CYGPATH_W) '$(srcdir)/dump.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-dump.Tpo $(DEPDIR)/crfsuite-dump.Po
 #	$(AM_V_CC)source='dump.c' object='crfsuite-dump.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-dump.obj `if test -f 'dump.c'; then $(CYGPATH_W) 'dump.c'; else $(CYGPATH_W) '$(srcdir)/dump.c'; fi`
 
 crfsuite-main.o: main.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-main.Tpo $(DEPDIR)/crfsuite-main.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-main.o -MD -MP -MF $(DEPDIR)/crfsuite-main.Tpo -c -o crfsuite-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-main.Tpo $(DEPDIR)/crfsuite-main.Po
 #	$(AM_V_CC)source='main.c' object='crfsuite-main.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
 
 crfsuite-main.obj: main.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-main.Tpo $(DEPDIR)/crfsuite-main.Po
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -MT crfsuite-main.obj -MD -MP -MF $(DEPDIR)/crfsuite-main.Tpo -c -o crfsuite-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/crfsuite-main.Tpo $(DEPDIR)/crfsuite-main.Po
 #	$(AM_V_CC)source='main.c' object='crfsuite-main.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(crfsuite_CFLAGS) $(CFLAGS) -c -o crfsuite-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`

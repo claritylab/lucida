@@ -17,7 +17,7 @@ old_library='libcrfsuite.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' /home/jahausw/umvoice/kernels/crf/crfsuite-0.12/lib/cqdb/libcqdb.la -llbfgs -lm'
+dependency_libs=' /home/cheng/UMVoice/kernels/crf/crfsuite-0.12/lib/cqdb/libcqdb.la -llbfgs -lm'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -39,4 +39,4 @@ dlpreopen=''
 
 # Directory that this library needs to be installed in:
 libdir='/usr/local/lib'
-relink_command="(cd /home/jahausw/umvoice/kernels/crf/crfsuite-0.12/lib/crf; /bin/bash /home/jahausw/umvoice/kernels/crf/crfsuite-0.12/libtool  --tag CC --mode=relink gcc -I../../lib/cqdb/include -mfpmath=sse -msse2 -DUSE_SSE -O3 -fomit-frame-pointer -ffast-math -Winline -std=c99 -no-undefined -release 0.12 -o libcrfsuite.la -rpath /usr/local/lib libcrfsuite_la-dictionary.lo libcrfsuite_la-logging.lo libcrfsuite_la-params.lo libcrfsuite_la-quark.lo libcrfsuite_la-rumavl.lo libcrfsuite_la-dataset.lo libcrfsuite_la-holdout.lo libcrfsuite_la-train_arow.lo libcrfsuite_la-train_averaged_perceptron.lo libcrfsuite_la-train_l2sgd.lo libcrfsuite_la-train_lbfgs.lo libcrfsuite_la-train_passive_aggressive.lo libcrfsuite_la-crf1d_context.lo libcrfsuite_la-crf1d_model.lo libcrfsuite_la-crf1d_feature.lo libcrfsuite_la-crf1d_encode.lo libcrfsuite_la-crf1d_tag.lo libcrfsuite_la-crfsuite_train.lo libcrfsuite_la-crfsuite.lo ../../lib/cqdb/libcqdb.la -llbfgs -lm @inst_prefix_dir@)"
+relink_command="(cd /home/cheng/UMVoice/kernels/crf/crfsuite-0.12/lib/crf; /bin/bash /home/cheng/UMVoice/kernels/crf/crfsuite-0.12/libtool  --tag CC --mode=relink gcc -I../../lib/cqdb/include -mfpmath=sse -msse2 -DUSE_SSE -O3 -fomit-frame-pointer -ffast-math -Winline -std=c99 -no-undefined -release 0.12 -o libcrfsuite.la -rpath /usr/local/lib libcrfsuite_la-dictionary.lo libcrfsuite_la-logging.lo libcrfsuite_la-params.lo libcrfsuite_la-quark.lo libcrfsuite_la-rumavl.lo libcrfsuite_la-dataset.lo libcrfsuite_la-holdout.lo libcrfsuite_la-train_arow.lo libcrfsuite_la-train_averaged_perceptron.lo libcrfsuite_la-train_l2sgd.lo libcrfsuite_la-train_lbfgs.lo libcrfsuite_la-train_passive_aggressive.lo libcrfsuite_la-crf1d_context.lo libcrfsuite_la-crf1d_model.lo libcrfsuite_la-crf1d_feature.lo libcrfsuite_la-crf1d_encode.lo libcrfsuite_la-crf1d_tag.lo libcrfsuite_la-crfsuite_train.lo libcrfsuite_la-crfsuite.lo ../../lib/cqdb/libcqdb.la -llbfgs -lm @inst_prefix_dir@)"
