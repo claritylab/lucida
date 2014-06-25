@@ -3,6 +3,7 @@
 # set this
 opencv=opencv/opencv-2.4.9/build
 
+#set $CV_DIR in pkgconfig/opencv also..."
 export CV_DIR=$HOME/$opencv
 export PKG_DIR=`pwd`/pkgconfig
 
