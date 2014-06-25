@@ -128,7 +128,6 @@ void * regex_thread(void *tid)
 #define NTHREADS  8
 #define ITERATIONS   ARRAYSIZE / NTHREADS
 
-
 int main(int argc, char * argv[])
 {
     
@@ -258,4 +257,3 @@ clock_gettime(CLOCK_REALTIME, &t_start);
 	//fclose(f1);
     return 0;
 }
-
