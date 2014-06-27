@@ -1,7 +1,7 @@
 CXX = g++
 CXX_FLAGS = `pkg-config opencv --cflags` 
 LINK_FLAGS = `pkg-config opencv --libs`
-CXX_FLAGS += -g
+CXX_FLAGS +=
 # LINK_FLAGS +=
 # EXTRA_FLAGS = -Wno-missing-field-initializers -Wno-missing-braces -Wno-format
 
