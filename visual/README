@@ -7,8 +7,14 @@ Dependencies:
 +opencv
 +pkg-config
 
-Install opencv locally
-Set path in build.sh
+Install opencv locally:
+-Download latest OpenCV
+-in root dir: mkdir build
+-cmake . -i
+set install dir to /opencv/build in cmake
+make && make install
+
+Set path in build.sh and in pkgconfig/opencv.pc
 
 ./build.sh
 ./detect --help
