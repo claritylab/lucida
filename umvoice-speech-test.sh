@@ -4,8 +4,8 @@
 count=1
 
 IFS=$'\n'; 
-for line in `cat umvoice_questions_new_1q.txt`;
-#for line in `cat umvoice_questions_new_2q.txt`; 
+#for line in `cat umvoice_questions_new_1q.txt`;
+for line in `cat umvoice_questions_new_2q.txt`; 
 do
 #while read line; 
 #do 
