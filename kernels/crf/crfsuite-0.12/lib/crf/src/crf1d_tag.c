@@ -210,7 +210,7 @@ static int tagger_viterbi(crfsuite_tagger_t* tagger, int *labels, floatval_t *pt
     floatval_t score;
     crf1dt_t* crf1dt = (crf1dt_t*)tagger->internal;
     crf1d_context_t* ctx = crf1dt->ctx;
-
+    
     score = crf1dc_viterbi(ctx, labels);
     if (ptr_score != NULL) {
         *ptr_score = score;

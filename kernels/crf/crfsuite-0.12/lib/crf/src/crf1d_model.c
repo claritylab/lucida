@@ -36,7 +36,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include <cqdb.h>
+#include "../../cqdb/include/cqdb.h"
+
+//#include <cuda_runtime.h>
 
 #include <crfsuite.h>
 #include "crf1d.h"
