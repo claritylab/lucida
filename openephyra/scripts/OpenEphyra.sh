@@ -14,4 +14,4 @@ export INDRI_INDEX=/home/$USER/umvoice/wiki_indri_index/
 
 cd ..
 
-java -Djava.library.path=lib/search/ -server -Xms1024m -Xmx2048m info.ephyra.OpenEphyra
+java -Djava.library.path=lib/search/ -server -Xms1024m -Xmx2048m info.ephyra.OpenEphyra "$*"
