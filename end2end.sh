@@ -19,8 +19,6 @@ if ( (( $# < 2 )) ); then
 	exit
 fi
 
-top=`pwd`
-
 # Image matching
 ./visual/detect --match $2 --database visual/matching/db &
 
@@ -44,6 +42,7 @@ pocketsphinx_continuous \
 
 sed -i -e "s/[0]\{1,\}\://" res.out 
 
+cat res.out
 TXT=$(head -n 1 res.out)
 
 # pocket_pid=$!
