@@ -348,7 +348,7 @@ public class OpenEphyra {
 	 * <p>The command <code>exit</code> can be used to quit the program.</p>
 	 */
 	public void commandLine(String query_input) {
-		while (true) {
+//		while (true) {
 			// query user for question, quit if user types in "exit"
 //			MsgPrinter.printQuestionPrompt();
 //			String question = readLine().trim();
@@ -389,7 +389,7 @@ public class OpenEphyra {
 			
 			// print answers
 			MsgPrinter.printAnswers(results);
-		}
+		//}
 	}
 	
 	/**
