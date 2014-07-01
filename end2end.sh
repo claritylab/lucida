@@ -2,6 +2,7 @@
 
 ## TODO
 # Export indexes, models, opencv paths no absolute stuff
+# Surpress OE output
 # Configs:
 # pocketsphinx/sphinx4 server
 # question list
@@ -20,6 +21,11 @@ fi
 
 top=`pwd`
 
+# Image matching
+./visual/detect --match $2 --database visual/matching/db &
+
+det_pid=$!
+
 # Voice
 pocketsphinx_continuous \
     -lw   7.0   \
@@ -34,16 +40,17 @@ pocketsphinx_continuous \
     -lm models/lm_giga_64k_nvp_3gram.lm.DMP \
     -hmm models/voxforge_en_sphinx.cd_cont_5000 \
     -dict models/cmu07a.dic \
-    -logfn /dev/null &
+    -logfn /dev/null > res.out
 
-pocket_pid=$!
+sed -i -e "s/[0]\{1,\}\://" res.out 
 
-# Image matching
-./visual/detect --match $2 --database visual/matching/db &
+TXT=$(head -n 1 res.out)
 
-det_pid=$!
+# pocket_pid=$!
+# wait $pocket_pid
 
-wait $pocket_pid
 wait $det_pid
 
-./umvoice-qa-test.sh
+cd openephyra/scripts;
+./OpenEphyra.sh $TXT
+rm -rf res.out
