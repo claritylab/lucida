@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# TODO
-# Export indexes, models, opencv paths
+## TODO
+# Export indexes, models, opencv paths no absolute stuff
 # Configs:
 # pocketsphinx/sphinx4 server
 # question list
 # database
+# ASR params
 
 function print_usage {
     echo "Runs end-to-end OpenSiri+Image pipeline"
