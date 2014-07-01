@@ -10,7 +10,7 @@ export CLASSPATH=bin:lib/ml/maxent.jar:lib/ml/minorthird.jar:lib/nlp/jwnl.jar:li
 
 #export ASSERT=$1
 
-export INDRI_INDEX=/home/$USER/umvoice/wiki_indri_index/
+export INDRI_INDEX=$HOME/umvoice/wiki_indri_index/
 
 cd ..
 
