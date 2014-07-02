@@ -1,59 +1,97 @@
 `timescale 1ns / 1ps
+`include "GMM_accelerator.vh"
 module getScore_unit(
-  input  wire        aclk,
-  input  wire [31:0] feature1 , mean1 , prec1 ,
-  input  wire [31:0] feature2 , mean2 , prec2 ,
-  input  wire [31:0] feature3 , mean3 , prec3 ,
-  input  wire [31:0] feature4 , mean4 , prec4 ,
-  input  wire [31:0] feature5 , mean5 , prec5 ,
-  input  wire [31:0] feature6 , mean6 , prec6 ,
-  input  wire [31:0] feature7 , mean7 , prec7 ,
-  input  wire [31:0] feature8 , mean8 , prec8 ,
-  input  wire [31:0] feature9 , mean9 , prec9 ,
-  input  wire [31:0] feature10, mean10, prec10,
-  input  wire [31:0] feature11, mean11, prec11,
-  input  wire [31:0] feature12, mean12, prec12,
-  input  wire [31:0] feature13, mean13, prec13,
-  input  wire [31:0] feature14, mean14, prec14,
-  input  wire [31:0] feature15, mean15, prec15,
-  input  wire [31:0] feature16, mean16, prec16,
-  input  wire [31:0] feature17, mean17, prec17,
-  input  wire [31:0] feature18, mean18, prec18,
-  input  wire [31:0] feature19, mean19, prec19,
-  input  wire [31:0] feature20, mean20, prec20,
-  input  wire [31:0] feature21, mean21, prec21,
-  input  wire [31:0] feature22, mean22, prec22,
-  input  wire [31:0] feature23, mean23, prec23,
-  input  wire [31:0] feature24, mean24, prec24,
-  input  wire [31:0] feature25, mean25, prec25,
-  input  wire [31:0] feature26, mean26, prec26,
-  input  wire [31:0] feature27, mean27, prec27,
-  input  wire [31:0] feature28, mean28, prec28,
-  input  wire [31:0] feature29, mean29, prec29,
-  output wire [31:0] logDval
-  );
- 
-     /*
-     wire [(32*feat_size - 1):0] logDval_component;
-     genvar i;
-     generate
-          for(i = 0; i < feat_size; i = i + 1) begin
-               score_unit score(feature, mean, prec, logDval_component[(32*i - 1):0]);
-          end
-     endgenerate
-     */
+     input  wire        aclk,
+     input  wire [(`score_units - 1):0] feature_valid, mean_valid, prec_valid,
+                                        score_ready,
+     input  wire [(32*`score_units - 1):0] feature, mean, prec,
+     output wire        logDval_valid,
+     output wire [31:0] logDval
+     `ifdef DEBUG
+    ,output wire [(32*`score_units - 1):0] logDval_component,
+     output wire [`score_units - 1:0] feature_ready, mean_ready, prec_ready,
+                  score_valid
+     `endif // DEBUG
+     );
      
-     wire [31:0] logDval_component1 , logDval_component2 , logDval_component3 ,
-                 logDval_component4 , logDval_component5 , logDval_component6 ,
-                 logDval_component7 , logDval_component8 , logDval_component9 ,
-                 logDval_component10, logDval_component11, logDval_component12,
-                 logDval_component13, logDval_component14, logDval_component15,
-                 logDval_component16, logDval_component17, logDval_component18,
-                 logDval_component19, logDval_component20, logDval_component21,
-                 logDval_component22, logDval_component23, logDval_component24,
-                 logDval_component25, logDval_component26, logDval_component27,
-                 logDval_component28, logDval_component29;
+     `ifndef DEBUG
+     wire [(32*`score_units - 1):0] logDval_component;
+     //wire [32*(`score_units / 2):0] fp_adder_out;
+     `endif //DEBUG
 
+     wire [(`score_units / 2) - 1:0] for_add1_valid, fp_adder_ready, for_add1_a_ready, for_add1_b_ready;
+     wire [32*(`score_units / 2) - 1:0] for_add1_out;
+     wire [(`score_units / 4) - 1:0] for_add2_valid, for_add2_ready;
+     wire [32*(`score_units / 4) - 1:0] for_add2_out;
+     wire fp_adder22_valid, fp_adder23_valid, fp_adder24_valid, fp_adder25_valid, fp_adder26_valid, fp_adder27_valid, fp_adder28_valid;
+     wire [31:0] fp_adder22_out, fp_adder23_out, fp_adder24_out, fp_adder25_out, fp_adder26_out, fp_adder27_out, fp_adder28_out;
+     
+     genvar i, j, k;
+     generate
+          for(i = 1; i <= `score_units; i = i + 1) begin : for_score //and 7 years ago
+               score_unit score (
+                    aclk, 1'b1, 1'b1, 1'b1, 1'b1,
+                    feature[(32*i - 1):(32*(i-1))],
+                    mean[(32*i - 1):(32*(i-1))],
+                    prec[(32*i - 1):(32*(i-1))],
+                    feature_ready[i - 1],
+                    mean_ready[i - 1],
+                    prec_ready[i - 1],
+                    score_valid[i - 1],
+                    logDval_component[(32*i - 1):(32*(i - 1))]
+                    );
+          end
+          
+          for(j = 1; j <= (`score_units / 2); j = j + 1) begin : for_add1
+               fp_adder fp_adder (
+                    .aclk                    (aclk),                                      // input aclk
+                    .s_axis_a_tvalid         (score_valid[2*(j-1)]),                      // input s_axis_a_tvalid
+                    .s_axis_a_tready         (for_add1_a_ready[j-1]),                     // output s_axis_a_tready
+                    .s_axis_a_tdata          (logDval_component[(64*j - 33):(64*(j-1))]), // input [31 : 0] s_axis_a_tdata
+                    .s_axis_b_tvalid         (score_valid[(2*j)-1]),                      // input s_axis_b_tvalid
+                    .s_axis_b_tready         (for_add1_b_ready[j-1]),                     // output s_axis_b_tready
+                    .s_axis_b_tdata          (logDval_component[(64*j - 1):(64*j) - 32]), // input [31 : 0] s_axis_b_tdata
+                    .m_axis_result_tvalid    (for_add1_valid[j - 1]),                     // output m_axis_result_tvalid
+                    .m_axis_result_tready    (fp_adder_ready[j - 1]),                     // input m_axis_result_tready
+                    .m_axis_result_tdata     (for_add1_out[32*j - 1:32*(j-1)])            // output [31 : 0] m_axis_result_tdata
+                    );
+          end
+          
+          for(k = 1; k <= (`score_units / 4); k = k + 1) begin : for_add2
+               fp_adder fp_adder15 (
+                    .aclk                    (aclk),                                      // input aclk
+                    .s_axis_a_tvalid         (for_add1_valid[2*(k-1)]),                   // input s_axis_a_tvalid
+                    .s_axis_a_tready         (fp_adder_ready[2*(k-1)]),                   // output s_axis_a_tready
+                    .s_axis_a_tdata          (for_add1_out[(64*k - 33):(64*(k-1))]),      // input [31 : 0] s_axis_a_tdata
+                    .s_axis_b_tvalid         (for_add1_valid[2*k - 1]),                   // input s_axis_b_tvalid
+                    .s_axis_b_tready         (fp_adder_ready[2*k - 1]),                   // output s_axis_b_tready
+                    .s_axis_b_tdata          (for_add1_out[(64*k - 1):(64*k) - 32]),      // input [31 : 0] s_axis_b_tdata
+                    .m_axis_result_tvalid    (for_add2_valid[k - 1]),                     // output m_axis_result_tvalid
+                    .m_axis_result_tready    (for_add2_ready[k - 1]),                     // input m_axis_result_tready
+                    .m_axis_result_tdata     (for_add2_out[32*k - 1:32*(k-1)])            // output [31 : 0] m_axis_result_tdata
+                    );
+          end
+/* TODO: finish this:
+          //currently only works for all 29 units
+          for(j = (`score_units / 2); j > 0; j = j / 2) begin : for_add_outer
+               for(k = 1; k <= j; k = k + 1) begin : for_add_inner
+                    fp_adder fp_adder1 (
+                    .aclk                    (aclk),                   // input aclk
+                    .s_axis_a_tvalid         (1'b1),                   // input s_axis_a_tvalid
+                    .s_axis_a_tready         (),                       // output s_axis_a_tready
+                    .s_axis_a_tdata          (logDval_component[(64*j - 33):(64*(j-1))]),     // input [31 : 0] s_axis_a_tdata
+                    .s_axis_b_tvalid         (1'b1),                   // input s_axis_b_tvalid
+                    .s_axis_b_tready         (),                       // output s_axis_b_tready
+                    .s_axis_b_tdata          (logDval_component[(64*j - 1):(64*j) - 32]),     // input [31 : 0] s_axis_b_tdata
+                    .m_axis_result_tvalid    (),                       // output m_axis_result_tvalid
+                    .m_axis_result_tready    (1'b1),                   // input m_axis_result_tready
+                    .m_axis_result_tdata     (fp_adder_out[(32*j - 1): 32*(j - 1)])           // output [31 : 0] m_axis_result_tdata
+                    );
+               end
+          end
+*/
+     endgenerate
+/*
      wire [31:0] fp_adder_out1 , fp_adder_out2 , fp_adder_out3 ,
                  fp_adder_out4 , fp_adder_out5 , fp_adder_out6 ,
                  fp_adder_out7 , fp_adder_out8 , fp_adder_out9 ,
@@ -64,41 +102,374 @@ module getScore_unit(
                  fp_adder_out22, fp_adder_out23, fp_adder_out24,
                  fp_adder_out25, fp_adder_out26, fp_adder_out27,
                  fp_adder_out28;
-     wire        dontcare1;
-       
-     score_unit score1 (aclk, feature1 , mean1 , prec1 , logDval_component1);
-     score_unit score2 (aclk, feature2 , mean2 , prec2 , logDval_component2);
-     score_unit score3 (aclk, feature3 , mean3 , prec3 , logDval_component3);
-     score_unit score4 (aclk, feature4 , mean4 , prec4 , logDval_component4);
-     score_unit score5 (aclk, feature5 , mean5 , prec5 , logDval_component5);
-     score_unit score6 (aclk, feature6 , mean6 , prec6 , logDval_component6);
-     score_unit score7 (aclk, feature7 , mean7 , prec7 , logDval_component7);
-     score_unit score8 (aclk, feature8 , mean8 , prec8 , logDval_component8);
-     score_unit score9 (aclk, feature9 , mean9 , prec9 , logDval_component9);
-     score_unit score10(aclk, feature10, mean10, prec10, logDval_component10);
-     score_unit score11(aclk, feature11, mean11, prec11, logDval_component11);
-     score_unit score12(aclk, feature12, mean12, prec12, logDval_component12);
-     score_unit score13(aclk, feature13, mean13, prec13, logDval_component13);
-     score_unit score14(aclk, feature14, mean14, prec14, logDval_component14);
-     score_unit score15(aclk, feature15, mean15, prec15, logDval_component15);
-     score_unit score16(aclk, feature16, mean16, prec16, logDval_component16);
-     score_unit score17(aclk, feature17, mean17, prec17, logDval_component17);
-     score_unit score18(aclk, feature18, mean18, prec18, logDval_component18);
-     score_unit score19(aclk, feature19, mean19, prec19, logDval_component19);
-     score_unit score20(aclk, feature20, mean20, prec20, logDval_component20);
-     score_unit score21(aclk, feature21, mean21, prec21, logDval_component21);
-     score_unit score22(aclk, feature22, mean22, prec22, logDval_component22);
-     score_unit score23(aclk, feature23, mean23, prec23, logDval_component23);
-     score_unit score24(aclk, feature24, mean24, prec24, logDval_component24);
-     score_unit score25(aclk, feature25, mean25, prec25, logDval_component25);
-     score_unit score26(aclk, feature26, mean26, prec26, logDval_component26);
-     score_unit score27(aclk, feature27, mean27, prec27, logDval_component27);
-     score_unit score28(aclk, feature28, mean28, prec28, logDval_component28);
-     score_unit score29(aclk, feature29, mean29, prec29, logDval_component29);
-
+*/                 
+/*                 
+     fp_adder fp_adder1 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[0]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*1 - 33):(64*(1-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[1]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*1 - 1):(64*1) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+  
+     fp_adder fp_adder2 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[2]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*2 - 33):(64*(2-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[3]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*2 - 1):(64*2) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder3 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[4]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*3 - 33):(64*(3-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[5]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*3 - 1):(64*3) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder4 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[6]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*4 - 33):(64*(4-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[7]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*4 - 1):(64*4) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder5 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[8]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*5 - 33):(64*(5-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[9]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*5 - 1):(64*5) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          );
+          
+     fp_adder fp_adder6 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[10]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*6 - 33):(64*(6-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[11]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*6 - 1):(64*6) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+  
+     fp_adder fp_adder7 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[12]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*7 - 33):(64*(7-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[13]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*7 - 1):(64*7) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder8 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[14]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*8 - 33):(64*(8-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[15]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*8 - 1):(64*8) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder9 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[16]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*9 - 33):(64*(9-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[17]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*9 - 1):(64*9) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder10 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[18]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*10 - 33):(64*(10-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[19]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*10 - 1):(64*10) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+          
+     fp_adder fp_adder11 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[20]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*11 - 33):(64*(11-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[21]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*11 - 1):(64*11) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+  
+     fp_adder fp_adder12 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[22]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*12 - 33):(64*(12-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[23]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*12 - 1):(64*12) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder13 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[24]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*13 - 33):(64*(13-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[25]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*13 - 1):(64*13) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder14 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[26]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (logDval_component[(64*14 - 33):(64*(14-1))]),// input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[27]),         // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(64*14 - 1):(64*14) - 32]),// input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_valid),        // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder1_ready),        // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+*/ /*    
+     fp_adder fp_adder15 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (for_add1_valid[0]),      // input s_axis_a_tvalid
+          .s_axis_a_tready         (fp_adder_ready[0]),      // output s_axis_a_tready
+          .s_axis_a_tdata          (for_add1_out[(64*1 - 33):(64*(1-1))]),     // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (for_add1_valid[1]),      // input s_axis_b_tvalid
+          .s_axis_b_tready         (fp_adder_ready[1]),      // output s_axis_b_tready
+          .s_axis_b_tdata          (for_add1_out[(64*1 - 1):(64*1) - 32]),    // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder15_out_valid),   // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder??_ready),       // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder15_out)          // output [31 : 0] m_axis_result_tdata
+          );
+          
+     fp_adder fp_adder16 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (for_add1_valid[2]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder1_in1),          // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder1_in2_valid),    // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder1_in2),          // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_out_valid),    // output m_axis_result_tvalid
+          .m_axis_result_tready    (1'b1),                   // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+  
+     fp_adder fp_adder17 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (fp_adder1_out_valid),    // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder2_in1),          // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder2_in2_valid),    // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder2_in2),          // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder2_out_valid),    // output m_axis_result_tvalid
+          .m_axis_result_tready    (1'b1),                   // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder2_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder18 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (1'b1),                   // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder3_in1),          // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder3_in2_valid),    // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder3_in2),          // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder3_out_valid),    // output m_axis_result_tvalid
+          .m_axis_result_tready    (1'b1),                   // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder3_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder19 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (1'b1),                   // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder4_in1),          // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder4_in2_valid),    // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder4_in2),          // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder4_out_valid),    // output m_axis_result_tvalid
+          .m_axis_result_tready    (1'b1),                   // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder4_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder20 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (1'b1),                   // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder5_in1),          // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder5_in2_valid),    // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder5_in2),          // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder5_out_valid),    // output m_axis_result_tvalid
+          .m_axis_result_tready    (1'b1),                   // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder5_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+     fp_adder fp_adder21 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (score_valid[0]),         // input s_axis_a_tvalid
+          .s_axis_a_tready         (),                       // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder1_in1),          // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder1_in2_valid),    // input s_axis_b_tvalid
+          .s_axis_b_tready         (),                       // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder1_in2),          // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder1_out_valid),    // output m_axis_result_tvalid
+          .m_axis_result_tready    (1'b1),                   // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder1_out)           // output [31 : 0] m_axis_result_tdata
+          ); 
+*/  
+     fp_adder fp_adder22 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (for_add2_valid[0]),      // input s_axis_a_tvalid
+          .s_axis_a_tready         (for_add2_ready[0]),      // output s_axis_a_tready
+          .s_axis_a_tdata          (for_add2_out[(64*1 - 33):(64*(1-1))]),           // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (for_add2_valid[1]),      // input s_axis_b_tvalid
+          .s_axis_b_tready         (for_add2_ready[1]),      // output s_axis_b_tready
+          .s_axis_b_tdata          (for_add2_out[(64*1 - 33):(64*(1-1))]),           // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder22_valid),       // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder26_a_ready),     // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder22_out)          // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder23 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (for_add2_valid[2]),      // input s_axis_a_tvalid
+          .s_axis_a_tready         (for_add2_ready[2]),      // output s_axis_a_tready
+          .s_axis_a_tdata          (for_add2_out[(64*2 - 33):(64*(2-1))]),           // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (for_add2_valid[3]),      // input s_axis_b_tvalid
+          .s_axis_b_tready         (for_add2_ready[3]),      // output s_axis_b_tready
+          .s_axis_b_tdata          (for_add2_out[(64*2 - 33):(64*(2-1))]),           // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder23_valid),       // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder26_b_ready),       // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder23_out)          // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder24 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (for_add2_valid[4]),      // input s_axis_a_tvalid
+          .s_axis_a_tready         (for_add2_ready[4]),      // output s_axis_a_tready
+          .s_axis_a_tdata          (for_add2_out[(64*3 - 33):(64*(3-1))]),           // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (for_add2_valid[5]),      // input s_axis_b_tvalid
+          .s_axis_b_tready         (for_add2_ready[5]),      // output s_axis_b_tready
+          .s_axis_b_tdata          (for_add2_out[(64*3 - 33):(64*(3-1))]),           // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder24_valid),       // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder27_a_ready),       // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder24_out)          // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder25 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (for_add2_valid[6]),      // input s_axis_a_tvalid
+          .s_axis_a_tready         (for_add2_ready[6]),      // output s_axis_a_tready
+          .s_axis_a_tdata          (for_add2_out[(64*4 - 33):(64*(4-1))]),           // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (score_valid[28]),        // input s_axis_b_tvalid
+          .s_axis_b_tready         (/*TBD*/),      // output s_axis_b_tready
+          .s_axis_b_tdata          (logDval_component[(32*29 - 1):(32*(29 - 1))]),   // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder25_valid),       // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder27_b_ready),       // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder25_out)          // output [31 : 0] m_axis_result_tdata
+          ); 
+          
+     fp_adder fp_adder26 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (fp_adder22_valid),      // input s_axis_a_tvalid
+          .s_axis_a_tready         (fp_adder26_a_ready),      // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder22_out),           // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder23_valid),      // input s_axis_b_tvalid
+          .s_axis_b_tready         (fp_adder26_b_ready),      // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder23_out),           // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder26_valid),       // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder28_a_ready),       // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder26_out)          // output [31 : 0] m_axis_result_tdata
+          ); 
+  
+     fp_adder fp_adder27 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (fp_adder24_valid),      // input s_axis_a_tvalid
+          .s_axis_a_tready         (fp_adder27_a_ready),      // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder24_out),           // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder25_valid),      // input s_axis_b_tvalid
+          .s_axis_b_tready         (fp_adder27_b_ready),      // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder25_out),           // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (fp_adder27_valid),       // output m_axis_result_tvalid
+          .m_axis_result_tready    (fp_adder28_b_ready),       // input m_axis_result_tready
+          .m_axis_result_tdata     (fp_adder27_out)          // output [31 : 0] m_axis_result_tdata
+          ); 
+     
+     fp_adder fp_adder28 (
+          .aclk                    (aclk),                   // input aclk
+          .s_axis_a_tvalid         (fp_adder26_valid),      // input s_axis_a_tvalid
+          .s_axis_a_tready         (fp_adder28_a_ready),      // output s_axis_a_tready
+          .s_axis_a_tdata          (fp_adder26_out),           // input [31 : 0] s_axis_a_tdata
+          .s_axis_b_tvalid         (fp_adder27_valid),      // input s_axis_b_tvalid
+          .s_axis_b_tready         (fp_adder28_b_ready),      // output s_axis_b_tready
+          .s_axis_b_tdata          (fp_adder27_out),           // input [31 : 0] s_axis_b_tdata
+          .m_axis_result_tvalid    (logDval_valid),       // output m_axis_result_tvalid
+          .m_axis_result_tready    (1'b1),       // input m_axis_result_tready
+          .m_axis_result_tdata     (logDval)          // output [31 : 0] m_axis_result_tdata
+          ); 
+/*                 
      fp_adder fp_adder1 (
           .aclk                    (aclk),                    // input aclk
-          .s_axis_a_tvalid         (1'b1),                    // input s_axis_a_tvalid
+          .s_axis_a_tvalid         (score_valid[0]),             // input s_axis_a_tvalid
           .s_axis_a_tdata          (logDval_component1),      // input [31 : 0] s_axis_a_tdata
           .s_axis_b_tvalid         (1'b1),                    // input s_axis_b_tvalid
           .s_axis_b_tdata          (logDval_component2),      // input [31 : 0] s_axis_b_tdata
@@ -377,5 +748,5 @@ module getScore_unit(
           ); 
           
      assign logDval = fp_adder_out28;
-
+*/
 endmodule
