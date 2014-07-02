@@ -11,7 +11,8 @@
 
 function print_usage {
     echo "Runs end-to-end OpenSiri+Image pipeline"
-    echo "  Usage $0 <wav> <image>"
+    echo "  Usage $0 <wav> <image> <db>"
+    echo "  Example: $0 wav/images/building.wav vision/matching/query_small/1.JPG
 }
 
 if ( (( $# < 2 )) ); then
@@ -20,7 +21,7 @@ if ( (( $# < 2 )) ); then
 fi
 
 # Image matching
-./visual/detect --match $2 --database visual/matching/db &
+./visual/detect --match $2 --database visual/matching/buildings &
 
 det_pid=$!
 
