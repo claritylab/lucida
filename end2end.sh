@@ -2,7 +2,7 @@
 
 ## TODO
 # Export indexes, models, opencv paths no absolute stuff
-# Surpress OE output
+# server end2end
 # Configs:
 # pocketsphinx/sphinx4 server
 # question list
@@ -10,18 +10,23 @@
 # ASR params
 
 function print_usage {
-    echo "Runs end-to-end OpenSiri+Image pipeline"
-    echo "  Usage $0 <wav> <image> <db>"
-    echo "  Example: $0 wav/images/building.wav vision/matching/query_small/1.JPG
+    echo "End-to-end OpenSiri+Image pipeline"
+    echo "  Usage $0 <wav> <image> <matching db>"
+    echo -n "  Example: $0 wav/images/building.wav vision/matching/buildings/query_small/1.JPG"
+    echo    " vision/matching/buildings/db_small"
 }
 
-if ( (( $# < 2 )) ); then
+if ( (( $# < 3 )) ); then
 	print_usage
 	exit
 fi
 
+#Exports
+export INDRI_INDEX=`pwd`/wiki_indri_index
+
 # Image matching
-./visual/detect --match $2 --database visual/matching/buildings &
+tstart=`date +%s%N`
+./vision/detect --match $2 --database $3 &
 
 det_pid=$!
 
@@ -29,7 +34,7 @@ det_pid=$!
 pocketsphinx_continuous \
     -lw   7.0   \
     -topn 16 \
-    -fillprob   1e-6  \
+    -fillprob   1e-6 \
     -silprob	0.1 \
     -wip		0.5 \
     -compallsen	yes \
@@ -40,17 +45,30 @@ pocketsphinx_continuous \
     -hmm models/voxforge_en_sphinx.cd_cont_5000 \
     -dict models/cmu07a.dic \
     -logfn /dev/null > res.out
+tend=`date +%s%N`
 
+# wait for matching to finish
+wait $det_pid
+
+front=$(awk "BEGIN {printf \"%.2f\",$(( $tend-$tstart ))/1000000000}")
+
+# clean ASR result
 sed -i -e "s/[0]\{1,\}\://" res.out 
-
 cat res.out
 TXT=$(head -n 1 res.out)
 
 # pocket_pid=$!
 # wait $pocket_pid
 
-wait $det_pid
-
+# Question-Answering
 cd openephyra/scripts;
-./OpenEphyra.sh $TXT
+tstart=`date +%s%N`
+./OpenEphyra.sh $TXT | grep -v "\.\.\.\|Filter"
+tend=`date +%s%N`
+back=$(awk "BEGIN {printf \"%.2f\",$(( $tend-$tstart ))/1000000000}")
+
+# Results
+echo "Time:"
+echo "  max(ASR, Matching): $front s"
+echo "  Question-Answering: $back s"
 rm -rf res.out
