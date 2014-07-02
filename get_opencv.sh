@@ -5,7 +5,7 @@ sudo apt-get install build-essential checkinstall git cmake libfaac-dev libjack-
 
 opendir=opencv-2.4.9
 wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.9/opencv-2.4.9.zip
-unzip $opendir; cd $opendir; mkdir build
+unzip $opendir; cd $opendir; mkdir build;
 
 cmake -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/build
 make -j 4
