@@ -1,0 +1,49 @@
+<hmm-topology-set>
+  <!-- initial parameters may be specified through configuration.
+       wildcards are allowed to express shared initial values. -->
+
+  <hmm-topology name="silence">
+    <transition from="-1" to="0"/>
+    <transition from="0" to="0"/>
+  </hmm-topology>
+
+  <hmm-topology name="startup">
+    <transition from="-1" to="0"/>
+    <transition from="0" to="0"/>
+  </hmm-topology>
+
+  <hmm-topology name="standard">
+    <state name="0">
+    <transition from="0" to="0"/>
+    <transition from="0" to="+0"/>
+    <transition from="0" to="+1"/>
+  </hmm-topology>
+
+  <hmm-topology name="speech">
+    <repeat times="3" tie-transitions="true">
+      <repeat times="2" tie-emissions="true">
+        <hmm-topology name="standard"/>
+      </repeat>
+    </repeat>
+  </hmm-topology>
+
+  <hmm-topology name="standard">
+    <state name="0" tie="A"/>
+    <state name="1" tie="B"/>
+    <state name="2" tie="B"/>
+    <state name="3" tie="C"/>
+    <state name="4" tie="D"/>
+    <state name="5" tie="E"/>
+    <repeat times="3" tie-transitions="true">
+      <transition from="0" to="0"/>
+      <transition from="0" to="+0"/>
+    </repeat>
+  </hmm-topology>
+
+  <hmm-topology name="GKkk">
+    <hmm-topology name="standard" scale="1"/>
+  </hmm-topology>
+
+  <default-silence name="silence"/>
+  <default-acoustic-unit name="speech"/>
+</hmm-topology-set>

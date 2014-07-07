@@ -1,0 +1,39 @@
+RWTH ASR - The RWTH Aachen University Speech Recognition System
+
+* Requirements
+  Debian package name given in brackets
+  - GCC >= 4.0, <= 4.8 (gcc, g++)
+  - GNU Bison         (bison)
+  - GNU Make          (make)
+  - libxml2           (libxml2, libxml2-dev)
+  - libsndfile        (libsndfile1, libsndfile1-dev)
+  - libcppunit        (libcppunit, libcppunit-dev)
+  - LAPACK            (lapack3, lapack3-dev)
+  - BLAS              (refblas3, refblas3-dev)
+
+* Build
+  - Adapt Config.make, Options.make, config/os-linux.make to your environment
+  - Check requirements:
+    ./scripts/requirements.sh
+  - Compile
+    make
+  - Install: Will install executables in arch/linux-intel-standard/
+    (INSTALL_TARGET in Options.make)
+    make install
+
+* Documentation
+  - Code Documentation (requires Doxygen)
+    Run 'doxygen' in src/
+    Documentation is generated in src/api/html
+  - http://www-i6.informatik.rwth-aachen.de/rwth-asr
+    Wiki: http://www-i6.informatik.rwth-aachen.de/rwth-asr/manual
+
+* Signal Analysis
+  Flow files for common acoustic features:
+  http://www-i6.informatik.rwth-aachen.de/rwth-asr/files/flow-examples-0.2.tar.gz 
+
+
+--
+(c) 2000-2014 RWTH Aachen University, Lehrstuhl fuer Informatik 6
+http://www-i6.informatik.rwth-aachen.de/rwth-asr/
+rwthasr@i6.informatik.rwth-aachen.de

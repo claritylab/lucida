@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+
+"""
+Analog: Sprint Log-file Analyser
+
+This supersedes a previous program called Analog which lived in the
+Tools/Speech-Recognizer directory.
+"""
+
+__version__   = '$Revision: 9227 $'
+__date__      = '$Date: 2013-11-29 15:47:07 +0100 (Fri, 29 Nov 2013) $'
+
+
+import glob, imp, os, sys
+import analog
+
+def loadPlugins(dir, pattern):
+    for fname in glob.glob(os.path.join(dir, pattern)):
+        name = os.path.splitext(os.path.basename(fname))[0]
+        if name == '__init__': continue
+        fp, pathname, description = imp.find_module(name, [dir])
+        try:
+            imp.load_module(name, fp, pathname, description)
+        except ImportError:
+            print >> sys.stderr, 'failed to load plug-in "%s"' % name
+        fp.close()
+
+
+scriptPath = sys.argv[0]
+while os.path.islink(scriptPath):
+    scriptPath = os.path.join(os.path.dirname(scriptPath), os.readlink(scriptPath))
+
+scriptDir = os.path.dirname(scriptPath)
+loadPlugins(os.path.join(scriptDir, 'stats' ), '*.py')
+loadPlugins(os.path.join(scriptDir, 'writer'), '*.py')
+loadPlugins('.', 'analog?*.py')
+    
+if __name__ == '__main__':
+    analog.run()

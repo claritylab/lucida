@@ -1,0 +1,176 @@
+#!/bin/bash
+# $Id: choose 6192 2006-11-07 13:12:59Z dreuw $
+
+if [ $# -le 0 ]; then
+    echo "usage: `basename $0` [-p] COMMAND [ARGUMENT]..."
+    echo "Expand COMMAND with Sprint object file extension and run it with given arguments."
+    echo "Options:"
+    echo " -D --devel     prefer src directory of arch directory"
+    echo " -d --debug     use debug version"
+    echo " -e --extern    must be specified if an external resource should be chosen"
+    echo " -P --profile   use gprof profiling version"
+    echo " -V --valgrind  use valgrind"
+    echo " -p --print     just print the extended COMMAND - don't run."
+    echo " --os <os>      set operating system (don't auto-detect)"
+    echo " --proc <os>    set processor (don't auto-detect)"
+    exit 1
+fi
+
+# defaults
+metapath="arch src"
+extern=0
+
+# parse options
+while [ $# -gt 0 ]; do
+    case "$1" in
+    -p|--print)
+	mode="print"
+	shift
+	;;
+    -D|--devel)
+	metapath="src arch"
+	shift
+	;;
+    -d|--debug)
+	COMPILE="debug"
+	shift
+	;;
+    -e|--extern)
+	extern=1
+	shift
+	;;
+    -P|--profile)
+	PROFILE="gprof"
+	shift
+	;;
+    -V|--valgrind)
+	PROFILE="valgrind"
+	shift
+	;;
+    --os)
+	shift;	OS="$1"
+	shift
+	;;
+    --proc)
+	shift;	PROC="$1"
+	shift
+	;;
+    -*)
+	echo "unknown option: $1"
+	exit 1
+	;;
+    *)
+	break
+	;;
+    esac
+done
+
+# store arguments
+args=($*)
+
+#extend metapath if necessary
+if [ $extern == "1" ]; then
+    externDirname=`dirname ${args[0]}`
+    externBasename=`basename ${args[0]}`
+    #echo "extending metapath='$metapath' by '$externDirname'"
+    metapath="$metapath $externDirname"
+    args[0]=$externBasename
+fi
+
+# ---------------------------------------------------------------------------
+# determine platform
+if [ -z $PROC ]; then
+  case $(uname -m) in
+    i386|i486|i586|i686)
+	PROC=intel
+	;;
+    alpha)
+	PROC=alpha
+	;;
+    IP22)
+	PROC=mips
+	;;
+    x86_64)
+	PROC=x86_64
+	;;
+  esac
+fi
+
+if [ -z $OS ]; then
+  case $(uname -s) in
+    Linux)
+	OS=linux
+	;;
+    IRIX)
+	OS=irix
+	;;
+  esac
+fi
+
+# construct binary file extension
+if [ $PROFILE ]; then
+    OBJEXT=${OS}-${PROC}-${COMPILE:-standard}-${PROFILE}
+else
+    OBJEXT=${OS}-${PROC}-${COMPILE:-standard}
+fi    
+
+# ---------------------------------------------------------------------------
+# search path
+home=$(dirname $0)
+home=${home%/scripts}
+path=". $path $home"
+
+for mp in $metapath; do
+    case $mp in
+	arch)
+	    if [ -d $home/arch/$OBJEXT ]; then
+		path="$path $home/arch/$OBJEXT"
+	    fi
+	    ;;
+	src)
+	    for d in $(find $home/src/Tools -maxdepth 1 -type d); do
+		path="$path $d"
+	    done
+	    ;;
+        *)
+            path="$path $mp"
+            ;;
+    esac
+done
+
+# ---------------------------------------------------------------------------
+# choose executable
+found=""
+case $mode in
+    print)
+	type="-f"
+	;;
+    *)
+	type="-x"
+	;;
+esac
+
+for d in $path; do
+    cmd="$d/${args[0]}"
+    #echo $cmd
+    if [ $type $cmd ]; then found="$cmd"; break; fi
+    cmd=$cmd.$OBJEXT
+    if [ $type $cmd ]; then found="$cmd"; break; fi
+done
+
+if [ -z $found ]; then
+    echo "Command ${args[0]} not found." >&2
+    exit 2;
+fi
+
+# ---------------------------------------------------------------------------
+# run or print it
+args[0]="$found"
+case ${mode:-run} in
+    run)
+	exec ${args[*]}
+	;;
+    print)
+	echo ${args[*]}
+	;;
+esac

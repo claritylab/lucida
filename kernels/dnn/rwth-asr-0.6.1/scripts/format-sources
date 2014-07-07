@@ -1,0 +1,38 @@
+#!/bin/sh
+
+files=$(find ${1:-.} -type f -and \( -name '*.hh' -or -name '*.cc' -or -name '*.py' \) )
+
+for f in $files ; do
+    # Favor tabulators over blanks.
+    unexpand $f >$f.unexpand
+    chmod --reference=$f $f.unexpand
+    if cmp --quiet $f $f.unexpand; then
+        rm $f.unexpand
+    else
+	mv $f $f~1~
+	mv $f.unexpand $f
+	echo "fixed tabulators in $f"
+    fi
+
+    # There should be no white-space at the end of a line.
+    sed 's/[ \x09\x0d]*$//;' $f >$f.rstrip
+    chmod --reference=$f $f.rstrip
+    if cmp --quiet $f $f.rstrip; then
+        rm $f.rstrip
+    else
+	mv $f $f~2~
+	mv $f.rstrip $f
+	echo "removed trailing white-space in $f"
+    fi
+
+    # There should not be any blank lines at the end or beginning of the file
+    sed -e :a -e '/./,$!d;/^\n*$/{$d;N;};/\n$/ba' $f > $f.blanklines
+    if cmp --quiet $f $f.blanklines; then
+        rm $f.blanklines
+    else
+	mv $f $f~3~
+	mv $f.blanklines $f
+	echo "removed empty lines at the beginning/end in $f"
+    fi
+    
+done
