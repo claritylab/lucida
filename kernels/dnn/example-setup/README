@@ -1,0 +1,28 @@
+example setup for a basic recognition using the CMU Census corpus
+
+contents:
+ * input
+    - corpus files (transcription files converted to BLISS format)
+    - lexicon (pronunciation dictionary converted to BLISS format)
+
+ * tools
+    - converter scripts
+
+ * training
+    - acoustic front end: MFCC features + derivatives
+    - acoustic model training of monophone models
+    - estimation of phonetic decision tree (CART)
+    - estimation of LDA
+    - acoustic model training of triphone models
+
+ * recognition
+    - decoding using monophone/triphone models 
+    - no usage of a language model (zerogram LM)
+
+You can redistribute the files and/or modify it under the terms of the
+RWTH ASR License
+<http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+
+(c) 2008, RWTH Aachen University, Germany
+rwthasr@i6.informatik.rwth-aachen.de
+

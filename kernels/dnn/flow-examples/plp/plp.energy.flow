@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+
+<!--
+  PLP (parameters optimized for 16 kHz sampling rate)
+-->
+
+<network>
+  <in name="samples"/>
+  <out name="out"/>
+  <out name="energies"/>
+
+  <param name="input-file"/>
+  <param name="input-audio-name"/>
+  <param name="id"/>
+  <param name="track"/>
+  <param name="start-time"/>
+  <param name="end-time"/>
+  <param name="speaker"/>
+
+
+<!--
+  Common part of Plp/Energy
+-->
+  <node name="window" 
+	filter="signal-window" 
+	type="hamming" 
+	shift=".01" 
+	length="0.02"/>
+  <link from="network:samples" to="window"/>
+
+
+  <node name="fast-fourier-transform" 
+	filter="signal-real-fast-fourier-transform"
+	maximum-input-size="0.02"/>
+  <link from="window" to="fast-fourier-transform"/>
+
+
+  <node name="amplitude-spectrum" 
+	filter="signal-vector-alternating-complex-f32-amplitude"/>
+  <link from="fast-fourier-transform" to="amplitude-spectrum"/>
+
+
+
+<!-- 
+  Plps
+-->
+  <node name="power-spectrum" 
+	filter="generic-vector-f32-power"
+	value="2"/>
+  <link from="amplitude-spectrum" to="power-spectrum"/>
+
+  <!-- 
+	8000 Hz -> 19.708905 Bark; #filters 20 -> spacing = 0.93853
+	4000 Hz -> 15.575071 Bark; #filters 15 -> spacing = 0.973442 
+  -->
+  <node name="filterbank" 
+	filter="signal-filterbank"
+	type="trapeze" 
+	filter-width="3.8" 
+	spacing="0.93853" 
+	boundary="include-boundary" 
+	warping-function="bark"/>
+  <link from="power-spectrum" to="filterbank"/>
+
+
+  <node name="split-filterbank" 
+	filter="generic-vector-f32-split"/>
+  <link from="filterbank" to="split-filterbank"/>
+
+
+  <node name="reverse-split-filterbank" 
+	filter="generic-vector-f32-split"
+	reverse="true"/>
+  <link from="filterbank" to="reverse-split-filterbank"/>
+
+
+  <node name="copy-first-last-filterbank" 
+	filter="generic-vector-f32-concat"/>
+  <link from="split-filterbank:0" to="copy-first-last-filterbank:first"/>
+  <link from="filterbank" to="copy-first-last-filterbank:middle"/>
+  <link from="reverse-split-filterbank:0" to="copy-first-last-filterbank:last"/>
+
+
+  <node name="equal-loudness-preemphasis" 
+	filter="signal-vector-f32-continuous-transform"
+	f="nest(nest(disc-to-cont, invert(bark)), equal-loudness-preemphasis)" 
+	operation="multiplies"/>
+  <link from="copy-first-last-filterbank" to="equal-loudness-preemphasis"/>
+
+
+  <node name="intensity-loudness-law" 
+	filter="generic-vector-f32-power"
+	value="0.33"/>
+  <link from="equal-loudness-preemphasis" to="intensity-loudness-law"/>
+
+
+  <node name="autocorrelation" 
+	filter="signal-cosine-transform"
+	nr-outputs="17" 
+	input-type="N-plus-one" 
+	normalize="true"/>
+  <link from="intensity-loudness-law" to="autocorrelation"/>
+
+
+  <node name="autoregression" 
+	filter="signal-autocorrelation-to-autoregression"/>
+  <link from="autocorrelation" to="autoregression"/>				
+
+
+  <node name="linear-prediction-cepstrum" 
+	filter="signal-autoregression-to-cepstrum"
+	nr-outputs="16"/>
+  <link from="autoregression" to="linear-prediction-cepstrum"/>
+
+
+  <node name="plp-normalization" 
+	filter="signal-normalization"
+	type="mean-and-variance"
+	length="infinite" 
+	right="infinite"/>
+  <link from="linear-prediction-cepstrum" to="plp-normalization"/>
+
+
+
+<!-- 
+  Energy
+-->
+  <node name="energy"
+	filter="generic-vector-f32-norm"
+	value="1"/>
+  <link from="amplitude-spectrum" to="energy"/>
+
+
+  <node name="convert-energy-to-vector"
+	filter="generic-convert-f32-to-vector-f32"/>
+  <link from="energy" to="convert-energy-to-vector"/>
+
+
+  <node name="energy-normalization" 
+	filter="signal-normalization"
+	type="divide-by-mean"
+	length="infinite" 
+	right="infinite"/>
+  <link from="convert-energy-to-vector" to="energy-normalization"/>
+
+
+  <node name="convert-energy-vector-to-scalar" 
+	filter="generic-convert-vector-f32-to-f32"/>
+  <link from="energy-normalization" to="convert-energy-vector-to-scalar"/>
+
+
+  <node name="energy-synchronization"
+	filter="generic-synchronization"/>
+  <link from="linear-prediction-cepstrum" to="energy-synchronization:target"/>
+  <link from="convert-energy-vector-to-scalar" to="energy-synchronization"/>
+
+
+
+<!--
+  Output
+-->
+  <link from="plp-normalization" to="network:out"/>
+  <link from="energy-synchronization" to="network:energies"/>
+
+</network>

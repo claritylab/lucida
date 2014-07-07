@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     mfcc/filterbank.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network>
+  <in name="amplitude-spectrum"/>
+  <out name="out"/>
+
+  <node name="filterbank" filter="signal-filterbank"
+	warping-function="mel" filter-width="268.258"/>
+  <link from="network:amplitude-spectrum" to="filterbank"/>
+  <link from="filterbank" to="network:out"/>
+</network>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     segment-clustering/samples.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network name="samples">
+  <out name="out"/>
+
+  <param name="input-file"/>
+  <param name="start-time"/>
+  <param name="end-time"/>
+  <param name="track"/>
+
+  <node name="audio" filter="audio-input-file-$(audio-format)"		
+	file="$(input-file)" start-time="$(start-time)" end-time="$(end-time)"/>
+
+  <node name="demultiplex" filter="generic-vector-s16-demultiplex" 
+	track="$(track)"/>
+  <link from="audio" to="demultiplex"/>
+
+  <node name="convert-sample" filter="generic-convert-vector-s16-to-vector-f32"/>
+  <link from="demultiplex" to="convert-sample"/>
+
+  <!--
+       min-dc-length:
+         Minimal length (in seconds) of DC block which will be discarded.
+	 Hint: Set this parameter to windowing-length - windowing-shift (for MFCC 0.025 - 0.010 = 0.0125).
+	       This will ensure that the last frame contains at least one none DC sample.
+	       When using different windowing settings, choose the minimum.
+	       If windowing-shift >= windowing-length, there is no way to garantie that frames will not
+	       contain only DC samples.
+       min-non-dc-segment-length:
+	 Shorter non-DC segments will be discarded.
+	 Hint: Set this parameter to windowing-length + epsilon to ensure that at least 2 feture vectors
+	       get generated for a non-DC segment (e.g.: for MFCC 0.025 -> 0.026).
+   -->
+  <node name="dc-detection" filter="signal-dc-detection"
+	min-dc-length=".0125" max-dc-increment="0.9" min-non-dc-segment-length=".026"/>
+  <link from="convert-sample" to="dc-detection"/> 
+
+  <link from="dc-detection" to="samples:out"/>
+</network>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     vtln/warped-mfcc.recognized-factors.postprocessing.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network>
+  <in name="samples"/>
+  <out name="out"/>
+
+  <!-- warping factor recognition -->
+  <node name="pre-filterbank" filter="../mfcc/pre-filterbank.flow"/>
+  <link from="network:samples" to="pre-filterbank:samples"/>
+
+  <node name="unwarped-filterbank" filter="../mfcc/filterbank.flow"/>
+  <link from="pre-filterbank:amplitude-spectrum" to="unwarped-filterbank:amplitude-spectrum"/>
+
+  <node name="unwarped-dynamic-post-filterbank"
+	filter="post-filterbank.concatenate-with-derivatives.linear-transform.flow"/>
+  <link from="unwarped-filterbank:out" to="unwarped-dynamic-post-filterbank:filterbank"/>
+
+  <node name="normalized-energy" filter="normalized-energy.flow"/>
+  <link from="pre-filterbank:amplitude-spectrum" to="normalized-energy:amplitude-spectrum"/>
+
+  <node name="synchronization" filter="generic-synchronization"/>
+  <link from="unwarped-dynamic-post-filterbank:out" to="synchronization:target"/>
+  <link from="normalized-energy:energies" to="synchronization"/>
+
+  <node name="warping-factor-recognizer" filter="signal-bayes-classification"/>
+  <link from="synchronization" to="warping-factor-recognizer:feature-score-weight"/>
+  <link from="synchronization:target" to="warping-factor-recognizer"/>
+
+  <!-- warping and post-filterbank -->
+  <node name="filterbank" filter="filterbank.flow"/>
+  <link from="warping-factor-recognizer" to="filterbank:warping-factor"/>
+  <link from="pre-filterbank:amplitude-spectrum" to="filterbank:amplitude-spectrum"/>
+
+  <node name="post-filterbank" filter="../mfcc/post-filterbank.postprocessing.flow"/>
+  <link from="filterbank:out" to="post-filterbank:filterbank"/>
+  <link from="post-filterbank:out" to="network:out"/>
+</network>

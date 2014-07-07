@@ -1,0 +1,85 @@
+#!/bin/bash
+# acoustic model training based on VTLN warped features
+
+AMT=./executables/acoustic-model-trainer.*
+CONFIG=config/triphone-lda-mixtures.config
+INITALIGN=data/am.lda-2.alignment.7.cache
+WARPED_FEATURES=data/base.mfcc-fast-vtln.cache
+NAME=am.lda-3
+NSPLIT=7
+NITER=3
+LDA_ITER=4
+if [ -z $1 ]; then
+    STARTSPLIT=0
+else
+    STARTSPLIT=$1
+fi
+
+function split()
+{
+    local prevmix=$1
+    local newmix=$2
+    local alignment=$3
+    $AMT --config=$CONFIG --LDA_ITER=$LDA_ITER \
+        --action=accumulate-mixture-set-text-dependent \
+        --*.mixture-set-trainer.split-first=true \
+        --*.mixture-set-trainer.old-mixture-set-file=$prevmix\
+        --*.mixture-set-trainer.mixture-set.file=$prevmix \
+        --*.mixture-set-trainer.new-mixture-set-file=$newmix \
+        --*.alignment-cache.path=$alignment \
+        --*.alignment-cache.read-only=true \
+        --*.feature-extraction.*.base-feature-extraction-cache.path=$WARPED_FEATURES
+}
+
+function accumulate()
+{
+    local prevmix=$1
+    local newmix=$2
+    local alignment=$3
+    $AMT --config=$CONFIG --LDA_ITER=$LDA_ITER \
+        --action=accumulate-mixture-set-text-dependent \
+        --*.mixture-set-trainer.split-first=false \
+        --*.mixture-set-trainer.old-mixture-set-file=$prevmix\
+        --*.mixture-set-trainer.mixture-set.file=$prevmix \
+        --*.mixture-set-trainer.new-mixture-set-file=$newmix \
+        --*.alignment-cache.path=$alignment \
+        --*.alignment-cache.read-only=true \
+        --*.feature-extraction.*.base-feature-extraction-cache.path=$WARPED_FEATURES
+}
+
+function align()
+{
+    local mix=$1
+    local alignment=$2
+    $AMT --config=$CONFIG --LDA_ITER=$LDA_ITER \
+        --action=dry \
+        --*.mixture-set.file=$mix \
+        --*.alignment-cache.path=$alignment \
+        --*.feature-extraction.*.base-feature-extraction-cache.path=$WARPED_FEATURES
+}
+
+set -e
+set -x
+
+INITMIX=data/${NAME}.init.mix
+accumulate "" $INITMIX $INITALIGN
+
+for ((s=$STARTSPLIT;s<=${NSPLIT};s++)); do
+    if [ $s -eq 0 ]; then
+        mix=$INITMIX
+    else
+        mix=data/${NAME}.$[${s}-1]-${NITER}.mix 
+    fi
+    alignment=data/${NAME}.alignment.${s}.cache
+    align $mix $alignment
+
+    newmix=data/${NAME}.${s}-0.mix 
+    split $mix $newmix $alignment
+
+    for ((i=1;i<=${NITER};i++)); do
+        prevmix=data/${NAME}.${s}-$[${i}-1].mix 
+        newmix=data/${NAME}.${s}-${i}.mix 
+        accumulate $prevmix $newmix $alignment
+    done
+done
+

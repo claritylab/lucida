@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     voicedness/voicedness-autocorrelation.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network name="voicedness-autocorrelation">
+  <in name="samples"/>
+  <out name="out"/>
+
+  <param name="window-length"/>
+
+  <node name="window" filter="signal-window" 
+	type="rectangular" shift=".010" length="$(window-length)"/>
+  <link from="voicedness-autocorrelation:samples" to="window"/>
+
+  <node name="padded-window" filter="signal-vector-f32-resize" 
+	new-size="$(window-length)"/>
+  <link from="window" to="padded-window"/>
+
+  <node name="mean-energy-normalization" filter="signal-vector-f32-mean-energy-normalization"/>
+  <link from="padded-window" to="mean-energy-normalization"/>
+
+  <node name="autocorrelation" filter="signal-cross-correlation"
+	begin="0" end="$(window-length)" normalization="unbiased-estimate" 
+	similarity-function="multiplication" use-fft="true"/>
+  <link from="mean-energy-normalization" to="autocorrelation:x"/>
+  <link from="mean-energy-normalization" to="autocorrelation:y"/>
+
+  <node name="peak-detection" filter="signal-peak-detection"
+	min-position=".0025" max-position=".0167"/>
+  <link from="autocorrelation" to="peak-detection"/>
+  <link from="peak-detection:maximal-peak-value" to="voicedness-autocorrelation:out"/>
+</network>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     shared/base.cache.flow $Rev: 2432 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network>
+  <out name="features"/>
+
+  <param name="id"/>
+
+  <param name="input-file"/>
+  <param name="start-time"/>
+  <param name="end-time"/>
+  <param name="track"/>
+
+  <param name="speaker"/>
+
+  <!-- here we read in the WAV files and convert data types -->
+  <node name="samples" filter="samples.flow"
+	input-file="$(input-file)" start-time="$(start-time)" end-time="$(end-time)" track="$(track)"/>
+
+  <!-- 
+       this is a configurable feature extraction node that takes 'samples' as input
+       and returns some features through the port 'out'
+  -->
+  <node name="base-feature-extraction" filter="$(file)"
+	ignore-unknown-parameters="true" id="$(id)"
+	start-time="$(start-time)" end-time="$(end-time)" speaker="$(speaker)"/>
+  <link from="samples:out" to="base-feature-extraction:samples"/>
+
+  <!-- store features in a cache for further processing (acoustic training, search, etc.) -->
+  <node name="base-feature-extraction-cache" filter="generic-cache" 
+	id="$(id)"/>
+  <link from="base-feature-extraction:out" to="base-feature-extraction-cache"/>
+
+  <!-- output port the feature-extraction tool needs to pull at -->
+  <link from="base-feature-extraction-cache" to="network:features"/>
+</network>

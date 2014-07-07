@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     shared/lda-window.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network>
+  <in name="in"/>
+  <out name="out"/>
+
+  <node name="lda-window" filter="signal-vector-f32-sequence-concatenation"
+	max-size="9" right="4" margin-condition="present-not-empty" expand-timestamp="false"/>
+  <link from="network:in" to="lda-window"/>
+  <link from="lda-window" to="network:out"/>
+</network>

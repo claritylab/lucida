@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+    MRASTA features
+
+    see 
+        src/Signal/Mrasta.cc
+    and
+        H. Hermansky and P. Fousek, "Multi-resolution RASTA filtering for
+        TANDEM-based ASR," in Interspeech, 2005, pp. 361–364.
+    for details
+-->
+
+<network>
+  <in name="samples" />
+  <out name="out1"/>
+  <out name="out2"/>
+
+  <param name="input-file"/>
+  <param name="input-audio-name"/>
+  <param name="id"/>
+  <param name="track"/>
+  <param name="start-time"/>
+  <param name="end-time"/>
+  <param name="speaker"/>
+
+  <param name="audio-format"/>
+
+<!-- MRASTA configuration -->
+  <param name="temporal-size"/>  <!-- # input frames (e.g. 101) -->
+  <param name="temporal-right"/> <!-- right context size (e.g. 50) -->
+  <param name="derivatives"/>    <!-- filter channel derivatives (0, 1 or 2) -->
+  <param name="gauss-filters"/>  <!-- number of Gaussian filters (e.g. 6) -->
+
+
+<!--
+    base feature extraction (CRBE)
+-->
+  <node name="preemphasis" filter="signal-preemphasis" alpha="1.00"/>
+  <link from="network:samples" to="preemphasis"/>
+
+  <node name="window" filter="signal-window" 
+        type="hamming" shift=".01" length="0.025"/>
+  <link from="preemphasis" to="window"/>
+
+  <node name="fast-fourier-transform" filter="signal-real-fast-fourier-transform"
+        maximum-input-size="0.025"/>
+  <link from="window" to="fast-fourier-transform"/>
+
+  <node name="amplitude-spectrum" filter="signal-vector-alternating-complex-f32-amplitude"/>
+  <link from="fast-fourier-transform" to="amplitude-spectrum"/>
+
+  <node name="filterbank" filter="signal-filterbank"
+        warping-function="mel" filter-width="268.258"/>
+  <link from="amplitude-spectrum" to="filterbank"/>
+
+  <node name="nonlinear" filter="generic-vector-f32-log"/>
+  <link from="filterbank" to="nonlinear"/>
+
+
+
+<!--
+    Temporal context (sliding window)
+-->
+  <node name="window-padding"
+        filter="signal-vector-f32-sequence-concatenation"
+        max-size="$(temporal-size)"
+        right="$(temporal-right)"
+        margin-condition="present-not-empty"
+	margin-policy="copy"
+        expand-timestamp="false"/>
+  <link from="nonlinear" to="window-padding"/>
+
+<!--
+    Gaussian filter
+-->
+  <node name="mrasta"
+  	filter="mrasta-filtering"
+	context-length="$(temporal-size)"
+	derivative="$(derivatives)"
+	gauss-filter="$(gauss-filters)"
+	/>
+  <link from="window-padding" to="mrasta"/>
+
+<!-- 
+     Segment-wise mean / variance normalization
+-->
+  <node name="normalization" filter="signal-normalization"
+        length="infinite" right="infinite" type="mean-and-variance"/>
+  <link from="mrasta" to="normalization"/>
+
+<!-- 
+     Selecting high/low modulation frequencies
+-->
+  <node name="feature-selection-1"
+        filter="generic-vector-f32-select"
+        select="0-119,240-347" />
+  <link from="mrasta" to="feature-selection-1"/>
+
+  <node name="feature-selection-2"
+        filter="generic-vector-f32-select"
+        select="120-239,348-455" />
+  <link from="mrasta" to="feature-selection-2"/>
+
+<!--
+    Final Output
+-->
+  <link from="feature-selection-1" to="network:out1"/>
+  <link from="feature-selection-2" to="network:out2"/>
+</network>
