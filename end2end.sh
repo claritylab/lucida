@@ -12,7 +12,7 @@
 function print_usage {
     echo "End-to-end OpenSiri+Image pipeline"
     echo "  Usage $0 <wav> <image> <matching db>"
-    echo -n "  Example: $0 wav/images/building.wav vision/matching/buildings/query_small/1.JPG"
+    echo -n "  Example $0 wav/images/building.wav vision/matching/buildings/query_small/1.JPG"
     echo    " vision/matching/buildings/db_small"
 }
 
@@ -25,12 +25,12 @@ fi
 export INDRI_INDEX=`pwd`/wiki_indri_index
 
 # Image matching
-tstart=`date +%s%N`
+timgstart=`date +%s%N`
 ./vision/detect --match $2 --database $3 &
-
-det_pid=$!
+vision_pid=$!
 
 # Voice
+tstart=`date +%s%N`
 pocketsphinx_continuous \
     -lw   7.0   \
     -topn 16 \
@@ -45,16 +45,19 @@ pocketsphinx_continuous \
     -hmm models/voxforge_en_sphinx.cd_cont_5000 \
     -dict models/cmu07a.dic \
     -logfn /dev/null > res.out
+
 tend=`date +%s%N`
+ASR=$(awk "BEGIN {printf \"%.2f\",$(( $tend-$tstart ))/1000000000}")
 
 # wait for matching to finish
-wait $det_pid
+wait $vision_pid
 
+tend=`date +%s%N`
+IMG=$(awk "BEGIN {printf \"%.2f\",$(( $tend-$timgstart ))/1000000000}")
 front=$(awk "BEGIN {printf \"%.2f\",$(( $tend-$tstart ))/1000000000}")
 
 # clean ASR result
 sed -i -e "s/[0]\{1,\}\://" res.out 
-cat res.out
 TXT=$(head -n 1 res.out)
 
 # pocket_pid=$!
@@ -65,10 +68,12 @@ cd openephyra/scripts;
 tstart=`date +%s%N`
 ./OpenEphyra.sh $TXT | grep -v "\.\.\.\|Filter"
 tend=`date +%s%N`
-back=$(awk "BEGIN {printf \"%.2f\",$(( $tend-$tstart ))/1000000000}")
+QA=$(awk "BEGIN {printf \"%.2f\",$(( $tend-$tstart ))/1000000000}")
+# total=$(awk "BEGIN {printf \"%.2f\",$(( $front+$back ))}")
 
 # Results
-echo "Time:"
-echo "  max(ASR, Matching): $front s"
-echo "  Question-Answering: $back s"
-rm -rf res.out
+echo ""
+echo "ASR, Vision, QA"
+echo "$ASR, $IMG, $QA"
+
+cd - >/dev/null; rm -rf res.out;
