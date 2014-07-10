@@ -35,34 +35,6 @@ int numExps, numQs, iterations;
   if (!(expr)) FAIL(#expr, __LINE__);   \
 } while (0)
 
-/* Regex must have exactly one bracket pair */
-static char *slre_replace(const char *regex, const char *buf,const char *sub)
-{
-  char *s = NULL;
-  int n, n1, n2, n3, s_len, len = strlen(buf);
-  struct slre_cap cap = { NULL, 0 };
-
-  do {
-    s_len = s == NULL ? 0 : strlen(s);
-    if ((n = slre_match(regex, buf, len, &cap, 1)) > 0) {
-      n1 = cap.ptr - buf, n2 = strlen(sub),
-         n3 = &buf[n] - &cap.ptr[cap.len];
-    } else {
-      n1 = len, n2 = 0, n3 = 0;
-    }
-    s = (char *) realloc(s, s_len + n1 + n2 + n3 + 1);
-    memcpy(s + s_len, buf, n1);
-    memcpy(s + s_len + n1, sub, n2);
-    memcpy(s + s_len + n1 + n2, cap.ptr + cap.len, n3);
-    s[s_len + n1 + n2 + n3] = '\0';
-
-    buf += n > 0 ? n : len;
-    len -= n > 0 ? n : len;
-  } while (len > 0);
-
-  return s;
-}
-
 int fill(FILE * f, char **toFill, int *bufLen)
 {
     int i = 0;
