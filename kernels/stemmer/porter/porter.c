@@ -24,20 +24,16 @@
 
    The algorithm as encoded here is particularly fast.
 
-   Release 2 (the more old-fashioned, non-thread-safe version may be
-   regarded as release 1.)
+   Release 1: the basic non-thread safe version
+
+   Release 2: this thread-safe version
+
+   Release 3: 11 Apr 2013, fixes the bug noted by Matt Patenaude (see the
+       basic version for details)
+
+   Release 4: 25 Mar 2014, fixes the bug noted by Klemens Baum (see the
+       basic version for details)
 */
-
-#include <stdio.h>
-#include <stdlib.h>      /* for malloc, free */
-#include <ctype.h>       /* for isupper, islower, tolower */
-
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include <time.h>
-
 
 #include <stdlib.h>  /* for malloc, free */
 #include <string.h>  /* for memcmp, memmove */
@@ -344,7 +340,7 @@ static void step4(struct stemmer * z)
                 if (ends(z, "\05" "ement")) break;
                 if (ends(z, "\04" "ment")) break;
                 if (ends(z, "\03" "ent")) break; return;
-      case 'o': if (ends(z, "\03" "ion") && (z->b[z->j] == 's' || z->b[z->j] == 't')) break;
+      case 'o': if (ends(z, "\03" "ion") && z->j >= 0 && (z->b[z->j] == 's' || z->b[z->j] == 't')) break;
                 if (ends(z, "\02" "ou")) break; return;
                 /* takes care of -ous */
       case 's': if (ends(z, "\03" "ism")) break; return;
@@ -389,122 +385,28 @@ extern int stem(struct stemmer * z, char * b, int k)
       published algorithm. Remove the line to match the published
       algorithm. */
 
-   step1ab(z); step1c(z); step2(z); step3(z); step4(z); step5(z);
+   step1ab(z);
+   if (z->k > 0) {
+      step1c(z); step2(z); step3(z); step4(z); step5(z);
+   }
    return z->k;
 }
-
-extern int stem2(struct stemmer * z)
-{
-     if (z->k <= 1) return z->k;
-//   if (k <= 1) return k; /*-DEPARTURE-*/
-//   z->b = b; z->k = k; /* copy the parameters into z */
-
-//    printf("z->b = %s\n", z->b);
- //   printf("z->k = %d\n", z->k);
-
-   /* With this line, strings of length 1 or 2 don't go through the
-      stemming process, although no mention is made of this in the
-      published algorithm. Remove the line to match the published
-      algorithm. */
-
-   step1ab(z); step1c(z); step2(z); step3(z); step4(z); step5(z);
-   return z->k;
-}
-
 
 /*--------------------stemmer definition ends here------------------------*/
 
+#include <stdio.h>
+#include <stdlib.h>      /* for malloc, free */
+#include <ctype.h>       /* for isupper, islower, tolower */
 
-// For the CUDA runtime routines (prefixed with "cuda_")
-//#include <cuda_runtime.h>
+static char * s;         /* buffer for words tobe stemmed */
 
-#include <limits.h>
-#include <float.h>
-#include <math.h>
-#include <sys/time.h>
-
-//static char * s;         /* buffer for words tobe stemmed */
-//static char **word_list;
-static struct stemmer **stem_list;
-
-//#define _POSIX_C_SOURCE >= 199309L
-
-#define ARRAYSIZE   4100000 
-static int a_max = ARRAYSIZE;
-
-#define A_INC     10000
-
-#define NTHREADS      8
-#define ITERATIONS   ARRAYSIZE / NTHREADS
-
-int iterations;
-
-#define INC 32           /* size units in which s is increased */
+#define INC 50           /* size units in which s is increased */
 static int i_max = INC;  /* maximum offset in s */
 
 #define LETTER(ch) (isupper(ch) || islower(ch))
 
-int load_data(struct stemmer ** stem_list, FILE *f)
-{
-   int a_size = 0;
-   while(TRUE)
-   {  int ch = getc(f);
-      if (ch == EOF) return a_size;
-      char *s = (char *) malloc(i_max + 1);
-      if (LETTER(ch))
-      {  int i = 0;
-         while(TRUE)
-         {  if (i == i_max)
-            {  i_max += INC;
-               s = (char *) realloc(s, i_max + 1);
-            }
-            ch = tolower(ch); /* forces lower case */
-
-            s[i] = ch; i++;
-            ch = getc(f);
-            if (!LETTER(ch)) { ungetc(ch,f); break; }
-         }
-         struct stemmer * z = create_stemmer();
-         z->b = s; 
-         z->k = i - 1;
-         stem_list[a_size] = z;
-         //word_list[a_size] = s;         
-         //s[stem(z, s, i - 1) + 1] = 0;
-         if (a_size == a_max) {
-            a_max += A_INC;
-            stem_list = (struct stemmer **) realloc(stem_list, a_max);
-         }
-         a_size += 1;
-      }
-   }
-   return a_size;
-}
-
-void * stem_thread(void *tid)
-{
-	int i, start, *mytid, end;
-
-	mytid = (int *) tid;
-	start = (*mytid * iterations);
-	end = start + iterations;
-	//printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
-
-	for (i=start; i < end ; i++) {
-            stem2(stem_list[i]);
-        }
-
-     pthread_exit(NULL);
-}
-
 void stemfile(struct stemmer * z, FILE * f)
-{  
-
-/*   int array_size = load_data(word_list, f);
-
-   printf("Array_size = %d\n", array_size);*/
-
-/*   int a_size = 0;
-   while(TRUE)
+{  while(TRUE)
    {  int ch = getc(f);
       if (ch == EOF) return;
       if (LETTER(ch))
@@ -514,170 +416,35 @@ void stemfile(struct stemmer * z, FILE * f)
             {  i_max += INC;
                s = realloc(s, i_max + 1);
             }
-            ch = tolower(ch); // forces lower case 
+            ch = tolower(ch); /* forces lower case */
 
             s[i] = ch; i++;
             ch = getc(f);
             if (!LETTER(ch)) { ungetc(ch,f); break; }
          }
-         word_list[a_size] = s;
-         //s[stem(z, s, i - 1) + 1] = 0;
-         // the previous line calls the stemmer and uses its result to
-         //   zero-terminate the string in s 
-      //   printf("%s",s);
-         if (a_size == a_max) {
-            word_list = realloc(word_list, 320);
-         }
-         a_size += 1;
+         s[stem(z, s, i - 1) + 1] = 0;
+         /* the previous line calls the stemmer and uses its result to
+            zero-terminate the string in s */
+         /* printf("%s",s); */
       }
-      //else putchar(ch);
-   }*/
-   
+      /* else putchar(ch); */
+   }
 }
-
-
-/*float calculateMiliseconds(timeval t1,timeval t2) {
-	float elapsedTime;
-	elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-	elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-	return elapsedTime;
-}
-
-float calculateMicroseconds(timeval t1,timeval t2) {
-	float elapsedTime;
-	elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000000.0;
-	elapsedTime += (t2.tv_usec - t1.tv_usec);
-	return elapsedTime;
-}*/
-
-
-float calculateMilisecondsTimeSpec(struct timespec t1, struct timespec t2) {
-	float elapsedTime;
-	elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-	elapsedTime += (t2.tv_nsec - t1.tv_nsec) / 1000000.0;
-	return elapsedTime;
-}
-
-//tpe.tv_nsec-tps.tv_nsec
-//clock_gettime(CLOCK_REALTIME, &tps)
-
-// convert the timespec into milliseconds (may overflow)
-/*int timespec_milliseconds(struct timespec *a) 
-{
-        return a->tv_sec*1000 + a->tv_nsec/1000000;
-}*/
-
 
 int main(int argc, char * argv[])
-{  
+{  int i;
 
-//    timeval t1,t2;
+   struct stemmer * z = create_stemmer();
 
-    struct timespec t_start, t_end;
-
-   FILE * f = fopen(argv[1],"r");
-   if (f == 0) { fprintf(stderr,"File %s not found\n",argv[1]); exit(1); }
-
-   // INIT OF SEQ PART
-   // allocate data
-   stem_list = (struct stemmer **) malloc(ARRAYSIZE * sizeof(struct stemmer *));
-   int array_size = load_data(stem_list, f);
-
-   fclose(f); 
-
-   printf("array_size: %d\n", array_size);
-
-//    gettimeofday(&t1, NULL);
-
-     clock_gettime(CLOCK_REALTIME, &t_start);
-
-//    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &t_start);
-
-   for (int i = 0; i < array_size; i++) {
-//       char *new_s = (char *) malloc(i_max + 1);
-        stem2(stem_list[i]);
-/*         new_s[stem2(stem_list[i]) + 1] = 0;
-         printf("%s", new_s);
-         free(new_s);*/
-      //   printf("stem word = %s\n", stem_list[i]->b);
+   s = (char *) malloc(i_max + 1);
+   for (i = 1; i < argc; i++)
+   {  FILE * f = fopen(argv[i],"r");
+      if (f == 0) { fprintf(stderr,"File %s not found\n",argv[i]); exit(1); }
+      stemfile(z, f);
    }
-//   gettimeofday(&t2, NULL);
+   free(s);
 
-//   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &t_end);
-     clock_gettime(CLOCK_REALTIME, &t_end);
-
-  // timespec diff(start,end);
-   //cout<<diff.tv_sec<<":"<<diff(start,end).tv_nsec<<endl<<endl;
-
-//   int cpu_elapsedTime = calculateMicroseconds(t1,t2);
-//   long cpu_elapsedTime = t_end.tv_nsec - t_start.tv_nsec;
-   float cpu_elapsedTime = calculateMilisecondsTimeSpec(t_start, t_end);
-   printf("\nCPU Time=%.2f ms\n",  cpu_elapsedTime);
-
-    // free up allocated data
-    for (int i = 0; i < array_size; i++) {
-           free(stem_list[i]->b);
-           free(stem_list[i]);
-    }
-
-
-   // allocate data
-   f = fopen(argv[1],"r");
-   if (f == 0) { fprintf(stderr,"File %s not found\n",argv[1]); exit(1); }
-   stem_list =  (struct stemmer **) malloc(ARRAYSIZE * sizeof(struct stemmer *));
-   array_size = load_data(stem_list, f);
-   fclose(f);
-
-   //// END OF SEQUENTIAL PART
-
-
-   //// INIT OF PARALLEL PART
-
-//    stem_thread(z, f);
-
-    int i, start, tids[NTHREADS];
-    pthread_t threads[NTHREADS];
-    pthread_attr_t attr;
-
-   printf("array_size: %d\n", array_size);
-   iterations =  array_size / NTHREADS;
-   printf("iterations %d\n", iterations);
-
-
-//    gettimeofday(&t1, NULL);
-    clock_gettime(CLOCK_REALTIME, &t_start);
-
-    pthread_attr_init(&attr);
-    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
-    for (i=0; i<NTHREADS; i++) {
-      tids[i] = i;
-      pthread_create(&threads[i], &attr, stem_thread, (void *) &tids[i]);
-    }
-
-//	  printf ("Waiting for threads to finish.");
-    for (i=0; i<NTHREADS; i++) {
-      pthread_join(threads[i], NULL);
-    }
-	//  printf("Done.");
-
-//     gettimeofday(&t2, NULL);
-     clock_gettime(CLOCK_REALTIME, &t_end);
-
-//     int par_elapsedTime = calculateMicroseconds(t1,t2);
-//     long par_elapsedTime = t_end.tv_nsec - t_start.tv_nsec;
-     float par_elapsedTime = calculateMilisecondsTimeSpec(t_start, t_end);
-     printf("\nCPU Par Time=%.2f ms\n",  par_elapsedTime);
-
-    // free up allocated data
-    for (int i = 0; i < array_size; i++) {
-           free(stem_list[i]->b);
-           free(stem_list[i]);
-    }
-
-   //// END OF PARALLEL PART
-
-	printf("\nCPU Par speedup over CPU = %4.3f\n",  cpu_elapsedTime/par_elapsedTime);
-
+   free_stemmer(z);
 
    return 0;
 }

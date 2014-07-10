@@ -160,7 +160,7 @@ int main(int argc, char * argv[])
 			i++;
     	    ch = getc(f);
 			if ( ch == '\n')
-		    { 		
+		    {
 				 s[i] = 0; 
 				 //ungetc(ch,f); 
 				 regex_text[count] = s;
@@ -168,8 +168,8 @@ int main(int argc, char * argv[])
 				 count++; 
 
 				 break; 
-		    } 	   
-        }  
+		    }
+        }
 	}
 
 	count1 = 0;
