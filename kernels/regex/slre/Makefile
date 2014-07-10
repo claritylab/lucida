@@ -1,13 +1,12 @@
-CXX = gcc -std=c99 -g
+CXX = g++
 CXX_FLAGS =
-LINK_FLAGS =
-CXX_FLAGS +=
+LINK_FLAGS = -lpthread
 # LINK_FLAGS +=
 # EXTRA_FLAGS = -Wno-missing-field-initializers -Wno-missing-braces -Wno-format
 
 # File names
 EXEC = regex
-SOURCES = $(wildcard *.c)
+SOURCES = $(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Main target
