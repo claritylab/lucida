@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <tesseract/baseapi.h>
 #include <tesseract/strngs.h>
-#include <time.h>
+#include <sys/time.h>
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -26,7 +26,6 @@
 #include "boost/program_options.hpp" 
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
-#include "gpu_funcs.h"
 
 using namespace cv;
 using namespace std;
@@ -51,6 +50,29 @@ string get_name_from_path(const string& class_path)
     fs::path p = fs::system_complete(class_path);
 	string filename = p.filename().string();
 	return filename;
+}
+
+vector<KeyPoint> exec_feature_gpu(const Mat& img_in, const string detector_str)
+{
+	vector<KeyPoint> keypoints;
+	gpu::GpuMat img; img.upload(img_in); // Only 8B grayscale
+
+	if(detector_str == "FAST"){
+		int threshold = 20;
+		gpu::FAST_GPU detector(threshold);
+		detector(img, gpu::GpuMat(), keypoints);
+	}else if(detector_str == "ORB"){
+		gpu::ORB_GPU detector;
+		detector(img, gpu::GpuMat(), keypoints);
+	}else if(detector_str == "SURF"){
+		gpu::SURF_GPU detector;
+		detector.nOctaves=2; //reduce number of octaves for small image sizes
+		detector(img, gpu::GpuMat(), keypoints);
+	}else{
+		cout << detector_str << "is not a valid GPU Detector" << endl;
+		assert(0);
+	}
+	return keypoints;
 }
 
 vector<KeyPoint> exec_feature(const Mat& img, FeatureDetector* detector)
@@ -95,6 +117,30 @@ void exec_text(po::variables_map& vm)
 
     // Clean up
     tess->End();
+}
+
+Mat exec_desc_gpu(const Mat& img_in, const string extractor_str, 
+		vector<KeyPoint> keypoints)
+{
+	gpu::GpuMat img; img.upload(img_in); // Only 8B grayscale
+	gpu::GpuMat descriptorsGPU;
+	Mat descriptors;
+
+	if(extractor_str == "ORB"){
+		gpu::ORB_GPU extractor;
+		extractor(img, gpu::GpuMat(), keypoints, descriptorsGPU);
+	}else if(extractor_str == "SURF"){
+		gpu::SURF_GPU extractor;
+		extractor.nOctaves=2; //reduce number of octaves for small image sizes
+		extractor(img, gpu::GpuMat(), keypoints, descriptorsGPU, true);
+	}else{
+		cout << extractor_str << "is not a valid GPU Extractor" << endl;
+		assert(0);
+	}
+
+	descriptorsGPU.download(descriptors);
+
+	return descriptors;
 }
 
 Mat exec_desc(const Mat& img, DescriptorExtractor* extractor, vector<KeyPoint> keypoints)

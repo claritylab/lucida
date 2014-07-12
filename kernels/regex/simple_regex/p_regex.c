@@ -24,10 +24,8 @@ static int compile_regex (regex_t * r, const char * regex_text)
 {
 	
     int status = regcomp (r, regex_text, REG_EXTENDED|REG_NEWLINE);
-//	printf("777777777\n");
     if (status != 0) 
 	{
-//		printf("888888888\n");	
         char error_message[MAX_ERROR_MSG];
         regerror (status, r, error_message, MAX_ERROR_MSG);
         printf ("Regex error compiling '%s': %s\n",
@@ -73,16 +71,16 @@ static int match_regex (regex_t * r, const char * to_match)
             finish = m[i].rm_eo + (p - to_match);
             if (i == 0) 
 			{
-                printf ("$& match in '%s'", to_match);
+                /* printf ("$& match in '%s'", to_match);\ */
             }
             else 
 			{
-                printf ("$%d match case is ", i);
+                /* printf ("$%d match case is ", i);\ */
             }
 		//	printf ("Trying to find in '%s'", to_match);
 			//printf("\n");
-            printf ("'%.*s' (bytes %d:%d)\n", (finish - start),
-                    to_match + start, start, finish);
+            /* printf ("'%.*s' (bytes %d:%d)\n", (finish - start),\ */
+            /*         to_match + start, start, finish);\ */
         }
         p += m[0].rm_eo;
     }
@@ -106,7 +104,8 @@ void * regex_thread(void *tid)
 	start = (*mytid * iterations);
 	end = start + iterations;
 
-	printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
+	/* printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1); */
+    /* printf("%d %d\n", count, count1); */
 
 	for (int i = start ; i< end;i++)
 	{ 
@@ -131,7 +130,10 @@ void * regex_thread(void *tid)
 int main(int argc, char * argv[])
 {
     
-	struct timespec t_start, t_end;
+	struct timeval tv1, tv2;
+    unsigned int totalruntimeseq = 0;
+    unsigned int totalruntimepar = 0;
+	/* struct timespec t_start, t_end; */
 	int ch,ch1;
 
 	  FILE * f = fopen(argv[1],"r");
@@ -202,7 +204,7 @@ int main(int argc, char * argv[])
 	}
 
 
-clock_gettime(CLOCK_REALTIME, &t_start);
+    gettimeofday(&tv1,NULL);
 
 	int start, tids[NTHREADS];
 	pthread_t threads[NTHREADS];
@@ -248,10 +250,14 @@ clock_gettime(CLOCK_REALTIME, &t_start);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 
-	clock_gettime(CLOCK_REALTIME, &t_end);
+    gettimeofday(&tv2,NULL);
 
-	float cpu_elapsedTime = calculateMilisecondsTimeSpec(t_start, t_end);
-    printf("\nCPU Time=%.2f ms\n",  cpu_elapsedTime);
+    totalruntimepar = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+    printf("Seq time: %.2f ms\n", (double)totalruntimeseq);
+    printf("Par time: %.2f ms\n", (double)totalruntimepar);
+    printf("Speedup: %.2f \n", (double)totalruntimeseq/(double)totalruntimepar);
+	/* float cpu_elapsedTime = calculateMilisecondsTimeSpec(t_start, t_end); */
+    /* printf("\nCPU Time=%.2f ms\n",  cpu_elapsedTime);\ */
    // regfree (& r);
 	//fclose(f);
 	//fclose(f1);
