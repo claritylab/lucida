@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <tesseract/baseapi.h>
 #include <tesseract/strngs.h>
+#include <time.h>
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -25,12 +26,15 @@
 #include "boost/program_options.hpp" 
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
+#include "gpu_funcs.h"
 
 using namespace cv;
 using namespace std;
 
 namespace po = boost::program_options;
 namespace fs = boost::filesystem;
+
+struct timeval tv1, tv2;
 
 vector<string> split_string(const string& s, vector<string>& elems)
 {
@@ -64,7 +68,6 @@ void exec_text(po::variables_map& vm)
     tesseract::TessBaseAPI *tess = new tesseract::TessBaseAPI();
     tess->Init(NULL, "eng", tesseract::OEM_DEFAULT);
     tess->SetPageSegMode(tesseract::PSM_SINGLE_BLOCK);
-    char* outTxt = tess->GetUTF8Text();
 
     fs::path p = fs::system_complete(vm["text"].as<string>());
     if(fs::is_directory(p))
@@ -77,7 +80,7 @@ void exec_text(po::variables_map& vm)
                                 img.size().height, img.channels(), img.step1());
             // tess->SetRectangle();
             char* outTxt = tess->GetUTF8Text();
-            cout << "OCR Res: " << outTxt << endl;
+            // cout << "OCR Res: " << outTxt << endl;
         }
     }
     else
@@ -87,7 +90,7 @@ void exec_text(po::variables_map& vm)
                                 img.size().height, img.channels(), img.step1());
         // tess->SetRectangle();
         char* outTxt = tess->GetUTF8Text();
-        cout << "OCR Res: " << outTxt << endl;
+        // cout << "OCR Res: " << outTxt << endl;
     }
 
     // Clean up
@@ -110,6 +113,7 @@ void exec_match(po::variables_map& vm)
     assert(vm.count("database"));
 
     int knn = 1;
+    int gpu = 1;
 
     // data
     Mat testImg;
@@ -118,6 +122,8 @@ void exec_match(po::variables_map& vm)
     vector<Mat> trainDesc;
     vector< vector<DMatch> > knnMatches;
     vector<int> bestMatches;
+    unsigned int runtimefeat = 0;
+    unsigned int runtimedesc = 0;
 
     // classes
     FeatureDetector *detector = new SurfFeatureDetector();
@@ -137,10 +143,25 @@ void exec_match(po::variables_map& vm)
     for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr){
         string img_name(dir_itr->path().string());
         Mat img = imread(img_name, CV_LOAD_IMAGE_GRAYSCALE);
-        trainDesc.push_back(exec_desc(img, extractor, exec_feature(img, detector)));
+
+        // trainDesc.push_back(exec_desc(img, extractor, exec_feature(img, detector)));
+        gettimeofday(&tv1,NULL);
+        vector<KeyPoint> keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
+        gettimeofday(&tv2,NULL);
+        runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+
+        gettimeofday(&tv1,NULL);
+        Mat desc = (gpu) ? exec_desc_gpu(img, "SURF", keys) : exec_desc(img, extractor, keys);
+        gettimeofday(&tv2,NULL);
+        runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+
+        trainDesc.push_back(desc);
+
         trainImgs.push_back(img_name);
         int temp = 0;
         bestMatches.push_back(temp);
+        // Time
+        cout << "Feature: " << runtimefeat << " Descriptor: " << runtimedesc << endl;
     }
     
     // Match
