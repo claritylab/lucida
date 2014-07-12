@@ -159,7 +159,7 @@ void exec_match(po::variables_map& vm)
     assert(vm.count("database"));
 
     int knn = 1;
-    int gpu = 1;
+    int gpu = 0;
 
     // data
     Mat testImg;
@@ -168,8 +168,9 @@ void exec_match(po::variables_map& vm)
     vector<Mat> trainDesc;
     vector< vector<DMatch> > knnMatches;
     vector<int> bestMatches;
-    unsigned int runtimefeat = 0;
-    unsigned int runtimedesc = 0;
+    unsigned int runtimefeat = 0, totalfeat = 0;
+    unsigned int runtimedesc = 0, totaldesc = 0;
+    int numimgs = 0;
 
     // classes
     FeatureDetector *detector = new SurfFeatureDetector();
@@ -198,6 +199,7 @@ void exec_match(po::variables_map& vm)
 
         gettimeofday(&tv1,NULL);
         Mat desc = (gpu) ? exec_desc_gpu(img, "SURF", keys) : exec_desc(img, extractor, keys);
+        // desc.convertTo(desc, CV_32F);
         gettimeofday(&tv2,NULL);
         runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
@@ -207,9 +209,13 @@ void exec_match(po::variables_map& vm)
         int temp = 0;
         bestMatches.push_back(temp);
         // Time
-        cout << "Feature: " << runtimefeat << " Descriptor: " << runtimedesc << endl;
+        cout << "Feature: " << (double)runtimefeat/1000000 << " Descriptor: " << (double)runtimedesc/1000000 << endl;
+        ++numimgs;
+        totalfeat += runtimefeat;
+        totaldesc += runtimedesc;
     }
-    
+    cout << "Time feat: " << (double)totalfeat/(numimgs*1000000) << " desc: " << (double)totaldesc/(numimgs*1000000) << endl;
+
     // Match
     matcher->add(trainDesc);
     matcher->train();
