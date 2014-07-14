@@ -34,6 +34,7 @@ namespace po = boost::program_options;
 namespace fs = boost::filesystem;
 
 struct timeval tv1, tv2;
+int debug = 0;
 
 vector<string> split_string(const string& s, vector<string>& elems)
 {
@@ -157,6 +158,8 @@ Mat exec_desc(const Mat& img, DescriptorExtractor* extractor, vector<KeyPoint> k
 void exec_match(po::variables_map& vm)
 {
     assert(vm.count("database"));
+    assert(vm.count("debug"));
+    debug = vm["debug"].as<int>();
 
     int knn = 1;
     int gpu = 0;
@@ -170,17 +173,33 @@ void exec_match(po::variables_map& vm)
     vector<int> bestMatches;
     unsigned int runtimefeat = 0, totalfeat = 0;
     unsigned int runtimedesc = 0, totaldesc = 0;
+    unsigned int runtimematch = 0;
+    unsigned int totaltime = 0;
+    struct timeval tot1, tot2;
     int numimgs = 0;
 
+    gettimeofday(&tot1,NULL);
     // classes
     FeatureDetector *detector = new SurfFeatureDetector();
     DescriptorExtractor *extractor = new SurfDescriptorExtractor();
-    DescriptorMatcher *matcher = new BFMatcher(NORM_L1, false);
-    // DescriptorMatcher *matcher = new FlannBasedMatcher();
+    // DescriptorMatcher *matcher = new BFMatcher(NORM_L1, false); //KNN
+    DescriptorMatcher *matcher = new FlannBasedMatcher(); //ANN
+
+    // Generate test keys
+    testImg = imread(vm["match"].as<string>(), CV_LOAD_IMAGE_GRAYSCALE);
+    gettimeofday(&tv1,NULL);
+    vector<KeyPoint> keys = exec_feature(testImg, detector);
+    gettimeofday(&tv2,NULL);
+    runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
     // Generate test desc
-    testImg = imread(vm["match"].as<string>(), CV_LOAD_IMAGE_GRAYSCALE);
-    testDesc = exec_desc(testImg, extractor, exec_feature(testImg, detector));
+    gettimeofday(&tv1,NULL);
+    testDesc = exec_desc(testImg, extractor,keys );
+    gettimeofday(&tv2,NULL);
+    runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+
+    totalfeat += runtimefeat;
+    totaldesc += runtimedesc;
 
     // Generate desc
     fs::path p = fs::system_complete(vm["database"].as<string>());
@@ -193,7 +212,7 @@ void exec_match(po::variables_map& vm)
 
         // trainDesc.push_back(exec_desc(img, extractor, exec_feature(img, detector)));
         gettimeofday(&tv1,NULL);
-        vector<KeyPoint> keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
+        keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
         gettimeofday(&tv2,NULL);
         runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
@@ -208,18 +227,24 @@ void exec_match(po::variables_map& vm)
         trainImgs.push_back(img_name);
         int temp = 0;
         bestMatches.push_back(temp);
-        // Time
-        cout << "Feature: " << (double)runtimefeat/1000000 << " Descriptor: " << (double)runtimedesc/1000000 << endl;
+        if(debug > 1)
+            cout << "Feature: " << (double)runtimefeat/1000000 << " Descriptor: " << (double)runtimedesc/1000000 << endl;
         ++numimgs;
         totalfeat += runtimefeat;
         totaldesc += runtimedesc;
     }
-    cout << "Time feat: " << (double)totalfeat/(numimgs*1000000) << " desc: " << (double)totaldesc/(numimgs*1000000) << endl;
+    // Time
+
+    if(debug > 1)
+        cout << "Time feat: " << (double)totalfeat/(numimgs*1000000) << " desc: " << (double)totaldesc/(numimgs*1000000) << endl;
 
     // Match
+    gettimeofday(&tv1,NULL);
     matcher->add(trainDesc);
     matcher->train();
     matcher->knnMatch(testDesc, knnMatches, knn);
+    gettimeofday(&tv2,NULL);
+    runtimematch = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
     // Filter results
     for(vector< vector<DMatch> >::const_iterator it = knnMatches.begin(); it != knnMatches.end(); ++it){
@@ -244,11 +269,17 @@ void exec_match(po::variables_map& vm)
     delete detector;
     delete extractor;
     delete matcher;
+    gettimeofday(&tot2,NULL);
+    totaltime = (tot2.tv_sec-tot1.tv_sec)*1000000 + (tot2.tv_usec-tot1.tv_usec);
+    if(debug > 0)
+        cout << "total: " << (double)totaltime << " feat %: " << (double)totalfeat/totaltime 
+            << " desc %: " << (double)totaldesc/totaltime
+            << " match %: " << (double)runtimematch/totaltime << endl;
 }
 
 void exec_hog(po::variables_map& vm)
 {
-    if(vm["verbose"].as<int>() > 0)
+    if(vm["debug"].as<int>() > 0)
         cout << "Exec HoG..." << endl;
 
     Mat img;
@@ -282,7 +313,7 @@ void exec_hog(po::variables_map& vm)
 #else
                 hog.detectMultiScale(img, found);
 #endif
-                if(vm["verbose"].as<int>() > 1)
+                if(vm["debug"].as<int>() > 1)
                     cout << "Processing " << img_name << "..." << endl;
             }
         }
@@ -296,11 +327,11 @@ void exec_hog(po::variables_map& vm)
 #else
         hog.detectMultiScale(img, found);
 #endif
-        if(vm["verbose"].as<int>() > 1)
+        if(vm["debug"].as<int>() > 1)
             cout << "Processed " << vm["image"].as<string>() << "..." << endl;
     }
 
-    if(vm["verbose"].as<int>() > 0)
+    if(vm["debug"].as<int>() > 0)
         cout << "Done HoG." << endl;
 }
 
@@ -319,7 +350,7 @@ po::variables_map parse_opts( int ac, char** av )
 
 		("gpu,u", po::value<bool>()->default_value(false), "Use GPU? Only for specific algorithms") 
 
-		("verbose,v", po::value<int>()->default_value(0), "Debug levels: 0: no info, 1: pipeline stages, 2: all") 
+		("debug,v", po::value<int>()->default_value(0), "Debug levels: 0: no info, 1: pipeline stages, 2: all") 
 		;
 
 	po::variables_map vm;
