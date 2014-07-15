@@ -35,6 +35,7 @@ AC_ALPHABET_t * sample_patterns[] = {
     "utter",
     "whatever",
 };
+
 #define PATTERN_COUNT (sizeof(sample_patterns)/sizeof(AC_ALPHABET_t *))
 
 AC_ALPHABET_t * input_text1 = {"experience the ease and simplicity of multifast"};

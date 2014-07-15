@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <tesseract/baseapi.h>
 #include <tesseract/strngs.h>
+#include <sys/time.h>
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -32,6 +33,9 @@ using namespace std;
 namespace po = boost::program_options;
 namespace fs = boost::filesystem;
 
+struct timeval tv1, tv2;
+int debug = 0;
+
 vector<string> split_string(const string& s, vector<string>& elems)
 {
 	stringstream ss(s);
@@ -49,6 +53,29 @@ string get_name_from_path(const string& class_path)
 	return filename;
 }
 
+vector<KeyPoint> exec_feature_gpu(const Mat& img_in, const string detector_str)
+{
+	vector<KeyPoint> keypoints;
+	gpu::GpuMat img; img.upload(img_in); // Only 8B grayscale
+
+	if(detector_str == "FAST"){
+		int threshold = 20;
+		gpu::FAST_GPU detector(threshold);
+		detector(img, gpu::GpuMat(), keypoints);
+	}else if(detector_str == "ORB"){
+		gpu::ORB_GPU detector;
+		detector(img, gpu::GpuMat(), keypoints);
+	}else if(detector_str == "SURF"){
+		gpu::SURF_GPU detector;
+		detector.nOctaves=2; //reduce number of octaves for small image sizes
+		detector(img, gpu::GpuMat(), keypoints);
+	}else{
+		cout << detector_str << "is not a valid GPU Detector" << endl;
+		assert(0);
+	}
+	return keypoints;
+}
+
 vector<KeyPoint> exec_feature(const Mat& img, FeatureDetector* detector)
 {
 	vector<KeyPoint> keypoints;
@@ -64,7 +91,6 @@ void exec_text(po::variables_map& vm)
     tesseract::TessBaseAPI *tess = new tesseract::TessBaseAPI();
     tess->Init(NULL, "eng", tesseract::OEM_DEFAULT);
     tess->SetPageSegMode(tesseract::PSM_SINGLE_BLOCK);
-    char* outTxt = tess->GetUTF8Text();
 
     fs::path p = fs::system_complete(vm["text"].as<string>());
     if(fs::is_directory(p))
@@ -77,7 +103,7 @@ void exec_text(po::variables_map& vm)
                                 img.size().height, img.channels(), img.step1());
             // tess->SetRectangle();
             char* outTxt = tess->GetUTF8Text();
-            cout << "OCR Res: " << outTxt << endl;
+            // cout << "OCR Res: " << outTxt << endl;
         }
     }
     else
@@ -87,11 +113,35 @@ void exec_text(po::variables_map& vm)
                                 img.size().height, img.channels(), img.step1());
         // tess->SetRectangle();
         char* outTxt = tess->GetUTF8Text();
-        cout << "OCR Res: " << outTxt << endl;
+        // cout << "OCR Res: " << outTxt << endl;
     }
 
     // Clean up
     tess->End();
+}
+
+Mat exec_desc_gpu(const Mat& img_in, const string extractor_str, 
+		vector<KeyPoint> keypoints)
+{
+	gpu::GpuMat img; img.upload(img_in); // Only 8B grayscale
+	gpu::GpuMat descriptorsGPU;
+	Mat descriptors;
+
+	if(extractor_str == "ORB"){
+		gpu::ORB_GPU extractor;
+		extractor(img, gpu::GpuMat(), keypoints, descriptorsGPU);
+	}else if(extractor_str == "SURF"){
+		gpu::SURF_GPU extractor;
+		extractor.nOctaves=2; //reduce number of octaves for small image sizes
+		extractor(img, gpu::GpuMat(), keypoints, descriptorsGPU, true);
+	}else{
+		cout << extractor_str << "is not a valid GPU Extractor" << endl;
+		assert(0);
+	}
+
+	descriptorsGPU.download(descriptors);
+
+	return descriptors;
 }
 
 Mat exec_desc(const Mat& img, DescriptorExtractor* extractor, vector<KeyPoint> keypoints)
@@ -108,8 +158,11 @@ Mat exec_desc(const Mat& img, DescriptorExtractor* extractor, vector<KeyPoint> k
 void exec_match(po::variables_map& vm)
 {
     assert(vm.count("database"));
+    assert(vm.count("debug"));
+    debug = vm["debug"].as<int>();
 
     int knn = 1;
+    int gpu = 0;
 
     // data
     Mat testImg;
@@ -118,16 +171,35 @@ void exec_match(po::variables_map& vm)
     vector<Mat> trainDesc;
     vector< vector<DMatch> > knnMatches;
     vector<int> bestMatches;
+    unsigned int runtimefeat = 0, totalfeat = 0;
+    unsigned int runtimedesc = 0, totaldesc = 0;
+    unsigned int runtimematch = 0;
+    unsigned int totaltime = 0;
+    struct timeval tot1, tot2;
+    int numimgs = 0;
 
+    gettimeofday(&tot1,NULL);
     // classes
     FeatureDetector *detector = new SurfFeatureDetector();
     DescriptorExtractor *extractor = new SurfDescriptorExtractor();
-    DescriptorMatcher *matcher = new BFMatcher(NORM_L1, false);
-    // DescriptorMatcher *matcher = new FlannBasedMatcher();
+    // DescriptorMatcher *matcher = new BFMatcher(NORM_L1, false); //KNN
+    DescriptorMatcher *matcher = new FlannBasedMatcher(); //ANN
+
+    // Generate test keys
+    testImg = imread(vm["match"].as<string>(), CV_LOAD_IMAGE_GRAYSCALE);
+    gettimeofday(&tv1,NULL);
+    vector<KeyPoint> keys = exec_feature(testImg, detector);
+    gettimeofday(&tv2,NULL);
+    runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
     // Generate test desc
-    testImg = imread(vm["match"].as<string>(), CV_LOAD_IMAGE_GRAYSCALE);
-    testDesc = exec_desc(testImg, extractor, exec_feature(testImg, detector));
+    gettimeofday(&tv1,NULL);
+    testDesc = exec_desc(testImg, extractor,keys );
+    gettimeofday(&tv2,NULL);
+    runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+
+    totalfeat += runtimefeat;
+    totaldesc += runtimedesc;
 
     // Generate desc
     fs::path p = fs::system_complete(vm["database"].as<string>());
@@ -137,16 +209,42 @@ void exec_match(po::variables_map& vm)
     for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr){
         string img_name(dir_itr->path().string());
         Mat img = imread(img_name, CV_LOAD_IMAGE_GRAYSCALE);
-        trainDesc.push_back(exec_desc(img, extractor, exec_feature(img, detector)));
+
+        // trainDesc.push_back(exec_desc(img, extractor, exec_feature(img, detector)));
+        gettimeofday(&tv1,NULL);
+        keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
+        gettimeofday(&tv2,NULL);
+        runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+
+        gettimeofday(&tv1,NULL);
+        Mat desc = (gpu) ? exec_desc_gpu(img, "SURF", keys) : exec_desc(img, extractor, keys);
+        // desc.convertTo(desc, CV_32F);
+        gettimeofday(&tv2,NULL);
+        runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+
+        trainDesc.push_back(desc);
+
         trainImgs.push_back(img_name);
         int temp = 0;
         bestMatches.push_back(temp);
+        if(debug > 1)
+            cout << "Feature: " << (double)runtimefeat/1000000 << " Descriptor: " << (double)runtimedesc/1000000 << endl;
+        ++numimgs;
+        totalfeat += runtimefeat;
+        totaldesc += runtimedesc;
     }
-    
+    // Time
+
+    if(debug > 1)
+        cout << "Time feat: " << (double)totalfeat/(numimgs*1000000) << " desc: " << (double)totaldesc/(numimgs*1000000) << endl;
+
     // Match
+    gettimeofday(&tv1,NULL);
     matcher->add(trainDesc);
     matcher->train();
     matcher->knnMatch(testDesc, knnMatches, knn);
+    gettimeofday(&tv2,NULL);
+    runtimematch = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
     // Filter results
     for(vector< vector<DMatch> >::const_iterator it = knnMatches.begin(); it != knnMatches.end(); ++it){
@@ -171,11 +269,17 @@ void exec_match(po::variables_map& vm)
     delete detector;
     delete extractor;
     delete matcher;
+    gettimeofday(&tot2,NULL);
+    totaltime = (tot2.tv_sec-tot1.tv_sec)*1000000 + (tot2.tv_usec-tot1.tv_usec);
+    if(debug > 0)
+        cout << "total: " << (double)totaltime << " feat %: " << (double)totalfeat/totaltime 
+            << " desc %: " << (double)totaldesc/totaltime
+            << " match %: " << (double)runtimematch/totaltime << endl;
 }
 
 void exec_hog(po::variables_map& vm)
 {
-    if(vm["verbose"].as<int>() > 0)
+    if(vm["debug"].as<int>() > 0)
         cout << "Exec HoG..." << endl;
 
     Mat img;
@@ -209,7 +313,7 @@ void exec_hog(po::variables_map& vm)
 #else
                 hog.detectMultiScale(img, found);
 #endif
-                if(vm["verbose"].as<int>() > 1)
+                if(vm["debug"].as<int>() > 1)
                     cout << "Processing " << img_name << "..." << endl;
             }
         }
@@ -223,11 +327,11 @@ void exec_hog(po::variables_map& vm)
 #else
         hog.detectMultiScale(img, found);
 #endif
-        if(vm["verbose"].as<int>() > 1)
+        if(vm["debug"].as<int>() > 1)
             cout << "Processed " << vm["image"].as<string>() << "..." << endl;
     }
 
-    if(vm["verbose"].as<int>() > 0)
+    if(vm["debug"].as<int>() > 0)
         cout << "Done HoG." << endl;
 }
 
@@ -246,7 +350,7 @@ po::variables_map parse_opts( int ac, char** av )
 
 		("gpu,u", po::value<bool>()->default_value(false), "Use GPU? Only for specific algorithms") 
 
-		("verbose,v", po::value<int>()->default_value(0), "Debug levels: 0: no info, 1: pipeline stages, 2: all") 
+		("debug,v", po::value<int>()->default_value(0), "Debug levels: 0: no info, 1: pipeline stages, 2: all") 
 		;
 
 	po::variables_map vm;
