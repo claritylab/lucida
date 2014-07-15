@@ -1,0 +1,26 @@
+;;
+;;  File: example.glm
+;;  Desc: This file contains example transcript filtering rules.
+;;
+;;  Date: 041008
+;;
+* name "example.glm"
+* desc "Example GLM file"
+* format = 'NIST1'
+* max_nrules = '100'
+* copy_no_hit = 'T'
+* case_sensitive = 'F'
+;; File spellalt6.rls Version 6.0 dated 11/21/97
+;;
+'CAUSE          => BECAUSE ;; per AHD
+MR		=> MISTER		/ [ ] __ [ ] 
+MR.             => MISTER		/ [ ] __ [ ] 
+ADVISER         => ADVISOR		/ [ ] __ [ ]
+AFTERALL        => AFTER ALL ;; per AHD
+;;
+UH		=> %HESITATION		/ [ ] __ [ ]
+UM		=>  %HESITATION		/ [ ] __ [ ]
+[[SILENCE]]     => @			/ [ ] __ [ ]
+;;
+[I'D]		=> [{I HAD / I WOULD}]	/ [ ] __ [ ]
+[IT'S]		=> [{IT'S / IT IS / IT HAS}] / [ ] __ [ ]

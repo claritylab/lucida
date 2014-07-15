@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+
+<!--
+  Gammatone with VTLN warping
+  The only difference to gt.warped-by-speaker-with-factor-from-map.energy.flow
+  is the warping factor lookup (see attribute "key" in "warping-factor")
+-->
+
+<network>
+  <in name="samples"/>
+  <out name="out"/>
+  <out name="energies"/>
+
+  <param name="input-file"/>
+  <param name="input-audio-name"/>
+  <param name="id"/>
+  <param name="track"/>
+  <param name="start-time"/>
+  <param name="end-time"/>
+  <param name="speaker"/>
+  <param name="map-file"/>
+  <param name="default-output"/>
+
+
+<!-- 
+  Warping factor
+-->
+  <node name="warping-factor" 
+	filter="generic-coprus-key-map"
+        key="$(id)"
+	map-file="$(map-file)" 
+	default-output="$(default-output)"
+        start-time="$(start-time)" 
+	end-time="$(end-time)"/>
+
+
+  
+<!-- 
+  Warped Gammatone
+-->
+  <node name="gammatone" 
+	filter="signal-gammatone"  
+	minfreq="100"  
+	maxfreq="7500"  
+	channels="68" 
+	warping-factor="$input(warping-factor)"/>
+  <link from="network:samples"  to="gammatone" />
+  <link from="warping-factor" to="gammatone:warping-factor"/>
+
+
+  <node name="temporalintegration"  
+	filter="signal-temporalintegration"  
+	type="hanning" 
+	shift=".01" 
+	length="0.025" 
+	flush-before-gap="true"/>
+  <link from="gammatone" to="temporalintegration"/>
+
+
+  <node name="spectralintegration" 
+	filter="signal-spectralintegration"  
+	type="hanning" 
+	shift="4" 
+	length="9"/>
+  <link from="temporalintegration" to="spectralintegration"/>
+
+
+  <node name="typeconvert" 
+	filter="generic-convert-vector-vector-f32-to-vector-f32"/>
+  <link from="spectralintegration" to="typeconvert"/> 
+
+
+  <node name="scaling" 
+	filter="generic-vector-f32-multiplication"
+	value="0.00035"/>
+  <link from="typeconvert" to="scaling"/>
+
+
+  <node name="nonlinear" 
+	filter="generic-vector-f32-power"
+	value="0.1" />
+  <link from="scaling" to="nonlinear"/>
+
+
+  <node name="cepstrum"
+	filter="signal-cosine-transform"
+	nr-outputs="15"/>
+  <link from="nonlinear" to="cepstrum"/>
+
+
+  <node name="warped-normalization" 
+	filter="signal-normalization"
+	type="mean-and-variance"
+	length="infinite" 
+	right="infinite"/>
+  <link from="cepstrum" to="warped-normalization"/> 
+
+
+  <node name="post-norm-scaling"
+	filter="generic-vector-f32-multiplication"
+	value="3"/>
+  <link from="warped-normalization" to="post-norm-scaling"/>
+
+
+
+<!--
+  Energy
+-->
+  <node name="preemphasis" 
+	filter="signal-preemphasis"
+	alpha="1.00"/>
+  <link from="network:samples" to="preemphasis"/>
+
+
+  <node name="window" 
+	filter="signal-window" 
+	type="hamming" 
+	shift=".01" 
+	length="0.025"/>
+  <link from="preemphasis" to="window"/>
+
+
+  <node name="fast-fourier-transform" 
+	filter="signal-real-fast-fourier-transform"
+	maximum-input-size="0.025"/>
+  <link from="window" to="fast-fourier-transform"/>
+
+
+  <node name="amplitude-spectrum" 
+	filter="signal-vector-alternating-complex-f32-amplitude"/>
+  <link from="fast-fourier-transform" to="amplitude-spectrum"/>
+
+
+  <node name="energy"
+	filter="generic-vector-f32-norm"
+	value="1"/>
+  <link from="amplitude-spectrum" to="energy"/>
+
+
+  <node name="convert-energy-to-vector"
+	filter="generic-convert-f32-to-vector-f32"/>
+  <link from="energy" to="convert-energy-to-vector"/>
+
+
+  <node name="energy-normalization" 
+	filter="signal-normalization"
+	type="divide-by-mean"
+	length="infinite" 
+	right="infinite"/>
+  <link from="convert-energy-to-vector" to="energy-normalization"/>
+
+
+  <node name="convert-energy-vector-to-scalar" 
+	filter="generic-convert-vector-f32-to-f32"/>
+  <link from="energy-normalization" to="convert-energy-vector-to-scalar"/>
+
+
+  <node name="energy-synchronization"
+	filter="generic-synchronization"/>
+  <link from="post-norm-scaling" to="energy-synchronization:target"/>
+  <link from="convert-energy-vector-to-scalar" to="energy-synchronization"/>
+
+
+
+<!--
+  Output
+-->
+  <link from="post-norm-scaling"      to="network:out"/>
+  <link from="energy-synchronization" to="network:energies"/>
+
+</network>

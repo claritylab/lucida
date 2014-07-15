@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     shared/alignment.cache.affine-transform-by-map.flow $Rev: 336 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network>
+  <out name="features"/>
+  <out name="alignments"/>
+
+  <param name="input-file"/>
+  <param name="start-time"/>
+  <param name="end-time"/>
+  <param name="track"/>
+  <param name="map-file"/>
+
+  <param name="speaker"/>
+  <param name="id"/>
+  <param name="orthography"/>
+
+  <node name="feature-extraction-setup" filter="$(file)"
+	ignore-unknown-parameters="true"
+	input-file="$(input-file)"
+	id="$(id)"
+	speaker="$(id)"
+	start-time="$(start-time)" end-time="$(end-time)" track="$(track)"/>
+
+  <node name="aggregate" filter="generic-aggregation-vector-f32"/>
+  <link from="feature-extraction-setup:features" to="aggregate"/>
+
+  <node name="alignment" filter="speech-alignment"
+        id="$(id)" orthography="$(orthography)"/>
+  <link from="aggregate" to="alignment"/>
+
+  <node name="alignment-cache" filter="generic-cache"
+        id="$(id)"/>
+  <link from="alignment" to="alignment-cache"/>
+  <link from="alignment-cache" to="network:alignments"/>
+
+  <node name="segment-clustering" filter="generic-coprus-key-map" key="$(id)"
+        map-file="$(map-file)"
+        start-time="$(start-time)" end-time="$(end-time)"/>
+
+  <node name="affine-transform" filter="affine-transform.flow" />
+  <link from="feature-extraction-setup:features" to="affine-transform:in"/>
+  <link from="segment-clustering" to="affine-transform:corpus-key"/>
+
+  <link from="affine-transform:out" to="network:features"/>
+</network>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     shared/concatenate-with-derivatives.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network>
+  <in name="in"/>
+  <out name="out"/>
+
+  <node name="derivatives" filter="derivatives.regression.flow"/>
+  <link from="network:in" to="derivatives:in"/>
+
+  <node name="split-deltadelta" filter="generic-vector-f32-split"/>
+  <link from="derivatives:deltadelta" to="split-deltadelta"/>
+
+  <node name="concatenation" filter="generic-vector-f32-concat"
+	check-same-length="true"/>
+  <link from="network:in" to="concatenation:in"/>
+  <link from="derivatives:delta" to="concatenation:delta"/>
+  <link from="split-deltadelta:0" to="concatenation:deltadelta"/>
+  <link from="concatenation" to="network:out"/>
+</network>

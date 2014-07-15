@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+
+<!--
+  Gammatone with VTLN warping
+-->
+
+<network>
+  <in name="samples"/>
+  <out name="out"/>
+  <out name="energies"/>
+
+  <param name="input-file"/>
+  <param name="input-audio-name"/>
+  <param name="id"/>
+  <param name="track"/>
+  <param name="start-time"/>
+  <param name="end-time"/>
+  <param name="speaker"/>
+
+<!-- 
+  Gammatone (parameters optimized for 16 kHz sampling rate)
+-->
+  <node name="unwarped-gammatone" 
+	filter="signal-gammatone"  
+	minfreq="100"  
+	maxfreq="7500"  
+	channels="68" />
+  <link from="network:samples"  to="gammatone" />
+
+
+  <node name="unwarped-temporalintegration"  
+	filter="signal-temporalintegration"  
+	type="hanning" shift="0.01" 
+	length="0.025" 
+	flush-before-gap="true"/>
+  <link from="unwarped-gammatone" to="unwarped-temporalintegration"/>
+
+
+  <node name="unwarped-spectralintegration" 
+	filter="signal-spectralintegration"  
+	type="hanning" shift="4" 
+	length="9"/>
+  <link from="unwarped-temporalintegration" to="unwarped-spectralintegration"/>
+
+
+  <node name="unwarped-typeconvert" 
+	filter="generic-convert-vector-vector-f32-to-vector-f32"/>
+  <link from="unwarped-spectralintegration" to="unwarped-typeconvert"/> 
+
+
+  <node name="unwarped-scaling" 
+	filter="generic-vector-f32-multiplication"
+	value="0.00035"/>
+  <link from="unwarped-typeconvert" to="unwarped-scaling"/>
+
+
+  <node name="unwarped-nonlinear" 
+	filter="generic-vector-f32-power"
+	value="0.1" />
+  <link from="unwarped-scaling" to="unwarped-nonlinear"/>
+
+
+  <node name="unwarped-cepstrum" 
+	filter="signal-cosine-transform"  
+	nr-outputs="15"/>
+  <link from="unwarped-nonlinear" to="unwarped-cepstrum"/>
+
+
+  <node name="unwarped-normalization" 
+	filter="signal-normalization"
+	type="mean-and-variance"
+	length="infinite"
+	right="infinite"/>
+  <link from="unwarped-cepstrum" to="unwarped-normalization"/> 
+
+
+  <node name="unwarped-post-norm-scaling"  
+	filter="generic-vector-f32-multiplication"  
+	value="3"/>
+  <link from="unwarped-normalization" to="unwarped-post-norm-scaling"/>
+
+
+  <node name="unwarped-derivatives"
+	filter="derivatives.regression.flow"/>
+  <link from="unwarped-post-norm-scaling" to="unwarped-derivatives:in"/>
+
+
+  <node name="unwarped-split-deltadelta" 
+	filter="generic-vector-f32-split"/>
+  <link from="unwarped-derivatives:deltadelta" to="unwarped-split-deltadelta"/>
+
+
+  <node name="unwarped-concatenation" 
+	filter="generic-vector-f32-concat"
+	check-same-length="true"
+	timestamp-port="features"/>
+  <link from="unwarped-normalization" to="unwarped-concatenation:features"/>
+  <link from="unwarped-derivatives:delta" to="unwarped-concatenation:delta"/>
+  <link from="unwarped-split-deltadelta:0" to="unwarped-concatenation:deltadelta"/>
+
+
+  <node name="unwarped-linear-transform" 
+	filter="signal-matrix-multiplication-f32"/>
+  <link from="unwarped-concatenation" to="unwarped-linear-transform"/>
+
+
+
+<!--
+  Energy
+-->
+  <node name="preemphasis" 
+	filter="signal-preemphasis"
+	alpha="1.00"/>
+  <link from="network:samples" to="preemphasis"/>
+
+
+  <node name="window" 
+	filter="signal-window" 
+	type="hamming" 
+	shift=".01" 
+	length="0.025"/>
+  <link from="preemphasis" to="window"/>
+
+
+  <node name="fast-fourier-transform" 
+	filter="signal-real-fast-fourier-transform"
+	maximum-input-size="0.025"/>
+  <link from="window" to="fast-fourier-transform"/>
+
+
+  <node name="amplitude-spectrum" 
+	filter="signal-vector-alternating-complex-f32-amplitude"/>
+  <link from="fast-fourier-transform" to="amplitude-spectrum"/>
+
+
+  <node name="energy"
+	filter="generic-vector-f32-norm"
+	value="1"/>
+  <link from="amplitude-spectrum" to="energy"/>
+
+
+  <node name="convert-energy-to-vector" 
+	filter="generic-convert-f32-to-vector-f32"/>
+  <link from="energy" to="convert-energy-to-vector"/>
+
+
+  <node name="energy-normalization" 
+	filter="signal-normalization"
+	type="divide-by-mean"
+	length="infinite"
+	right="infinite"/>
+  <link from="convert-energy-to-vector" to="energy-normalization"/>
+
+
+  <node name="convert-energy-vector-to-scalar" 
+	filter="generic-convert-vector-f32-to-f32"/>
+  <link from="energy-normalization" to="convert-energy-vector-to-scalar"/>
+
+
+
+<!--
+  Warping factor classificator
+-->
+  <node name="unwarped-synchronization" 
+	filter="generic-synchronization"/>
+  <link from="unwarped-linear-transform" to="unwarped-synchronization:target"/>
+  <link from="convert-energy-vector-to-scalar" to="unwarped-synchronization"/>
+
+
+<!--
+  Determine warping factor from unwarped Gammatones
+  *.warping-factor-recognizer.class-label-file=
+  *.warping-factor-recognizer.likelihood-function.file=
+  *.warping-factor-recognizer.likelihood-function.feature-scorer-type=diagonal-maximum
+-->
+  <node name="warping-factor-recognizer" 
+	filter="signal-bayes-classification"/>
+  <link from="unwarped-synchronization" to="warping-factor-recognizer:feature-score-weight"/>
+  <link from="unwarped-synchronization:target" to="warping-factor-recognizer"/>
+
+
+
+<!-- 
+  Warped Gammatone
+-->
+  <node name="warped-gammatone" 
+	filter="signal-gammatone"
+	minfreq="100"
+	maxfreq="7500"
+	channels="68"
+	warping-factor="$input(warping-factor)"/>
+  <link from="network:samples" to="warped-gammatone"/>
+  <link from="warping-factor-recognizer" to="warped-gammatone:warping-factor"/>
+
+
+  <node name="warped-temporalintegration"
+	filter="signal-temporalintegration"
+	type="hanning"
+	shift=".01"
+	length="0.025"
+	flush-before-gap="true"/>
+  <link from="warped-gammatone" to="warped-temporalintegration"/>
+
+
+  <node name="warped-spectralintegration"
+	filter="signal-spectralintegration"
+	type="hanning"
+	shift="4"
+	length="9"/>
+  <link from="warped-temporalintegration" to="warped-spectralintegration"/>
+
+
+  <node name="warped-typeconvert"
+	filter="generic-convert-vector-vector-f32-to-vector-f32"/>
+  <link from="warped-spectralintegration" to="warped-typeconvert"/> 
+
+
+  <node name="warped-scaling"
+	filter="generic-vector-f32-multiplication"
+	value="0.00035"/>
+  <link from="warped-typeconvert" to="warped-scaling"/>
+
+
+  <node name="warped-nonlinear"
+	filter="generic-vector-f32-power"
+	value="0.1" />
+  <link from="warped-scaling" to="warped-nonlinear"/>
+
+
+  <node name="warped-cepstrum"
+	filter="signal-cosine-transform"
+	nr-outputs="15"/>
+  <link from="warped-nonlinear" to="warped-cepstrum"/>
+
+
+  <node name="warped-normalization" 
+	filter="signal-normalization"
+	type="mean-and-variance" />
+<!--
+	length="infinite"
+	right="infinite"/>
+-->
+  <link from="warped-cepstrum" to="warped-normalization"/> 
+
+
+  <node name="warped-post-norm-scaling"
+	filter="generic-vector-f32-multiplication"
+	value="3"/>
+  <link from="warped-normalization" to="warped-post-norm-scaling"/>
+
+
+<!--
+  Energy synchronized with warped GammaTones
+-->
+  <node name="energy-synchronization" 
+	filter="generic-synchronization"/>
+  <link from="warped-cepstrum" to="energy-synchronization:target"/>
+  <link from="convert-energy-vector-to-scalar" to="energy-synchronization"/>
+
+
+<!--
+  Output
+-->
+  <link from="warped-post-norm-scaling" to="network:out"/>
+  <link from="energy-synchronization"   to="network:energies"/>
+
+</network>

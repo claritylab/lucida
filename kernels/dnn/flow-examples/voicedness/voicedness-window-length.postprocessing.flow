@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     voicedness/voicedness-window-length.postprocessing.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network>
+  <in name="samples"/>
+  <in name="synchronization-target"/>
+  <out name="out"/>
+
+  <param name="window-length"/>
+
+  <node name="voicedness" filter="voicedness-autocorrelation.flow"
+	window-length="$(window-length)"/>
+  <link from="network:samples" to="voicedness:samples"/>
+
+  <node name="postprocessing" filter="postprocessing.flow"/>
+  <link from="voicedness:out" to="postprocessing:in"/>
+
+  <node name="synchronization" filter="signal-repeating-frame-prediction"/>
+  <link from="network:synchronization-target" to="synchronization:target"/>
+  <link from="postprocessing:out" to="synchronization"/>
+  <link from="synchronization" to="network:out"/>
+</network>

@@ -8,3 +8,5 @@ Install separately:
     
     sphinx4
 =======
+
+./end2end.sh wav/questions/what.is.the.capital.of.cuba.wav visual/matching/queries/001_0001.jpg

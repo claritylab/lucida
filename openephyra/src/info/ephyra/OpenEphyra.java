@@ -76,6 +76,7 @@ public class OpenEphyra {
 	/** The directory of Ephyra, required when Ephyra is used as an API. */
 	protected String dir;
 	
+
 	/**
 	 * Entry point of Ephyra. Initializes the engine and starts the command line
 	 * interface.
@@ -86,13 +87,18 @@ public class OpenEphyra {
 		// enable output of status and error messages
 		MsgPrinter.enableStatusMsgs(true);
 		MsgPrinter.enableErrorMsgs(true);
+
+
+		MsgPrinter.printStatusMsg("Arg:"+ args[0]);			
+		if (args.length != 1)
+		        return;
 		
 		// set log file and enable logging
 		Logger.setLogfile("log/OpenEphyra");
 		Logger.enableLogging(true);
 		
 		// initialize Ephyra and start command line interface
-		(new OpenEphyra()).commandLine();
+		(new OpenEphyra()).commandLine(args[0].trim());
 	}
 	
 	/**
@@ -341,11 +347,14 @@ public class OpenEphyra {
 	 * 
 	 * <p>The command <code>exit</code> can be used to quit the program.</p>
 	 */
-	public void commandLine() {
-		while (true) {
+	public void commandLine(String query_input) {
+//		while (true) {
 			// query user for question, quit if user types in "exit"
-			MsgPrinter.printQuestionPrompt();
-			String question = readLine().trim();
+//			MsgPrinter.printQuestionPrompt();
+//			String question = readLine().trim();
+
+			String question = query_input.trim();
+
 			if (question.equalsIgnoreCase("exit")) System.exit(0);
 			
 			// determine question type and extract question string
@@ -380,7 +389,7 @@ public class OpenEphyra {
 			
 			// print answers
 			MsgPrinter.printAnswers(results);
-		}
+		//}
 	}
 	
 	/**

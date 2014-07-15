@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     shared/samples.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network name="samples">
+  <out name="out"/>
+
+  <param name="input-file"/>
+  <param name="start-time"/>
+  <param name="end-time"/>
+  <param name="track"/>
+
+  <node name="audio"
+	filter="audio-input-file-$(audio-format)"
+	file="$(input-file)"
+	start-time="$(start-time)" end-time="$(end-time)"/>
+
+  <node name="demultiplex" filter="generic-vector-s16-demultiplex" 
+	track="$(track)"/>
+  <link from="audio" to="demultiplex"/>
+
+  <node name="convert-sample" filter="generic-convert-vector-s16-to-vector-f32"/>
+  <link from="demultiplex" to="convert-sample"/>
+
+  <!-- 
+       min-dc-length and min-non-dc-segment-length is set to comply with a minimum 
+       windowing length of .020s and with a frame shift of .010s.
+  -->
+  <node name="dc-detection" filter="signal-dc-detection"
+	min-dc-length=".01" max-dc-increment="0.9" min-non-dc-segment-length=".021"/>
+  <link from="convert-sample" to="dc-detection"/> 
+  <link from="dc-detection" to="samples:out"/>
+</network>

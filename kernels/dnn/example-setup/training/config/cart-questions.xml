@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decision-tree-training>
+    <properties-definition>
+        <key>hmm-state</key>
+        <value-map>
+            <value id="0">0</value>
+            <value id="1">1</value>
+            <value id="2">2</value>
+        </value-map>
+        <key>boundary</key>
+        <value-map>
+            <value id="1">begin-of-lemma</value>
+            <value id="2">end-of-lemma</value>
+            <value id="3">single-phoneme-lemma</value>
+            <value id="0">within-lemma</value>
+        </value-map>
+        <key> history[0] </key>
+        <value-map>
+            <value id="0">#</value>
+            <value id="1">AA</value>
+            <value id="2">AE</value>
+            <value id="3">AH</value>
+            <value id="4">AO</value>
+            <value id="5">AW</value>
+            <value id="6">AY</value>
+            <value id="7">B</value>
+            <value id="8">CH</value>
+            <value id="9">D</value>
+            <value id="10">EH</value>
+            <value id="11">ER</value>
+            <value id="12">EY</value>
+            <value id="13">F</value>
+            <value id="14">G</value>
+            <value id="15">HH</value>
+            <value id="16">IH</value>
+            <value id="17">IY</value>
+            <value id="18">JH</value>
+            <value id="19">K</value>
+            <value id="20">L</value>
+            <value id="21">M</value>
+            <value id="22">N</value>
+            <value id="23">OW</value>
+            <value id="24">P</value>
+            <value id="25">R</value>
+            <value id="26">S</value>
+            <value id="27">T</value>
+            <value id="28">TH</value>
+            <value id="29">UW</value>
+            <value id="30">V</value>
+            <value id="31">W</value>
+            <value id="32">Y</value>
+            <value id="33">Z</value>
+            <value id="34">si</value>
+        </value-map>
+        <key> central </key>
+        <value-map>
+            <value id="0">#</value>
+            <value id="1">AA</value>
+            <value id="2">AE</value>
+            <value id="3">AH</value>
+            <value id="4">AO</value>
+            <value id="5">AW</value>
+            <value id="6">AY</value>
+            <value id="7">B</value>
+            <value id="8">CH</value>
+            <value id="9">D</value>
+            <value id="10">EH</value>
+            <value id="11">ER</value>
+            <value id="12">EY</value>
+            <value id="13">F</value>
+            <value id="14">G</value>
+            <value id="15">HH</value>
+            <value id="16">IH</value>
+            <value id="17">IY</value>
+            <value id="18">JH</value>
+            <value id="19">K</value>
+            <value id="20">L</value>
+            <value id="21">M</value>
+            <value id="22">N</value>
+            <value id="23">OW</value>
+            <value id="24">P</value>
+            <value id="25">R</value>
+            <value id="26">S</value>
+            <value id="27">T</value>
+            <value id="28">TH</value>
+            <value id="29">UW</value>
+            <value id="30">V</value>
+            <value id="31">W</value>
+            <value id="32">Y</value>
+            <value id="33">Z</value>
+            <value id="34">si</value>
+        </value-map>
+        <key> future[0] </key>
+        <value-map>
+            <value id="0">#</value>
+            <value id="1">AA</value>
+            <value id="2">AE</value>
+            <value id="3">AH</value>
+            <value id="4">AO</value>
+            <value id="5">AW</value>
+            <value id="6">AY</value>
+            <value id="7">B</value>
+            <value id="8">CH</value>
+            <value id="9">D</value>
+            <value id="10">EH</value>
+            <value id="11">ER</value>
+            <value id="12">EY</value>
+            <value id="13">F</value>
+            <value id="14">G</value>
+            <value id="15">HH</value>
+            <value id="16">IH</value>
+            <value id="17">IY</value>
+            <value id="18">JH</value>
+            <value id="19">K</value>
+            <value id="20">L</value>
+            <value id="21">M</value>
+            <value id="22">N</value>
+            <value id="23">OW</value>
+            <value id="24">P</value>
+            <value id="25">R</value>
+            <value id="26">S</value>
+            <value id="27">T</value>
+            <value id="28">TH</value>
+            <value id="29">UW</value>
+            <value id="30">V</value>
+            <value id="31">W</value>
+            <value id="32">Y</value>
+            <value id="33">Z</value>
+            <value id="34">si</value>
+        </value-map>
+    </properties-definition>
+
+<!--
+  *** General training configuration ***
+  Remark: 
+  Scorer and scorer configuration are defined in the config file
+-->
+    <max-leaves> 501 </max-leaves>
+
+   
+<!--
+  *** Create a single silence cluster ***
+-->
+    <step name="silence" action="cluster">
+      <questions>
+        <question>
+          <key> central </key>
+          <value> si </value>
+        </question>
+      </questions>
+    </step>
+
+<!--
+  *** Partition examples w.r.t to central phoneme ***
+-->
+    <step name="central" action="partition">
+      <min-obs> 10 </min-obs>
+      <questions>
+        <for-each-value>
+          <question description="central-phone">
+            <key> central </key>
+          </question>
+        </for-each-value>
+      </questions>
+    </step>
+
+<!--
+  *** Partition examples w.r.t to hmm state ***
+-->
+    <step name="hmm-state" action="partition">
+      <min-obs> 10 </min-obs>
+      <questions>
+        <for-each-value>
+          <question description="hmm-state">
+            <key> hmm-state </key>
+          </question>
+        </for-each-value>
+      </questions>
+    </step>
+
+<!--
+  *** Split nodes until stop criterion is reached ***
+-->
+    <step name="linguistics">
+      <min-obs> 10 </min-obs>
+      <!-- <min-gain> 1.0 </min-gain>  -->
+      <!-- <randomize nQuestions="5"/> -->
+      <questions>
+        <for-each-value>
+          <question description="boundary">
+             <key> boundary </key>
+          </question>
+        </for-each-value>
+        <for-each-key keys="history[0] future[0]">
+          <for-each-value>
+            <question description="context-phone"/>
+          </for-each-value>
+          <question description="Vocal">
+            <values> AH EY AE AA IY EH AO OW IH ER UW AY AW </values>
+          </question>
+          <!-- add more phonetic questions -->
+        </for-each-key>
+      </questions> 
+    </step>
+</decision-tree-training>
+

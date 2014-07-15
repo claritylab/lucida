@@ -4,11 +4,8 @@
 count=1
 
 IFS=$'\n'; 
-for line in `cat umvoice_questions_new_1q.txt`;
-#for line in `cat umvoice_questions_new_2q.txt`; 
+for line in `cat umvoice_questions_new.txt`;
 do
-#while read line; 
-#do 
         echo "(1) Your query text is:"
         echo "$line"      
         
@@ -18,7 +15,5 @@ do
         curl --request GET "http://localhost:8081?query=$query"
              
         echo "***********************************************"
-
-#done < siri_questions.txt
 done
 

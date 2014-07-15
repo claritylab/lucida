@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     vtln/normalized-energy.flow $Rev: 330 $
+
+     (c) 2008 by RWTH Aachen University
+     rwthasr@i6.informatik.rwth-aachen.de
+     You can redistribute this file and/or modify it under the terms of the
+     RWTH ASR License
+     <http://www-i6.informatik.rwth-aachen.de/rwth-asr/rwth-asr-license.html>
+-->
+<network>
+  <in name="amplitude-spectrum"/>
+  <out name="energies"/>
+
+  <node name="energy" filter="generic-vector-f32-norm"
+	value="1"/>
+  <link from="network:amplitude-spectrum" to="energy"/>
+
+  <node name="convert-energy-to-vector" filter="generic-convert-f32-to-vector-f32"/>
+  <link from="energy" to="convert-energy-to-vector"/>
+
+  <node name="normalization" filter="signal-normalization"
+	length="infinite" right="infinite" type="divide-by-mean"/>
+  <link from="convert-energy-to-vector" to="normalization"/>
+
+  <node name="convert-energy-vector-to-scalar" filter="generic-convert-vector-f32-to-f32"/>
+  <link from="normalization" to="convert-energy-vector-to-scalar"/>
+  <link from="convert-energy-vector-to-scalar" to="network:energies"/>
+</network>
