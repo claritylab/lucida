@@ -20,7 +20,7 @@ function get_rate {
 cd logs > /dev/null;
 sed -i -e 's/,//g' *
 echo "Benchmark, Stat, Platform, Run#, Value"
-for kernel in regex
+for kernel in regex crfsuite pocketsphinx porter
 do
 	get_data $kernel "instructions" instructions
 	get_data $kernel "cycles" cycles

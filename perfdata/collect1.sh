@@ -5,7 +5,7 @@ mkdir -p $RESDIR
 # rm -rf $RESDIR/*
 
 cd bins ;
-for kernel in regex
+for kernel in regex crfsuite pocketsphinx porter
 do
 	for i in 1 2 3 4 5 6 7 8 9 0
 	do
