@@ -4,12 +4,11 @@
 set -x
 ANALOG=analog
 
-
 export USE_OPENMP=1
 
-export OPENBLAS_NUM_THREADS=8
+export OPENBLAS_NUM_THREADS=1
 
-export OMP_NUM_THREADS=8
+export OMP_NUM_THREADS=1
 
 #time /home/gpuser/umvoice/kernels/dnn/rwth-asr-0.6.1/arch-gpu/speech-recognizer.* \
 

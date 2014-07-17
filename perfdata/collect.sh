@@ -10,8 +10,8 @@ mkdir -p $RESDIR2
 stats=instructions,cycles,stalled-cycles-frontend,cache-misses,cache-references
 #stats=instructions,cycles,branches,branch-misses,cache-misses,cache-references
 stats1=L1-dcache-load-misses,L1-dcache-store-misses,L1-icache-load-misses,LLC-stores,LLC-loads,stalled-cycles-frontend 
-#stalls,llc_refs,llc_miss,stalls_ldm_pending,arith
-stats2=r5301a2,r534f2e,r53412e,r65306a3,r530114
+#stalls,llc_refs,llc_miss,stalls_ldm_pending,arith,l0-icache-miss
+stats2=r5301a2,r534f2e,r53412e,r65306a3,r530114,r530280
 
 cd bins ;
 for kernel in regex crfsuite pocketsphinx porter
