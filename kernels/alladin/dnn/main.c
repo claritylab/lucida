@@ -50,7 +50,7 @@ Form  C := alpha*A*B + beta*C.
 
 #include <stdio.h>
 #include <stdlib.h>
-#define LOOP 16
+#define LOOP 1
 #define M 1000
 #define P 1000
 #define N 1000
@@ -61,7 +61,7 @@ int main()
     int a, i, j, k, l;
     double alpha, beta, temp;
 
-    printf ("\n This example computes real matrix C=alpha*A*B+beta*C"
+    printf ("\n This example computes real matrix C=alpha*A*B+beta*C\n"
             " where A, B, and  C are matrices and \n"
             " alpha and beta are double precision scalars\n\n");
 
