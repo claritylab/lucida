@@ -104,19 +104,29 @@ int main()
     /* Hot loop */
     
     gettimeofday(&tv1,NULL);
-    for (a = 0; a < LOOP; ++a){
-        for (j = 0; j < N; ++j) {
-            for (k = 0; k < M; ++k) {
-                C[k*N+j] = beta*C[k*N+j];
-            }
-            for (l = 0; l < P; ++l) {
-                temp = alpha*B[l*N+j];
-                for (i = 0; i < M; ++i) {
-                    C[i*N+j] = C[i*N+j] + temp*A[i*P+l];
-                }
-            }
-        }
+    for (int l = 0; l<N*M; ++l)
+    {
+       int i = l/N;
+       int j = l%N;
+       float temp = beta*C[i*N+j];
+       for (int r = 0; r < P; ++r) {
+           C[i*N+j] += alpha*B[r*N+j]*A[i*P+r];
+       }
+        C[i*N+j] += temp;
     }
+    /* for (a = 0; a < LOOP; ++a){ */
+    /*     for (j = 0; j < N; ++j) { */
+    /*         for (k = 0; k < M; ++k) { */
+    /*             C[k*N+j] = beta*C[k*N+j]; */
+    /*         } */
+    /*         for (l = 0; l < P; ++l) { */
+    /*             temp = alpha*B[l*N+j]; */
+    /*             for (i = 0; i < M; ++i) { */
+    /*                 C[i*N+j] = C[i*N+j] + temp*A[i*P+l]; */
+    /*             } */
+    /*         } */
+    /*     } */
+    /* } */
     gettimeofday(&tv2,NULL);
     totalruntimeseq = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
