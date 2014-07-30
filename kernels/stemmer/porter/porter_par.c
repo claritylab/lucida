@@ -446,54 +446,54 @@ static int i_max = INC;  /* maximum offset in s */
 
 int load_data(struct stemmer ** stem_list, FILE *f)
 {
-   int a_size = 0;
-   while(TRUE)
-   {  int ch = getc(f);
-      if (ch == EOF) return a_size;
-      char *s = (char *) malloc(i_max + 1);
-      if (LETTER(ch))
-      {  int i = 0;
-         while(TRUE)
-         {  if (i == i_max)
-            {  i_max += INC;
-               s = (char *) realloc(s, i_max + 1);
-            }
-            ch = tolower(ch); /* forces lower case */
+    int a_size = 0;
+    while(TRUE)
+    {  int ch = getc(f);
+        if (ch == EOF) return a_size;
+        char *s = (char *) malloc(i_max + 1);
+        if (LETTER(ch))
+        {  int i = 0;
+            while(TRUE)
+            {  if (i == i_max)
+                {  i_max += INC;
+                    s = (char *) realloc(s, i_max + 1);
+                }
+                ch = tolower(ch); /* forces lower case */
 
-            s[i] = ch; i++;
-            ch = getc(f);
-            if (!LETTER(ch)) { ungetc(ch,f); break; }
-         }
-         struct stemmer * z = create_stemmer();
-         z->b = s; 
-         z->k = i - 1;
-         stem_list[a_size] = z;
-         //word_list[a_size] = s;         
-         //s[stem(z, s, i - 1) + 1] = 0;
-         if (a_size == a_max) {
-            a_max += A_INC;
-            stem_list = (struct stemmer **) realloc(stem_list, a_max);
-         }
-         a_size += 1;
-      }
-   }
-   return a_size;
+                s[i] = ch; i++;
+                ch = getc(f);
+                if (!LETTER(ch)) { ungetc(ch,f); break; }
+            }
+            struct stemmer * z = create_stemmer();
+            z->b = s; 
+            z->k = i - 1;
+            stem_list[a_size] = z;
+            //word_list[a_size] = s;         
+            //s[stem(z, s, i - 1) + 1] = 0;
+            if (a_size == a_max) {
+                a_max += A_INC;
+                stem_list = (struct stemmer **) realloc(stem_list, a_max);
+            }
+            a_size += 1;
+        }
+    }
+    return a_size;
 }
 
 void * stem_thread(void *tid)
 {
-	int i, start, *mytid, end;
+    int i, start, *mytid, end;
 
-	mytid = (int *) tid;
-	start = (*mytid * iterations);
-	end = start + iterations;
-	//printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
+    mytid = (int *) tid;
+    start = (*mytid * iterations);
+    end = start + iterations;
+    //printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
 
-	for (i=start; i < end ; i++) {
-            stem2(stem_list[i]);
-        }
+    for (i=start; i < end ; i++) {
+        stem2(stem_list[i]);
+    }
 
-     pthread_exit(NULL);
+    pthread_exit(NULL);
 }
 
 //tpe.tv_nsec-tps.tv_nsec
@@ -501,76 +501,61 @@ void * stem_thread(void *tid)
 
 // convert the timespec into milliseconds (may overflow)
 /*int timespec_milliseconds(struct timespec *a) 
-{
-        return a->tv_sec*1000 + a->tv_nsec/1000000;
-}*/
+  {
+  return a->tv_sec*1000 + a->tv_nsec/1000000;
+  }*/
 
 
 int main(int argc, char * argv[])
 {  
 
-  struct  timeval t1,t2;
+    struct timeval tv1,tv2;
+    unsigned int totalruntimeseq = 0;
+    unsigned int totalruntimepar = 0;
 
-//    struct timespec t_start, t_end;
+    FILE * f = fopen(argv[1],"r");
+    if (f == 0) { fprintf(stderr,"File %s not found\n",argv[1]); exit(1); }
 
-   FILE * f = fopen(argv[1],"r");
-   if (f == 0) { fprintf(stderr,"File %s not found\n",argv[1]); exit(1); }
+    // INIT OF SEQ PART
+    // allocate data
+    stem_list = (struct stemmer **) malloc(ARRAYSIZE * sizeof(struct stemmer *));
+    int array_size = load_data(stem_list, f);
 
-   // INIT OF SEQ PART
-   // allocate data
-   stem_list = (struct stemmer **) malloc(ARRAYSIZE * sizeof(struct stemmer *));
-   int array_size = load_data(stem_list, f);
-
-   fclose(f); 
-
-//    stem_thread(z, f);
+    fclose(f); 
 
     int i, start, tids[NTHREADS];
     pthread_t threads[NTHREADS];
     pthread_attr_t attr;
 
-   printf("array_size: %d\n", array_size);
-   iterations =  array_size / NTHREADS;
-   printf("iterations %d\n", iterations);
+    iterations =  array_size / NTHREADS;
 
 
-    gettimeofday(&t1, NULL);
-  //  clock_gettime(CLOCK_REALTIME, &t_start);
+    gettimeofday(&tv1, NULL);
 
     pthread_attr_init(&attr);
     pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
     for (i=0; i<NTHREADS; i++) {
-      tids[i] = i;
-      pthread_create(&threads[i], &attr, stem_thread, (void *) &tids[i]);
+        tids[i] = i;
+        pthread_create(&threads[i], &attr, stem_thread, (void *) &tids[i]);
     }
 
-//	  printf ("Waiting for threads to finish.");
+    //	  printf ("Waiting for threads to finish.");
     for (i=0; i<NTHREADS; i++) {
-      pthread_join(threads[i], NULL);
+        pthread_join(threads[i], NULL);
     }
-	//  printf("Done.");
 
-     gettimeofday(&t2, NULL);
-//     clock_gettime(CLOCK_REALTIME, &t_end);
+    gettimeofday(&tv2,NULL);
+    totalruntimeseq = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
-//     int par_elapsedTime = calculateMicroseconds(t1,t2);
-//     long par_elapsedTime = t_end.tv_nsec - t_start.tv_nsec;
-//     float par_elapsedTime = calculateMilisecondsTimeSpec(t_start, t_end);
-
-     double par_elapsedTime = (1.0*((t2.tv_sec - t1.tv_sec) * 1000.0) + ((t2.tv_usec - t1.tv_usec) / 1000.0));
-
-  printf("CPU Par Time elapsed: %.2f (ms)\n", (1.0*((t2.tv_sec - t1.tv_sec) * 1000.0) + ((t2.tv_usec - t1.tv_usec) / 1000.0)));
+    printf("Seq time: %.2f ms\n", (double)totalruntimeseq/1000);
+    printf("TAU time: %.2f ms\n", (double)totalruntimepar/1000);
+    printf("Speedup: %.2f \n", (double)totalruntimeseq/(double)totalruntimepar);
 
     // free up allocated data
     for (int i = 0; i < array_size; i++) {
-           free(stem_list[i]->b);
-           free(stem_list[i]);
+        free(stem_list[i]->b);
+        free(stem_list[i]);
     }
 
-   //// END OF PARALLEL PART
-
-//	printf("\nCPU Par speedup over CPU = %4.3f\n",  cpu_elapsedTime/par_elapsedTime);
-
-
-   return 0;
+    return 0;
 }
