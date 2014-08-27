@@ -65,7 +65,7 @@ public class OpenEphyraCorpus extends OpenEphyra {
 		Logger.enableLogging(true);
 		
 		// initialize Ephyra and start command line interface
-		(new OpenEphyraCorpus()).commandLine();
+		(new OpenEphyraCorpus()).commandLine("");
 	}
 	
 	/**
