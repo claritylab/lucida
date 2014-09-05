@@ -1,33 +1,37 @@
 #!/bin/bash
 # Install sphinxbase + pocketsphinx
-# Run as sudo to install correctly
+# Run as sudo to install correctly to default
 # jahausw 2014
 
 mkdir -p bits ;
 cd bits ;
 
-sphinxdir=sphinxbase-0.8
-pocketdir=pocketsphinx-0.8
+# set correct version
+ver=0.8
+# default
+installdir=/usr/local/bin
+sphinxdir=sphinxbase-
+pocketdir=pocketsphinx-
 
-wget http://sourceforge.net/projects/cmusphinx/files/sphinxbase/0.8/sphinxbase-0.8.tar.gz
-wget http://sourceforge.net/projects/cmusphinx/files/pocketsphinx/0.8/pocketsphinx-0.8.tar.gz
+wget http://sourceforge.net/projects/cmusphinx/files/sphinxbase/$ver/${sdir}${ver}.tar.gz
+wget http://sourceforge.net/projects/cmusphinx/files/pocketsphinx/$ver/$pdir${ver}.tar.gz
 
-tar xzf ${sphinxdir}.tar.gz
-cd $sphinxdir ;
+tar xzf ${sdir}.tar.gz
+cd $sdir ;
 ./autogen.sh
-./configure
+./configure --prefix=$installdir
 make
 make install
 cd .. ;
-rm -rf $sphinxdir* ;
+rm -rf $sdir* ;
 
-tar xzf ${pocketdir}.tar.gz
-cd $pocketdir ;
+tar xzf ${pdir}.tar.gz
+cd $pdir ;
 ./autogen.sh
-./configure
+./configure --prefix=$installdir
 make
 make install
 cd .. ;
-rm -rf $pocketdir* ;
+rm -rf $pdir* ;
 
 cd ../ ; rm -rf bits ;
