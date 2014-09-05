@@ -1,55 +1,92 @@
 /*
- * Copyright (c) 2004-2013 Sergey Lyubka <valenok@gmail.com>
- * Copyright (c) 2013 Cesanta Software Limited
+ * Copyright (c) 2004-2005 Sergey Lyubka <valenok@gmail.com>
  * All rights reserved
  *
- * This library is dual-licensed: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 2 as
- * published by the Free Software Foundation. For the terms of this
- * license, see <http://www.gnu.org/licenses/>.
- *
- * You are free to use this library under the terms of the GNU General
- * Public License, but WITHOUT ANY WARRANTY; without even the implied
- * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * Alternatively, you can license this library under a commercial
- * license, as set out in <http://cesanta.com/products.html>.
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * Sergey Lyubka wrote this file.  As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return.
  */
 
 /*
  * This is a regular expression library that implements a subset of Perl RE.
- * Please refer to README.md for a detailed reference.
+ * Please refer to http://slre.sourceforge.net for detailed description.
+ *
+ * Usage example (parsing HTTP request):
+ *
+ * struct slre	slre;
+ * struct cap	captures[4 + 1];  // Number of braket pairs + 1
+ * ...
+ *
+ * slre_compile(&slre,"^(GET|POST) (\S+) HTTP/(\S+?)\r\n");
+ *
+ * if (slre_match(&slre, buf, len, captures)) {
+ *	printf("Request line length: %d\n", captures[0].len);
+ *	printf("Method: %.*s\n", captures[1].len, captures[1].ptr);
+ *	printf("URI: %.*s\n", captures[2].len, captures[2].ptr);
+ * }
+ *
+ * Supported syntax:
+ *	^		Match beginning of a buffer
+ *	$		Match end of a buffer
+ *	()		Grouping and substring capturing
+ *	[...]		Match any character from set
+ *	[^...]		Match any character but ones from set
+ *	\s		Match whitespace
+ *	\S		Match non-whitespace
+ *	\d		Match decimal digit
+ *	\r		Match carriage return
+ *	\n		Match newline
+ *	+		Match one or more times (greedy)
+ *	+?		Match one or more times (non-greedy)
+ *	*		Match zero or more times (greedy)
+ *	*?		Match zero or more times (non-greedy)
+ *	?		Match zero or once
+ *	\xDD		Match byte with hex value 0xDD
+ *	\meta		Match one of the meta character: ^$().[*+?\
  */
 
 #ifndef SLRE_HEADER_DEFINED
-#define SLRE_HEADER_DEFINED
+#define	SLRE_HEADER_DEFINED
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-struct slre_cap {
-  const char *ptr;
-  int len;
+/*
+ * Compiled regular expression
+ */
+struct slre {
+	unsigned char	code[256];
+	unsigned char	data[256];
+	int		code_size;
+	int		data_size;
+	int		num_caps;	/* Number of bracket pairs	*/
+	int		anchored;	/* Must match from string start	*/
+	const char	*err_str;	/* Error string			*/
 };
 
-int slre_match(const char *regexp, const char *buf, int buf_len,
-               struct slre_cap *caps, int num_caps);
+/*
+ * Captured substring
+ */
+struct cap {
+	const char	*ptr;		/* Pointer to the substring	*/
+	int		len;		/* Substring length		*/
+};
 
-/* slre_match() failure codes */
-#define SLRE_NO_MATCH               -1
-#define SLRE_UNEXPECTED_QUANTIFIER  -2
-#define SLRE_UNBALANCED_BRACKETS    -3
-#define SLRE_INTERNAL_ERROR         -4
-#define SLRE_INVALID_CHARACTER_SET  -5
-#define SLRE_INVALID_METACHARACTER  -6
-#define SLRE_CAPS_ARRAY_TOO_SMALL   -7
-#define SLRE_TOO_MANY_BRANCHES      -8
-#define SLRE_TOO_MANY_BRACKETS      -9
+/*
+ * Compile regular expression. If success, 1 is returned.
+ * If error, 0 is returned and slre.err_str points to the error message. 
+ */
+int slre_compile(struct slre *, const char *re);
 
-#ifdef __cplusplus
-}
-#endif
+/*
+ * Return 1 if match, 0 if no match. 
+ * If `captured_substrings' array is not NULL, then it is filled with the
+ * values of captured substrings. captured_substrings[0] element is always
+ * a full matched substring. The round bracket captures start from
+ * captured_substrings[1].
+ * It is assumed that the size of captured_substrings array is enough to
+ * hold all captures. The caller function must make sure it is! So, the
+ * array_size = number_of_round_bracket_pairs + 1
+ */
+int slre_match(const struct slre *, const char *buf, int buf_len,
+	struct cap *captured_substrings);
 
-#endif  /* SLRE_HEADER_DEFINED */
+#endif /* SLRE_HEADER_DEFINED */

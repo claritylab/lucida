@@ -9,7 +9,7 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 # Main target
 $(EXEC): $(OBJECTS) Makefile
-	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
+	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS) -pg
 
 # To obtain object files
 %.o: %.cpp Makefile

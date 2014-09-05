@@ -22,13 +22,14 @@
   THIS HEADER SHALL REMAIN PART OF ALL SOURCE CODE FILES.
 
  ***/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
-#define M 2000  /* columns */
-#define N 2000  /* rows */
+#define M 128 /* columns */
+#define N 128 /* rows */
 
 void
 hessian (float *I_steepest, int nCols, int nRows, int np, float *H)

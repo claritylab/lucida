@@ -157,10 +157,10 @@ int main( int argc, char** argv )
     // Generate test keys
     Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
 
-    gettimeofday(&tv1,NULL);
-    segs = segment(img);
-    gettimeofday(&tv2,NULL);
-    runtimecut = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+    // gettimeofday(&tv1,NULL);
+    // segs = segment(img);
+    // gettimeofday(&tv2,NULL);
+    // runtimecut = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
     gettimeofday(&tot1,NULL);
 
@@ -169,19 +169,20 @@ int main( int argc, char** argv )
     gettimeofday(&tv2,NULL);
     runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
-    gettimeofday(&tv1,NULL);
-    Mat testDesc = exec_desc(img, key);
-    gettimeofday(&tv2,NULL);
-    runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+    // gettimeofday(&tv1,NULL);
+    // Mat testDesc = exec_desc(img, key);
+    // gettimeofday(&tv2,NULL);
+    // runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
     gettimeofday(&tot2,NULL);
     totaltime = (tot2.tv_sec-tot1.tv_sec)*1000000 + (tot2.tv_usec-tot1.tv_usec);
 
     // Gen keys for desc_thread
-    for(int i = 0; i < segs.size(); ++i){
-        keys.push_back(exec_feature(segs[i]));
-    }
+    // for(int i = 0; i < segs.size(); ++i){
+    //     keys.push_back(exec_feature(segs[i]));
+    // }
 
+    /*
     // Parallel
     gettimeofday(&tot1,NULL);
 	int start, tids[NTHREADS];
@@ -219,6 +220,7 @@ int main( int argc, char** argv )
 
     gettimeofday(&tot2,NULL);
     totaltimepar = (tot2.tv_sec-tot1.tv_sec)*1000000 + (tot2.tv_usec-tot1.tv_usec);
+    */
 
     // Clean up
     delete detector;
@@ -226,7 +228,9 @@ int main( int argc, char** argv )
     
     cout << "cut: " << (double)runtimecut/1000 << endl;
     cout << "feat speedup: " << (double)runtimefeat/runtimefeatseg << endl;
+    cout << "feat time: " << (double)runtimefeat/1000 << endl;
     cout << "desc speedup: " << (double)runtimedesc/runtimedescseg << endl;
+    cout << "desc time: " << (double)runtimedesc/1000 << endl;
     cout << "total speedup: " << (double)totaltime/(totaltimepar+runtimecut) << endl;
 
 	return 0;

@@ -1,7 +1,7 @@
 # This is a basic Makefile. Change flags and EXEC
 CXX = gcc -std=gnu99
 CXX_FLAGS =
-LINK_FLAGS = -lpthread -lrt
+LINK_FLAGS = -lpthread -lrt -pg
 CXX_FLAGS += -O3
 # LINK_FLAGS +=
 # EXTRA_FLAGS = -Wno-missing-field-initializers -Wno-missing-braces -Wno-format

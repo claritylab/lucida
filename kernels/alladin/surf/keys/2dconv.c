@@ -28,12 +28,8 @@
 #include <string.h>
 #include <time.h>
 
-#if !defined(BATCH_SIZE)
-#define BATCH_SIZE (30)
-#endif
-
-#define M 2000  /* columns */
-#define N 2000  /* rows */
+#define M 512 /* columns */
+#define N 512 /* rows */
 
 int
 conv2d (int *in, int *out, int nRows, int nCols, float *filter, float normFactor, int nFilterRows, int nFilterCols)
@@ -49,12 +45,7 @@ conv2d (int *in, int *out, int nRows, int nCols, float *filter, float normFactor
     int pxlPos = 0;
     int fltPos = 0;
 
-    int *tmpBuf = (int *)calloc((nRows + nFilterRows) * (nCols + nFilterCols), sizeof(int));
-    if (!tmpBuf)
-    {
-        fprintf(stderr, "File %s, Line %d, Memory Allocation Error\n", __FILE__, __LINE__);
-        return -1;
-    }
+    int *tmpBuf = (int *)malloc((nRows + nFilterRows) * (nCols + nFilterCols) * sizeof(int));
 
     for (row = 0; row < nRows; row++)
     {
@@ -123,13 +114,13 @@ int main (int argc, char * argv[])
     frame = calloc (M * N, sizeof(int));
     output = calloc (M * N, sizeof(int));
 
-
     for (i = 0; i < M*N; i++) {
         frame[i] = rand() % 255;
     }
 
     /* Perform the 2D convolution */
-    conv2d (&frame[M * N], &output[M * N], N, M, FD, 1.0, nFilterRowsFD, nFilterColsFD);
+    printf("Rows: %d Colums: %d\n", N, M);
+    conv2d (frame, output, N, M, FD, 1.0, nFilterRowsFD, nFilterColsFD);
 
     free (output);
     free (frame);
