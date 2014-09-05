@@ -51,35 +51,59 @@ Form  C := alpha*A*B + beta*C.
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
+#include <pthread.h>
 
 #define LOOP 1
-#define M 100
-#define P 100
-#define N 100
+#define M 1000 
+#define P 1000
+#define N 1000 
+#define NTHREADS 1
+
+int iterations;
+double *A, *B, *C, *C_TAU;
+int i, j, k, l;
+double alpha, beta, temp;
+
+void * dnn_thread(void *tid)
+{
+	int  start, *mytid, end;
+	mytid = (int *) tid;
+	start = (*mytid * iterations);
+	end = start + iterations;
+	//printf("thread %d doing from %d to %d\n", *mytid,start,end);
+    for (int l = start; l < end; ++l) {
+        int i = l/N;
+        int j = l%N;
+        float temp = beta*C_TAU[i*N+j];
+        for (int r = 0; r < P; ++r) {
+            C_TAU[i*N+j] += alpha*B[r*N+j]*A[i*P+r];
+        }
+        C_TAU[i*N+j] += temp;
+    }
+}
 
 int main()
 {
-    double *A, *B, *C;
-    int a, i, j, k, l;
-    double alpha, beta, temp;
     /* Timing */
 	struct timeval tv1, tv2;
     unsigned int totalruntimeseq = 0;
-    unsigned int totalruntimetau = 0;
+    unsigned int totalruntimepar = 0;
 
-    /* printf ("\n This example computes real matrix C=alpha*A*B+beta*C\n" */
-    /*         " where A, B, and  C are matrices and \n" */
-    /*         " alpha and beta are double precision scalars\n\n"); */
-    /*  */
-    /* printf (" Looping: %i\n" */
-    /*         " Initializing data for matrix multiplication C=A*B for matrix \n" */
-    /*         " A(%ix%i) and matrix B(%ix%i)\n\n", LOOP, M, P, P, N); */
+    printf ("\n This example computes real matrix C=alpha*A*B+beta*C\n"
+            " where A, B, and  C are matrices and \n"
+            " alpha and beta are double precision scalars\n\n");
+
+   // printf (" Looping: %i\n"
+   //         " Initializing data for matrix multiplication C=A*B for matrix \n"
+   //         " A(%ix%i) and matrix B(%ix%i)\n\n", LOOP, M, P, P, N);
+    printf (" Matrices A(%ix%i) and matrix B(%ix%i)\n", M, P, P, N);
 
     alpha = 1.0; beta = 1.0;
 
     A = (double *)malloc( M*P*sizeof( double ) );
     B = (double *)malloc( P*N*sizeof( double ) );
     C = (double *)malloc( M*N*sizeof( double ) );
+    C_TAU = (double *)malloc( M*N*sizeof( double ) );
 
     if (A == NULL || B == NULL || C == NULL) {
       free(A);
@@ -99,44 +123,64 @@ int main()
 
     for (i = 0; i < (M*N); i++) {
         C[i] = 0.0;
+        C_TAU[i] = 0.0;
     }
 
     /* Hot loop */
-    
     gettimeofday(&tv1,NULL);
-    for (int l = 0; l<N*M; ++l)
-    {
-       int i = l/N;
-       int j = l%N;
-       float temp = beta*C[i*N+j];
-       for (int r = 0; r < P; ++r) {
-           C[i*N+j] += alpha*B[r*N+j]*A[i*P+r];
-       }
-        C[i*N+j] += temp;
-    }
-    /* for (a = 0; a < LOOP; ++a){ */
-    /*     for (j = 0; j < N; ++j) { */
-    /*         for (k = 0; k < M; ++k) { */
-    /*             C[k*N+j] = beta*C[k*N+j]; */
-    /*         } */
-    /*         for (l = 0; l < P; ++l) { */
-    /*             temp = alpha*B[l*N+j]; */
-    /*             for (i = 0; i < M; ++i) { */
-    /*                 C[i*N+j] = C[i*N+j] + temp*A[i*P+l]; */
-    /*             } */
-    /*         } */
-    /*     } */
-    /* } */
+   // for (j = 0; j < N; ++j) {
+   //     for (k = 0; k < M; ++k) {
+   //         C[k*N+j] = beta*C[k*N+j];
+   //     }
+   //     for (l = 0; l < P; ++l) {
+   //         temp = alpha*B[l*N+j];
+   //         for (i = 0; i < M; ++i) {
+   //             C[i*N+j] = C[i*N+j] + temp*A[i*P+l];
+   //         }
+   //     }
+   // }
     gettimeofday(&tv2,NULL);
     totalruntimeseq = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
-    // Timing
-    printf("Seq time: %.2f ms\n", (double)totalruntimeseq/1000);
+    gettimeofday(&tv1,NULL);
+	int tids[NTHREADS];
+	pthread_t threads[NTHREADS];
+    pthread_attr_t attr;
+	iterations =  (N*M / NTHREADS);
+	printf("its %d\n", iterations);
+	pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+
+    for (int i = 0; i<NTHREADS; i++){
+        tids[i] = i;
+        pthread_create(&threads[i], &attr, dnn_thread, (void *) &tids[i]);
+    }
+
+    for (int i=0; i<NTHREADS; i++)
+     	 pthread_join(threads[i], NULL);
+
+    gettimeofday(&tv2,NULL);
+    totalruntimepar = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+
+   // for(int i = 0; i < N; ++i){
+   //     for(int k = 0; k < M; ++k){
+   //         if(C[k*N+i] != C_TAU[k*N+i]){
+   //             printf("Error: C[%d]: %f CTAU[%d]: %f\n",
+   //                     k*N+i,C[k*N+i],k*N+i,C_TAU[k*N+i]);
+   //         }
+   //     }
+   // }
+
+    printf("Seq time: %.2f ms", (double)totalruntimeseq/1000);
+    printf(" Par time: %.2f ms", (double)totalruntimepar/1000);
+    printf(" Speedup: %.2f \n", (double)totalruntimeseq/(double)totalruntimepar);
+
     printf ("\n Computations completed.\n\n");
 
-    /* free(A); */
-    /* free(B); */
-    /* free(C); */
-    /*  */
+    free(A);
+    free(B);
+    free(C);
+    free(C_TAU);
+
     return 0;
 }

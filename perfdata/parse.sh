@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script to parse output of perf tool
-plat=vinipc
+plat=pc
 
 function get_data {
 	for i in 1 2 3 4 5 6 7 8 9 0
@@ -31,7 +31,7 @@ function sum_data {
 echo "Benchmark, Stat, Platform, Run#, Value"
 cd logs > /dev/null;
 sed -i -e 's/,//g' *
-for kernel in regex crfsuite pocketsphinx porter dnn
+for kernel in regex crfsuite pocketsphinx porter feat desc 
 do
 	get_data $kernel "instructions" instructions
 	get_data $kernel "cycles" cycles
@@ -47,7 +47,7 @@ done
 
 cd ../logs1 > /dev/null;
 sed -i -e 's/,//g' *
-for kernel in regex crfsuite pocketsphinx porter dnn
+for kernel in regex crfsuite pocketsphinx porter feat desc 
 do
 	get_data $kernel "L3 Loads" LLC-loads
 	get_data $kernel "L3 Stores" LLC-stores
@@ -61,7 +61,7 @@ done
 
 cd ../logs2 > /dev/null;
 sed -i -e 's/,//g' *
-for kernel in regex crfsuite pocketsphinx porter dnn
+for kernel in regex crfsuite pocketsphinx porter feat desc 
 do
 	get_data $kernel "resource-stalls" r5301a2 
 	get_data $kernel "LLC-refs" r534f2e 

@@ -1,6 +1,6 @@
 #!/bin/bash
 file=results.csv
-plat=vinipc
+plat=pc
 
 function calc_mpki {
 	for i in 1 2 3 4 5 6 7 8 9 0
@@ -24,8 +24,7 @@ function calc_rate {
 
 ./parse.sh > $file
 
-for kernel in regex crfsuite pocketsphinx porter dnn
-#for kernel in porter
+for kernel in regex crfsuite pocketsphinx porter feat desc
 do
     calc_mpki $kernel "D-Cache MPKI" D-Cache-Accesses >> $file
     calc_mpki $kernel "I-Cache MPKI" icache-misses >> $file

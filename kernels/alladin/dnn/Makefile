@@ -1,9 +1,9 @@
-CC = gcc
-CFLAGS = -std=c89 -pedantic -ansi -O3
+CC = g++
+CFLAGS = -O1 -lpthread
 
 # File names
 EXEC = dnn
-SOURCES = $(wildcard *.c)
+SOURCES = $(wildcard *.cpp)
 OBJECTS = $(SOURCES:.c=.o)
 
 # Main target
