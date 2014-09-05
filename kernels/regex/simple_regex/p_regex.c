@@ -22,7 +22,6 @@
 
 static int compile_regex (regex_t * r, const char * regex_text)
 {
-	
     int status = regcomp (r, regex_text, REG_EXTENDED|REG_NEWLINE);
     if (status != 0) 
 	{
@@ -71,16 +70,16 @@ static int match_regex (regex_t * r, const char * to_match)
             finish = m[i].rm_eo + (p - to_match);
             if (i == 0) 
 			{
-                /* printf ("$& match in '%s'", to_match);\ */
+                /* printf ("$& match in '%s'", to_match);\ */
             }
             else 
 			{
-                /* printf ("$%d match case is ", i);\ */
+                /* printf ("$%d match case is ", i);\ */
             }
 		//	printf ("Trying to find in '%s'", to_match);
 			//printf("\n");
-            /* printf ("'%.*s' (bytes %d:%d)\n", (finish - start),\ */
-            /*         to_match + start, start, finish);\ */
+            /* printf ("'%.*s' (bytes %d:%d)\n", (finish - start),\ */
+            /*         to_match + start, start, finish);\ */
         }
         p += m[0].rm_eo;
     }
@@ -257,7 +256,7 @@ int main(int argc, char * argv[])
     printf("Par time: %.2f ms\n", (double)totalruntimepar);
     printf("Speedup: %.2f \n", (double)totalruntimeseq/(double)totalruntimepar);
 	/* float cpu_elapsedTime = calculateMilisecondsTimeSpec(t_start, t_end); */
-    /* printf("\nCPU Time=%.2f ms\n",  cpu_elapsedTime);\ */
+    /* printf("\nCPU Time=%.2f ms\n",  cpu_elapsedTime);\ */
    // regfree (& r);
 	//fclose(f);
 	//fclose(f1);
