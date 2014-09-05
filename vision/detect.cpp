@@ -9,8 +9,6 @@
 #include <sstream>
 #include <fstream>
 #include <map>
-#include <fstream>
-#include <algorithm>
 #include <stdio.h>
 #include <tesseract/baseapi.h>
 #include <tesseract/strngs.h>
@@ -173,7 +171,8 @@ void exec_match(po::variables_map& vm)
     vector<int> bestMatches;
     unsigned int runtimefeat = 0, totalfeat = 0;
     unsigned int runtimedesc = 0, totaldesc = 0;
-    unsigned int runtimematch = 0;
+    unsigned int runtimecluster = 0;
+    unsigned int runtimesearch = 0;
     unsigned int totaltime = 0;
     struct timeval tot1, tot2;
     int numimgs = 0;
@@ -198,6 +197,7 @@ void exec_match(po::variables_map& vm)
     gettimeofday(&tv2,NULL);
     runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
+    // just use feat + desc of input image
     totalfeat += runtimefeat;
     totaldesc += runtimedesc;
 
@@ -206,45 +206,45 @@ void exec_match(po::variables_map& vm)
     assert(fs::is_directory(p));
 
     fs::directory_iterator end_iter;
-    for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr){
-        string img_name(dir_itr->path().string());
-        Mat img = imread(img_name, CV_LOAD_IMAGE_GRAYSCALE);
+        for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr){
+            string img_name(dir_itr->path().string());
+            Mat img = imread(img_name, CV_LOAD_IMAGE_GRAYSCALE);
 
-        // trainDesc.push_back(exec_desc(img, extractor, exec_feature(img, detector)));
-        gettimeofday(&tv1,NULL);
-        keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
-        gettimeofday(&tv2,NULL);
-        runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+            // trainDesc.push_back(exec_desc(img, extractor, exec_feature(img, detector)));
+            gettimeofday(&tv1,NULL);
+            keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
+            gettimeofday(&tv2,NULL);
+            runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
-        gettimeofday(&tv1,NULL);
-        Mat desc = (gpu) ? exec_desc_gpu(img, "SURF", keys) : exec_desc(img, extractor, keys);
-        // desc.convertTo(desc, CV_32F);
-        gettimeofday(&tv2,NULL);
-        runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+            gettimeofday(&tv1,NULL);
+            Mat desc = (gpu) ? exec_desc_gpu(img, "SURF", keys) : exec_desc(img, extractor, keys);
+            // desc.convertTo(desc, CV_32F);
+            gettimeofday(&tv2,NULL);
+            runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
-        trainDesc.push_back(desc);
+            trainDesc.push_back(desc);
 
-        trainImgs.push_back(img_name);
-        int temp = 0;
-        bestMatches.push_back(temp);
-        if(debug > 1)
-            cout << "Feature: " << (double)runtimefeat/1000000 << " Descriptor: " << (double)runtimedesc/1000000 << endl;
-        ++numimgs;
-        totalfeat += runtimefeat;
-        totaldesc += runtimedesc;
-    }
-    // Time
-
-    if(debug > 1)
-        cout << "Time feat: " << (double)totalfeat/(numimgs*1000000) << " desc: " << (double)totaldesc/(numimgs*1000000) << endl;
+            trainImgs.push_back(img_name);
+            int temp = 0;
+            bestMatches.push_back(temp);
+            if(debug > 1)
+                cout << "Feature: " << (double)runtimefeat/1000000 << " Descriptor: " << (double)runtimedesc/1000000 << endl;
+            // ++numimgs;
+            // totalfeat += runtimefeat;
+            // totaldesc += runtimedesc;
+        }
 
     // Match
     gettimeofday(&tv1,NULL);
     matcher->add(trainDesc);
     matcher->train();
+    gettimeofday(&tv2,NULL);
+    runtimecluster = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+
+    gettimeofday(&tv1,NULL);
     matcher->knnMatch(testDesc, knnMatches, knn);
     gettimeofday(&tv2,NULL);
-    runtimematch = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+    runtimesearch = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
     // Filter results
     for(vector< vector<DMatch> >::const_iterator it = knnMatches.begin(); it != knnMatches.end(); ++it){
@@ -269,12 +269,16 @@ void exec_match(po::variables_map& vm)
     delete detector;
     delete extractor;
     delete matcher;
-    gettimeofday(&tot2,NULL);
-    totaltime = (tot2.tv_sec-tot1.tv_sec)*1000000 + (tot2.tv_usec-tot1.tv_usec);
-    if(debug > 0)
-        cout << "total: " << (double)totaltime << " feat %: " << (double)totalfeat/totaltime 
-            << " desc %: " << (double)totaldesc/totaltime
-            << " match %: " << (double)runtimematch/totaltime << endl;
+    // gettimeofday(&tot2,NULL);
+    // totaltime = (tot2.tv_sec-tot1.tv_sec)*1000000 + (tot2.tv_usec-tot1.tv_usec);
+
+    totaltime = totalfeat+totaldesc+runtimecluster+runtimesearch;
+    if(debug > 0){
+        printf(" Feat time: %.2f ms (%.2f)\n ", (double)totalfeat/1000, (double)totalfeat/totaltime);
+        printf(" Desc time: %.2f ms (%.2f)\n ", (double)totaldesc/1000, (double)totaldesc/totaltime);
+        printf(" Cluster time: %.2f ms (%.2f)\n ", (double)runtimecluster/1000, (double)runtimecluster/totaltime);
+        printf(" Search time: %.2f ms (%.2f)\n ", (double)runtimesearch/1000, (double)runtimesearch/totaltime);
+    }
 }
 
 void exec_hog(po::variables_map& vm)
