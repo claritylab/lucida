@@ -15,6 +15,11 @@
 //  You may elect to redistribute this code under either of these licenses.
 //  ========================================================================
 //
+// 04/01/14
+// Vinicius Petrucci: added client-server framework
+// 
+// 09/11/14
+// Johann Hauswald: expanded client-server framework
 
 import java.io.*;
 
@@ -26,9 +31,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.jetty.server.nio.SelectChannelConnector;
+import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 import java.net.URL;
 import javax.sound.sampled.*;
@@ -42,8 +50,6 @@ import edu.cmu.pocketsphinx.Decoder;
 import edu.cmu.pocketsphinx.Config;
 import edu.cmu.pocketsphinx.Hypothesis;
 
-/* sphinx4 */
-
 public class PocketsphinxServer extends AbstractHandler
 {
     @Override
@@ -56,18 +62,15 @@ public class PocketsphinxServer extends AbstractHandler
             
         String text = null;
         
-//        String timeStamp = new SimpleDateFormat(" mm ss S").format(new Date( ));
-
         InputStream in = (InputStream) request.getInputStream();
         
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         int read = 0;
         byte[] bytes = new byte[4096];
         while ((read = in.read(bytes)) != -1) {
-           //  fos.write(bytes, 0, read);   
              bos.write(bytes, 0, read);                
         }
-//        fos.close();          
+
         bos.close();                  
         in.close(); 
         
@@ -86,7 +89,6 @@ public class PocketsphinxServer extends AbstractHandler
         else
                 response.getWriter().println("Coudn't decode/understand your voice...");        
     }
-          
     
       static {
            System.loadLibrary("pocketsphinx_jni");
@@ -102,12 +104,10 @@ public class PocketsphinxServer extends AbstractHandler
                 sphinx_config.setString("-lm", path + "lm_giga_64k_nvp_3gram.lm.DMP");
                 Decoder sphinx_decoder = new Decoder(sphinx_config);	      
                                 
-
                 AudioInputStream ais = null;
                 try {
                     AudioInputStream tmp = AudioSystem.getAudioInputStream(bin);
                     // Convert it to the desired audio format for PocketSphinx. 
-                    //MsgPrinter.printErrorMsg("samprate: " + (float)c.getFloat("-samprate"));
                     AudioFormat targetAudioFormat = new AudioFormat(16000, 16, 1, true, true);
                     ais = AudioSystem.getAudioInputStream(targetAudioFormat, tmp);
                 } catch (IOException e) {
@@ -141,7 +141,19 @@ public class PocketsphinxServer extends AbstractHandler
     
     public static void main(String[] args) throws Exception
     {
-        Server server = new Server(8080);
+        String addr = args[0];
+        int port = Integer.parseInt(args[1]);
+        int NTHREADS = Integer.parseInt(System.getenv("THREADS"));
+
+        Server server = new Server();
+        SelectChannelConnector con1 = new SelectChannelConnector();
+        con1.setHost(addr);
+        con1.setPort(port);
+        con1.setThreadPool(new QueuedThreadPool(NTHREADS));
+        con1.setMaxIdleTime(30000);
+        con1.setRequestHeaderSize(8192);
+
+        server.setConnectors(new Connector[]{con1});
         server.setHandler(new PocketsphinxServer()); 
  
         server.start();

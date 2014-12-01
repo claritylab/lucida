@@ -26,9 +26,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.jetty.server.nio.SelectChannelConnector;
+import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 import java.net.URL;
 import javax.sound.sampled.*;
@@ -38,7 +41,6 @@ import java.lang.Runtime.*;
 import java.io.InputStreamReader;
 
 /* sphinx4 */
-
 import edu.cmu.sphinx.frontend.util.AudioFileDataSource;
 import edu.cmu.sphinx.frontend.util.StreamDataSource;
 import edu.cmu.sphinx.recognizer.Recognizer;
@@ -56,19 +58,14 @@ public class Sphinx4Server extends AbstractHandler
     {        
             
         String text = null;
-        
-//        String timeStamp = new SimpleDateFormat(" mm ss S").format(new Date( ));
-
         InputStream in = (InputStream) request.getInputStream();
         
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         int read = 0;
         byte[] bytes = new byte[4096];
         while ((read = in.read(bytes)) != -1) {
-           //  fos.write(bytes, 0, read);   
              bos.write(bytes, 0, read);                
         }
-//        fos.close();          
         bos.close();                  
         in.close(); 
         
@@ -87,8 +84,6 @@ public class Sphinx4Server extends AbstractHandler
         else
                 response.getWriter().println("Coudn't decode/understand your voice...");        
     }
-          
-    
 
     protected String decode_voice_sphinx4(ByteArrayInputStream bin) {
 
@@ -98,27 +93,20 @@ public class Sphinx4Server extends AbstractHandler
 
         ConfigurationManager sphinx4_config = new ConfigurationManager(conf_file);
 
-//		MsgPrinter.printStatusMsg("created config manager");
         try {
             StreamDataSource streamDataSource = (StreamDataSource) sphinx4_config.lookup("streamDataSource");
-            //streamDataSource.setInputStream(bin, "Main Stream");
             streamDataSource.setInputStream(bin);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-//		MsgPrinter.printStatusMsg("read input stream");
         Recognizer recognizer = (Recognizer) sphinx4_config.lookup("recognizer");
 
-//		MsgPrinter.printStatusMsg("lookup recognize");		
         synchronized (this) {
-
             recognizer.allocate();
-
         }
 
-//		MsgPrinter.printStatusMsg("allocate recognizer, now will recognize");		
         try {
 
             Result result = recognizer.recognize();
@@ -129,12 +117,8 @@ public class Sphinx4Server extends AbstractHandler
             e.printStackTrace();
         }
 
-//		MsgPrinter.printStatusMsg("done recognized");                                                               
-        // recognizer.resetMonitors();
-        // recognizer.deallocate();                                           
         synchronized (this) {
             recognizer.deallocate();
-
         }
 
         if (result_text == null) {
@@ -147,7 +131,19 @@ public class Sphinx4Server extends AbstractHandler
     
     public static void main(String[] args) throws Exception
     {
-        Server server = new Server(8080);
+        String addr = args[0];
+        int port = Integer.parseInt(args[1]);
+        int NTHREADS = Integer.parseInt(System.getenv("THREADS"));
+
+        Server server = new Server();
+        SelectChannelConnector con1 = new SelectChannelConnector();
+        con1.setHost(addr);
+        con1.setPort(port);
+        con1.setThreadPool(new QueuedThreadPool(NTHREADS));
+        con1.setMaxIdleTime(30000);
+        con1.setRequestHeaderSize(8192);
+
+        server.setConnectors(new Connector[]{con1});
         server.setHandler(new Sphinx4Server()); 
  
         server.start();
