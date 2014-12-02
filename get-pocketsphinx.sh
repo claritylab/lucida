@@ -38,6 +38,6 @@ make install
 cd .. ;
 
 # clean up
-rm -rf $pdir ;
-rm -rf $sdir ;
-cd ../ ; rm -rf bits ;
+# rm -rf $pdir ;
+# rm -rf $sdir ;
+# cd ../ ; rm -rf bits ;
