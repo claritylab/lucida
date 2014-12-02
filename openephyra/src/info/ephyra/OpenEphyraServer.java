@@ -48,9 +48,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.jetty.server.nio.SelectChannelConnector;
+import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 import java.net.URLDecoder;
 import java.io.PrintWriter;
@@ -157,19 +160,15 @@ public class OpenEphyraServer extends AbstractHandler {
 			Logger.logListEnd();
 		}
 
-		// print answers
-//		MsgPrinter.printAnswers(results);
+        String answer = results[0].getAnswer();
 
-             String answer = results[0].getAnswer();
+        if (answer != null)
+            out.println("Done. Your answer is: " + answer);
+        else
+            out.println("Sorry, I cannot answer your question."); 
 
+        out.close();
 
-            if (answer != null)
-                out.println("Done. Your answer is: " + answer);
-            else
-                out.println("Sorry, I cannot answer your question."); 
-
-             out.close();
-       
         } 
 
 	/**
@@ -186,10 +185,19 @@ public class OpenEphyraServer extends AbstractHandler {
 		Logger.setLogfile("log/OpenEphyra");
 		Logger.enableLogging(true);
 		
-		// initialize Ephyra and start command line interface
-//		(new OpenEphyra()).commandLine();
+        String addr = args[0];
+        int port = Integer.parseInt(args[1]);
+        int NTHREADS = Integer.parseInt(System.getenv("THREADS"));
 
-		Server server = new Server(8081);
+        Server server = new Server();
+        SelectChannelConnector con1 = new SelectChannelConnector();
+        con1.setHost(addr);
+        con1.setPort(port);
+        con1.setThreadPool(new QueuedThreadPool(NTHREADS));
+        con1.setMaxIdleTime(30000);
+        con1.setRequestHeaderSize(8192);
+
+        server.setConnectors(new Connector[]{con1});
 		server.setHandler(new OpenEphyraServer()); 
 	 
 		server.start();
@@ -222,7 +230,6 @@ public class OpenEphyraServer extends AbstractHandler {
 		if (!OpenNLP.createTokenizer(dir +
 				"res/nlp/tokenizer/opennlp/EnglishTok.bin.gz"))
 			MsgPrinter.printErrorMsg("Could not create tokenizer.");
-//		LingPipe.createTokenizer();
 		
 		// create sentence detector
 		MsgPrinter.printStatusMsg("Creating sentence detector...");
@@ -241,9 +248,6 @@ public class OpenEphyraServer extends AbstractHandler {
 				dir + "res/nlp/postagger/opennlp/tag.bin.gz",
 				dir + "res/nlp/postagger/opennlp/tagdict"))
 			MsgPrinter.printErrorMsg("Could not create OpenNLP POS tagger.");
-//		if (!StanfordPosTagger.init(dir + "res/nlp/postagger/stanford/" +
-//				"wsj3t0-18-bidirectional/train-wsj-0-18.holder"))
-//			MsgPrinter.printErrorMsg("Could not create Stanford POS tagger.");
 		
 		// create chunker
 		MsgPrinter.printStatusMsg("Creating chunker...");
@@ -253,8 +257,6 @@ public class OpenEphyraServer extends AbstractHandler {
 		
 		// create syntactic parser
 		MsgPrinter.printStatusMsg("Creating syntactic parser...");
-//		if (!OpenNLP.createParser(dir + "res/nlp/syntacticparser/opennlp/"))
-//			MsgPrinter.printErrorMsg("Could not create OpenNLP parser.");
 		try {
 			StanfordParser.initialize();
 		} catch (Exception e) {
@@ -266,16 +268,9 @@ public class OpenEphyraServer extends AbstractHandler {
 		NETagger.loadListTaggers(dir + "res/nlp/netagger/lists/");
 		NETagger.loadRegExTaggers(dir + "res/nlp/netagger/patterns.lst");
 		MsgPrinter.printStatusMsg("  ...loading models");
-//		if (!NETagger.loadNameFinders(dir + "res/nlp/netagger/opennlp/"))
-//			MsgPrinter.printErrorMsg("Could not create OpenNLP NE tagger.");
 		if (!StanfordNeTagger.isInitialized() && !StanfordNeTagger.init())
 			MsgPrinter.printErrorMsg("Could not create Stanford NE tagger.");
 		MsgPrinter.printStatusMsg("  ...done");
-		
-		// create linker
-//		MsgPrinter.printStatusMsg("Creating linker...");
-//		if (!OpenNLP.createLinker(dir + "res/nlp/corefresolver/opennlp/"))
-//			MsgPrinter.printErrorMsg("Could not create linker.");
 		
 		// create WordNet dictionary
 		MsgPrinter.printStatusMsg("Creating WordNet dictionary...");
@@ -310,12 +305,6 @@ public class OpenEphyraServer extends AbstractHandler {
 		if (!QuestionReformulationG.loadReformulators(dir +
 				"res/reformulations/"))
 			MsgPrinter.printErrorMsg("Could not load query reformulators.");
-		
-		// load answer types
-//		MsgPrinter.printStatusMsg("Loading answer types...");
-//		if (!AnswerTypeTester.loadAnswerTypes(dir +
-//				"res/answertypes/patterns/answertypepatterns"))
-//			MsgPrinter.printErrorMsg("Could not load answer types.");
 		
 		// load question patterns
 		MsgPrinter.printStatusMsg("Loading question patterns...");

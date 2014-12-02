@@ -10,28 +10,34 @@ cd bits ;
 ver=0.8
 # default
 installdir=/usr/local/bin
-sphinxdir=sphinxbase-
-pocketdir=pocketsphinx-
+sdir=sphinxbase-
+pdir=pocketsphinx-
 
 wget http://sourceforge.net/projects/cmusphinx/files/sphinxbase/$ver/${sdir}${ver}.tar.gz
 wget http://sourceforge.net/projects/cmusphinx/files/pocketsphinx/$ver/$pdir${ver}.tar.gz
 
+sdir=$sdir$ver
+pdir=$pdir$ver
+
+# sphinxbase
 tar xzf ${sdir}.tar.gz
 cd $sdir ;
 ./autogen.sh
 ./configure --prefix=$installdir
-make
+make -j8
 make install
 cd .. ;
-rm -rf $sdir* ;
 
+# pocketsphinx
 tar xzf ${pdir}.tar.gz
 cd $pdir ;
 ./autogen.sh
 ./configure --prefix=$installdir
-make
+make -j8
 make install
 cd .. ;
-rm -rf $pdir* ;
 
+# clean up
+rm -rf $pdir ;
+rm -rf $sdir ;
 cd ../ ; rm -rf bits ;

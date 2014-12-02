@@ -481,12 +481,11 @@ int main()
     float *dev_score_vect;
 
     // load model from file
-    // FILE *fp = fopen("/home/jahausw/umvoice/kernels/gmm/gmm_data.txt", "r");
-    // if (fp == NULL) { //checks for the file
-    //     printf("\n Can’t open file");
-    //     exit(-1);
-    // }
-    // printf("here\n");
+    FILE *fp = fopen("/home/jahausw/umvoice/kernels/gmm/gmm_data.txt", "r");
+    if (fp == NULL) { //checks for the file
+        printf("\n Can’t open file");
+        exit(-1);
+    }
 
     int idx = 0;
     for (int i = 0; i < senone_size; i++) {
