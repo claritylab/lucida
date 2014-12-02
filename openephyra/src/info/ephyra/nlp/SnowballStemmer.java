@@ -27,8 +27,12 @@ public class SnowballStemmer {
      * @return stemmed word
      */
 	public static String stem(String word) {
+        long startTime = System.nanoTime();
 		stemmer.setCurrent(word);
 		stemmer.stem();
+        long endTime = System.nanoTime();
+        System.out.println("stemmer_ns," + (endTime - startTime));
+        System.out.println("stemmer_ms," + (endTime - startTime)/1000000);
 		return stemmer.getCurrent();
     }
 	
