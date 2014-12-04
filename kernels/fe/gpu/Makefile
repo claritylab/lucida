@@ -1,11 +1,11 @@
 CXX = g++
-CXX_FLAGS = -O3
+CXX_FLAGS =
 LINK_FLAGS = -lopencv_core \
 			 -lopencv_highgui \
 			 -lopencv_imgproc \
 			 -lopencv_nonfree \
-			 -lopencv_features2d \
-			 -lpthread
+			 -lopencv_gpu \
+			 -lopencv_features2d
 
 # File names
 EXEC = surf-fe

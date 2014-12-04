@@ -1,15 +1,15 @@
 CXX = g++
 CXX_FLAGS = -O3
-LINK_FLAGS = -lopencv_core \
+LINK_FLAGS = -lpthread \
+			 -lopencv_core \
 			 -lopencv_highgui \
 			 -lopencv_imgproc \
 			 -lopencv_nonfree \
-			 -lopencv_features2d \
-			 -lpthread
+			 -lopencv_features2d
 
 # File names
-EXEC = surf-fe
-SOURCES = surf-fe.cpp
+EXEC = surf-fd
+SOURCES = surf-fd.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Main target
