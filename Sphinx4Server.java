@@ -79,10 +79,11 @@ public class Sphinx4Server extends AbstractHandler
         response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
 
+        // send response
         if (text != null)
-                response.getWriter().println("You said: " + text);
+                response.getWriter().println(text);
         else
-                response.getWriter().println("Coudn't decode/understand your voice...");        
+                response.getWriter().println("(NULL)");        
     }
 
     protected String decode_voice_sphinx4(ByteArrayInputStream bin) {

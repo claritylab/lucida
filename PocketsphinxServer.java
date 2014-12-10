@@ -85,9 +85,9 @@ public class PocketsphinxServer extends AbstractHandler
         baseRequest.setHandled(true);
 
         if (text != null)
-                response.getWriter().println("You said: " + text);
+                response.getWriter().println(text);
         else
-                response.getWriter().println("Coudn't decode/understand your voice...");        
+                response.getWriter().println("(NULL)");        
     }
     
       static {
