@@ -364,19 +364,19 @@ public class OpenEphyraServer extends AbstractHandler {
         AnswerSelection.clearFilters();
         // - answer extraction filters
         AnswerSelection.addFilter(new AnswerTypeFilter());
-        /* AnswerSelection.addFilter(new AnswerPatternFilter()); */
-        /* AnswerSelection.addFilter(new WebDocumentFetcherFilter()); */
-        /* AnswerSelection.addFilter(new PredicateExtractionFilter()); */
-        /* AnswerSelection.addFilter(new FactoidsFromPredicatesFilter()); */
-        /* AnswerSelection.addFilter(new TruncationFilter()); */
-        /* // - answer selection filters */
-        /* AnswerSelection.addFilter(new StopwordFilter()); */
-        /* AnswerSelection.addFilter(new QuestionKeywordsFilter()); */
-        /* AnswerSelection.addFilter(new ScoreNormalizationFilter(NORMALIZER)); */
-        /* AnswerSelection.addFilter(new ScoreCombinationFilter()); */
-        /* AnswerSelection.addFilter(new FactoidSubsetFilter()); */
-        /* AnswerSelection.addFilter(new DuplicateFilter()); */
-        /* AnswerSelection.addFilter(new ScoreSorterFilter()); */
+        AnswerSelection.addFilter(new AnswerPatternFilter());
+        AnswerSelection.addFilter(new WebDocumentFetcherFilter());
+        AnswerSelection.addFilter(new PredicateExtractionFilter());
+        AnswerSelection.addFilter(new FactoidsFromPredicatesFilter());
+        AnswerSelection.addFilter(new TruncationFilter());
+        // - answer selection filters
+        AnswerSelection.addFilter(new StopwordFilter());
+        AnswerSelection.addFilter(new QuestionKeywordsFilter());
+        AnswerSelection.addFilter(new ScoreNormalizationFilter(NORMALIZER));
+        AnswerSelection.addFilter(new ScoreCombinationFilter());
+        AnswerSelection.addFilter(new FactoidSubsetFilter());
+        AnswerSelection.addFilter(new DuplicateFilter());
+        AnswerSelection.addFilter(new ScoreSorterFilter());
 	}
 	
 	/**
