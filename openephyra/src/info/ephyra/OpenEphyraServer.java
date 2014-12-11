@@ -121,8 +121,6 @@ public class OpenEphyraServer extends AbstractHandler {
             baseRequest.setHandled(true);
 
             PrintWriter out = response.getWriter();
-            out.println("Your question was: " + question);
-            out.println("Processing your question...");
             out.flush();
 
 		// determine question type and extract question string
