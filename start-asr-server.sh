@@ -27,7 +27,7 @@ if [[ -n "$3" ]]; then
 	port=$3
 fi
 
-export MODELS_PATH="`pwd`models/"
+export MODELS_PATH="`pwd`/models/"
 export CONF_FILE="`pwd`/sphinx_batch_conf.xml"
 export THREADS=8
 
