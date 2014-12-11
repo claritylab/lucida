@@ -115,19 +115,14 @@ public class OpenEphyraServer extends AbstractHandler {
             String[] tokens = query_str.split("=");
             String question = URLDecoder.decode(tokens[1], "UTF-8");
 
-
             // response
             response.setContentType("text/html;charset=utf-8");
             response.setStatus(HttpServletResponse.SC_OK);
             baseRequest.setHandled(true);
 
-
             PrintWriter out = response.getWriter();
-
-            out.println("Your question was: '" + question+"'<br><br>");
-
-            out.println("Processing your question... <br><br>");
-
+            out.println("Your question was: " + question);
+            out.println("Processing your question...");
             out.flush();
 
 		// determine question type and extract question string
@@ -163,13 +158,12 @@ public class OpenEphyraServer extends AbstractHandler {
         String answer = results[0].getAnswer();
 
         if (answer != null)
-            out.println("Done. Your answer is: " + answer);
+            out.println(answer);
         else
             out.println("Sorry, I cannot answer your question."); 
 
         out.close();
-
-        } 
+        }
 
 	/**
 	 * Entry point of Ephyra. Initializes the engine and starts the web service interface.
@@ -352,8 +346,6 @@ public class OpenEphyraServer extends AbstractHandler {
 
         for (String[] indriIndices : IndriKM.getIndriIndices())
             Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
-        // for (String[] indriServers : IndriKM.getIndriServers())
-        // Search.addKnowledgeMiner(new IndriKM(indriServers, true));
 
         // - knowledge annotators for (semi-)structured knowledge sources
         Search.clearKnowledgeAnnotators();
@@ -365,7 +357,6 @@ public class OpenEphyraServer extends AbstractHandler {
         // - answer extraction filters
         AnswerSelection.addFilter(new AnswerTypeFilter());
         AnswerSelection.addFilter(new AnswerPatternFilter());
-        AnswerSelection.addFilter(new WebDocumentFetcherFilter());
         AnswerSelection.addFilter(new PredicateExtractionFilter());
         AnswerSelection.addFilter(new FactoidsFromPredicatesFilter());
         AnswerSelection.addFilter(new TruncationFilter());
