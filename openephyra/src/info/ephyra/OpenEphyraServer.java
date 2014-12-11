@@ -185,8 +185,13 @@ public class OpenEphyraServer extends AbstractHandler {
 		Logger.setLogfile("log/OpenEphyra");
 		Logger.enableLogging(true);
 		
-        String addr = args[0];
-        int port = Integer.parseInt(args[1]);
+
+        String addr = "localhost";
+        int port = 8080;
+        if (args.length > 1) {
+            addr = args[0];
+            port = Integer.parseInt(args[1]);
+        }
         int NTHREADS = Integer.parseInt(System.getenv("THREADS"));
 
         Server server = new Server();
@@ -341,38 +346,37 @@ public class OpenEphyraServer extends AbstractHandler {
 		QueryGeneration.addQueryGenerator(new QuestionInterpretationG());
 		QueryGeneration.addQueryGenerator(new QuestionReformulationG());
 		
-		// search
-		// - knowledge miners for unstructured knowledge sources
-		Search.clearKnowledgeMiners();
-//		Search.addKnowledgeMiner(new BingKM());
-//		Search.addKnowledgeMiner(new GoogleKM());
-//		Search.addKnowledgeMiner(new YahooKM());
-		for (String[] indriIndices : IndriKM.getIndriIndices())
-			Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
-			//Search.addKnowledgeMiner(new IndriDocumentKM(indriIndices, false));
-//		for (String[] indriServers : IndriKM.getIndriServers())
-//			Search.addKnowledgeMiner(new IndriKM(indriServers, true));
-		// - knowledge annotators for (semi-)structured knowledge sources
-		Search.clearKnowledgeAnnotators();
-		
-		// answer extraction and selection
-		// (the filters are applied in this order)
-		AnswerSelection.clearFilters();
-		// - answer extraction filters
-		AnswerSelection.addFilter(new AnswerTypeFilter());
-		AnswerSelection.addFilter(new AnswerPatternFilter());
-		//AnswerSelection.addFilter(new WebDocumentFetcherFilter());
-		AnswerSelection.addFilter(new PredicateExtractionFilter());
-		AnswerSelection.addFilter(new FactoidsFromPredicatesFilter());
-		AnswerSelection.addFilter(new TruncationFilter());
-		// - answer selection filters
-		AnswerSelection.addFilter(new StopwordFilter());
-		AnswerSelection.addFilter(new QuestionKeywordsFilter());
-		AnswerSelection.addFilter(new ScoreNormalizationFilter(NORMALIZER));
-		AnswerSelection.addFilter(new ScoreCombinationFilter());
-		AnswerSelection.addFilter(new FactoidSubsetFilter());
-		AnswerSelection.addFilter(new DuplicateFilter());
-		AnswerSelection.addFilter(new ScoreSorterFilter());
+        // search
+        // - knowledge miners for unstructured knowledge sources
+        Search.clearKnowledgeMiners();
+
+        for (String[] indriIndices : IndriKM.getIndriIndices())
+            Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
+        // for (String[] indriServers : IndriKM.getIndriServers())
+        // Search.addKnowledgeMiner(new IndriKM(indriServers, true));
+
+        // - knowledge annotators for (semi-)structured knowledge sources
+        Search.clearKnowledgeAnnotators();
+        /* Search.addKnowledgeAnnotator(new WikipediaKA("list.txt")); */
+
+        // answer extraction and selection
+        // (the filters are applied in this order)
+        AnswerSelection.clearFilters();
+        // - answer extraction filters
+        AnswerSelection.addFilter(new AnswerTypeFilter());
+        /* AnswerSelection.addFilter(new AnswerPatternFilter()); */
+        /* AnswerSelection.addFilter(new WebDocumentFetcherFilter()); */
+        /* AnswerSelection.addFilter(new PredicateExtractionFilter()); */
+        /* AnswerSelection.addFilter(new FactoidsFromPredicatesFilter()); */
+        /* AnswerSelection.addFilter(new TruncationFilter()); */
+        /* // - answer selection filters */
+        /* AnswerSelection.addFilter(new StopwordFilter()); */
+        /* AnswerSelection.addFilter(new QuestionKeywordsFilter()); */
+        /* AnswerSelection.addFilter(new ScoreNormalizationFilter(NORMALIZER)); */
+        /* AnswerSelection.addFilter(new ScoreCombinationFilter()); */
+        /* AnswerSelection.addFilter(new FactoidSubsetFilter()); */
+        /* AnswerSelection.addFilter(new DuplicateFilter()); */
+        /* AnswerSelection.addFilter(new ScoreSorterFilter()); */
 	}
 	
 	/**

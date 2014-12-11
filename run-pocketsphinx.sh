@@ -2,10 +2,6 @@
 dir=pocketshpinx
 input=where.is.the.louvre.museum.located.wav
 
-
-
-
-
 for w in wav/*.wav
 do
 pocketsphinx_continuous \

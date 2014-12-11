@@ -4,6 +4,9 @@
 ========================
 Univ of Michigan, 2014
 
+./compile-sirius-servers.sh
+./start-<type>-server.sh
+
 QA system (OpenEphyra)
 ++++++++++++++++++++++
 
@@ -16,8 +19,7 @@ $ tar xzvf wiki_indri_index.tar.gz
 export INDRI_INDEX=<YOUR_PATH>/indri_index
 
 3) Run the QA service
-$ cd <SIRIUS_ROOT>/openephyra/scripts
-$ ./OpenEphyraServer.sh
+$ ./start-qa-server.sh
 
 You should see this log:
 ...
@@ -25,11 +27,11 @@ You should see this log:
 2014-10-16 19:08:14.264:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:8081
 
 
-ASR system (CMU Sphinx4)
+ASR system
 ++++++++++++++++++++++++
 
-1) Run CMU Sphinx 4 service
-$ ./run-sphinx4-server.sh
+1) Run ASR server
+$ ./start-asr-server.sh
 
 You should see this log:
 2014-10-16 19:26:07.353:INFO:oejs.Server:jetty-8.1.14.v20131031

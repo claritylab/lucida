@@ -14,7 +14,7 @@ if [ "$1" == "help" ]; then
 	exit
 fi
 
-asr=pocketsphinx
+asr=sphinx4
 if [[ -n "$1" ]]; then
 	asr=$1
 fi

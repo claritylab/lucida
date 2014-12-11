@@ -7,6 +7,6 @@ echo "Sphinx4 server done."
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar PocketsphinxServer.java
 echo "Pocketsphinx server done."
 
-cd openephyra ;
+cd openephyra;
 ant > /dev/null
 echo "OpenEphyra server done."

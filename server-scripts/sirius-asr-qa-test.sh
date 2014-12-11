@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IFS=$'\n'; 
-for line in `cat sirius_questions.txt`;
+for line in `cat sirius-question.txt`;
 do
     echo "(1) Your voice search (text) is:"
     echo "$line"      

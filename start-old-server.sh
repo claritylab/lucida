@@ -8,6 +8,8 @@ export CLASSPATH=bin:lib/ml/maxent.jar:lib/ml/minorthird.jar:lib/nlp/jwnl.jar:li
 export INDRI_INDEX=/home/jahausw/projects/sirius/wiki_indri_index/
 export THREADS=8
 
-cd openephyra/
+cd openephyra-old/
+
+ant
 
 java -Djava.library.path=lib/search/ -server -Xms1024m -Xmx2048m info.ephyra.OpenEphyraServer $ip $port

@@ -2,7 +2,7 @@
 
 
 IFS=$'\n'; 
-for line in `cat sirius-questions.txt`;
+for line in `cat sirius-question.txt`;
 do
         echo "(1) Your query text is:"
         echo "$line"      
