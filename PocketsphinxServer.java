@@ -58,7 +58,7 @@ public class PocketsphinxServer extends AbstractHandler
                        HttpServletRequest request,
                        HttpServletResponse response) 
         throws IOException, ServletException
-    {        
+    {
             
         String text = null;
         
@@ -85,9 +85,9 @@ public class PocketsphinxServer extends AbstractHandler
         baseRequest.setHandled(true);
 
         if (text != null)
-                response.getWriter().println(text);
+            response.getWriter().println(text);
         else
-                response.getWriter().println("(NULL)");        
+            response.getWriter().println("(NULL)");        
     }
     
       static {
@@ -96,47 +96,46 @@ public class PocketsphinxServer extends AbstractHandler
       
       public String decode_pocketsphinx(ByteArrayInputStream bin) {
 
-                final String path = System.getenv("MODELS_PATH");
-      
-                Config sphinx_config = Decoder.defaultConfig();
-                sphinx_config.setString("-dict", path + "/cmu07a.dic");
-                sphinx_config.setString("-hmm", path + "/voxforge_en_sphinx.cd_cont_5000/");
-                sphinx_config.setString("-lm", path + "lm_giga_64k_nvp_3gram.lm.DMP");
-                Decoder sphinx_decoder = new Decoder(sphinx_config);	      
-                                
-                AudioInputStream ais = null;
-                try {
-                    AudioInputStream tmp = AudioSystem.getAudioInputStream(bin);
-                    // Convert it to the desired audio format for PocketSphinx. 
-                    AudioFormat targetAudioFormat = new AudioFormat(16000, 16, 1, true, true);
-                    ais = AudioSystem.getAudioInputStream(targetAudioFormat, tmp);
-                } catch (IOException e) {
-                    System.out.println("Failed to open " + e.getMessage());
-                } catch (UnsupportedAudioFileException e) {
-                    System.out.println("Unsupported file type of " + e.getMessage());
-                }             
-                sphinx_decoder.startUtt(null);
-                byte[] b = new byte[4096];
-                try {
-                    int nbytes;
-                    while ((nbytes = ais.read(b)) >= 0) {
-                        ByteBuffer bb = ByteBuffer.wrap(b, 0, nbytes);
-                        short[] s = new short[nbytes/2];
-                        bb.asShortBuffer().get(s);
-                        sphinx_decoder.processRaw(s, s.length, false, false);
-                    }
-                } catch (IOException e) {
-                    System.out.println("Error when reading wav file" + e.getMessage());
-                }
-                sphinx_decoder.endUtt();        
-                
-                Hypothesis h = sphinx_decoder.hyp();    
-                if (h != null) {
-                    return h.getHypstr();
-                }
+          final String path = System.getenv("MODELS_PATH");
 
-		return "";      
-      
+          Config sphinx_config = Decoder.defaultConfig();
+          sphinx_config.setString("-dict", path + "/cmu07a.dic");
+          sphinx_config.setString("-hmm", path + "/voxforge_en_sphinx.cd_cont_5000/");
+          sphinx_config.setString("-lm", path + "lm_giga_64k_nvp_3gram.lm.DMP");
+          Decoder sphinx_decoder = new Decoder(sphinx_config);	      
+
+          AudioInputStream ais = null;
+          try {
+              AudioInputStream tmp = AudioSystem.getAudioInputStream(bin);
+              // Convert it to the desired audio format for PocketSphinx. 
+              AudioFormat targetAudioFormat = new AudioFormat(16000, 16, 1, true, true);
+              ais = AudioSystem.getAudioInputStream(targetAudioFormat, tmp);
+          } catch (IOException e) {
+              System.out.println("Failed to open " + e.getMessage());
+          } catch (UnsupportedAudioFileException e) {
+              System.out.println("Unsupported file type of " + e.getMessage());
+          }             
+          sphinx_decoder.startUtt(null);
+          byte[] b = new byte[4096];
+          try {
+              int nbytes;
+              while ((nbytes = ais.read(b)) >= 0) {
+                  ByteBuffer bb = ByteBuffer.wrap(b, 0, nbytes);
+                  short[] s = new short[nbytes/2];
+                  bb.asShortBuffer().get(s);
+                  sphinx_decoder.processRaw(s, s.length, false, false);
+              }
+          } catch (IOException e) {
+              System.out.println("Error when reading wav file" + e.getMessage());
+          }
+          sphinx_decoder.endUtt();        
+
+          Hypothesis h = sphinx_decoder.hyp();    
+          if (h != null) {
+              return h.getHypstr();
+          }
+
+          return "";      
       }             
     
     public static void main(String[] args) throws Exception

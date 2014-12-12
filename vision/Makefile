@@ -1,17 +1,22 @@
 CXX = g++
-CXX_FLAGS = `pkg-config opencv --cflags` 
-LINK_FLAGS = `pkg-config opencv --libs` -ltesseract
-CXX_FLAGS +=
-# LINK_FLAGS +=
-# EXTRA_FLAGS = -Wno-missing-field-initializers -Wno-missing-braces -Wno-format
-
-# Directories
-SRCDIR = src/
-BUILDDIR = bin/
+CXX_FLAGS = -O3
+LINK_FLAGS = -lopencv_core \
+			 -lopencv_highgui \
+			 -lopencv_imgproc \
+			 -lopencv_nonfree \
+			 -lopencv_flann \
+			 -lopencv_objdetect \
+			 -lopencv_features2d \
+			 -lopencv_gpu \
+			 -lrt \
+			 -lboost_program_options \
+			 -lboost_filesystem \
+			 -lboost_system \
+			 -ltesseract
 
 # File names
-EXEC = detect
-SOURCES = $(wildcard *.cpp) $(wildcard *.cc)
+EXEC = match
+SOURCES = match.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Main target
@@ -24,4 +29,4 @@ $(EXEC): $(OBJECTS) Makefile
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	rm -f $(EXEC) $(SRC)/*.o
