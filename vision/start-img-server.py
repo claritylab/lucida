@@ -18,6 +18,9 @@ img_db = 'matching/%s/%s' % (name, size)
 name += '.pickle'
 pickdb = pickledb.load(name, True)
 
+def shcmd(cmd):
+    subprocess.call(cmd, shell=True)
+
 def shcom(cmd):
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
     out = p.communicate()[0]
@@ -62,6 +65,8 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 
 if __name__ == '__main__':
     # TODO: build database opencv
+    cmd = 'mkdir -p ' + dlog
+    shcmd(cmd)
     host = 'localhost'
     port = 8081
     server = ThreadedHTTPServer((host, port), Handler)
