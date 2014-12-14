@@ -7,7 +7,7 @@ if __name__ == '__main__':
     pwd = os.getcwd()
     db_name = sys.argv[1]
     ddb = 'matching/%s/db' % db_name
-    pickdb = pickledb.load(db_name+'.db', False)
+    pickdb = pickledb.load(db_name+'.pickle', False)
 
     imgs = os.listdir(ddb)
     for i in imgs:

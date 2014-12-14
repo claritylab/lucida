@@ -15,7 +15,7 @@ dlog = 'img-log/'
 size = 'db'
 name = 'landmarks'
 img_db = 'matching/%s/%s' % (name, size)
-name += '.db'
+name += '.pickle'
 pickdb = pickledb.load(name, True)
 
 def shcom(cmd):
