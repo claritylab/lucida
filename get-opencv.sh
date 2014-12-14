@@ -14,10 +14,9 @@ base=${open}${ver}
 wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/$ver/$base.zip
 unzip $base;
 cd $base;
-mkdir build;
 
-cmake -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/build
+# mkdir build;
+# cmake -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/build
 make -j 8
-make install
 
 cd ..;  rm -rf $base.zip

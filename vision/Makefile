@@ -29,4 +29,4 @@ $(EXEC): $(OBJECTS) Makefile
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) $(SRC)/*.o
+	rm -f $(EXEC) *.o
