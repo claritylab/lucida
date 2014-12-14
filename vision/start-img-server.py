@@ -9,8 +9,14 @@ import threading
 import cgi
 from datetime import datetime
 
-PORT_NUMBER = 8080
+PORT_NUMBER = 8081
 dlog = 'img-log/'
+
+size = 'db'
+name = 'landmarks'
+img_db = 'matching/%s/%s' % (name, size)
+name += '.db'
+pickdb = pickledb.load(name, True)
 
 def shcom(cmd):
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
@@ -19,6 +25,7 @@ def shcom(cmd):
 #This class will handles any incoming request from
 #the browser 
 class Handler(BaseHTTPRequestHandler):
+
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
@@ -40,10 +47,12 @@ class Handler(BaseHTTPRequestHandler):
         with open(filename, 'wb') as f:
             f.write(form.value)
 
-        cmd = ('./match --match %s --database matching/attractions/db' % filename)
-        res = shcom(cmd)
+        cmd = './match --match %s --database %s' % (filename, img_db)
+        res = os.path.basename(shcom(cmd)).strip()
         # hack
-        answer = ('\t%s\n' % os.path.basename(res))
+        img_data = ' '.join(pickdb.get(res))
+        print 'img: %s data: %s' % (res, img_data)
+        answer = ('%s\n' % img_data)
         self.wfile.write(answer)
 
         return
@@ -52,6 +61,9 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
 
 if __name__ == '__main__':
-    server = ThreadedHTTPServer(('localhost', 8080), Handler)
-    print 'Starting server, use <Ctrl-C> to stop'
+    # TODO: build database opencv
+    host = 'localhost'
+    port = 8081
+    server = ThreadedHTTPServer((host, port), Handler)
+    print 'Starting server on %s:%s, use <Ctrl-C> to stop' % (host, port)
     server.serve_forever()

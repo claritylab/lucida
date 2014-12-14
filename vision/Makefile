@@ -16,7 +16,7 @@ LINK_FLAGS = -lopencv_core \
 
 # File names
 EXEC = match
-SOURCES = match.cpp
+SOURCES = detect.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Main target
