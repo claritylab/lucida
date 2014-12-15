@@ -1,5 +1,5 @@
 CXX = g++
-CXX_FLAGS = -O3
+CXX_FLAGS =
 LINK_FLAGS = -lopencv_core \
 			 -lopencv_highgui \
 			 -lopencv_imgproc \
@@ -12,11 +12,12 @@ LINK_FLAGS = -lopencv_core \
 			 -lboost_program_options \
 			 -lboost_filesystem \
 			 -lboost_system \
+			 -lprotobuf \
 			 -ltesseract
 
 # File names
 EXEC = match
-SOURCES = detect.cpp
+SOURCES = detect.cpp kp_protobuf.cpp $(wildcard *.cc)
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Main target

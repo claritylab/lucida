@@ -24,6 +24,7 @@
 #include "boost/program_options.hpp" 
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
+#include "kp_protobuf.h"
 
 using namespace cv;
 using namespace std;
@@ -34,21 +35,14 @@ namespace fs = boost::filesystem;
 struct timeval tv1, tv2;
 int debug = 0;
 
-vector<string> split_string(const string& s, vector<string>& elems)
+string make_pbdesc(string img_name)
 {
-	stringstream ss(s);
-	string item;
-	while (getline(ss, item, ',')) {
-		elems.push_back(item);
-	}
-	return elems;
-}
-
-string get_name_from_path(const string& class_path)
-{
-    fs::path p = fs::system_complete(class_path);
-	string filename = p.filename().string();
-	return filename;
+    string res;
+    size_t pos = img_name.find(".jpg");
+    if(pos != std::string::npos)
+        res = img_name.substr(0,pos);
+    res = res + ".pb";
+    return res;
 }
 
 vector<KeyPoint> exec_feature_gpu(const Mat& img_in, const string detector_str)
@@ -209,18 +203,23 @@ void exec_match(po::variables_map& vm)
     for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr){
         string img_name(dir_itr->path().string());
         Mat img = imread(img_name, CV_LOAD_IMAGE_GRAYSCALE);
+        string pb_desc = make_pbdesc(img_name);
+        Mat desc;
+        if(fs::is_regular_file(pb_desc))
+            desc = read_mat(pb_desc.c_str());
+        else
+        {
+            gettimeofday(&tv1,NULL);
+            keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
+            gettimeofday(&tv2,NULL);
+            runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
 
-        // trainDesc.push_back(exec_desc(img, extractor, exec_feature(img, detector)));
-        gettimeofday(&tv1,NULL);
-        keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
-        gettimeofday(&tv2,NULL);
-        runtimefeat = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
-
-        gettimeofday(&tv1,NULL);
-        Mat desc = (gpu) ? exec_desc_gpu(img, "SURF", keys) : exec_desc(img, extractor, keys);
-        // desc.convertTo(desc, CV_32F);
-        gettimeofday(&tv2,NULL);
-        runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+            gettimeofday(&tv1,NULL);
+            desc = (gpu) ? exec_desc_gpu(img, "SURF", keys) : exec_desc(img, extractor, keys);
+            // desc.convertTo(desc, CV_32F);
+            gettimeofday(&tv2,NULL);
+            runtimedesc = (tv2.tv_sec-tv1.tv_sec)*1000000 + (tv2.tv_usec-tv1.tv_usec);
+        }
 
         trainDesc.push_back(desc);
 
@@ -284,62 +283,40 @@ void exec_match(po::variables_map& vm)
     }
 }
 
-void exec_hog(po::variables_map& vm)
+void build_db(po::variables_map& vm)
 {
-    if(vm["debug"].as<int>() > 0)
-        cout << "Exec HoG..." << endl;
+    int gpu = 0;
+    // data
+    vector<string> trainImgs;
+    vector<Mat> trainDesc;
+    FeatureDetector *detector = new SurfFeatureDetector();
+    DescriptorExtractor *extractor = new SurfDescriptorExtractor();
+    // DescriptorMatcher *matcher = new BFMatcher(NORM_L1, false); //KNN
+    DescriptorMatcher *matcher = new FlannBasedMatcher(); //ANN
 
-    Mat img;
-#ifdef USE_GPU
-    gpu::GpuMat gpu_img;
-    gpu::HOGDescriptor hog;
-    hog.setSVMDetector(gpu::HOGDescriptor::getDefaultPeopleDetector());
-#else
-    HOGDescriptor hog;
-    hog.setSVMDetector(HOGDescriptor::getDefaultPeopleDetector());
-#endif
+    // Generate desc
+    fs::path p = fs::system_complete(vm["build"].as<string>());
+    assert(fs::is_directory(p));
 
-	if(vm.count("stream")){
-		string input_str = vm["stream"].as<string>();
-        vector<string> split_names;
-		split_string(input_str, split_names);
-		for(int i = 0; i < split_names.size(); ++i){
-			string& class_path = split_names[i];
-			string class_name = get_name_from_path(class_path);
-			fs::path p = fs::system_complete(class_path);
-			assert(fs::is_directory(p));
-
-			fs::directory_iterator end_iter;
-			for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr){
-				string img_name(dir_itr->path().string());
-                img = imread(img_name, CV_LOAD_IMAGE_GRAYSCALE);
-                vector<cv::Rect> found;
-#ifdef USE_GPU
-                gpu_img.upload(img);
-                hog.detectMultiScale(gpu_img, found);
-#else
-                hog.detectMultiScale(img, found);
-#endif
-                if(vm["debug"].as<int>() > 1)
-                    cout << "Processing " << img_name << "..." << endl;
-            }
-        }
-    }
-    else if(vm.count("image")){
-        img = imread(vm["image"].as<string>(), CV_LOAD_IMAGE_GRAYSCALE);
-        vector<cv::Rect> found;
-#ifdef USE_GPU
-        gpu_img.upload(img);
-        hog.detectMultiScale(gpu_img, found);
-#else
-        hog.detectMultiScale(img, found);
-#endif
-        if(vm["debug"].as<int>() > 1)
-            cout << "Processed " << vm["image"].as<string>() << "..." << endl;
+    fs::directory_iterator end_iter;
+    for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr){
+        string img_name(dir_itr->path().string());
+        Mat img = imread(img_name, CV_LOAD_IMAGE_GRAYSCALE);
+        vector<KeyPoint> keys = (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
+        Mat desc = (gpu) ? exec_desc_gpu(img, "SURF", keys) : exec_desc(img, extractor, keys);
+        trainDesc.push_back(desc);
+        trainImgs.push_back(img_name);
+        save_mat(desc, make_pbdesc(img_name).c_str());
     }
 
-    if(vm["debug"].as<int>() > 0)
-        cout << "Done HoG." << endl;
+    // Cluster
+    matcher->add(trainDesc);
+    matcher->train();
+
+    // Clean up
+    delete detector;
+    delete extractor;
+    delete matcher;
 }
 
 po::variables_map parse_opts( int ac, char** av )
@@ -351,9 +328,7 @@ po::variables_map parse_opts( int ac, char** av )
 		("match,m", po::value<string>(), "Test Image for match in database (image)")
 		("text,t", po::value<string>(), "Detect text in image(s) (directory or image)")
 		("database,d", po::value<string>(), "Database to test for match (directory)")
-		("walk,k", po::value<bool>()->default_value(false), "Stream images to a HOG person detector")
-		("stream,s", po::value<string>(), "Folders with image stream separated by a comma (walk)")
-		("image,e", po::value<string>(), "Input Image (walk)")
+		("build,b", po::value<string>(), "Build database")
 
 		("gpu,u", po::value<bool>()->default_value(false), "Use GPU? Only for specific algorithms") 
 
@@ -375,12 +350,12 @@ int main( int argc, char** argv )
 {
 	po::variables_map vm = parse_opts(argc, argv);
     
-	if(vm["walk"].as<bool>()){
-		exec_hog(vm);
-    }else if(vm.count("match")){
+	if(vm.count("match")){
         exec_match(vm);
     }else if(vm.count("text")){
         exec_text(vm);
+    }else if(vm.count("build")){
+        build_db(vm);
 	}else{
 		cout << "For help: " << argv[0] << " --help" << endl;
 	}
