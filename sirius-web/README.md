@@ -1,4 +1,6 @@
 ## Sirius Web Application
+jahausw@umich.edu
+anandacontact@gmail.com
 
 - Run ./sirius-web-deps.sh
 - In web-sirius.py, change IP addresses/ports for each application.
