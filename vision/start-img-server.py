@@ -64,7 +64,6 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
 
 if __name__ == '__main__':
-    # TODO: build database opencv
     cmd = 'mkdir -p ' + dlog
     shcmd(cmd)
     host = 'localhost'

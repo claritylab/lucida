@@ -1,22 +1,21 @@
-
 ========================
-= Sirius Benchmark 1.0 =
+Sirius: Speech and Vision Based Question-Answering System
 ========================
-Univ of Michigan, 2014
+University of Michigan, 2014
+jahausw@umich.edu
+vpetrucci@gmail.com
 
 ./compile-sirius-servers.sh
 ./start-<type>-server.sh
 
 QA system (OpenEphyra)
-++++++++++++++++++++++
 
 (tested with Java version 1.7)
 
 1) Extract the Wikipedia index:
 $ tar xzvf wiki_indri_index.tar.gz
 
-2) Point the index folder to the correct path on <SIRIUS_ROOT>/openephyra/scripts/OpenEphyraServer.sh
-export INDRI_INDEX=<YOUR_PATH>/indri_index
+2) Point the index folder to the correct path in <SIRIUS_ROOT>/openephyra/scripts/OpenEphyraServer.sh
 
 3) Run the QA service
 $ ./start-qa-server.sh
@@ -28,7 +27,6 @@ You should see this log:
 
 
 ASR system
-++++++++++++++++++++++++
 
 1) Run ASR server
 $ ./start-asr-server.sh
@@ -39,13 +37,11 @@ You should see this log:
 
 
 IMM system (OpenCV)
-+++++++++++++++++++
 
 1) see README under <SIRIUS_ROOT>/vision/ for installation and compilation
 
 2) Run the detect program as a web service
 ./detect --match_service --database <SIRIUS_ROOT>/vision/matching/buildings/db_small
-
 
 Test Scripts (localhost)
 ++++++++++++++++++++++++
@@ -63,20 +59,3 @@ Audio examples can be found under <SIRIUS_ROOT>/wav
 
 4) Testing ASR+QA
 ./sirius-asr-qa-test.sh
-
-Client script 
-+++++++++++++
-
-This script records audio and send queries to the server.
-
-Packages required (Tested on MAC OS X 10.9.5 via MacPorts; e.g., sudo port install sox ffmpeg)
-sox
-ffmpeg
-
-1) Edit the "sirius-client.sh" changing ASR_SERVER and QA_SERVER using the correct hostnames
-
-2) Run the client script:
-$ ./sirius-client.sh
-
-
-
