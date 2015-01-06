@@ -1,6 +1,5 @@
-========================
 # Sirius: Speech and Vision Based Question-Answering System
-========================
+
 University of Michigan, 2014
 
 jahausw@umich.edu
