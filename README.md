@@ -53,4 +53,4 @@ Audio examples can be found under SIRIUS_ROOT/inputs
 
 ### Web-App
 
-To run as a web-application, see [README](sirius-web/README.md)
+To run as a web-application, see [sirius-web](sirius-web)
