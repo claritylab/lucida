@@ -10,10 +10,10 @@ vpetrucci@gmail.com
 
 (tested with Java version 1.7)
 
-1) Extract the Wikipedia index:  
+1) Extract the Wikipedia index in the top directory:  
 $ tar xzvf wiki_indri_index.tar.gz
 
-2) Point the index folder to the correct path in <SIRIUS_ROOT>/openephyra/scripts/OpenEphyraServer.sh
+2) Point the index folder to the correct path in SIRIUS_ROOT/openephyra/scripts/OpenEphyraServer.sh
 
 3) Run the QA service  
 $ ./start-qa-server.sh
@@ -34,7 +34,7 @@ You should see this log:
 
 ### IMM system (OpenCV)
 
-1) see README under <SIRIUS_ROOT>/vision/ for installation and compilation  
+1) see README under SIRIUS_ROOT/vision for installation and compilation  
 
 2) Run the detect program as a web service  
 $ ./start-imm-server.sh
@@ -46,4 +46,4 @@ $ ./start-imm-server.sh
 - Testing IMM: ./sirius-imm-test.sh
 - Testing ASR+QA: ./sirius-asr-qa-test.sh
 
-Audio examples can be found under <SIRIUS_ROOT>/wav
+Audio examples can be found under SIRIUS_ROOT/inputs
