@@ -7,6 +7,8 @@ Dependencies:
 +libboost-all-dev
 +opencv
 +libprotobuf (2.5.0)
+
+
 Python dependencies:
 see ./start-img-server.py
 
