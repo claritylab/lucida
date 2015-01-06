@@ -29,7 +29,7 @@ You should see this log:
 
 - Testing QA: ./sirius-qa-test.sh
 
-### ASR system
+### ASR system (Sphinx)
 
 1) Run ASR server:  
 $ ./start-asr-server.sh
@@ -42,14 +42,14 @@ You should see this log:
 
 ### IMM system (OpenCV)
 
-1) see README under SIRIUS_ROOT/vision for installation and compilation.  
+1) see [README](vision) for installation and compilation.  
 
 2) Run the detect program as a web service:  
 $ ./start-imm-server.sh
 
 - Testing IMM: ./sirius-imm-test.sh
 
-### Test Scripts
+### Additional Test Scripts
 
 Test scripts are all included in run-scripts/ folder.
 
@@ -73,3 +73,4 @@ end-to-end application. See [README](sirius-suite/README.md) for more informatio
 - models: accoustic models for speech-recognition
 - sphinx4: alternative to pocketsphinx for speech reconition
     - slower but more accurate (see ./start-asr-server.sh).
+
