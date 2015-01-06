@@ -10,7 +10,7 @@ import cgi
 from datetime import datetime
 
 PORT_NUMBER = 8081
-dlog = 'img-log/'
+dlog = 'log/'
 
 size = 'db'
 name = 'landmarks'
