@@ -44,6 +44,8 @@ $ ./start-imm-server.sh
 
 ### Test Scripts
 
+Test scripts are all included in run-scripts.
+
 - Testing ASR: ./sirius-asr-test.sh
 - Testing QA: ./sirius-qa-test.sh
 - Testing IMM: ./sirius-imm-test.sh
@@ -58,8 +60,11 @@ To run as a web-application, see [sirius-web](sirius-web).
 ### Sirius-suite
 
 [Sirius-suite](sirius-suite) contains all the kernels extracted from the
-end-to-end application. See README for more information.
+end-to-end application. See [README](sirius-suite/README.md) for more information.
 
 ### Additional info
 
 - bits: folder with old/useful scripts
+- lib: java libs for full application
+- models: accoustic models for speech-recognition
+- sphinx4: alternative to using pocketsphinx for speech reconition (see ./start-asr-server.sh)
