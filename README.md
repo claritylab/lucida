@@ -4,6 +4,9 @@ University of Michigan, 2014
 jahausw@umich.edu  
 vpetrucci@gmail.com  
 
+### All Systems:
+
+./sirius-deps.sh  
 ./compile-sirius-servers.sh
 
 ### QA system (OpenEphyra)
@@ -47,3 +50,7 @@ $ ./start-imm-server.sh
 - Testing ASR+QA: ./sirius-asr-qa-test.sh
 
 Audio examples can be found under SIRIUS_ROOT/inputs
+
+### Web-App
+
+To run as a web-application, see [README](sirius-web/README.md)
