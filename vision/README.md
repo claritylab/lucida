@@ -5,7 +5,7 @@ image matching (described in this README), person detector, text extraction
 
 Dependencies:
 - libboost-all-dev
-- opencv
+- opencv (can use ./get-opencv.sh to install)
 - libprotobuf (2.5.0)
 
 Python dependencies:  
