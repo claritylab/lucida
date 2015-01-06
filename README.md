@@ -1,14 +1,11 @@
 # Sirius: Speech and Vision Based Question-Answering System
 
-University of Michigan, 2014
 
+University of Michigan, 2014
 jahausw@umich.edu
 vpetrucci@gmail.com
 
-
 ./compile-sirius-servers.sh
-./start-<type>-server.sh
-
 
 ### QA system (OpenEphyra)
 
