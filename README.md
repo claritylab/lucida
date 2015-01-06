@@ -4,7 +4,7 @@ University of Michigan, 2014
 jahausw@umich.edu  
 vpetrucci@gmail.com  
 
-### All Systems:
+### Build all Systems
 
 ./sirius-deps.sh  
 ./compile-sirius-servers.sh
@@ -54,3 +54,10 @@ Audio examples can be found under SIRIUS_ROOT/inputs
 ### Web-App
 
 To run as a web-application, see [sirius-web](sirius-web)
+
+### Additional info
+
+# Folder info:
+
+- bits: folder with old/useful scripts
+- kernels:
