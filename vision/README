@@ -1,21 +1,21 @@
-Stream application:
+Image Matching (IMM)
 Functions included (so far):
+image matching (described in this README)
 person detector
-image matching
 text extraction
 
 Dependencies:
 +libboost-all-dev
 +opencv
 +libprotobuf (2.5.0)
-
-Install opencv locally:
--Download latest OpenCV
--in root dir: mkdir build
--cmake . -i
-set install dir to /opencv/build in cmake
-make && make install
+Python dependencies:
+see ./start-img-server.py
 
 ./detect --help
 For example:
-./detect --match matching/queries/206_0001.jpg --database matching/db/
+./detect --match matching/landmarks/query/query.jpg --database matching/landmarks/db
+
+Use ./make-db.py <db name> to store image database as descriptors in protobuf
+format (faster).
+Example: ./make-db.py landmarks
+Then Re-run the application normally
