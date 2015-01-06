@@ -545,7 +545,7 @@ public class AnswerPatternFilter extends Filter {
 			
 			// extract PROPERTY objects
 			extractPos(result);
-            System.out.println(extr.size());
+            /* System.out.println(extr.size()); */
 			
 			// create new result for each unique normalized PROPERTY object
 			for (int i = 0; i < extr.size(); i++) {

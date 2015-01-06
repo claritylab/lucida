@@ -10,7 +10,7 @@ do
     filename=`echo $filename | tr '[:upper:]' '[:lower:]'`
 
     echo "(2) Sending request to server..."
-    resp=`wget -q -U "Mozilla/5.0" --post-file ../inputs/questions/$filename.wav --header "Content-Type: audio/vnd.wave; rate=16000" -O - "http://141.212.106.244:8080/" `
+    resp=`wget -q -U "Mozilla/5.0" --post-file ../inputs/questions/$filename.wav --header "Content-Type: audio/vnd.wave; rate=16000" -O - "localhost:8080/" `
     
     echo "Resp: "$resp | cut -d: -f2
 
