@@ -16,8 +16,8 @@ cd $base;
 
 # mkdir build;
 # cmake -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/build
+cmake .
 make -j 8
 make install
-
 
 cd ..;  rm -rf $base*
