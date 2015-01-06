@@ -1,10 +1,12 @@
 ### Image Matching (IMM)
 
 
-Functions included (so far):
+Functions included:
 
 image matching (described in this README)
+
 person detector
+
 text extraction
 
 Dependencies:
