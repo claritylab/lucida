@@ -1,13 +1,7 @@
 ### Image Matching (IMM)
 
-
 Functions included:
-
-image matching (described in this README)
-
-person detector
-
-text extraction
+image matching (described in this README), person detector, text extraction
 
 Dependencies:
 +libboost-all-dev
