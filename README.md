@@ -7,7 +7,7 @@ vpetrucci@gmail.com
 ### Build all Systems
 
 ./sirius-deps.sh  
-./get-pocketsphinx.sh
+./get-pocketsphinx.sh  
 ./compile-sirius-servers.sh
 
 ### QA system (OpenEphyra)
