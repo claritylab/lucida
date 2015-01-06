@@ -13,6 +13,5 @@ do
         time curl --request GET "http://localhost:8080?query=$query"
              
         echo "***********************************************"
-        exit
 done
 
