@@ -10,9 +10,10 @@ import info.ephyra.search.Result;
 import info.ephyra.util.FileUtils;
 import info.ephyra.util.RegexConverter;
 import info.ephyra.util.StringUtils;
-
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -283,8 +284,25 @@ public class AnswerPatternFilter extends Filter {
 			tokens[i] = NETagger.tokenize(originalSentences[i]);
 			sentences[i] = StringUtils.concatWithSpaces(tokens[i]);
 		}
+                
+             /*   PrintWriter pw = null;   
+                try {
+                    pw = new PrintWriter(new FileOutputStream(new File("netagger_data.txt"),true));
+                } catch (FileNotFoundException ex) {
+                    System.out.println("File not found exception!!");
+                }*/
+                
 		// extract named entities
 		String[][][] nes = NETagger.extractNes(tokens);
+                
+               // pw.printf("%s ----- %s\n", tokens.toString(), nes.toString());
+                
+                /*PrintWriter pw2 = null;   
+                try {
+                    pw2 = new PrintWriter(new FileOutputStream(new File("regex_data.txt"),true));
+                } catch (FileNotFoundException ex) {
+                    System.out.println("File not found exception!!");
+                }*/
 		
 		for (int i = 0; i < sentences.length; i++) {
 			// prepare sentence for answer extraction
@@ -294,6 +312,8 @@ public class AnswerPatternFilter extends Filter {
 			for (AnswerPattern pattern : patterns) {
 				// apply answer pattern
 				String[] pos = pattern.apply(sentences[i]);
+                                
+                              //  pw2.printf("%s ----- %s ----- %s\n", pattern.getDesc(), sentences[i], pos);
 				
 				// get NE types of PROPERTY objects
 				String[][] neTypes = new String[pos.length][];
@@ -316,6 +336,8 @@ public class AnswerPatternFilter extends Filter {
 				}
 			}
 		}
+             //   pw.close();
+           //     pw2.close();
 	}
 	
 	/**
@@ -545,7 +567,6 @@ public class AnswerPatternFilter extends Filter {
 			
 			// extract PROPERTY objects
 			extractPos(result);
-            /* System.out.println(extr.size()); */
 			
 			// create new result for each unique normalized PROPERTY object
 			for (int i = 0; i < extr.size(); i++) {
