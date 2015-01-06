@@ -41,9 +41,9 @@ $ ./start-imm-server.sh
 
 ### Test Scripts
 
-Audio examples can be found under <SIRIUS_ROOT>/wav
-
 - Testing ASR: ./sirius-asr-test.sh
 - Testing QA: ./sirius-qa-test.sh
 - Testing IMM: ./sirius-imm-test.sh
 - Testing ASR+QA: ./sirius-asr-qa-test.sh
+
+Audio examples can be found under <SIRIUS_ROOT>/wav
