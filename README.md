@@ -55,9 +55,11 @@ Audio examples can be found under SIRIUS_ROOT/inputs
 
 To run as a web-application, see [sirius-web](sirius-web)
 
+### Sirius-suite
+
+[Sirius-suite](sirius-suite) contains all the kernels extracted from the
+end-to-end application. See README for more information.
+
 ### Additional info
 
-# Folder info:
-
 - bits: folder with old/useful scripts
-- kernels:
