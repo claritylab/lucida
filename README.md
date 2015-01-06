@@ -71,4 +71,5 @@ end-to-end application. See [README](sirius-suite/README.md) for more informatio
 - bits: folder with old/useful scripts
 - lib: java libs for full application
 - models: accoustic models for speech-recognition
-- sphinx4: alternative to pocketsphinx for speech reconition, slower but more accurate (see ./start-asr-server.sh).
+- sphinx4: alternative to pocketsphinx for speech reconition
+    - slower but more accurate (see ./start-asr-server.sh).
