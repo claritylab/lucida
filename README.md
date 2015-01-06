@@ -1,5 +1,5 @@
 ========================
-Sirius: Speech and Vision Based Question-Answering System
+# Sirius: Speech and Vision Based Question-Answering System
 ========================
 University of Michigan, 2014
 
@@ -11,7 +11,7 @@ vpetrucci@gmail.com
 ./start-<type>-server.sh
 
 
-QA system (OpenEphyra)
+### QA system (OpenEphyra)
 
 (tested with Java version 1.7)
 
@@ -29,7 +29,7 @@ You should see this log:
 2014-10-16 19:08:14.264:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:8081
 
 
-ASR system
+### ASR system
 
 1) Run ASR server
 $ ./start-asr-server.sh
@@ -39,26 +39,21 @@ You should see this log:
 2014-10-16 19:26:07.379:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:8080
 
 
-IMM system (OpenCV)
+### IMM system (OpenCV)
 
 1) see README under <SIRIUS_ROOT>/vision/ for installation and compilation
 
 2) Run the detect program as a web service
-./detect --match_service --database <SIRIUS_ROOT>/vision/matching/buildings/db_small
+$ ./start-imm-server.sh
 
-Test Scripts (localhost)
-++++++++++++++++++++++++
+### Test Scripts
 
 Audio examples can be found under <SIRIUS_ROOT>/wav
 
-1) Testing ASR:
-./sirius-asr-test.sh
+1) Testing ASR: ./sirius-asr-test.sh
 
-2) Testing QA:
-./sirius-qa-test.sh
+2) Testing QA: ./sirius-qa-test.sh
 
-3) Testing IMM:
-./sirius-imm-test.sh
+3) Testing IMM: ./sirius-imm-test.sh
 
-4) Testing ASR+QA
-./sirius-asr-qa-test.sh
+4) Testing ASR+QA: ./sirius-asr-qa-test.sh
