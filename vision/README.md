@@ -4,8 +4,11 @@ Functions included:
 image matching (described in this README), person detector, text extraction
 
 Dependencies:
+
 +libboost-all-dev
+
 +opencv
+
 +libprotobuf (2.5.0)
 
 
