@@ -51,11 +51,11 @@ $ ./start-imm-server.sh
 
 ### Additional Test Scripts
 
-Test scripts are all included in run-scripts/ folder.
+Test scripts are all included in [run-scripts](run-scripts) folder.
 
 - Testing ASR+QA: ./sirius-asr-qa-test.sh
 
-Audio examples can be found under SIRIUS_ROOT/inputs.
+Audio examples can be found under [inputs](inputs).
 
 ### Web-App
 
