@@ -6,8 +6,10 @@ vpetrucci@gmail.com
 
 ### Build all Systems
 
-./sirius-deps.sh  
-./get-pocketsphinx.sh  
+(Tested with Ubuntu 12.04, 14.04)
+
+To install basic depedencies (may not be exhaustive): ./sirius-deps.sh  
+Install Sphinx and pocketsphinx: ./get-pocketsphinx.sh  
 ./compile-sirius-servers.sh
 
 ### QA system (OpenEphyra)
