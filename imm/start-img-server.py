@@ -9,8 +9,7 @@ import threading
 import cgi
 from datetime import datetime
 
-PORT_NUMBER = 8081
-dlog = 'log/'
+dlog = 'log'
 
 size = 'db'
 name = 'landmarks'
@@ -25,8 +24,7 @@ def shcom(cmd):
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
     out = p.communicate()[0]
     return out
-#This class will handles any incoming request from
-#the browser 
+
 class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
@@ -66,8 +64,8 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 if __name__ == '__main__':
     cmd = 'mkdir -p ' + dlog
     shcmd(cmd)
-    host = 'localhost'
-    port = 8081
+    host = sys.argv[1]
+    port = int(sys.argv[2])
     server = ThreadedHTTPServer((host, port), Handler)
     print 'Starting server on %s:%s, use <Ctrl-C> to stop' % (host, port)
     server.serve_forever()

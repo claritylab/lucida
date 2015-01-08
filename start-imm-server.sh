@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd vision;
+cd imm;
 
-./start-img-server.py
+./start-img-server.py localhost 8082
