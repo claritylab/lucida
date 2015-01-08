@@ -15,14 +15,15 @@ if [ "$1" == "help" ]; then
 fi
 
 asr=sphinx4
+ip=localhost
+port=8081
+
 if [[ -n "$1" ]]; then
 	asr=$1
 fi
-ip=localhost
 if [[ -n "$2" ]]; then
 	ip=$2
 fi
-port=8080
 if [[ -n "$3" ]]; then
 	port=$3
 fi

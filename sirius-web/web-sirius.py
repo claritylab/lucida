@@ -10,11 +10,11 @@ from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
-servers = ['141.212.106.244', '141.212.106.240', 'localhost']
+servers = ['localhost']
 QA  = servers[0]
-ASR = servers[1]
-VIS = servers[1]
-ports = [8080, 8081]
+ASR = servers[0]
+VIS = servers[0]
+ports = [8080, 8081, 8082]
 
 # data folder
 log = 'input-log/'
@@ -32,7 +32,7 @@ from wtforms import Form, BooleanField, TextField, PasswordField, validators
 def req_vis(image, return_dict=None):
     cmd = 'wget -q  -U "Mozilla/5.0" --post-file ' + str(image)
     cmd += ' --header "Content-Type: image/jpeg"'
-    cmd += ' -O - '+ make_server(VIS, ports[1])
+    cmd += ' -O - '+ make_server(VIS, ports[2])
     result = shcom(cmd)
     if return_dict is not None:
         return_dict[image] = result
@@ -42,7 +42,7 @@ def req_vis(image, return_dict=None):
 def req_asr(speech, return_dict=None):
     cmd = 'wget -q -U "Mozilla/5.0" --post-file ' + str(speech)
     cmd += ' --header "Content-Type: audio/vnd.wave; rate=16000" -O - '
-    cmd += make_server(ASR, ports[0])
+    cmd += make_server(ASR, ports[1])
     result = shcom(cmd)
     if return_dict is not None:
         return_dict[speech] = result
