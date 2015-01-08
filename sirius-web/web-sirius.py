@@ -155,4 +155,4 @@ def index():
 if __name__ == "__main__":
     cmd = 'mkdir -p ' + log
     shcmd(cmd)
-    app.run(host='localhost', port=8080, debug=True)
+    app.run(host='localhost', port=8000, debug=True)
