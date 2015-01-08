@@ -9,7 +9,7 @@ import threading
 import cgi
 from datetime import datetime
 
-dlog = 'log'
+dlog = 'log/'
 
 size = 'db'
 name = 'landmarks'
