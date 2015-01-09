@@ -44,7 +44,7 @@ You should see this log:
 
 ### IMM system (OpenCV)
 
-1) see [README](vision) for installation and compilation.  
+1) see [README](imm) for installation and compilation.  
 
 2) Run the detect program as a web service:  
 $ ./start-imm-server.sh
