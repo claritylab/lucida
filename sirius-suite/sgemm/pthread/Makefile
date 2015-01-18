@@ -1,10 +1,10 @@
 CXX = g++
 CXX_FLAGS += -O3
-LINK_FLAGS = 
+LINK_FLAGS = -lpthread
 
 # File names
-EXEC = dnn
-SOURCES = dnn.cpp
+EXEC = sgemm
+SOURCES = sgemm.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # No need to change after this line

@@ -1,17 +1,13 @@
 CXX = g++
-CXX_FLAGS = -O3
-LINK_FLAGS = -lopencv_core \
-			 -lopencv_highgui \
-			 -lopencv_imgproc \
-			 -lopencv_nonfree \
-			 -lopencv_features2d
+CXX_FLAGS += -O3
+LINK_FLAGS = 
 
 # File names
-EXEC = surf-fe
-SOURCES = surf-fe.cpp
+EXEC = sgemm
+SOURCES = sgemm.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# Main target
+# No need to change after this line
 $(EXEC): $(OBJECTS) Makefile
 	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
 
@@ -21,4 +17,4 @@ $(EXEC): $(OBJECTS) Makefile
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) $(SRC)/*.o
+	rm -f $(EXEC) *.o
