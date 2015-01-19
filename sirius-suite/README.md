@@ -9,7 +9,7 @@ Each kernel contains:
 - input (when applicable, larger inputs not included)
 - baseline
 - pthread/phi
-- GPU
+- GPU (when applicable)
 - bits: this folder contains trial or old versions
 
 Each benchmark is run the following way:  

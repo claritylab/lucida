@@ -151,11 +151,6 @@ int main(int argc, char *argv[])
     weight_vect = (float *)malloc(comp_array_size * sizeof(float));
     factor_vect = (float *)malloc(comp_array_size * sizeof(float));
 
-    float *means_vect2 = (float *)malloc(means_array_size * sizeof(float));
-    float *precs_vect2 = (float *)malloc(means_array_size * sizeof(float));
-    float *weight_vect2 = (float *)malloc(comp_array_size * sizeof(float));
-    float *factor_vect2 = (float *)malloc(comp_array_size * sizeof(float));
-
     float *dev_means_vect;
     float *dev_precs_vect;
     float *dev_weight_vect;
@@ -220,40 +215,6 @@ int main(int argc, char *argv[])
 
     fclose(fp);
 
-    int idx3 = 0;
-    for (int j = 0; j < comp_size; j++) {
-        for (int i = 0; i < senone_size; i++) {
-            int ij = j + i*comp_size;
-            weight_vect2[idx3] = weight_vect[ij];
-            factor_vect2[idx3] = factor_vect[ij];
-            idx3 += 1;
-        }
-    }
-
-    int idx4 = 0;
-    for (int k = 0; k < comp_size; k++) {
-        for (int j = 0; j < comp_size; j++) {
-            for (int i = 0; i < senone_size; i++) {
-                int ijk = k + comp_size*j + i*comp_size*comp_size;
-                means_vect2[idx4] = means_vect[ijk];
-                precs_vect2[idx4] = precs_vect[ijk];
-                idx4 += 1;
-            }
-        }
-    }
-
-    for (int i = 0; i < senone_size; i++) {
-        for (int j = 0; j < comp_size; j++) {
-            for (int k = 0; k < 29; k++) {
-                int ijk = k + comp_size*j + i*comp_size*comp_size;
-                int kji = i + senone_size*j + k*comp_size*senone_size;
-                if (means_vect2[kji] != means_vect[ijk]) {
-                    printf("%f != %f\n", means_vect2[kji], means_vect[ijk]);
-                }
-            }
-        }
-    }
-
     // CPU side
     gettimeofday(&t1, NULL);
     for(int i = 0; i < LOOP; ++i)
@@ -261,7 +222,7 @@ int main(int argc, char *argv[])
     gettimeofday(&t2, NULL);
     
     cpu_elapsedTime = calculateMiliseconds(t1,t2);
-    printf("CPU Time=%4.3f ms\n",  cpu_elapsedTime);
+    printf("CPU Time=%4.3f ms\n",  (float)cpu_elapsedTime/LOOP);
     
     /* Clean up and exit */
     free(means_vect);
