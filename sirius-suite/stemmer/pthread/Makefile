@@ -3,7 +3,7 @@ LINK_FLAGS = -lrt -lpthread
 CXX_FLAGS = -O3 -fpermissive -Wno-write-strings
 
 # File names
-EXEC = porter
+EXEC = porter_stem
 SOURCES = porter.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 

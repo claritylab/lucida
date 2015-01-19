@@ -423,8 +423,8 @@ static int a_max = ARRAYSIZE;
 
 #define A_INC     10000
 
-#define NTHREADS      240
-#define ITERATIONS   ARRAYSIZE / NTHREADS
+#define NTHREADS    4
+#define ITERATIONS  ARRAYSIZE / NTHREADS
 
 int iterations;
 
