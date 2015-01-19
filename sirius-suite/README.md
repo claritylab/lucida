@@ -16,6 +16,8 @@ Each benchmark is run the following way:
 ./executable ../input/input
 
 Regex takes 2 inputs:  
-./regex ../input/list ../input/questions
+./regex ../input/list ../input/questions  
 
-
+Download larger inputs at:  
+web.eecs.umich.edu/~jahausw  
+sirius.clarity-lab.org
