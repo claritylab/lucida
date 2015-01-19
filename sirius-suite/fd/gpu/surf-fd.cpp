@@ -25,17 +25,6 @@ using namespace std;
 
 struct timeval tv1, tv2;
 
-#define NTHREADS 8
-#define VTHREADS 20
-#define HTHREADS 20
-#define OVERLAP 0
-
-vector<Mat> segs;
-vector< vector<KeyPoint> > keys;
-FeatureDetector *detector = new SurfFeatureDetector();
-DescriptorExtractor *extractor = new SurfDescriptorExtractor();
-int iterations;
-
 float calculateMiliseconds(timeval t1,timeval t2)
 {
     float elapsedTime;
@@ -44,18 +33,35 @@ float calculateMiliseconds(timeval t1,timeval t2)
     return elapsedTime;
 }
 
-vector<KeyPoint> exec_feature(const Mat& img)
+vector<KeyPoint> exec_feature_gpu(const Mat& img_in)
 {
 	vector<KeyPoint> keypoints;
-	detector->detect(img, keypoints);
+	gpu::GpuMat img; img.upload(img_in);
 
-	return keypoints;
+    gpu::SURF_GPU detector;
+    detector(img, gpu::GpuMat(), keypoints);
+    return keypoints;
+}
+
+Mat exec_descriptor_gpu(const Mat& img_in, std::vector<KeyPoint> keypoints)
+{
+	gpu::GpuMat img; img.upload(img_in); // Only 8B grayscale
+	gpu::GpuMat descriptorsGPU;
+	Mat descriptors;
+
+    gpu::SURF_GPU extractor;
+    extractor(img, gpu::GpuMat(), keypoints, descriptorsGPU, true);
+
+	descriptorsGPU.download(descriptors);
+
+	return descriptors;
 }
 
 int main( int argc, char** argv )
 {
     // data
     float runtimefeat = 0;
+    float runtimedesc = 0;
     struct timeval t1, t2;
 
     // Generate test keys
@@ -63,15 +69,17 @@ int main( int argc, char** argv )
     if(img.empty()) { printf("image not found\n"); exit(-1); }
 
     gettimeofday(&t1,NULL);
-    vector<KeyPoint> key = exec_feature(img);
+    vector<KeyPoint> key = exec_feature_gpu(img);
     gettimeofday(&t2,NULL);
-    runtimefeat = calculateMiliseconds(t1,t2);
+    runtimefeat = calculateMiliseconds(t1, t2);
 
-    // Clean up
-    delete detector;
-    delete extractor;
+    gettimeofday(&t1,NULL);
+    Mat desc = exec_descriptor_gpu(img, key);
+    gettimeofday(&t2,NULL);
+    runtimedesc = calculateMiliseconds(t1, t2);
 
-    printf("SURF FE CPU Time=%4.3f ms\n", runtimefeat);
+    printf("SURF FE GPU Time=%4.3f ms\n", runtimefeat);
+    printf("SURF FD GPU Time=%4.3f ms\n", runtimedesc);
     
 	return 0;
 }
