@@ -495,29 +495,20 @@ __global__ void stem3(struct stemmer **stem_list,int array_size){
 
 /*--------------------stemmer definition ends here------------------------*/
 
-
-// For the CUDA runtime routines (prefixed with "cuda_")
-/* //#include <cuda_runtime.h> */
-
 #include <limits.h>
 #include <float.h>
 #include <math.h>
 #include <sys/time.h>
 
-//static char * s;         /* buffer for words tobe stemmed */
-//static char **word_list;
 static struct stemmer **stem_list;
 
 struct stemmer **dev_stem_list;
 
-//#define _POSIX_C_SOURCE >= 199309L
+#define ARRAYSIZE 4100000
+#define A_INC       10000
+#define INC            32 /* size units in which s is increased */
 
-#define ARRAYSIZE   4100000
 static int a_max = ARRAYSIZE;
-
-#define A_INC     10000
-
-#define INC 32           /* size units in which s is increased */
 static int i_max = INC;  /* maximum offset in s */
 
 #define LETTER(ch) (isupper(ch) || islower(ch))
@@ -546,8 +537,6 @@ int load_data(struct stemmer ** stem_list, FILE *f)
         z->b = s;
         z->k = i - 1;
         stem_list[a_size] = z;
-        //word_list[a_size] = s;        
-        //s[stem(z, s, i - 1) + 1] = 0;
         if (a_size == a_max) {
            a_max += A_INC;
            stem_list = (struct stemmer **) realloc(stem_list, a_max);
@@ -560,9 +549,6 @@ int load_data(struct stemmer ** stem_list, FILE *f)
 
 int main(int argc, char * argv[])
 {  
-
-    struct timespec t_start, t_end;
-
     cudaEvent_t eStart,eStop;float cuda_elapsedTime;
 
     // allocate data
@@ -605,7 +591,7 @@ int main(int argc, char * argv[])
 
     cudaEventElapsedTime(&cuda_elapsedTime,eStart,eStop);
     printf("Stemmer GPU Time=%4.3f ms\n", cuda_elapsedTime);
-    for(int i=0;i<array_size;i++)
+    for(int i = 0;i < array_size;i++)
     {
 
         cudaMemcpy(&(stem_list[i]->j),&(host2_stem_list[i]->j),sizeof(int),cudaMemcpyDeviceToHost);
@@ -620,8 +606,6 @@ int main(int argc, char * argv[])
 
    cudaEventDestroy( eStart );
    cudaEventDestroy( eStop );
-
-   //////free memory space in CUDA
 
    for(int i=0; i<array_size;i++)
    {       
