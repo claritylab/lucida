@@ -10,7 +10,7 @@
 
 #define LOOP 1
 
-#define NTHREADS      8
+#define NTHREADS    8
 #define ARRAYSIZE   5120
 #define ITERATIONS   ARRAYSIZE / NTHREADS
 

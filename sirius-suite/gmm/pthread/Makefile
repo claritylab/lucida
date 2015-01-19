@@ -3,7 +3,7 @@ LINK_FLAGS = -lpthread -lrt -lm
 CXX_FLAGS += -O3
 
 # File names
-EXEC = gmm
+EXEC = gmm_scoring
 SOURCES = gmm_scoring.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 

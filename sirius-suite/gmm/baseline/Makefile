@@ -3,7 +3,7 @@ CXX_FLAGS += -O3
 LINK_FLAGS = -lrt -lm
 
 # File names
-EXEC = gmm
+EXEC = gmm_scoring
 SOURCES = gmm_scoring.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 

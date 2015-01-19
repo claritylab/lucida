@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 
 // For the CUDA runtime routines (prefixed with "cuda_")
@@ -9,12 +7,6 @@
 #include <float.h>
 #include <math.h>
 #include <sys/time.h>
-
-#include <pthread.h>
-
-#define NTHREADS      8
-#define ARRAYSIZE   5120
-#define ITERATIONS   ARRAYSIZE / NTHREADS
 
 float feature_vect[] = { 2.240018, 2.2570236, 0.11304555, -0.21307051, 0.8988138, 0.039065503, 0.023874786, 0.13153112, 0.15324382, 0.16986738, -0.020297153, -0.26773554, 0.40202165, 0.35923952,
     0.060746543, 0.35402644, 0.086052455, -0.10499257, 0.04395058, 0.026407119, -0.48301497, 0.120889395, 0.67980754, -0.19875681, -0.5443737, -0.039534688, 0.20888293, 0.054865785, -0.4846478, 0.1, 0.1, 0.1};
@@ -28,16 +20,9 @@ float *score_vect;
 float *cpu_score_vect;
 float *pthread_score_vect;
 
-//pthread_mutex_t sum_mutex;
-
-
 __device__ __constant__ float logZero = -3.4028235E38;
-
-//__device__ __constant__ float logBase = 1.0001;
-
 __device__ __constant__ float maxLogValue = 7097004.5;
 __device__ __constant__ float minLogValue = -7443538.0;
-
 __device__ __constant__ float naturalLogBase = (float) 1.00011595E-4;
 __device__ __constant__ float inverseNaturalLogBase = 9998.841;
 
@@ -123,12 +108,9 @@ __global__ void computeScore(const float *feature_vect, float *means_vect, float
             // sum log
             local_score_vect = logHighestValue + returnLogValue;
         }
-
         score_vect[i] = local_score_vect;
-
     }
 }
-
 
 void computeScore_seq(float* feature_vect, float* means_vect, float * precs_vect, float* weight_vect, float* factor_vect, float * score_vect)
 {
@@ -226,14 +208,11 @@ float calculateMiliseconds(timeval t1,timeval t2) {
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
     float *dev_feat_vect;
 
-    timeval t1,t2;
     float cuda_elapsedTime;
-    float cpu_elapsedTime;
-    float par_elapsedTime;
     cudaEvent_t eStart,eStop;
 
     int comp_size = 32;
@@ -269,15 +248,10 @@ int main()
     int div_grid = ((int) (gridSizeX / 32));
     gridSizeX = (div_grid+1) * 32 ;
 
-    int i, start, tids[NTHREADS];
-    pthread_t threads[NTHREADS];
-    pthread_attr_t attr;
-
-
     // load model from file
-    FILE *fp = fopen("/home/gpuser/cuda/gmm_data.txt", "r");
-    if (fp == NULL) { //checks for the file
-        printf("\n Can’t open file");
+    FILE *fp = fopen(argv[1], "r");
+    if (fp == NULL) {
+        printf("Can’t open file\n");
         exit(-1);
     }
 
@@ -364,7 +338,6 @@ int main()
     cudaEventCreate(&eStart);
     cudaEventCreate(&eStop);
 
-
     // just one time to load acoustic model
     cudaMalloc((void**)&dev_means_vect, sizeof(float)*means_array_size);
     cudaMalloc((void**)&dev_precs_vect, sizeof(float)*means_array_size);
@@ -379,10 +352,8 @@ int main()
     cudaMalloc((void**)&dev_feat_vect, sizeof(float)*comp_size);
     cudaMalloc((void**)&dev_score_vect, sizeof(float)*senone_size);
 
-
     printf("blockSizeX = %d\n", blockSizeX);
     printf("gridSizeX = %d\n", gridSizeX);
-
 
     dim3 block(128);
     dim3 grid;
@@ -393,78 +364,20 @@ int main()
 
     printf("grid.x = %d\n", grid.x);
 
-    //  gettimeofday(&t1, NULL);
-
     cudaEventRecord(eStart,0);
 
     // each time needed for computing score of a given feature vect
     cudaMemcpy(dev_feat_vect, feature_vect, comp_size*sizeof(float), cudaMemcpyHostToDevice);
-    //  cudaMemcpy(dev_score_vect, score_vect, senone_size * sizeof(float), cudaMemcpyHostToDevice);
 
-
-    //void computeScore(const float *feature_vect, float *means_vect, float *precs_vect, float *weight_vect, float *factor_vect, float *score_vect)
-    //  computeScore<<<gridSizeX,blockSizeX>>>(dev_feat_vect, dev_means_vect, dev_precs_vect, dev_weight_vect, dev_factor_vect, dev_score_vect);
     computeScore<<<grid,block>>>(dev_feat_vect, dev_means_vect, dev_precs_vect, dev_weight_vect, dev_factor_vect, dev_score_vect);
-    //  computeScore<<<128,128>>>(dev_feat_vect, dev_means_vect, dev_precs_vect, dev_weight_vect, dev_factor_vect, dev_score_vect);
-
 
     cudaMemcpy(score_vect, dev_score_vect, senone_size * sizeof(float), cudaMemcpyDeviceToHost);
-
-    //gettimeofday(&t2, NULL);
 
     cudaEventRecord(eStop,0);
     cudaEventSynchronize(eStop);
 
-    cudaEventElapsedTime(&cuda_elapsedTime,eStart,eStop);
-    //cuda_elapsedTime = calculateMiliseconds(t1,t2);
-    printf("CUDA Time=%4.3f ms\n", cuda_elapsedTime);
-
-
-    // CPU side
-
-    gettimeofday(&t1, NULL);
-    computeScore_seq(feature_vect, means_vect, precs_vect, weight_vect, factor_vect, cpu_score_vect);
-    gettimeofday(&t2, NULL);
-
-    cpu_elapsedTime = calculateMiliseconds(t1,t2);
-    printf("\nCPU Time=%4.3f ms\n",  cpu_elapsedTime);
-
-
-    for (int k = 0; k < senone_size; k++) {
-        if (abs(abs(cpu_score_vect[k] - score_vect[k]) / cpu_score_vect[k]) > 0.01) {
-            printf("ERROR on computing scores: CPU %.3f != GPU %.3f\n", cpu_score_vect[k], score_vect[k]);
-            //	printf(abs(cpu_score_vect[k] - score_vect[k]) / cpu_score_vect[k]);
-        }
-    }
-
-
-
-    gettimeofday(&t1, NULL);
-
-    pthread_attr_init(&attr);
-    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
-    for (i=0; i<NTHREADS; i++) {
-        tids[i] = i;
-        pthread_create(&threads[i], &attr, computeScore_thread, (void *) &tids[i]);
-    }
-
-    //	  printf ("Waiting for threads to finish.");
-    for (i=0; i<NTHREADS; i++) {
-        pthread_join(threads[i], NULL);
-    }
-    //  printf("Done.");
-
-    gettimeofday(&t2, NULL);
-
-    par_elapsedTime = calculateMiliseconds(t1,t2);
-    printf("\nCPU Par Time=%4.3f ms\n",  par_elapsedTime);
-
-
-    printf("\nCPU Par speedup over CPU = %4.3f\n",  cpu_elapsedTime/par_elapsedTime);
-
-    printf("\nGPU speedup over CPU = %4.3f\n",  cpu_elapsedTime/cuda_elapsedTime);
-
-    printf("\nGPU speedup over CPU Par = %4.3f\n",  par_elapsedTime/cuda_elapsedTime);
+    cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
+    printf("GPU GMM Time=%4.3f ms\n", cuda_elapsedTime);
 
     free(means_vect);
     free(precs_vect);
@@ -483,9 +396,5 @@ int main()
 
     cudaFree(dev_feat_vect);
     cudaFree(dev_score_vect);
-
-    /* Clean up and exit */
-    pthread_attr_destroy(&attr);
-    //pthread_exit (NULL);
 
 }
