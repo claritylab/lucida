@@ -30,13 +30,6 @@
 
 /* $Id$ */
 
-
-//#include <cuda_runtime.h>
-//#include<cuda.h>
-//#include<cuda_runtime_api.h>
-
-//#include <os.h>
-
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,15 +43,11 @@
 
 #include "../lib/crf/src/crf1d.h"
 
-
 #include <float.h>
 #include <sys/time.h>
-
-
 #include <pthread.h>
 
 #define NTHREADS      8
-
 
 #define    SAFE_RELEASE(obj)    if ((obj) != NULL) { (obj)->release(obj); (obj) = NULL; }
 
@@ -382,7 +371,6 @@ static int tag_read(tagger_option_t* opt, crfsuite_model_t* model)
                     inst_vect[N] = (crfsuite_instance_t *) malloc(sizeof (crfsuite_instance_t));
                     crfsuite_instance_init(inst_vect[N]);
                 }
-                /* break; */
         }
     }
     clk1 = clock();
@@ -588,14 +576,12 @@ int main_tag(int argc, char *argv[], const char *argv0)
     arg_used = option_parse(++argv, --argc, parse_tagger_options, &opt);
     if (arg_used < 0) {
         ret = 1;
-        //goto force_exit;
     }
 
     /* Show the help message for this command if specified. */
     if (opt.help) {
         show_copyright(fpo);
         show_usage(fpo, argv0, command);
-        //goto force_exit;
     }
 
     /* Set an input file. */
@@ -609,7 +595,6 @@ int main_tag(int argc, char *argv[], const char *argv0)
     if (opt.model != NULL) {
         /* Create a model instance corresponding to the model file. */
         if (ret = crfsuite_create_instance_from_file(opt.model, (void**) &model)) {
-          //  goto force_exit;
         }
 
         /* Open the stream for the input data. */
@@ -618,7 +603,6 @@ int main_tag(int argc, char *argv[], const char *argv0)
             fprintf(fpo, "ERROR: failed to open the stream for the input data,\n");
             fprintf(fpo, "  %s\n", opt.input);
             ret = 1;
-           // goto force_exit;
         }
 
         /* read the input data. */
@@ -644,7 +628,6 @@ int main_tag(int argc, char *argv[], const char *argv0)
             global_out[k] = (int *) calloc(sizeof (int), inst_vect[k]->num_items);
 
             // Set the instance to the tagger. 
-
             tagger_set(tagger, inst_vect[k]);
 
             // Obtain the viterbi label sequence. 
@@ -667,11 +650,9 @@ int main_tag(int argc, char *argv[], const char *argv0)
 
         gettimeofday(&t1, NULL);
 
-        //  printf ("Waiting for threads to finish.");
         for (i = 0; i < NTHREADS; i++) {
             pthread_join(threads[i], NULL);
         }
-        //  printf("Done.");
 
         gettimeofday(&t2, NULL);
 
