@@ -83,7 +83,7 @@ def image():
         t = datetime.now()
         # speech = log + 'speech-' + str(t.hour) + str(t.minute) + str(t.second) + '.wav'
         # record_to_file(speech)
-        speech = 'demo_img.wav' 
+        speech = 'demo_img.wav'
         # get image + timestamp
         if re.search('.jpg', form.in_img.data) and os.path.isfile(form.in_img.data):
             img = form.in_img.data
@@ -155,4 +155,4 @@ def index():
 if __name__ == "__main__":
     cmd = 'mkdir -p ' + log
     shcmd(cmd)
-    app.run(host='localhost', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
