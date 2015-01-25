@@ -22,32 +22,44 @@
       <div class="cover-container">
 
         <div class="masthead clearfix">
-          <div class="inner">
+            <div class="inner" id="answer">
+                <h3 class="text-center" style="color: lightgreen;">{{ reply_line1 }}<br>{{ reply_line2 }}</h3>
+            </div>
             {% if reply_line1 %}
-              <h3 class="text-center" style="color: lightgreen;">{{ reply_line1 }}<br>{{ reply_line2 }}</h3>
+            <!-- <script> -->
+            <!--     $('#answer').show('slow',function(){ -->
+            <!--             alert("visible"); -->
+            <!--     }); -->
+            <!-- </script> -->
             {% endif %}
-          </div>
         </div>
 
         <div class="inner cover">
           <h1 class="cover-heading" style="color: #87CEFA">Sirius</h1>
           <p class="lead">
             <!-- Recording related stuff -->
-            <button class="btn btn-info" onclick="startRecording(this);">Record</button>
-            <button class="btn btn-info" onclick="stopRecording(this);" disabled>Stop</button>
+            <a class="btn btn-info" href="/" style="position:relative;left:-27px;">Home</a>
+            <button class="btn btn-info" onclick="startRecording(this);"style="position:relative;left:-27px;">Record</button>
+            <button class="btn btn-info" onclick="stopRecording(this);" disabled style="position:relative;left:-27px;">Stop</button>
+            <center>
+            <form id="upload-file" method="post" enctype="multipart/form-data" style="display: center;">
+                <fieldset>
+                    <!-- <label for="file">Select a file</label> -->
+                    <input id="upbox" name="file" type="file">
+                </fieldset>
+                <fieldset>
+                    <button id="upload-file-btn" type="submit" class="btn btn-info" style="position:relative;top:-73px;left:107px;">Ask!</button>
+                </fieldset>
+            </form>
+            </center>
             <h3>Recordings</h3>
             <ul id="recordingslist"></ul>
-            <h3>Log</h3>
-            <pre id="log"></pre>
+            <!-- <h3>Log</h3> -->
+            <!-- <pre id="log"></pre> -->
             <!-- Recording related stuff -->
 
-            <form method="post" role="form" class="form-inline">
-              <button type="submit" class="btn btn-info">Ask!</button>
-            </form>
           </p>
         </div>
-
-        <a class="btn btn-info" href="/">Home</a>
 
         {% endblock %}
         <div class="mastfoot">
@@ -67,6 +79,8 @@
 
   var audio_context;
   var recorder;
+  var link;
+  var log=0
 
   function startUserMedia(stream) {
     var input = audio_context.createMediaStreamSource(stream);
@@ -77,14 +91,16 @@
     //__log('Input connected to audio context destination.');
     
     recorder = new Recorder(input);
-    __log('Recorder initialised.');
+    if(log)
+        __log('Recorder initialised.');
   }
 
   function startRecording(button) {
     recorder && recorder.record();
     button.disabled = true;
     button.nextElementSibling.disabled = false;
-    __log('Recording...');
+    if(log)
+        __log('Recording...');
   }
 
   function stopRecording(button) {
@@ -109,11 +125,13 @@
       au.controls = true;
       au.src = url;
       hf.href = url;
-      hf.download = new Date().toISOString() + '.wav';
+      // hf.download = new Date().toISOString() + '.wav';
+      hf.download = 'input.wav'
       hf.innerHTML = hf.download;
       li.appendChild(au);
       li.appendChild(hf);
       recordingslist.appendChild(li);
+      hf.click();
     });
   }
 
@@ -124,9 +142,11 @@
       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
       window.URL = window.URL || window.webkitURL;
       
-      audio_context = new AudioContext;
-      //__log('Audio context set up.');
-      //__log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+      audio_context = new AudioContext();
+      if(log){
+          __log('Audio context set up.');
+          __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+      }
     } catch (e) {
       alert('No web audio support in this browser!');
     }
@@ -135,6 +155,24 @@
       __log('No live audio input: ' + e);
     });
   };
+
+    $(function() {
+            $('#upload-file-btn').click(function() {
+                var form_data = new FormData($('#upload-file')[0]);
+                $.ajax({
+                     type: 'POST',
+                     url: '/record',
+                     data: form_data,
+                     contentType: false,
+                     cache: false,
+                     processData: false,
+                     async: true,
+                     success: function(data) {
+                         console.log('Success!');
+                     },
+                 });
+                });
+        });
 </script>
 
 <script type=text/javascript src="{{ url_for('static', filename='recorder.js') }}"></script>
