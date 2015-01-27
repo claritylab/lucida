@@ -14,11 +14,11 @@
 using namespace cv;
 using namespace std;
 
-void save_map(map<string,Mat> inputMap, const char * filename);
-map<string,Mat> read_map(const char * filename);
-void save_keypoints(std::vector<KeyPoint> keypoints, const char * filename);
-std::vector<KeyPoint> read_keypoints(const char * filename);
-void save_mat(Mat descriptors, const char * filename);
-Mat read_mat(const char * filename);
+void save_map(map<string, Mat> inputMap, const char *filename);
+map<string, Mat> read_map(const char *filename);
+void save_keypoints(std::vector<KeyPoint> keypoints, const char *filename);
+std::vector<KeyPoint> read_keypoints(const char *filename);
+void save_mat(Mat descriptors, const char *filename);
+Mat read_mat(const char *filename);
 
 #endif /*KP_PROTOBUF_H*/

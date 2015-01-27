@@ -47,37 +47,37 @@
  */
 
 #ifndef SLRE_HEADER_DEFINED
-#define	SLRE_HEADER_DEFINED
+#define SLRE_HEADER_DEFINED
 
 /*
  * Compiled regular expression
  */
 struct slre {
-	unsigned char	code[256];
-	unsigned char	data[256];
-	int		code_size;
-	int		data_size;
-	int		num_caps;	/* Number of bracket pairs	*/
-	int		anchored;	/* Must match from string start	*/
-	const char	*err_str;	/* Error string			*/
+  unsigned char code[256];
+  unsigned char data[256];
+  int code_size;
+  int data_size;
+  int num_caps;        /* Number of bracket pairs	*/
+  int anchored;        /* Must match from string start	*/
+  const char *err_str; /* Error string			*/
 };
 
 /*
  * Captured substring
  */
 struct cap {
-	const char	*ptr;		/* Pointer to the substring	*/
-	int		len;		/* Substring length		*/
+  const char *ptr; /* Pointer to the substring	*/
+  int len;         /* Substring length		*/
 };
 
 /*
  * Compile regular expression. If success, 1 is returned.
- * If error, 0 is returned and slre.err_str points to the error message. 
+ * If error, 0 is returned and slre.err_str points to the error message.
  */
 int slre_compile(struct slre *, const char *re);
 
 /*
- * Return 1 if match, 0 if no match. 
+ * Return 1 if match, 0 if no match.
  * If `captured_substrings' array is not NULL, then it is filled with the
  * values of captured substrings. captured_substrings[0] element is always
  * a full matched substring. The round bracket captures start from
@@ -87,6 +87,6 @@ int slre_compile(struct slre *, const char *re);
  * array_size = number_of_round_bracket_pairs + 1
  */
 int slre_match(const struct slre *, const char *buf, int buf_len,
-	struct cap *captured_substrings);
+               struct cap *captured_substrings);
 
 #endif /* SLRE_HEADER_DEFINED */

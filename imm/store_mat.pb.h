@@ -29,7 +29,7 @@
 namespace store_mat {
 
 // Internal implementation detail -- do not call these.
-void  protobuf_AddDesc_store_5fmat_2eproto();
+void protobuf_AddDesc_store_5fmat_2eproto();
 void protobuf_AssignDesc_store_5fmat_2eproto();
 void protobuf_ShutdownFile_store_5fmat_2eproto();
 
@@ -44,49 +44,51 @@ class Map : public ::google::protobuf::Message {
   Map();
   virtual ~Map();
 
-  Map(const Map& from);
+  Map(const Map &from);
 
-  inline Map& operator=(const Map& from) {
+  inline Map &operator=(const Map &from) {
     CopyFrom(from);
     return *this;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+  inline const ::google::protobuf::UnknownFieldSet &unknown_fields() const {
     return _unknown_fields_;
   }
 
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+  inline ::google::protobuf::UnknownFieldSet *mutable_unknown_fields() {
     return &_unknown_fields_;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Map& default_instance();
+  static const ::google::protobuf::Descriptor *descriptor();
+  static const Map &default_instance();
 
-  void Swap(Map* other);
+  void Swap(Map *other);
 
   // implements Message ----------------------------------------------
 
-  Map* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Map& from);
-  void MergeFrom(const Map& from);
+  Map *New() const;
+  void CopyFrom(const ::google::protobuf::Message &from);
+  void MergeFrom(const ::google::protobuf::Message &from);
+  void CopyFrom(const Map &from);
+  void MergeFrom(const Map &from);
   void Clear();
   bool IsInitialized() const;
 
   int ByteSize() const;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
+      ::google::protobuf::io::CodedInputStream *input);
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+      ::google::protobuf::io::CodedOutputStream *output) const;
+  ::google::protobuf::uint8 *SerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8 *output) const;
   int GetCachedSize() const { return _cached_size_; }
-  private:
+
+ private:
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  public:
 
+ public:
   ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
@@ -104,13 +106,13 @@ class Map : public ::google::protobuf::Message {
   inline int pair_size() const;
   inline void clear_pair();
   static const int kPairFieldNumber = 2;
-  inline const ::store_mat::Pair& pair(int index) const;
-  inline ::store_mat::Pair* mutable_pair(int index);
-  inline ::store_mat::Pair* add_pair();
-  inline const ::google::protobuf::RepeatedPtrField< ::store_mat::Pair >&
-      pair() const;
-  inline ::google::protobuf::RepeatedPtrField< ::store_mat::Pair >*
-      mutable_pair();
+  inline const ::store_mat::Pair &pair(int index) const;
+  inline ::store_mat::Pair *mutable_pair(int index);
+  inline ::store_mat::Pair *add_pair();
+  inline const ::google::protobuf::RepeatedPtrField<::store_mat::Pair> &pair()
+      const;
+  inline ::google::protobuf::RepeatedPtrField<::store_mat::Pair> *
+  mutable_pair();
 
   // @@protoc_insertion_point(class_scope:store_mat.Map)
  private:
@@ -119,18 +121,18 @@ class Map : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::store_mat::Pair > pair_;
+  ::google::protobuf::RepeatedPtrField<::store_mat::Pair> pair_;
   ::google::protobuf::uint32 size_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
-  friend void  protobuf_AddDesc_store_5fmat_2eproto();
+  friend void protobuf_AddDesc_store_5fmat_2eproto();
   friend void protobuf_AssignDesc_store_5fmat_2eproto();
   friend void protobuf_ShutdownFile_store_5fmat_2eproto();
 
   void InitAsDefaultInstance();
-  static Map* default_instance_;
+  static Map *default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -139,49 +141,51 @@ class Pair : public ::google::protobuf::Message {
   Pair();
   virtual ~Pair();
 
-  Pair(const Pair& from);
+  Pair(const Pair &from);
 
-  inline Pair& operator=(const Pair& from) {
+  inline Pair &operator=(const Pair &from) {
     CopyFrom(from);
     return *this;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+  inline const ::google::protobuf::UnknownFieldSet &unknown_fields() const {
     return _unknown_fields_;
   }
 
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+  inline ::google::protobuf::UnknownFieldSet *mutable_unknown_fields() {
     return &_unknown_fields_;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Pair& default_instance();
+  static const ::google::protobuf::Descriptor *descriptor();
+  static const Pair &default_instance();
 
-  void Swap(Pair* other);
+  void Swap(Pair *other);
 
   // implements Message ----------------------------------------------
 
-  Pair* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Pair& from);
-  void MergeFrom(const Pair& from);
+  Pair *New() const;
+  void CopyFrom(const ::google::protobuf::Message &from);
+  void MergeFrom(const ::google::protobuf::Message &from);
+  void CopyFrom(const Pair &from);
+  void MergeFrom(const Pair &from);
   void Clear();
   bool IsInitialized() const;
 
   int ByteSize() const;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
+      ::google::protobuf::io::CodedInputStream *input);
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+      ::google::protobuf::io::CodedOutputStream *output) const;
+  ::google::protobuf::uint8 *SerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8 *output) const;
   int GetCachedSize() const { return _cached_size_; }
-  private:
+
+ private:
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  public:
 
+ public:
   ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
@@ -192,22 +196,22 @@ class Pair : public ::google::protobuf::Message {
   inline bool has_str() const;
   inline void clear_str();
   static const int kStrFieldNumber = 1;
-  inline const ::std::string& str() const;
-  inline void set_str(const ::std::string& value);
-  inline void set_str(const char* value);
-  inline void set_str(const char* value, size_t size);
-  inline ::std::string* mutable_str();
-  inline ::std::string* release_str();
-  inline void set_allocated_str(::std::string* str);
+  inline const ::std::string &str() const;
+  inline void set_str(const ::std::string &value);
+  inline void set_str(const char *value);
+  inline void set_str(const char *value, size_t size);
+  inline ::std::string *mutable_str();
+  inline ::std::string *release_str();
+  inline void set_allocated_str(::std::string *str);
 
   // required .store_mat.mat_data mat = 2;
   inline bool has_mat() const;
   inline void clear_mat();
   static const int kMatFieldNumber = 2;
-  inline const ::store_mat::mat_data& mat() const;
-  inline ::store_mat::mat_data* mutable_mat();
-  inline ::store_mat::mat_data* release_mat();
-  inline void set_allocated_mat(::store_mat::mat_data* mat);
+  inline const ::store_mat::mat_data &mat() const;
+  inline ::store_mat::mat_data *mutable_mat();
+  inline ::store_mat::mat_data *release_mat();
+  inline void set_allocated_mat(::store_mat::mat_data *mat);
 
   // @@protoc_insertion_point(class_scope:store_mat.Pair)
  private:
@@ -218,18 +222,18 @@ class Pair : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* str_;
-  ::store_mat::mat_data* mat_;
+  ::std::string *str_;
+  ::store_mat::mat_data *mat_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
-  friend void  protobuf_AddDesc_store_5fmat_2eproto();
+  friend void protobuf_AddDesc_store_5fmat_2eproto();
   friend void protobuf_AssignDesc_store_5fmat_2eproto();
   friend void protobuf_ShutdownFile_store_5fmat_2eproto();
 
   void InitAsDefaultInstance();
-  static Pair* default_instance_;
+  static Pair *default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -238,49 +242,51 @@ class mat_data : public ::google::protobuf::Message {
   mat_data();
   virtual ~mat_data();
 
-  mat_data(const mat_data& from);
+  mat_data(const mat_data &from);
 
-  inline mat_data& operator=(const mat_data& from) {
+  inline mat_data &operator=(const mat_data &from) {
     CopyFrom(from);
     return *this;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+  inline const ::google::protobuf::UnknownFieldSet &unknown_fields() const {
     return _unknown_fields_;
   }
 
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+  inline ::google::protobuf::UnknownFieldSet *mutable_unknown_fields() {
     return &_unknown_fields_;
   }
 
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const mat_data& default_instance();
+  static const ::google::protobuf::Descriptor *descriptor();
+  static const mat_data &default_instance();
 
-  void Swap(mat_data* other);
+  void Swap(mat_data *other);
 
   // implements Message ----------------------------------------------
 
-  mat_data* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const mat_data& from);
-  void MergeFrom(const mat_data& from);
+  mat_data *New() const;
+  void CopyFrom(const ::google::protobuf::Message &from);
+  void MergeFrom(const ::google::protobuf::Message &from);
+  void CopyFrom(const mat_data &from);
+  void MergeFrom(const mat_data &from);
   void Clear();
   bool IsInitialized() const;
 
   int ByteSize() const;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
+      ::google::protobuf::io::CodedInputStream *input);
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+      ::google::protobuf::io::CodedOutputStream *output) const;
+  ::google::protobuf::uint8 *SerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8 *output) const;
   int GetCachedSize() const { return _cached_size_; }
-  private:
+
+ private:
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  public:
 
+ public:
   ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
@@ -336,10 +342,10 @@ class mat_data : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 data(int index) const;
   inline void set_data(int index, ::google::protobuf::uint32 value);
   inline void add_data(::google::protobuf::uint32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
-      data() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
-      mutable_data();
+  inline const ::google::protobuf::RepeatedField<::google::protobuf::uint32> &
+  data() const;
+  inline ::google::protobuf::RepeatedField<::google::protobuf::uint32> *
+  mutable_data();
 
   // @@protoc_insertion_point(class_scope:store_mat.mat_data)
  private:
@@ -364,69 +370,54 @@ class mat_data : public ::google::protobuf::Message {
   ::google::protobuf::uint32 step_;
   ::google::protobuf::uint32 size_;
   ::google::protobuf::uint32 type_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > data_;
+  ::google::protobuf::RepeatedField<::google::protobuf::uint32> data_;
   mutable int _data_cached_byte_size_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
-  friend void  protobuf_AddDesc_store_5fmat_2eproto();
+  friend void protobuf_AddDesc_store_5fmat_2eproto();
   friend void protobuf_AssignDesc_store_5fmat_2eproto();
   friend void protobuf_ShutdownFile_store_5fmat_2eproto();
 
   void InitAsDefaultInstance();
-  static mat_data* default_instance_;
+  static mat_data *default_instance_;
 };
 // ===================================================================
-
 
 // ===================================================================
 
 // Map
 
 // required uint32 size = 1;
-inline bool Map::has_size() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Map::set_has_size() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Map::clear_has_size() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+inline bool Map::has_size() const { return (_has_bits_[0] & 0x00000001u) != 0; }
+inline void Map::set_has_size() { _has_bits_[0] |= 0x00000001u; }
+inline void Map::clear_has_size() { _has_bits_[0] &= ~0x00000001u; }
 inline void Map::clear_size() {
   size_ = 0u;
   clear_has_size();
 }
-inline ::google::protobuf::uint32 Map::size() const {
-  return size_;
-}
+inline ::google::protobuf::uint32 Map::size() const { return size_; }
 inline void Map::set_size(::google::protobuf::uint32 value) {
   set_has_size();
   size_ = value;
 }
 
 // repeated .store_mat.Pair pair = 2;
-inline int Map::pair_size() const {
-  return pair_.size();
-}
-inline void Map::clear_pair() {
-  pair_.Clear();
-}
-inline const ::store_mat::Pair& Map::pair(int index) const {
+inline int Map::pair_size() const { return pair_.size(); }
+inline void Map::clear_pair() { pair_.Clear(); }
+inline const ::store_mat::Pair &Map::pair(int index) const {
   return pair_.Get(index);
 }
-inline ::store_mat::Pair* Map::mutable_pair(int index) {
+inline ::store_mat::Pair *Map::mutable_pair(int index) {
   return pair_.Mutable(index);
 }
-inline ::store_mat::Pair* Map::add_pair() {
-  return pair_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::store_mat::Pair >&
+inline ::store_mat::Pair *Map::add_pair() { return pair_.Add(); }
+inline const ::google::protobuf::RepeatedPtrField<::store_mat::Pair> &
 Map::pair() const {
   return pair_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::store_mat::Pair >*
+inline ::google::protobuf::RepeatedPtrField<::store_mat::Pair> *
 Map::mutable_pair() {
   return &pair_;
 }
@@ -436,63 +427,56 @@ Map::mutable_pair() {
 // Pair
 
 // required string str = 1;
-inline bool Pair::has_str() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Pair::set_has_str() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Pair::clear_has_str() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+inline bool Pair::has_str() const { return (_has_bits_[0] & 0x00000001u) != 0; }
+inline void Pair::set_has_str() { _has_bits_[0] |= 0x00000001u; }
+inline void Pair::clear_has_str() { _has_bits_[0] &= ~0x00000001u; }
 inline void Pair::clear_str() {
   if (str_ != &::google::protobuf::internal::kEmptyString) {
     str_->clear();
   }
   clear_has_str();
 }
-inline const ::std::string& Pair::str() const {
-  return *str_;
-}
-inline void Pair::set_str(const ::std::string& value) {
+inline const ::std::string &Pair::str() const { return *str_; }
+inline void Pair::set_str(const ::std::string &value) {
   set_has_str();
   if (str_ == &::google::protobuf::internal::kEmptyString) {
     str_ = new ::std::string;
   }
   str_->assign(value);
 }
-inline void Pair::set_str(const char* value) {
+inline void Pair::set_str(const char *value) {
   set_has_str();
   if (str_ == &::google::protobuf::internal::kEmptyString) {
     str_ = new ::std::string;
   }
   str_->assign(value);
 }
-inline void Pair::set_str(const char* value, size_t size) {
+inline void Pair::set_str(const char *value, size_t size) {
   set_has_str();
   if (str_ == &::google::protobuf::internal::kEmptyString) {
     str_ = new ::std::string;
   }
-  str_->assign(reinterpret_cast<const char*>(value), size);
+  str_->assign(reinterpret_cast<const char *>(value), size);
 }
-inline ::std::string* Pair::mutable_str() {
+inline ::std::string *Pair::mutable_str() {
   set_has_str();
   if (str_ == &::google::protobuf::internal::kEmptyString) {
     str_ = new ::std::string;
   }
   return str_;
 }
-inline ::std::string* Pair::release_str() {
+inline ::std::string *Pair::release_str() {
   clear_has_str();
   if (str_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = str_;
-    str_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string *temp = str_;
+    str_ = const_cast<::std::string *>(
+        &::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void Pair::set_allocated_str(::std::string* str) {
+inline void Pair::set_allocated_str(::std::string *str) {
   if (str_ != &::google::protobuf::internal::kEmptyString) {
     delete str_;
   }
@@ -501,39 +485,34 @@ inline void Pair::set_allocated_str(::std::string* str) {
     str_ = str;
   } else {
     clear_has_str();
-    str_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    str_ = const_cast<::std::string *>(
+        &::google::protobuf::internal::kEmptyString);
   }
 }
 
 // required .store_mat.mat_data mat = 2;
-inline bool Pair::has_mat() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Pair::set_has_mat() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Pair::clear_has_mat() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+inline bool Pair::has_mat() const { return (_has_bits_[0] & 0x00000002u) != 0; }
+inline void Pair::set_has_mat() { _has_bits_[0] |= 0x00000002u; }
+inline void Pair::clear_has_mat() { _has_bits_[0] &= ~0x00000002u; }
 inline void Pair::clear_mat() {
   if (mat_ != NULL) mat_->::store_mat::mat_data::Clear();
   clear_has_mat();
 }
-inline const ::store_mat::mat_data& Pair::mat() const {
+inline const ::store_mat::mat_data &Pair::mat() const {
   return mat_ != NULL ? *mat_ : *default_instance_->mat_;
 }
-inline ::store_mat::mat_data* Pair::mutable_mat() {
+inline ::store_mat::mat_data *Pair::mutable_mat() {
   set_has_mat();
   if (mat_ == NULL) mat_ = new ::store_mat::mat_data;
   return mat_;
 }
-inline ::store_mat::mat_data* Pair::release_mat() {
+inline ::store_mat::mat_data *Pair::release_mat() {
   clear_has_mat();
-  ::store_mat::mat_data* temp = mat_;
+  ::store_mat::mat_data *temp = mat_;
   mat_ = NULL;
   return temp;
 }
-inline void Pair::set_allocated_mat(::store_mat::mat_data* mat) {
+inline void Pair::set_allocated_mat(::store_mat::mat_data *mat) {
   delete mat_;
   mat_ = mat;
   if (mat) {
@@ -551,19 +530,13 @@ inline void Pair::set_allocated_mat(::store_mat::mat_data* mat) {
 inline bool mat_data::has_row() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void mat_data::set_has_row() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void mat_data::clear_has_row() {
-  _has_bits_[0] &= ~0x00000001u;
-}
+inline void mat_data::set_has_row() { _has_bits_[0] |= 0x00000001u; }
+inline void mat_data::clear_has_row() { _has_bits_[0] &= ~0x00000001u; }
 inline void mat_data::clear_row() {
   row_ = 0u;
   clear_has_row();
 }
-inline ::google::protobuf::uint32 mat_data::row() const {
-  return row_;
-}
+inline ::google::protobuf::uint32 mat_data::row() const { return row_; }
 inline void mat_data::set_row(::google::protobuf::uint32 value) {
   set_has_row();
   row_ = value;
@@ -573,19 +546,13 @@ inline void mat_data::set_row(::google::protobuf::uint32 value) {
 inline bool mat_data::has_col() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void mat_data::set_has_col() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void mat_data::clear_has_col() {
-  _has_bits_[0] &= ~0x00000002u;
-}
+inline void mat_data::set_has_col() { _has_bits_[0] |= 0x00000002u; }
+inline void mat_data::clear_has_col() { _has_bits_[0] &= ~0x00000002u; }
 inline void mat_data::clear_col() {
   col_ = 0u;
   clear_has_col();
 }
-inline ::google::protobuf::uint32 mat_data::col() const {
-  return col_;
-}
+inline ::google::protobuf::uint32 mat_data::col() const { return col_; }
 inline void mat_data::set_col(::google::protobuf::uint32 value) {
   set_has_col();
   col_ = value;
@@ -595,19 +562,13 @@ inline void mat_data::set_col(::google::protobuf::uint32 value) {
 inline bool mat_data::has_flags() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void mat_data::set_has_flags() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void mat_data::clear_has_flags() {
-  _has_bits_[0] &= ~0x00000004u;
-}
+inline void mat_data::set_has_flags() { _has_bits_[0] |= 0x00000004u; }
+inline void mat_data::clear_has_flags() { _has_bits_[0] &= ~0x00000004u; }
 inline void mat_data::clear_flags() {
   flags_ = 0u;
   clear_has_flags();
 }
-inline ::google::protobuf::uint32 mat_data::flags() const {
-  return flags_;
-}
+inline ::google::protobuf::uint32 mat_data::flags() const { return flags_; }
 inline void mat_data::set_flags(::google::protobuf::uint32 value) {
   set_has_flags();
   flags_ = value;
@@ -617,19 +578,13 @@ inline void mat_data::set_flags(::google::protobuf::uint32 value) {
 inline bool mat_data::has_step() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void mat_data::set_has_step() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void mat_data::clear_has_step() {
-  _has_bits_[0] &= ~0x00000008u;
-}
+inline void mat_data::set_has_step() { _has_bits_[0] |= 0x00000008u; }
+inline void mat_data::clear_has_step() { _has_bits_[0] &= ~0x00000008u; }
 inline void mat_data::clear_step() {
   step_ = 0u;
   clear_has_step();
 }
-inline ::google::protobuf::uint32 mat_data::step() const {
-  return step_;
-}
+inline ::google::protobuf::uint32 mat_data::step() const { return step_; }
 inline void mat_data::set_step(::google::protobuf::uint32 value) {
   set_has_step();
   step_ = value;
@@ -639,19 +594,13 @@ inline void mat_data::set_step(::google::protobuf::uint32 value) {
 inline bool mat_data::has_size() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void mat_data::set_has_size() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void mat_data::clear_has_size() {
-  _has_bits_[0] &= ~0x00000010u;
-}
+inline void mat_data::set_has_size() { _has_bits_[0] |= 0x00000010u; }
+inline void mat_data::clear_has_size() { _has_bits_[0] &= ~0x00000010u; }
 inline void mat_data::clear_size() {
   size_ = 0u;
   clear_has_size();
 }
-inline ::google::protobuf::uint32 mat_data::size() const {
-  return size_;
-}
+inline ::google::protobuf::uint32 mat_data::size() const { return size_; }
 inline void mat_data::set_size(::google::protobuf::uint32 value) {
   set_has_size();
   size_ = value;
@@ -661,31 +610,21 @@ inline void mat_data::set_size(::google::protobuf::uint32 value) {
 inline bool mat_data::has_type() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void mat_data::set_has_type() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void mat_data::clear_has_type() {
-  _has_bits_[0] &= ~0x00000020u;
-}
+inline void mat_data::set_has_type() { _has_bits_[0] |= 0x00000020u; }
+inline void mat_data::clear_has_type() { _has_bits_[0] &= ~0x00000020u; }
 inline void mat_data::clear_type() {
   type_ = 0u;
   clear_has_type();
 }
-inline ::google::protobuf::uint32 mat_data::type() const {
-  return type_;
-}
+inline ::google::protobuf::uint32 mat_data::type() const { return type_; }
 inline void mat_data::set_type(::google::protobuf::uint32 value) {
   set_has_type();
   type_ = value;
 }
 
 // repeated uint32 data = 7 [packed = true];
-inline int mat_data::data_size() const {
-  return data_.size();
-}
-inline void mat_data::clear_data() {
-  data_.Clear();
-}
+inline int mat_data::data_size() const { return data_.size(); }
+inline void mat_data::clear_data() { data_.Clear(); }
 inline ::google::protobuf::uint32 mat_data::data(int index) const {
   return data_.Get(index);
 }
@@ -695,15 +634,14 @@ inline void mat_data::set_data(int index, ::google::protobuf::uint32 value) {
 inline void mat_data::add_data(::google::protobuf::uint32 value) {
   data_.Add(value);
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+inline const ::google::protobuf::RepeatedField<::google::protobuf::uint32> &
 mat_data::data() const {
   return data_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+inline ::google::protobuf::RepeatedField<::google::protobuf::uint32> *
 mat_data::mutable_data() {
   return &data_;
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -711,10 +649,7 @@ mat_data::mutable_data() {
 
 #ifndef SWIG
 namespace google {
-namespace protobuf {
-
-
-}  // namespace google
+namespace protobuf {}  // namespace google
 }  // namespace protobuf
 #endif  // SWIG
 
