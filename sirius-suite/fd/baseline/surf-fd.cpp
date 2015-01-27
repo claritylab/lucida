@@ -24,7 +24,7 @@ using namespace cv;
 using namespace std;
 
 vector<Mat> segs;
-vector<vector<KeyPoint>> keys;
+vector<vector<KeyPoint> > keys;
 FeatureDetector *detector = new SurfFeatureDetector();
 DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;

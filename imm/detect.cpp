@@ -154,7 +154,7 @@ void exec_match(po::variables_map &vm) {
   vector<string> trainImgs;
   Mat testDesc;
   vector<Mat> trainDesc;
-  vector<vector<DMatch>> knnMatches;
+  vector<vector<DMatch> > knnMatches;
   vector<int> bestMatches;
   unsigned int runtimefeat = 0, totalfeat = 0;
   unsigned int runtimedesc = 0, totaldesc = 0;
@@ -248,7 +248,7 @@ void exec_match(po::variables_map &vm) {
       (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
 
   // Filter results
-  for (vector<vector<DMatch>>::const_iterator it = knnMatches.begin();
+  for (vector<vector<DMatch> >::const_iterator it = knnMatches.begin();
        it != knnMatches.end(); ++it) {
     for (vector<DMatch>::const_iterator it2 = it->begin(); it2 != it->end();
          ++it2) {

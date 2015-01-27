@@ -29,7 +29,7 @@ struct timeval tv1, tv2;
 #define OVERLAP 0
 
 vector<Mat> segs;
-vector<vector<KeyPoint>> keys;
+vector<vector<KeyPoint> > keys;
 FeatureDetector *detector = new SurfFeatureDetector();
 DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
