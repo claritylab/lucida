@@ -26,11 +26,18 @@
           <div class="inner">
               <img src="{{ in_img }}" alt="Bad input" style="width:200px;height:200px">
           </div>
-          <h3 class="text-center" style="color: lightgreen;">{{ question }}<br>{{ answer }}</h3>
+        <button id="sp" class="btn btn-info" onclick="speak();">Repeat</button>
+        <div class="masthead clearfix">
+            <div class="inner" id="answer">
+                <!-- <h3 class="text&#45;center" style="color: lightgreen;">{{ data[0] }}<br>{{ data[1] }}</h3> -->
+                <meta name="question" content="{{ data[0] }}">
+                <meta name="answer" content="{{ data[1] }}">
+            </div>
+        </div>
           {% endif %}
         </div>
 
-        <div class="inner cover" style="position:relative;top:50px;margin:200px;">
+        <div class="inner cover" style="position:relative;top:70px;margin:200px;">
           <h1 class="cover-heading" style="color: #87CEFA">Sirius</h1>
           <p class="lead">
             <!-- Recording related stuff -->
@@ -81,6 +88,23 @@
   var recorder;
   var link;
   var log=0
+
+  function speak() {
+      var i;
+      var answer;
+      if($("meta[name='answer']").attr('content') == "")
+          answer = "Sorry, we couldn't find your answer.";
+      else
+          answer = "Your answer is:" + $("meta[name='answer']").attr('content')
+
+      var speech = ["You asked:", $("meta[name='question']").attr('content'), answer];
+
+      for(i = 0; i < speech.length; i++) {
+          var msg = new SpeechSynthesisUtterance(speech[i]);
+          window.speechSynthesis.speak(msg);
+      }
+  }
+
 
   function startUserMedia(stream) {
     var input = audio_context.createMediaStreamSource(stream);
@@ -154,6 +178,8 @@
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
       __log('No live audio input: ' + e);
     });
+    if($("meta[name='question']").attr('content') != null)
+        speak();
   };
 
     $(function() {
