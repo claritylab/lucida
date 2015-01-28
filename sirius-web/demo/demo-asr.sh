@@ -15,13 +15,12 @@ play speech2.wav 1> /dev/null 2>/dev/null
 
 echo "(3) OK, now sending the recorded speech to server..."
 
-# resp=`wget -q -U "Mozilla/5.0" --post-file speech2.wav --header "Content-Type: audio/vnd.wave; rate=16000" -O - $ASR`
-resp=`wget -q -U "Mozilla/5.0" --post-file where.is.the.louvre.museum.located.wav --header "Content-Type: audio/vnd.wave; rate=16000" -O - $ASR`
+resp=`wget -q -U "Mozilla/5.0" --post-file speech2.wav --header "Content-Type: audio/vnd.wave; rate=16000" -O - $ASR`
 
 echo "Speech-to-text:" $resp
 
 query=`echo $resp | cut -d: -f2`
-query="$query $resp_img"
+query="$query"
 
 echo "Query: " $query
 
