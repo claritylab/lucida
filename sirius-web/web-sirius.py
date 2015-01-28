@@ -171,10 +171,4 @@ def index():
 if __name__ == "__main__":
     cmd = 'mkdir -p ' + log
     shcmd(cmd)
-
-    pkey = os.getcwd() + '/server.key'
-    cert = os.getcwd() + '/server.crt'
-    context = SSL.Context(SSL.SSLv3_METHOD)
-    context.use_privatekey_file(pkey)
-    context.use_certificate_file(os.getcwd() + '/server.crt')
-    app.run(host='141.212.106.240', port=8000, debug=True, ssl_context=(cert, pkey) )
+    app.run(host='localhost', port=8000, debug=True)

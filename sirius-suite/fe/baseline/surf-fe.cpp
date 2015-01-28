@@ -31,47 +31,47 @@ struct timeval tv1, tv2;
 #define OVERLAP 0
 
 vector<Mat> segs;
-vector< vector<KeyPoint> > keys;
+vector<vector<KeyPoint> > keys;
 FeatureDetector *detector = new SurfFeatureDetector();
 DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
 
-float calculateMiliseconds(timeval t1,timeval t2)
-{
-    float elapsedTime;
-    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-    return elapsedTime;
+float calculateMiliseconds(timeval t1, timeval t2) {
+  float elapsedTime;
+  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
+  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
+  return elapsedTime;
 }
 
-vector<KeyPoint> exec_feature(const Mat& img)
-{
-	vector<KeyPoint> keypoints;
-	detector->detect(img, keypoints);
+vector<KeyPoint> exec_feature(const Mat &img) {
+  vector<KeyPoint> keypoints;
+  detector->detect(img, keypoints);
 
-	return keypoints;
+  return keypoints;
 }
 
-int main( int argc, char** argv )
-{
-    // data
-    float runtimefeat = 0;
-    struct timeval t1, t2;
+int main(int argc, char **argv) {
+  // data
+  float runtimefeat = 0;
+  struct timeval t1, t2;
 
-    // Generate test keys
-    Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
-    if(img.empty()) { printf("image not found\n"); exit(-1); }
+  // Generate test keys
+  Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
+  if (img.empty()) {
+    printf("image not found\n");
+    exit(-1);
+  }
 
-    gettimeofday(&t1,NULL);
-    vector<KeyPoint> key = exec_feature(img);
-    gettimeofday(&t2,NULL);
-    runtimefeat = calculateMiliseconds(t1,t2);
+  gettimeofday(&t1, NULL);
+  vector<KeyPoint> key = exec_feature(img);
+  gettimeofday(&t2, NULL);
+  runtimefeat = calculateMiliseconds(t1, t2);
 
-    // Clean up
-    delete detector;
-    delete extractor;
+  // Clean up
+  delete detector;
+  delete extractor;
 
-    printf("SURF FE CPU Time=%4.3f ms\n", runtimefeat);
-    
-	return 0;
+  printf("SURF FE CPU Time=%4.3f ms\n", runtimefeat);
+
+  return 0;
 }
