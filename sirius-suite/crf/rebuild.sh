@@ -1,4 +1,4 @@
-# Downloads and replaces required files in crf-suite wih Sirius pthread version
+# Replaces required files in crf-suite wih Sirius pthread version
 # of the viterbi component of the CRF
 # Original dataset, training and test set included
 

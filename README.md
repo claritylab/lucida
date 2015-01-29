@@ -3,6 +3,7 @@
 University of Michigan, 2014  
 jahausw@umich.edu  
 vpetrucci@gmail.com  
+[Link to publication](jasonmars.org/wp-content/papercite-data/pdf/hauswald15asplos.pdf)
 
 ### Build all Systems
 

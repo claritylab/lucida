@@ -633,12 +633,10 @@ int main_tag(int argc, char *argv[], const char *argv0) {
     for (k = 0; k < N; k++) {
       floatval_t score = 0;
       int *output1 = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
-
       global_out[k] = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
 
       // Set the instance to the tagger.
       tagger_set(tagger, inst_vect[k]);
-
       // Obtain the viterbi label sequence.
       tagger->viterbi(tagger, output1, &score);
 
@@ -648,7 +646,6 @@ int main_tag(int argc, char *argv[], const char *argv0) {
     gettimeofday(&t2, NULL);
 
     cpu_elapsedTime = calculateMiliseconds(t1, t2);
-    printf("CRF Viterbi CPU Time=%4.3f ms\n", cpu_elapsedTime);
 
     pthread_attr_init(&attr);
     pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -667,6 +664,8 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
     par_elapsedTime = calculateMiliseconds(t1, t2);
     printf("CRF Viterbi Parallel Time=%4.3f ms\n", par_elapsedTime);
+    printf("CRF Viterbi CPU Time=%4.3f ms\n", cpu_elapsedTime);
+    printf("Speedup=%4.3f\n", (float)cpu_elapsedTime/(float)par_elapsedTime);
   }
 
   return ret;
