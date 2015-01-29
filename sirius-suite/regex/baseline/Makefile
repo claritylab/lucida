@@ -1,11 +1,10 @@
 CXX = g++
-CXX_FLAGS =
-LINK_FLAGS = -lpthread -lrt -lm
-CXX_FLAGS += -O3
+LINK_FLAGS = -lrt -lm
+CXX_FLAGS  = -O3
 
 # File names
 EXEC = regex
-SOURCES = slre.cpp
+SOURCES = main.cpp slre.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # No need to change after this line
