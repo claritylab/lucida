@@ -77,7 +77,7 @@ int main(int argc, char **argv) {
 
   printf("SURF FE Time=%4.3f ms\n", runtimefeatseq);
   printf("SURF FE GPU Time=%4.3f ms\n", runtimefeatgpu);
-  printf("Speedup=%4.3f ms\n", (float)runtimefeatseq/(float)runtimefeatgpu);
+  printf("Speedup=%4.3f\n", (float)runtimefeatseq/(float)runtimefeatgpu);
 
   delete(detector);
 
