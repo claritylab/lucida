@@ -23,13 +23,20 @@
 using namespace cv;
 using namespace std;
 
-struct timeval tv1, tv2;
+FeatureDetector *detector = new SurfFeatureDetector();
 
 float calculateMiliseconds(timeval t1, timeval t2) {
   float elapsedTime;
   elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
   elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
   return elapsedTime;
+}
+
+vector<KeyPoint> exec_feature(const Mat &img) {
+  vector<KeyPoint> keypoints;
+  detector->detect(img, keypoints);
+
+  return keypoints;
 }
 
 vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
@@ -44,7 +51,8 @@ vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
 
 int main(int argc, char **argv) {
   // data
-  float runtimefeat = 0;
+  float runtimefeatseq = 0;
+  float runtimefeatgpu = 0;
   struct timeval t1, t2;
 
   // Generate test keys
@@ -54,15 +62,24 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
+  gettimeofday(&t1, NULL);
+  vector<KeyPoint> key = exec_feature(img);
+  gettimeofday(&t2, NULL);
+  runtimefeatseq = calculateMiliseconds(t1, t2);
+
   // warmup
   exec_feature_gpu(img);
 
   gettimeofday(&t1, NULL);
-  vector<KeyPoint> key = exec_feature_gpu(img);
+  key = exec_feature_gpu(img);
   gettimeofday(&t2, NULL);
-  runtimefeat = calculateMiliseconds(t1, t2);
+  runtimefeatgpu = calculateMiliseconds(t1, t2);
 
-  printf("SURF FE GPU Time=%4.3f ms\n", runtimefeat);
+  printf("SURF FE Time=%4.3f ms\n", runtimefeatseq);
+  printf("SURF FE GPU Time=%4.3f ms\n", runtimefeatgpu);
+  printf("Speedup=%4.3f ms\n", (float)runtimefeatseq/(float)runtimefeatgpu);
+
+  delete(detector);
 
   return 0;
 }

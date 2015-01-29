@@ -23,7 +23,7 @@
 using namespace cv;
 using namespace std;
 
-#define NTHREADS 8
+int NTHREADS;
 #define OVERLAP 0
 
 vector<Mat> segs;
@@ -64,19 +64,8 @@ void *desc_thread(void *tid) {
 
   // printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
 
-  for (int i = start; i < end; ++i) Mat testDesc = exec_desc(segs[i], keys[i]);
-}
-
-void *feat_thread(void *tid) {
-  int start, *mytid, end;
-  mytid = (int *)tid;
-  start = (*mytid * iterations);
-  end = start + iterations;
-
-  // printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
-
   for (int i = start; i < end; ++i)
-    vector<KeyPoint> priv_keys = exec_feature(segs[i]);
+      Mat testDesc = exec_desc(segs[i], keys[i]);
 }
 
 vector<Mat> segment(const Mat &img) {
@@ -144,15 +133,21 @@ int main(int argc, char **argv) {
   // data
   float runtimecut = 0;
   float runtimefeat = 0;
-  float runtimedesc = 0;
+  float runtimedescseq = 0;
+  float runtimedescpar = 0;
   struct timeval t1, t2;
 
+  NTHREADS = atoi(argv[1]);
   // Generate test keys
-  Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
+  Mat img = imread(argv[2], CV_LOAD_IMAGE_GRAYSCALE);
   if (img.empty()) {
     printf("image not found\n");
     exit(-1);
   }
+
+  int height = img.size().height / NTHREADS;
+  int width = img.size().width / NTHREADS;
+  printf("Threads= %d, block H=%d, block W=%d\n", NTHREADS, height, width);
 
   gettimeofday(&t1, NULL);
   segs = segment(img);
@@ -167,6 +162,12 @@ int main(int argc, char **argv) {
   runtimefeat = calculateMiliseconds(t1, t2);
 
   gettimeofday(&t1, NULL);
+  for (int i = 0; i < segs.size(); ++i)
+      Mat testDesc = exec_desc(segs[i], keys[i]);
+  gettimeofday(&t2, NULL);
+  runtimedescseq = calculateMiliseconds(t1, t2);
+
+  gettimeofday(&t1, NULL);
   int start, tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
@@ -179,10 +180,11 @@ int main(int argc, char **argv) {
     pthread_create(&threads[i], &attr, desc_thread, (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; i++)
+      pthread_join(threads[i], NULL);
 
   gettimeofday(&t2, NULL);
-  runtimedesc = calculateMiliseconds(t1, t2);
+  runtimedescpar = calculateMiliseconds(t1, t2);
 
   // Clean up
   delete detector;
@@ -190,7 +192,9 @@ int main(int argc, char **argv) {
 
   printf("SURF CUT Time=%4.3f ms\n", runtimecut);
   printf("SURF FE CPU Time=%4.3f ms\n", runtimefeat);
-  printf("SURF FD PThread CPU Time=%4.3f ms\n", runtimedesc);
+  printf("SURF FD CPU Time=%4.3f ms\n", runtimedescseq);
+  printf("SURF FD PThread CPU Time=%4.3f ms\n", runtimedescpar);
+  printf("Speedup=%4.3f\n", (float)runtimedescseq/(float)runtimedescpar);
 
   return 0;
 }

@@ -624,7 +624,7 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
     // SEQ ALGO
 
-    fprintf(fpo, "N = %d\n", N);
+    printf("Threads=%d Array size = %d\n", NTHREADS, N);
 
     gettimeofday(&t1, NULL);
 

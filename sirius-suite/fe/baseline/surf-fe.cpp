@@ -25,15 +25,8 @@ using namespace std;
 
 struct timeval tv1, tv2;
 
-#define NTHREADS 8
-#define VTHREADS 20
-#define HTHREADS 20
-#define OVERLAP 0
-
-vector<Mat> segs;
 vector<vector<KeyPoint> > keys;
 FeatureDetector *detector = new SurfFeatureDetector();
-DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
 
 float calculateMiliseconds(timeval t1, timeval t2) {
