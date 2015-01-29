@@ -3,7 +3,7 @@ LINK_FLAGS = -lrt -lm
 CXX_FLAGS  = -O3
 
 # File names
-EXEC = regex
+EXEC = slre
 SOURCES = main.cpp slre.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 

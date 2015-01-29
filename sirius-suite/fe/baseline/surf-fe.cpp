@@ -44,6 +44,10 @@ vector<KeyPoint> exec_feature(const Mat &img) {
 }
 
 int main(int argc, char **argv) {
+  if(argc < 2){
+      printf("%s <input>\n", argv[0]);
+      exit(0);
+  }
   // data
   float runtimefeat = 0;
   struct timeval t1, t2;

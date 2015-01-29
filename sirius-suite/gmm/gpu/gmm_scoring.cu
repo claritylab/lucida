@@ -207,7 +207,12 @@ float calculateMiliseconds(timeval t1,timeval t2) {
 }
 
 int main(int argc, char *argv[])
-{
+{ 
+    if(argc < 2){
+        printf("%s <input>\n", argv[0]);
+        exit(0);
+    }
+
     float *dev_feat_vect;
 
     float cuda_elapsedTime;

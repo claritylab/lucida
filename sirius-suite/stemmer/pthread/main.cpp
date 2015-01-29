@@ -78,6 +78,10 @@ int load_data(struct stemmer **stem_list, FILE *f) {
 }
 
 int main(int argc, char *argv[]) {
+  if(argc < 3){
+      printf("%s <threads> <input>\n", argv[0]);
+      exit(0);
+  }
   struct timeval tv1, tv2;
   unsigned int totalruntimeseq = 0;
   unsigned int totalruntimepar = 0;

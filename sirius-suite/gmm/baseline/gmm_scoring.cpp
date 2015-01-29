@@ -131,6 +131,10 @@ float calculateMiliseconds(timeval t1, timeval t2) {
 }
 
 int main(int argc, char *argv[]) {
+  if(argc < 2){
+      printf("%s <input>\n", argv[0]);
+      exit(0);
+  }
   float *dev_feat_vect;
 
   timeval t1, t2;
@@ -155,6 +159,11 @@ int main(int argc, char *argv[]) {
   pthread_score_vect = (float *)malloc(senone_size * sizeof(float));
 
   float *dev_score_vect;
+
+  if(argc < 2){
+      printf("%s <input>\n", argv[0]);
+      exit(0);
+  }
 
   // load model from file
   FILE *fp = fopen(argv[1], "r");

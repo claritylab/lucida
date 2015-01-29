@@ -119,6 +119,10 @@ void *feat_thread(void *tid) {
 }
 
 int main(int argc, char **argv) {
+  if(argc < 3){
+      printf("%s <threads> <input>\n", argv[0]);
+      exit(0);
+  }
   // data
   float runtimefeatseq = 0;
   float runtimefeatpar = 0;

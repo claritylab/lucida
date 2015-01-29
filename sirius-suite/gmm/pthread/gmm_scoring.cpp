@@ -234,6 +234,10 @@ float calculateMiliseconds(timeval t1, timeval t2) {
 }
 
 int main(int argc, char *argv[]) {
+  if(argc < 3){
+      printf("%s <threads> <input>\n", argv[0]);
+      exit(0);
+  }
   // Timing
   timeval t1, t2;
   float cpu_elapsedTime;
@@ -249,6 +253,11 @@ int main(int argc, char *argv[]) {
 
   cpu_score_vect = (float *)malloc(senone_size * sizeof(float));
   pthread_score_vect = (float *)malloc(senone_size * sizeof(float));
+
+  if(argc < 3){
+      printf("%s <threads> <input>\n", argv[0]);
+      exit(0);
+  }
 
   NTHREADS = atoi(argv[1]);
 

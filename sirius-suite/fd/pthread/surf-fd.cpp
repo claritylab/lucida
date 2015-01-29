@@ -130,6 +130,10 @@ vector<Mat> segment(const Mat &img) {
 }
 
 int main(int argc, char **argv) {
+  if(argc < 3){
+      printf("%s <threads> <input>\n", argv[0]);
+      exit(0);
+  }
   // data
   float runtimecut = 0;
   float runtimefeat = 0;
