@@ -2,7 +2,6 @@
 
 // For the CUDA runtime routines (prefixed with "cuda_")
 #include <cuda_runtime.h>
-
 #include <limits.h>
 #include <float.h>
 #include <math.h>
@@ -207,7 +206,6 @@ float calculateMiliseconds(timeval t1,timeval t2) {
     return elapsedTime;
 }
 
-
 int main(int argc, char *argv[])
 {
     float *dev_feat_vect;
@@ -396,5 +394,4 @@ int main(int argc, char *argv[])
 
     cudaFree(dev_feat_vect);
     cudaFree(dev_score_vect);
-
 }
