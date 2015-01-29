@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <math.h>
 #include <float.h>
 #include <math.h>
 #include <sys/time.h>
-
-#define LOOP 1
 
 float feature_vect[] = {2.240018,    2.2570236,    0.11304555,   -0.21307051,
                         0.8988138,   0.039065503,  0.023874786,  0.13153112,
@@ -43,6 +40,7 @@ int senone_size = 5120;
 void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
                       float *weight_vect, float *factor_vect,
                       float *score_vect) {
+
   float logZero = -3.4028235E38;
   float maxLogValue = 7097004.5;
   float minLogValue = -7443538.0;
@@ -55,7 +53,6 @@ void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
 
   for (int i = 0; i < senone_size; i++) {
     score_vect[i] = logZero;
-    // printf("Senone #%d", i);
 
     for (int j = 0; j < comp_size; j++) {
       float logDval = 0.0f;
@@ -89,7 +86,6 @@ void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
         logDifference = -logDifference;
       }
 
-      // double logInnerSummation = logToLinear(-logDifference);
       float logValue = -logDifference;
       float logInnerSummation;
       if (logValue < minLogValue) {
@@ -108,7 +104,6 @@ void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
 
       logInnerSummation += 1.0;
 
-      // float actual_comp = linearToLog(logInnerSummation);
       float returnLogValue;
       if (logInnerSummation <= 0.0) {
         returnLogValue = logZero;
@@ -126,7 +121,6 @@ void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
       score_vect[i] = logHighestValue + returnLogValue;
     }
   }
-  //    }
 }
 
 float calculateMiliseconds(timeval t1, timeval t2) {
@@ -140,7 +134,6 @@ int main(int argc, char *argv[]) {
   float *dev_feat_vect;
 
   timeval t1, t2;
-  float tau_elapsedTime;
   float cpu_elapsedTime;
   float par_elapsedTime;
 
@@ -218,13 +211,12 @@ int main(int argc, char *argv[]) {
 
   // CPU side
   gettimeofday(&t1, NULL);
-  for (int i = 0; i < LOOP; ++i)
     computeScore_seq(feature_vect, means_vect, precs_vect, weight_vect,
                      factor_vect, cpu_score_vect);
   gettimeofday(&t2, NULL);
 
   cpu_elapsedTime = calculateMiliseconds(t1, t2);
-  printf("CPU Time=%4.3f ms\n", (float)cpu_elapsedTime / LOOP);
+  printf("CPU Time=%4.3f ms\n", (float)cpu_elapsedTime);
 
   /* Clean up and exit */
   free(means_vect);
