@@ -1,9 +1,9 @@
 ## Sirius: Speech and Vision Based Personal Assistant
 
 University of Michigan, 2014  
-jahausw@umich.edu  
-vpetrucci@gmail.com  
-[Link to publication](jasonmars.org/wp-content/papercite-data/pdf/hauswald15asplos.pdf)
+Johann Hauswald (jahausw@umich.edu)    
+Vinicius Petrucci (vpetrucci@gmail.com)  
+[ASPLOS 2015 Publication](jasonmars.org/wp-content/papercite-data/pdf/hauswald15asplos.pdf)
 
 ### Build all Systems
 
