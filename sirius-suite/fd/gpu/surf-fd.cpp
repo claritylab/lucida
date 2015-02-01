@@ -75,9 +75,9 @@ Mat exec_descriptor_gpu(const Mat &img_in, std::vector<KeyPoint> keypoints) {
 }
 
 int main(int argc, char **argv) {
-  if(argc < 2){
-      printf("%s <input>\n", argv[0]);
-      exit(0);
+  if (argc < 2) {
+    printf("%s <input>\n", argv[0]);
+    exit(0);
   }
   // data
   float runtimefeatseq = 0;
@@ -118,10 +118,10 @@ int main(int argc, char **argv) {
 
   printf("SURF FE Time=%4.3f ms\n", runtimefeatseq);
   printf("SURF FE GPU Time=%4.3f ms\n", runtimefeatgpu);
-  printf("FE Speedup=%4.3f\n", (float)runtimefeatseq/(float)runtimefeatgpu);
+  printf("FE Speedup=%4.3f\n", (float)runtimefeatseq / (float)runtimefeatgpu);
   printf("SURF FD Time=%4.3f ms\n", runtimedescseq);
   printf("SURF FD GPU Time=%4.3f ms\n", runtimedescgpu);
-  printf("FD Speedup=%4.3f\n", (float)runtimedescseq/(float)runtimedescgpu);
+  printf("FD Speedup=%4.3f\n", (float)runtimedescseq / (float)runtimedescgpu);
 
   return 0;
 }

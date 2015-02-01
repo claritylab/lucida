@@ -727,15 +727,17 @@ extern int stem(struct stemmer *z, char *b, int k) {
 }
 
 extern int stem2(struct stemmer *z) {
-  if (z->k <= 1) {return z->k;}
+  if (z->k <= 1) {
+    return z->k;
+  }
 
   step1ab(z);
   if (z->k > 0) {
-      step1c(z);
-      step2(z);
-      step3(z);
-      step4(z);
-      step5(z);
+    step1c(z);
+    step2(z);
+    step3(z);
+    step4(z);
+    step5(z);
   }
   return z->k;
 }

@@ -665,7 +665,7 @@ int main_tag(int argc, char *argv[], const char *argv0) {
     par_elapsedTime = calculateMiliseconds(t1, t2);
     printf("CRF Viterbi Parallel Time=%4.3f ms\n", par_elapsedTime);
     printf("CRF Viterbi CPU Time=%4.3f ms\n", cpu_elapsedTime);
-    printf("Speedup=%4.3f\n", (float)cpu_elapsedTime/(float)par_elapsedTime);
+    printf("Speedup=%4.3f\n", (float)cpu_elapsedTime / (float)par_elapsedTime);
   }
 
   return ret;

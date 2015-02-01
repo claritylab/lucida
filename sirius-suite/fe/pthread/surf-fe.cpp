@@ -119,9 +119,9 @@ void *feat_thread(void *tid) {
 }
 
 int main(int argc, char **argv) {
-  if(argc < 3){
-      printf("%s <threads> <input>\n", argv[0]);
-      exit(0);
+  if (argc < 3) {
+    printf("%s <threads> <input>\n", argv[0]);
+    exit(0);
   }
   // data
   float runtimefeatseq = 0;
@@ -145,7 +145,7 @@ int main(int argc, char **argv) {
   gettimeofday(&t1, NULL);
   segs = segment(img);
   gettimeofday(&t2, NULL);
-  runtimecut= calculateMiliseconds(t1, t2);
+  runtimecut = calculateMiliseconds(t1, t2);
 
   gettimeofday(&t1, NULL);
   vector<KeyPoint> keys = exec_feature(img);
@@ -166,8 +166,7 @@ int main(int argc, char **argv) {
     pthread_create(&threads[i], &attr, feat_thread, (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; i++)
-      pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
 
   gettimeofday(&t2, NULL);
   runtimefeatpar = calculateMiliseconds(t1, t2);
@@ -175,7 +174,7 @@ int main(int argc, char **argv) {
   printf("SURF FE CUT CPU Time=%4.3f ms\n", runtimecut);
   printf("SURF FE CPU Time=%4.3f ms\n", runtimefeatseq);
   printf("SURF FE CPU PThread Time=%4.3f ms\n", runtimefeatpar);
-  printf("Speedup=%4.3f\n", (float)runtimefeatseq/(float)runtimefeatpar);
+  printf("Speedup=%4.3f\n", (float)runtimefeatseq / (float)runtimefeatpar);
 
   // Clean up
   delete detector;

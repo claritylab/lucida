@@ -50,9 +50,9 @@ vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
 }
 
 int main(int argc, char **argv) {
-  if(argc < 2){
-      printf("%s <input>\n", argv[0]);
-      exit(0);
+  if (argc < 2) {
+    printf("%s <input>\n", argv[0]);
+    exit(0);
   }
   // data
   float runtimefeatseq = 0;
@@ -81,9 +81,9 @@ int main(int argc, char **argv) {
 
   printf("SURF FE Time=%4.3f ms\n", runtimefeatseq);
   printf("SURF FE GPU Time=%4.3f ms\n", runtimefeatgpu);
-  printf("Speedup=%4.3f\n", (float)runtimefeatseq/(float)runtimefeatgpu);
+  printf("Speedup=%4.3f\n", (float)runtimefeatseq / (float)runtimefeatgpu);
 
-  delete(detector);
+  delete (detector);
 
   return 0;
 }

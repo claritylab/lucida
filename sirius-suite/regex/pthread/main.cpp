@@ -32,9 +32,9 @@ void *slre_thread(void *tid) {
   end = start + iterations;
 
   for (int i = start; i < end; ++i) {
-      for (int j = 0; j < numQs; ++j) {
-          slre_match(slre[i], bufs[j], buf_len[j], caps);
-      }
+    for (int j = 0; j < numQs; ++j) {
+      slre_match(slre[i], bufs[j], buf_len[j], caps);
+    }
   }
 }
 
@@ -62,9 +62,9 @@ int fill(FILE *f, char **toFill, int *bufLen, int len) {
 }
 
 int main(int argc, char *argv[]) {
-  if(argc < 4){
-      printf("%s <threads> <list> <questions>\n", argv[0]);
-      exit(0);
+  if (argc < 4) {
+    printf("%s <threads> <list> <questions>\n", argv[0]);
+    exit(0);
   }
   /* Timing */
   struct timeval tv1, tv2;
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < numExps; ++i) {
     slre[i] = (struct slre *)malloc(sizeof(slre));
     if (!slre_compile(slre[i], exps[i])) {
-        // printf("error compiling: %s\n", exps[i]);
+      // printf("error compiling: %s\n", exps[i]);
     }
   }
   gettimeofday(&tv2, NULL);
@@ -103,8 +103,8 @@ int main(int argc, char *argv[]) {
   gettimeofday(&tv1, NULL);
   for (int i = 0; i < numExps; ++i) {
     for (int k = 0; k < numQs; ++k) {
-      if(slre_match(slre[i], bufs[k], buf_len[k], caps) < -1)
-          printf("error compiling\n");
+      if (slre_match(slre[i], bufs[k], buf_len[k], caps) < -1)
+        printf("error compiling\n");
     }
   }
   gettimeofday(&tv2, NULL);
@@ -134,8 +134,7 @@ int main(int argc, char *argv[]) {
 
   // Timing
   printf("Regex SLRE Compile time=%4.2f ms\n", (double)compiletime / 1000);
-  printf("Regex SLRE CPU time=%4.2f ms\n",
-         (double)totalruntimeseq / 1000);
+  printf("Regex SLRE CPU time=%4.2f ms\n", (double)totalruntimeseq / 1000);
   printf("Regex SLRE CPU PThread time=%4.2f ms\n",
          (double)totalruntimepar / 1000);
   printf("Speedup=%.2f\n", ((float)totalruntimeseq / (float)totalruntimepar));

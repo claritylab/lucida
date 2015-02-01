@@ -40,7 +40,6 @@ int senone_size = 5120;
 void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
                       float *weight_vect, float *factor_vect,
                       float *score_vect) {
-
   float logZero = -3.4028235E38;
   float maxLogValue = 7097004.5;
   float minLogValue = -7443538.0;
@@ -131,9 +130,9 @@ float calculateMiliseconds(timeval t1, timeval t2) {
 }
 
 int main(int argc, char *argv[]) {
-  if(argc < 2){
-      printf("%s <input>\n", argv[0]);
-      exit(0);
+  if (argc < 2) {
+    printf("%s <input>\n", argv[0]);
+    exit(0);
   }
   float *dev_feat_vect;
 
@@ -160,9 +159,9 @@ int main(int argc, char *argv[]) {
 
   float *dev_score_vect;
 
-  if(argc < 2){
-      printf("%s <input>\n", argv[0]);
-      exit(0);
+  if (argc < 2) {
+    printf("%s <input>\n", argv[0]);
+    exit(0);
   }
 
   // load model from file
@@ -220,8 +219,8 @@ int main(int argc, char *argv[]) {
 
   // CPU side
   gettimeofday(&t1, NULL);
-    computeScore_seq(feature_vect, means_vect, precs_vect, weight_vect,
-                     factor_vect, cpu_score_vect);
+  computeScore_seq(feature_vect, means_vect, precs_vect, weight_vect,
+                   factor_vect, cpu_score_vect);
   gettimeofday(&t2, NULL);
 
   cpu_elapsedTime = calculateMiliseconds(t1, t2);

@@ -64,8 +64,7 @@ void *desc_thread(void *tid) {
 
   // printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
 
-  for (int i = start; i < end; ++i)
-      Mat testDesc = exec_desc(segs[i], keys[i]);
+  for (int i = start; i < end; ++i) Mat testDesc = exec_desc(segs[i], keys[i]);
 }
 
 vector<Mat> segment(const Mat &img) {
@@ -130,9 +129,9 @@ vector<Mat> segment(const Mat &img) {
 }
 
 int main(int argc, char **argv) {
-  if(argc < 3){
-      printf("%s <threads> <input>\n", argv[0]);
-      exit(0);
+  if (argc < 3) {
+    printf("%s <threads> <input>\n", argv[0]);
+    exit(0);
   }
   // data
   float runtimecut = 0;
@@ -167,7 +166,7 @@ int main(int argc, char **argv) {
 
   gettimeofday(&t1, NULL);
   for (int i = 0; i < segs.size(); ++i)
-      Mat testDesc = exec_desc(segs[i], keys[i]);
+    Mat testDesc = exec_desc(segs[i], keys[i]);
   gettimeofday(&t2, NULL);
   runtimedescseq = calculateMiliseconds(t1, t2);
 
@@ -184,8 +183,7 @@ int main(int argc, char **argv) {
     pthread_create(&threads[i], &attr, desc_thread, (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; i++)
-      pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
 
   gettimeofday(&t2, NULL);
   runtimedescpar = calculateMiliseconds(t1, t2);
@@ -198,7 +196,7 @@ int main(int argc, char **argv) {
   printf("SURF FE CPU Time=%4.3f ms\n", runtimefeat);
   printf("SURF FD CPU Time=%4.3f ms\n", runtimedescseq);
   printf("SURF FD PThread CPU Time=%4.3f ms\n", runtimedescpar);
-  printf("Speedup=%4.3f\n", (float)runtimedescseq/(float)runtimedescpar);
+  printf("Speedup=%4.3f\n", (float)runtimedescseq / (float)runtimedescpar);
 
   return 0;
 }

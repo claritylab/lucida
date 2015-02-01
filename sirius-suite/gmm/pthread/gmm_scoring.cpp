@@ -45,7 +45,6 @@ int senone_size = 5120;
 void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
                       float *weight_vect, float *factor_vect,
                       float *cpu_score_vect) {
-
   float logZero = -3.4028235E38;
   float maxLogValue = 7097004.5;
   float minLogValue = -7443538.0;
@@ -143,7 +142,7 @@ void *computeScore_thread(void *tid) {
   int feat_size = 29;
   int senone_size = 5120;
 
-  int i, start=0, *mytid, end=0;
+  int i, start = 0, *mytid, end = 0;
 
   mytid = (int *)tid;
   start = (*mytid * iterations);
@@ -234,9 +233,9 @@ float calculateMiliseconds(timeval t1, timeval t2) {
 }
 
 int main(int argc, char *argv[]) {
-  if(argc < 3){
-      printf("%s <threads> <input>\n", argv[0]);
-      exit(0);
+  if (argc < 3) {
+    printf("%s <threads> <input>\n", argv[0]);
+    exit(0);
   }
   // Timing
   timeval t1, t2;
@@ -254,9 +253,9 @@ int main(int argc, char *argv[]) {
   cpu_score_vect = (float *)malloc(senone_size * sizeof(float));
   pthread_score_vect = (float *)malloc(senone_size * sizeof(float));
 
-  if(argc < 3){
-      printf("%s <threads> <input>\n", argv[0]);
-      exit(0);
+  if (argc < 3) {
+    printf("%s <threads> <input>\n", argv[0]);
+    exit(0);
   }
 
   NTHREADS = atoi(argv[1]);
@@ -321,7 +320,7 @@ int main(int argc, char *argv[]) {
 
   gettimeofday(&t1, NULL);
   computeScore_seq(feature_vect, means_vect, precs_vect, weight_vect,
-          factor_vect, cpu_score_vect);
+                   factor_vect, cpu_score_vect);
   gettimeofday(&t2, NULL);
 
   cpu_elapsedTime = calculateMiliseconds(t1, t2);
@@ -338,14 +337,14 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < NTHREADS; ++i) pthread_join(threads[i], NULL);
 
   gettimeofday(&t2, NULL);
-  
-  for(int i = 0; i < senone_size; ++i)
-      assert(cpu_score_vect[i] == pthread_score_vect[i]);
+
+  for (int i = 0; i < senone_size; ++i)
+    assert(cpu_score_vect[i] == pthread_score_vect[i]);
 
   par_elapsedTime = calculateMiliseconds(t1, t2);
   printf("CPU Time=%4.3f ms\n", (float)cpu_elapsedTime);
   printf("CPU PThread Time=%4.3f ms\n", par_elapsedTime);
-  printf("Speedup=%4.3f\n", (float)cpu_elapsedTime/(float)par_elapsedTime);
+  printf("Speedup=%4.3f\n", (float)cpu_elapsedTime / (float)par_elapsedTime);
 
   /* Clean up and exit */
   free(means_vect);

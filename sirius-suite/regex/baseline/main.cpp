@@ -42,9 +42,9 @@ int fill(FILE *f, char **toFill, int *bufLen, int len) {
 }
 
 int main(int argc, char *argv[]) {
-  if(argc < 3){
-      printf("%s <list> <questions>\n", argv[0]);
-      exit(0);
+  if (argc < 3) {
+    printf("%s <list> <questions>\n", argv[0]);
+    exit(0);
   }
   /* Timing */
   struct timeval tv1, tv2;
@@ -80,8 +80,8 @@ int main(int argc, char *argv[]) {
   gettimeofday(&tv1, NULL);
   for (int i = 0; i < numExps; ++i) {
     for (int k = 0; k < numQs; ++k) {
-      if(slre_match(slre[i], bufs[k], buf_len[k], caps) < -1)
-          printf("error\n");
+      if (slre_match(slre[i], bufs[k], buf_len[k], caps) < -1)
+        printf("error\n");
       printf("Result: %s\n", caps->ptr);
     }
   }
