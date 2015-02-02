@@ -32,6 +32,7 @@ export CLASSPATH=bin:lib/ml/maxent.jar:lib/ml/minorthird.jar:lib/nlp/jwnl.jar:li
 
 export INDRI_INDEX=`pwd`/wiki_indri_index/
 # FIXME
+# I don't know how. OE complains with threads < 8 :(
 export THREADS=8
 
 cd openephyra/

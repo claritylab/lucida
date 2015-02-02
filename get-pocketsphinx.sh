@@ -41,9 +41,7 @@ tar xzf ${sdir}.tar.gz
 cd $sdir ;
 ./autogen.sh
 ./configure --prefix=$installdir
-# FIXME
-make -j8
-make install
+make && make install
 cd .. ;
 
 # pocketsphinx
@@ -51,9 +49,7 @@ tar xzf ${pdir}.tar.gz
 cd $pdir ;
 ./autogen.sh
 ./configure --prefix=$installdir
-# FIXME
-make -j8
-make install
+make && make install
 cd .. ;
 
 # clean up
