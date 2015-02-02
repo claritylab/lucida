@@ -1,12 +1,13 @@
-#!/bin/bash
-# start the asr server
+#!/usr/bin/env bash
+
+# start the ASR server
 # pass 3 arguments
 # jahausw@umich.edu
 
 function print_usage {
-echo "Starts the ASR server"
-echo "	Usage $0 <sphinx4|pocketsphinx> <ip> <port>"
-echo "	Default example: $0 pocketsphinx localhost 8080"
+  echo "Starts the ASR server"
+  echo "	Usage $0 <sphinx4|pocketsphinx> <ip> <port>"
+  echo "	Default example: $0 pocketsphinx localhost 8080"
 }
 
 if [ "$1" == "help" ]; then
@@ -33,7 +34,11 @@ export CONF_FILE="`pwd`/sphinx_batch_conf.xml"
 export THREADS=8
 
 if [ "$asr" == "sphinx4" ]; then
-    java -server -Djava.library.path=./lib -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/sphinx4.jar Sphinx4Server $ip $port
+  java -server -Djava.library.path=./lib \
+    -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/sphinx4.jar Sphinx4Server \
+    $ip $port
 elif [ "$asr" == "pocketsphinx" ]; then
-    java -server -Djava.library.path=./lib -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar PocketsphinxServer $ip $port
+  java -server -Djava.library.path=./lib \
+    -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar \
+    PocketsphinxServer $ip $port
 fi

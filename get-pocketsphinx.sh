@@ -41,6 +41,7 @@ tar xzf ${sdir}.tar.gz
 cd $sdir ;
 ./autogen.sh
 ./configure --prefix=$installdir
+# FIXME
 make -j8
 make install
 cd .. ;
@@ -50,6 +51,7 @@ tar xzf ${pdir}.tar.gz
 cd $pdir ;
 ./autogen.sh
 ./configure --prefix=$installdir
+# FIXME
 make -j8
 make install
 cd .. ;
