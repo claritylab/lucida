@@ -6,13 +6,13 @@
 
 function print_usage {
   echo "Starts the ASR server"
-  echo "	Usage $0 <sphinx4|pocketsphinx> <ip> <port>"
-  echo "	Default example: $0 pocketsphinx localhost 8080"
+  echo "    Usage $0 <sphinx4|pocketsphinx> <ip> <port>"
+  echo "    Default example: $0 pocketsphinx localhost 8080"
 }
 
 if [ "$1" == "help" ]; then
-	print_usage
-	exit
+  print_usage
+  exit
 fi
 
 asr=sphinx4
@@ -20,13 +20,13 @@ ip=localhost
 port=8081
 
 if [[ -n "$1" ]]; then
-	asr=$1
+  asr=$1
 fi
 if [[ -n "$2" ]]; then
-	ip=$2
+  ip=$2
 fi
 if [[ -n "$3" ]]; then
-	port=$3
+  port=$3
 fi
 
 export MODELS_PATH="`pwd`/models/"
