@@ -1,7 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # Install sphinxbase + pocketsphinx
 # Run as sudo to install correctly to default
 # jahausw 2014
+
+hash wget 2>/dev/null || {
+  echo >&2 "$0: [ERROR] wget is not installed. Aborting."
+  exit 1
+}
+
+hash make 2>/dev/null || {
+  echo >&2 "$0: [ERROR] make is not installed. Aborting."
+  exit 1
+}
+
+if [ "$EUID" -ne 0 ]
+then
+  echo >&2 "$0: [ERROR] Sudo access required. Aborting."
+  exit 1
+fi
 
 mkdir -p bits ;
 cd bits ;

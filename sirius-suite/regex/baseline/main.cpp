@@ -43,7 +43,8 @@ int fill(FILE *f, char **toFill, int *bufLen, int len) {
 
 int main(int argc, char *argv[]) {
   if (argc < 3) {
-    printf("%s <list> <questions>\n", argv[0]);
+    fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
+    fprintf(stderr, "Usage: %s [LIST FILE] [QUESTION FILE]\n\n", argv[0]);
     exit(0);
   }
   /* Timing */

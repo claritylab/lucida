@@ -234,7 +234,8 @@ float calculateMiliseconds(timeval t1, timeval t2) {
 
 int main(int argc, char *argv[]) {
   if (argc < 3) {
-    printf("%s <threads> <input>\n", argv[0]);
+    fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
+    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
   // Timing

@@ -77,7 +77,8 @@ typedef struct {
   int level;
 } crf1dt_t;
 
-/*typedef struct {
+/*
+typedef struct {
   int *array;
   size_t used;
   size_t size;
@@ -101,7 +102,8 @@ void freeArray(Array *a) {
   free(a->array);
   a->array = NULL;
   a->used = a->size = 0;
-}*/
+}
+*/
 
 typedef struct {
   char *input;
@@ -193,7 +195,8 @@ static void show_usage(FILE *fp, const char *argv0, const char *command) {
           "(with -t option).\n");
   fprintf(fp, "\n");
   fprintf(fp, "OPTIONS:\n");
-  fprintf(fp, "    -m, --model=MODEL   Read a model from a file (MODEL)\n");
+  fprintf(fp,
+          "    -m, --model=MODEL   Read a model from a file (MODEL)\n");
   fprintf(fp,
           "    -t, --test          Report the performance of the model on "
           "the data\n");
@@ -203,9 +206,9 @@ static void show_usage(FILE *fp, const char *argv0, const char *command) {
   fprintf(fp,
           "    -p, --probability   Output the probability of the label "
           "sequences\n");
-  fprintf(
-      fp,
-      "    -i, --marginal      Output the marginal probabilities of items\n");
+  fprintf(fp,
+          "    -i, --marginal      Output the marginal probabilities of "
+          "items\n");
   fprintf(fp,
           "    -q, --quiet         Suppress tagging results (useful for "
           "test mode)\n");

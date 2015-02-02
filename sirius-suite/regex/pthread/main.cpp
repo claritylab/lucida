@@ -63,7 +63,10 @@ int fill(FILE *f, char **toFill, int *bufLen, int len) {
 
 int main(int argc, char *argv[]) {
   if (argc < 4) {
-    printf("%s <threads> <list> <questions>\n", argv[0]);
+    fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
+    fprintf(stderr,
+            "Usage: %s [NUMBER OF THREADS] [LIST FILE] [QUESTION FILE]\n\n",
+            argv[0]);
     exit(0);
   }
   /* Timing */

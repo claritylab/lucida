@@ -55,7 +55,8 @@ Mat exec_desc(const Mat &img, vector<KeyPoint> keypoints) {
 
 int main(int argc, char **argv) {
   if (argc < 2) {
-    printf("%s <input>\n", argv[0]);
+    fprintf(stderr, "[ERROR] Input file required.\n\n");
+    fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
   // data
