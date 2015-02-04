@@ -4,6 +4,10 @@ CXX=g++
 CXX_FLAGS = -w -fpermissive -I$(CAFFE) -I$(CUDA)/include -g
 LINK_FLAGS = -L/$(CUDA)/lib64 -lcudart -ldl -lrt
 
+EXEC = dnn-asr
+SOURCES=$(wildcard *.cpp)
+OBJECTS=$(SOURCES:.cpp=.o)
+
 all: dnn-asr
 
 dnn-asr: $(OBJECTS) Makefile
