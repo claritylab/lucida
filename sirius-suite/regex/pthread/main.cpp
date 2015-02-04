@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < numExps; ++i) {
     slre[i] = (struct slre *)malloc(sizeof(slre));
     if (!slre_compile(slre[i], exps[i])) {
-      // printf("error compiling: %s\n", exps[i]);
+      printf("error compiling: %s\n", exps[i]);
     }
   }
   gettimeofday(&tv2, NULL);

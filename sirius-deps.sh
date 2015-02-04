@@ -1,6 +1,6 @@
 #!/bin/bash/env bash
 
-# Install dependent packages
+# Install (some) dependencies
 
 if [ "$EUID" -ne 0 ]
 then

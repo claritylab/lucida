@@ -83,7 +83,6 @@ int main(int argc, char *argv[]) {
     for (int k = 0; k < numQs; ++k) {
       if (slre_match(slre[i], bufs[k], buf_len[k], caps) < -1)
         printf("error\n");
-      printf("Result: %s\n", caps->ptr);
     }
   }
   gettimeofday(&tv2, NULL);

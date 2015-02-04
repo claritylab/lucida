@@ -52,7 +52,7 @@ cd $pdir ;
 make && make install
 cd .. ;
 
-# clean up
-rm -rf $pdir ;
-rm -rf $sdir ;
-cd ../ ; rm -rf bits ;
+# (optionally) clean up
+# rm -rf $pdir ;
+# rm -rf $sdir ;
+# cd ../ ; rm -rf bits ;

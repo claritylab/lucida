@@ -21,6 +21,7 @@ if [[ -n "$2" ]]; then
   port=$2
 fi
 
-cd imm
+# start from top directory
+cd ../image-matching ;
 
-./start-img-server.py $ip $port
+./start-imm-server.py $ip $port

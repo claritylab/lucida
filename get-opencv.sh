@@ -34,14 +34,19 @@ apt-get install \
 open=opencv-
 ver=2.4.9
 base=${open}${ver}
+
+mkdir -p bits;
+cd bits;
 wget \
   http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/$ver/$base.zip
 unzip $base;
 cd $base;
 
-# mkdir build;
-# cmake -DCMAKE_INSTALL_PREFIX:PATH=`pwd`/build
+# cmake -DWITH_CUDA=ON -DCUDA_ARCH_BIN="3.5"
 cmake .
 make && make install
+cd .. ;
 
-cd ..;  rm -rf $base*
+# (optionally) clean up
+# rm -rf $base ;
+# cd ../ ; rm -rf bits ;

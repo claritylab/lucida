@@ -7,7 +7,7 @@
 function print_usage {
   echo "Starts the ASR server"
   echo "    Usage $0 <sphinx4|pocketsphinx> <ip> <port>"
-  echo "    Default example: $0 pocketsphinx localhost 8080"
+  echo "    Default example: $0 pocketsphinx localhost 8081"
 }
 
 if [ "$1" == "help" ]; then
@@ -15,7 +15,7 @@ if [ "$1" == "help" ]; then
   exit
 fi
 
-asr=sphinx4
+asr=pocketsphinx
 ip=localhost
 port=8081
 
@@ -28,6 +28,9 @@ fi
 if [[ -n "$3" ]]; then
   port=$3
 fi
+
+# start from top directory
+cd ../speech-recognition ;
 
 export MODELS_PATH="`pwd`/models/"
 export CONF_FILE="`pwd`/sphinx_batch_conf.xml"

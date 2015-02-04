@@ -29,7 +29,7 @@
 namespace kp {
 
 // Internal implementation detail -- do not call these.
-void protobuf_AddDesc_keypoints_2eproto();
+void  protobuf_AddDesc_keypoints_2eproto();
 void protobuf_AssignDesc_keypoints_2eproto();
 void protobuf_ShutdownFile_keypoints_2eproto();
 
@@ -43,51 +43,49 @@ class all_kp : public ::google::protobuf::Message {
   all_kp();
   virtual ~all_kp();
 
-  all_kp(const all_kp &from);
+  all_kp(const all_kp& from);
 
-  inline all_kp &operator=(const all_kp &from) {
+  inline all_kp& operator=(const all_kp& from) {
     CopyFrom(from);
     return *this;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet &unknown_fields() const {
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
     return _unknown_fields_;
   }
 
-  inline ::google::protobuf::UnknownFieldSet *mutable_unknown_fields() {
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
     return &_unknown_fields_;
   }
 
-  static const ::google::protobuf::Descriptor *descriptor();
-  static const all_kp &default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const all_kp& default_instance();
 
-  void Swap(all_kp *other);
+  void Swap(all_kp* other);
 
   // implements Message ----------------------------------------------
 
-  all_kp *New() const;
-  void CopyFrom(const ::google::protobuf::Message &from);
-  void MergeFrom(const ::google::protobuf::Message &from);
-  void CopyFrom(const all_kp &from);
-  void MergeFrom(const all_kp &from);
+  all_kp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const all_kp& from);
+  void MergeFrom(const all_kp& from);
   void Clear();
   bool IsInitialized() const;
 
   int ByteSize() const;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream *input);
+      ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream *output) const;
-  ::google::protobuf::uint8 *SerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8 *output) const;
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
-
- private:
+  private:
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
+  public:
 
- public:
   ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
@@ -105,13 +103,13 @@ class all_kp : public ::google::protobuf::Message {
   inline int keypoint_size() const;
   inline void clear_keypoint();
   static const int kKeypointFieldNumber = 2;
-  inline const ::kp::Keypoint &keypoint(int index) const;
-  inline ::kp::Keypoint *mutable_keypoint(int index);
-  inline ::kp::Keypoint *add_keypoint();
-  inline const ::google::protobuf::RepeatedPtrField<::kp::Keypoint> &keypoint()
-      const;
-  inline ::google::protobuf::RepeatedPtrField<::kp::Keypoint> *
-  mutable_keypoint();
+  inline const ::kp::Keypoint& keypoint(int index) const;
+  inline ::kp::Keypoint* mutable_keypoint(int index);
+  inline ::kp::Keypoint* add_keypoint();
+  inline const ::google::protobuf::RepeatedPtrField< ::kp::Keypoint >&
+      keypoint() const;
+  inline ::google::protobuf::RepeatedPtrField< ::kp::Keypoint >*
+      mutable_keypoint();
 
   // @@protoc_insertion_point(class_scope:kp.all_kp)
  private:
@@ -120,18 +118,18 @@ class all_kp : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField<::kp::Keypoint> keypoint_;
+  ::google::protobuf::RepeatedPtrField< ::kp::Keypoint > keypoint_;
   ::google::protobuf::uint32 size_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
-  friend void protobuf_AddDesc_keypoints_2eproto();
+  friend void  protobuf_AddDesc_keypoints_2eproto();
   friend void protobuf_AssignDesc_keypoints_2eproto();
   friend void protobuf_ShutdownFile_keypoints_2eproto();
 
   void InitAsDefaultInstance();
-  static all_kp *default_instance_;
+  static all_kp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -140,51 +138,49 @@ class Keypoint : public ::google::protobuf::Message {
   Keypoint();
   virtual ~Keypoint();
 
-  Keypoint(const Keypoint &from);
+  Keypoint(const Keypoint& from);
 
-  inline Keypoint &operator=(const Keypoint &from) {
+  inline Keypoint& operator=(const Keypoint& from) {
     CopyFrom(from);
     return *this;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet &unknown_fields() const {
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
     return _unknown_fields_;
   }
 
-  inline ::google::protobuf::UnknownFieldSet *mutable_unknown_fields() {
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
     return &_unknown_fields_;
   }
 
-  static const ::google::protobuf::Descriptor *descriptor();
-  static const Keypoint &default_instance();
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Keypoint& default_instance();
 
-  void Swap(Keypoint *other);
+  void Swap(Keypoint* other);
 
   // implements Message ----------------------------------------------
 
-  Keypoint *New() const;
-  void CopyFrom(const ::google::protobuf::Message &from);
-  void MergeFrom(const ::google::protobuf::Message &from);
-  void CopyFrom(const Keypoint &from);
-  void MergeFrom(const Keypoint &from);
+  Keypoint* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Keypoint& from);
+  void MergeFrom(const Keypoint& from);
   void Clear();
   bool IsInitialized() const;
 
   int ByteSize() const;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream *input);
+      ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream *output) const;
-  ::google::protobuf::uint8 *SerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8 *output) const;
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
-
- private:
+  private:
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
+  public:
 
- public:
   ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
@@ -270,14 +266,15 @@ class Keypoint : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
-  friend void protobuf_AddDesc_keypoints_2eproto();
+  friend void  protobuf_AddDesc_keypoints_2eproto();
   friend void protobuf_AssignDesc_keypoints_2eproto();
   friend void protobuf_ShutdownFile_keypoints_2eproto();
 
   void InitAsDefaultInstance();
-  static Keypoint *default_instance_;
+  static Keypoint* default_instance_;
 };
 // ===================================================================
+
 
 // ===================================================================
 
@@ -287,33 +284,45 @@ class Keypoint : public ::google::protobuf::Message {
 inline bool all_kp::has_size() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void all_kp::set_has_size() { _has_bits_[0] |= 0x00000001u; }
-inline void all_kp::clear_has_size() { _has_bits_[0] &= ~0x00000001u; }
+inline void all_kp::set_has_size() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void all_kp::clear_has_size() {
+  _has_bits_[0] &= ~0x00000001u;
+}
 inline void all_kp::clear_size() {
   size_ = 0u;
   clear_has_size();
 }
-inline ::google::protobuf::uint32 all_kp::size() const { return size_; }
+inline ::google::protobuf::uint32 all_kp::size() const {
+  return size_;
+}
 inline void all_kp::set_size(::google::protobuf::uint32 value) {
   set_has_size();
   size_ = value;
 }
 
 // repeated .kp.Keypoint keypoint = 2;
-inline int all_kp::keypoint_size() const { return keypoint_.size(); }
-inline void all_kp::clear_keypoint() { keypoint_.Clear(); }
-inline const ::kp::Keypoint &all_kp::keypoint(int index) const {
+inline int all_kp::keypoint_size() const {
+  return keypoint_.size();
+}
+inline void all_kp::clear_keypoint() {
+  keypoint_.Clear();
+}
+inline const ::kp::Keypoint& all_kp::keypoint(int index) const {
   return keypoint_.Get(index);
 }
-inline ::kp::Keypoint *all_kp::mutable_keypoint(int index) {
+inline ::kp::Keypoint* all_kp::mutable_keypoint(int index) {
   return keypoint_.Mutable(index);
 }
-inline ::kp::Keypoint *all_kp::add_keypoint() { return keypoint_.Add(); }
-inline const ::google::protobuf::RepeatedPtrField<::kp::Keypoint> &
+inline ::kp::Keypoint* all_kp::add_keypoint() {
+  return keypoint_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::kp::Keypoint >&
 all_kp::keypoint() const {
   return keypoint_;
 }
-inline ::google::protobuf::RepeatedPtrField<::kp::Keypoint> *
+inline ::google::protobuf::RepeatedPtrField< ::kp::Keypoint >*
 all_kp::mutable_keypoint() {
   return &keypoint_;
 }
@@ -326,13 +335,19 @@ all_kp::mutable_keypoint() {
 inline bool Keypoint::has_x() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Keypoint::set_has_x() { _has_bits_[0] |= 0x00000001u; }
-inline void Keypoint::clear_has_x() { _has_bits_[0] &= ~0x00000001u; }
+inline void Keypoint::set_has_x() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Keypoint::clear_has_x() {
+  _has_bits_[0] &= ~0x00000001u;
+}
 inline void Keypoint::clear_x() {
   x_ = 0;
   clear_has_x();
 }
-inline float Keypoint::x() const { return x_; }
+inline float Keypoint::x() const {
+  return x_;
+}
 inline void Keypoint::set_x(float value) {
   set_has_x();
   x_ = value;
@@ -342,13 +357,19 @@ inline void Keypoint::set_x(float value) {
 inline bool Keypoint::has_y() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void Keypoint::set_has_y() { _has_bits_[0] |= 0x00000002u; }
-inline void Keypoint::clear_has_y() { _has_bits_[0] &= ~0x00000002u; }
+inline void Keypoint::set_has_y() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Keypoint::clear_has_y() {
+  _has_bits_[0] &= ~0x00000002u;
+}
 inline void Keypoint::clear_y() {
   y_ = 0;
   clear_has_y();
 }
-inline float Keypoint::y() const { return y_; }
+inline float Keypoint::y() const {
+  return y_;
+}
 inline void Keypoint::set_y(float value) {
   set_has_y();
   y_ = value;
@@ -358,13 +379,19 @@ inline void Keypoint::set_y(float value) {
 inline bool Keypoint::has_size() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Keypoint::set_has_size() { _has_bits_[0] |= 0x00000004u; }
-inline void Keypoint::clear_has_size() { _has_bits_[0] &= ~0x00000004u; }
+inline void Keypoint::set_has_size() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Keypoint::clear_has_size() {
+  _has_bits_[0] &= ~0x00000004u;
+}
 inline void Keypoint::clear_size() {
   size_ = 0;
   clear_has_size();
 }
-inline float Keypoint::size() const { return size_; }
+inline float Keypoint::size() const {
+  return size_;
+}
 inline void Keypoint::set_size(float value) {
   set_has_size();
   size_ = value;
@@ -374,13 +401,19 @@ inline void Keypoint::set_size(float value) {
 inline bool Keypoint::has_angle() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void Keypoint::set_has_angle() { _has_bits_[0] |= 0x00000008u; }
-inline void Keypoint::clear_has_angle() { _has_bits_[0] &= ~0x00000008u; }
+inline void Keypoint::set_has_angle() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Keypoint::clear_has_angle() {
+  _has_bits_[0] &= ~0x00000008u;
+}
 inline void Keypoint::clear_angle() {
   angle_ = 0;
   clear_has_angle();
 }
-inline float Keypoint::angle() const { return angle_; }
+inline float Keypoint::angle() const {
+  return angle_;
+}
 inline void Keypoint::set_angle(float value) {
   set_has_angle();
   angle_ = value;
@@ -390,13 +423,19 @@ inline void Keypoint::set_angle(float value) {
 inline bool Keypoint::has_response() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void Keypoint::set_has_response() { _has_bits_[0] |= 0x00000010u; }
-inline void Keypoint::clear_has_response() { _has_bits_[0] &= ~0x00000010u; }
+inline void Keypoint::set_has_response() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Keypoint::clear_has_response() {
+  _has_bits_[0] &= ~0x00000010u;
+}
 inline void Keypoint::clear_response() {
   response_ = 0;
   clear_has_response();
 }
-inline float Keypoint::response() const { return response_; }
+inline float Keypoint::response() const {
+  return response_;
+}
 inline void Keypoint::set_response(float value) {
   set_has_response();
   response_ = value;
@@ -406,13 +445,19 @@ inline void Keypoint::set_response(float value) {
 inline bool Keypoint::has_octave() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void Keypoint::set_has_octave() { _has_bits_[0] |= 0x00000020u; }
-inline void Keypoint::clear_has_octave() { _has_bits_[0] &= ~0x00000020u; }
+inline void Keypoint::set_has_octave() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Keypoint::clear_has_octave() {
+  _has_bits_[0] &= ~0x00000020u;
+}
 inline void Keypoint::clear_octave() {
   octave_ = 0;
   clear_has_octave();
 }
-inline ::google::protobuf::int32 Keypoint::octave() const { return octave_; }
+inline ::google::protobuf::int32 Keypoint::octave() const {
+  return octave_;
+}
 inline void Keypoint::set_octave(::google::protobuf::int32 value) {
   set_has_octave();
   octave_ = value;
@@ -422,8 +467,12 @@ inline void Keypoint::set_octave(::google::protobuf::int32 value) {
 inline bool Keypoint::has_class_id() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void Keypoint::set_has_class_id() { _has_bits_[0] |= 0x00000040u; }
-inline void Keypoint::clear_has_class_id() { _has_bits_[0] &= ~0x00000040u; }
+inline void Keypoint::set_has_class_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Keypoint::clear_has_class_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
 inline void Keypoint::clear_class_id() {
   class_id_ = 0;
   clear_has_class_id();
@@ -436,13 +485,17 @@ inline void Keypoint::set_class_id(::google::protobuf::int32 value) {
   class_id_ = value;
 }
 
+
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace kp
 
 #ifndef SWIG
 namespace google {
-namespace protobuf {}  // namespace google
+namespace protobuf {
+
+
+}  // namespace google
 }  // namespace protobuf
 #endif  // SWIG
 
