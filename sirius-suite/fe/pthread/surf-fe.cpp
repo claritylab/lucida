@@ -23,15 +23,11 @@
 using namespace cv;
 using namespace std;
 
-struct timeval tv1, tv2;
-
-#define NTHREADS 8
+int NTHREADS;
 #define OVERLAP 0
 
 vector<Mat> segs;
-vector<vector<KeyPoint> > keys;
 FeatureDetector *detector = new SurfFeatureDetector();
-DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
 
 float calculateMiliseconds(timeval t1, timeval t2) {
@@ -123,23 +119,39 @@ void *feat_thread(void *tid) {
 }
 
 int main(int argc, char **argv) {
+  if (argc < 3) {
+    fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
+    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [INPUT FILE]\n\n", argv[0]);
+    exit(0);
+  }
   // data
-  float runtimefeat = 0;
+  float runtimefeatseq = 0;
+  float runtimefeatpar = 0;
   float runtimecut = 0;
   struct timeval t1, t2;
 
+  NTHREADS = atoi(argv[1]);
   // Generate test keys
-  Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
+  Mat img = imread(argv[2], CV_LOAD_IMAGE_GRAYSCALE);
   if (img.empty()) {
     printf("image not found\n");
     exit(-1);
   }
 
-  gettimeofday(&tv1, NULL);
+  int height = img.size().height / NTHREADS;
+  int width = img.size().width / NTHREADS;
+
+  printf("Threads: %d, block H: %d, block W: %d\n", NTHREADS, height, width);
+
+  gettimeofday(&t1, NULL);
   segs = segment(img);
-  gettimeofday(&tv2, NULL);
-  runtimecut =
-      (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
+  gettimeofday(&t2, NULL);
+  runtimecut = calculateMiliseconds(t1, t2);
+
+  gettimeofday(&t1, NULL);
+  vector<KeyPoint> keys = exec_feature(img);
+  gettimeofday(&t2, NULL);
+  runtimefeatseq = calculateMiliseconds(t1, t2);
 
   gettimeofday(&t1, NULL);
   int start, tids[NTHREADS];
@@ -158,14 +170,15 @@ int main(int argc, char **argv) {
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
 
   gettimeofday(&t2, NULL);
-  runtimefeat = calculateMiliseconds(t1, t2);
+  runtimefeatpar = calculateMiliseconds(t1, t2);
+
+  printf("SURF FE CUT CPU Time=%4.3f ms\n", runtimecut);
+  printf("SURF FE CPU Time=%4.3f ms\n", runtimefeatseq);
+  printf("SURF FE CPU PThread Time=%4.3f ms\n", runtimefeatpar);
+  printf("Speedup=%4.3f\n", (float)runtimefeatseq / (float)runtimefeatpar);
 
   // Clean up
   delete detector;
-  delete extractor;
-
-  printf("SURF FE CUT CPU Time=%4.3f ms\n", runtimecut);
-  printf("SURF FE CPU PThread Time=%4.3f ms\n", runtimefeat);
 
   return 0;
 }

@@ -1,0 +1,130 @@
+Finite State Grammars vs Context-Free Grammars
+==============================================
+
+					Philip Kwok
+					February 25, 2002
+
+
+This document outlines the differences between finite state
+grammars (formally known as regular grammars) and 
+context-free grammars. It also identifies the types of grammars
+supported by the JSAPI, W3C Speech Recognition Grammar 
+Specification and Nuance 7. In summary, JSAPI supports regular
+grammars, while W3C and Nuance 7 supports context-free grammars.
+
+
+Finite State Grammars
+---------------------
+
+Finite state grammars generate languages (called regular
+languages) that are recognized by finite state machines.
+The rules of a finite state grammar are expressed as:
+
+A -> xB
+A -> x
+
+where A and B are non-terminals and x is a terminal.
+
+
+Context-Free Grammars
+---------------------
+
+Context-free grammars generate context-free languages that
+are recognized by pushdown automata (which is a finite state
+machine plus a stack). The rules of a context-free grammar 
+has to be equivalent to Chomsky normal form:
+
+A -> BC
+A -> x
+
+where A, B and C are non-terminals and x is a terminal.
+
+
+JSAPI
+-----
+
+Finite-state: YES
+Context-free: some
+
+JSAPI uses the Java Speech Grammar Format (JSGF) to provide
+cross platform control of speech recognizers. JSGF supports
+right recursive rules:
+
+<rule_one> = a <rule_one>
+
+A right recursive rule can be written in a
+non-recursive (regular expression) form. Therefore, The JSGF
+specification says that:
+
+"Technically speaking, the Java Speech Grammar Format defines
+what is formally called a regular grammar. Some features
+typically associated with a context-free grammar are 
+permitted for clarity or convenience."
+
+For details, refer to:
+
+http://java.sun.com/products/java-media/speech/forDevelopers/JSGF/index.html
+
+
+W3C Speech Recognition Grammar Specification
+--------------------------------------------
+
+Context-free: YES
+
+The W3C Voice Browser working group defines the Speech 
+Recognition Grammar Specification (SRGS). In the working
+draft dated August 20, 2001, it says:
+
+"The Speech Recognition Grammar Format has the expressive
+power of a Context Free Grammar. This arises because the 
+language permits a rule to directly or indirectly reference
+itself."
+
+It supports CFG features such as right recursion:
+
+	     <rule_one> = a <rule_one>
+
+and embedded (or middle) recursion:
+
+	     <rule_two> = a <rule_two> b
+
+It is the power of embedded recursion that makes this
+grammar context-free.
+
+For details, refer to:
+
+http://www.w3.org/TR/2001/WD-speech-grammar-20010820/#AppH
+
+
+Nuance 7
+--------
+
+Context-free: YES
+
+Similar to the W3C Speech Recognition Grammar 
+Specification, the Nuance Grammar Specification Language
+permits:
+
+right recursion:
+
+		<rule_one> = a <rule_one>
+
+middle recursion:
+
+		<rule_two> = a <rule_two> b
+
+indirect left recursion:
+
+		<rule_three> = <rule_four> a
+		<rule_four>  = b <rule_three>
+
+which makes in a context-free language. However, it does
+not support direct left recursion:
+
+		<rule_five> = <rule_five> a
+
+For details, refer to the Nuance Grammar Developer's Guide.
+
+
+
+		   --- end of document ---

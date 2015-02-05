@@ -24,23 +24,23 @@
 
    The algorithm as encoded here is particularly fast.
 
-   Release 2 (the more old-fashioned, non-thread-safe version may be
-   regarded as release 1.)
-*/
+   Release 1: the basic non-thread safe version
 
+   Release 2: this thread-safe version
+
+   Release 3: 11 Apr 2013, fixes the bug noted by Matt Patenaude (see the
+   basic version for details)
+
+   Release 4: 25 Mar 2014, fixes the bug noted by Klemens Baum (see the
+   basic version for details)
+   */
+
+#include <string.h> /* for memcmp, memmove */
+#include <time.h>
+#include <sys/time.h>
 #include <stdio.h>
 #include <stdlib.h> /* for malloc, free */
 #include <ctype.h>  /* for isupper, islower, tolower */
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdlib.h> /* for malloc, free */
-#include <string.h> /* for memcmp, memmove */
-
-/* You will probably want to move the following declarations to a central
-   header file.
-*/
 
 struct stemmer;
 
@@ -75,13 +75,13 @@ struct stemmer {
 
    Typical usage is:
 
-       struct stemmer * z = create_stemmer();
-       char b[] = "pencils";
-       int res = stem(z, b, 6);
-           /- stem the 7 characters of b[0] to b[6]. The result, res,
-              will be 5 (the 's' is removed). -/
-       free_stemmer(z);
-*/
+   struct stemmer * z = create_stemmer();
+   char b[] = "pencils";
+   int res = stem(z, b, 6);
+   /- stem the 7 characters of b[0] to b[6]. The result, res,
+   will be 5 (the 's' is removed). -/
+   free_stemmer(z);
+   */
 
 extern struct stemmer *create_stemmer(void) {
   return (struct stemmer *)malloc(sizeof(struct stemmer));
@@ -92,7 +92,7 @@ extern void free_stemmer(struct stemmer *z) { free(z); }
 
 /* cons(z, i) is TRUE <=> b[i] is a consonant. ('b' means 'z->b', but here
    and below we drop 'z->' in comments.
-*/
+   */
 
 static int cons(struct stemmer *z, int i) {
   switch (z->b[i]) {
@@ -113,12 +113,12 @@ static int cons(struct stemmer *z, int i) {
    a consonant sequence and v a vowel sequence, and <..> indicates arbitrary
    presence,
 
-      <c><v>       gives 0
-      <c>vc<v>     gives 1
-      <c>vcvc<v>   gives 2
-      <c>vcvcvc<v> gives 3
-      ....
-*/
+   <c><v>       gives 0
+   <c>vc<v>     gives 1
+   <c>vcvc<v>   gives 2
+   <c>vcvcvc<v> gives 3
+   ....
+   */
 
 static int m(struct stemmer *z) {
   int n = 0;
@@ -170,8 +170,8 @@ static int doublec(struct stemmer *z, int j) {
    and also if the second c is not w,x or y. this is used when trying to
    restore an e at the end of a short word. e.g.
 
-      cav(e), lov(e), hop(e), crim(e), but
-      snow, box, tray.
+   cav(e), lov(e), hop(e), crim(e), but
+   snow, box, tray.
 
 */
 
@@ -215,23 +215,23 @@ static void r(struct stemmer *z, char *s) {
 
 /* step1ab(z) gets rid of plurals and -ed or -ing. e.g.
 
-       caresses  ->  caress
-       ponies    ->  poni
-       ties      ->  ti
-       caress    ->  caress
-       cats      ->  cat
+   caresses  ->  caress
+   ponies    ->  poni
+   ties      ->  ti
+   caress    ->  caress
+   cats      ->  cat
 
-       feed      ->  feed
-       agreed    ->  agree
-       disabled  ->  disable
+   feed      ->  feed
+   agreed    ->  agree
+   disabled  ->  disable
 
-       matting   ->  mat
-       mating    ->  mate
-       meeting   ->  meet
-       milling   ->  mill
-       messing   ->  mess
+   matting   ->  mat
+   mating    ->  mate
+   meeting   ->  meet
+   milling   ->  mill
+   messing   ->  mess
 
-       meetings  ->  meet
+   meetings  ->  meet
 
 */
 
@@ -637,7 +637,7 @@ static void step4(struct stemmer *z) {
       if (ends(z,
                "\03"
                "ion") &&
-          (z->b[z->j] == 's' || z->b[z->j] == 't'))
+          z->j >= 0 && (z->b[z->j] == 's' || z->b[z->j] == 't'))
         break;
       if (ends(z,
                "\02"
@@ -703,7 +703,7 @@ static void step5(struct stemmer *z) {
    important. The stemmer adjusts the characters b[0] ... b[k] and returns
    the new end-point of the string, k'. Stemming never increases word
    length, so 0 <= k' <= k.
-*/
+   */
 
 extern int stem(struct stemmer *z, char *b, int k) {
   if (k <= 1) return k; /*-DEPARTURE-*/
@@ -716,159 +716,28 @@ extern int stem(struct stemmer *z, char *b, int k) {
      algorithm. */
 
   step1ab(z);
-  step1c(z);
-  step2(z);
-  step3(z);
-  step4(z);
-  step5(z);
+  if (z->k > 0) {
+    step1c(z);
+    step2(z);
+    step3(z);
+    step4(z);
+    step5(z);
+  }
   return z->k;
 }
 
 extern int stem2(struct stemmer *z) {
-  if (z->k <= 1) return z->k;
-  //   if (k <= 1) return k; /*-DEPARTURE-*/
-  //   z->b = b; z->k = k; /* copy the parameters into z */
-
-  //    printf("z->b = %s\n", z->b);
-  //   printf("z->k = %d\n", z->k);
-
-  /* With this line, strings of length 1 or 2 don't go through the
-     stemming process, although no mention is made of this in the
-     published algorithm. Remove the line to match the published
-     algorithm. */
+  if (z->k <= 1) {
+    return z->k;
+  }
 
   step1ab(z);
-  step1c(z);
-  step2(z);
-  step3(z);
-  step4(z);
-  step5(z);
+  if (z->k > 0) {
+    step1c(z);
+    step2(z);
+    step3(z);
+    step4(z);
+    step5(z);
+  }
   return z->k;
-}
-
-/*--------------------stemmer definition ends here------------------------*/
-
-#include <limits.h>
-#include <float.h>
-#include <math.h>
-#include <sys/time.h>
-
-static struct stemmer **stem_list;
-
-#define ARRAYSIZE 8100000
-static int a_max = ARRAYSIZE;
-
-#define A_INC 10000
-
-#define NTHREADS 4
-#define ITERATIONS ARRAYSIZE / NTHREADS
-
-int iterations;
-
-#define INC 32          /* size units in which s is increased */
-static int i_max = INC; /* maximum offset in s */
-
-#define LETTER(ch) (isupper(ch) || islower(ch))
-
-int load_data(struct stemmer **stem_list, FILE *f) {
-  int a_size = 0;
-  while (TRUE) {
-    int ch = getc(f);
-    if (ch == EOF) return a_size;
-    char *s = (char *)malloc(i_max + 1);
-    if (LETTER(ch)) {
-      int i = 0;
-      while (TRUE) {
-        if (i == i_max) {
-          i_max += INC;
-          s = (char *)realloc(s, i_max + 1);
-        }
-        ch = tolower(ch); /* forces lower case */
-
-        s[i] = ch;
-        i++;
-        ch = getc(f);
-        if (!LETTER(ch)) {
-          ungetc(ch, f);
-          break;
-        }
-      }
-      struct stemmer *z = create_stemmer();
-      z->b = s;
-      z->k = i - 1;
-      stem_list[a_size] = z;
-      // word_list[a_size] = s;
-      // s[stem(z, s, i - 1) + 1] = 0;
-      if (a_size == a_max) {
-        a_max += A_INC;
-        stem_list = (struct stemmer **)realloc(stem_list, a_max);
-      }
-      a_size += 1;
-    }
-  }
-  return a_size;
-}
-
-void *stem_thread(void *tid) {
-  int i, start, *mytid, end;
-
-  mytid = (int *)tid;
-  start = (*mytid * iterations);
-  end = start + iterations;
-  // printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
-
-  for (i = start; i < end; i++) {
-    stem2(stem_list[i]);
-  }
-
-  pthread_exit(NULL);
-}
-
-int main(int argc, char *argv[]) {
-  struct timeval tv1, tv2;
-  unsigned int totalruntime = 0;
-
-  FILE *f = fopen(argv[1], "r");
-  if (f == 0) {
-    fprintf(stderr, "File %s not found\n", argv[1]);
-    exit(1);
-  }
-
-  stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
-  int array_size = load_data(stem_list, f);
-
-  fclose(f);
-
-  int i, start, tids[NTHREADS];
-  pthread_t threads[NTHREADS];
-  pthread_attr_t attr;
-
-  iterations = array_size / NTHREADS;
-
-  gettimeofday(&tv1, NULL);
-
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
-  for (i = 0; i < NTHREADS; i++) {
-    tids[i] = i;
-    pthread_create(&threads[i], &attr, stem_thread, (void *)&tids[i]);
-  }
-
-  for (i = 0; i < NTHREADS; i++) {
-    pthread_join(threads[i], NULL);
-  }
-
-  gettimeofday(&tv2, NULL);
-  totalruntime =
-      (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
-
-  printf("Stemmer CPU PThread time=%4.2f ms\n", (double)totalruntime / 1000);
-
-  // free up allocated data
-  for (int i = 0; i < array_size; i++) {
-    free(stem_list[i]->b);
-    free(stem_list[i]);
-  }
-
-  return 0;
 }

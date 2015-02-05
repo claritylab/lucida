@@ -77,7 +77,8 @@ typedef struct {
   int level;
 } crf1dt_t;
 
-/*typedef struct {
+/*
+typedef struct {
   int *array;
   size_t used;
   size_t size;
@@ -101,7 +102,8 @@ void freeArray(Array *a) {
   free(a->array);
   a->array = NULL;
   a->used = a->size = 0;
-}*/
+}
+*/
 
 typedef struct {
   char *input;
@@ -193,7 +195,8 @@ static void show_usage(FILE *fp, const char *argv0, const char *command) {
           "(with -t option).\n");
   fprintf(fp, "\n");
   fprintf(fp, "OPTIONS:\n");
-  fprintf(fp, "    -m, --model=MODEL   Read a model from a file (MODEL)\n");
+  fprintf(fp,
+          "    -m, --model=MODEL   Read a model from a file (MODEL)\n");
   fprintf(fp,
           "    -t, --test          Report the performance of the model on "
           "the data\n");
@@ -203,9 +206,9 @@ static void show_usage(FILE *fp, const char *argv0, const char *command) {
   fprintf(fp,
           "    -p, --probability   Output the probability of the label "
           "sequences\n");
-  fprintf(
-      fp,
-      "    -i, --marginal      Output the marginal probabilities of items\n");
+  fprintf(fp,
+          "    -i, --marginal      Output the marginal probabilities of "
+          "items\n");
   fprintf(fp,
           "    -q, --quiet         Suppress tagging results (useful for "
           "test mode)\n");
@@ -624,7 +627,7 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
     // SEQ ALGO
 
-    fprintf(fpo, "N = %d\n", N);
+    printf("Threads=%d Array size = %d\n", NTHREADS, N);
 
     gettimeofday(&t1, NULL);
 
@@ -633,12 +636,10 @@ int main_tag(int argc, char *argv[], const char *argv0) {
     for (k = 0; k < N; k++) {
       floatval_t score = 0;
       int *output1 = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
-
       global_out[k] = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
 
       // Set the instance to the tagger.
       tagger_set(tagger, inst_vect[k]);
-
       // Obtain the viterbi label sequence.
       tagger->viterbi(tagger, output1, &score);
 
@@ -648,7 +649,6 @@ int main_tag(int argc, char *argv[], const char *argv0) {
     gettimeofday(&t2, NULL);
 
     cpu_elapsedTime = calculateMiliseconds(t1, t2);
-    printf("CRF Viterbi CPU Time=%4.3f ms\n", cpu_elapsedTime);
 
     pthread_attr_init(&attr);
     pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -667,6 +667,8 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
     par_elapsedTime = calculateMiliseconds(t1, t2);
     printf("CRF Viterbi Parallel Time=%4.3f ms\n", par_elapsedTime);
+    printf("CRF Viterbi CPU Time=%4.3f ms\n", cpu_elapsedTime);
+    printf("Speedup=%4.3f\n", (float)cpu_elapsedTime / (float)par_elapsedTime);
   }
 
   return ret;

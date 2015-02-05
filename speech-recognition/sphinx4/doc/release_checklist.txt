@@ -1,0 +1,62 @@
+Sphinx-4 1.0 Release Steps
+--------------------------
+
+1) Check the demos
+   - Make sure that all demos can run and have a README.html.
+
+2) Update RELEASE_NOTES to say version 1.0.
+
+3) Prepare the distribution
+    - update the version number in SphinxHelp.java
+    - update the README with release information
+    - check all web docs by building javadocs and running linklint
+     (linklint.org)
+    - check in all changes
+    - check latest regression test outputs for no regressions
+    - make sure the numbers in the performance table in index.html 
+      are up to date
+    - Add any new documents to the scripts/doclist.txt file
+
+4) Create the binary and source distribution:
+    - Download fresh copy of Sphinx-4 from sourceforge
+    - ant deploy
+	
+6) Test the Binary Distribution:
+    - jar xvf sphinx4-1.0-bin.zip
+    - java -mx256m -jar bin/Transcriber.jar
+    - java -mx256m -jar bin/Dialog.jar
+    - java -mx256m -jar bin/Aligner.jar
+    
+    - check libs for proper output:
+        - cd lib
+        - java -jar TIDIGITS_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar
+        - java -jar WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar
+	- java -jar WSJ_8gau_13dCep_8kHz_31mel_200Hz_3500Hz.jar
+        - java -jar sphinx4.jar
+    - Go through index.html, click through the links to make sure they are
+      not broken. (or use 'linklint /@')
+
+7) Test the Source Distribution:
+    - jar xvf sphinx4-1.0-src.zip
+    - cd lib
+    - chmod a+x jsapi.sh, ./jsapi.sh or ./jsapi.exe
+    - cd ..
+    - ant
+    - ant javadoc
+    - java -mx256m -jar bin/Transcriber.jar
+    - java -mx256m -jar bin/Dialog.jar
+    - java -mx256m -jar bin/Aligner.jar
+
+    - check libs for proper output:
+        - cd lib
+        - java -jar TIDIGITS_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar
+        - java -jar WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar
+	- java -jar WSJ_8gau_13dCep_8kHz_31mel_200Hz_3500Hz.jar
+        - java -jar sphinx4.jar
+
+    - Go through index.html, click through the links to make sure they are
+      not broken. (or use 'linklint /@')
+
+8) Upload the release tarballs.
+
+9) Announce the release.

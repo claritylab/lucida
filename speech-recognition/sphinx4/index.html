@@ -1,0 +1,1599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <!-- Copyright 1999-2002 Carnegie Mellon University. Portions Copyright 2002 Sun Microsystems, Inc. Portions Copyright 2002 Mitsubishi Electric Research Laboratories. All Rights Reserved. Use is subject to license terms. See the file "license.terms" for information on usage and redistribution of this file, and for a DISCLAIMER OF ALL WARRANTIES. -->
+
+  <title>Sphinx-4 - A speech recognizer written entirely in the
+  Java(TM) programming language</title>
+  <style type="text/css">
+/*<![CDATA[*/
+  pre { font-size: medium; background: #f0f8ff; padding: 2mm; border-style: ridge ; color: teal}
+  code {font-size: medium; color: teal}
+  s4keyword { color: red; font-weight: bold }
+  /*]]>*/
+  </style>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 14 June 2007), see www.w3.org" />
+</head>
+
+<body style="background-color: white;">
+  <div style="text-align: center;">
+    <table bgcolor="#99CBFF" border="0" width="100%">
+      <tbody>
+        <tr>
+          <td align="center" width="100%">
+            <h1><i>Sphinx-4</i><br />
+            <span style="font-size: larger;">A speech recognizer
+            written entirely in the Java<sup>TM</sup> programming
+            language</span></h1>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <table border="0" width="100%">
+    <tbody>
+      <tr>
+        <td bgcolor="#F0F8FF" valign="top" width="20%">
+          <br />
+          <b><span>Sphinx-4 Links</span></b>
+
+          <p>SourceForge</p>
+
+          <ul>
+            <li><a href=
+            "http://sourceforge.net/projects/cmusphinx">Project
+            Page</a></li>
+
+            <li><a href=
+            "http://sourceforge.net/forum/?group_id=1904">Forums</a></li>
+
+            <li><a href=
+            "http://sourceforge.net/projects/cmusphinx/files/sphinx4">
+            Download</a></li>
+
+            <li><a href=
+            "https://sourceforge.net/scm/?type=svn&group_id=1904">SVN
+            Repository</a></li>
+          </ul>
+
+          <p><a href=
+          "http://cmusphinx.sourceforge.net">CMU Sphinx Website</a></p>
+
+          <p><a href=
+          "http://cmusphinx.sourceforge.net/sphinx4/javadoc/index.html">
+          Sphinx-4 Javadocs</a></p>
+
+          <p><a href=
+          "http://cmusphinx.sourceforge.net/wiki/">Sphinx-4
+          Wiki</a></p>
+          <hr />
+          <b>ZipCity</b> - A
+          demonstration of Sphinx-4 using Java Web Start
+          technology. <a href=
+          "src/apps/edu/cmu/sphinx/demo/zipcity/README.html">
+          Read more</a> about the ZipCity demo, or <a href=
+          "http://cmusphinx.sourceforge.net/sphinx4/src/apps/edu/cmu/sphinx/demo/zipcity/zipcity.jnlp">
+          Try it</a>.
+
+          <p><a href=
+          "http://cmusphinx.sourceforge.net/sphinx4/src/apps/edu/cmu/sphinx/demo/zipcity/zipcity.jnlp">
+          <img src="doc-files/zipcity.gif" /></a></p>
+          <hr />
+
+          <div style="text-align: center;">
+	    <a href=
+            "http://www.sourceforge.net"><img src=
+            "http://sourceforge.net/sflogo.php?group_id=1904&amp;type=1"
+            alt="SourceForge Logo" border="0" height="31" width=
+            "88" /></a><br />
+            Hosted by SourceForge.net
+          </div><br />
+
+          <div style="text-align: center;">
+            <a href="http://www.jetbrains.com/idea/">
+            <img src=
+            "http://www.jetbrains.com/idea/opensource/img/banners/idea88x31_blue.gif"
+            alt="The best Java IDE" border="0" /></a> <br />Developed
+            with IntelliJ
+            <br />
+            Profiled with <a href=
+            "http://www.ej-technologies.com/products/jprofiler/overview.html">
+            JProfiler</a>
+          </div>
+        </td>
+
+        <td width="5%"><br /></td>
+
+        <td valign="top">
+          <br />
+
+          <h3>General Information</h3>
+
+          <ul>
+            <li><a href="#what_is_sphinx4">Introduction</a></li>
+
+            <li><a href="#capabilities">Capabilities</a></li>
+
+            <li><a href="#speed_and_accuracy">Performance</a></li>
+          </ul>
+
+          <h3>Installation</h3>
+
+          <ul>
+            <li><a href="#download_and_install">Required
+            Software</a></li>
+
+            <li><a href="#source">Downloading Sphinx-4</a></li>
+
+            <li><a href="#how_build">Building Sphinx-4</a></li>
+
+            <li><a href="#create_javadocs">Create
+            Javadocs</a></li>
+
+            <li><a href="#setupide">How to setup my IDE (Eclipse,
+            Netbeans, Idea) ?</a></li>
+
+            <li><a href="#demos">Running the demonstration
+            programs</a></li>
+          </ul>
+
+          <h3>Sphinx-4 in Detail</h3>
+
+          <ul>
+            <li><a href="#whitepaper">Sphinx-4 Whitepaper</a></li>
+
+            <li><a href="doc/Sphinx4-faq.html">FAQ: Frequently
+            asked questions about Sphinx-4 (with answers)</a></li>
+
+            <li><a href="#sphinx_properties">Understanding Sphinx-4
+            Configuration Management</a></li>
+
+            <li><a href="#sphinx_instrumentation">Understanding
+            Sphinx-4 Instrumentation</a></li>
+
+            <li><a href=
+            "javadoc/edu/cmu/sphinx/frontend/doc-files/FrontEndFAQ.html">
+            Front End</a></li>
+
+            <li style="list-style: none; display: inline">
+              <ul>
+                <li><a href=
+                "javadoc/edu/cmu/sphinx/frontend/doc-files/FrontEndConfiguration.html">
+                Configuration</a></li>
+
+                <li><a href=
+                "javadoc/edu/cmu/sphinx/frontend/doc-files/FrontEndFAQ.html#create_cepstra">
+                Creating spectrum/cepstrum</a></li>
+
+                <li><a href=
+                "javadoc/edu/cmu/sphinx/frontend/doc-files/FrontEndFAQ.html#decode_cepstra">
+                Decoding cepstra</a></li>
+
+                <li><a href=
+                "javadoc/edu/cmu/sphinx/frontend/doc-files/FrontEndFAQ.html#enable_endpointer">
+                Enabling the endpointer</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#batch_tests">Running the Regression
+            Tests</a></li>
+
+            <li>
+              <a href="#setup_test">Setting up a Regression
+              Test</a>
+
+              <ul>
+                <li><a href="#batch_files">Batch Files</a></li>
+
+                <li><a href="#input_files">Input Audio/Cepstral
+                Files</a></li>
+
+                <li><a href="#an4_walkthrough">Example: Setting up
+                AN4 tests</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#acoustic_models">Creating and using
+            Acoustic Model Package</a></li>
+
+            <li><a href="#language_models">Creating Language
+            Models</a></li>
+
+            <li><a href="#bnf_grammars">BNF Style Grammars</a></li>
+
+            <li><a href="#architecture_and_api1">Architecture and
+            API</a></li>
+
+            <li><a href="doc/ProgrammersGuide.html">Programmer's
+            Guide</a></li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+
+  <h2>General Information about Sphinx-4</h2>
+
+  <ul>
+    <li>
+      <a name="what_is_sphinx4" id=
+      "what_is_sphinx4"><b>Introduction</b></a>
+
+      <p>Sphinx-4 is a state-of-the-art speech recognition system
+      written entirely in the Java<sup>TM</sup> programming language.
+      It was created via a joint collaboration between the Sphinx
+      group at Carnegie Mellon University, Sun Microsystems
+      Laboratories, Mitsubishi Electric Research Labs (MERL), and
+      Hewlett Packard (HP), with contributions from the University
+      of California at Santa Cruz (UCSC) and the Massachusetts
+      Institute of Technology (MIT).</p>
+
+      <p>Sphinx-4 started out as a port of Sphinx-3 to the Java
+      programming language, but evolved into a recognizer designed
+      to be much more flexible than Sphinx-3, thus becoming an
+      excellent platform for speech research.<br />
+       </p>
+    </li>
+
+    <li>
+      <a name="capabilities" id=
+      "capabilities"><b>Capabilities</b></a>
+
+      <p>Live mode and batch mode speech recognizers, capable of
+      recognizing discrete and continuous speech.</p>
+
+      <p>Generalized pluggable <a href=
+      "./javadoc/edu/cmu/sphinx/frontend/package-summary.html"><b>front
+      end</b></a> architecture. Includes pluggable implementations
+      of <a href=
+      "./javadoc/edu/cmu/sphinx/frontend/filter/Preemphasizer.html">
+      preemphasis</a>, <a href=
+      "./javadoc/edu/cmu/sphinx/frontend/window/RaisedCosineWindower.html">
+      Hamming window</a>, <a href=
+      "./javadoc/edu/cmu/sphinx/frontend/transform/DiscreteFourierTransform.html">
+      FFT</a>, <a href=
+      "./javadoc/edu/cmu/sphinx/frontend/frequencywarp/MelFrequencyFilterBank.html">
+      Mel frequency filter bank</a>, <a href=
+      "./javadoc/edu/cmu/sphinx/frontend/transform/DiscreteCosineTransform.html">
+      discrete cosine transform</a>, <a href=
+      "./javadoc/edu/cmu/sphinx/frontend/feature/BatchCMN.html">cepstral
+      mean normalization</a>, and <a href=
+      "./javadoc/edu/cmu/sphinx/frontend/feature/DeltasFeatureExtractor.html">
+      feature extraction</a> of cepstra, delta cepstra, double
+      delta cepstra features.</p>
+
+      <p>Generalized pluggable <b>language model</b> architecture.
+      Includes pluggable language model support for <a href=
+      "./javadoc/edu/cmu/sphinx/linguist/language/ngram/SimpleNGramModel.html">
+      ASCII</a> and <a href=
+      "./javadoc/edu/cmu/sphinx/linguist/language/ngram/large/LargeTrigramModel.html">
+      binary</a> versions of unigram, bigram, trigram, <a href=
+      "./javadoc/edu/cmu/sphinx/jsgf/JSGFGrammar.html">Java Speech
+      API Grammar Format (JSGF)</a>, and <a href=
+      "./javadoc/edu/cmu/sphinx/linguist/language/grammar/FSTGrammar.html">
+      ARPA-format FST grammars</a>.</p>
+
+      <p>Generalized <a href=
+      "./javadoc/edu/cmu/sphinx/linguist/acoustic/package-summary.html">
+      <b>acoustic model</b></a> architecture. Includes pluggable
+      support for <a href=
+      "./javadoc/edu/cmu/sphinx/linguist/acoustic/tiedstate/Sphinx3Loader.html">
+      Sphinx-3 acoustic models</a>.</p>
+
+      <p>Generalized <a href=
+      "./javadoc/edu/cmu/sphinx/decoder/search/package-summary.html">
+      <b>search management</b></a>. Includes pluggable support for
+      <a href=
+      "./javadoc/edu/cmu/sphinx/decoder/search/SimpleBreadthFirstSearchManager.html">
+      breadth first</a> and <a href=
+      "./javadoc/edu/cmu/sphinx/decoder/search/WordPruningBreadthFirstSearchManager.html">
+      word pruning</a> searches.</p>
+
+      <p>Utilities for post-processing recognition results,
+      including <a href=
+      "./javadoc/edu/cmu/sphinx/result/ConfidenceScorer.html">obtaining
+      confidence scores</a>, <a href=
+      "./javadoc/edu/cmu/sphinx/result/Lattice.html">generating
+      lattices</a> and <a href=
+      "./javadoc/edu/cmu/sphinx/tools/tags/package-summary.html">embedding
+      ECMAScript into JSGF tags</a>.</p>
+
+      <p>Standalone tools. Includes tools for <a href=
+      "./javadoc/edu/cmu/sphinx/tools/audio/package-summary.html">displaying
+      waveforms and spectrograms</a> and <a href=
+      "./javadoc/edu/cmu/sphinx/tools/feature/package-summary.html">
+      generating features from audio</a>.</p>
+
+      <p>(<b>NOTE:</b> The links in this section point to local
+      files created by javadoc. If they are broken, please follow
+      the instructions on <a href="#create_javadocs">Create
+      Javadocs</a> to create these links.)<br />
+       </p>
+    </li>
+
+    <li>
+      <a name="speed_and_accuracy" id=
+      "speed_and_accuracy"><b>Performance</b></a>
+
+      <p>Sphinx-4 is a very flexible system capable of performing
+      many different types of recognition tasks. As such, it is
+      difficult to characterize the performance and accuracy of
+      Sphinx-4 with just a few simple numbers such as speed and
+      accuracy. Instead, we regularly run regression tests on
+      Sphinx-4 to determine how it performs under a variety of
+      tasks. These tasks and their latest results are as follows
+      (each task is progressively more difficult than the previous
+      task):</p>
+
+      <ul>
+        <li>Isolated Digits (TI46): Runs Sphinx-4 with pre-recorded
+        test data to gather performance metrics for recognizing
+        just one word at a time. The vocabulary is merely the
+        spoken digits from 0 through 9, with a single utterance
+        containing just one digit.<br />
+        <i>(TI46 refers to the "NIST CD-ROM Version of the Texas
+        Instruments-developed 46-Word Speaker-Dependent Isolated
+        Word Speech Database".)</i></li>
+
+        <li>Connected Digits (TIDIGITS): Extends the Isolated
+        Digits test to recognize more than one word at a time
+        (i.e., continuous speech). The vocabulary is merely the
+        spoken digits from 0 through 9, with a single utterance
+        containing a sequence of digits.<br />
+        <i>(TIDIGITS refers to the "NIST CD-ROM Version of the
+        Texas Instruments-developed Studio Quality
+        Speaker-Independent Connected-Digit Corpus".)</i></li>
+
+        <li>Small Vocabulary (AN4): Extends the vocabulary to
+        approximately 100 words, with input data ranging from
+        speaking words as well as spelling words out letter by
+        letter.</li>
+
+        <li>Medium Vocabulary (RM1): Extends the vocabulary to
+        approximately 1,000 words.</li>
+
+        <li>Medium Vocabulary (WSJ5K): Extends the vocabulary to
+        approximately 5,000 words.</li>
+
+        <li>Medium Vocabulary (WSJ20K): Extends the vocabulary to
+        approximately 20,000 words.</li>
+
+        <li>Large Vocabulary (HUB4): Extends the vocabulary to
+        approximately 64,000 words.</li>
+      </ul>
+    </li>
+
+    <li style="list-style: none; display: inline">
+      <p>The following table compares the performance of Sphinx 3.3
+      with Sphinx-4.</p>
+
+      <table border="1" cellpadding="1" cellspacing="0">
+        <tbody>
+          <tr>
+            <th bgcolor="#E0E8FF"><strong>Test</strong></th>
+
+            <th bgcolor="#E0E8FF"><strong>S3.3 WER</strong></th>
+
+            <th bgcolor="#E0E8FF"><strong>S4 WER</strong></th>
+
+            <th bgcolor="#E0E8FF"><strong>S3.3 RT</strong></th>
+
+            <th bgcolor="#E0E8FF"><strong>S4 RT(1)</strong></th>
+
+            <th bgcolor="#E0E8FF"><strong>S4 RT (2)</strong></th>
+
+            <th bgcolor="#E0E8FF"><strong>Vocabulary
+            Size</strong></th>
+
+            <th bgcolor="#E0E8FF"><strong>Language
+            Model</strong></th>
+          </tr>
+
+          <tr>
+            <th bgcolor="#F0F8FF"><strong>TI46</strong></th>
+
+            <td align="right">1.217</td>
+
+            <td align="right">0.168</td>
+
+            <td align="right">0.14</td>
+
+            <td align="right">.03</td>
+
+            <td align="right">.02</td>
+
+            <td align="right">11</td>
+
+            <td>isolated digits recognition</td>
+          </tr>
+
+          <tr>
+            <th bgcolor="#F0F8FF"><strong>TIDIGITS</strong></th>
+
+            <td align="right">0.661</td>
+
+            <td align="right">0.549</td>
+
+            <td align="right">0.16</td>
+
+            <td align="right">0.07</td>
+
+            <td align="right">0.05</td>
+
+            <td align="right">11</td>
+
+            <td>continuous digits</td>
+          </tr>
+
+          <tr>
+            <th bgcolor="#F0F8FF"><strong>AN4</strong></th>
+
+            <td align="right">1.300</td>
+
+            <td align="right">1.192</td>
+
+            <td align="right">0.38</td>
+
+            <td align="right">0.25</td>
+
+            <td align="right">0.20</td>
+
+            <td align="right">79</td>
+
+            <td>trigram</td>
+          </tr>
+
+          <tr>
+            <th bgcolor="#F0F8FF"><strong>RM1</strong></th>
+
+            <td align="right">2.746</td>
+
+            <td align="right">2.88</td>
+
+            <td align="right">0.50</td>
+
+            <td align="right">0.50</td>
+
+            <td align="right">0.41</td>
+
+            <td align="right">1,000</td>
+
+            <td>trigram</td>
+          </tr>
+
+          <tr>
+            <th bgcolor="#F0F8FF"><strong>WSJ5K</strong></th>
+
+            <td align="right">7.323</td>
+
+            <td align="right">6.97</td>
+
+            <td align="right">1.36</td>
+
+            <td align="right">1.22</td>
+
+            <td align="right">0.96</td>
+
+            <td align="right">5,000</td>
+
+            <td>trigram</td>
+          </tr>
+
+          <tr>
+            <th bgcolor="#F0F8FF"><strong>HUB4</strong></th>
+
+            <td align="right">18.845</td>
+
+            <td align="right">18.756</td>
+
+            <td align="right">3.06</td>
+
+            <td align="right">~4.4</td>
+
+            <td align="right">3.95</td>
+
+            <td align="right">60,000</td>
+
+            <td>trigram</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Note that performance work on the HUB4 test is not
+      complete</p>
+
+      <p>Key:</p>
+
+      <ul>
+        <li><strong>WER</strong> - Word error rate (%) (lower is
+        better)</li>
+
+        <li><strong>RT</strong> - Real Time - Ratio of processing
+        time to audio time - (lower is better)</li>
+
+        <li><strong>S3.3 RT</strong> - Results for a single or dual
+        CPU configuration</li>
+
+        <li><strong>S4 RT(1)</strong> - Results on a single-CPU
+        configuration</li>
+
+        <li><strong>S4 RT(2)</strong> - Results for a dual-CPU
+        configuration</li>
+      </ul>
+
+      <p>This data was collected on a dual CPU UltraSPARC(R)-III
+      running at 1015 MHz with 2G of memory.</p>
+    </li>
+  </ul>
+  <hr />
+
+  <h2>Installation</h2>
+
+  <ul>
+    <li>
+      <a name="download_and_install" id=
+      "download_and_install"><b>Required Software</b></a>
+
+      <p>Sphinx-4 has been built and tested on the Solaris
+      <sup>TM</sup>
+      Operating Environment, Mac OS X, Linux and Win32 operating
+      systems. Running, building, and testing Sphinx-4 requires
+      additional software. Before you start, you will need the
+      following software available on your machine.</p>
+
+      <ul>
+        <li><b>Java SE 6 Development Kit</b> or better. Go to
+        <a href="http://java.sun.com">java.sun.com</a>, and select
+        "J2SE" from popular downloads. At the time of writing, the
+        latest release version is JDK 6 Update 14, which is the one
+        we recommend.</li>
+      </ul><br />
+
+      <ul>
+        <li><b>Ant 1.6.0</b> or better, available at <a href=
+        "http://ant.apache.org">ant.apache.org</a>. The site has a
+        manual with instructions on how to download, install, and
+        use ant. You will only need ant if you wish to build
+        Sphinx-4 from the source distribution.</li>
+
+        <li><b>Subversion (svn)</b>, but only if you want to
+        interact directly with the svn tree (which we recommend).
+        The canonical places to get it is <a href=
+        "http://subversion.tigris.org/">subversion.tigris.org</a>.
+        If you are using Windows, your best choice is to install
+        <a href="http://cygwin.com">cygwin</a>, which will give you
+        a linux-like environment in a command prompt window. Make
+        sure to choose "svn" when you install cygwin.</li>
+      </ul>
+    </li>
+
+    <li>
+      <a name="source" id="source"><b>Downloading
+      Sphinx-4</b></a><br />
+       
+
+      <ul>
+        <li>
+          <b>Instructions for retrieving code from a release
+          package.</b>
+
+          <p>Sphinx-4 has two packages available for <a href=
+          "http://sourceforge.net/projects/cmusphinx/files/sphinx4">
+          download</a>:</p>
+
+          <ul>
+            <li><b>sphinx4-{version}-bin.zip</b>: provides the jar
+            files, documentation, and demos</li>
+
+            <li><b>sphinx4-{version}-src.zip</b>: provides the
+            sources, documentation, demos, unit tests and
+            regression tests.</li>
+          </ul>
+
+          <p>See <a href="doc/Sphinx4-faq.html#which_dist">this FAQ
+          question</a> to help determine whether you should get the
+          binary or the source distribution.</p>
+
+          <p>After you have downloaded the distribution, unjar the
+          ZIP files using the <code>jar</code> command which is in
+          the <code>bin</code> directory of your Java
+          installation:</p>
+
+<pre>
+jar xvf sphinx4-{version}-bin.zip<br />jar xvf sphinx4-{version}-src.zip
+</pre>
+
+          <p>For both downloads, a directory called
+          "sphinx4-{version}" will be created.</p>
+
+          <p>There are also the RM1 acoustic model, and HUB4
+          acoustic and language models, available for download at
+          the same location on SourceForge. Download them only if
+          you want to run the regression tests for RM1 and
+          HUB4.</p>
+        </li>
+
+        <li>
+          <a name="svn" id="svn"><b>Instructions for retrieving
+          code from the svn repository</b></a>
+
+          <p>If you want to be able to get the latest updates from
+          the svn repository, you should retrieve the code from the
+          repository on SourceForge. The Sphinx-4 code is located
+          at <a href=
+          "http://sourceforge.net/projects/cmusphinx">sourceforge.net</a>
+          as open source. Please follow the instructions below to
+          retrieve it.</p>
+
+          <ul>
+            <li>Get the code from sourceforge.net:
+
+<pre>
+% svn co https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx/trunk/sphinx4
+</pre>
+
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a name="how_build" id="how_build"><b>Building
+      Sphinx-4</b></a>
+
+      <p>Since the sphinx4-{version}-bin.zip distribution does not
+      contain the source code, you must download the
+      sphinx4-{version}-src.zip, or retrieved the code from
+      SourceForge using svn, in order to be able to build from the
+      sources. The software required for building Sphinx-4 are
+      listed in the <a href="#download_and_install">Required
+      Software</a> section.</p>
+
+      <p><b>Run ant</b></p>
+
+      <p>To build Sphinx-4, at the command prompt change to the
+      directory where you installed Sphinx-4 (usually, a simple "cd
+      sphinx4" will do). Set required environment variables. 
+      <code>JAVA_HOME</code> to the location of JDK, <code>ANT_HOME</code> 
+      to the location of ant and and <code>PATH</code> to include 
+      both bin subfolder of JDK and bin subfolder of ant
+      variables. For example:</p>
+<pre>
+export JAVA_HOME=/usr/local/jdk1.6.0_14
+export ANT_HOME=/usr/local/apache-ant-1.8.0
+export PATH=/usr/local/jdk1.6.0_10/bin:/usr/local/apache-ant-1.8.0/bin:$PATH
+</pre>      
+      <p>Then type the following:</p>
+<pre>
+ant
+</pre>
+      <p>This executes the <a href="http://ant.apache.org/">Apache
+      Ant</a> command to build the Sphinx-4 classes under the
+      <code>bld</code> directory, the jar files under the
+      <code>lib</code> directory, and the demo jar files under the
+      <code>bin</code> directory.</p>
+
+      <p>To delete all the output from the build to give you a
+      fresh start:</p>
+
+<pre>
+ant clean
+</pre>
+
+    </li>
+
+    <li>
+      <a name="create_javadocs" id="create_javadocs"><b>Create
+      Javadocs</b></a>
+
+      <p>The javadocs have already been built if you downloaded the
+      sphinx4-{version}-bin.zip. In order to build the javadocs
+      yourself, you must download the sphinx4-{version}-src.zip
+      distribution instead. To build the javadocs, go to the top
+      level directory ("sphinx4-{version}"), and type:</p>
+
+<pre>
+ant javadoc
+</pre>
+
+      <p>This will build javadocs from public classes, displaying
+      only the public methods and fields. In general, this is all
+      the information you will need. If you need more details, such
+      as private or protected classes, you can generate the
+      corresponding javadoc by doing, for example:</p>
+
+<pre>
+ant -Daccess=private javadoc
+</pre>
+    </li>
+
+    <li>
+      <a name="setupide" id="setupide"><b>How to setup my IDE
+      (Eclipse, Netbeans, Idea) ?</b></a>
+
+      <p>The setup is straightforward:<br /></p>
+
+      <ol>
+        <li>Add all <span style=
+        "font-weight: bold;">subfolders</span>(!) of the
+        <code>src</code>-directory as source folders to your
+        project.</li>
+
+      </ol>To perform common tasks (like deployment of  the
+      sphinx4.jar, the models or the demo-jars) directly from
+      within your IDE you might also want to add the bundled
+      <code>build.xml</code> as project ant file. This can be done
+      in most cases by just right-clicking the
+      <code>build.xml</code> in the file navigator pane of your IDE
+      and selecting "Add as project ant file". To debug the
+      demo applications you also need to add the
+      <code>src/apps</code> folder and the acoustic model jars
+      (that can be deployed to the
+      <code>lib</code>-directory with a simple
+      <code>ant all</code>) to your classpath.<br />
+    </li>
+  </ul>
+  <hr />
+
+  <h2><a name="demos" id="demos">Demos</a></h2>
+
+  <p>Sphinx-4 contains a number of demo programs. If you downloaded
+  the binary distribution (sphinx4-{version}-bin.zip), the JAR
+  files of the demos are already built, so you can just run them
+  directly. However, if you downloaded the source distribution
+  (sphinx4-{version}-src.zip or via svn), you need to build the
+  demos. Click on the links below for instructions on how to build
+  and run the demos.</p>
+  
+  <h3>Simple demos to start with sphinx4</h3>
+
+  <ul>
+    <li><a href=
+    "src/apps/edu/cmu/sphinx/demo/helloworld/README.html">Hello
+    World Demo</a>: a command line application that recognizes
+    simple phrases.</li>
+
+    <li><a href=
+    "src/apps/edu/cmu/sphinx/demo/hellongram/README.html">Hello
+    N-Gram Demo</a>: a command line application using an N-gram
+    language model for speech recognition</li>
+  </ul>
+
+  <h3>Demos for audio file transcription</h3>
+
+  <ul>
+    <li><a href=
+    "src/apps/edu/cmu/sphinx/demo/transcriber/README.html">Transcriber
+    Demo</a>: a simple demo program showing how to transcribe a
+    continuous audio file that has multiple utterances separated by
+    silences.</li>
+
+    <li><a href=
+    "src/apps/edu/cmu/sphinx/demo/confidence/README.html">Confidence
+    Demo</a>: a simple demo program showing how to obtain
+    confidence scores for result.</li>
+
+    <li><a href=
+    "src/apps/edu/cmu/sphinx/demo/lattice/README.html">Lattice
+    Demo</a>: a simple demo program showing how to extract lattices
+    from recognition results.</li>
+
+    <li><a href=
+    "src/apps/edu/cmu/sphinx/demo/classbased/README.html">Class-Based
+    Language model Demo</a>: a simple demo of the class based
+    language model.</li>
+
+    <li><a href=
+    "src/apps/edu/cmu/sphinx/demo/aligner/README.html">Aligner
+    Demo</a>: aligns audio file to transcription and get times of 
+    words. Can be useful for closed captioning.</li>
+  </ul>
+
+  
+  <h3>Dialog demos to write advanced dialog system</h3>
+  
+  <ul>
+    <li><a href=
+    "src/apps/edu/cmu/sphinx/demo/dialog/README.html">Dialog
+    Demo</a>: a demo program showing how a program can swap between
+    multiple JSGF and dictation grammars.</li>
+  </ul> 
+
+  <p>There is also a <a href="tests/live/README.html">live-mode
+  test program</a> (this link only works if you downloaded the
+  source distribution), which is available if you download the
+  sphinx-src-{version}.zip file but not available in the
+  sphinx-bin-{version}.zip file.</p>
+
+  <p>The <a href=
+  "javadoc/edu/cmu/sphinx/tools/audio/doc-files/HowToRunAudioTool.html">
+  AudioTool</a> is a visual tool that records and displays the
+  waveform and spectrogram of an audio signal. It is available in
+  both the binary and source releases.</p>
+  <hr />
+
+  <h2>Sphinx-4 in Detail</h2>
+
+  <ul>
+    <li><a name="whitepaper" id="whitepaper"><b>Sphinx-4
+    Whitepaper</b></a> <a href=
+    "doc/Sphinx4Whitepaper.pdf">Sphinx-4: A Flexible Open Source
+    Framework for Speech Recognition</a> describes the framework
+    and implementation of Sphinx-4 from a speech-technologist's
+    perspective. Please read this if you'd like to extend
+    Sphinx-4.</li>
+
+    <li><a name="sphinx_properties" id="sphinx_properties"><b>FAQ:
+    Frequently asked questions about Sphinx-4</b></a> The document
+    <a href="doc/Sphinx4-faq.html">Frequently asked questions about
+    Sphinx-4</a> contains answers to a number of frequently asked
+    questions about Sphinx-4</li>
+
+    <li>
+      <a name="sphinx_properties" id=
+      "sphinx_properties"><b>Understanding Sphinx-4 Configuration
+      Management</b></a>
+
+      <p><a name="sphinx_properties" id="sphinx_properties"></a>
+      The document <a href=
+      "javadoc/edu/cmu/sphinx/util/props/doc-files/ConfigurationManagement.html">
+      Sphinx-4 Configuration Management</a> describes, in detail,
+      how to configure a Sphinx-4 system.<br />
+       </p>
+    </li>
+
+    <li>
+      <a name="sphinx_instrumentation" id=
+      "sphinx_instrumentation"><b>Understanding Sphinx-4
+      Instrumentation</b></a>
+
+      <p><a name="sphinx_instrumentation" id=
+      "sphinx_instrumentation"></a>The document <a href=
+      "javadoc/edu/cmu/sphinx/instrumentation/doc-files/Instrumentation.html">
+      Sphinx-4 Instrumentation</a> describes, in detail, how to use
+      the instrumentation facilities of the Sphinx-4 system.<br />
+       </p>
+    </li>
+
+    <li>
+      <a name="batch_tests" id="batch_tests"><b>Running the
+      Regression Tests</b></a>
+
+      <p>Sphinx-4 contains a number of regression tests using
+      common speech databases. Again, you have to download the
+      source distribution or downloaded the source tree using svn
+      in order to get the regression tests directory. The
+      regression tests we have are:</p>
+
+      <ul>
+        <li><a href="#isolated_digits_test">Isolated Digits -
+        TI46</a></li>
+
+        <li><a href="#connected_digits_test">Connected Digits -
+        TIDIGITS</a></li>
+
+        <li><a href="#small_vocab_test">Small Vocabulary -
+        AN4</a></li>
+
+        <li><a href="#medium_vocab_test">Medium Vocabulary -
+        RM1</a></li>
+
+        <li><a href="#medium_vocab_test_wsj">Medium Vocabulary -
+        WSJ</a></li>
+
+        <li><a href="#large_vocab_test">Large Vocabulary -
+        HUB4</a></li>
+      </ul>
+
+      <p>Before you run any of the tests, make sure that you have
+      built Sphinx-4 already. To do so, go to the top level and
+      type:</p>
+<pre>
+ant
+</pre>
+
+      <p>You also need to make sure you have the appropriate
+      acoustic model(s) installed. More details below.</p>
+
+      <p>The Sphinx-4 regression tests have different directories
+      for the different tasks. The directory
+      sphinx4/tests/performance contains directories named ti46,
+      tidigits, an4, rm1, hub4, and some other tests. Each of these
+      directories contains a build.xml with targets specific to the
+      particular task. The build.xml allows you to run a number of
+      different tests. Type:</p>
+<pre>
+ant -projecthelp
+</pre>
+      to list a help text with the possible targets.
+
+      <p><a name="isolated_digits_test" id=
+      "isolated_digits_test"><br />
+      <b>Isolated Digits - TI46</b></a></p>
+
+      <p>The TIDIGITS models are already included as part of the
+      distribution. Therefore, you do not need to download them
+      separately. You must have the TI46 test data, available from
+      the <a href=
+      "http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC93S9">
+      LDC TI46</a> website.</p>
+
+      <p>You need to edit the batch file called
+      <code>ti46.batch</code>, located in
+      <code>tests/performance/ti46</code> directory. You will need
+      to change it such that it matches where you stored the TI46
+      test files. Refer to the section <a href="#batch_files">Batch
+      Files</a> for detail about the format of batch files.</p>
+
+      <p>To run the tests:</p>
+
+<pre>
+ % cd sphinx4/tests/performance/ti46<br /> % ant -projecthelp # to see a list of possible targets<br /> % ant ti46_wordlist<br /> 
+</pre>
+
+      <p><a name="connected_digits_test" id=
+      "connected_digits_test"><br />
+      <b>Connected Digits - TIDIGITS</b></a></p>
+
+      <p>The TIDIGITS models are already included as part of the
+      distribution. Therefore, you do not need to download them
+      separately.</p>
+
+      <p>You must have the TIDIGITS test data, available from the
+      <a href=
+      "http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC93S10">
+      LDC TIDIGITS</a> website.</p>
+
+      <p>You need to edit the batch file called
+      <code>tidigits.batch</code>, located in the
+      <code>tests/performance/tidigits</code> directory. You will
+      need to change it such that it matches where you stored the
+      TIDIGITS test files. Refer to the section <a href=
+      "#batch_files">Batch Files</a> for detail about the format of
+      batch files.</p>
+
+      <p>To run the tests:</p>
+
+<pre>
+ % cd sphinx4/tests/performance/tidigits<br /> % ant -projecthelp # to see a list of possible targets<br /> % ant tidigits_flat_unigram<br />
+</pre>
+
+      <p><a name="small_vocab_test" id="small_vocab_test"><br />
+      <b>Small Vocabulary - AN4</b></a></p>
+
+      <p>The Wall Street Journal (WSJ) models are already included
+      as part of the distribution. Therefore, you do not need to
+      download them separately.</p>
+
+      <p>Download the big endian raw audio format of the <a href=
+      "http://www.speech.cs.cmu.edu/databases/an4/">AN4
+      Database</a>. Unpack it at a directory of your choice:</p>
+
+<pre>
+ % gunzip an4_raw.bigendian.tar.gz<br /> % tar -xvf an4_raw.bigendian.tar<br />
+</pre>
+
+      <p>Then update the following batch files (located in the
+      <code>tests/performance/an4</code> directory), so that they
+      match up with where you unpacked the AN4 data. You probably
+      just need to replace all instances of the string
+      <code>"/lab/speech/sphinx4/data"</code> inside these batch
+      files. Please refer to the <a href="#batch_files">Batch
+      Files</a> section for details about batch files:</p>
+
+      <p><code>an4_full.batch<br />
+      an4_spelling.batch<br />
+      an4_words.batch</code></p>
+
+      <p>After you have updated the batch files, you can run the
+      tests by:</p>
+
+<pre>
+ % cd sphinx4/tests/performance/an4<br /> % ant -projecthelp # to see a list of possible targets<br /> % ant an4_words_unigram<br />
+</pre>
+
+      <p><a name="medium_vocab_test" id="medium_vocab_test"><br />
+      <b>Medium Vocabulary - RM1</b></a></p>
+
+      <p>Make sure that you have downloaded the binary RM1 model
+      file, called
+      <code>RM1_13dCep_16k_40mel_130Hz_6800Hz.jar</code>, located
+      at the <code>sphinx4</code> package in the <a href=
+      "http://sourceforge.net/project/showfiles.php?group_id=1904&amp;package_id=117949">
+      downloads page</a>.<br />
+      Then in the build file for the RM1 tests,
+      <code>sphinx4/tests/performance/rm1/build.xml</code>, changed
+      the <code>classpath</code> property of the build file to
+      point to the location of your
+      <code>RM1_13dCep_16k_40mel_130Hz_6800Hz.jar</code>.</p>
+
+      <p>You must have the RM1 test data, available from the
+      <a href=
+      "http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC93S3B">
+      LDC RM1</a> website.</p>
+
+      <p>You also need to prepare a batch file called
+      <code>rm1.batch</code>, by following instructions in the
+      <a href="#batch_files">Batch Files</a> section. There is
+      already one in the RM1 test directory, but it will not work
+      for you, since the paths to test files will not match your
+      setup.</p>
+
+      <p>To run the tests:</p>
+<pre>
+ % cd sphinx4/tests/performance/rm1<br /> % ant -projecthelp # to see a list of possible targets<br /> % ant rm1_bigram<br />
+</pre>
+
+      <p><a name="medium_vocab_test_wsj" id="medium_vocab_test_wsj"><br />
+      <b>Medium Vocabulary - WSJ</b></a></p>
+
+      <p>You must have the WSJ0 and WSJ1 for training, WSJ0 for testing. This
+      data is available from 
+      <a href=
+      "http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC93S6A">
+      LDC WSJ0</a> and 
+      <a href=
+      "http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC94S13A">
+      LDC WSJ1</a>. The rest is similar to other performance tests.
+      </p>
+
+      <p><a name="large_vocab_test" id="large_vocab_test"><br />
+      <b>Large Vocabulary - HUB4</b></a></p>
+
+      <p>You must have the HUB4 test data, available from the
+      <a href=
+      "http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC2000S88">
+      LDC HUB4</a> website.</p>
+
+      <p>You must download the binary HUB4 model file, called
+      <code>HUB4_8gau_13dCep_16k_40mel_133Hz_6855Hz.jar</code>, and
+      the binary HUB4 trigram language model, called
+      <code>HUB4_trigram_lm.zip</code>, both located at the
+      <code>sphinx4</code> package in the <a href=
+      "http://sourceforge.net/project/showfiles.php?group_id=1904&amp;package_id=117949">
+      downloads page</a>. For the trigram language model file,
+      unpack it by:</p>
+<pre>
+jar xvf HUB4_trigram_lm.zip
+</pre>
+      
+      <p>The trigram model file is called
+      <code>language_model.arpaformat.DMP</code>. Then, in the build file
+      for the HUB4 tests,
+      <code>sphinx4/tests/performance/hub4/build.xml</code>, changed the
+      <code>classpath</code> property of the build file to point to the
+      location of your
+      <code>HUB4_8gau_13dCep_16k_40mel_133Hz_6855Hz.jar</code>. In the
+      configuration file,
+      <code>tests/performance/hub4/hub4.config.xml</code>, change the
+      'location' of the 'trigramModel' component to where your <code>
+      language_model.arpaformat.DMP</code> file is located.</p>
+
+      <p>You also need to prepare a batch file, which is currently
+      called <code>f0_hub4.batch</code> in the build.xml file, by
+      following instructions in the <a href="#batch_files">Batch
+      Files</a> section.</p>
+
+      <p>To run the test:</p>
+      <pre>
+ % cd sphinx4/tests/performance/hub4<br /> % ant -projecthelp # to see a list of possible targets<br /> % ant hub4_trigram<br />
+</pre>
+
+      <p><br />
+       </p>
+    </li>
+
+    <li>
+      <a name="setup_test" id="setup_test"><b>Setting up a
+      Regression Test</b></a>
+
+      <p>Each batch mode regression test consists of the following
+      components:</p>
+
+      <ul>
+        <li><a href="#input_files">Test data</a> - the audio or
+        cepstral data to perform the test on. This is usually some
+        well known database such as TIDIGITS or HUB-4.
+        Alternatively, it can also be data that you recorded on
+        your own.</li>
+
+        <li><a href="#batch_files">Batch File</a> - this text file
+        lists the location of all the test files, as well as the
+        transcription of the test file.</li>
+
+        <li>Acoustic model &amp; Dictionary</li>
+
+        <li>Configuration file - specifies the configuration of the
+        system you use to test the data.</li>
+
+        <li>Grammar file - this can either be a word list file,
+        N-gram language model, or a BNF-style grammar file (such as
+        JSGF).</li>
+
+        <li><a href=
+        "javadoc/edu/cmu/sphinx/tools/batch/BatchModeRecognizer.html">
+        Batch-mode Recognizer</a> - this is the Sphinx-4 batch-mode
+        recognizer.</li>
+      </ul>
+
+      <p>To learn about how to setup a regression test, take a look
+      at the <a href="#an4_walkthrough">walkthrough of setting up
+      the AN4 tests</a>.</p>
+
+      <p><br />
+      <a name="batch_files" id="batch_files"><b>Batch
+      Files</b></a></p>
+
+      <p>Batch files are used in batch mode regressions tests. It
+      is a text file that contains the list of files to be
+      processed, with the transcription for each file. The format
+      is as shown below: one line for each file, where the first
+      element in a line is the file name, which can be an absolute
+      or relative path, and includes the file extension; after the
+      file name, the words that make up the transcription for the
+      audio. Sphinx-4 uses the transcription provided here to
+      compute the system's accuracy after each sentence is
+      processed. An utterance's processing produces in a hypothesis
+      for what was said. This hypothesis is compared with the
+      transcription, i.e., the hypothesis is aligned against the
+      reference transcript, and a summary of the results is
+      reported.</p>
+      <pre>
+/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.24z982za.raw two four zero nine eight two zero<br />/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.25896o4a.raw two five eight nine six oh four<br />
+</pre>
+
+      <p>An example batch file is <a href=
+      "tests/performance/tidigits/tidigits.batch">tidigits.batch</a>
+      (this link only works if you downloaded the source
+      distribution).<br />
+       </p>
+
+      <p><a name="input_files" id="input_files"><b>Input
+      Audio/Cepstral Files</b></a></p>
+
+      <p>The audio files used by Sphinx-4 can contain raw audio or
+      cepstra, which is a form of encoded speech. The Java platform
+      has support for other data formats, such as MS WAV or Sun's
+      au, but, provided as is, Sphinx-4 can handle only raw
+      data.</p>
+
+      <p>The audio defaults to 2 bytes/sample, at 16000 samples per
+      second. The files are expected to be binaries without header.
+      The Java platform assumes big endian order, always. These
+      defaults can be changed. For example, the byte order or the
+      sampling rate can be changed.</p>
+
+      <p>The input can also be cepstra. The cepstral file has a 4
+      byte integer containing the number of floats that follow. The
+      following floats are 13 dimensional vectors concatenated.
+      Notice that since the first piece of information is the
+      number of floats, the total file size can be computed. If a
+      comparisons with the actual size fails, either the byte order
+      has to be reversed, or the file is corrupted. Importantly,
+      the byte order can be automatically detected.</p>
+
+      <p><br />
+      <a name="an4_walkthrough" id="an4_walkthrough"><b>Walkthrough
+      of Setting up the AN4 Tests</b></a></p>
+
+      <p>To illustrate the process of setting up a regression test,
+      lets use AN4, an existing test, as an example. Use the
+      following steps to create the AN4 tests.</p>
+
+      <ol>
+        <li><b>Create a test directory</b> - the various files for
+        each test set (e.g., config file, batch file, grammar
+        files, etc..) should reside in its own directory, normally
+        under <code>tests/performance</code>. For example, the AN4
+        tests reside in <code>tests/performance/an4</code>.</li>
+
+        <li><b>Obtain and convert the test database</b> - download
+        the AN4 test database from the <a href=
+        "http://www.speech.cs.cmu.edu/databases/an4/">AN4
+        website</a> (choose "Raw audio (.raw) format, big endian
+        byte order"). Unpack the downloaded tarball into a
+        directory of your choice, which in our case is
+        <code>/lab/speech/sphinx4/data/an4</code>. Since the AN4
+        test data already comes in raw audio format, no conversion
+        is necessary. However, other test databases might require
+        conversion to raw audio. For example, the TIDIGITS test
+        files are in SPHERE format, so it is necessary to convert
+        them to raw audio format before it can be read by the
+        Sphinx-4 front end. This is usually accomplished by using
+        the program <code>sox</code> on UNIX platforms.</li>
+
+        <li>
+          <b>Create a batch file</b> - a test database usually
+          contains a transcript (i.e., the actual text of the
+          speech data) of all the test files. Using the transcript
+          file, create a <a href="#batch_files">batch file</a>,
+          listing the location of the test files and their
+          corresponding transcript. For example, our
+          <code>tests/performance/an4/an4_full.batch</code> file
+          looks like:
+          <pre>
+/lab/speech/sphinx4/data/an4/an4_clstk/fash/an251-fash-b.raw yes<br />/lab/speech/sphinx4/data/an4/an4_clstk/fash/an253-fash-b.raw go<br />/lab/speech/sphinx4/data/an4/an4_clstk/fash/an254-fash-b.raw yes<br />/lab/speech/sphinx4/data/an4/an4_clstk/fash/an255-fash-b.raw u m n y h six<br />...<br />
+</pre>All batch files should reside in the test directory, in this
+case <code>tests/performance/an4</code>.
+        </li>
+
+        <li><b>Acoustic model &amp; Dictionary</b> - use the Wall
+        Street Journal (WSJ) models for the AN4 test, which is
+        already included as a JAR file in the binary distribution
+        (sphinx4-{version}-bin.zip). If you downloaded the source
+        distribution, building it by running <code>ant</code> at
+        the top level directory will create the JAR file for the
+        WSJ model. The JAR file should be included in the classpath
+        of the application you are deploying. In this case, the WSJ
+        JAR file
+        (<code>lib/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar</code>)
+        is included in the java command line inside the build.xml
+        run file. We also need to specify in the config file (see
+        the next item below) the acoustic model class we are using,
+        which in this case is
+        <code>edu.cmu.sphinx.model.acoustic.WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz</code>
+        . The dictionary is also specified in the config file using
+        the resource mechanism of Sphinx-4.</li>
+
+        <li>
+          <b>Creating the config file &amp; grammar files</b> - In
+          order to create your own configuration file, you must
+          first understand the <a href=
+          "javadoc/edu/cmu/sphinx/util/props/doc-files/ConfigurationManagement.html">
+          Sphinx-4 configuration management</a> system. The AN4
+          config file is
+          <code>tests/performance/an4/an4.config.xml</code>, please
+          take a look at it. This file describes how the batch-mode
+          recognizer and its various sub-components should be
+          configured. Note that this file also contains
+          configurations for the live-mode recognizer, which is not
+          the subject of interest of this walkthrough. In the
+          following we will refer to components in the config file
+          using <code>highlights</code>.
+
+          <p>In an4.config.xml, the batch-mode recognizer is called
+          <code>batch</code>. It uses the Recognizer called
+          <code>wordRecognizer</code>, which contains the
+          <code>decoder</code>, as well as various monitors that
+          keeps track of recognition accuracy, speed, and memory.
+          The <code>decoder</code> contains the
+          <code>searchManager</code>, which in turn contains the
+          <code>linguist</code>, the <code>pruner</code>, the
+          <code>scorer</code>, and the <code>activeList</code>.
+          Refer to the <a href="javadoc/index.html">Javadoc</a> (go
+          to bottom of the page) for a description of each of these
+          components. The linguist used is the
+          <code>flatLinguist</code>, and the grammar of the
+          <code>flatLinguist</code> is either the
+          <code>wordListGrammar</code>, which is a file with a list
+          of words, e.g.,</p>
+          <pre>
+AND<br />APOSTROPHE<br />APRIL<br />AREA<br />AUGUST<br />CODE<br />
+</pre>the <code>lmGrammar</code> (i.e., N-gram language model), or
+<code>fstGrammar</code> (i.e., finite state transducer grammar).
+The <code>lmGrammar</code> uses a language model file (text-based
+for AN4) generated by the <a href=
+"http://www.speech.cs.cmu.edu/SLM_info.html">CMU Statistical
+Language Modeling (SLM) Toolkit</a>. The <code>flatLinguist</code>
+also specifies the acoustic model used, and in this case it is the
+WSJ models. The location and format of the WSJ model, as well as
+the location of the various files in the model, are also specified.
+The <code>scorer</code> contains the front end, which is called
+<code>mfcFrontEnd</code> since it produces MFCC features.
+        </li>
+
+        <li><b>Creating a build.xml for Ant</b> - a file called
+        <code>build.xml</code> is necessary to run Ant. This file
+        is the Ant version of the Makefile in Make. All Ant targets
+        are listed in this file. For details on how to write this
+        file, refer to the documentation at <a href=
+        "http://ant.apache.org/">http://ant.apache.org/</a>. Lets
+        use the first Ant target, <code>an4_words_wordlist</code>,
+        as an example. This Ant target invokes the
+        <code>java</code> command on the class
+        <code>edu.cmu.sphinx.tools.batch.BatchModeRecognizer</code>.
+        This class takes a configuration file
+        (<code>an4.config.xml</code>) and a batch file
+        (<code>an4_words.batch</code>) as arguments. This class
+        looks for the component named <code>batch</code> in the
+        configuration file. The configuration manager will create
+        this component (and its subcomponents). Therefore, the
+        component
+        <code>edu.cmu.sphinx.tools.batch.BatchModeRecognizer</code>
+        should always be named <code>"batch"</code> in the
+        config.xml file. Other AN4 Ant targets are created
+        similarly.</li>
+
+        <li><b>Setup Complete</b> - At this point, we have
+        completed the setup of the AN4 tests. You can now run the
+        AN4 tests by following instructions in <a href=
+        "#small_vocab_test">small vocabulary tests</a>.</li>
+      </ol>
+    </li>
+
+    <li>
+      <a name="acoustic_models" id="acoustic_models"><b>Acoustic
+      Models</b></a>
+
+      <p>Currently, Sphinx-4 uses models created with SphinxTrain,
+      also available at <a href=
+      "http://cmusphinx.sourceforge.net">cmusphinx.org</a>. SphinxTrain
+      generates acoustic models in the format used by Sphinx-3. To
+      create a package as used by Sphinx-4, please check the page
+      about <a href="doc/UsingSphinxTrainModels.html">
+      using SphinxTrain models</a>.</p>
+
+      <p>The two main acoustic models that are used by Sphinx-4,
+      TIDIGITS and Wall Street Journal, are already included in the
+      <code>"lib"</code> directory of the binary distribution. For
+      the source distribution, you will build it when you type
+      <code>ant</code> at the top level directory. Our regression
+      tests also uses the RM1 and HUB4 models, which are available
+      for download separately on the download page. Sphinx-4 can
+      handle model packages provided as a jar file.</p>
+    </li>
+
+    <li>
+      <a name="language_models" id="language_models"><b>Language
+      Models</b></a>
+
+      <p>The language model used by Sphinx-4 follows the ARPA
+      format. Language models provided with the acoustic model
+      packages were created with the Carnegie Mellon University
+      Statistical Language Modeling toolkit (CMU SLM toolkit),
+      available <a href=
+      "http://www.speech.cs.cmu.edu/SLM_info.html">at CMU</a>. A
+      manual is available there.</p>
+
+      <p>The language model is created from a list of
+      transcriptions. Given a file with training transcription, the
+      following script creates a list of words that appear in the
+      transcriptions, then creates a bigram and a trigram LM files
+      in the ARPA format. The file with extension ccs contains the
+      context cues, and it is usually a list of words used as
+      markers - beginning or end of speech etc.</p>
+      <pre>
+set task = RM<br /><br /># Location of the CMU SLM toolkit<br />set bindir = ~/src/CMU-SLM_Toolkit_v2/bin<br /><br />cat $task.transcript | $bindir/text2wfreq | $bindir/wfreq2vocab &gt; $task.vocab<br /><br />set mode = "-absolute"<br /><br /># Create bigram<br />cat $task.transcript | $bindir/text2idngram -n 2 -vocab $task.vocab | \<br /> $bindir/idngram2lm $mode -context $task.ccs -n 2 -vocab $task.vocab \<br /> -idngram - -arpa $task.bigram.arpa<br /><br /># Create trigram<br />cat $task.transcript | $bindir/text2idngram -n 3 -vocab $task.vocab | \<br /> $bindir/idngram2lm $mode -context $task.ccs -n 3 -vocab $task.vocab \<br /> -idngram - -arpa $task.trigram.arpa<br />
+</pre>
+    </li>
+
+    <li>
+      <a name="bnf_grammars" id="bnf_grammars"><b>BNF-Style
+      Grammars</b></a>
+
+      <p>Sphinx-4 uses the Java Speech API Grammar Format (JSGF) to
+      perform speech recognition using a BNF-style grammar.
+      Currently, you can only use JSGF grammars with the
+      FlatLinguist. To specify JSGF grammars, set the following in
+      the configuration file:</p>
+      <pre>
+&lt;component name="flatLinguist" type="edu.cmu.sphinx.linguist.flat.FlatLinguist"&gt;<br /> 
+&lt;property name="grammar" value="jsgfGrammar"&gt;<br /> 
+// ... other properties ...<br />
+    &lt;/component&gt;<br />
+    <br />
+    &lt;component name="jsgfGrammar" type="edu.cmu.sphinx.jsgf.JSGFGrammar"&gt;
+    <br /> &lt;property name="grammarLocation" value="...URL of grammar directory"/&gt;
+    <br />&lt;/component&gt;<br />
+</pre>
+
+      <p>For information on how to write JSGF grammars, and how to
+      specify the location of your JSGF grammar file(s), and the
+      limitations of the current implementation of JSGF grammar,
+      please refer to the <a href=
+      "javadoc/edu/cmu/sphinx/jsgf/JSGFGrammar.html">Javadocs for
+      JSGFGrammar</a>.<br />
+       </p>
+    </li>
+
+    <li>
+      <a name="architecture_and_api1" id=
+      "architecture_and_api1"><b>Architecture and API</b></a>
+
+      <p>The Sphinx-4 API can be found in the <a href=
+      "javadoc/index.html">javadoc documentation</a>.</p>
+
+      <p>If the previous is broken, please build the javadocs using
+      the instructions in <a href="#create_javadocs">Create
+      Javadocs</a>. In fact, rebuilding javadocs is something you
+      should do every time you change code in Sphinx-4.</p>
+
+      <p>In this section, we will provide an overview of Sphinx-4,
+      starting with an introduction of HMM-based recognizers. We
+      will highlight in <span style="s4keyword">red those keywords
+      that are critical to understanding Sphinx-4.</span></p>
+
+      <h4><span style="s4keyword">Overview of an HMM-based Speech
+      Recognition System</span></h4>
+
+      <p><span style="s4keyword">Sphinx-4 is an HMM-based speech
+      recognizer. <span style="s4keyword">HMM</span> stands for
+      Hidden Markov Models, which is a type of statistical model.
+      In HMM-based speech recognizers, each unit of sound (usually
+      called a phoneme) is represented by a statistical model that
+      represents the distribution of all the evidence (data) for
+      that phoneme. This is called the <span style=
+      "s4keyword">acoustic model</span> for that phoneme. When
+      creating an acoustic model, the speech signals are first
+      transformed into a sequence of vectors that represent certain
+      characteristics of the signal, and the parameters of the
+      acoustic model are then estimated using these vectors
+      (usually called <span style="s4keyword">features</span>).
+      This process is called training the acoustic
+      models.</span></p>
+
+      <p>During speech recognition, features are derived from the
+      incoming speech (we will use "speech" to mean the same thing
+      as "audio") in the same way as in the training process. The
+      component of the recognizer that generates these features is
+      called the <span style="s4keyword">front end</span>. These
+      live features are scored against the acoustic model. The
+      <span style="s4keyword">score</span> obtained indicates how
+      likely that a particular set of features (extracted from live
+      audio) belongs to the phoneme of the corresponding acoustic
+      model.</p>
+
+      <p>The process of speech recognition is to find the best
+      possible sequence of words (or units) that will fit the given
+      input speech. It is a <span style="s4keyword">search</span>
+      problem, and in the case of HMM-based recognizers, a graph
+      search problem. The graph represents all possible sequences
+      of phonemes in the entire <span style=
+      "s4keyword">language</span> of the task under consideration.
+      The graph is typically composed of the HMMs of sound units
+      concatenated in a guided manner, as specified by the
+      <span style="s4keyword">grammar</span> of the task. As an
+      example, lets look at a simple search graph that decodes the
+      words "one" and "two". It is composed of the HMMs of the
+      sounds units of the words "one" and "two":</p><img src=
+      "doc-files/1-2-searchgraph.jpg" />
+
+      <p>Constructing the above graph requires knowledge from
+      various sources. It requires a <span style=
+      "s4keyword">dictionary</span>, which maps the word "one" to
+      the phonemes W, AX and N, and the word "two" to T and OO. It
+      requires the acoustic model to obtain the HMMs for the
+      phonemes W, AX, N, T and OO. In Sphinx-4, the task of
+      constructing this search graph is done by the <span style=
+      "s4keyword">linguist</span>.</p>
+
+      <p>Usually, the search graph also has information about how
+      likely certain words will occur. This information is supplied
+      by the <span style="s4keyword">language model</span>. Suppose
+      that, in our example, the probability of someone saying "one"
+      (e.g., 0.8) is much higher than saying "two" (0.2). Then, in
+      the above graph, the probability of the transition between
+      the entry node and the first node of the HMM for W will be
+      0.8, while the probability of the transition between the
+      entry node and the first node of the HMM for T will be 0.2.
+      The path to "one" will consequently have a higher score.</p>
+
+      <p>Once this graph is constructed, the sequence of
+      parametrized speech signals (i.e., the features) is matched
+      against different paths through the graph to find the best
+      fit. The best fit is usually the least cost or highest
+      scoring path, depending on the implementation. In Sphinx-4,
+      the task of searching through the graph for the best path is
+      done by the <span style="s4keyword">search
+      manager</span>.</p>
+
+      <p>As you can see from the above graph, a lot of the nodes
+      have self transitions. This can lead to a very large number
+      of possible paths through the graph. As a result, finding the
+      best possible path can take a very long time. The purpose of
+      the <span style="s4keyword">pruner</span> is to reduce the
+      number of possible paths during the search, using heuristics
+      like pruning away the lowest scoring paths.</p>
+
+      <p>As we described earlier, the input speech signal is
+      transformed into a sequence of feature vectors. After the
+      last feature vector is decoded, we look at all the paths that
+      have reached the final exit node (the red node). The path
+      with the highest score is the best fit, and a <span style=
+      "s4keyword">result</span> taking all the words of that path
+      is returned.</p>
+
+      <h4><a name="architectureComponents" id=
+      "architectureComponents">Sphinx-4 Architecture and Main
+      Components</a></h4>
+
+      <p>In this section, we describe the main components of
+      Sphinx-4, and how they work together during the recognition
+      process. First of all, lets look at the architecture diagram
+      of Sphinx-4. It contains almost all the concepts (the words
+      in red) that were introduced in the previous section. There
+      are a few additional concepts in the diagram, which we will
+      explain promptly.</p>
+
+      <div style="text-align: center;"><img src=
+      "doc-files/architecture.gif" /></div>
+
+      <p>When the recognizer starts up, it constructs the front end
+      (which generates features from speech), the decoder, and the
+      linguist (which generates the search graph) according to the
+      configuration specified by the user. These components will in
+      turn construct their own subcomponents. For example, the
+      linguist will construct the acoustic model, the dictionary,
+      and the language model. It will use the knowledge from these
+      three components to construct a search graph that is
+      appropriate for the task. The decoder will construct the
+      search manager, which in turn constructs the scorer, the
+      pruner, and the active list.</p>
+
+      <p>Most of these components represents interfaces. The search
+      manager, linguist, acoustic model, dictionary, language
+      model, active list, scorer, pruner, and search graph are all
+      Java interfaces. There can be different implementations of
+      these interfaces. For example, there are two different
+      implementations of the search manager. Then, how does the
+      system know which implementation to use? It is specified by
+      the user via the configuration file, an XML-based file that
+      is loaded by the <span style="s4keyword">configuration
+      manager</span>. In this configuration file, the user can also
+      specify the <span style="s4keyword">properties</span> of the
+      implementations. One example of a property is the sample rate
+      of the incoming speech data.</p>
+
+      <p>The <span style="s4keyword">active list</span> is a
+      component that requires explanation. Remember we mentioned
+      that there can be many possible paths through the search
+      graph. Sphinx-4 currently implements a <span style=
+      "s4keyword">token</span>-passing algorithm. Each time the
+      search arrives at the next state in the graph, a token is
+      created. A token points to the previous token, as well as the
+      next state. The active list keeps track of all the current
+      active paths through the search graph by storing the last
+      token of each path. A token has the score of the path at that
+      particular point in the search. To perform pruning, we simply
+      prune the tokens in the active list.</p>
+
+      <p>When the application asks the recognizer to perform
+      recognition, the search manager will ask the scorer to score
+      each token in the active list against the next feature vector
+      obtained from the front end. This gives a new score for each
+      of the active paths. The pruner will then prune the tokens
+      (i.e., active paths) using certain heuristics. Each surviving
+      paths will then be expanded to the next states, where a new
+      token will be created for each next state. The process
+      repeats itself until no more feature vectors can be obtained
+      from the front end for scoring. This usually means that there
+      is no more input speech data. At that point, we look at all
+      paths that have reached the final exit state, and return the
+      highest scoring path as the result to the application.</p>
+
+      <h4><a name="configuration" id="configuration">Sphinx-4
+      Configuration System</a></h4>
+
+      <p>The performance of Sphinx-4 critically depends on your
+      task and how you configured Sphinx-4 to suit your task. For
+      example, a large vocabulary task needs a different linguist
+      than a small vocabulary task. Your system has to be
+      configured differently for the two tasks. This section will
+      not tell you the exact configuration for different tasks,
+      which will be dealt with later. Instead, this section will
+      introduce you to the configuration mechanism of Sphinx-4,
+      which is via an XML-based configuration file. Please click on
+      the document <a href=
+      "javadoc/edu/cmu/sphinx/util/props/doc-files/ConfigurationManagement.html">
+      Sphinx-4 Configuration Management</a> to learn how to do
+      this. It is important that you read this document before you
+      proceed.</p>
+    </li>
+  </ul>
+  <hr />
+  Copyright 1999-2008 Carnegie Mellon University.<br />
+  Portions Copyright 2002-2008 Sun Microsystems, Inc.<br />
+  Portions Copyright 2002-2008 Applied Computer Science Group -
+  University of Bielefeld<br />
+  Portions Copyright 2002-2008 Mitsubishi Electric Research
+  Laboratories.<br />
+  All Rights Reserved. Usage is subject to <a href=
+  "license.terms">license terms</a>.
+</body>
+</html>

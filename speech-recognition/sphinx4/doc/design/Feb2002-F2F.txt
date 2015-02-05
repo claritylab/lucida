@@ -1,0 +1,244 @@
+Minutes:  Sphinx for the Java platform face-to-face discussion
+Date:	  February 21 and 22, 2002
+Location: Sun Microsystems Laboratories, Burlington, MA
+
+Attendees:    Evandro Gouvea, CMU
+	      Rita Singh,     CMU
+	      Bhiksha Raj,    MERL
+	      Peter Wolf,     MERL
+	      Paul Lamere,    Sun
+	      Philip Kowk,    Sun
+	      Willie Walker,  Sun
+
+
+Overview:
+--------
+
+This document contains the minutes for the meetings held to kick off
+the port of the Sphinx speech recognition system to the Java platform.
+
+
+Goals:
+-----
+
+As part of the introductions, we discussed our personal goals for the
+project.  Across the board, the goals were common and included making
+an efficient and flexible platform that can be used for both speech
+application development and for speech recognition research.  For
+speech application development, this includes an API to control the
+engine.  For speech recognition research, this includes a flexible
+architecture to allow researchers to piece together and plug in
+components.
+
+In order to acheive these goals, a number of design changes need to be
+made to the existing Sphinx 3 system.  As a result, the "port" of
+Sphinx to the Java platform will not be a transliteration, but instead
+will be more of a port of the ideas of Sphinx.
+
+We also discussed the possibility of entering the resulting system in
+a competition, and decided to do so only opportunistically.
+
+
+Task and performance targets:
+----------------------------
+
+We identified 4 types of tasks we would like the resulting system to
+support.  We also identified rough performance targets based on the
+performance of the existing Sphinx system, and categorized the task
+performance in terms of "live" vs. "batch" mode.  The considerations
+for the "live" and "batch" modes are the following:
+
+    Live:  Uses streaming data
+           Has no access to the future and limited access to the past
+	   Needs automatic gain control and end pointing
+	   For testing, can be simulated by streaming data from a file
+
+    Batch: Has access to the entire utterance
+	   Can normalize cepstral data over entire audio span
+	   Endpointing is already done
+	       	       
+We chose the tasks to provide a broad spectrum of recognition tasks.
+In order of complexity, the tasks are as follows:
+
+    1) Isolated word recognition.  This task will use the TI
+       46-Word corpus from the LDC, and will only support
+       recognition of single word utterances.  When done in "live"
+       mode, the performance will be as follows:
+
+           Speed    < 1X Real Time
+    	   Accuracy > 95%
+
+       More info:  http://www.ldc.upenn.edu/Catalog/LDC93S9.html
+
+    2) Connected Digits.  This task will use the TI Digits corpus
+       from the LDC, and will support recognition of connected
+       word utterances.  When done in "live" mode, the performance
+       will be as follows:
+
+           Speed    < 1X Real Time
+    	   Accuracy > 95%
+
+       More info:  http://www.ldc.upenn.edu/Catalog/LDC93S10.html
+
+    3) Medium sized (Vocab size 20-30K) command and control.  The
+       corpus for this task is yet to be defined (Rita has the
+       action item to identify one).  This task will support
+       recognition of connected word utterances as defined by a
+       structured grammar.  When done in "live" mode, the
+       performance will be as follows:
+
+    	   Speed    <= 1X Real Time
+    	   Accuracy > 80%
+
+    4) Large vocabulary dictation.  This task will use the Hub-4
+       Broadcast News corpora from the LDC.  This task will
+       support recognition of unconstrained multiple word
+       utterances.  When done in "batch" mode, the performance
+       will be as follows:
+
+    	   Speed    <= 5.5X Real Time
+    	   Accuracy > 75%
+
+       More info:  http://www.ldc.upenn.edu/Catalog/LDC97S66.html
+		   http://www.ldc.upenn.edu/Catalog/LDC97S44.html
+		   http://www.ldc.upenn.edu/Catalog/LDC98S71.html
+
+Furthermore, we identified priorities for how issues will be
+addressed.  The priorities are as follows.  More "*"'s mean
+a higher priority:
+
+	**** Flexibility
+	 *** Accuracy
+	 *** Speed
+	  ** Footprint
+
+
+Performance Metrics:
+-------------------
+
+We enumerated the following to determine how to measure the system:
+ 
+Speed:     Duration of the feature extraction
+	   Duration of the subvector quantization
+	   Duration of the Gaussian calculations
+	   Duration of the search
+	   Overall duration of the recogntion in terms of real time
+
+Footprint: Backpointer table size
+	   Search lattice size
+	   Heap size
+	   Number of live objects
+
+Accuracy:  Word error rate (deletion, substitution, insertion)
+	   Sentence error rate
+	   N-besting (does correct answer exist in top X?)
+	   Lattice (is there a path that gives you the right answer?)
+	   Ability to reject out of vocabulary or out of grammar
+
+All metrics gathered must also include reference to the recognition
+parameters used (e.g., beam width, thresholds, etc.).
+
+Another measurement to take will be how noise affects performance.
+This test will be done using a test set with controlled
+signal-to-noise ratio added in.
+
+
+Sphinx Deep Dive:
+----------------
+
+We spent an entire afternoon and part of a morning reviewing the
+existing Sphinx 3 architecture.  The goals were to develop a common
+vocabulary and to identify issues with the existing architecture.  The
+major sections we discussed were the following:
+
+    Front end.  Evandro gave a great presentation on the front end. We
+    identified the following issues with the existing front end:
+
+        o The feature extraction is fixed.  We'd like to support not
+          only a more flexible feature, but would also like to support
+          simulataneous features for multiple domains (e.g., speech
+          and video).
+	
+	o The features are currently based on floating point values.
+	  We'd like to relax this restriction.
+	
+	o There may be issues with the precision of log values as
+	  obtained from a lookup table vs. being calculated.
+	
+	o We'd like to be able to support "live" and "batch" mode.
+
+    Dictionary:  We identified the following issues with the dictionary:
+
+	o Alternate pronunciations are mapped out as separate words.
+
+	o Adding new words is not trivial.
+
+    Acoustic Model:  We identified a number of issues with the
+    existing acoustic model:
+
+        o The number of states per HMM is currently fixed to either 3
+          or 5.  We would like to support a variable number of states
+          per HMM.
+
+        o We want to support acoustic model adaptation in terms of
+	  being able to "retrain" the Gaussian mixture means and
+	  variances based on hypotheses.
+
+	o The number of Gaussians per mixture is currently fixed.  We
+	  would like to support a variable number of Gaussians per
+	  mixture.
+
+	o The current architecture doesn't provide a flexible model
+	  for parameter tying.  Not only do we want to continue the
+	  sharing of senones between HMMs, but we would also like to
+	  support a finer granularity model for tying of the Gaussian
+	  mixture components:  mean, variance, mean tranformation
+	  matrix, mean transformation vector, and variance
+	  transformation matrix.
+
+        o As a requirement, we also need to keep the existing Sphinx
+          architecture that enables subvector quantization (e.g.,
+          quick access to all active senones).
+
+        o We may want to consider multiple simultaneous acoustic
+          models either in parallel or series (e.g., male vs. female).
+
+    Language Model:  The existing Sphinx architecture is based on an
+    n-Gram grammar model.
+
+        o We would like to support other types of language models.  At
+          a minimum, we want to support n-Gram and {Finite
+          State|Context Free} grammars.
+
+    Search:  The existing Sphinx 3 search mechanism proved to be the
+    part most in need of redesign due to at least the following
+    issues:
+
+	o The search is fixed to a peculiar model that uses 3
+	  simultaneous lextrees.
+       
+        o The search is very tightly coupled to the language model,
+          and therefore only supports n-Gram language models.
+
+	o As part of the decoding operation, we would like the engine
+	  to be able to ask the application for the probability of a
+	  match.
+
+        o We would like to support multiple pass searches.
+
+	o Although the Viterbi algorithm is sufficient, we would
+	  prefer it if our architecture allowed us to support other
+	  algorithms (A*, stack, etc.).
+
+    Results:  We want to be able to represent the results merely as
+    the "search space," and therefore, the results may be search
+    dependent.
+
+
+Architecture:
+------------
+
+We spent the better part of a day deriving an architecture for the
+project.  This architecture will be created as a separate Star Office
+document.
+

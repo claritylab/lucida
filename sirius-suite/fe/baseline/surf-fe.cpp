@@ -25,15 +25,8 @@ using namespace std;
 
 struct timeval tv1, tv2;
 
-#define NTHREADS 8
-#define VTHREADS 20
-#define HTHREADS 20
-#define OVERLAP 0
-
-vector<Mat> segs;
 vector<vector<KeyPoint> > keys;
 FeatureDetector *detector = new SurfFeatureDetector();
-DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
 
 float calculateMiliseconds(timeval t1, timeval t2) {
@@ -51,6 +44,11 @@ vector<KeyPoint> exec_feature(const Mat &img) {
 }
 
 int main(int argc, char **argv) {
+  if (argc < 2) {
+    fprintf(stderr, "[ERROR] Input file required.\n\n");
+    fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
+    exit(0);
+  }
   // data
   float runtimefeat = 0;
   struct timeval t1, t2;

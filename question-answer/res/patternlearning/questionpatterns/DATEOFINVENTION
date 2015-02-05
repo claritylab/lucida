@@ -1,0 +1,8 @@
+QUESTION_TEMPLATE: When was <TO> invented?
+ANSWER_TEMPLATE: Invendet: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be (the first )?<TO> (contrive|devise|forge|invent|introduce)
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be the (contrivance|invention) of (the first )?<TO>
+(the first )?<TO> be (contrive|devise|forge|invent|introduce) .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+the (contrivance|invention) of (the first )?<TO> be .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO> first (give|make)

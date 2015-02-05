@@ -23,13 +23,21 @@
 using namespace cv;
 using namespace std;
 
-struct timeval tv1, tv2;
+FeatureDetector *detector = new SurfFeatureDetector();
+DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 
 float calculateMiliseconds(timeval t1, timeval t2) {
   float elapsedTime;
   elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
   elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
   return elapsedTime;
+}
+
+vector<KeyPoint> exec_feature(const Mat &img) {
+  vector<KeyPoint> keypoints;
+  detector->detect(img, keypoints);
+
+  return keypoints;
 }
 
 vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
@@ -40,6 +48,16 @@ vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
   gpu::SURF_GPU detector;
   detector(img, gpu::GpuMat(), keypoints);
   return keypoints;
+}
+
+Mat exec_desc(const Mat &img, vector<KeyPoint> keypoints) {
+  Mat descriptors;
+
+  extractor->compute(img, keypoints, descriptors);
+
+  descriptors.convertTo(descriptors, CV_32F);
+
+  return descriptors;
 }
 
 Mat exec_descriptor_gpu(const Mat &img_in, std::vector<KeyPoint> keypoints) {
@@ -57,9 +75,16 @@ Mat exec_descriptor_gpu(const Mat &img_in, std::vector<KeyPoint> keypoints) {
 }
 
 int main(int argc, char **argv) {
+  if (argc < 2) {
+    fprintf(stderr, "[ERROR] Input file required.\n\n");
+    fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
+    exit(0);
+  }
   // data
-  float runtimefeat = 0;
-  float runtimedesc = 0;
+  float runtimefeatseq = 0;
+  float runtimedescseq = 0;
+  float runtimefeatgpu = 0;
+  float runtimedescgpu = 0;
   struct timeval t1, t2;
 
   // Generate test keys
@@ -69,21 +94,35 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
+  gettimeofday(&t1, NULL);
+  vector<KeyPoint> key = exec_feature(img);
+  gettimeofday(&t2, NULL);
+  runtimefeatseq = calculateMiliseconds(t1, t2);
+
+  gettimeofday(&t1, NULL);
+  Mat desc = exec_desc(img, key);
+  gettimeofday(&t2, NULL);
+  runtimedescseq = calculateMiliseconds(t1, t2);
+
   // warmup
   exec_feature_gpu(img);
 
   gettimeofday(&t1, NULL);
-  vector<KeyPoint> key = exec_feature_gpu(img);
+  key = exec_feature_gpu(img);
   gettimeofday(&t2, NULL);
-  runtimefeat = calculateMiliseconds(t1, t2);
+  runtimefeatgpu = calculateMiliseconds(t1, t2);
 
   gettimeofday(&t1, NULL);
-  Mat desc = exec_descriptor_gpu(img, key);
+  desc = exec_descriptor_gpu(img, key);
   gettimeofday(&t2, NULL);
-  runtimedesc = calculateMiliseconds(t1, t2);
+  runtimedescgpu = calculateMiliseconds(t1, t2);
 
-  printf("SURF FE GPU Time=%4.3f ms\n", runtimefeat);
-  printf("SURF FD GPU Time=%4.3f ms\n", runtimedesc);
+  printf("SURF FE Time=%4.3f ms\n", runtimefeatseq);
+  printf("SURF FE GPU Time=%4.3f ms\n", runtimefeatgpu);
+  printf("FE Speedup=%4.3f\n", (float)runtimefeatseq / (float)runtimefeatgpu);
+  printf("SURF FD Time=%4.3f ms\n", runtimedescseq);
+  printf("SURF FD GPU Time=%4.3f ms\n", runtimedescgpu);
+  printf("FD Speedup=%4.3f\n", (float)runtimedescseq / (float)runtimedescgpu);
 
   return 0;
 }

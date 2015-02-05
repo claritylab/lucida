@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>        
+    
+    <component name="jsgfGrammar" type="edu.cmu.sphinx.jsgf.JSGFGrammar">
+        <property name="dictionary" value="dictionary"/>
+        <property name="grammarLocation" value="src/test/edu/cmu/sphinx/jsgf/test"/>
+        <property name="grammarName" value="test"/>
+		<property name="logMath" value="logMath"/>
+		<property name="addFillerWords" value="true"/>
+    </component>
+    
+    <component name="dictionary"
+          type="edu.cmu.sphinx.linguist.dictionary.FastDictionary">
+        <property name="dictionaryPath"
+	 			  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d"/>
+        <property name="fillerPath" 
+	 			  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/noisedict"/>
+        <property name="unitManager" value="unitManager"/>
+    </component>
+
+    <component name="unitManager" 
+        type="edu.cmu.sphinx.linguist.acoustic.UnitManager"/>
+
+    <component name="logMath" type="edu.cmu.sphinx.util.LogMath"/>
+    
+</config>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+    <!--
+
+       Copyright 1999-2004 Carnegie Mellon University.
+       Portions Copyright 2002-2004 Sun Microsystems, Inc.
+       Portions Copyright 2002-2004 Mitsubishi Electric Research Laboratories.
+       All Rights Reserved.  Use is subject to license terms.
+
+       See the file "license.terms" for information on usage and
+       redistribution of this file, and for a DISCLAIMER OF ALL
+       WARRANTIES.
+
+    -->
+</head>
+<body bgcolor="white">
+
+<h1>Description</h1>
+<p>
+Provides an tool that generates different types of features
+(MFCC, PLP, spectrum) from audio files.
+</p>
+
+<p>
+This program takes in an audio file, does frontend signal processing to it, and then dumps 
+the resulting Feature into a separate file. Also it can process a list of files at once.
+</p>
+
+<p>
+Available options:
+</p>
+ 
+<ul>
+<li>-config configFile - the XML configuration file</li> 
+<li>-name frontendName - the name of the feature extractor inside the configuration file</li>
+<li>-i audioFile - the name of the audio file</li>
+<li>-ctl controlFile - the name of the input file for batch processing</li>
+<li>-o outputFile - the name of the output file or output folder</li>
+<li>-format binary/ascii - output file format</li>
+</ul>
+
+<h1>Binary File Format</h1>
+
+<p>
+
+    The first 4 bytes of the binary file is an integer indicating the
+    total number of data points in the file. This is used by the program
+    that reads this file to check the endianness of the file by comparing
+    with the file size. The rest of the file is simply the data points.
+    Each data point is a 4-byte floating point number, in big-endian order.
+</p>
+
+</body>
+</html>
+

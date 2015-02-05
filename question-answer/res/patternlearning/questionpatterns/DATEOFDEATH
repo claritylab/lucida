@@ -1,0 +1,7 @@
+QUESTION_TEMPLATE: When did <TO> die?
+ANSWER_TEMPLATE: Deceased: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) do <TO> die
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO>'s .*(death)
+<TO> die .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+<TO>'s .*(death) be .*((what|which) (century|date|day|decade|hour|month|time|year)|when)

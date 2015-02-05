@@ -1,0 +1,5429 @@
+#passages: 3302
+
+<TO> [^<]*?(?:<NEpercentage> )?<PO_NElocation>
+#correct: 92
+#incorrect: 102
+
+<TO> (?:<NEnationality_NEethnicGroup> )?[^<]*?<PO_NElocation>
+#correct: 91
+#incorrect: 100
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NElocation>
+#correct: 91
+#incorrect: 102
+
+<TO> [^<]*?<PO_NElocation>
+#correct: 90
+#incorrect: 100
+
+<TO> [^<]*?(?:<NEprofession> )?<PO_NElocation>
+#correct: 90
+#incorrect: 101
+
+<TO> [^<]*?<PO_NElocation_NEperson>
+#correct: 90
+#incorrect: 152
+
+<TO> (?:<NEfruit> )?[^<]*?<PO_NElocation>
+#correct: 90
+#incorrect: 102
+
+<TO> [^<]*?<PO_NElocation_NEorganization>
+#correct: 90
+#incorrect: 186
+
+<PO_NElocation> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 60
+#incorrect: 110
+
+<PO_NElocation_NEperson> [^<]*?<TO>
+#correct: 60
+#incorrect: 183
+
+<PO_NElocation> [^<]*?(?:<NEstate> )?[^<]*?<TO>
+#correct: 59
+#incorrect: 109
+
+<PO_NElocation> [^<]*?(?:<NEacronym> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?<TO>
+#correct: 59
+#incorrect: 109
+
+<PO_NElocation> [^<]*?(?:<NEprofession> )?<TO>
+#correct: 58
+#incorrect: 109
+
+<PO_NElocation> [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 58
+#incorrect: 109
+
+<PO_NElocation> [^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 57
+#incorrect: 110
+
+<PO_NElocation_NEorganization> [^<]*?<TO>
+#correct: 57
+#incorrect: 165
+
+<PO_NElocation> [^<]*?<TO>
+#correct: 57
+#incorrect: 109
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> and
+#correct: 48
+#incorrect: 203
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?, <PO> and
+#correct: 47
+#incorrect: 202
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> and
+#correct: 47
+#incorrect: 202
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> ,
+#correct: 45
+#incorrect: 319
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> ,
+#correct: 43
+#incorrect: 319
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> ,
+#correct: 41
+#incorrect: 315
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEtime> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEacronym> )?(?:<NEnumber> )?[^<]*?, <PO> ,
+#correct: 41
+#incorrect: 325
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> ,
+#correct: 41
+#incorrect: 314
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmineral> )?, <PO> and
+#correct: 41
+#incorrect: 182
+
+<TO> [^<]*?, <PO> and
+#correct: 40
+#incorrect: 181
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?, <PO> and
+#correct: 40
+#incorrect: 182
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> ,
+#correct: 40
+#incorrect: 314
+
+<TO> <PO> ,
+#correct: 40
+#incorrect: 708
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEnumber> )?, <PO> ,
+#correct: 39
+#incorrect: 305
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?, <PO> ,
+#correct: 39
+#incorrect: 309
+
+<TO> [^<]*?(?:<NEcountry_NEbird> )?[^<]*?, <PO> ,
+#correct: 38
+#incorrect: 306
+
+<TO> [^<]*?, <PO> ,
+#correct: 38
+#incorrect: 304
+
+<TO> [^<]*?(?:<NEcolor> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?, <PO> ,
+#correct: 38
+#incorrect: 312
+
+# <PO> <TO>
+#correct: 34
+#incorrect: 2136
+
+<TO> <PO> and
+#correct: 30
+#incorrect: 524
+
+<TO> <PO> \.
+#correct: 29
+#incorrect: 699
+
+<TO> , <PO> ,
+#correct: 29
+#incorrect: 161
+
+<TO> , <PO> and
+#correct: 27
+#incorrect: 82
+
+<TO> <PO> butter
+#correct: 26
+#incorrect: 96
+
+# <PO> -- <TO>
+#correct: 24
+#incorrect: 7
+
+<TO> [^<]*?, <PO> butter
+#correct: 22
+#incorrect: 38
+
+<TO> , <PO_NElocation_NEperson>
+#correct: 21
+#incorrect: 17
+
+<TO> , <PO_NElocation>
+#correct: 21
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEchemicalElement> )?[^<]*?of <PO> ,
+#correct: 19
+#incorrect: 106
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?and <PO> \.
+#correct: 18
+#incorrect: 165
+
+<TO> [^<]*?of <PO> ,
+#correct: 18
+#incorrect: 98
+
+<TO> <PO> powder
+#correct: 17
+#incorrect: 148
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?and <PO> \.
+#correct: 17
+#incorrect: 162
+
+the <PO> and (?:<NEchemicalElement_NEmineral> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 59
+
+<TO> [^<]*?and <PO> products
+#correct: 16
+#incorrect: 10
+
+<TO> [^<]*?and <PO> powder
+#correct: 16
+#incorrect: 15
+
+<TO> <PO_NElocation>
+#correct: 15
+#incorrect: 9
+
+<TO> and <PO> products
+#correct: 15
+#incorrect: 4
+
+, <PO> , [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 272
+
+<TO> (?:<NEpercentage> )?<PO_NElocation>
+#correct: 15
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?and <PO> \.
+#correct: 14
+#incorrect: 162
+
+<TO> & <PO_NElocation_NEorganization>
+#correct: 14
+#incorrect: 4
+
+, <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 14
+#incorrect: 265
+
+of <PO> and [^<]*?<TO>
+#correct: 14
+#incorrect: 31
+
+<TO> & <PO_NElocation>
+#correct: 14
+#incorrect: 4
+
+of <PO> and <TO>
+#correct: 13
+#incorrect: 12
+
+, <PO> , [^<]*?<TO>
+#correct: 13
+#incorrect: 264
+
+<TO> and <PO> powder
+#correct: 13
+#incorrect: 6
+
+<TO> [^<]*?made [^<]*?(?:<NEchemicalElement> )?\( <PO> \)
+#correct: 13
+#incorrect: 6
+
+<TO> is made by mixing the aluminum soap powder of naphthene and palmitate \( <PO> \)
+#correct: 12
+#incorrect: 0
+
+<TO> \( the name comes from its combination of <PO> \)
+#correct: 12
+#incorrect: 0
+
+<TO> [^<]*?comes [^<]*?of <PO> \)
+#correct: 12
+#incorrect: 0
+
+activated <PO> is [^<]*?<TO>
+#correct: 12
+#incorrect: 4
+
+<TO> [^<]*?made [^<]*?\( <PO> \)
+#correct: 12
+#incorrect: 6
+
+<PO_NElocation_NEperson> , <TO>
+#correct: 11
+#incorrect: 25
+
+<TO> , <PO> butter
+#correct: 11
+#incorrect: 17
+
+<TO> and <PO> \.
+#correct: 11
+#incorrect: 50
+
+the <PO> and <NEchemicalElement_NEmineral> in <TO>
+#correct: 10
+#incorrect: 0
+
+<TO> <PO> in
+#correct: 10
+#incorrect: 343
+
+<TO> , <PO> co
+#correct: 10
+#incorrect: 114
+
+<TO> [^<]*?and <PO> butter
+#correct: 10
+#incorrect: 4
+
+<TO> <PO> \)
+#correct: 9
+#incorrect: 203
+
+<PO_NElocation> and <TO>
+#correct: 9
+#incorrect: 0
+
+# <PO> and [^<]*?<TO>
+#correct: 9
+#incorrect: 218
+
+<TO> [^<]*?, <PO> powder
+#correct: 9
+#incorrect: 19
+
+<TO> <PO> -
+#correct: 9
+#incorrect: 142
+
+# <PO> powder [^<]*?(?:<NEnumber> )?(?:<NEcolor> )?<TO>
+#correct: 9
+#incorrect: 30
+
+<TO> and <PO_NElocation>
+#correct: 9
+#incorrect: 5
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?, <PO> beans
+#correct: 8
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?and <PO> ,
+#correct: 8
+#incorrect: 70
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?and <PO> ,
+#correct: 8
+#incorrect: 68
+
+<PO_NElocation> , <TO>
+#correct: 8
+#incorrect: 4
+
+<TO> [^<]*?/ <PO> \.
+#correct: 8
+#incorrect: 13
+
+<TO> [^<]*?(?:<NEmineral> )?from <PO> \.
+#correct: 8
+#incorrect: 30
+
+# <PO> powder [^<]*?<TO>
+#correct: 8
+#incorrect: 29
+
+<TO> <PO> :
+#correct: 8
+#incorrect: 57
+
+<TO> & <PO> \.
+#correct: 8
+#incorrect: 8
+
+<TO> , <PO> powder
+#correct: 8
+#incorrect: 13
+
+s <PO> , [^<]*?<TO>
+#correct: 8
+#incorrect: 204
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?and <PO> #
+#correct: 8
+#incorrect: 495
+
+<TO> \( <NEacronym> \) , <NEcolor> \( <NEacronym> \) , <PO> \(
+#correct: 7
+#incorrect: 0
+
+<TO> / <PO> \.
+#correct: 7
+#incorrect: 11
+
+<TO> , <PO> beans
+#correct: 7
+#incorrect: 2
+
+of <PO> , (?:<NEchemicalElement_NEmineral> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 29
+
+<PO_NEacronym> (?:<NEacronym> )?(?:<NEacronym> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 197
+
+<TO> , <PO> &
+#correct: 7
+#incorrect: 4
+
+<TO> [^<]*?of <PO> butter
+#correct: 7
+#incorrect: 3
+
+<TO> [^<]*?from <PO> beans
+#correct: 7
+#incorrect: 10
+
+<TO> [^<]*?and <PO> ,
+#correct: 7
+#incorrect: 68
+
+# <PO> and <TO>
+#correct: 7
+#incorrect: 77
+
+<TO> [^<]*?from <PO> \.
+#correct: 7
+#incorrect: 30
+
+<TO> and <PO> ,
+#correct: 7
+#incorrect: 28
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?and <PO> and
+#correct: 7
+#incorrect: 59
+
+<TO> \( <PO> \)
+#correct: 7
+#incorrect: 89
+
+<TO> [^<]*?of <PO> \(
+#correct: 7
+#incorrect: 46
+
+<PO_NEacronym> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 195
+
+, <PO> <TO>
+#correct: 7
+#incorrect: 691
+
+<TO> is a mixture of <PO> ,
+#correct: 7
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEpercentage> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?<NEpercentage> <PO> ,
+#correct: 7
+#incorrect: 11
+
+the <PO> and [^<]*?<TO>
+#correct: 6
+#incorrect: 54
+
+<TO> is derived from <PO> which
+#correct: 6
+#incorrect: 0
+
+# <PO> , [^<]*?<TO>
+#correct: 6
+#incorrect: 445
+
+of <PO> , <TO>
+#correct: 6
+#incorrect: 7
+
+<TO> is a mixture of gasoline and <NEriver_NEwater> plastic \( polyethylene \?\? \) instead of the <PO> #
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?made [^<]*?of <PO> \(
+#correct: 6
+#incorrect: 14
+
+<TO> [^<]*?from <PO> which
+#correct: 6
+#incorrect: 3
+
+<TO> [^<]*?= <PO> #
+#correct: 6
+#incorrect: 1
+
+<TO> \( = <PO> #
+#correct: 6
+#incorrect: 0
+
+<TO> is a word derived from <PO> \.
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?the <PO> #
+#correct: 6
+#incorrect: 293
+
+, <PO> and <TO>
+#correct: 6
+#incorrect: 36
+
+<TO> <PO> \(
+#correct: 6
+#incorrect: 135
+
+the <PO> butter [^<]*?<TO>
+#correct: 6
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEcapital> )?[^<]*?(?:<NEpercentage> )?(?:<NEchemicalElement_NEmetal> )?[^<]*?<NEpercentage> <PO> ,
+#correct: 6
+#incorrect: 13
+
+<TO> [^<]*?and <PO> #
+#correct: 6
+#incorrect: 451
+
+<TO> is a powder made up of <PO> \(
+#correct: 6
+#incorrect: 0
+
+<TO> / <PO_NElocation>
+#correct: 6
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> \(
+#correct: 5
+#incorrect: 40
+
+<TO> [^<]*?(?:<NEpercentage> )?(?:<NEchemicalElement_NEmetal> )?[^<]*?<NEpercentage> <PO> ,
+#correct: 5
+#incorrect: 13
+
+<TO> <PO> mix
+#correct: 5
+#incorrect: 120
+
+<TO> (?:<NEstyle> )?[^<]*?, <PO> \.
+#correct: 5
+#incorrect: 170
+
+<TO> [^<]*?the <PO> butter
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?, <PO> \(
+#correct: 5
+#incorrect: 40
+
+that <PO> and [^<]*?<TO>
+#correct: 5
+#incorrect: 7
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEperson_NEchemicalElement_NEmineral> )?and <PO> in
+#correct: 5
+#incorrect: 46
+
+<TO> contains <PO> butter
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> \.
+#correct: 5
+#incorrect: 179
+
+<TO> \( <PO> liquor
+#correct: 5
+#incorrect: 0
+
+: <PO> , [^<]*?<TO>
+#correct: 5
+#incorrect: 34
+
+# <PO> is [^<]*?(?:<NEstate> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 130
+
+# <PO> <NEacronym> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 90
+
+the <PO> and <TO>
+#correct: 5
+#incorrect: 30
+
+<TO> [^<]*?hot <PO> \.
+#correct: 5
+#incorrect: 6
+
+<TO> & <PO> :
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?from <PO> \)
+#correct: 4
+#incorrect: 14
+
+<TO> <PO> <NEacronym>
+#correct: 4
+#incorrect: 147
+
+, <PO> butter [^<]*?<TO>
+#correct: 4
+#incorrect: 12
+
+of <PO> powder [^<]*?<TO>
+#correct: 4
+#incorrect: 1
+
+<TO> [^<]*?, <PO> \.
+#correct: 4
+#incorrect: 170
+
+and <PO> solid (?:<NEfirstName> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<PO_NEacronym> [^<]*?<TO>
+#correct: 4
+#incorrect: 129
+
+<TO> <PO> solids
+#correct: 4
+#incorrect: 13
+
+<TO> , whereas <PO> from
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?with <PO> butter
+#correct: 4
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?contains <PO> ,
+#correct: 4
+#incorrect: 9
+
+<TO> [^<]*?wood <PO> is
+#correct: 4
+#incorrect: 0
+
+activated <PO> itself is a fine , <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> and <PO> industry
+#correct: 4
+#incorrect: 0
+
+<TO> \( from <PO> \)
+#correct: 4
+#incorrect: 0
+
+<TO> " meal " a wood <PO> is
+#correct: 4
+#incorrect: 0
+
+hot <PO> and [^<]*?<TO>
+#correct: 4
+#incorrect: 4
+
+<TO> / <PO> industry
+#correct: 4
+#incorrect: 0
+
+: <PO> <TO>
+#correct: 4
+#incorrect: 126
+
+# <PO> is [^<]*?<TO>
+#correct: 4
+#incorrect: 129
+
+, <PO> , <TO>
+#correct: 4
+#incorrect: 142
+
+<TO> [^<]*?whereas <PO> from
+#correct: 4
+#incorrect: 0
+
+activated <PO> itself [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<TO> \( <PO> mass
+#correct: 4
+#incorrect: 0
+
+<TO> <PO> cake
+#correct: 4
+#incorrect: 14
+
+<TO> - <PO> powder
+#correct: 4
+#incorrect: 2
+
+<TO> [^<]*?<PO_NEacronym>
+#correct: 4
+#incorrect: 129
+
+<TO> : <PO> paste
+#correct: 4
+#incorrect: 0
+
+<TO> & <PO> products
+#correct: 4
+#incorrect: 0
+
+<TO> from <PO> beans
+#correct: 4
+#incorrect: 0
+
+<TO> <PO> <NEacronym_NEstyle>
+#correct: 4
+#incorrect: 156
+
+<PO_NElocation> butter , <TO>
+#correct: 3
+#incorrect: 0
+
+# <PO> beans [^<]*?(?:<NEprofession_NEriver_NEwater> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 15
+
+<TO> <PO> confectionery
+#correct: 3
+#incorrect: 23
+
+<TO> [^<]*?made with <PO> butter
+#correct: 3
+#incorrect: 0
+
+and <PO> , [^<]*?(?:<NEsport> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 43
+
+<TO> , <NElocation_NEcolor> , burgundy and <PO> solid
+#correct: 3
+#incorrect: 0
+
+<PO_NEperson> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 86
+
+in <PO> and <TO>
+#correct: 3
+#incorrect: 13
+
+<TO> \) : <NEchemicalElement_NEmetal> nitrate or salt petre , sulphur and <PO> and
+#correct: 3
+#incorrect: 0
+
+<PO_NEacronym> , <TO>
+#correct: 3
+#incorrect: 12
+
+<TO> contains <PO> ,
+#correct: 3
+#incorrect: 5
+
+<TO> <PO> smoker
+#correct: 3
+#incorrect: 0
+
+<TO> and <PO> are
+#correct: 3
+#incorrect: 3
+
+<TO> and <PO> and
+#correct: 3
+#incorrect: 20
+
+<PO_NEacronym> (?:<NEacronym_NEstyle> )?<TO>
+#correct: 3
+#incorrect: 64
+
+<TO> [^<]*?\) <PO> \(
+#correct: 3
+#incorrect: 8
+
+<TO> <PO_NEacronym>
+#correct: 3
+#incorrect: 41
+
+the <PO> bean [^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+<TO> / <PO> ,
+#correct: 3
+#incorrect: 9
+
+<NEacronym> <PO> <TO>
+#correct: 3
+#incorrect: 268
+
+# <PO> <NEacronym> (?:<NEacronym> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 92
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?and <PO> \(
+#correct: 3
+#incorrect: 36
+
+<NEpercentage> <PO> content [^<]*?(?:<NEcountry> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<TO> \( <PO> butter
+#correct: 3
+#incorrect: 10
+
+, <PO> & <TO>
+#correct: 3
+#incorrect: 10
+
+<TO> \( <PO_NElocation>
+#correct: 3
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation_NEcolor> )?[^<]*?and <PO> solid
+#correct: 3
+#incorrect: 3
+
+of <PO> butter [^<]*?<TO>
+#correct: 3
+#incorrect: 2
+
+rich <PO> powder [^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+<TO> hot <PO_NElocation>
+#correct: 3
+#incorrect: 0
+
+<TO> and <PO> may
+#correct: 3
+#incorrect: 3
+
+<TO> <PO> cakes
+#correct: 3
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEmetal> )?[^<]*?contrasting <PO> -
+#correct: 3
+#incorrect: 0
+
+and <PO> constitutes <TO>
+#correct: 3
+#incorrect: 0
+
+# <PO> - [^<]*?<TO>
+#correct: 3
+#incorrect: 140
+
+<TO> \( <PO> solids
+#correct: 3
+#incorrect: 2
+
+<PO_NEperson> [^<]*?(?:<NElocation> )?<TO>
+#correct: 3
+#incorrect: 79
+
+<TO> , <PO> \.
+#correct: 3
+#incorrect: 69
+
+<TO> [^<]*?made [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> and
+#correct: 3
+#incorrect: 13
+
+<PO_NEperson> , <TO>
+#correct: 3
+#incorrect: 23
+
+: <PO> , <TO>
+#correct: 3
+#incorrect: 25
+
+rich <PO> powder and dark <TO>
+#correct: 3
+#incorrect: 1
+
+<TO> and <PO> #
+#correct: 3
+#incorrect: 130
+
+<PO_NEperson> [^<]*?<TO>
+#correct: 3
+#incorrect: 77
+
+<TO> or <PO> powder
+#correct: 3
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?(?:<NEchemicalElement> )?[^<]*?of <PO> #
+#correct: 3
+#incorrect: 220
+
+# <PO> outlet [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<TO> - coated finish and durable galvanized <NEmetal> construction , these cans feature contrasting <PO> -
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?<NEpercentage> <PO> content
+#correct: 3
+#incorrect: 0
+
+<PO_NEacronym> (?:<NEacronym> )?<TO>
+#correct: 3
+#incorrect: 64
+
+<NEpercentage> <PO> <TO>
+#correct: 2
+#incorrect: 13
+
+in <PO> powder [^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+is <PO> and <NEchemicalElement_NEmineral> , as in <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?roasted <PO> beans
+#correct: 2
+#incorrect: 1
+
+activated <PO> is a fine , odorless , tasteless , insoluble <TO>
+#correct: 2
+#incorrect: 0
+
+that <PO> and <TO>
+#correct: 2
+#incorrect: 2
+
+: <PO> butter [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> \( powder coat \) <PO> \(
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> / <TO>
+#correct: 2
+#incorrect: 0
+
+finest <PO> beans [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?<NEpercentage> <PO> \)
+#correct: 2
+#incorrect: 5
+
+<TO> \( <PO> ,
+#correct: 2
+#incorrect: 50
+
+- <PO> butter [^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+= <PO> butter [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<NEpercentage> <PO> butter
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?made [^<]*?, <PO> ,
+#correct: 2
+#incorrect: 8
+
+and <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 43
+
+and <PO> solid <NEfirstName> with <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> is a mix of sulphur , <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?with <PO> cream
+#correct: 2
+#incorrect: 2
+
+<TO> -- <PO> butter
+#correct: 2
+#incorrect: 0
+
+<TO> ingredient / <PO> /
+#correct: 2
+#incorrect: 0
+
+\( <PO> \) [^<]*?(?:<NEacronym> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?<TO>
+#correct: 2
+#incorrect: 53
+
+<PO_NEacronym> <NEacronym_NEstyle> <TO>
+#correct: 2
+#incorrect: 19
+
+hot <PO> has [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+and <PO> solid <NEfirstName> or cobblestone <TO>
+#correct: 2
+#incorrect: 0
+
+from <PO> \) [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> with <NEpercentage> <PO> content
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?: <PO> ,
+#correct: 2
+#incorrect: 35
+
+in <PO> <NEcolor> or flat <TO>
+#correct: 2
+#incorrect: 0
+
+\( <PO> \) ; <NEperson> had made <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> <NEcolor> [^<]*?<TO>
+#correct: 2
+#incorrect: 39
+
+activated <PO> is a light , finely divided , tasteless , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> was made from <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> , coffee , <PO> ,
+#correct: 2
+#incorrect: 1
+
+<TO> = <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> , " is a combination of saltpeter , <NEchemicalElement_NEmineral> , and <NEchemicalElement> in the form of <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?of <PO> powder
+#correct: 2
+#incorrect: 1
+
+called <PO> liquor [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?from <PO> that
+#correct: 2
+#incorrect: 4
+
+with <PO> cream [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+were <PO> beans [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , which is a mixture of <PO> ,
+#correct: 2
+#incorrect: 3
+
+<TO> \( <NEpercentage> <PO> solids
+#correct: 2
+#incorrect: 0
+
+hot <PO> is often confused with hot <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEpercentage> )?(?:<NEacronym> )?(?:<NEnumber> )?<NEpercentage> <PO> and
+#correct: 2
+#incorrect: 9
+
+<TO> and <PO> is
+#correct: 2
+#incorrect: 3
+
+<TO> , but hot <PO> is
+#correct: 2
+#incorrect: 0
+
+<TO> is <PO> ,
+#correct: 2
+#incorrect: 63
+
+using <PO> powder [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> , <NEchemicalElement_NEmineral> and <NEchemicalElement_NEmetal> nitrate by hand does not make <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> outlet [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+unsweetened <PO> powder [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> butter [^<]*?<TO>
+#correct: 2
+#incorrect: 27
+
+<TO> consists of the granular ingredients <NEchemicalElement_NEmineral> \( s \) , <PO> \(
+#correct: 2
+#incorrect: 0
+
+<TO> consists of <PO> butter
+#correct: 2
+#incorrect: 0
+
+<TO> is <PO> and
+#correct: 2
+#incorrect: 95
+
+<TO> [^<]*?high <PO> content
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?/ <PO> /
+#correct: 2
+#incorrect: 10
+
+<TO> [^<]*?the <PO> ingredient
+#correct: 2
+#incorrect: 5
+
+<TO> - <PO_NElocation>
+#correct: 2
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?(?:<NEchemicalElement> )?[^<]*?of <PO> \.
+#correct: 2
+#incorrect: 60
+
+, <PO> , fudge , truffles , sugar free candy , <TO>
+#correct: 2
+#incorrect: 4
+
+- <PO> butter , milk , sweeteners and flavorings are added to <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> = <PO> butter
+#correct: 2
+#incorrect: 0
+
+origin <PO> bean <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?- <PO> -
+#correct: 2
+#incorrect: 26
+
+<TO> [^<]*?made from <PO> ,
+#correct: 2
+#incorrect: 11
+
+<TO> \( <NEorganization_NEacronym> \) is <PO> \.
+#correct: 2
+#incorrect: 0
+
+were <PO> beans , today ' s source of all our <TO>
+#correct: 2
+#incorrect: 0
+
+hot <PO> / [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+\( <PO> \) [^<]*?(?:<NEperson> )?[^<]*?made <TO>
+#correct: 2
+#incorrect: 0
+
+/ <PO> , <TO>
+#correct: 2
+#incorrect: 7
+
+the <PO> powder [^<]*?<TO>
+#correct: 2
+#incorrect: 6
+
+<TO> [^<]*?<NEpercentage> <PO> ,
+#correct: 2
+#incorrect: 16
+
+that <PO> and other <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> <NEacronym_NEstyle> <TO>
+#correct: 2
+#incorrect: 31
+
+# <PO> <NEcolor> or flat <TO>
+#correct: 2
+#incorrect: 2
+
+<PO_NEacronym> <NEacronym> <TO>
+#correct: 2
+#incorrect: 19
+
+the <PO> in <TO>
+#correct: 2
+#incorrect: 33
+
+# <PO> therapy _ instant <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 34
+
+<TO> is mixture of <NEchemicalElement_NEmetal> nitrate , <PO> and
+#correct: 2
+#incorrect: 0
+
+# <PO> therapy [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> hot <PO> \.
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?hot <PO> is
+#correct: 2
+#incorrect: 0
+
+<TO> , is a combination of saltpeter , <NEchemicalElement_NEmineral> , and <NEchemicalElement> in the form of <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?hot <PO> mix
+#correct: 2
+#incorrect: 1
+
+of <PO> beans [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+is <PO> and (?:<NEchemicalElement_NEmineral> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 15
+
+in <PO> <NEcolor> [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> butter , milk , sweeteners and flavorings are added to <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> and <PO> samples
+#correct: 2
+#incorrect: 0
+
+<TO> liquor , <PO> butter
+#correct: 2
+#incorrect: 2
+
+<TO> : <NEpercentage> <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?<NEpercentage> <PO> solids
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?hot <PO> #
+#correct: 2
+#incorrect: 24
+
+<TO> [^<]*?<NEpercentage> <PO> \.
+#correct: 2
+#incorrect: 6
+
+<TO> and <PO> taste
+#correct: 2
+#incorrect: 0
+
+using <PO> powder or <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> is [^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 15
+
+hot <PO> / hot <TO>
+#correct: 2
+#incorrect: 0
+
+hot <PO> is [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?made [^<]*?<NEpercentage> <PO> beans
+#correct: 2
+#incorrect: 1
+
+# <PO> beans [^<]*?(?:<NEprofession> )?<TO>
+#correct: 2
+#incorrect: 14
+
+finest <PO> beans to create these <TO>
+#correct: 2
+#incorrect: 0
+
+hot <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 9
+
+<TO> , <PO> capsules
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?and <PO> \)
+#correct: 2
+#incorrect: 50
+
+with <PO> and (?:<NEchemicalElement_NEmineral> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 11
+
+more <PO> butter [^<]*?(?:<NEacronym> )?<TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> bean [^<]*?(?:<NEstate> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 8
+
+activated <PO> is a <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?, <PO> /
+#correct: 2
+#incorrect: 7
+
+a <PO> - [^<]*?<TO>
+#correct: 2
+#incorrect: 24
+
+the <PO> , (?:<NEchemicalElement_NEmineral> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?make <TO>
+#correct: 2
+#incorrect: 0
+
+= <PO> butter , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?is <PO> \.
+#correct: 2
+#incorrect: 39
+
+<NEpercentage> <PO> content [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> <NEacronym> <TO>
+#correct: 2
+#incorrect: 29
+
+<TO> - <PO> butter
+#correct: 2
+#incorrect: 5
+
+activated <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 12
+
+<TO> [^<]*?(?:<NEpercentage> )?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEacronym> )?(?:<NEnumber> )?[^<]*?<NEpercentage> <PO> #
+#correct: 2
+#incorrect: 32
+
+<TO> & <PO> \(
+#correct: 2
+#incorrect: 0
+
+<TO> flavored <PO> is
+#correct: 2
+#incorrect: 0
+
+<TO> , which is a mixture of saltpetre \( <NEchemicalElement_NEmetal> nitrate \) , <NEchemicalElement_NEmineral> , and <PO> \(
+#correct: 2
+#incorrect: 0
+
+plain <PO> powder or plain dark <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> torte made with almonds is layered with <PO> whipped
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> news
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> <NEprofession_NEriver_NEwater>
+#correct: 1
+#incorrect: 14
+
+<PO_NElocation> <TO>
+#correct: 1
+#incorrect: 13
+
+<TO> / <PO> campaign
+#correct: 1
+#incorrect: 0
+
+<TO> for <PO> \.
+#correct: 1
+#incorrect: 5
+
+<TO> has a mixture of saltpeter \( <NEchemicalElement_NEmetal> nitrate \) and <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> powder and <PO> butter
+#correct: 1
+#incorrect: 0
+
+coarse <PO> to your <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( not <PO> !
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> bean
+#correct: 1
+#incorrect: 9
+
+<TO> [^<]*?activated <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> , <PO> exporter
+#correct: 1
+#incorrect: 0
+
+and <PO> : an exclusive product , containing unsweetened <TO>
+#correct: 1
+#incorrect: 0
+
+fairtrade <PO> , (?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> mixture of <NEchemicalElement_NEmetal> nitrate , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> and home made <NEperson> plus a library of information on the history and uses of <TO>
+#correct: 1
+#incorrect: 0
+
+pod <PO> is the dried and partially fermented fatty seed of the cacao tree from which <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> bean is <NEstate> used to process various <TO>
+#correct: 1
+#incorrect: 0
+
+process <PO> <NEnumber> eggs <NEnumber> package \( <NEnumber> oz \) <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is shown as a chemical equation the <PO> ingredient
+#correct: 1
+#incorrect: 0
+
+, <PO> : [^<]*?<TO>
+#correct: 1
+#incorrect: 13
+
+<TO> with <PO> ,
+#correct: 1
+#incorrect: 7
+
+; <PO> , activated , powder ; <NEchemicalElement> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is that the <PO> is
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \( and dark <TO>
+#correct: 1
+#incorrect: 0
+
+excess <PO> powder [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , without which there would be no <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> cola cake is a popular <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> actually has no <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+% <PO> \( [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> industry internationally to investigate <NEprofession> about the use of child labor in <PO> production
+#correct: 1
+#incorrect: 0
+
+<NEpercentage> <PO> \( [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> lover [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> & <PO> #
+#correct: 1
+#incorrect: 34
+
+<TO> gingerbread <PO> #
+#correct: 1
+#incorrect: 0
+
+, <PO> beans , <NEprofession> ' s <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> made exclusively with first quality <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made [^<]*?finest <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> -- <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+more <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> facts : growing and processing <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?hot <PO> what
+#correct: 1
+#incorrect: 0
+
+<TO> : varieties of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?its <PO> #
+#correct: 1
+#incorrect: 28
+
+<TO> liquor and about <NEpercentage> <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> , cobblestone <NEcolor> or cobblestone <NEcolor_NEfruit> and solid <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> also known as gunpowder is a mixture of saltpeter \( <NEchemicalElement_NEmetal> nitrate \) , <NEchemicalElement_NEmineral> , and <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made [^<]*?(?:<NEpercentage> )?ghanaian <PO> beans
+#correct: 1
+#incorrect: 0
+
+classic <PO> for the <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> makes [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> cultivation [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> cinnamon <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> beans - the source of all <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> or <PO> in
+#correct: 1
+#incorrect: 3
+
+activated <PO> is a fine , <TO>
+#correct: 1
+#incorrect: 4
+
+applying <PO> to [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : an explosive compound \( a mixture of <PO> ,
+#correct: 1
+#incorrect: 0
+
+your <PO> - and <NEcolor> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> liquor minus the <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEnumber> )?(?:<NEchemicalElement_NEmineral> )?<NEnumber> <PO> <NEnumber>
+#correct: 1
+#incorrect: 33
+
+<PO_NElocation> drop cookies - <TO>
+#correct: 1
+#incorrect: 0
+
+with <PO> , cinnamon or <TO>
+#correct: 1
+#incorrect: 0
+
+hot <PO> and fair trade certified <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?little <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?\) <PO> tests
+#correct: 1
+#incorrect: 0
+
+enough <PO> butter to mold the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which was made with saltpeter , <PO> ,
+#correct: 1
+#incorrect: 0
+
+and <PO> powder for a flowerless <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> is the reason that <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> <NEprofession>
+#correct: 1
+#incorrect: 15
+
+<TO> [^<]*?made [^<]*?shelled <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> - maker <NEperson> <NEprofession> <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> had
+#correct: 1
+#incorrect: 0
+
+<TO> is made with <NEpercentage> <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> made [^<]*?melted <PO> butter
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> butter has very little ' <TO>
+#correct: 1
+#incorrect: 0
+
+natural <PO> butter , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEcolor_NEchemicalElement_NEmetal_NEmineral> <PO> tail
+#correct: 1
+#incorrect: 0
+
+between <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+produce <PO> mass \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is a mixture of <NEchemicalElement_NEmetal> nitrate , <NEchemicalElement_NEmineral> and <PO> \.
+#correct: 1
+#incorrect: 0
+
+<NEpercentage> <PO> \( c \) fuel : <NEriver_NEwater> historical formulae for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> wrinkle \( <NEnumber> \) <NEcolor> \( <NEnumber> \) burnish <NEcolor_NEchemicalElement_NEmetal_NEmineral> \( <NEnumber> \) <NEprofession_NEbird> \( <NEnumber> \) <PO> \(
+#correct: 1
+#incorrect: 0
+
+# <PO> beans [^<]*?<TO>
+#correct: 1
+#incorrect: 14
+
+<TO> company that sources <PO> from
+#correct: 1
+#incorrect: 0
+
+, <PO> , sugar , <TO>
+#correct: 1
+#incorrect: 5
+
+<TO> , the only practical propellant available between <NEdate_NEyear_NEnumber> and <NEdate_NEyear_NEnumber> , is a mixture of saltpetre , <PO> and
+#correct: 1
+#incorrect: 0
+
+, <PO> butter , quality <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> , and hot <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+except <PO> & drinking <TO>
+#correct: 1
+#incorrect: 0
+
+actual <PO> bean from which <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> mint <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+and <PO> to [^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 24
+
+whose <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+activated <PO> is a fluffy , fine , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> made [^<]*?prized <PO> beans
+#correct: 1
+#incorrect: 0
+
+natural <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the richer in <PO> the
+#correct: 1
+#incorrect: 0
+
+<TO> bar is <NEpercentage> <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made from <PO> beans
+#correct: 1
+#incorrect: 7
+
+that <PO> or dark <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> liquor [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+a <PO> mix , not a hot <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the higher the <PO> content
+#correct: 1
+#incorrect: 0
+
+of <PO> in [^<]*?<TO>
+#correct: 1
+#incorrect: 17
+
+, <PO> butter , <TO>
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?made [^<]*?mixing <PO> butter
+#correct: 1
+#incorrect: 0
+
+# <PO> beans - the source of all <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - or < <PO> <NEnumber>
+#correct: 1
+#incorrect: 0
+
+additional <PO> butter helped the <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> for use in their <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEperson_NEchemicalElement_NEmineral> )?and <PO> \.
+#correct: 1
+#incorrect: 9
+
+hot <PO> and supreme gourmet hot <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?hot <PO> has
+#correct: 1
+#incorrect: 0
+
+does <PO> / <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> '
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?made with <PO> ,
+#correct: 1
+#incorrect: 5
+
+to <PO> for [^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+<TO> : - <NEnumber> \) <NEchemicalElement_NEmetal> percholorate <NEnumber> <NEchemicalElement_NEmineral> <NEnumber> <PO> <NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> / <PO> and
+#correct: 1
+#incorrect: 2
+
+, <PO> \( [^<]*?<TO>
+#correct: 1
+#incorrect: 10
+
+, <PO> , dark <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> amaretto <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> quality , with high <PO> content
+#correct: 1
+#incorrect: 0
+
+<TO> <NEfruit> gourmet <PO> mix
+#correct: 1
+#incorrect: 0
+
+<TO> milk is made from droste <PO> or
+#correct: 1
+#incorrect: 0
+
+# <PO> beans and <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<NEprofession> <PO> and <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> liquor with much of the <PO> butter
+#correct: 1
+#incorrect: 0
+
+in <PO> powder and dark <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> made [^<]*?quality <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?pure <PO> and
+#correct: 1
+#incorrect: 4
+
+<TO> -- actually <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEpercentage> <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> , discussed briefly in how rocket <NEprofession> work , contains <PO> ,
+#correct: 1
+#incorrect: 0
+
+of <PO> products [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?actually <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> that has > <NEpercentage> <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> drink from pure <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> \( <PO> tea
+#correct: 1
+#incorrect: 0
+
+s <PO> in [^<]*?<TO>
+#correct: 1
+#incorrect: 55
+
+<PO_NElocation> liquor which is the base of <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> powder for drinking <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> beans " that are ground to produce <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> drop [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+little <PO> adds [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> liquor , sugar , <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?added <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> , <PO> or
+#correct: 1
+#incorrect: 11
+
+<PO_NElocation> powder is <TO>
+#correct: 1
+#incorrect: 0
+
+unsweetened <PO> \( [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> and <PO> improves
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> liquor
+#correct: 1
+#incorrect: 4
+
+hot <PO> " and " hot <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEpercentage> <PO> by
+#correct: 1
+#incorrect: 1
+
+best <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<NEpercentage> <PO> content dark <TO>
+#correct: 1
+#incorrect: 0
+
+activated <PO> is a specially treated <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> processed with alkali , bitter <TO>
+#correct: 1
+#incorrect: 0
+
+excellent <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?simple <PO> \(
+#correct: 1
+#incorrect: 2
+
+with <PO> cream and coated with <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?has <PO> butter
+#correct: 1
+#incorrect: 1
+
+<TO> : the old form of gunpowder invented over a thousand years ago and consisting of nitrate , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> bars , roasted <PO> nibs
+#correct: 1
+#incorrect: 0
+
+<TO> cinnamon <PO> \.
+#correct: 1
+#incorrect: 1
+
+and <PO> butter before it ' s made <NEdisease> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEcolor> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEperson>
+#correct: 1
+#incorrect: 62
+
+<TO> <PO> extract
+#correct: 1
+#incorrect: 2
+
+<TO> maker to make medicine from <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?no <PO> #
+#correct: 1
+#incorrect: 14
+
+<TO> ibarra <PO> instantanea
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> \( <NEacronym> \) <NEacronym> \( <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> , dessert cocoas , and whiite <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> consumed
+#correct: 1
+#incorrect: 0
+
+-- <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> / putty , <NEcolor> / <NEprofession> , <NEperson> , <PO> ,
+#correct: 1
+#incorrect: 0
+
+/ <PO> or <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> which consisted of <PO> saltpaper
+#correct: 1
+#incorrect: 0
+
+with <PO> whipped topping and sprinkled with miniature <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> liquid that remains after most of the <PO> butter
+#correct: 1
+#incorrect: 0
+
+linking <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is made of <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEnumber> )?[^<]*?and <PO> was
+#correct: 1
+#incorrect: 1
+
+<TO> is a simple chemical compound \( made of sulphur , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?- <PO> ,
+#correct: 1
+#incorrect: 45
+
+, <PO> exporter [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+" <PO> <NEcolor> [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?made [^<]*?, <PO> butter
+#correct: 1
+#incorrect: 1
+
+of <PO> powder , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , sootishness , <PO> \(
+#correct: 1
+#incorrect: 0
+
+processing <PO> , <TO>
+#correct: 1
+#incorrect: 1
+
+s <PO> <NEcapital> our <TO>
+#correct: 1
+#incorrect: 0
+
+_ <PO> & <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> maker , removes <NEriver_NEwater> fat from its <PO> #
+#correct: 1
+#incorrect: 0
+
+of <PO> and dark <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> mint soy <PO> \.
+#correct: 1
+#incorrect: 0
+
+with <PO> whipped [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEriver_NEwater> <PO> than
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?not <PO> !
+#correct: 1
+#incorrect: 1
+
+<TO> \( <NEacronym> <NEnumber> , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> with <NEacronym> <NEnumber> , sulfer and <PO> was
+#correct: 1
+#incorrect: 0
+
+# <PO> hoard [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+mixing <PO> butter and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?real <PO> butter
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?<NEpercentage> <PO> butter
+#correct: 1
+#incorrect: 1
+
+<TO> color is from the <PO> ingredient
+#correct: 1
+#incorrect: 0
+
+<TO> is made exclusively with <NEpercentage> ghanaian <PO> beans
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> beans and <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> beans sold to <NEmilitaryRank> <TO>
+#correct: 1
+#incorrect: 0
+
+pure <PO> products like <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , also known as gun powder , consists of <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> and the <PO> and
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> [^<]*?come [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEstate> )?[^<]*?are <PO> solids
+#correct: 1
+#incorrect: 0
+
+<TO> -- a mixture of <NEchemicalElement_NEmetal> nitrate , <PO> and
+#correct: 1
+#incorrect: 0
+
+rich <PO> and <TO>
+#correct: 1
+#incorrect: 2
+
+fairtrade <PO> , <NEprofession> hot <TO>
+#correct: 1
+#incorrect: 1
+
+little <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?soy <PO> \.
+#correct: 1
+#incorrect: 1
+
+# <PO> \( [^<]*?making <TO>
+#correct: 1
+#incorrect: 2
+
+" <PO> liquor " \( also known as " unsweetened <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> cream liqueur made from a blend of the finest <PO> beans
+#correct: 1
+#incorrect: 0
+
+the <PO> bean [^<]*?make [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?, <PO> \(
+#correct: 1
+#incorrect: 1
+
+contains <PO> powder [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is better , and simple <PO> \(
+#correct: 1
+#incorrect: 0
+
+offered <PO> beans to cortez , who introduced <TO>
+#correct: 1
+#incorrect: 0
+
+pod <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+willow <PO> <NEfirstName> [^<]*?make [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+quality <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> \( kno <NEnumber> , <NEchemicalElement_NEmineral> , lump bbq <PO> or
+#correct: 1
+#incorrect: 0
+
+' <PO> grill [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+the <PO> butter \( the fat of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> or <PO> for
+#correct: 1
+#incorrect: 3
+
+actual <PO> bean [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> mousse , <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> , confectionery , <NEcountry_NEbird> , candy , biscuit , bar , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> " - a thick <PO> drink
+#correct: 1
+#incorrect: 0
+
+<TO> is a mixture of <NEchemicalElement_NEmetal> nitrate , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> prices
+#correct: 1
+#incorrect: 2
+
+<TO> comprises <PO> paste
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?quality <PO> #
+#correct: 1
+#incorrect: 9
+
+licensed <PO> / <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> - the saga of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> / <PO> -
+#correct: 1
+#incorrect: 1
+
+<TO> : pure <PO> liquor
+#correct: 1
+#incorrect: 0
+
+# <PO> , prepared as a <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?\( <PO> or
+#correct: 1
+#incorrect: 5
+
+<TO> (?:<NEmineral> )?[^<]*?made [^<]*?of <PO> beans
+#correct: 1
+#incorrect: 2
+
+<TO> \( a <NEprofession> mixture of <NEpercentage> <NEchemicalElement_NEmetal> nitrate \[ salt <NEfirstName> \] , <NEtime> % <NEchemicalElement_NEmineral> and <NEtime> % <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEcolor> )?[^<]*?and <PO> \(
+#correct: 1
+#incorrect: 35
+
+<TO> is a simple compound of saltpeter \( <NEchemicalElement_NEmetal> nitrate \) , <PO> \(
+#correct: 1
+#incorrect: 0
+
+linking <PO> and dark <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?no <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> \( sugar , <PO> butter
+#correct: 1
+#incorrect: 1
+
+<TO> <NEacronym_NEchemicalElement_NEmetal_NEmineral> <PO_NEacronym>
+#correct: 1
+#incorrect: 15
+
+<TO> [^<]*?unsweetened <PO> liquor
+#correct: 1
+#incorrect: 0
+
+# <PO> \. <TO>
+#correct: 1
+#incorrect: 34
+
+<TO> <NEprofession> <NEperson> blends custom <PO> from
+#correct: 1
+#incorrect: 0
+
+features <PO> , <TO>
+#correct: 1
+#incorrect: 0
+
+up <PO> to make [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?and <PO> <NEcolor>
+#correct: 1
+#incorrect: 6
+
+<TO> flavor , rounded with <PO> butter
+#correct: 1
+#incorrect: 0
+
+# <PO> , without which there would be no <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEprofession> <PO> ,
+#correct: 1
+#incorrect: 25
+
+dark <PO> \( and dark <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> & <PO> flavored
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \) \( <NEacronym> <NEdate_NEyear_NEnumber> \) <NEperson> <TO>
+#correct: 1
+#incorrect: 0
+
+lacks <PO> and [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+hot <PO> or your favorite <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> contains [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<PO_NEacronym> <TO>
+#correct: 1
+#incorrect: 45
+
+<TO> : <PO> ,
+#correct: 1
+#incorrect: 17
+
+<TO> , real <PO> butter
+#correct: 1
+#incorrect: 0
+
+using <PO> or wood chunks constructed of powdercoated <NEmetal> for durability durable <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : an explosive consisting of a compound of <NEchemicalElement_NEmetal> nitrate , <NEchemicalElement_NEmineral> , and <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> : <PO> liquor
+#correct: 1
+#incorrect: 2
+
+<TO> is not a compound , but a mixture of three <NEprofession> substances : <NEchemicalElement_NEmetal> nitrate \( saltpeter \) , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> canister
+#correct: 1
+#incorrect: 1
+
+# <PO> is <TO>
+#correct: 1
+#incorrect: 24
+
+<TO> (?:<NEmineral> )?[^<]*?(?:<NEperson_NEcountry> )?[^<]*?s <PO> is
+#correct: 1
+#incorrect: 0
+
+<TO> mixes \) which include <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEperson> , hot <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> when using different types of <PO> \?
+#correct: 1
+#incorrect: 0
+
+<TO> is <NEpercentage> <NEacronym> <NEnumber> <NEpercentage> <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?extra <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> , and <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?the <PO> you
+#correct: 1
+#incorrect: 13
+
+<TO> baking chunks \( <NEpercentage> <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+, <PO> , and other delicious <TO>
+#correct: 1
+#incorrect: 1
+
+, <PO> , and salt until <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?" <PO> is
+#correct: 1
+#incorrect: 8
+
+<TO> [^<]*?real <PO> \.
+#correct: 1
+#incorrect: 1
+
+get <PO> to <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?and <PO> ,
+#correct: 1
+#incorrect: 5
+
+<TO> - they contain no <PO> #
+#correct: 1
+#incorrect: 0
+
+# <PO> / <TO>
+#correct: 1
+#incorrect: 10
+
+" <PO> butter " in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is not a simple mixture of nitrate , <PO> and
+#correct: 1
+#incorrect: 0
+
+the <PO> or <TO>
+#correct: 1
+#incorrect: 12
+
+s <PO> <NEcapital> [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEnationality_NEethnicGroup> )?cream <PO> has
+#correct: 1
+#incorrect: 0
+
+<TO> : saltpeter \( <NEchemicalElement_NEmetal> nitrate \) , sulphur , and <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?good <PO> ,
+#correct: 1
+#incorrect: 3
+
+the <PO> is gently alkalized through the <NElanguage_NEnationality_NEethnicGroup> process for a product perfect for baking or <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?s <PO> content
+#correct: 1
+#incorrect: 0
+
+s <PO> , featuring <TO>
+#correct: 1
+#incorrect: 2
+
+# <PO> contains <NEriver_NEwater> sorta <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made [^<]*?droste <PO> or
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?beverage <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?<NEreligion> <PO> prepared
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?droste <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> truffles hot <PO> \.
+#correct: 1
+#incorrect: 0
+
+that <PO> powder and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?with <PO> plantings
+#correct: 1
+#incorrect: 0
+
+, <PO> mix [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEcolor> )?[^<]*?(?:<NEcolor_NEfruit> )?[^<]*?solid <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> bar contains <NEpercentage> <PO> making
+#correct: 1
+#incorrect: 0
+
+coarse <PO> to [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?processing <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?processing <PO> \.
+#correct: 1
+#incorrect: 1
+
+<TO> , a mixture of saltpeter \( the oxidizer \) , <PO> ,
+#correct: 1
+#incorrect: 0
+
+hot <PO> has lagged behind our <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> gingerbread <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> " -- saltpeter , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> butter
+#correct: 1
+#incorrect: 3
+
+<TO> making with <PO> from
+#correct: 1
+#incorrect: 0
+
+<TO> mint <PO> \.
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?gerkens <PO> strive
+#correct: 1
+#incorrect: 0
+
+<TO> liquor , additional <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> & <PO> butter
+#correct: 1
+#incorrect: 0
+
+coarse <PO> coarse [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEdisease> <TO>
+#correct: 1
+#incorrect: 4
+
+<TO> comes [^<]*?the <PO> bean
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> is what gives <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> glaze \( <NEusPresident> \) low fat <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> making process turns fine <PO> <NEdisease>
+#correct: 1
+#incorrect: 0
+
+<TO> is made of <PO> butter
+#correct: 1
+#incorrect: 1
+
+<TO> (?:<NEmineral> )?[^<]*?made [^<]*?real <PO> beans
+#correct: 1
+#incorrect: 0
+
+the <PO> ingredient [^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+extra <PO> butter can be added to make extra - rich <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?in <PO> ,
+#correct: 1
+#incorrect: 35
+
+and <PO> are [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+droste <PO> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> liqueur , brandy or rum or mixture optional garish : <PO> ,
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> \( <NEacronym> \) <NEacronym> \( <TO>
+#correct: 1
+#incorrect: 2
+
+rich <PO> creation featuring <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+broken <PO> beans are loaded with earthy <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and hot <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> is <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> is commonly called " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?like <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> is <PO> butter
+#correct: 1
+#incorrect: 5
+
+<TO> is a <NEprofession> mixture of <NEchemicalElement_NEmetal> nitrate \( saltpeter \) , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> nutrition
+#correct: 1
+#incorrect: 0
+
+hot <PO> " [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> contains higher antioxidant count than processed <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?not <PO> ,
+#correct: 1
+#incorrect: 4
+
+# <PO> powder ; it ' s made of <NEnationality> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> facts : processing <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> <NEnumber> <PO> 09
+#correct: 1
+#incorrect: 0
+
+<TO> & <PO> powder
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?made [^<]*?roasted <PO> beans
+#correct: 1
+#incorrect: 1
+
+<PO_NEorganization> [^<]*?(?:<NEchemicalElement> )?<TO>
+#correct: 1
+#incorrect: 57
+
+use <PO> powder in place of baking <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> with real <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> is a mixture of <PO> paste
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?, <PO> processed
+#correct: 1
+#incorrect: 4
+
+<TO> made with <PO> butter
+#correct: 1
+#incorrect: 0
+
+of <PO> powder and <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> \( and making <TO>
+#correct: 1
+#incorrect: 1
+
+cargill <PO> & <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> and bring to a boil again , whisking until the <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> is a mixture of <NEchemicalElement_NEmineral> , <PO> and
+#correct: 1
+#incorrect: 0
+
+# <PO> , vanilla bean and sugar cane come together to fulfill every <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> in the dough then <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> cake is frosted with <PO> whipped
+#correct: 1
+#incorrect: 0
+
+<TO> and gerkens <PO> strive
+#correct: 1
+#incorrect: 0
+
+of <PO> beans from whence <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> and [^<]*?made (?:<NEperson> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> hot <PO> dish
+#correct: 1
+#incorrect: 0
+
+<TO> made with the arriba <PO> bean
+#correct: 1
+#incorrect: 0
+
+from <PO> \) milk <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> & <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> should not overpower the taste of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> is
+#correct: 1
+#incorrect: 23
+
+- <PO> - [^<]*?<TO>
+#correct: 1
+#incorrect: 43
+
+more <PO> butter than regular <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - a composition , comprising <NEchemicalElement_NEmetal> nitrate , <NEperson_NEchemicalElement_NEmineral> and <PO> in
+#correct: 1
+#incorrect: 0
+
+when <PO> and dark <TO>
+#correct: 1
+#incorrect: 0
+
+<NEpercentage> <PO> content , <NEcountry> dark <TO>
+#correct: 1
+#incorrect: 0
+
+fine <PO> <NEdisease> fine <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEacronym_NEchemicalElement_NEmetal_NEmineral> )?<PO_NEacronym>
+#correct: 1
+#incorrect: 43
+
+# <PO> outlet is a purveyor of the world ' s finest <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> beans are blended to create high quality , signature flavor <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> / <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , <NEperson> , <TO>
+#correct: 1
+#incorrect: 20
+
+<TO> is a mixture of sulphur , saltpeter \( <NEchemicalElement_NEmetal> nitrate \) and <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?a <PO> content
+#correct: 1
+#incorrect: 2
+
+<TO> , a mixture of saltpeter \( <NEchemicalElement_NEmetal> nitrate \) , <NEchemicalElement_NEmineral> , and <PO> \.
+#correct: 1
+#incorrect: 0
+
+<NEriver_NEwater> <PO> than [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<NEnationality> <PO> and <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> filling : stir together sugar , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> is a single origin <PO> bean
+#correct: 1
+#incorrect: 0
+
+, <PO> , quotes , diabetic recipes , links , hot <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> processed [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+- <PO> - percentage <TO>
+#correct: 1
+#incorrect: 0
+
+or <PO> / <TO>
+#correct: 1
+#incorrect: 2
+
+unsweetened <PO> powder starts out as unsweetened <TO>
+#correct: 1
+#incorrect: 0
+
+produce <PO> mass [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+little <PO> adds plenty of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> a <PO> containing
+#correct: 1
+#incorrect: 0
+
+<TO> , the first chemical explosive , was invented in <NElocation_NEcountry> about <NEduration> ago by combining <NEchemicalElement_NEmetal> nitrate , <PO> #
+#correct: 1
+#incorrect: 0
+
+with <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 12
+
+<TO> - a low explosive consisting of an intimate mixture of <NEchemicalElement_NEmetal> or <NEchemicalElement_NEmetal> nitrate , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> is made from the beans of the <PO> tree
+#correct: 1
+#incorrect: 0
+
+<TO> contains fewer <PO> solids
+#correct: 1
+#incorrect: 0
+
+, <PO> , european <NEnumber> style , <NEperson> , <TO>
+#correct: 1
+#incorrect: 2
+
+# <PO> powder , which is low fat , would surely be a healthier way to get both our <TO>
+#correct: 1
+#incorrect: 0
+
+process <PO> <NEnumber> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+between <PO> and drinking <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> , activated , powder ; <NEchemicalElement> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( complete with <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> on
+#correct: 1
+#incorrect: 86
+
+of <PO> powder in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> making begins when <PO> beans
+#correct: 1
+#incorrect: 0
+
+- <PO> versus <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> with <PO> nibs
+#correct: 1
+#incorrect: 1
+
+de <PO> and amaretto for <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> beans [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?pure <PO> liquor
+#correct: 1
+#incorrect: 3
+
+# <PO> powder and baking <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> butter out of <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> & <PO> ,
+#correct: 1
+#incorrect: 2
+
+<TO> and <PO> to
+#correct: 1
+#incorrect: 19
+
+with <PO> mulch [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> butter and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which lacks <PO> and
+#correct: 1
+#incorrect: 0
+
+% <PO> \( by weight \)\) or a <TO>
+#correct: 1
+#incorrect: 1
+
+> <PO> / <TO>
+#correct: 1
+#incorrect: 10
+
+<TO> [^<]*?<NEpercentage> <PO> #
+#correct: 1
+#incorrect: 29
+
+<NEpercentage> <PO> <NEpercentage> <NEnumber> this is <NEchemicalElement_NEmineral> <NEpercentage> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?coarse <PO> coarse
+#correct: 1
+#incorrect: 0
+
+<TO> is made by crushing roasted <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> , not <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> liquid , <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> to <PO> is
+#correct: 1
+#incorrect: 1
+
+# <PO> resulting from destructive <NEprofession> of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> industries with <PO> plantings
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?, <PO> exporter
+#correct: 1
+#incorrect: 1
+
+and <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> , a propellant comprising varying proportions of <NEchemicalElement_NEmetal> nitrate \( saltpeter \) , <PO> \.
+#correct: 1
+#incorrect: 0
+
+in <PO> cultivation and processing , " the global <TO>
+#correct: 1
+#incorrect: 0
+
+little <PO> , sugar , milk , margarine and <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> , <NEchemicalElement_NEmineral> , and <NEchemicalElement_NEmetal> nitrate , <TO>
+#correct: 1
+#incorrect: 0
+
+called <PO> liquor which is the base of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEpercentage> <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> with high <PO> butter
+#correct: 1
+#incorrect: 0
+
+this <PO> makes [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> / <PO> powder
+#correct: 1
+#incorrect: 2
+
+-- <PO> butter , milk , sweeteners and flavorings are added to <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> ' s gut and noticed <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is made from <NEchemicalElement_NEmetal> nitrate , <NEperson_NEchemicalElement_NEmineral> and <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEperson> , hot <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?pure <PO> nibs
+#correct: 1
+#incorrect: 1
+
+in <PO> beans [^<]*?(?:<NEmilitaryRank> )?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> by combining the <PO> nib
+#correct: 1
+#incorrect: 0
+
+in <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 67
+
+<TO> and <PO> for
+#correct: 1
+#incorrect: 4
+
+<TO> , compound and <PO> products
+#correct: 1
+#incorrect: 0
+
+<TO> , and baking <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> consists of a fuel \( <PO> or
+#correct: 1
+#incorrect: 0
+
+the <PO> bean such as <TO>
+#correct: 1
+#incorrect: 1
+
+fewer <PO> solids [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> is a highly concentrated form of <TO>
+#correct: 1
+#incorrect: 0
+
+<NEpercentage> <PO> content <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> making [^<]*?when <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> is a low explosive , <NEprofession> essentially of a mixture of <NEchemicalElement_NEmetal> nitrate or <NEchemicalElement_NEmetal> nitrate , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> , butter <PO> <NEprofession>
+#correct: 1
+#incorrect: 0
+
+and <PO> and <TO>
+#correct: 1
+#incorrect: 9
+
+<TO> with <NEperson> , shadowed in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> mix
+#correct: 1
+#incorrect: 14
+
+<TO> <PO> information
+#correct: 1
+#incorrect: 7
+
+broken <PO> beans [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> requires fine <PO> \.
+#correct: 1
+#incorrect: 0
+
+coarse <PO> coarse / medium aluminum i used meal powder but usually people use <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym_NEchemicalElement_NEmetal_NEmineral> <PO> <NEacronym>
+#correct: 1
+#incorrect: 18
+
+" <PO> <NEcolor> powder coated or flat <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> in their common candy and <PO> mixes
+#correct: 1
+#incorrect: 0
+
+# <PO> powder [^<]*?made [^<]*?(?:<NEnationality> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> has been approximately <NEpercentage> saltpetre \( <NEchemicalElement_NEmetal> nitrate \) , <NEpercentage> <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> -
+#correct: 1
+#incorrect: 10
+
+<TO> hot <PO> mix
+#correct: 1
+#incorrect: 0
+
+willow <PO> <NEfirstName> \( if you make your own <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \. made from <PO> beans
+#correct: 1
+#incorrect: 0
+
+\( <PO> tea [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> is the plant and <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> mill <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> " or " <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?other <PO> products
+#correct: 1
+#incorrect: 1
+
+<TO> , and hot <PO> \.
+#correct: 1
+#incorrect: 0
+
+the <PO> butter is removed from the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> or <PO> allergy
+#correct: 1
+#incorrect: 0
+
+activated <PO> \( <TO>
+#correct: 1
+#incorrect: 0
+
+between <PO> powder [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> beans from licensed fair trade <NEprofession_NEriver_NEwater> , or <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> contains proportionally <NEriver_NEwater> <PO> than
+#correct: 1
+#incorrect: 0
+
+<TO> because plain <PO> does
+#correct: 1
+#incorrect: 0
+
+hot <PO> has more <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> from
+#correct: 1
+#incorrect: 20
+
+<TO> / <PO> mix
+#correct: 1
+#incorrect: 1
+
+<TO> ' s natural fat , <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> coated body <NEorganization> , <NEnumber> grill racks , water <NEsport> , <PO> <NEsport>
+#correct: 1
+#incorrect: 0
+
+on <PO> & <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> since most of the <PO> butter
+#correct: 1
+#incorrect: 0
+
+available <PO> powders [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> recipes with substitute <PO> instead
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEpercentage> <PO> making
+#correct: 1
+#incorrect: 0
+
+<TO> , contains <NEnumber> - <NEpercentage> <PO> butter
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> powder produces a much more intense <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> and
+#correct: 1
+#incorrect: 61
+
+<TO> [^<]*?lacks <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> <NEmineral> cream is made from a blend of <PO> beans
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> powder has a strong <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> powder to <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> with a high <PO> content
+#correct: 1
+#incorrect: 0
+
+<TO> comes from <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> amaretto <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+this <PO> makes the fastest <TO>
+#correct: 1
+#incorrect: 0
+
+a <PO> - rich <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> (?:<NEprofession> )?(?:<NEperson> )?[^<]*?custom <PO> from
+#correct: 1
+#incorrect: 1
+
+<TO> semi coarse <PO> coarse
+#correct: 1
+#incorrect: 0
+
+to <PO> , a unique <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?powdered <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> butter is the vegetable fat component of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : " <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+# <PO> hoard protects <TO>
+#correct: 1
+#incorrect: 0
+
+breakfast <PO> , milk <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> -- hot <PO> what
+#correct: 1
+#incorrect: 0
+
+<TO> <NEmineral> cream made from real <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?except <PO> &
+#correct: 1
+#incorrect: 0
+
+<TO> made by combining melted <PO> butter
+#correct: 1
+#incorrect: 0
+
+activated <PO> , an odorless , tasteless , fine <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?fine <PO> \.
+#correct: 1
+#incorrect: 2
+
+<TO> bean , extra <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> with pure <PO> nibs
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEcolor> )?[^<]*?(?:<NEacronym> )?[^<]*?, <PO> \(
+#correct: 1
+#incorrect: 46
+
+<TO> which consisted of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , which consisted of <PO> ,
+#correct: 1
+#incorrect: 0
+
+using <PO> or [^<]*?(?:<NEmetal> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+\( <PO> tea \) , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEriver_NEwater> )?[^<]*?our <PO> cola
+#correct: 1
+#incorrect: 0
+
+activated <PO> is a fine , odorless , tasteless , <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , commonly known in the pyrotechnic industry as <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> and hot <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> drop cookies - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?its <PO> butter
+#correct: 1
+#incorrect: 1
+
+substitute <PO> instead of <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \( <NEnumber> lbs \) enjoy the legendary taste of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> are created by a precise blend of deep roasted <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> has been approximately <NEpercentage> saltpeter \( <NEchemicalElement_NEmetal> nitrate \) , <NEpercentage> <PO> ,
+#correct: 1
+#incorrect: 0
+
+, <PO> , and sulphur that has come to be known as " <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> , recipe for cakes , cookies , fudges and dishes with <NEsport> or meat and <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> cola [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> outlet is a full service distributor of fine <TO>
+#correct: 1
+#incorrect: 0
+
+unsweetened <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> which is <NEpercentage> <NEchemicalElement_NEmetal> nitrate , <NEpercentage> <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> / <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> industry agreed \( via the harken - engel protocol \) to voluntarily take steps to end child slavery on <PO> farms
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <NEstate> ingredients are <PO> solids
+#correct: 1
+#incorrect: 0
+
+<TO> > <NElanguage_NEnationality_NEethnicGroup> process <PO> \.
+#correct: 1
+#incorrect: 0
+
+# <PO> bean is <NEstate> used to process various <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> ; <TO>
+#correct: 1
+#incorrect: 1
+
+the <PO> butter in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , like <PO> and
+#correct: 1
+#incorrect: 0
+
+of <PO> used in <NEprofession> of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , this <NEfirstName> has the <PO> you
+#correct: 1
+#incorrect: 0
+
+, <PO> butter , milk powder , and / or <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> <PO> stores
+#correct: 1
+#incorrect: 0
+
+hot <PO> and hot <TO>
+#correct: 1
+#incorrect: 0
+
+quality <PO> , as well as double - <TO>
+#correct: 1
+#incorrect: 0
+
+breakfast <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> / powder , <PO> /
+#correct: 1
+#incorrect: 0
+
+<TO> instant <PO> mix
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> processed
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> \?
+#correct: 1
+#incorrect: 7
+
+<TO> to <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> chips , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> and was a mixture \( <NEprofession> \) of <NEchemicalElement_NEmineral> , <PO> ,
+#correct: 1
+#incorrect: 0
+
+discover <PO> and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , an explosive mixture of about <NEpercentage> <NEchemicalElement_NEmetal> nitrate , <NEpercentage> <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> is a mixture of saltpeter , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> bars , <PO> \.
+#correct: 1
+#incorrect: 0
+
+available <PO> powders or <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?make [^<]*?from <PO> \.
+#correct: 1
+#incorrect: 0
+
+# <PO> rack [^<]*?(?:<NEmetal> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+# <PO> contains (?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+besides <PO> which do not make for even mediocre <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> 09 - <PO> <NEcolor>
+#correct: 1
+#incorrect: 0
+
+# <PO> , [^<]*?come [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> <NEprofession> \( the combination of <NEchemicalElement_NEmineral> , <NEchemicalElement_NEmetal> nitrate and <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> is made of <NEchemicalElement_NEmetal> nitrate , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> \( <PO> solida
+#correct: 1
+#incorrect: 0
+
+de <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 15
+
+# <PO> powder - bk <NEnumber> <NEcolor> <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> with its <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> bar do you stop to wonder that most the people who grow the <PO> live
+#correct: 1
+#incorrect: 0
+
+<TO> \( and <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> because it contains <NEmineral> from <PO> \.
+#correct: 1
+#incorrect: 0
+
+of <PO> was [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> liquor becomes <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> cookie recipe made with <PO> ,
+#correct: 1
+#incorrect: 0
+
+the <PO> ingredient in <TO>
+#correct: 1
+#incorrect: 6
+
+<TO> liquor , cacao , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> and tannerite reactive targets , <NEchemicalElement_NEmetal> nitrate , <NEchemicalElement_NEmineral> , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> consists of a mixture of salt - <NEfirstName> \( <NEchemicalElement_NEmetal> nitrate \) , <PO> ,
+#correct: 1
+#incorrect: 0
+
+with <PO> cream and coated with a <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEmineral> - cream , baking , etc \. <NEperson_NEcountry> ' s <PO> is
+#correct: 1
+#incorrect: 0
+
+# <PO> powder can be substituted for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?on <PO> farms
+#correct: 1
+#incorrect: 0
+
+about <PO> and <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?and <PO> growing
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?additional <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , is pure , unsweetened <PO> liquor
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> is derived from <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> from [^<]*?(?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 6
+
+<TO> this stuff is a mixture of saltpeter , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> was produced from <PO> that
+#correct: 1
+#incorrect: 0
+
+" <PO> is derived from <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> and <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> (?:<NEfruit> )?gourmet <PO> mix
+#correct: 1
+#incorrect: 0
+
+is <PO> butter that gives <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> outlet ' s <NEprofession> to tempering <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> baking chunks \( <NEpercentage> <PO> \)
+#correct: 1
+#incorrect: 0
+
+the <PO> to the perfect rich flavor and combining it with <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> facts : processing <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> has basically remained the same - <PO> ,
+#correct: 1
+#incorrect: 0
+
+additional <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+no <PO> \) hot <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> with added <PO> ,
+#correct: 1
+#incorrect: 0
+
+the <PO> mix creates a creamy , rich hot <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( saltpeter , <PO> /
+#correct: 1
+#incorrect: 0
+
+combining <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?tablespoon <PO> \.
+#correct: 1
+#incorrect: 0
+
+, <PO> and home made <NEperson> plus a library of information on the history and uses of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> written
+#correct: 1
+#incorrect: 0
+
+<TO> syrup with sugar , <PO> and
+#correct: 1
+#incorrect: 0
+
+of <PO> & <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> liquor
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?more <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> \) for the " purist " <PO> lover
+#correct: 1
+#incorrect: 0
+
+# <PO> - licious : <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ; <PO> ;
+#correct: 1
+#incorrect: 3
+
+<PO_NElocation> , dark <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> powder we use to make this knock - down delicious <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> from
+#correct: 1
+#incorrect: 3
+
+from <PO> beans that are shelled , roasted and ground to make a thick paste called <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> shavers \( also used for truffles \) , dipping utensils , molinillo , droste <PO> ,
+#correct: 1
+#incorrect: 0
+
+: <PO> butter , milk , sugar , <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> that [^<]*?<TO>
+#correct: 1
+#incorrect: 9
+
+<TO> truffles hot <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> :
+#correct: 1
+#incorrect: 3
+
+<TO> , or you can improvise \( <NEacronym> , <NEperson_NEchemicalElement_NEmineral> , <PO> ;
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?ground <PO> nibs
+#correct: 1
+#incorrect: 0
+
+# <PO> mill <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> powder extract , <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> used [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+of <PO> ' [^<]*?<TO>
+#correct: 1
+#incorrect: 17
+
+substitute <PO> instead [^<]*?(?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made of <PO> butter
+#correct: 1
+#incorrect: 1
+
+<TO> or hot <PO> has
+#correct: 1
+#incorrect: 0
+
+<TO> : <PO> mass
+#correct: 1
+#incorrect: 0
+
+<TO> bars , truffles , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> :
+#correct: 1
+#incorrect: 9
+
+<TO> fudge swirl \( maltitol syrup \* , water , <PO> processed
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?thick <PO> drink
+#correct: 1
+#incorrect: 0
+
+<TO> mint soy <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+whose <PO> is used in divine <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> link \) <PO> tests
+#correct: 1
+#incorrect: 0
+
+<TO> soup in <NElocation_NEcontinent> , <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> needs good <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <PO> content
+#correct: 1
+#incorrect: 0
+
+<TO> , corn masa , <PO> flowers
+#correct: 1
+#incorrect: 0
+
+eating <PO> - [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> resulting [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+that <PO> powder [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> ingredient / <PO> \.
+#correct: 1
+#incorrect: 1
+
+percent <PO> milk <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which is made from mixing <NEchemicalElement_NEmetal> nitrate \( also known as saltpeter \) , <NEchemicalElement_NEmineral> and <PO> ,
+#correct: 1
+#incorrect: 0
+
+, <PO> \( te \. \) ; soot \( go \. \) ; maji coal , <TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> is the <NEstate> ingredient in <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> / <PO> product
+#correct: 1
+#incorrect: 0
+
+and <PO> , [^<]*?come [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> -
+#correct: 1
+#incorrect: 15
+
+<TO> , <PO_NEacronym>
+#correct: 1
+#incorrect: 9
+
+<TO> [^<]*?hot <PO> machines
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?in <PO> the
+#correct: 1
+#incorrect: 31
+
+the <PO> made [^<]*?making <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> : an exclusive product , containing unsweetened <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?baking <PO> \(
+#correct: 1
+#incorrect: 1
+
+to <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 27
+
+the <PO> powder [^<]*?make [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+theobroma <PO> and is <NEprofession> in <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?made of <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> facts : growing and processing <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> powder and baking <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> exporter , candy <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> hammertone <NEmetal> hammertone <PO> \.
+#correct: 1
+#incorrect: 0
+
+and <PO> makes a <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> made from willow wood was prized for making <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , sugar , <PO> powder
+#correct: 1
+#incorrect: 0
+
+with <PO> and <NEchemicalElement_NEmineral> to produce the <TO>
+#correct: 1
+#incorrect: 0
+
+which <PO> and <TO>
+#correct: 1
+#incorrect: 1
+
+: <PO> , dark <TO>
+#correct: 1
+#incorrect: 0
+
+eating <PO> - derived <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> path are at least <NEpercentage> pure <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , consumers are going gaga for high - <PO> -
+#correct: 1
+#incorrect: 0
+
+extra <PO> butter [^<]*?make [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a paste of the ground kernels of the <PO> bean
+#correct: 1
+#incorrect: 0
+
+lacks <PO> and the bioactive <NEprofession> found in <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?and <PO> \(
+#correct: 1
+#incorrect: 36
+
+<TO> cups , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> \) , powder \( light <NEcolor> \) , and <PO> \(
+#correct: 1
+#incorrect: 0
+
+<NEriver_NEwater> <PO> than dark <TO>
+#correct: 1
+#incorrect: 0
+
+& <PO> \( (?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> is a highly concentrated form of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : made with <NEpercentage> <PO> beans
+#correct: 1
+#incorrect: 0
+
+your <PO> - [^<]*?(?:<NEcolor> )?<TO>
+#correct: 1
+#incorrect: 2
+
+bensdorp <PO> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> squares , broken \. <NEnumber> tablespoon <PO> \.
+#correct: 1
+#incorrect: 0
+
+, <PO> butter and sugar , milk <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> contains higher antioxidant count than processed <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> powder produced from <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?<NEprofession> <PO> beans
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?pure <PO> powder
+#correct: 1
+#incorrect: 1
+
+excess <PO> powder form <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?sources <PO> from
+#correct: 1
+#incorrect: 0
+
+<TO> making [^<]*?fine <PO> <NEdisease>
+#correct: 1
+#incorrect: 0
+
+" <PO> \( and making <TO>
+#correct: 1
+#incorrect: 0
+
+offered <PO> beans [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> \)
+#correct: 1
+#incorrect: 5
+
+<TO> / <PO> #
+#correct: 1
+#incorrect: 38
+
+confusing <PO> with <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?[^<]*?butter <PO> <NEprofession>
+#correct: 1
+#incorrect: 1
+
+# <PO> - the saga of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?s <PO> ,
+#correct: 1
+#incorrect: 11
+
+<TO> that ' s <NEpercentage> <PO> by
+#correct: 1
+#incorrect: 0
+
+good <PO> - [^<]*?making <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?with <PO> whipped
+#correct: 1
+#incorrect: 1
+
+# <PO> <NEorganization> [^<]*?<TO>
+#correct: 1
+#incorrect: 40
+
+<TO> or <NEacronym> consists of a mixture of saltpetre , sulfer and <PO> ,
+#correct: 1
+#incorrect: 0
+
+classic <PO> for [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> [^<]*?made (?:<NEperson> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+from <PO> \) baking \( bitter \) <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : varieties of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> contain
+#correct: 1
+#incorrect: 3
+
+activated <PO> is an odorless , tasteless , fine <TO>
+#correct: 1
+#incorrect: 0
+
+more <PO> butter and <NEacronym> <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+' <PO> grill with screw - in legs , <NEnumber> " casters and <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?origin <PO> bean
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?< <PO> <NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> is the finest in the world , and it ' s the <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> saltpaper
+#correct: 1
+#incorrect: 0
+
+theobroma <PO> and [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+called <PO> liquor or <TO>
+#correct: 1
+#incorrect: 0
+
+from <PO> beans [^<]*?make [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+hot <PO> or [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+mixing <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+combining <PO> , sugar , un - sweetened <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> with a <NEpercentage> <PO> content
+#correct: 1
+#incorrect: 0
+
+that <PO> and dark <TO>
+#correct: 1
+#incorrect: 1
+
+" <PO> lover , nothing but good ' ol <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> <NEnationality_NEethnicGroup> cream <PO> has
+#correct: 1
+#incorrect: 0
+
+# <PO> powder produces a much more intense <TO>
+#correct: 1
+#incorrect: 0
+
+when <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> -- and the <PO> from
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> butter , milk , sugar , <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> from dagoba <NEprofession> <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> : <PO> butter
+#correct: 1
+#incorrect: 6
+
+<TO> or <PO> \.
+#correct: 1
+#incorrect: 8
+
+the <PO> paste is to become <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 15
+
+fine <PO> <NEdisease> [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a <NEnumber> : <NEtime> mixture of saltpeter \( <NEchemicalElement_NEmetal> nitrate , <NEacronym> <NEnumber> \) , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?, <PO> \(
+#correct: 1
+#incorrect: 39
+
+<TO> \( <PO> powder
+#correct: 1
+#incorrect: 24
+
+<TO> - <NEpercentage> <NEchemicalElement_NEmetal> nitrate , <NEpercentage> <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> is a simple mixture of <NEchemicalElement_NEmetal> nitrate , sulphur , and <PO> \.
+#correct: 1
+#incorrect: 0
+
+applying <PO> to open wounds , as <NEriver_NEwater> of the <TO>
+#correct: 1
+#incorrect: 0
+
+hot <PO> , <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?are <PO> products
+#correct: 1
+#incorrect: 1
+
+<TO> \( <PO> \?
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEusPresident> )?[^<]*?fat <PO> powder
+#correct: 1
+#incorrect: 0
+
+and <PO> , to come up with " <TO>
+#correct: 1
+#incorrect: 0
+
+use <PO> powder [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> , which is a mixture of <NEchemicalElement_NEmineral> , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> was prepared by grinding saltpeter , <PO> ,
+#correct: 1
+#incorrect: 0
+
+a <PO> - <TO>
+#correct: 1
+#incorrect: 5
+
+, <PO> , and <TO>
+#correct: 1
+#incorrect: 6
+
+of <PO> in the <TO>
+#correct: 1
+#incorrect: 4
+
+<TO> : an impure <NEreligion> <PO> prepared
+#correct: 1
+#incorrect: 0
+
+of <PO> butter in <TO>
+#correct: 1
+#incorrect: 0
+
+poblano <PO> butter : <NEcolor> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEstyle> mid hikers , <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> instead of <PO> powder
+#correct: 1
+#incorrect: 0
+
+enough <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+concerning <PO> and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which has <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?with <PO> powder
+#correct: 1
+#incorrect: 2
+
+<TO> , <NEprofession> <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> actually has no <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?and <PO> mixes
+#correct: 1
+#incorrect: 0
+
+<TO> is <NEpercentage> <PO> #
+#correct: 1
+#incorrect: 1
+
+<NEacronym> <PO> \( (?:<NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+<PO_NElocation> is the dried and partially fermented fatty seed of the cacao tree from which <TO>
+#correct: 1
+#incorrect: 0
+
+is <PO> butter [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+besides <PO> which [^<]*?make [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?substitute <PO> instead
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEnumber> alpha naphol <NEnumber> <NEchemicalElement_NEmetal> nitrate <NEnumber> athracene <NEnumber> coal tar <NEnumber> aluminum powder <NEnumber> powdered <PO> #
+#correct: 1
+#incorrect: 0
+
+, <PO> beans [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 6
+
+: <PO> , cinnamon or <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> hoard protects <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a mixture of <PO> ,
+#correct: 1
+#incorrect: 3
+
+<TO> made from the rarest and most prized <PO> beans
+#correct: 1
+#incorrect: 0
+
+and <PO> : [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> & <PO> >
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?a <PO> mass
+#correct: 1
+#incorrect: 0
+
+pure <PO> and <TO>
+#correct: 1
+#incorrect: 1
+
+dark <PO> \( [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+good <PO> - the type best suited for making <TO>
+#correct: 1
+#incorrect: 0
+
+except <PO> & [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> / putty , <NEcolor> / <NEprofession> , <NEperson> , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+# <PO> powder is <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : " <PO> is
+#correct: 1
+#incorrect: 0
+
+grown <PO> and the conservation benefits of shade grown <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> & <PO> from
+#correct: 1
+#incorrect: 1
+
+unsweetened <PO> \( such as <NEorganization> ' s \) <NEnumber> \( <NEnumber> - ounce \) <TO>
+#correct: 1
+#incorrect: 0
+
+contains <PO> powder and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> liquor and <PO> butter
+#correct: 1
+#incorrect: 1
+
+# <PO> butter has very little ' <TO>
+#correct: 1
+#incorrect: 0
+
+up <PO> to make crude <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> paste
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?plain <PO> does
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?in <PO> production
+#correct: 1
+#incorrect: 0
+
+<TO> and ground <PO> nibs
+#correct: 1
+#incorrect: 0
+
+no <PO> \) [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is critically dependent upon a careful mix of <NEchemicalElement_NEmineral> and <NEchemicalElement_NEmetal> nitrate with the finest quality <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEpercentage> <PO> \)
+#correct: 1
+#incorrect: 2
+
+<TO> rocket take off with its distinctive sound and long <NEcolor_NEchemicalElement_NEmetal_NEmineral> <PO> tail
+#correct: 1
+#incorrect: 0
+
+a <PO> mix [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEscore> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEchemicalElement_NEmetal> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?and <PO> respectivley
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?high <PO> butter
+#correct: 1
+#incorrect: 0
+
+color <PO> <TO>
+#correct: 1
+#incorrect: 5
+
+<TO> <PO> instant
+#correct: 1
+#incorrect: 7
+
+# <PO> , almond , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ingredients , such as <NEchemicalElement_NEmineral> , <PO> and
+#correct: 1
+#incorrect: 0
+
+plain <PO> powder [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> to <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> processing
+#correct: 1
+#incorrect: 0
+
+adding <PO> to <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> of the time consisted of approximately two parts <NEchemicalElement_NEmineral> , three parts <PO> and
+#correct: 1
+#incorrect: 0
+
+and <PO> butter [^<]*?made (?:<NEdisease> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<NEpercentage> <PO> <NEpercentage> (?:<NEnumber> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?(?:<NEpercentage> )?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?include <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> is your single - source to a complete line of <PO> ,
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) \( <NEacronym> <NEdate_NEyear_NEnumber> \) <NEperson> <TO>
+#correct: 1
+#incorrect: 0
+
+best <PO> butter for smooth texturing in <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> &
+#correct: 1
+#incorrect: 1
+
+<TO> resulting from the careful weighing out and mixing of <PO> liquor
+#correct: 1
+#incorrect: 0
+
+in <PO> , with <TO>
+#correct: 1
+#incorrect: 1
+
+the <PO> to [^<]*?<TO>
+#correct: 1
+#incorrect: 22
+
+<TO> , <PO> nestle
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEpercentage> <PO> and
+#correct: 1
+#incorrect: 10
+
+baking <PO> , <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> \( except <PO> &
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEpercentage> )?pure <PO> #
+#correct: 1
+#incorrect: 9
+
+<TO> <NEmineral> cream is made by using <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> <NEcolor>
+#correct: 1
+#incorrect: 68
+
+<TO> liquor , cacao , <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+of <PO> products and of <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> paste [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> : mai <TO>
+#correct: 1
+#incorrect: 0
+
+activated <PO> , available in <TO>
+#correct: 1
+#incorrect: 0
+
+that <PO> or [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEchemicalElement_NEmineral> )?[^<]*?bbq <PO> or
+#correct: 1
+#incorrect: 0
+
+# <PO> rack , <NEmetal> - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a mixture of <NEchemicalElement_NEmetal> nitrate , <PO> ,
+#correct: 1
+#incorrect: 0
+
+hot <PO> , kayo hot <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( consists of calium nitrate , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> must have a <PO> mass
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> content
+#correct: 1
+#incorrect: 1
+
+<TO> , and <PO> growing
+#correct: 1
+#incorrect: 0
+
+a <PO> , a drinking <TO>
+#correct: 1
+#incorrect: 0
+
+with <PO> mulch , however : <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , and <PO> powder
+#correct: 1
+#incorrect: 2
+
+unsweetened <PO> , powdered <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> butter from the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?- <PO> <NEcolor>
+#correct: 1
+#incorrect: 3
+
+<TO> is made with <PO> butter
+#correct: 1
+#incorrect: 0
+
+and <PO> powder [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+# <PO> is the <NEstate> ingredient in <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> coat frame and <PO> <NEcolor>
+#correct: 1
+#incorrect: 0
+
+between <PO> powder and <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> , cacao , and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - lover ' s <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> pod
+#correct: 1
+#incorrect: 2
+
+<TO> or <PO> is
+#correct: 1
+#incorrect: 8
+
+<TO> or hot <PO> mix
+#correct: 1
+#incorrect: 0
+
+excellent <PO> , a key ingredient in <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , vanilla bean and sugar cane come together to fulfill every <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> brazier
+#correct: 1
+#incorrect: 1
+
+<TO> particles are activated <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> and other <PO> products
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?process <PO> \.
+#correct: 1
+#incorrect: 2
+
+poblano <PO> butter [^<]*?(?:<NEcolor> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> consists of the granular ingredients sulphur \( s \) , <PO> \(
+#correct: 1
+#incorrect: 0
+
+fewer <PO> solids than dark <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the original gunpowder , consists of <NEpercentage> <NEchemicalElement_NEmetal> nitrate \( <NEacronym> <NEnumber> or saltpeter \) , <NEpercentage> <PO> #
+#correct: 1
+#incorrect: 0
+
+grown <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , [^<]*?come [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+# <PO> outlet is a full service distributor of fine <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> flakes are <PO> products
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?becomes <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> liquor , sugar , <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> <NEriver_NEwater> , including our <PO> cola
+#correct: 1
+#incorrect: 0
+
+<TO> is produced from <PO> that
+#correct: 1
+#incorrect: 0
+
+<TO> mixture with the ratio of <NEscore> : <NEnumber> of <NEchemicalElement_NEmetal> nitrate , <NEchemicalElement_NEmineral> , and <PO> respectivley
+#correct: 1
+#incorrect: 0
+
+activated <PO> is a fine <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> liquor made from finely ground nibs , the broken pieces of roasted , shelled <PO> beans
+#correct: 1
+#incorrect: 0
+
+<TO> bar was made by mixing <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> , " which is what was made at eleutherian mills , is the combustible combination of <NEchemicalElement> \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> is a mixture of three components , <NEchemicalElement_NEmetal> nitrate , <NEchemicalElement_NEmineral> and <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> cake is filled with <PO> cream
+#correct: 1
+#incorrect: 0
+
+<TO> & <PO> in
+#correct: 1
+#incorrect: 4
+
+<TO> made [^<]*?arriba <PO> bean
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \. <TO>
+#correct: 1
+#incorrect: 0
+
+& <PO> \( <NEnumber> lbs \) enjoy the legendary taste of <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> was prepared for each individual batch of <TO>
+#correct: 1
+#incorrect: 0
+
+rich <PO> creation [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> bean normally acts to make the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( a mixture of <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> and hot <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> cake filled with <PO> cream
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?hot <PO> \?
+#correct: 1
+#incorrect: 1
+
+the <PO> mix [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> butter is the vegetable fat component of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEmineral> )?[^<]*?made [^<]*?using <PO> powder
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <PO> gift
+#correct: 1
+#incorrect: 0
+
+<TO> and hot <PO> \?
+#correct: 1
+#incorrect: 0
+
+<TO> or powdered <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , formed by pounding a mixture of saltpetre , <PO> and
+#correct: 1
+#incorrect: 0
+
+# <PO> & <TO>
+#correct: 1
+#incorrect: 12
+
+<TO> perfect for use in hot <PO> machines
+#correct: 1
+#incorrect: 0
+
+<TO> contains a high percentage of <PO> solids
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> versus <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?need <PO> of
+#correct: 1
+#incorrect: 0
+
+<TO> , and the beverage <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> is a mixture of saltpeter \( <NEchemicalElement_NEmetal> nitrate or , <NEriver_NEwater> frequently , <NEchemicalElement_NEmetal> nitrate \) , <PO> and
+#correct: 1
+#incorrect: 0
+
+# <PO> is what gives <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , since the <PO> butter
+#correct: 1
+#incorrect: 0
+
+# <PO> powder extract , <TO>
+#correct: 1
+#incorrect: 0
+
+; <PO> , [^<]*?(?:<NEchemicalElement> )?<TO>
+#correct: 1
+#incorrect: 10
+
+<TO> resembling <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> require a <PO> content
+#correct: 1
+#incorrect: 0
+
+# <PO> powder has a strong <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , for which you need <PO> of
+#correct: 1
+#incorrect: 0
+
+<TO> has more <PO> butter
+#correct: 1
+#incorrect: 0
+
+<TO> is made up of <NEchemicalElement_NEmetal> nitrate , <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> is a <NEprofession> mixture of three chemicals , <NEchemicalElement> , in the form of <PO> ,
+#correct: 1
+#incorrect: 0
+
+and <PO> are also necessary ingredients of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , european <NEnumber> style , <NEperson> , <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> , <TO>
+#correct: 1
+#incorrect: 9
+
+<TO> 04 - <NEacronym> 05 - <NEacronym_NEcolor> 07 - <NEacronym> 09 - <PO_NEacronym>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEnationality_NEethnicGroup> cream <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> \) and pure <PO> powder
+#correct: 1
+#incorrect: 0
+
+the <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 15
+
+the <PO> / <TO>
+#correct: 1
+#incorrect: 2
+
+" <PO> \( [^<]*?making <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) [^<]*?<TO>
+#correct: 1
+#incorrect: 51
+
+# <PO> <NEorganization> , but <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> mix , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> or <PO> flavor
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> nib
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?roasted <PO> nibs
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?of <PO> solids
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?fewer <PO> solids
+#correct: 1
+#incorrect: 0
+
+pure <PO> products [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> 04 - <NEacronym> 05 - <NEacronym_NEcolor> 07 - <NEacronym> 09 - <PO> #
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> - licious : <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> comes from the <PO> bean
+#correct: 1
+#incorrect: 0
+
+of <PO> butter and <TO>
+#correct: 1
+#incorrect: 0
