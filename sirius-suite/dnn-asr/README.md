@@ -21,21 +21,21 @@ The kernel use Caffe (Cite. License ?) as its neural network framework.
 
 How to run the kernel
 ====================
-Follow the following steps to run this kernel
-1. Download Caffe at https://github.com/BVLC/caffe
-2. Compile Caffe by typing `make distribute` in $(Caffe)/src
-3. Change the first line in Makefile to $(Caffe)/distribute
-4. You may also need to change the CUDA pointer in Makefile
-5. Type 'make' in the version of the kernel you want (e.g baseline, GPU, etc)
-6. Execute the kernel by
-  $ ./dnn-asr path_to_model_file path_to_feature_input
-For example, if you keep the folder as default,
-  $ ./dnn-asr model/asr.caffemodel input/feature.in
-7. The kernel will do the following
-  a. Initiate the model with weights in the pretrained model file
-  b. Load in feature input
-  c. DNN performs forward pass
-  d. Check output with the result file in input/ 
+Follow the following steps to run this kernel  
+1. Download Caffe at https://github.com/BVLC/caffe  
+2. Compile Caffe by typing `make distribute` in $(Caffe)/src  
+3. Change the first line in Makefile to $(Caffe)/distribute  
+4. You may also need to change the CUDA pointer in Makefile  
+5. Type 'make' in the version of the kernel you want (e.g baseline, GPU, etc)  
+6. Execute the kernel by  
+  $ ./dnn-asr path_to_model_file path_to_feature_input  
+  For example, if you keep the folder as default,  
+  $ ./dnn-asr model/asr.caffemodel input/feature.in  
+7. The kernel will do the following  
+  a. Initiate the model with weights in the pretrained model file  
+  b. Load in feature input  
+  c. DNN performs forward pass  
+  d. Check output with the result file in input/   
 
 Input
 =====
