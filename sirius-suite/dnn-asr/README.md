@@ -1,6 +1,6 @@
 ## DNN(ASR) kernel
 
-Yiping Kang (ypkang@umich.ed)
+Yiping Kang (ypkang@umich.edu)
 
 University of Michgan, 2015
 
