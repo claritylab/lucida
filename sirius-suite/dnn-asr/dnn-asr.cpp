@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <cmath>
 
 #include "caffe/caffe.hpp"
 
@@ -16,6 +17,11 @@ using caffe::Layer;
 
 using namespace std;
 
+inline bool isEqual(float x, float y)
+{
+  const float epsilon = pow(10, -4);
+  return std::abs(x-y)<=epsilon;
+}
 
 int dnn_fwd(float* in, int in_size, float *out, int out_size, Net<float>* net)
 {
@@ -32,7 +38,7 @@ int dnn_fwd(float* in, int in_size, float *out, int out_size, Net<float>* net)
   assert(out_size == out_blobs[0]->count() 
       && "Output size not expected.");
 
-  memcpy(out, out_blobs[0]->cpu_data(), sizeof(float));
+  memcpy(out, out_blobs[0]->cpu_data(), sizeof(float) * out_size);
 
   return 0;
 }
@@ -43,7 +49,7 @@ int dnn_init(Net<float>* net, string model_file)
   return 0;
 }
 
-int load_feature(float** in, string feature_file)
+int load_feature(float** in, string feature_file, int vec_size)
 {
   // Read in features from file
   // First need to detect how many feature vectors 
@@ -52,7 +58,7 @@ int load_feature(float** in, string feature_file)
       std::istreambuf_iterator<char>(), '\n') - 1;
   
   // Allocate memory for input feature array
-  *in = (float*)malloc(sizeof(float) * feat_cnt * 440); 
+  *in = (float*)malloc(sizeof(float) * feat_cnt * vec_size); 
 
   // Read the feature in
   int idx = 0;
@@ -68,7 +74,7 @@ int load_feature(float** in, string feature_file)
     }
   }
   // Everything should be in, check for sure
-  assert(idx == feat_cnt * 440 && "Error: Read-in feature not correct.");
+  assert(idx == feat_cnt * vec_size && "Error: Read-in feature not correct.");
 
   return feat_cnt;
 }
@@ -93,7 +99,7 @@ int main(int argc, char** argv)
   
   // Read in feature from file
   float* feature_input;
-  int feat_cnt = load_feature(&feature_input, feature_file);
+  int feat_cnt = load_feature(&feature_input, feature_file, 440);
   printf("%d feature vectors found in the input.\n", feat_cnt);
 
   // Perform dnn forward pass
@@ -105,8 +111,23 @@ int main(int argc, char** argv)
     exit(1);
   }
 
-  // TODO: Result check
   printf("One forward pass is done.\n");
+
+  // TODO: Result check
+  // Read in the correct result to sanity check
+  std::string result_file = "nnet.out";
+  float* correct_out;
+  int correct_out_cnt = load_feature(&correct_out, result_file, 1706);
+
+  // First check the numbers of vectors are same
+  assert(correct_out_cnt == feat_cnt && "The number of results are incorrect.\n");
+
+  // Then check the number actually agrees
+  for(int i = 0; i < feat_cnt * 1706; i++){
+    assert(isEqual(correct_out[i], dnn_output[i]) && "Results do not agree.\n");
+  }
+
+  printf("Sanity check passed !\n");
 
   return 0;
 }
