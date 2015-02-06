@@ -9,7 +9,7 @@ LINK_FLAGS = -lpthread \
 
 # File names
 EXEC = surf-fd
-SOURCES = surf-fd.cpp
+SOURCES = surf-fd.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Main target

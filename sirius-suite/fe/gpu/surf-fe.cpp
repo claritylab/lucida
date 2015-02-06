@@ -9,8 +9,9 @@
 #include <sstream>
 #include <fstream>
 #include <stdio.h>
-#include <sys/time.h>
 #include <pthread.h>
+
+#include "../../timer/timer.h"
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -24,20 +25,6 @@ using namespace cv;
 using namespace std;
 
 FeatureDetector *detector = new SurfFeatureDetector();
-
-float calculateMiliseconds(timeval t1, timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
-
-vector<KeyPoint> exec_feature(const Mat &img) {
-  vector<KeyPoint> keypoints;
-  detector->detect(img, keypoints);
-
-  return keypoints;
-}
 
 vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
   vector<KeyPoint> keypoints;
@@ -56,9 +43,8 @@ int main(int argc, char **argv) {
     exit(0);
   }
   // data
-  float runtimefeatseq = 0;
-  float runtimefeatgpu = 0;
-  struct timeval t1, t2;
+  STATS_INIT ("kernel", "gpu_feature_extraction");
+  PRINT_STAT_STRING ("abrv", "gpu_fe");
 
   // Generate test keys
   Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
@@ -67,22 +53,19 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  gettimeofday(&t1, NULL);
-  vector<KeyPoint> key = exec_feature(img);
-  gettimeofday(&t2, NULL);
-  runtimefeatseq = calculateMiliseconds(t1, t2);
+  PRINT_STAT_INT ("rows", img.rows);
+  PRINT_STAT_INT ("columns", img.cols);
 
   // warmup
+  tic ();
   exec_feature_gpu(img);
+  PRINT_STAT_DOUBLE ("gpu_warm-up", toc ());
 
-  gettimeofday(&t1, NULL);
-  key = exec_feature_gpu(img);
-  gettimeofday(&t2, NULL);
-  runtimefeatgpu = calculateMiliseconds(t1, t2);
+  tic ();
+  vector<KeyPoint> keys = exec_feature_gpu(img);
+  PRINT_STAT_DOUBLE ("gpu_fe", toc ());
 
-  printf("SURF FE Time=%4.3f ms\n", runtimefeatseq);
-  printf("SURF FE GPU Time=%4.3f ms\n", runtimefeatgpu);
-  printf("Speedup=%4.3f\n", (float)runtimefeatseq / (float)runtimefeatgpu);
+  STATS_END ();
 
   delete (detector);
 

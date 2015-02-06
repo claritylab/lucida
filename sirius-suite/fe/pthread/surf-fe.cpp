@@ -9,8 +9,10 @@
 #include <sstream>
 #include <fstream>
 #include <stdio.h>
-#include <sys/time.h>
 #include <pthread.h>
+#include <time.h>
+
+#include "../../timer/timer.h"
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -29,13 +31,6 @@ int NTHREADS;
 vector<Mat> segs;
 FeatureDetector *detector = new SurfFeatureDetector();
 int iterations;
-
-float calculateMiliseconds(timeval t1, timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
 
 vector<KeyPoint> exec_feature(const Mat &img) {
   vector<KeyPoint> keypoints;
@@ -124,13 +119,12 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-  // data
-  float runtimefeatseq = 0;
-  float runtimefeatpar = 0;
-  float runtimecut = 0;
-  struct timeval t1, t2;
+
+  STATS_INIT ("kernel", "pthread_feature_extraction");
+  PRINT_STAT_STRING ("abrv", "pthread_fe");
 
   NTHREADS = atoi(argv[1]);
+  PRINT_STAT_INT ("threads", NTHREADS);
   // Generate test keys
   Mat img = imread(argv[2], CV_LOAD_IMAGE_GRAYSCALE);
   if (img.empty()) {
@@ -141,19 +135,16 @@ int main(int argc, char **argv) {
   int height = img.size().height / NTHREADS;
   int width = img.size().width / NTHREADS;
 
-  printf("Threads: %d, block H: %d, block W: %d\n", NTHREADS, height, width);
+  PRINT_STAT_INT ("rows", img.rows);
+  PRINT_STAT_INT ("columns", img.cols);
+  PRINT_STAT_INT ("tile_height", height);
+  PRINT_STAT_INT ("tile_width", width);
 
-  gettimeofday(&t1, NULL);
+  tic ();
   segs = segment(img);
-  gettimeofday(&t2, NULL);
-  runtimecut = calculateMiliseconds(t1, t2);
+  PRINT_STAT_DOUBLE ("tiling", toc ());
 
-  gettimeofday(&t1, NULL);
-  vector<KeyPoint> keys = exec_feature(img);
-  gettimeofday(&t2, NULL);
-  runtimefeatseq = calculateMiliseconds(t1, t2);
-
-  gettimeofday(&t1, NULL);
+  tic ();
   int start, tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
@@ -169,13 +160,9 @@ int main(int argc, char **argv) {
 
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
 
-  gettimeofday(&t2, NULL);
-  runtimefeatpar = calculateMiliseconds(t1, t2);
+  PRINT_STAT_DOUBLE ("pthread_fe", toc ());
 
-  printf("SURF FE CUT CPU Time=%4.3f ms\n", runtimecut);
-  printf("SURF FE CPU Time=%4.3f ms\n", runtimefeatseq);
-  printf("SURF FE CPU PThread Time=%4.3f ms\n", runtimefeatpar);
-  printf("Speedup=%4.3f\n", (float)runtimefeatseq / (float)runtimefeatpar);
+  STATS_END();
 
   // Clean up
   delete detector;

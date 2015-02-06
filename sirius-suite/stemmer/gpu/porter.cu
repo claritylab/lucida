@@ -30,17 +30,15 @@
 #include <stdio.h>
 #include <stdlib.h> /* for malloc, free */
 #include <ctype.h>  /* for isupper, islower, tolower */
-
-#include <cuda_runtime.h>
-
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#include <time.h>
-
-#include <stdlib.h> /* for malloc, free */
 #include <string.h> /* for memcmp, memmove */
+#include <cuda_runtime.h>
+#include <pthread.h>
+#include <limits.h>
+#include <float.h>
+#include <math.h>
+#include <sys/time.h>
+
+#include "../../timer/timer.h"
 
 /* You will probably want to move the following declarations to a central
   header file.
@@ -202,7 +200,6 @@ __host__ __device__ static int cvc(struct stemmer *z, int i) {
 }
 
 /* ends(z, s) is TRUE <=> 0,...k ends with the string s. */
-////////////////////////////////////////////////////////////////////////////
 
 __host__ __device__ static int memcmp1(const void *buffer1, const void *buffer2,
                                        int count) {
@@ -213,7 +210,6 @@ __host__ __device__ static int memcmp1(const void *buffer1, const void *buffer2,
   }
   return (*((unsigned char *)buffer1) - *((unsigned char *)buffer2));
 }
-/////////////////////////////////////////////////////////////////////
 
 __host__ __device__ static int ends(struct stemmer *z, char *s) {
   int length = s[0];
@@ -228,7 +224,7 @@ __host__ __device__ static int ends(struct stemmer *z, char *s) {
 
 /* setto(z, s) sets (j+1),...k to the characters in the string s, readjusting
   k. */
-///////////////////////////////////////////////////////////////////////
+
 __host__ __device__ void memmove1(void *dst, const void *src, int count) {
   char *dst_t;
   char *src_t;
@@ -248,7 +244,6 @@ __host__ __device__ void memmove1(void *dst, const void *src, int count) {
   }
 }
 
-////////////////////////////////////////////////////////////////////
 __host__ __device__ static void setto(struct stemmer *z, char *s) {
   int length = s[0];
   int j = z->j;
@@ -802,9 +797,9 @@ extern int stem2(struct stemmer *z) {
   return z->k;
 }
 
-__global__ void stem3(struct stemmer **stem_list, int array_size) {
+__global__ void stem3(struct stemmer **stem_list, int words) {
   int tid = blockIdx.x * blockDim.x + threadIdx.x;
-  if (tid < array_size) {
+  if (tid < words) {
     if (stem_list[tid]->k < 1) return;
     // stem_list[tid]->k=2;return;
     step1ab(stem_list[tid]);
@@ -818,16 +813,12 @@ __global__ void stem3(struct stemmer **stem_list, int array_size) {
 
 /*--------------------stemmer definition ends here------------------------*/
 
-#include <limits.h>
-#include <float.h>
-#include <math.h>
-#include <sys/time.h>
 
 static struct stemmer **stem_list;
 
 struct stemmer **dev_stem_list;
 
-#define ARRAYSIZE 4100000
+#define ARRAYSIZE 1000000
 #define A_INC 10000
 #define INC 32 /* size units in which s is increased */
 
@@ -874,10 +865,15 @@ int load_data(struct stemmer **stem_list, FILE *f) {
 }
 
 int main(int argc, char *argv[]) {
-  if (argc < 2) {
-    printf("%s <input>\n", argv[0]);
+  if (argc < 3) {
+    fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
+    fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
+  /* Timing */
+  STATS_INIT ("kernel", "gpu_porter_stemming");
+  PRINT_STAT_STRING ("abrv", "gpu_stemmer");
+  
   cudaEvent_t eStart, eStop;
   float cuda_elapsedTime;
 
@@ -894,15 +890,17 @@ int main(int argc, char *argv[]) {
       (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
   struct stemmer **host2_stem_list =
       (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
-  int array_size = load_data(stem_list, f);
+  int words = load_data(stem_list, f);
+  PRINT_STAT_INT ("words", words);
 
   fclose(f);
 
   cudaEventCreate(&eStart);
   cudaEventCreate(&eStop);
-  cudaMalloc((void **)&dev_stem_list, array_size * sizeof(struct stemmer *));
+  cudaMalloc((void **)&dev_stem_list, words * sizeof(struct stemmer *));
 
-  for (int i = 0; i < array_size; i++) {
+  cudaEventRecord(eStart, 0);
+  for (int i = 0; i < words; i++) {
     struct stemmer *host_z = create_stemmer();
     host_stem_list[i] = host_z;
     host_z->k = stem_list[i]->k;
@@ -917,18 +915,24 @@ int main(int argc, char *argv[]) {
                cudaMemcpyHostToDevice);
     host2_stem_list[i] = dev_z;
   }
-
-  dim3 block(256);
-  dim3 grid;
-  grid.x = ceil(array_size / block.x);
-  cudaEventRecord(eStart, 0);
-  stem3 << <grid, block>>> (dev_stem_list, array_size);
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
-
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
-  printf("Stemmer GPU Time=%4.3f ms\n", cuda_elapsedTime);
-  for (int i = 0; i < array_size; i++) {
+  PRINT_STAT_DOUBLE ("host_to_device", cuda_elapsedTime);
+
+  cudaEventRecord(eStart, 0);
+  dim3 block(256);
+  dim3 grid;
+  grid.x = ceil(words / block.x);
+  cudaEventRecord(eStart, 0);
+  stem3 << <grid, block>>> (dev_stem_list, words);
+  cudaEventRecord(eStop, 0);
+  cudaEventSynchronize(eStop);
+  cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
+  PRINT_STAT_DOUBLE ("gpu_stemmer", cuda_elapsedTime);
+
+  cudaEventRecord(eStart, 0);
+  for (int i = 0; i < words; i++) {
     cudaMemcpy(&(stem_list[i]->j), &(host2_stem_list[i]->j), sizeof(int),
                cudaMemcpyDeviceToHost);
     cudaMemcpy(&(stem_list[i]->k), &(host2_stem_list[i]->k), sizeof(int),
@@ -941,18 +945,22 @@ int main(int argc, char *argv[]) {
     // int k=stem_list[i]->k; char *b=stem_list[i]->b; b[k+1]=0;
     // printf("%s\n", stem_list[i]->b);
   }
+  cudaEventRecord(eStop, 0);
+  cudaEventSynchronize(eStop);
+  cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
+  PRINT_STAT_DOUBLE ("device_to_host", cuda_elapsedTime);
 
   cudaEventDestroy(eStart);
   cudaEventDestroy(eStop);
 
-  for (int i = 0; i < array_size; i++) {
+  for (int i = 0; i < words; i++) {
     cudaFree(host_stem_list[i]->b);
     cudaFree(host2_stem_list[i]);
   }
   cudaFree(dev_stem_list);
 
   // free up allocated data
-  for (int i = 0; i < array_size; i++) {
+  for (int i = 0; i < words; i++) {
     free(stem_list[i]->b);
     free(stem_list[i]);
     free(host_stem_list[i]);

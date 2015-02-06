@@ -4,7 +4,7 @@ CXX_FLAGS = -O3
 
 # File names
 EXEC = slre
-SOURCES = main.cpp slre.cpp
+SOURCES = main.cpp slre.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # No need to change after this line

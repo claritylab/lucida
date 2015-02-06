@@ -4,7 +4,7 @@ CXX_FLAGS  = -O3 -fpermissive -Wno-write-strings
 
 # File names
 EXEC = porter_stem
-SOURCES = main.cpp porter.cpp
+SOURCES = main.cpp porter.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # No need to change after this line

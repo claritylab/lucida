@@ -9,7 +9,7 @@ LINK_FLAGS = -lopencv_core \
 
 # File names
 EXEC = surf-fe
-SOURCES = surf-fe.cpp
+SOURCES = surf-fe.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Main target

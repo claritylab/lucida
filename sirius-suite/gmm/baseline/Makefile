@@ -4,7 +4,7 @@ LINK_FLAGS = -lrt -lm
 
 # File names
 EXEC = gmm_scoring
-SOURCES = gmm_scoring.cpp
+SOURCES = gmm_scoring.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # No need to change after this line

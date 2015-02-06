@@ -117,106 +117,14 @@ extern "C"
   }
 }
 
-void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
-                      float *weight_vect, float *factor_vect,
-                      float *score_vect) {
-  float logZero = -3.4028235E38;
-
-  float maxLogValue = 7097004.5;
-  float minLogValue = -7443538.0;
-
-  float naturalLogBase = (float)1.00011595E-4;
-  float inverseNaturalLogBase = 9998.841;
-
-  int comp_size = 32;
-  int feat_size = 29;
-  int senone_size = 5120;
-
-  for (int i = 0; i < senone_size; i++) {
-    score_vect[i] = logZero;
-
-    for (int j = 0; j < comp_size; j++) {
-      // getScore
-      float logDval = 0.0f;
-      for (int k = 0; k < feat_size; k++) {
-        int idx = k + comp_size * j + i * comp_size * comp_size;
-        float logDiff = feature_vect[k] - means_vect[idx];
-        logDval += logDiff * logDiff * precs_vect[idx];
-      }
-
-      // Convert to the appropriate base.
-      if (logDval != logZero) {
-        logDval = logDval * inverseNaturalLogBase;
-      }
-
-      int idx2 = j + i * comp_size;
-
-      // Add the precomputed factor, with the appropriate sign.
-      logDval -= factor_vect[idx2];
-
-      if (logDval < logZero) {
-        logDval = logZero;
-      }
-      // end of getScore
-      float logVal2 = logDval + weight_vect[idx2];
-      float logHighestValue = score_vect[i];
-      float logDifference = score_vect[i] - logVal2;
-
-      // difference is always a positive number
-      if (logDifference < 0) {
-        logHighestValue = logVal2;
-        logDifference = -logDifference;
-      }
-
-      float logValue = -logDifference;
-      float logInnerSummation;
-      if (logValue < minLogValue) {
-        logInnerSummation = 0.0;
-      } else if (logValue > maxLogValue) {
-        logInnerSummation = FLT_MAX;
-
-      } else {
-        if (logValue == logZero) {
-          logValue = logZero;
-        } else {
-          logValue = logValue * naturalLogBase;
-        }
-        logInnerSummation = exp(logValue);
-      }
-
-      logInnerSummation += 1.0;
-
-      float returnLogValue;
-      if (logInnerSummation <= 0.0) {
-        returnLogValue = logZero;
-
-      } else {
-        returnLogValue =
-            (float)(log(logInnerSummation) * inverseNaturalLogBase);
-        if (returnLogValue > FLT_MAX) {
-          returnLogValue = FLT_MAX;
-        } else if (returnLogValue < -FLT_MAX) {
-          returnLogValue = -FLT_MAX;
-        }
-      }
-      // sum log
-      score_vect[i] = logHighestValue + returnLogValue;
-    }
-  }
-}
-
-float calculateMiliseconds(timeval t1, timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
-
 int main(int argc, char *argv[]) {
   if (argc < 2) {
-    printf("%s <input>\n", argv[0]);
+    fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
+    fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
+  STATS_INIT ("kernel", "gpu_gaussian_mixture_model");
+  PRINT_STAT_STRING ("abrv", "gpu_gmm");
 
   float *dev_feat_vect;
 
@@ -364,8 +272,8 @@ int main(int argc, char *argv[]) {
   cudaMalloc((void **)&dev_feat_vect, sizeof(float) * comp_size);
   cudaMalloc((void **)&dev_score_vect, sizeof(float) * senone_size);
 
-  printf("blockSizeX = %d\n", blockSizeX);
-  printf("gridSizeX = %d\n", gridSizeX);
+  PRINT_STAT_INT ("blockSizeX", blockSizeX);
+  PRINT_STAT_INT ("gridSizeX", gridSizeX);
 
   dim3 block(128);
   dim3 grid;
@@ -373,26 +281,36 @@ int main(int argc, char *argv[]) {
 
   if (grid.x < 32) grid.x = 32;
 
-  printf("grid.x = %d\n", grid.x);
-
   cudaEventRecord(eStart, 0);
 
   // each time needed for computing score of a given feature vect
+  cudaEventRecord(eStart, 0);
   cudaMemcpy(dev_feat_vect, feature_vect, comp_size * sizeof(float),
              cudaMemcpyHostToDevice);
+  cudaEventRecord(eStop, 0);
+  cudaEventSynchronize(eStop);
+  cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
+  PRINT_STAT_DOUBLE ("host_to_device", cuda_elapsedTime);
 
   computeScore << <grid, block>>> (dev_feat_vect, dev_means_vect,
                                    dev_precs_vect, dev_weight_vect,
                                    dev_factor_vect, dev_score_vect);
 
-  cudaMemcpy(score_vect, dev_score_vect, senone_size * sizeof(float),
-             cudaMemcpyDeviceToHost);
-
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
 
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
-  printf("GPU GMM Time=%4.3f ms\n", cuda_elapsedTime);
+  PRINT_STAT_DOUBLE ("gpu_gmm", cuda_elapsedTime);
+
+  cudaEventRecord(eStart, 0);
+  cudaMemcpy(score_vect, dev_score_vect, senone_size * sizeof(float),
+             cudaMemcpyDeviceToHost);
+  cudaEventRecord(eStop, 0);
+  cudaEventSynchronize(eStop);
+  cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
+  PRINT_STAT_DOUBLE ("device_to_host", cuda_elapsedTime);
+
+  STATS_END();
 
   free(means_vect);
   free(precs_vect);
@@ -411,4 +329,6 @@ int main(int argc, char *argv[]) {
 
   cudaFree(dev_feat_vect);
   cudaFree(dev_score_vect);
+
+  return 0;
 }

@@ -3,7 +3,8 @@
 #include <math.h>
 #include <float.h>
 #include <math.h>
-#include <sys/time.h>
+
+#include "../../timer/timer.h"
 
 float feature_vect[] = {2.240018,    2.2570236,    0.11304555,   -0.21307051,
                         0.8988138,   0.039065503,  0.023874786,  0.13153112,
@@ -122,13 +123,6 @@ void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
   }
 }
 
-float calculateMiliseconds(timeval t1, timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
-
 int main(int argc, char *argv[]) {
   if (argc < 2) {
     fprintf(stderr, "[ERROR] Input file required.\n\n");
@@ -137,9 +131,8 @@ int main(int argc, char *argv[]) {
   }
   float *dev_feat_vect;
 
-  timeval t1, t2;
-  float cpu_elapsedTime;
-  float par_elapsedTime;
+  STATS_INIT ("kernel", "gaussian_mixture_model");
+  PRINT_STAT_STRING ("abrv", "gmm");
 
   int means_array_size = senone_size * comp_size * comp_size;
   int comp_array_size = senone_size * comp_size;
@@ -159,11 +152,6 @@ int main(int argc, char *argv[]) {
   pthread_score_vect = (float *)malloc(senone_size * sizeof(float));
 
   float *dev_score_vect;
-
-  if (argc < 2) {
-    printf("%s <input>\n", argv[0]);
-    exit(0);
-  }
 
   // load model from file
   FILE *fp = fopen(argv[1], "r");
@@ -218,14 +206,12 @@ int main(int argc, char *argv[]) {
 
   fclose(fp);
 
-  // CPU side
-  gettimeofday(&t1, NULL);
+  tic ();
   computeScore_seq(feature_vect, means_vect, precs_vect, weight_vect,
                    factor_vect, cpu_score_vect);
-  gettimeofday(&t2, NULL);
+  PRINT_STAT_DOUBLE ("gmm", toc ());
 
-  cpu_elapsedTime = calculateMiliseconds(t1, t2);
-  printf("CPU Time=%4.3f ms\n", (float)cpu_elapsedTime);
+  STATS_END();
 
   /* Clean up and exit */
   free(means_vect);

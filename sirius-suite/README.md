@@ -21,10 +21,7 @@ Each benchmark is run the following way:
 $ ./executable ../input/input
 ```
 
-Regex takes 2 inputs:
-```bash
-$ ./regex ../input/list ../input/questions
-```
+Some kernels have their own dedicated READMEs.
 
 Download larger inputs at:
 
