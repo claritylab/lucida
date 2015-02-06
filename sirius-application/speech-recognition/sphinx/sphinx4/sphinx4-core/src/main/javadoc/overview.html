@@ -1,0 +1,97 @@
+<body>
+Sphinx-4 is a speech recognition system written entirely in the
+Java(TM) programming language.
+
+<p>
+    The diagram below shows the general architecture of Sphinx-4, followed by
+    a description of each block:
+
+<p><img src="../doc-files/architecture.gif">
+    <br><i>Figure 1: Architecture diagram of Sphinx-4.</i>
+
+<p>
+
+    <b><a href="edu/cmu/sphinx/recognizer/Recognizer.html">Recognizer</a></b> - Contains the main components of
+    Sphinx-4, which are
+    the front end, the linguist, and the decoder. The application interacts
+    with the Sphinx-4 system mainly via the Recognizer.
+
+<p>
+    <b>Audio</b> - The data to be decoded. This is audio in most systems,
+    but it can also be configured to accept other forms of data,
+    e.g., spectral or cepstral data.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/frontend/FrontEnd.html">Front End</a></b> - Performs digital signal processing (DSP) on
+    the incoming data.
+
+
+<p>
+    <b>Feature</b> - The output of the front end are features,
+    which are used for decoding in the rest of the system.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/linguist/Linguist.html">Linguist</a></b> - Embodies the linguistic knowledge of the
+    system, which are
+    the acoustic model, the dictionary, and the language model.
+    The linguist produces a search graph structure on which the search manager
+    performs search using different algorithms.
+
+<p>
+    <b><a href="edu/cmu/sphinx/linguist/acoustic/AcousticModel.html">Acoustic Model</a></b> - Contains a representation
+    (often statistical) of a sound, often created by training using lots of acoustic data.
+
+<p>
+    <b><a href="edu/cmu/sphinx/linguist/dictionary/Dictionary.html">Dictionary</a></b> - Responsible for determining how
+    a words is pronounced.
+
+<p>
+    <b><a href="edu/cmu/sphinx/linguist/language/ngram/LanguageModel.html">Language Model</a></b> - Contains a
+    representation (often statistical) of the probability of occurrence of words.
+
+<p>
+    <b><a href="edu/cmu/sphinx/linguist/SearchGraph.html">Search Graph</a></b> - The graph structure produced by the
+    linguist according
+    to certain criteria (e.g., the grammar), using knowledge from the dictionary,
+    the acoustic model, and the language model.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/decoder/Decoder.html">Decoder</a></b> - Contains the search manager.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/decoder/search/SearchManager.html">Search Manager</a></b> - Performs search using certain
+    algorithm used, e.g.,
+    breadth-first search, best-first search, depth-first search, etc.. Also contains the feature scorer and the pruner.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/decoder/search/ActiveList.html">Active List</a></b> - A list of tokens representing all
+    the states in the
+    search graph that are active in the current feature frame.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/decoder/scorer/AcousticScorer.html">Scorer</a></b> - Scores the current feature frame
+    against all the active
+    states in the ActiveList.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/decoder/pruner/Pruner.html">Pruner</a></b> - Prunes the active list according to certain
+    strategies.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/result/Result.html">Result</a></b> - The decoded result, which usually contains the
+    N-best results.
+
+
+<p>
+    <b><a href="edu/cmu/sphinx/util/props/ConfigurationManager.html">Configuration Manager</a></b> - loads the Sphinx-4
+    configuration data from an XML-based file, and manages the component life cycle for objects.
+
+</body>

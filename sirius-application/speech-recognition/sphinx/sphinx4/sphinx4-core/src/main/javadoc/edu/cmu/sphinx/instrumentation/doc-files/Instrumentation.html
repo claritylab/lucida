@@ -1,0 +1,726 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+    <!--
+
+    Copyright 1999-2002 Carnegie Mellon University.
+    Portions Copyright 2002 Sun Microsystems, Inc.
+    Portions Copyright 2002 Mitsubishi Electric Research Laboratories.
+    All Rights Reserved.  Use is subject to license terms.
+
+    See the file "license.terms" for information on usage and
+    redistribution of this file, and for a DISCLAIMER OF ALL
+    WARRANTIES.
+
+    -->
+    <title>Sphinx-4 Instrumentation</title>
+    <style type="text/css">
+        pre {
+            font-size: medium;
+            background: #f0f8ff;
+            padding: 2mm;
+            border-style: ridge;
+            color: teal
+        }
+
+        code {
+            font-size: medium;
+            color: teal
+        }
+    </style>
+    <meta name="author" content="Paul Lamere">
+    <meta name="description"
+          content="A description of how to configure and use the Sphinx-4 instrumentation classes">
+</head>
+<body style="background-color: white;">
+<div style="text-align: center;">
+    <table bgcolor="#99cbff" border="0" width="100%">
+        <tbody>
+            <tr>
+                <td align="center" width="100%">
+                    <h1><a name="mozTocId705774" class="mozTocH1"></a>Instrumentation
+                        for Sphinx-4<br>
+                        <span style="font-size: larger; "><br>
+                        </span></h1>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<span style="font-family: Arial; font-size: x-small; ">
+    <br>
+</span>
+<hr>
+<h2><a name="mozTocId974613" class="mozTocH2"></a>Introduction</h2>
+Sphinx-4 can be configured to output various collections of information
+that may be useful for users and developers. This information includes:<br>
+<ul>
+    <li>Warning and Error messages<br>
+    </li>
+    <li>Logging&nbsp; /&nbsp; tracing messages</li>
+    <li>Recognition results<br>
+    </li>
+    <li>Accuracy statistics</li>
+    <li>Speed statistics</li>
+    <li>Memory footprint statistics</li>
+    <li>Configuration information</li>
+    <li>Grammar plots</li>
+    <li>Search space plots</li>
+</ul>
+The output of the various types of instrumentation information is
+controllable from the configuration file.&nbsp; Lets look in
+detail&nbsp; at what information is being displayed and how to control
+what information is output.<br>
+
+<h2>Silence is Golden</h2>
+First lets look at a Sphinx-4 configuration file for a tidigits
+task.&nbsp; (You can learn more about configuration files by reading <a
+        href="../../util/props/doc-files/ConfigurationManagement.html">Sphinx-4
+    Configuration Management)</a>.&nbsp; The Sphinx-4 configuration file <a
+        href="silent.config.xml">silent.config.xml</a> shows a standard
+configuration for recognizing connected digits.&nbsp; It is based upon
+the tidigits.config.xml found in sphinx4/tests/performance/tidigits,
+except that all logging and instrumentation has been disabled.&nbsp; If
+we run Sphinx-4 with this configuration we get absolutely no output:<br>
+<br>
+<pre>% java edu.cmu.sphinx.tools.batch.BatchModeRecognizer silent.config.xml tidigits.batch<br>% </pre>
+That is probably not very useful for most applications.&nbsp; Let's
+take a look to see if we can get some recognition results using the <span
+        style="font-weight: bold;">Logger.</span><br>
+<br>
+
+<h2>Using the Logger</h2>
+Any well behaved Sphinx components (there are some that are not so well
+behaved...) that needs to output informational messages will do so via
+the Sphinx-4 logger.&nbsp; These have a level of importance associated
+with them. Some messages indicate <span style="font-style: italic;">severe&nbsp;
+</span>problems, some messages are&nbsp; <span
+        style="font-style: italic;">warnings</span>, some are <span
+        style="font-style: italic;">informational,&nbsp; </span>and some are <span
+        style="font-style: italic;">fine&nbsp; </span>level tracing messages.
+The complete set of log levels are:<br>
+<ul>
+    <li>SEVERE (highest value) - an error occurs that makes continuing
+        the operation difficult or impossible
+    </li>
+    <li>WARNING - an anomalie has occured, but the operation is
+        continuing
+    </li>
+    <li>INFO - general information</li>
+    <li>CONFIG - information about a components configuration</li>
+    <li>FINE - tracing messages</li>
+    <li>FINER - finer grained tracing messages (lots of output)</li>
+    <li>FINEST (lowest value) - finest grained tracing messages (huge
+        amounts of output)
+    </li>
+</ul>
+In&nbsp; <a
+        href="file:///home/plamere/tools/eclipse/workspace/Sphinx-4/edu/cmu/sphinx/instrumentation/doc-files/silent.config.xml">silent.config.xml</a>&nbsp;<span
+        style="font-style: italic;">&nbsp;</span> there is a global property
+called <span style="font-style: italic;">logLevel</span> that is set
+to <span style="font-style: italic;">OFF.&nbsp;</span> <br>
+<pre>&lt;config&gt;<br>    &lt;property name="logLevel"     value="OFF"/&gt;<br>     &lt;!-- components omitted --&gt;<br>&lt;/config&gt;<br></pre>
+This indicates that by default, no logging information will be logged
+to the console at all.&nbsp; This, of course, is dangerous because we
+probably want at least&nbsp; to see all warning and error
+messages.&nbsp; Let's turn on warning and error messages. We do this by
+setting the <span style="font-style: italic;">logLevel </span>to <span
+        style="font-style: italic;">WARNING</span> like so:<br>
+<pre>&lt;config&gt;<br>    &lt;property name="logLevel"     value="WARNING"/&gt;<br>     &lt;!-- components omitted --&gt;<br>&lt;/config&gt;</pre>
+By setting the logLevel to WARNING, we are saying that we want to see
+all log messages at the WARNING level or higher. With this setting we
+should see WARNING and SEVERE messages.&nbsp; (Note that this is the
+default setting anyway, so if you omit setting logLevel at the global
+level, the logLevel is automatically set to WARNING).<br>
+<br>
+Let's run this again with our new settings:<br>
+<pre>% java edu.cmu.sphinx.tools.batch.BatchModeRecognizer silent.config.xml tidigits.batch<br>% </pre>
+It is still silent, which means we don't have any warning or errors in
+our run.&nbsp; Now, lets see what an error looks like. To force an
+error, I'll delete one of the audio input files listed in the <span
+        style="font-style: italic;">tidigits.batch</span> file. This should
+cause an error when the recognizer attempts to deocode the&nbsp;
+missing file .&nbsp; Here's an example:<br>
+<pre>% java edu.cmu.sphinx.tools.batch.BatchModeRecognizer silent.config.xml tidigits.batch<br><br> 07:37.604 SEVERE  I/O error during decoding: /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.o5o6671a.wav.raw\<br>	&nbsp;(No such file or directory) in edu.cmu.sphinx.tools.batch.BatchModeRecognizer:decode<br>%<br></pre>
+This time we get a SEVERE error report showing when and where the error
+occurred. Note that the log includes information such as the timetamp
+for the error, the level of the error, a detailed error message and an
+indication of where in the code the error occurred.<br>
+<br>
+Now let's restore the missing file so we don't get this error anymore
+and try to get some results displayed.<br>
+<br>
+The JavaDocs for the <a
+        href="file:///home/plamere/tools/eclipse/workspace/Sphinx-4/edu/cmu/sphinx/tools/batch/BatchModeRecognizer.html">BatchModeRecognizer</a>&nbsp;
+indicate that the BatchModeRecognizer will log results at the INFO
+level.&nbsp; Let's try setting the logLevel to INFO to see what the
+BatchModeRecognizer reports.<br>
+<pre>&lt;config&gt;<br>    &lt;property name="logLevel"     value="INFO"/&gt;<br>     &lt;!-- components omitted --&gt;<br>&lt;/config&gt;</pre>
+By setting the logLevel to INFO we are enabling logs at the INFO,
+WARNING and SEVERE levels.<br>
+<br>
+
+With this new setting lets run the recognizer again to see what output
+we get:<br>
+
+<pre>% java edu.cmu.sphinx.tools.batch.BatchModeRecognizer silent.config.xml tidigits.batch<br>
+08:23.006 INFO logMath              Log base is 1.0001<br>
+08:23.020 INFO logMath              Using AddTable when adding logs<br>
+08:23.021 INFO logMath              LogAdd table has 99022 entries.<br>
+08:23.683 INFO sphinx3Loader        Sphinx3Loader<br>
+08:23.684 INFO sphinx3Loader        Pool /means Entries: 4816<br>
+08:23.686 INFO sphinx3Loader        Pool /variances Entries: 4816<br>
+08:23.687 INFO sphinx3Loader        Pool /transition_matrices Entries: 34<br>
+08:23.688 INFO sphinx3Loader        Pool senones Entries: 602<br>
+08:23.689 INFO sphinx3Loader        Pool meanTransformationMatrix Entries: 1<br>
+08:23.690 INFO sphinx3Loader        Pool meanTransformationMatrix Entries: 1<br>
+08:23.691 INFO sphinx3Loader        Pool varianceTransformationMatrix Entries: 1<br>
+08:23.692 INFO sphinx3Loader        Pool varianceTransformationMatrix Entries: 1<br>
+08:23.693 INFO sphinx3Loader        Pool /mixture_weights Entries: 602<br>
+08:23.694 INFO sphinx3Loader        Pool senones Entries: 602<br>
+08:23.696 INFO sphinx3Loader        Context Independent Unit Entries: 34<br>
+08:23.697 INFO sphinx3Loader        HMM Manager: 430 hmms<br>
+08:23.698 INFO acousticModel        CompositeSenoneSequences: 0<br>
+08:23.700 INFO dictionary           Loading dictionary from: <br>
+08:23.701 INFO dictionary           file:/lab/speech/sphinx4/data/tidigits_8gau_13dCep_16k_40mel_130Hz_6800Hz.bin.zip/dictionary<br>
+08:23.712 INFO dictionary           Loading filler dictionary from: <br>
+08:23.714 INFO dictionary           file:/lab/speech/sphinx4/data/tidigits_8gau_13dCep_16k_40mel_130Hz_6800Hz.bin.zip/fillerdict<br>
+08:23.728 INFO wordListGrammar      Num nodes : 14<br>
+08:23.729 INFO wordListGrammar      Num arcs  : 34<br>
+08:23.731 INFO wordListGrammar      Avg arcs  : 2.4285715<br>
+08:23.306 INFO threadedScorer       # of scoring threads: 1<br>
+08:23.393 INFO batch                BatchDecoder: decoding files in tidigits.batch<br>
+08:23.173 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.111a.wav.raw<br>
+08:23.175 INFO batch                Result: &lt;sil&gt; one one one<br>
+08:23.645 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.139oa.wav.raw<br>
+08:23.647 INFO batch                Result: &lt;sil&gt; one three nine oh<br>
+08:24.957 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.155a.wav.raw<br>
+08:24.958 INFO batch                Result: &lt;sil&gt; one five five<br>
+08:24.278 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1688a.wav.raw<br>
+08:24.279 INFO batch                Result: &lt;sil&gt; one six eight eight<br>
+08:24.987 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1a.wav.raw<br>
+08:24.988 INFO batch                Result: &lt;sil&gt; one<br>
+<br>
+</pre>
+
+It looks like there are a number of other components that are issuing
+INFO messages that are cluttering up our output.&nbsp; We'd like to be
+able to turn the other INFO messages off, and just get the
+BatchModeRecognizer INFO messages.&nbsp; We can do this by setting the
+logLevel at the individual component level.&nbsp; Each component can
+have its own individual logging level.&nbsp; This means that different
+components can be logging messages at different levels.&nbsp; Since we
+only want the BatchModeRecognizer to be outputing INFO messages, lets
+restore the overall logging level to WARNING and set the logLevel for
+'batch' (the name of the BatchModeRecognizer component) to INFO.<br>
+<br>
+<br>
+<pre>&lt;config&gt;<br>    &lt;property name="logLevel"     value="INFO"/&gt;<br><br>    &lt;component name="batch"<br>                type="edu.cmu.sphinx.tools.batch.BatchModeRecognizer"&gt;<br>        &lt;property name="recognizer" value="connectedDigitsRecognizer"/&gt;<br>        &lt;property name="inputSource" value="streamDataSource"/&gt;<br>        &lt;property name="logLevel"     value="INFO"/&gt;<br>    &lt;/component&gt;<br><br><br>     &lt;!-- many components omitted --&gt;<br>&lt;/config&gt;</pre>
+Now lets look at out output:<br>
+<br>
+<pre>% java -cp ../../../bld/classes/ -Dskip=20 edu.cmu.sphinx.tools.batch.BatchModeRecognizer silent.config.xml tidigits.batch<br>08:26.591 INFO batch                BatchDecoder: decoding files in tidigits.batch<br>08:26.260 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.111a.wav.raw<br>08:26.262 INFO batch                Result: &lt;sil&gt; one one one<br>08:26.749 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.139oa.wav.raw<br>08:26.751 INFO batch                Result: &lt;sil&gt; one three nine oh<br>08:26.105 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.155a.wav.raw<br>08:26.107 INFO batch                Result: &lt;sil&gt; one five five<br>08:26.390 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1688a.wav.raw<br>08:26.391 INFO batch                Result: &lt;sil&gt; one six eight eight<br>08:26.022 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1a.wav.raw<br>08:26.023 INFO batch                Result: &lt;sil&gt; one<br>08:26.029 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1b.wav.raw<br>08:26.030 INFO batch                Result: &lt;sil&gt; one<br>08:26.048 INFO batch                File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1za.wav.raw<br>08:26.049 INFO batch                Result: &lt;sil&gt; one zero<br><br><br></pre>
+<a href="../../tools/batch/BatchModeRecognizer.html"></a>There are ways
+to control the terseness of the actual output as well.&nbsp; Setting
+the global property <span style="font-style: italic;">logTerse</span>
+to true, will result in the ancillary information (timestamp, level,
+source component) being omitted.<br>
+<br>
+<pre>&lt;config&gt;<br>    &lt;property name="logLevel"     value="INFO"/&gt;<br><br>    &lt;component name="batch"<br>                type="edu.cmu.sphinx.tools.batch.BatchModeRecognizer"&gt;<br>        &lt;property name="recognizer" value="connectedDigitsRecognizer"/&gt;<br>        &lt;property name="inputSource" value="streamDataSource"/&gt;<br>        &lt;property name="logLevel"     value="INFO"/&gt;<br>        &lt;property name="logTerse"     value="true"/&gt;<br>    &lt;/component&gt;<br><br>&lt;/config&gt;</pre>
+Here's the terse output:<br>
+<br>
+<pre>% java -cp ../../../bld/classes/ -Dskip=20 edu.cmu.sphinx.tools.batch.BatchModeRecognizer silent.config.xml tidigits.batch<br>Handler java.util.logging.ConsoleHandler@cdfc9c<br>BatchDecoder: decoding files in tidigits.batch<br>File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.111a.wav.raw<br>Result: &lt;sil&gt; one one one<br>File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.139oa.wav.raw<br>Result: &lt;sil&gt; one three nine oh<br>File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.155a.wav.raw<br>Result: &lt;sil&gt; one five five<br>File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1688a.wav.raw<br>Result: &lt;sil&gt; one six eight eight<br>File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1a.wav.raw<br>Result: &lt;sil&gt; one<br>File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1b.wav.raw<br>Result: &lt;sil&gt; one<br>File  : /lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1za.wav.raw<br>Result: &lt;sil&gt; one zero<br><br></pre>
+At this point we know enough about the logger to be able to turn it on
+and off, to control the level of logging output on a per component
+basis and to configure the appearance of the logging output.<br>
+<br>
+
+<h2>Tracking Accuracy</h2>
+Now lets look at how we can track the accuracy performance of
+Sphinx-4.&nbsp; One of the prime methods of measuring the overall
+quality of a speech recognition system is the <span
+        style="font-style: italic;">recognition accuracy</span>.&nbsp; This
+statistic shows how well the sentence hypotheses produced by the
+recognizer match the actual transcripts of what was spoken.&nbsp;
+Obviously, recognition accuracy can only be reported when the
+transcripts are available as well.&nbsp; All of the Sphinx-4
+performance tests (found under the Sphinx-4/tests/performance
+directory) include transcripts. For instance, the batch file <span
+        style="font-style: italic;">tidigits.batch</span> begins like so:<br>
+<br>
+<pre>/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.111a.wav.raw one one one<br>/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.139oa.wav.raw one three nine oh<br>/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.155a.wav.raw one five five<br>/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1688a.wav.raw one six eight eight<br>/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1a.wav.raw one<br>/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1b.wav.raw one<br>/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.1za.wav.raw one zero<br>/lab/speech/sphinx4/data/tidigits/test/raw16k/man/man.ah.24z982za.wav.raw two four<br></pre>
+Each line represents a single utterance. The first entry on each line
+contains the path name to the audio that is to be recognized. The
+remaining entries are the words that make up the transcript for the
+utterance.&nbsp; Using this information the BatchModeRecognizer can
+make available the transcripts necessary for producing accuracy
+statistics.<br>
+<br>
+The accuracy tracker is a component that is typically added to the set
+of monitors for a recognizer.&nbsp; The accuracy tracker will monitor
+the recognizer, and when the recognizer generates a result, the tracker
+will compare the resulting hypothesis to the appropriate transcript and
+generate the statistics.<br>
+<br>
+Let's configure our system now to include an accuracy tracker.&nbsp;
+First we add an entry for the component itself:<br>
+<pre>    &lt;component name="accuracyTracker"<br>                type="edu.cmu.sphinx.instrumentation.BestPathAccuracyTracker"&gt;<br>        &lt;property name="recognizer" value="connectedDigitsRecognizer"/&gt;<br>        &lt;property name="showAlignedResults" value="false"/&gt;<br>        &lt;property name="showRawResults" value="false"/&gt;<br>    &lt;/component&gt;<br><br></pre>
+<br>
+Next, we add the accuracy tracker to the set of recognizer monitors
+like so:<br>
+<pre>    &lt;component name="connectedDigitsRecognizer"<br>                          type="edu.cmu.sphinx.recognizer.Recognizer"&gt;<br>        &lt;property name="decoder" value="digitsDecoder"/&gt;<br>        &lt;propertylist name="monitors"&gt;<br>            &lt;item&gt;accuracyTracker &lt;/item&gt;<br>        &lt;/propertylist&gt;<br>    &lt;/component&gt;<br><br></pre>
+<br>
+Also, since the accuracy tracker will ouput results, we can turn off
+the output of the results by the 'batch' component by reseting the <span
+        style="font-style: italic;">logLevel&nbsp; </span>setting to WARNING.<br>
+<br>
+Here's the output:<br>
+<pre>% java -cp ../../../bld/classes/ -Dskip=20 edu.cmu.sphinx.tools.batch.BatchModeRecognizer silent.config.xml tidigits.batch<br>(... many lines omitted)<br><br>REF:       four one six<br>HYP:       four one six<br>ALIGN_REF: four one six<br>ALIGN_HYP: four one six<br>RAW     &lt;sil&gt; four one six<br><br>   Accuracy: 100.000%    Errors: 0  (Sub: 0  Ins: 0  Del: 0)<br>   Words: 78   Matches: 78    WER: 0.000%<br>   Sentences: 23   Matches: 23   SentenceAcc: 100.000%<br><br>REF:       four two eight oh oh oh nine<br>HYP:       four two eight oh oh nine<br>ALIGN_REF: four two eight oh oh OH nine<br>ALIGN_HYP: four two eight oh oh ** nine<br>RAW     &lt;sil&gt; four two eight oh oh nine<br><br>   Accuracy: 98.824%    Errors: 1  (Sub: 0  Ins: 0  Del: 1)<br>   Words: 85   Matches: 84    WER: 1.176%<br>   Sentences: 24   Matches: 23   SentenceAcc: 95.833%<br><br>REF:       four five two zero three<br>HYP:       four five two zero three<br>ALIGN_REF: four five two zero three<br>ALIGN_HYP: four five two zero three<br>RAW     &lt;sil&gt; four five two zero three<br><br></pre>
+As you can see the accuracy tracker outputs quite a bit of
+information.&nbsp; Lets look at the information in detail:<br>
+<table cellpadding="2" cellspacing="2" border="1"
+       style="text-align: left; width: 100%;">
+<tbody>
+<tr>
+    <td style="vertical-align: top;">REF <br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Reference
+- </span>This is the reference or transcript. This is what <span
+            style="font-style: italic;">should</span> be recognized.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">HYP<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Hypothesis</span>
+        - This is the result that is generated by the recognizer. This is what <span
+            style="font-style: italic;">was&nbsp; </span>recognized.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">ALIGN_REF<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Aligned
+Reference -</span> This is the reference text, where mismatches between
+        the reference and the hypothesis are highlighted.&nbsp; <br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">ALIGH_HYP<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Aligned
+Hypothesis -&nbsp; </span>This is the recognized text with mismatched
+        text highlighted.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">RAW<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Raw
+Text</span> - this is the actual text recognized, including all filler
+        words such as silences, coughs, lip smacks, breaths and so on.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Accuracy<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Word
+Accuracy - </span>The number of matching words compared to the total
+        number of words in the input as a percent.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Errors:<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Word
+Error Count - </span>The total number of word errors.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Sub<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Substition
+count - </span>The total number of substitution errors. A substitution
+        error occurs when one word is replaced by another.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Ins<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Insertion
+count - </span>The total number of insertion errors. An insertion
+        error occurs when an extra word is inserted in the hypothesis.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Del<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Deletion
+count - </span>The total number of deletion errors. A deletion error
+        occurs when a word is missing in the hypothesis.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Words <br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Reference
+word count - </span>The total number of words expected<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Matches<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Matching
+word count - </span>The total number of matching words<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">WER<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Word
+error rate</span> - This is equal to (sub + ins + del) / words * 100<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Sentences<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Reference
+sentence count - </span>The total number of sentences.<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">Matches<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Matching
+sentences - </span>The total number of matching sentences<br>
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">SentenceAcc<br>
+    </td>
+    <td style="vertical-align: top;"><span style="font-weight: bold;">Sentence
+Accuracy&nbsp; </span>- This is equal to (matches / sentences) * 100<br>
+    </td>
+</tr>
+</tbody>
+</table>
+<br>
+First it shows the REF and HYP outputs.&nbsp; REF is the reference or
+transcript. This is the expected result. HYP is the hypothesis, the
+result that was generated by the recognizer.<br>
+<br>
+That's a whole lot of stuff, in fact, it is probably more than we need.
+We can configure the accuracy tracker&nbsp; (of course) to reduce the
+amount of output.&nbsp; Let's turn off the ALIGN and the RAW outputs:<br>
+<pre>    &lt;component name="accuracyTracker"<br>                type="edu.cmu.sphinx.instrumentation.BestPathAccuracyTracker"&gt;<br>        &lt;property name="recognizer" value="connectedDigitsRecognizer"/&gt;<br>        &lt;property name="showAlignedResults" value="false"/&gt;<br>        &lt;property name="showRawResults" value="false"/&gt;<br>    &lt;/component&gt;<br></pre>
+The accuracy tracker will also show summary information at the end of a
+run (when the recognizer is deallocated).&nbsp;&nbsp; Here's an example
+showing the reduced out and the summary information.<br>
+<br>
+<pre><br>REF:       one<br>HYP:       one<br><br>   Accuracy: 100.000%    Errors: 0  (Sub: 0  Ins: 0  Del: 0)<br>   Words: 15   Matches: 15    WER: 0.000%<br>   Sentences: 5   Matches: 5   SentenceAcc: 100.000%<br><br># --------------- Summary statistics ---------<br>   Accuracy: 100.000%    Errors: 0  (Sub: 0  Ins: 0  Del: 0)<br>   Words: 15   Matches: 15    WER: 0.000%<br>   Sentences: 5   Matches: 5   SentenceAcc: 100.000%<br><br><br></pre>
+<br>
+The summary statistics shows the total accuracy data for the entire run.<br>
+<br>
+
+<h2>Tracking Speed</h2>
+Another important aspect of speech recognition is the speed of
+recognition.&nbsp; The speed tracker will track and report statistics
+relating to the speed of recognition.&nbsp; The speed tracker is added
+to the set of monitors in the recognizer in the same way that the
+accuracy tracker is added:<br>
+<pre>    &lt;component name="connectedDigitsRecognizer"<br>                          type="edu.cmu.sphinx.recognizer.Recognizer"&gt;<br>        &lt;property name="decoder" value="digitsDecoder"/&gt;<br>        &lt;propertylist name="monitors"&gt;<br>            &lt;item&gt;accuracyTracker &lt;/item&gt;<br>            &lt;item&gt;<span
+        style="font-weight: bold;">speedTracker</span> &lt;/item&gt;<br>        &lt;/propertylist&gt;<br>    &lt;/component&gt;<br><br>    &lt;component name="<span
+        style="font-weight: bold;">speedTracker</span>"<br>                type="edu.cmu.sphinx.instrumentation.SpeedTracker"&gt;<br>        &lt;property name="recognizer" value="connectedDigitsRecognizer"/&gt;<br>        &lt;property name="frontend" value="${frontend}"/&gt;<br>    &lt;/component&gt;<br><br></pre>
+Here's some output of the speed tracker:<br>
+<pre>REF:       one one one<br>HYP:       one one one<br><br>   Accuracy: 100.000%    Errors: 0  (Sub: 0  Ins: 0  Del: 0)<br>   Words: 3   Matches: 3    WER: 0.000%<br>   Sentences: 1   Matches: 1   SentenceAcc: 100.000%<br>   This  Time Audio: 1.38s  Proc: 2.16s  Speed: 1.56 X real time<br>   Total Time Audio: 1.38s  Proc: 2.16s  Speed: 1.56 X real time<br><br>REF:       one three nine oh<br>HYP:       one three nine oh<br><br>   Accuracy: 100.000%    Errors: 0  (Sub: 0  Ins: 0  Del: 0)<br>   Words: 7   Matches: 7    WER: 0.000%<br>   Sentences: 2   Matches: 2   SentenceAcc: 100.000%<br>   This  Time Audio: 1.47s  Proc: 0.97s  Speed: 0.66 X real time<br>   Total Time Audio: 2.85s  Proc: 3.13s  Speed: 1.10 X real time<br><br><br></pre>
+<br>
+The data output by the speed tracker are:<br>
+<table cellpadding="2" cellspacing="2" border="1"
+       style="text-align: left; width: 100%;">
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">This time audio<br>
+            </td>
+            <td style="vertical-align: top;">The length of&nbsp; time (in
+                seconds) of the current audio.<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">This time proc<br>
+            </td>
+            <td style="vertical-align: top;">The time spent processing this
+                audio.<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">This Speed:<br>
+            </td>
+            <td style="vertical-align: top;">processing time / audio time<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Total time audio<br>
+            </td>
+            <td style="vertical-align: top;">The time for all audio<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Total processing</td>
+            <td style="vertical-align: top;">The time spent processing all
+                audio
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Total Speed:<br>
+            </td>
+            <td style="vertical-align: top;">total proc time / total audio
+                time<br>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;">Dumping Response Time</span><br>
+The speed tracker can also be configured to show response time. This is
+useful when running in a live-mode situation where front-end buffering
+latency can affect the perceived performance of the system.<br>
+The speed tracker configuration for enabling tracking of response time
+is shown here:<br>
+<br>
+<pre>    &lt;component name="<span style="font-weight: bold;">speedTracker</span>"<br>                type="edu.cmu.sphinx.instrumentation.SpeedTracker"&gt;<br>        &lt;property name="recognizer" value="connectedDigitsRecognizer"/&gt;<br>        &lt;property name="frontend" value="${frontend}"/&gt;<br>        &lt;property name="showResponseTime" value="true"/&gt;<br>    &lt;/component&gt;</pre>
+The response time output looks like this:<br>
+<br>
+<pre>HYP: one three nine oh<br>   Sentences: 2<br>   This  Time Audio: 1.15s  Proc: 0.86s  Speed: 0.75 X real time<br>   Total Time Audio: 3.33s  Proc: 3.52s  Speed: 1.06 X real time<br>   Response Time:  Avg: 0.032333333s  Max: 0.085s  Min: 0.0060s<br><br></pre>
+The response time field includes and average (Avg), maximum(Max) and
+minimum (Min) response time encountered. This is the time from when the
+front-end first encounters a packet of audio, until it is delivered to
+the decoding portion of the recognizer.&nbsp; This gives a good measure
+of the latency due to the front-end processing such as normalization
+and end-pointing.<br>
+<br>
+<span style="font-weight: bold;">Dumping Timing Statistics</span><br>
+The speed tracker can also be configured to dump out low level timing
+data for various aspects of the recognition process.&nbsp; Many of the
+components in the Sphinx-4 system will collect detailed timing
+statistics.&nbsp; For instance, the linguist may keep track of how long
+it takes to build the search graph, and the acoustic model loader may
+keep track of how long it takes to load the acoustic model from a
+compressed file.&nbsp; <br>
+Setting the speedTracker <span style="font-style: italic;">showTimers </span>property
+to true will cause the timing information to be dump. The timing
+information is dumped immediately after the system is initialized, and
+again when the recognizer is deallocated.&nbsp; Here's a sample of the
+timing output:<br>
+<br>
+<pre># ----------------------------- Timers----------------------------------------<br># Name          Count   CurTime   MinTime   MaxTime   AvgTime   TotTime   <br>streamDataSourc 196     0.0000s   0.0000s   0.0390s   0.0004s   0.0760s   <br>preemphasizer    196     0.0000s   0.0000s   0.0130s   0.0001s   0.0190s   <br>windower        194     0.0010s   0.0000s   0.0550s   0.0009s   0.1840s   <br>fft             1732    0.0000s   0.0000s   0.0530s   0.0003s   0.4780s   <br>melFilterBank   1732    0.0000s   0.0000s   0.0410s   0.0000s   0.0790s   <br>dct             1732    0.0000s   0.0000s   0.0280s   0.0001s   0.0920s   <br>featureExtracti 1692    0.0000s   0.0000s   0.1610s   0.0001s   0.1980s   <br>AM_Load         1       2.3060s   2.3060s   2.3060s   2.3060s   2.3060s   <br>DictionaryLoad  1       0.0110s   0.0110s   0.0110s   0.0110s   0.0110s   <br>compile         1       0.8750s   0.8750s   0.8750s   0.8750s   0.8750s   <br>  createGStates 1       0.0260s   0.0260s   0.0260s   0.0260s   0.0260s   <br>  collectContex 1       0.0050s   0.0050s   0.0050s   0.0050s   0.0050s   <br>  expandStates  1       0.7250s   0.7250s   0.7250s   0.7250s   0.7250s   <br>  connectNodes  1       0.0140s   0.0140s   0.0140s   0.0140s   0.0140s   <br>scoring         1722    0.0000s   0.0000s   0.3980s   0.0037s   6.4570s   <br>pruning         1712    0.0000s   0.0000s   0.0010s   0.0000s   0.0100s   <br>growing         1722    0.0030s   0.0000s   0.0610s   0.0027s   4.666	<br></pre>
+This table shows the timing information after a short run of tidigits
+word list.&nbsp;&nbsp; Here's the data key:<br>
+<br>
+<table cellpadding="2" cellspacing="2" border="1"
+       style="text-align: left; width: 100%;">
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Name<br>
+            </td>
+            <td style="vertical-align: top;">The name of the operation<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Count<br>
+            </td>
+            <td style="vertical-align: top;">The number of times the
+                operation was invoked<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">CurTime<br>
+            </td>
+            <td style="vertical-align: top;">The most recent timing for this
+                operation<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">MinTime<br>
+            </td>
+            <td style="vertical-align: top;">The fastest time for this
+                operation<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">MaxTime<br>
+            </td>
+            <td style="vertical-align: top;">The slowest time for this
+                operation<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">AvgTime<br>
+            </td>
+            <td style="vertical-align: top;">The average time for this
+                operation<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">TotTime<br>
+            </td>
+            <td style="vertical-align: top;">The total time for this operation<br>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+<h2>Tracking Memory Usage</h2>
+For some applications, the overall memory footprint of the recognizer
+is important.&nbsp; The MemoryTracker can be used to track the memory
+usage of Sphinx-4.&nbsp;&nbsp; The MemoryTracker is added
+to the set of monitors in the recognizer in the same way that the
+accuracy tracker is added:<br>
+<br>
+<pre>    &lt;component name="connectedDigitsRecognizer" <br>                          type="edu.cmu.sphinx.recognizer.Recognizer"&gt;<br>        &lt;property name="decoder" value="digitsDecoder"/&gt;<br>        &lt;propertylist name="monitors"&gt;<br>            &lt;item&gt;accuracyTracker &lt;/item&gt;<br>            &lt;item&gt;speedTracker &lt;/item&gt;<br>            &lt;item&gt;memoryTracker &lt;/item&gt;<br>        &lt;/propertylist&gt;<br>    &lt;/component&gt;<br><br>    &lt;component name="memoryTracker" <br>               type="edu.cmu.sphinx.instrumentation.MemoryTracker"&gt;<br>        &lt;property name="recognizer" value="connectedDigitsRecognizer"/&gt;<br>    &lt;/component&gt;<br><br></pre>
+<br>
+The output of the memory tracker is as follows:<br>
+<br>
+<pre>REF:       one<br>HYP:       one<br><br>   Accuracy: 100.000%    Errors: 0  (Sub: 0  Ins: 0  Del: 0)<br>   Words: 16   Matches: 16    WER: 0.000%<br>   Sentences: 6   Matches: 6   SentenceAcc: 100.000%<br>   This  Time Audio: 0.99s  Proc: 0.64s  Speed: 0.65 X real time<br>   Total Time Audio: 7.47s  Proc: 6.13s  Speed: 0.82 X real time<br>   Mem  Total: 126.62 Mb  Free: 112.26 Mb<br>   Used: This: 14.36 Mb  Avg: 14.35 Mb  Max: 18.82 Mb<br></pre>
+<br>
+The memory tracker ouputs five data items:<br>
+<br>
+<table cellpadding="2" cellspacing="2" border="1"
+       style="text-align: left; width: 100%;">
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Mem total<br>
+            </td>
+            <td style="vertical-align: top;">The total amount of memory
+                allocated to the VM<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Free<br>
+            </td>
+            <td style="vertical-align: top;">Of the <span
+                    style="font-style: italic;">Mem Total</span> how much is currently not
+                being used<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Used This<br>
+            </td>
+            <td style="vertical-align: top;">How much memory is currently
+                being used<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Used Avg<br>
+            </td>
+            <td style="vertical-align: top;">The average amount of memory used<br>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Used Max</td>
+            <td style="vertical-align: top;">The maximum amount of memory used<br>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>Miscellaneous Instrumentation</h2>
+In addition to the previously described instrumentation, there are a
+few other monitors that are useful.<br>
+<br>
+
+<h3>Configuration Monitor</h3>
+The configuration monitor dumps out the current configuration of the
+system.&nbsp; This dump differs from the configuration file in a few
+ways:<br>
+<ul>
+    <li>The format is more readable by humans than the XML format</li>
+    <li>The configuration dump shows&nbsp; just the active configuration,
+        whereas the XML configuration file may have configuration data for
+        components that are not actually used.
+    </li>
+    <li>The configuration dump shows the configuration data after any
+        properties have been set via system properties (as is often done in the
+        build.xml file).&nbsp; <br>
+    </li>
+    <li>The configuration dump shows all the possible properties for a
+        particular component and highlights the values that are receiving their
+        default values.<br>
+    </li>
+</ul>
+The Configuration Monitor (as well as most of the 'dump something
+interesting' monitors) are generally controlled by the
+RecognizerMonitor.&nbsp;&nbsp; The Configuration Monitor defines what
+is to be dumped (in this case the configuration), while the
+RecognizerMonitor indicates when it should be dumped.&nbsp; Let's
+configure a recognizer to dump the configuration after the recognizer
+is allocated (that is, the recognizer is completely initialized and
+ready to recognize).<br>
+<pre>&lt;!-- add the recognizer monitor to the recognizer --&gt;<br>    &lt;component name="connectedDigitsRecognizer" <br>                          type="edu.cmu.sphinx.recognizer.Recognizer"&gt;<br>        &lt;property name="decoder" value="digitsDecoder"/&gt;<br>        &lt;propertylist name="monitors"&gt;<br>            &lt;item&gt;accuracyTracker &lt;/item&gt;<br>            &lt;item&gt;speedTracker &lt;/item&gt;<br>            &lt;item&gt;memoryTracker &lt;/item&gt;<br>            &lt;item&gt;recognizerMonitor &lt;/item&gt;<br>        &lt;/propertylist&gt;<br>    &lt;/component&gt;<br><br>&lt;!-- create the recognizer monitor with the configMonitor as one of the dumpers --&gt;<br><br>    &lt;component name="recognizerMonitor" <br>                type="edu.cmu.sphinx.instrumentation.RecognizerMonitor"&gt;<br>        &lt;property name="recognizer" value="connectedDigitsRecognizer"/&gt;<br>        &lt;propertylist name="allocatedMonitors"&gt;<br>            &lt;item&gt;configMonitor &lt;/item&gt;<br>        &lt;/propertylist&gt;<br>    &lt;/component&gt;<br><br>&lt;!-- create the configMonitor  --&gt;<br>    &lt;component name="configMonitor"  <br>          type="edu.cmu.sphinx.instrumentation.ConfigMonitor"&gt;<br>        &lt;property name="showConfig" value="true"/&gt;<br>    &lt;/component&gt;<br><br><br><br></pre>
+<br>
+Here's a snippet of the output:<br>
+<br>
+<pre> ============ config =============<br>batch:<br>    logLevel = [DEFAULT]<br>    skip = 0<br>    totalBatches = [DEFAULT]<br>    recognizer = connectedDigitsRecognizer<br>    usePooledBatchManager = [DEFAULT]<br>    count = 0<br>    inputSource = streamDataSource<br>    whichBatch = [DEFAULT]<br><br>connectedDigitsRecognizer:<br>    logLevel = [DEFAULT]<br>    monitors = accuracyTracker, speedTracker, memoryTracker, recognizerMonitor<br>    decoder = digitsDecoder<br><br>digitsDecoder:<br>    searchManager = searchManager<br>    logLevel = [DEFAULT]<br>    featureBlockSize = [DEFAULT]<br><br>searchManager:<br>    scorer = threadedScorer<br>    activeListFactory = activeList<br>    logLevel = [DEFAULT]<br>    pruner = trivialPruner<br>    logMath = logMath<br>    growSkipInterval = [DEFAULT]<br>    showTokenCount = [DEFAULT]<br>    wantEntryPruning = [DEFAULT]<br>    linguist = flatLinguist<br>    relativeWordBeamWidth = [DEFAULT]<br><br>logMath:<br>    logLevel = [DEFAULT]<br>    useAddTable = true<br>    logBase = 1.0001<br><br></pre>
+&nbsp;<br>
+<br>
+<span style="font-weight: bold;">Plotting Component connections</span><br>
+The configuration monitor can also dump out a graphical plot of the
+components and their connections.&nbsp; The&nbsp; plot is in <a
+        href="http://www.aisee.com/gdl/">GDL format</a>&nbsp; which can be
+plotted with the <a href="http://www.absint.com/aisee/">aiSee - graph
+    visualization program.</a>&nbsp; Here's a sample of the output:<br>
+<br>
+<img src="gdl_config.jpg" title="" alt="gdl plot"
+     style="width: 1024px; height: 623px;"><br>
+<br>
+To generate a component dump, set the <span style="font-style: italic;">showConfigAsGDL</span>
+property of the configuration monitor to true. This will dump the GDL
+plot to a file called "config.gdl".<br>
+<br>
+<span style="font-weight: bold;">Other Configuration Dump</span><br>
+There are some other configuration dumps in the works, including a
+configuration dumper that outputs the current configuration in HTML
+format with hyperlinks to the appropriate JavaDoc component
+documentation.<br>
+
+<h3>Linguist&nbsp; GDLDumper</h3>
+The lingust GDL dumper dumps a GDL plot of the search graph.&nbsp; The
+search graph is the primary data structure used by the recognizer
+during the decode process. Note that the graph can become very large
+even for very small vocabularies.&nbsp; Here's a configuration for the
+LinguistDumper:<br>
+<br>
+<pre>    &lt;component name="recognizerMonitor" <br>                type="edu.cmu.sphinx.instrumentation.RecognizerMonitor"&gt;<br>        &lt;property name="recognizer" value="isolatedDigitsRecognizer"/&gt;<br>        &lt;propertylist name="allocatedMonitors"&gt;<br>            &lt;item&gt;linguistDumper &lt;/item&gt;<br>        &lt;/propertylist&gt;<br>    &lt;/component&gt;<br>    <br><br>    &lt;component name="linguistDumper" <br>                type="edu.cmu.sphinx.linguist.util.GDLDumper"&gt;<br>        &lt;property name="linguist" value="flatLinguist"/&gt;<br>        &lt;property name="logMath" value="logMath"/&gt;<br>    &lt;/component&gt;<br><br></pre>
+<br>
+Here's reduced size image of a plot generated by the GDL Dumper for the
+TI46 word list test:<br>
+<br>
+<img src="lingustDump.jpg" title="" alt="GDL Dumper output"
+     style="width: 1024px; height: 442px;"><br>
+<br>
+<br>
+
+<h2>Linguist Stats Dumper</h2>
+This useful dumper shows statistics about the search space.&nbsp;&nbsp;
+Here's the config:<br>
+<pre>    &lt;component name="recognizerMonitor" <br>                type="edu.cmu.sphinx.instrumentation.RecognizerMonitor"&gt;<br>        &lt;property name="recognizer" value="${recognizer}"/&gt;<br>        &lt;propertylist name="allocatedMonitors"&gt;<br>            &lt;item&gt;linguistStats &lt;/item&gt;<br>        &lt;/propertylist&gt;<br>    &lt;/component   <br><br> &lt;component name="linguistStats" <br>                type="edu.cmu.sphinx.linguist.util.LinguistStats"&gt;<br>        &lt;property name="linguist" value="${linguist}"/&gt;<br>    &lt;/component&gt;<br><br></pre>
+The Lingust Stats dumper shows the total number of states in the search
+space as well as the total number of states of each type.&nbsp;&nbsp;
+Here's some sample output:<br>
+<pre># ----------- linguist stats ------------ <br># Total states: 256<br># class edu.cmu.sphinx.linguist.flat.PronunciationState: 13<br># class edu.cmu.sphinx.linguist.flat.NonEmittingHMMState: 46<br># class edu.cmu.sphinx.linguist.flat.ExtendedUnitState: 46<br># class edu.cmu.sphinx.linguist.flat.BranchState: 12<br># class edu.cmu.sphinx.linguist.flat.HMMStateState: 138<br># class edu.cmu.sphinx.linguist.flat.GrammarState: 1<br><br></pre>
+Note that for larger tasks, the linguist stats dumper may take a very
+long time to run since it needs to visit every possible state in the
+search graph. Even for a relatively small task like the rm1 bigram
+task, the dumper can take several minutes to work its way through the
+search graph.<br>
+<hr>
+<span style="font-family: Arial; font-size: x-small; ">Copyright 1999-2004 Carnegie Mellon
+    University.<br>
+    Portions Copyright 2002-2004 Sun Microsystems, Inc.<br>
+    Portions Copyright 2002-2004 Mitsubishi Electric Research
+    Laboratories.<br>
+    All Rights Reserved. Usage is subject to <a href="../../../../../../license.terms">license
+    terms</a>.<br>
+    <br>
+</span>
+</body>
+</html>

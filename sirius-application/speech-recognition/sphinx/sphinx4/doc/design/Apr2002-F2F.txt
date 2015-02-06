@@ -1,0 +1,157 @@
+Minutes:  Sphinx for the Java platform face-to-face discussion
+Date:	  April 18 and 19, 2002
+Location: Sun Microsystems Laboratories, Burlington, MA
+
+Attendees:    Evandro Gouvea, CMU
+	      Rita Singh,     CMU
+	      Bhiksha Raj,    MERL
+	      Peter Wolf,     MERL
+	      Paul Lamere,    Sun
+	      Philip Kowk,    Sun
+	      Willie Walker,  Sun
+
+
+Overview:
+--------
+
+This document contains the minutes for the meetings held to review
+the FrontEnd and Acoustic Model implementations as well as design
+the search portion of Sphinx 4.  Like the first face-to-face, this
+was a very productive two days.
+
+
+Floating Point Investigation:
+----------------------------
+
+As part of the FrontEnd testing, Philip and Evandro noticed slight
+discrepancies between Sphinx 3 and Sphinx 4.  To determine the source
+of the problem, Philip conducted a study of the differences between
+floating point operations in C vs. the Java programming language.  
+The summary of his study is in sphinx4/doc/floatingpoint.txt.
+
+
+Front End Review:
+----------------
+
+Philip described the interfaces to the FrontEnd, along with some
+initial performance comparisons between Sphinx 3 and Sphinx 4.
+
+There were a few comments on the implementation:
+
+   o We talked about integer vs. floating point.  The decision was
+     that an all integer implementation is something we may tackle
+     later, but we will not spin cycles on it right now.
+
+   o We talked about floats vs. doubles.  The main issues deal with
+     space and speed rather than accuracy.  That is, moving from
+     floats to doubles will most likely not result in any increased
+     accuracy from the decoder.  Instead, using doubles on a 64-bit
+     architecture may improve the speed at the expense of larger
+     datasets.  For example, Paul mentioned that our current acoustic
+     model set is about 32Meg of floats; moving to doubles will 
+     double the size to 64Meg.
+
+   o The FrontEnd should be considered a "black box" when it comes to
+     using floats vs. doubles.  For now the FrontEnd interfaces will
+     use floats for the interface between it and the decoder, but the
+     FrontEnd may still use doubles internally and between data frame
+     processors.
+
+   o The FrontEnd interface to the decoder is currently a Feature,
+     which is an array of floats.  To make things more flexible, the 
+     interface should be a FeatureFrame (an array of Features).
+
+For the initial performance comparison, things were looking pretty
+good for Sphinx 4:  The Sphinx 4 front end was running about 10% 
+faster than Sphinx 3.  The FFT module, which is where the FrontEnd
+spends about 99% of its time, was running about 17% faster than the
+Sphinx 3 FFT module.  This is great news, especially given that the
+FFT module was Evandro's "Hello World" introduction to the Java
+programming language.  
+
+The cepstral mean normalization and feature extraction steps, however,
+were running a little over 3.5X slower than Sphinx 3.  Although these
+steps account for very little of the overall FrontEnd time, they are
+very trivial and we did not understand why they took so long.  Bhiksha
+suggested we look further into why the performance is worse; the
+reason being that the reasons may influence the design/implementation
+of the search.
+
+
+ACTION ITEM:  Philip will modify the FrontEnd so it outputs
+	      FeatureFrames rather than Features.
+
+
+ACTION ITEM:  Philip will investigate the reasons for why the
+	      performance of the cepstral mean normalizer and the
+	      feature extraction steps are running disproportionately
+	      slower than the Sphinx 3 counterparts.
+
+ACTION ITEM:  The search will need to be able to reexamine
+	      FeatureFrames at some time in the future.  For example,
+	      FeatureFrames will be reused when rescoring.  Philip
+	      will work on a way for FeatureFrames to be reused (e.g.,
+	      a FeatureFrameCache or FeatureFrameFarm).
+
+
+Acoustic Model Review:
+---------------------
+
+Paul described the interfaces to the AcousticModel.  Overall, the
+interfaces look very clean.  The team agreed on the following decisions:
+
+    o We will worry about adaptation later.  The current interfaces
+      can easily grow (or be made public) to allow for this.
+
+    o Mixture weights are in the log domain, all other acoustic model
+      data values are linear.
+
+    o All values in the acoustic model databases will be linear.
+
+    o Feature scores are in the log domain.
+
+ACTION ITEM:  Paul will be working on a LogMath package.
+
+ACTION ITEM:  Evandro will work on the feature scoring.
+
+
+Search:
+------
+
+We spent the majority of the meeting talking about the search.
+Bhiksha and Rita presented two main requirements to consider when
+designing the search:  allow both dynamic and static HMMs, and allow
+both breadth first and depth first search strategies.  Bhiksha also
+distributed a copy of "Token Passing:  a Simple Conceptual Model for
+Connected Speech Recognition Systems," by S.J. Young et al.
+
+Write-ups of the discussions regarding the search have been placed in
+sphinx4/doc/search.txt and sphinx4/doc/Architecture.{sdw,pdf}.
+
+
+Ping Pong Tournament:
+--------------------
+
+We held the first Sphinx 4 Ping Pong Tournament.  The format was
+single elimination, with the initial match ups designed to let us play
+someone we hadn't played before.  The results are as follows:
+
+Will
+--------\ Peter
+Peter    >--------\
+--------/          \
+                    \ Peter
+                     >--------\
+Paul                /          \
+--------\ Paul     /            \
+Evandro  >--------/              \
+--------/                         \ Peter
+                                   >--------
+                                  /
+                                 /
+Bhiksha                         /
+--------\ Philip               /
+Philip   >--------------------/
+--------/
+
+Congratulations go to Peter!

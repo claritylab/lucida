@@ -1,0 +1,71 @@
+#############################################################################
+## Copyright (c) 1996, Carnegie Mellon University, Cambridge University,
+## Ronald Rosenfeld and Philip Clarkson
+#############################################################################
+=============================================================================
+===============  This file was produced by the CMU-Cambridge  ===============
+===============     Statistical Language Modeling Toolkit     ===============
+=============================================================================
+This is a 1-gram language model, based on a vocabulary of 28 words,
+  which begins "<s>", "a", "b"...
+This is an OPEN-vocabulary model (type 1)
+  (OOVs were mapped to UNK, which is treated as any other vocabulary word)
+Good-Turing discounting was applied.
+1-gram frequency of frequency : 27 
+1-gram discounting ratios : 0.93 
+This file is in the ARPA-standard format introduced by Doug Paul.
+
+p(wd3|wd1,wd2)= if(trigram exists)           p_3(wd1,wd2,wd3)
+                else if(bigram w1,w2 exists) bo_wt_2(w1,w2)*p(wd3|wd2)
+                else                         p(wd3|w2)
+
+p(wd2|wd1)= if(bigram exists) p_2(wd1,wd2)
+            else              bo_wt_1(wd1)*p_1(wd2)
+
+All probs and back-off weights (bo_wt) are given in log10 form.
+
+Data formats:
+
+Beginning of data mark: \data\
+ngram 1=nr            # number of 1-grams
+
+\1-grams:
+p_1     wd_1 
+
+end of data mark: \end\
+
+\data\
+ngram 1=29
+
+\1-grams:
+-1.4460 <UNK> 0.0000
+-99.0000 <s> 0.0000
+-1.4460 a 0.0000
+-1.4460 b 0.0000
+-1.4460 c 0.0000
+-1.4460 d 0.0000
+-1.4460 e 0.0000
+-1.4460 f 0.0000
+-1.4460 g 0.0000
+-1.4460 h 0.0000
+-1.4460 i 0.0000
+-1.4460 j 0.0000
+-1.4460 k 0.0000
+-1.4460 l 0.0000
+-1.4460 m 0.0000
+-1.4460 n 0.0000
+-1.4460 o 0.0000
+-1.4460 p 0.0000
+-1.4460 q 0.0000
+-1.4460 r 0.0000
+-1.4460 s 0.0000
+-1.4460 t 0.0000
+-1.4460 u 0.0000
+-1.4460 v 0.0000
+-1.4460 w 0.0000
+-1.4460 x 0.0000
+-1.4460 y 0.0000
+-1.4460 z 0.0000
+-1.4794 </s> 0.0000
+
+\end\

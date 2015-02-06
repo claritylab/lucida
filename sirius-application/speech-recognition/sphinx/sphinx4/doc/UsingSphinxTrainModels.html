@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<!--
+
+Copyright 1999-2004 Carnegie Mellon University.
+Portions Copyright 2004 Sun Microsystems, Inc.
+Portions Copyright 2004 Mitsubishi Electric Research Laboratories.
+All Rights Reserved.  Use is subject to license terms.
+
+See the file "license.terms" for information on usage and
+redistribution of this file, and for a DISCLAIMER OF ALL
+WARRANTIES.
+
+-->
+<html>
+
+<head>
+  <title>How to Use Models from SphinxTrain in Sphinx-4</title>
+  <style TYPE="text/css">
+     pre { padding: 2mm; border-style: ridge; background: #f0f8ff; color: teal;}     
+     code {font-size: medium; color: teal}
+  </style>
+</head>
+
+<body>
+  <span style="font-family: Arial; ">
+  <table bgcolor="#99CCFF" width="100%">
+    <tr>
+      <td align="center" width="100%">
+        <div style="text-align: center;"><span style="font-family: Times New Roman; ">
+	  <h1>How to Use Models from SphinxTrain in Sphinx-4</h1>
+	</span></div>
+      </td>
+    </tr>
+  </table>
+
+<p>
+Using new models is easy, you just need to configure the recognizer properly.
+It usually includes three steps:
+</p>
+<ul>
+<li>Defining a dictionary and a language model</li>
+<li>Defining a model and a model loader</li>
+<li>Configure a frontend (optionally)</li>
+</ul>
+
+<h2>Take existing configuration file</h2>
+
+As a base for building your application config take any existing configuration. If you are trained small vocabulary task, take configuration from HelloWorld demo, if you trained large vocabulary task, take config
+from Lattice demo.
+
+<h2>Define a dictionary and a language model.</h2>
+
+You can use the same phonetic dictionary and the same model as was used
+for training and initial testing. They are located located in the folder
+<code>&lt;your_training_folder&gt;/etc/</code> and have names like <code>&lt;your_model_name&gt;.dic</code> 
+and <code>&lt;your_model_name&gt;.lm.DMP</code>. If you don't have LM yet, you can create it with
+cmuclmtk and later convert to DMP format with <code>sphinx_lm_convert</code> from sphinxbase package.
+
+Do the following changes in model and dictionary configuration, just point to the 
+files:
+
+<pre>
+  &lt;component name="trigramModel" type="edu.cmu.sphinx.linguist.language.ngram.large.LargeTrigramModel"&gt;
+    &lt;property name="unigramWeight" value="0.7"/&gt;
+    &lt;property name="maxDepth" value="3"/&gt;
+    &lt;property name="logMath" value="logMath"/&gt;
+    &lt;property name="dictionary" value="dictionary"/&gt;
+    &lt;property name="location" 
+	value="<b>the name of the language model file 
+	       for example &lt;your_training_folder&gt;/etc/&lt;your_model_name&gt;.lm.DMP</b>"/&gt;
+  &lt;/component>
+
+  &lt;component name="dictionary" type="edu.cmu.sphinx.linguist.dictionary.FastDictionary"&gt;
+    &lt;property name="dictionaryPath"
+	 value="<b>the name of the dictionary file 
+	       for example &lt;your_training_folder&gt;/etc/&lt;your_model_name&gt;.dic</b>"/&gt;
+    &lt;property name="fillerPath" 
+	 value="<b>the name of the filler file 
+	       for example &lt;your_training_folder&gt;/etc/&lt;your_model_name&gt;.filler</b>"/&gt;
+    &lt;property name="addSilEndingPronunciation" value="false"/&gt;
+    &lt;property name="allowMissingWords" value="false"/&gt;
+    &lt;property name="unitManager" value="unitManager"/&gt;
+  &lt;/component>
+</pre>
+
+<h2>Define an acoustic model</h2>
+
+<p>
+Next is the acoustic model. During training several models are created, you need one of them.
+For large vocabulary task cd (context dependent) model is located in 
+<code>&lt;your_training_folder&gt;/model_parameters/&lt;your_db_name&gt;.cd_cont_&lt;number of senones&gt;</code>.
+</p>
+
+<p>
+For small vocabulary task it's enough to take ci (context independent model). It's located in 
+<code>&lt;your_training_folder&gt;/model_parameters/&lt;your_db_name&gt;.ci_cont</code>.
+</p>
+
+<p>
+This folder should include several files, like means, variances, feat.params, mdef. There will be
+also folders for different number of gaussians like _2 _4 _8, they are intermediate ones and you don't need them.
+</p>
+
+<p>
+Again, let's define a model in config file:
+</p>
+
+<pre>
+  &lt;component name="sphinx3Loader"
+   	     type="edu.cmu.sphinx.linguist.acoustic.tiedstate.Sphinx3Loader"&gt;
+	&lt;property name="logMath" value="logMath"/&gt;
+	&lt;property name="unitManager" value="unitManager"/&gt;
+    &lt;property name="location" value="<b>the path to the model folder
+	       for example &lt;your_training_folder&gt;/model_parameters/&lt;your_model_name&gt;.cd_cont_&lt;senones&gt;</b>"/&gt;
+  &lt;/component>
+
+  &lt;component name="acousticModel" type="edu.cmu.sphinx.linguist.acoustic.tiedstate.TiedStateAcousticModel"&gt;
+    &lt;property name="loader" value="sphinx3Loader"/&gt;
+    &lt;property name="unitManager" value="unitManager"/&gt;
+  &lt;/component>
+</pre>
+
+<p>
+Please note that path value is just URI, so it could start with URI prefix like http://
+</p>
+
+<p>
+Note that for MLLT you probably also want change <code>vectorLength</code> property. Otherwise it's not needed.
+</p>
+
+<h2>Optionally. Configure the frontend. Skip this step for usual 16 kHz model.</h2>
+
+<p>
+ If you trained 8 kHz model or MLLT model, you need to change the
+frontend accordingly. Here are required changes:
+</p>
+
+<pre>
+  &lt;component name="mfcFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd">
+    &lt;propertylist name="pipeline">
+       ....
+      &lt;ite&gt;melFilterBank&lt;/item&gt;
+       ....
+      &lt;item&gt;featureTransform&lt;/item&gt;
+    &lt;/propertylist&gt;
+  &lt;/component&gt;
+  
+  &lt;component name="melFilterBank" type="edu.cmu.sphinx.frontend.frequencywarp.MelFrequencyFilterBank"&gt;
+    &lt;property name="numberFilters" value="31"/&gt;
+    &lt;property name="minimumFrequency" value="200"/&gt;
+    &lt;property name="maximumFrequency" value="3500"/&gt;
+  &lt;/component&gt;
+
+  &lt;component name="featureTransform" type="edu.cmu.sphinx.frontend.feature.FeatureTransform"&gt;
+      &lt;property name="loader" value="sphinx3Loader"/&gt;
+  &lt;/component&gt;
+
+</pre>    
+<p>
+ melFilterBank params here are changed for default 8kHz frequences and featureTransform component is introduced
+ to transform feature space with MLLT matrix.
+</p>
+
+<h2>
+That's all. Start your application with a new configuration and it will recognize using
+new model.</h2> 
+
+<p>
+For more information on configuration see <a href="../javadoc">Javadoc</a> and <a href="ProgrammersGuide.html">Programmer's Documentation</a>.
+</p>
+
+<h2>Models in JAR</h2>
+
+<p> Optionally you can pack models into JAR file. The advantage of
+having it in a JAR file is that the JAR file can simply be included in
+the classpath and referenced in the configuration file for it to be used
+in a Sphinx-4 application. Once you did so, don't forget to include the JAR into the 
+classpath.  To configure loading form the jars, Sphinx4 allows URIs to contain
+resource:&lt;acoustic or language model path&gt; which allows XML config files to easily reference
+models in JAR files.  Scheme <b>resource:/path</b> causes Sphinx4 to search on the classpath for the path. See
+our demos for example on how WSJ model files are loaded from WSJ jar.
+</p>
+
+</span>
+</body>
+
+</html>
