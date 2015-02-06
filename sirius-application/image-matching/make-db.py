@@ -1,4 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
+#
+# Copyright (c) 2015, University of Michigan.
+# All rights reserved.
+#
+# This source code is licensed under the BSD-style license found in the
+# LICENSE file in the root directory of this source tree. An additional grant
+# of patent rights can be found in the PATENTS file in the same directory.
+#
+#
 
 import pickledb
 import subprocess, re, os, sys
@@ -26,5 +36,5 @@ if __name__ == '__main__':
             text = ' '.join(data)
             print text
             pickdb.set(i, data)
-    
+
     pickdb.dump()

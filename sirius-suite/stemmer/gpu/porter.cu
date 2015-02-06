@@ -57,11 +57,19 @@ extern int stem(struct stemmer *z, char *b, int k);
 #define TRUE 1
 #define FALSE 0
 
+#define ARRAYSIZE 1000000
+#define A_INC 10000
+#define INC 32 /* size units in which s is increased */
+
+static int a_max = ARRAYSIZE;
+static int i_max = INC; /* maximum offset in s */
+
 /* stemmer is a structure for a few local bits of data,
 */
 
 struct stemmer {
-  char *b; /* buffer for word to be stemmed */
+//  char *b; /* buffer for word to be stemmed */
+  char b[INC+1]; /* buffer for word to be stemmed */
   int k;   /* offset to the end of the string */
   int j;   /* a general offset into the string */
 };
@@ -756,6 +764,7 @@ __host__ __device__ static void step5(struct stemmer *z) {
   length, so 0 <= k' <= k.
 */
 
+#if 0
 extern int stem(struct stemmer *z, char *b, int k) {
   if (k <= 1) return k; /*-DEPARTURE-*/
   z->b = b;
@@ -796,38 +805,33 @@ extern int stem2(struct stemmer *z) {
   step5(z);
   return z->k;
 }
+#endif
 
-__global__ void stem3(struct stemmer **stem_list, int words) {
+__global__ void stem3(struct stemmer *stem_list, int words) {
   int tid = blockIdx.x * blockDim.x + threadIdx.x;
   if (tid < words) {
-    if (stem_list[tid]->k < 1) return;
+    if (stem_list[tid].k < 1) return;
     // stem_list[tid]->k=2;return;
-    step1ab(stem_list[tid]);
-    step1c(stem_list[tid]);
-    step2(stem_list[tid]);
-    step3(stem_list[tid]);
-    step4(stem_list[tid]);
-    step5(stem_list[tid]);
+    step1ab(&(stem_list[tid]));
+    step1c(&(stem_list[tid]));
+    step2(&(stem_list[tid]));
+    step3(&(stem_list[tid]));
+    step4(&(stem_list[tid]));
+    step5(&(stem_list[tid]));
   }
 }
 
 /*--------------------stemmer definition ends here------------------------*/
 
 
-static struct stemmer **stem_list;
+struct stemmer *stem_list;
 
-struct stemmer **dev_stem_list;
+struct stemmer *dev_stem_list;
 
-#define ARRAYSIZE 1000000
-#define A_INC 10000
-#define INC 32 /* size units in which s is increased */
-
-static int a_max = ARRAYSIZE;
-static int i_max = INC; /* maximum offset in s */
 
 #define LETTER(ch) (isupper(ch) || islower(ch))
 
-int load_data(struct stemmer **stem_list, FILE *f) {
+int load_data(struct stemmer *stem_list, FILE *f) {
   int a_size = 0;
   while (TRUE) {
     int ch = getc(f);
@@ -835,6 +839,9 @@ int load_data(struct stemmer **stem_list, FILE *f) {
     char *s = (char *)malloc(i_max + 1);
     if (LETTER(ch)) {
       int i = 0;
+      
+//      struct stemmer *z = create_stemmer();
+      
       while (TRUE) {
         if (i == i_max) {
           i_max += INC;
@@ -842,6 +849,8 @@ int load_data(struct stemmer **stem_list, FILE *f) {
         }
         ch = tolower(ch); /* forces lower case */
 
+        stem_list[a_size].b[i]=ch;
+ //       z->b[i]=ch;
         s[i] = ch;
         i++;
         ch = getc(f);
@@ -850,13 +859,15 @@ int load_data(struct stemmer **stem_list, FILE *f) {
           break;
         }
       }
-      struct stemmer *z = create_stemmer();
-      z->b = s;
-      z->k = i - 1;
-      stem_list[a_size] = z;
+
+ //     z->b = s;
+//      z->k = i - 1;
+       stem_list[a_size].k=i-1;
+//      stem_list[a_size] = z;
       if (a_size == a_max) {
         a_max += A_INC;
-        stem_list = (struct stemmer **)realloc(stem_list, a_max);
+//        stem_list = (struct stemmer **)realloc(stem_list, a_max);
+        stem_list = (struct stemmer *)realloc(stem_list, a_max*sizeof(struct stemmer));
       }
       a_size += 1;
     }
@@ -883,22 +894,32 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "File %s not found\n", argv[1]);
     exit(1);
   }
-
+/*
   stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
   struct stemmer **host_stem_list =
       (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
   struct stemmer **host2_stem_list =
       (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
+ */ 
+
+  stem_list = (struct stemmer *)malloc(ARRAYSIZE * sizeof(struct stemmer));
+
   int words = load_data(stem_list, f);
+
   PRINT_STAT_INT ("words", words);
 
   fclose(f);
 
   cudaEventCreate(&eStart);
   cudaEventCreate(&eStop);
-  cudaMalloc((void **)&dev_stem_list, words * sizeof(struct stemmer *));
+//  cudaMalloc((void **)&dev_stem_list, words * sizeof(struct stemmer *));
+  cudaMalloc((void **)&dev_stem_list, words * sizeof(struct stemmer));
 
   cudaEventRecord(eStart, 0);
+  
+  cudaMemcpy(dev_stem_list, stem_list, words*sizeof(struct stemmer), cudaMemcpyHostToDevice);
+
+/*
   for (int i = 0; i < words; i++) {
     struct stemmer *host_z = create_stemmer();
     host_stem_list[i] = host_z;
@@ -914,6 +935,7 @@ int main(int argc, char *argv[]) {
                cudaMemcpyHostToDevice);
     host2_stem_list[i] = dev_z;
   }
+*/
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
@@ -931,6 +953,9 @@ int main(int argc, char *argv[]) {
   PRINT_STAT_DOUBLE ("gpu_stemmer", cuda_elapsedTime);
 
   cudaEventRecord(eStart, 0);
+  cudaMemcpy(stem_list, dev_stem_list, words*sizeof(struct stemmer), cudaMemcpyDeviceToHost);
+
+/*
   for (int i = 0; i < words; i++) {
     cudaMemcpy(&(stem_list[i]->j), &(host2_stem_list[i]->j), sizeof(int),
                cudaMemcpyDeviceToHost);
@@ -944,6 +969,8 @@ int main(int argc, char *argv[]) {
     // int k=stem_list[i]->k; char *b=stem_list[i]->b; b[k+1]=0;
     // printf("%s\n", stem_list[i]->b);
   }
+*/
+
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
@@ -953,21 +980,22 @@ int main(int argc, char *argv[]) {
   cudaEventDestroy(eStop);
 
   STATS_END (); 
-  for (int i = 0; i < words; i++) {
-    cudaFree(host_stem_list[i]->b);
-    cudaFree(host2_stem_list[i]);
-  }
+//  for (int i = 0; i < words; i++) {
+//    cudaFree(host_stem_list[i]->b);
+//    cudaFree(host2_stem_list[i]);
+//  }
+  free(stem_list);
   cudaFree(dev_stem_list);
 
   // free up allocated data
-  for (int i = 0; i < words; i++) {
-    free(stem_list[i]->b);
-    free(stem_list[i]);
-    free(host_stem_list[i]);
-  }
-  free(stem_list);
-  free(host_stem_list);
-  free(host2_stem_list);
+ // for (int i = 0; i < words; i++) {
+ //   free(stem_list[i]->b);
+ //   free(stem_list[i]);
+//    free(host_stem_list[i]);
+ // }
+//  free(stem_list);
+//  free(host_stem_list);
+//  free(host2_stem_list);
 
   return 0;
 }

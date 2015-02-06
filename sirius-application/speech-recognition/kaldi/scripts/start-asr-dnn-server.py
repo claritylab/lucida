@@ -1,16 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
-#
-# Copyright (c) 2015, University of Michigan.
-# All rights reserved.
-#
-# This source code is licensed under the BSD-style license found in the
-# LICENSE file in the root directory of this source tree. An additional grant
-# of patent rights can be found in the PATENTS file in the same directory.
-#
-#
-
-import pickledb
 import subprocess, re, os, sys
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 from SimpleHTTPServer import SimpleHTTPRequestHandler
@@ -21,19 +10,13 @@ from datetime import datetime
 
 dlog = 'log/'
 
-size = 'db'
-name = 'landmarks'
-img_db = 'matching/%s/%s' % (name, size)
-name += '.pickle'
-pickdb = pickledb.load(name, True)
-
 def shcmd(cmd):
     subprocess.call(cmd, shell=True)
 
 def shcom(cmd):
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
     out = p.communicate()[0]
-    return out
+    return out 
 
 class Handler(BaseHTTPRequestHandler):
 
@@ -54,20 +37,25 @@ class Handler(BaseHTTPRequestHandler):
                     })
 
         t = datetime.now()
-        filename = dlog + 'input-' + str(t.hour) + str(t.minute) + str(t.second) + '.jpg'
-        with open(filename, 'wb') as f:
+        filename = 'input-' + str(t.hour) + str(t.minute) + str(t.second) + '.wav'
+        filepath = dlog + filename
+        with open(filepath, 'wb') as f:
             f.write(form.value)
 
-        cmd = './match --match %s --database %s' % (filename, img_db)
-        res = os.path.basename(shcom(cmd)).strip()
-        # hack
-        img_data = ' '.join(pickdb.get(res))
-        print 'img: %s data: %s' % (res, img_data)
-        answer = ('%s\n' % img_data)
+        cmd = './convert_sample_rate.sh %s %s8k_%s' % (filepath, dlog, filename)
+        shcom(cmd)
+
+        cmd = './decode.sh %s8k_%s' % (dlog, filename)
+        res = shcom(cmd)
+        
+        # Parse the output to get the transcript
+        print 'Transcript: %s' % (res)
+        
+        answer = ('%s\n' % res)
         self.wfile.write(answer)
 
         return
-
+    
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
 
