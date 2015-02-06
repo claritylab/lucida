@@ -28,11 +28,18 @@ javac -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar Pocketsphin
 echo "Pocketsphinx server done."
 cd ../../ 
 
-cd $asr_kaldi/src;
+cd $asr_kaldi/tools;
+make -j 4
+
+cd ../src;
 ./configure
 make -j 4
+
+cd ./online2bin
+make -j 4
+
 echo "Kaldi server done."
-cd ../../ 
+cd ../../.. 
 
 cd $qa;
 ant > /dev/null

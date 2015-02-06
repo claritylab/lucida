@@ -15,3 +15,7 @@ apt-get install \
 apt-get install \
   tesseract-ocr tesseract-ocr-eng libtesseract-dev libleptonica-dev
 
+# Get ATLAS library for Kaldi
+apt-get install \
+  libatlas3-base  
+
