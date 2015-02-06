@@ -1,6 +1,18 @@
-/* Johann Hauswald
- * jahausw@umich.edu
- * 2014
+/*
+ *  Copyright (c) 2015, University of Michigan.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the BSD-style license found in the
+ *  LICENSE file in the root directory of this source tree. An additional grant
+ *  of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+/**
+ * TODO:
+ *
+ * @author: Johann Hauswald
+ * @contact: jahausw@umich.edu
  */
 
 #include <assert.h>
@@ -9,8 +21,9 @@
 #include <sstream>
 #include <fstream>
 #include <stdio.h>
-#include <sys/time.h>
 #include <pthread.h>
+
+#include "../../timer/timer.h"
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -27,17 +40,10 @@ int NTHREADS;
 #define OVERLAP 0
 
 vector<Mat> segs;
-vector<vector<KeyPoint> > keys;
 FeatureDetector *detector = new SurfFeatureDetector();
 DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
-
-float calculateMiliseconds(timeval t1, timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
+vector<vector<KeyPoint> > keys;
 
 vector<KeyPoint> exec_feature(const Mat &img) {
   vector<KeyPoint> keypoints;
@@ -54,6 +60,18 @@ Mat exec_desc(const Mat &img, vector<KeyPoint> keypoints) {
   descriptors.convertTo(descriptors, CV_32F);
 
   return descriptors;
+}
+
+void *feat_thread(void *tid) {
+  int start, *mytid, end;
+  mytid = (int *)tid;
+  start = (*mytid * iterations);
+  end = start + iterations;
+
+  // printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
+
+  for (int i = start; i < end; ++i)
+    keys[i] = exec_feature(segs[i]);
 }
 
 void *desc_thread(void *tid) {
@@ -134,14 +152,12 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-  // data
-  float runtimecut = 0;
-  float runtimefeat = 0;
-  float runtimedescseq = 0;
-  float runtimedescpar = 0;
-  struct timeval t1, t2;
+
+  STATS_INIT ("kernel", "pthread_feature_description");
+  PRINT_STAT_STRING ("abrv", "pthread_fd");
 
   NTHREADS = atoi(argv[1]);
+  PRINT_STAT_INT ("threads", NTHREADS);
   // Generate test keys
   Mat img = imread(argv[2], CV_LOAD_IMAGE_GRAYSCALE);
   if (img.empty()) {
@@ -151,30 +167,36 @@ int main(int argc, char **argv) {
 
   int height = img.size().height / NTHREADS;
   int width = img.size().width / NTHREADS;
-  printf("Threads= %d, block H=%d, block W=%d\n", NTHREADS, height, width);
 
-  gettimeofday(&t1, NULL);
+  PRINT_STAT_INT ("rows", img.rows);
+  PRINT_STAT_INT ("columns", img.cols);
+  PRINT_STAT_INT ("tile_height", height);
+  PRINT_STAT_INT ("tile_width", width);
+
+  tic ();
   segs = segment(img);
-  gettimeofday(&t2, NULL);
-  runtimecut = calculateMiliseconds(t1, t2);
+  PRINT_STAT_DOUBLE ("tiling", toc ());
 
-  gettimeofday(&t1, NULL);
-  for (int i = 0; i < segs.size(); ++i) {
-    keys.push_back(exec_feature(segs[i]));
-  }
-  gettimeofday(&t2, NULL);
-  runtimefeat = calculateMiliseconds(t1, t2);
-
-  gettimeofday(&t1, NULL);
-  for (int i = 0; i < segs.size(); ++i)
-    Mat testDesc = exec_desc(segs[i], keys[i]);
-  gettimeofday(&t2, NULL);
-  runtimedescseq = calculateMiliseconds(t1, t2);
-
-  gettimeofday(&t1, NULL);
+  tic ();
   int start, tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
+  iterations = (segs.size() / NTHREADS);
+  keys.resize(segs.size());
+  pthread_attr_init(&attr);
+  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+
+  // Keys
+  for (int i = 0; i < NTHREADS; i++) {
+    tids[i] = i;
+    pthread_create(&threads[i], &attr, feat_thread, (void *)&tids[i]);
+  }
+
+  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
+
+  PRINT_STAT_DOUBLE ("pthread_fe", toc ());
+
+  tic ();
   iterations = (segs.size() / NTHREADS);
   pthread_attr_init(&attr);
   pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -185,19 +207,13 @@ int main(int argc, char **argv) {
   }
 
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
+  PRINT_STAT_DOUBLE ("pthread_fd", toc ());
 
-  gettimeofday(&t2, NULL);
-  runtimedescpar = calculateMiliseconds(t1, t2);
+  STATS_END ();
 
   // Clean up
   delete detector;
   delete extractor;
-
-  printf("SURF CUT Time=%4.3f ms\n", runtimecut);
-  printf("SURF FE CPU Time=%4.3f ms\n", runtimefeat);
-  printf("SURF FD CPU Time=%4.3f ms\n", runtimedescseq);
-  printf("SURF FD PThread CPU Time=%4.3f ms\n", runtimedescpar);
-  printf("Speedup=%4.3f\n", (float)runtimedescseq / (float)runtimedescpar);
 
   return 0;
 }

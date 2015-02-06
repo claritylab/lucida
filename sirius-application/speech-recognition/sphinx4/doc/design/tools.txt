@@ -1,0 +1,177 @@
+
+Configuraton
+------------
+Configuration data is retrieved from a SphinxProperties object.  The static 
+member gets you a SphinxProperties associated with the given URL. The only 
+issue here is that we'll have to pass the URL or the SphinxProperties
+to all objects that need to configure themselves. If we decide that we
+don't need to worry about multiple configuratons (such as would be
+caused by more than one Recognizer running per JVM) then we can make
+all entries static.
+
+
+
+ public class SphinxProperties {
+    static public initContext(String context, URL properties);
+    static public SphinxProperties getSphinxProperties(String context);
+
+    public Object getProperty(String propertyName, Object defaultValue);
+    public float getFloat(String propertyName, float defaultValue);
+    public double getDouble(String context, String propertyName, double defaultValue);
+    public String getString(String context, String propertyName, String defaultValue);
+    public int getInt(String propertyName, int defaultValue);
+    public boolean getBoolean(String propertyName, boolean defaultValue);
+}
+
+
+Timing
+-------
+Timing is done with Timers . A Timer is retrieved via the 'getTimer'
+timer factory.  A timer can be started and stopped multiple times, the
+overall time, minimum, maximum, and average times will be tracked.
+If we don't need to worry about more than one Recognizer per JVM then
+we can eliminate the 'context' from the calls.
+
+ public class Timer {
+    static public Timer getTimer(String context, String timerName);
+    static public void dumpAll(String context);
+    static public void resetAll(String context);
+    static public void dumpAll();
+    static public void resetAll()l
+
+    public String getContext();
+    public String getName();
+    public void start();
+    public void stop();
+    public void dump();
+    public void reset();
+ }
+
+
+Statistics
+----------
+Since our notion of what we need to do with statistics is pretty thin
+right now, so here is a model that essentially lets you publish a
+floating point value with a name. You can manipulate it as you see
+fit.  If we don't need to worry about more than one Recognizer per JVM then
+we can eliminate the 'context' from the calls.
+
+ public class Statistics {
+     static public Statistic getStatistic(String context, String statName);
+     static public void dumpAll(string context);
+     static public void dumpAll();
+
+    public String getContext();
+    public String getName();
+    public double getValue();
+    public void setValue(double value);
+    // or alternatively ... even more simply
+    public double value;
+ }
+
+Note that the Timer and Statistic factory methods take an argument
+called a 'context'.  What is a context? I can imagine us having a number of
+recognizers running in the same JVM at the same time, (much like in
+FreeTTS where we had several voices running at the same time (as in
+the MixedVoices demo)).  To avoid mixing up things such as statistics,
+loggers and timers among different recognizers, I imagine
+associated a context with each object. A context could be just a
+simple string. When we get a Timer from the Timer pool for instance,
+we pass in the context. This associates the timer with the given
+context so when we want to do things like look at all the timers for
+one particular recognizer (but not the others) we can do that. If it
+turns out that we don't want/need to support more than one Recognizer
+per JVM then we can get rid of the context.
+
+Logging
+-------
+Logging done exclusively with the JDK 1.4 logger class.
+
+
+
+--------------------------------------------------------------
+
+So lets look at how the fictional LowPassFilter class might look now:
+Note that LowPassFilter and AudioFilter are truely fictional classes
+and are not part of Sphinx or any other system.
+
+class LowPassFilter implements AudioFilter {
+    
+    private static Logger logger = 
+	    Logger.getLogger("edu.cmu.sphinx.audio.LowPassFilter");
+
+    String instanceName;	// the name of this instance
+    String contextName;		// the name of our context
+
+    private float k1; 			// a filter coefficient
+    private float k2;			// a filter coefficient
+    private int offset;			// the DC offset to be removed
+
+    Statistic samplesProcessed;  	// some stats
+    Statistic framesProcessed;   	// some stats
+
+    private Timer processingTimer;	// a timer
+
+    private AudioFilter mySource;	// where we get the data from
+
+
+    /**
+     * A Sphinx component should provide an constructor of this form. 
+     * The constructor should define the configuration data for the
+     * component.
+     *
+     * @param instanceName the name of this instance.
+     * @param contextName the name of the associated context
+     * @param url URL for properties
+     */
+
+    public LowPassFilter(String instanceName, String contextName) {
+        this.instanceName = instanceName;
+        this.contextName = contextName;
+
+	SphinxProperties props = SphinxProperties.getSphinxProperties(contextName);
+
+	k1 = props.getFloat(instanceName + "." + "k1", 0.97);
+	k2 = props.getFloat(instanceName + "." + "k2", 0.41);
+	offset = props.getInt(instanceName + "." + "offset", 3);
+
+	processingTimer = Timer.getTimer(contextName, 
+		instanceName + "." + "processingTime");
+	
+    	samplesProcessed = Statistic.getStatistic(contextName,
+		instanceName + "." + "samplesProcessed");
+    	framesProcessed = Statistic.getStatistic(contextName,
+		instanceName + "." + "framesProcessed");
+    }
+
+
+
+    /**
+     * Gets the next sample from the audio source and filter the
+     * data. This is where this component does its work.
+     * 
+     * @return a filtered audio sample
+     */
+    public AudioSample getSample() {
+
+	 logger.info(contextName + "." + instanceName + "." "getSample");	
+	 processingTimer.start();	// starting a timer
+
+	 AudioSample inputSample = mySource.getSample();
+	 short[] data = inputSample.getData();
+
+	 // of course no one would ever filter the data like this.
+
+         for (int i = 2; i < data.length; i++) {
+	     data[i] = data[i] + data[i-1] * k1 + data[i-2] * k2 - offset;
+	 }
+
+	 // Updates our statistics
+
+	 framesProcessed.value++;
+	 samplesProcessed.value += data.length;
+
+	 processingTimer.stop();	// stopping  the timer
+	 return inputSample;
+    }
+}

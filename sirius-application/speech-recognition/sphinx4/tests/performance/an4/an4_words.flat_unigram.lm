@@ -1,0 +1,114 @@
+#############################################################################
+## Copyright (c) 1996, Carnegie Mellon University, Cambridge University,
+## Ronald Rosenfeld and Philip Clarkson
+#############################################################################
+=============================================================================
+===============  This file was produced by the CMU-Cambridge  ===============
+===============     Statistical Language Modeling Toolkit     ===============
+=============================================================================
+This is a 1-gram language model, based on a vocabulary of 71 words,
+  which begins "<s>", "</s>", "a"...
+This is an OPEN-vocabulary model (type 1)
+  (OOVs were mapped to UNK, which is treated as any other vocabulary word)
+Good-Turing discounting was applied.
+1-gram frequency of frequency : 70 
+1-gram discounting ratios : 0.97 
+This file is in the ARPA-standard format introduced by Doug Paul.
+
+p(wd3|wd1,wd2)= if(trigram exists)           p_3(wd1,wd2,wd3)
+                else if(bigram w1,w2 exists) bo_wt_2(w1,w2)*p(wd3|wd2)
+                else                         p(wd3|w2)
+
+p(wd2|wd1)= if(bigram exists) p_2(wd1,wd2)
+            else              bo_wt_1(wd1)*p_1(wd2)
+
+All probs and back-off weights (bo_wt) are given in log10 form.
+
+Data formats:
+
+Beginning of data mark: \data\
+ngram 1=nr            # number of 1-grams
+
+\1-grams:
+p_1     wd_1 
+
+end of data mark: \end\
+
+\data\
+ngram 1=72
+
+\1-grams:
+-1.8511 <UNK> 0.0000
+-99.0000 <s> 0.0000
+-1.8637 </s> 0.0000
+-1.8511 a 0.0000
+-1.8511 april 0.0000
+-1.8511 area 0.0000
+-1.8511 august 0.0000
+-1.8511 code 0.0000
+-1.8511 december 0.0000
+-1.8511 eight 0.0000
+-1.8511 eighteen 0.0000
+-1.8511 eighteenth 0.0000
+-1.8511 eighth 0.0000
+-1.8511 eighty 0.0000
+-1.8511 eleven 0.0000
+-1.8511 eleventh 0.0000
+-1.8511 enter 0.0000
+-1.8511 february 0.0000
+-1.8511 fifteen 0.0000
+-1.8511 fifteenth 0.0000
+-1.8511 fifth 0.0000
+-1.8511 fifty 0.0000
+-1.8511 first 0.0000
+-1.8511 five 0.0000
+-1.8511 forty 0.0000
+-1.8511 four 0.0000
+-1.8511 fourteen 0.0000
+-1.8511 fourth 0.0000
+-1.8511 go 0.0000
+-1.8511 help 0.0000
+-1.8511 hundred 0.0000
+-1.8511 january 0.0000
+-1.8511 july 0.0000
+-1.8511 june 0.0000
+-1.8511 march 0.0000
+-1.8511 may 0.0000
+-1.8511 nine 0.0000
+-1.8511 nineteen 0.0000
+-1.8511 ninety 0.0000
+-1.8511 ninth 0.0000
+-1.8511 no 0.0000
+-1.8511 october 0.0000
+-1.8511 of 0.0000
+-1.8511 oh 0.0000
+-1.8511 one 0.0000
+-1.8511 repeat 0.0000
+-1.8511 second 0.0000
+-1.8511 september 0.0000
+-1.8511 seven 0.0000
+-1.8511 seventeen 0.0000
+-1.8511 seventh 0.0000
+-1.8511 seventy 0.0000
+-1.8511 six 0.0000
+-1.8511 sixteen 0.0000
+-1.8511 sixteenth 0.0000
+-1.8511 sixth 0.0000
+-1.8511 sixty 0.0000
+-1.8511 start 0.0000
+-1.8511 stop 0.0000
+-1.8511 ten 0.0000
+-1.8511 third 0.0000
+-1.8511 thirtieth 0.0000
+-1.8511 thirty 0.0000
+-1.8511 thousand 0.0000
+-1.8511 three 0.0000
+-1.8511 twelfth 0.0000
+-1.8511 twelve 0.0000
+-1.8511 twentieth 0.0000
+-1.8511 twenty 0.0000
+-1.8511 two 0.0000
+-1.8511 yes 0.0000
+-1.8511 zero 0.0000
+
+\end\

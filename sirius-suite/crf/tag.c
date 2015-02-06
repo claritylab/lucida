@@ -36,16 +36,15 @@
 #include <string.h>
 #include <time.h>
 #include <math.h>
-
 #include <crfsuite.h>
-#include "option.h"
-#include "iwa.h"
-
-#include "../lib/crf/src/crf1d.h"
-
 #include <float.h>
 #include <sys/time.h>
 #include <pthread.h>
+
+#include "option.h"
+#include "iwa.h"
+#include "../lib/crf/src/crf1d.h"
+#include "../../timer/timer.h"
 
 #define NTHREADS 8
 

@@ -1,0 +1,23 @@
+# Copyright 1999-2002 Carnegie Mellon University.  
+# Portions Copyright 2002 Sun Microsystems, Inc.  
+# Portions Copyright 2002 Mitsubishi Electronic Research Laboratories.
+# All Rights Reserved.  Use is subject to license terms.
+# 
+# See the file "license.terms" for information on usage and
+# redistribution of this file, and for a DISCLAIMER OF ALL 
+# WARRANTIES.
+
+The directories here contain various models trained from
+the WSJ data
+
+Features used to train the models were computed from broadband 16 bit
+sampled data sampled at 16Khz. The features were 13 dimensional cepstra
+computed from 40 mel filters covering the frequency range 130Hz to
+6800Hz. The feature type used was 1s_c_d_dd
+
+
+Contents of this directory:
+
+Contents of this directory are context-dependent acoustic model (mdef,
+means, variances, transition_matrices, mixture_weights, noisedict, feat.params)
+and a dictionaries (alpha.dict, cmudict.0.6d, digits.dict)

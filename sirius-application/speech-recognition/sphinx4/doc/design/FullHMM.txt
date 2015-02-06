@@ -1,0 +1,293 @@
+                            HMMs vs. HMM States
+                            ==================
+
+
+Overview
+========
+A fundamental difference exists between how S3.3 and S4 treat HMMs.
+This difference could account for a difference in speed that we see
+between S3.3 and S.4. An experiment is performed to see if this is
+indeed the case
+
+
+The Difference
+===============
+In Sphinx 3.3, the lowest level scoreable entity is an HMM, while in
+Sphinx-4 it is an HMM State.  Sphinx 3.3 treats the HMM as a whole.
+Whenever an HMM is active, S3.3 scores all of the states of the HMM
+against the incoming feature and generates two values, a 'best score'
+and an 'exit score'.  The 'best score' is the best score among all of
+the states of the HMM. This score is used to determine if the HMM will
+remain active in the succeeding frames.  The 'exit score' is used to
+determine if the subsequent HMMs in the lex tree will become active
+(that is, should we propagate the path into the next HMM).  In
+Sphinx-4, each individual state of the HMM is scored separately and is
+subject to pruning and propagating.  This method used by Sphinx-4
+allows for arbitrary HMM topologies and allows for consistent pruning.
+It does however require handling state transitions much more
+frequently.  Sphinx-4 will generate state transitions four times more
+often than Sphinx 3.3 because of this method of handling finer grained
+states.  This most likely has a performance impact. For instance, the
+test that determines if a path should be dropped because of a
+competing higher scoring path (aka Viterbi pruning) is done four times
+as often in S4 because of this.  Although this is a fairly quick test
+it is done quite often (50,000 times per 10ms audio frame), so this
+can add significantly to the processing time for S4.
+
+
+The Plan
+========
+The Sphinx-4 decoder will be modified to provide a similar mechanism
+for treating HMMs as a whole.  Large vocabulary tests will be run and
+the results for the new decoder will be compared against the standard
+decoder as well as against S3.3 results.
+
+
+The Changes
+===========
+A number of code changes are required to implement these changes.
+These are described here.
+
+
+New Interface - FullHMMSearchState - This interface represents a new
+type of search state in the search graph that represents an entire
+HMM. The definition for this interface is:
+
+    public interface  FullHMMSearchState extends SearchState {
+        /**
+         * Gets the HMM state 
+         *
+         * @return the HMM state
+         */
+         FullHMMState getFullHMMState();
+    }
+
+
+This new state type allows the search to have access to the
+FullHMMState.  The FullHMMState is a new interface that represents a full
+HMM.  The FullHMMState is defined as:
+
+    public interface FullHMMState {
+        
+        /**
+         * Gets the HMM associated with this state
+         *
+         * @return the HMM
+         */
+        public HMM getHMM();
+
+
+        /**
+         * Gets the score for this HMM state
+         *
+         * @param data the data to be scored
+         *
+         * @return the acoustic score for this state.
+         */
+        public float getScore(Data data);
+
+        /**
+         * Gets the exit score for this HMM state
+         *
+         *
+         * @return the exit score for this state.
+         */
+        public float getExitScore();
+    }
+
+The FullHMMState allows the search to get two scores for a particular
+HMM: the overall score and the exit score.  The overall score
+(obtained via the call to getScore(), returns the score of the best
+scoring state in the HMM, while the exit score (obtained via
+getExitScore()) represents the score of the exiting state of the HMM.
+This notion of having two scores per state is the novel aspect of the
+FullHMM approach.  Each HMM has two scores, one used to determine if
+the HMM remains active (the overall score), and one score used to
+determine if the path through this HMM will be propagated into the
+next HMM (the exit score).
+
+The LexTree Linguist was modified to support the new FullHMMState.  The
+essential change was that the linguist was modified such that instead of
+generating UnitStates (representing a context dependent unit in the search
+graph) it used a state that implements the FullHMMState interface to represent
+a unit in the lex tree.  The implementation of the FullHMMState provides the
+full implementation of the 'getScore()' method.  This method provides the full
+HMM  scoring for the HMM.  The scoring algorithm is:
+
+    if the HMM has just become active, score the first state only, otherwise:
+    for each state that was scored in the previous frame, propagate scores
+    into the next state by following the HMM state arcs. (Note that this
+    method of scoring allows for arbitrary HMM state topologies unlike S3.3
+    which requires a fixed HMM topology).
+
+        if (isFirstTime()) {
+            newBestScore = nextScores[0] = hmm.getState(0).getScore(data);
+            activeStates++;
+            setFirstTime(false);
+        } else {
+            for (int i = 0; i < hmm.getOrder(); i++) {
+                if (scores[i] != NO_SCORE) {
+                    HMMState state = hmm.getState(i);
+                    if (!state.isExitState()) {
+                        HMMStateArc[] arcs = state.getSuccessors();
+                        for (int j = 0; j < arcs.length; j++) {
+                            HMMState dest = arcs[j].getHMMState();
+                            float score;
+                            if (dest.isEmitting()) {
+                                score = dest.getScore(data);
+                            } else {
+                                score = LogMath.getLogOne(); 
+                            }
+                            int index = dest.getState();
+                            float prob = arcs[j].getLogProbability();
+                            float result = scores[i] + prob + score;
+                            if (result > nextScores[index]) {
+                                nextScores[index] = result;
+                                activeStates++;
+                                if (result > newBestScore) {
+                                    newBestScore = result;
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+        }
+
+    The score returned from 'getScore()' is the score of the best scoring
+    state in the HMM. The score returned from 'getExitScore()' is the score of
+    the exiting state of the HMM.
+
+
+The Token was modified to support the notion of a propagate score.  The
+propagate score represents the log likelihood that this token should
+transition into the next HMM. 
+
+The WordPruningBreadthFirstSearchManager was modified to support the
+FullHMMState method. In particular the code for growing HMM states was
+modified to deal with the two scores (the current score and the propagate
+score). The growing code becomes:
+
+    Compare the score of each token in the active list against the relative
+    beam. Tokens that score higher than the beam are retained for the next
+    frame.
+
+    Compare the propagate score against a separate 'propagate threshold'.
+    Successors for tokens that have a propagate score higher 
+    than this threshold are collected.
+
+
+Here's the core code for growEmittingBranches:
+
+    protected void growEmittingBranches() {
+
+        float bestScore = activeList.getBestScore();
+        float relativeBeamThreshold = bestScore + relativeBeamWidth;
+        float propagateThreshold = activeList.getBestScore()
+                + propagateBeamWidth;
+
+        // first keep all of the survivors 
+        for (Iterator i = activeList.iterator(); i.hasNext();) {
+            Token t = (Token) i.next();
+            if (t.getScore() >= relativeBeamThreshold) {
+                keepToken(t);
+                //     activeList.getBestScore());
+                if (t.getPropagateScore() >= propagateThreshold) {
+                    collectSuccessorTokens(t);
+                }
+            }
+        }
+    }
+
+
+Results
+=======
+A number of tests were run with the resulting changes, comparing the speed and
+accuracy of the modified decoder.  Tests were run based upon the RM1 Trigram
+configuration.  The exact same beam sizes, insertion penalties and language
+weights were used for these tests.  The only changes were in the
+aforementioned algorithms.
+
+
+                WER        Speed
+
+Reference       1.3         0.57
+FullHMM         2.7         1.7
+
+
+These results were consistent across multiple tests.  The FullHMM technique
+yields a word error rate that is about twice the error rate of the standard
+lex tree linguist while running at about one third of the speed.
+
+
+Discussion
+============
+The results of this experiment were clearly disappointing.  I had expected a
+significant increase in speed (possibly as high as a 50% improvement) with
+little or no loss in accuracy. This clearly was not the results that we
+expected.  In this section I discuss some of the possible issues that may be
+affecting our results.
+
+
+Accuracy:
+
+
+The increase in the word error rate in the FullHMM decoder was particularly
+surprising.  The same beam sizes were used in the FullHMM decoder test
+as in the reference test.  Since each token/state in the FullHMM decoder
+actually represents 3 emitting HMM states and 1 non-emitting state, the
+beam is effective four times the size in the FullHMM decoder compared
+to the reference decoder. That is to say, in the FullHMM version a beam
+of 1000 states can actually hold 4000 HMM states as compared to the
+1000 states in the reference decoder beam.  For these tests only the
+relative beam was used to prune the active list, the absolute beam was
+set to infinity.  Looking at the actual beam sizes however we see the 
+opposite result.   The FullHMM decoder beam size was typically twice 
+the size of the reference decoder beam.   
+
+The larger beam in the FullHMM decoder with less accuracy is a clear
+indication of a problem in the FullHMM decoder.  Some possible explanations
+for this are:
+
+   1) A FullHMM state is scored by finding the best score of the four
+   underlying states. This mechanism of generating a single score from
+   multiple scores may result in less diversity of scores among states
+   resulting in a larger beam.  Experience with the S3.3 decoder shows that
+   this is likely to be NOT the case.
+
+   2) A defect in the implementation of the scoring code or the propagation
+   code results in the larger beam.  This is more likely to be the case.
+
+
+
+Speed:
+
+The primary factor in the reduced speed in the FullHMM decoder is the increase
+in beam size.  With a beam that is twice as large as the reference decoder,
+one would expect decoding times to increase by 100%.  Additionally, each
+state in the FullHMM decoder is more expensive to score (since each underlying
+HMM state is scored when a FullHMM state is scored).  Understanding and
+addressing the fundamental problem with the beam size will likely improve the
+accuracy and the speed at the same time.
+
+The FullHMM decoder does not implement the acoustic frame look ahead
+algorithm.  This algorithm can improve speed by as much as 50% with little
+accuracy loss. This algorithm could easily be incorporated into the FullHMM
+decoder, but since the FullHMM decoder is not yet a viable technique for S4,
+this will not be done.
+
+
+Other Factors:
+
+There are some necessary differences in how the FullHMM decoder is implemented
+as compared to S3.3.  S3.3 and S4 use very different methods for maintaining
+word history in the search. S3.3 uses multiple lextrees while S4 uses a token
+passing scheme.  In the S4 implementation of the FullHMM decoder, word history
+must be taken into consideration when propagating states. This may result in a
+larger beam although its direct impact is hard to measure.
+
+Conclusions
+===========
+Even though this work has been put on the back burner, there is still some
+potential in this technique since there are no doubt problems with the current
+implementation that are limiting its effectiveness.

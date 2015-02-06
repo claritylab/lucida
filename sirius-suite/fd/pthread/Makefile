@@ -7,18 +7,27 @@ LINK_FLAGS = -lpthread \
 			 -lopencv_nonfree \
 			 -lopencv_features2d
 
+INPUT = ../input/400x400.jpg
+THREADS = 1
+
 # File names
 EXEC = surf-fd
-SOURCES = surf-fd.cpp
+SOURCES = surf-fd.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# Main target
+.PHONY: all
+
+all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile
 	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
 
 # To obtain object files
 %.o: %.cpp Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
+
+# test
+test: all
+	@./$(EXEC) $(THREADS) $(INPUT) > /dev/null
 
 # To remove generated files
 clean:

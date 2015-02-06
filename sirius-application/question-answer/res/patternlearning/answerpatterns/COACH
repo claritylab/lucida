@@ -1,0 +1,573 @@
+#passages: 2242
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?<PO_NEperson>
+#correct: 57
+#incorrect: 131
+
+<TO> [^<]*?(?:<NEprofession> )?<PO_NEperson>
+#correct: 57
+#incorrect: 126
+
+<TO> team , <PO_NEperson>
+#correct: 35
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEperson>
+#correct: 35
+#incorrect: 88
+
+<TO> [^<]*?<PO_NEperson>
+#correct: 35
+#incorrect: 84
+
+<TO> team , <PO> ,
+#correct: 32
+#incorrect: 0
+
+<TO> [^<]*?, <PO> ,
+#correct: 32
+#incorrect: 46
+
+<TO> <NEprofession> <PO_NEperson>
+#correct: 17
+#incorrect: 39
+
+<TO> (?:<NEprofession> )?<PO_NEperson>
+#correct: 17
+#incorrect: 40
+
+<PO_NEperson> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?<TO>
+#correct: 12
+#incorrect: 71
+
+<PO_NEperson> [^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 97
+
+<PO_NEperson> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 75
+
+<PO_NEperson> [^<]*?(?:<NEperson_NEprofession> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 92
+
+<PO_NEperson> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 91
+
+<PO_NEperson> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 72
+
+<TO> juergen <PO> for
+#correct: 7
+#incorrect: 0
+
+<PO_NEperson> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 71
+
+jurgen <PO> , [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 0
+
+<TO> <NEprofession> <PO> says
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?juergen <PO> stressed
+#correct: 6
+#incorrect: 0
+
+- <PO> , <NEperson_NEprofession> of <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?juergen <PO> stressed
+#correct: 5
+#incorrect: 0
+
+<TO> team in the throes of transition , <NEprofession> <PO_NEperson>
+#correct: 5
+#incorrect: 0
+
+<PO_NEperson> [^<]*?<TO>
+#correct: 5
+#incorrect: 70
+
+<TO> <NEprofession> <PO> said
+#correct: 5
+#incorrect: 1
+
+<TO> <NEprofession> <PO> has
+#correct: 5
+#incorrect: 1
+
+\. <PO> \( <NEdate_NEyear_NEnumber> - \) the <NElanguage_NEnationality_NEethnicGroup> <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> headcoach juergen <PO> stressed
+#correct: 5
+#incorrect: 0
+
+<TO> team in the throes of transition , <NEprofession> <PO> embarked
+#correct: 5
+#incorrect: 0
+
+<PO_NEperson> \( <NEdate_NEyear_NEnumber> - \) the <NElanguage_NEnationality_NEethnicGroup> <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?<NEprofession> <PO> embarked
+#correct: 5
+#incorrect: 0
+
+- <PO> , (?:<NEperson_NEprofession> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 24
+
+<PO_NEacronym> (?:<NElocation_NEcountry> )?[^<]*?(?:<NEsport> )?<TO>
+#correct: 5
+#incorrect: 59
+
+<PO_NEperson> , <NEperson_NEprofession> of <TO>
+#correct: 5
+#incorrect: 0
+
+- <PO> <TO>
+#correct: 5
+#incorrect: 175
+
+<PO_NEperson> [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 88
+
+\. <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?<TO>
+#correct: 5
+#incorrect: 0
+
+# <PO> , [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?<TO>
+#correct: 4
+#incorrect: 96
+
+jurgen <PO> , trainer of the <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> immersion program , with juergen <PO> the
+#correct: 4
+#incorrect: 0
+
+<PO_NEacronym> <NElocation_NEcountry> worldcup 06 <NEsport> <TO>
+#correct: 4
+#incorrect: 0
+
+that <PO> resigned [^<]*?<TO>
+#correct: 4
+#incorrect: 4
+
+# <PO> <NElocation_NEcountry> [^<]*?(?:<NEsport> )?<TO>
+#correct: 4
+#incorrect: 56
+
+<TO> [^<]*?juergen <PO> the
+#correct: 4
+#incorrect: 5
+
+# <PO> , [^<]*?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 96
+
+jurgen <PO> , trainer [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<PO_NEperson> resigned as <TO>
+#correct: 4
+#incorrect: 4
+
+# <PO> <NElocation_NEcountry> worldcup 06 <NEsport> <TO>
+#correct: 4
+#incorrect: 0
+
+that <PO> resigned as <TO>
+#correct: 4
+#incorrect: 4
+
+# <PO> , [^<]*?<TO>
+#correct: 3
+#incorrect: 96
+
+# <PO> <NEstyle> low <TO>
+#correct: 3
+#incorrect: 0
+
+jurgen <PO> , the <NEprofession> of the <TO>
+#correct: 3
+#incorrect: 0
+
+# <PO> urges [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?, <PO> #
+#correct: 3
+#incorrect: 169
+
+<TO> team , <PO> #
+#correct: 3
+#incorrect: 38
+
+gunther <PO> <TO>
+#correct: 3
+#incorrect: 5
+
+# <PO> , (?:<NEnumber> )?[^<]*?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 97
+
+# <PO> <NEstyle> [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+jrgen <PO> , the <TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> , [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 7
+
+<PO_NEperson> , head <NEprofession> of the <TO>
+#correct: 2
+#incorrect: 0
+
+\) <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+gunther <PO> the <NEriver_NEwater> who discovered <TO>
+#correct: 2
+#incorrect: 0
+
+gunther <PO> \( <NEsport> <NEprofession> \) mentor to <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEperson> \( <NEdate_NEyear_NEnumber> - \) <TO>
+#correct: 2
+#incorrect: 0
+
+\) <PO> \( <NEdate_NEyear_NEnumber> - \) <TO>
+#correct: 2
+#incorrect: 0
+
+gunther <PO> the (?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> , head <NEprofession> of the <TO>
+#correct: 2
+#incorrect: 0
+
+jrgen <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> - <PO> \.
+#correct: 2
+#incorrect: 15
+
+# <PO> resigned as <TO>
+#correct: 2
+#incorrect: 8
+
+# <PO> resigned [^<]*?<TO>
+#correct: 2
+#incorrect: 10
+
+<TO> [^<]*?gunther <PO> \.
+#correct: 2
+#incorrect: 0
+
+gunther <PO> \( (?:<NEsport> )?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?[^<]*?<PO_NEacronym>
+#correct: 2
+#incorrect: 38
+
+gunther <PO> , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 2
+#incorrect: 16
+
+# <PO> urges continued <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> areas " , said <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?said <PO> \.
+#correct: 2
+#incorrect: 0
+
+# <PO> , a former <NEchemicalElement_NEmetal_NEmineral> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 1
+#incorrect: 39
+
+\. <PO> , on behalf of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s former <NEprofession> gunther <PO> #
+#correct: 1
+#incorrect: 0
+
+gunther <PO> <NEfrequency> [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and ion tiriac : \) <PO> was
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?juergen <PO> ,
+#correct: 1
+#incorrect: 0
+
+juergen <PO> look [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> beats <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <PO> <NEacronym_NEfirstName>
+#correct: 1
+#incorrect: 1
+
+<TO> <NEacronym> <PO_NEacronym>
+#correct: 1
+#incorrect: 5
+
+<TO> : <PO> steps
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEorganization> )?[^<]*?(?:<NEacronym> )?[^<]*?should <PO> bow
+#correct: 1
+#incorrect: 0
+
+<TO> team , juergen <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> <NEorganization> \( <NEacronym> \) , agreed should <PO> bow
+#correct: 1
+#incorrect: 0
+
+juergen <PO> look on during a <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?, <PO> confirms
+#correct: 1
+#incorrect: 0
+
+nther <PO> der deswegen <TO>
+#correct: 1
+#incorrect: 0
+
+juergen <PO> has [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> goalie for the <NEdate_NEyear_NEnumber> world cup juergen <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> head <NEprofession> juergen <PO> stressed
+#correct: 1
+#incorrect: 0
+
+# <PO> begins [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?juergen <PO> praised
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> [^<]*?<TO>
+#correct: 1
+#incorrect: 58
+
+<TO> <PO> va
+#correct: 1
+#incorrect: 2
+
+<NEacronym> <PO> : <TO>
+#correct: 1
+#incorrect: 1
+
+juergen <PO> is ready to renew his contract as <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> : <TO>
+#correct: 1
+#incorrect: 8
+
+<TO> , : gunther <PO> \.
+#correct: 1
+#incorrect: 0
+
+juergen <PO> praised the <NElanguage_NEethnicGroup> national <TO>
+#correct: 1
+#incorrect: 0
+
+juergen <PO> has ruled out contract extension <NEprofession> with the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ; <NEriver_NEwater> <NEperson> wird g nther <PO> der
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?juergen <PO> #
+#correct: 1
+#incorrect: 16
+
+juergen <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> gunther <PO> \.
+#correct: 1
+#incorrect: 0
+
+juergen <PO> praised [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> goal against <NElocation_NEcountry> , <PO> confirms
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?jurgen <PO> initially
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , on behalf of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> head <NEprofession> juergen <PO> praised
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEorganization_NEacronym> \) ahead of the <NEdate_NEyear_NEnumber> world cup \( <NEmonth> <NEnumber> - <NEmonth_NEfirstName> <NEnumber> \) \. , <PO> rules
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?juergen <PO> has
+#correct: 1
+#incorrect: 0
+
+# <PO> , thank you for that superb world cup and for the refreshing games <NEcapital> by the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> national <NEprofession> jurgen <PO> initially
+#correct: 1
+#incorrect: 0
+
+# <PO> begins new <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?\) <PO> was
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?<NEacronym> <PO> <NEacronym_NEfirstName>
+#correct: 1
+#incorrect: 8
+
+<TO> <PO> <NEacronym>
+#correct: 1
+#incorrect: 66
+
+gunther <PO> <NEfrequency> said of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> <PO> and
+#correct: 1
+#incorrect: 8
+
+<TO> (?:<NEacronym> )?<PO_NEacronym>
+#correct: 1
+#incorrect: 17
+
+<TO> [^<]*?(?:<NEprofession> )?gunther <PO> #
+#correct: 1
+#incorrect: 2
+
+<TO> ' s <NEprofession> , gunther <PO> <NEfrequency>
+#correct: 1
+#incorrect: 0
+
+# <PO> urges <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO_NEacronym>
+#correct: 1
+#incorrect: 17
+
+\. <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+<TO> <NEacronym> <PO> :
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?gunther <PO> <NEfrequency>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> juergen <PO> has
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?(?:<NEperson> )?[^<]*?nther <PO> der
+#correct: 1
+#incorrect: 0
+
+- <PO> \. <TO>
+#correct: 1
+#incorrect: 4
+
+<TO> <NEacronym> <NEacronym> <PO_NEacronym>
+#correct: 1
+#incorrect: 2
+
+nther <PO> der [^<]*?<TO>
+#correct: 1
+#incorrect: 0

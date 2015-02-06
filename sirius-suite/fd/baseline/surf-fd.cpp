@@ -1,6 +1,18 @@
-/* Johann Hauswald
- * jahausw@umich.edu
- * 2014
+/*
+ *  Copyright (c) 2015, University of Michigan.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the BSD-style license found in the
+ *  LICENSE file in the root directory of this source tree. An additional grant
+ *  of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+/**
+ * TODO:
+ *
+ * @author: Johann Hauswald
+ * @contact: jahausw@umich.edu
  */
 
 #include <assert.h>
@@ -9,8 +21,10 @@
 #include <sstream>
 #include <fstream>
 #include <stdio.h>
-#include <sys/time.h>
 #include <pthread.h>
+#include <time.h>
+
+#include "../../timer/timer.h"
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -28,13 +42,6 @@ vector<vector<KeyPoint> > keys;
 FeatureDetector *detector = new SurfFeatureDetector();
 DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
-
-float calculateMiliseconds(timeval t1, timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
 
 vector<KeyPoint> exec_feature(const Mat &img) {
   vector<KeyPoint> keypoints;
@@ -59,10 +66,6 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-  // data
-  float runtimefeat = 0;
-  float runtimedesc = 0;
-  struct timeval t1, t2;
 
   // Generate test keys
   Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
@@ -71,22 +74,25 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  gettimeofday(&t1, NULL);
-  vector<KeyPoint> key = exec_feature(img);
-  gettimeofday(&t2, NULL);
-  runtimefeat = calculateMiliseconds(t1, t2);
+  STATS_INIT ("kernel", "feature_description");
+  PRINT_STAT_STRING ("abrv", "fd");
 
-  gettimeofday(&t1, NULL);
+  PRINT_STAT_INT ("rows", img.rows);
+  PRINT_STAT_INT ("columns", img.cols);
+
+  tic ();
+  vector<KeyPoint> key = exec_feature(img);
+  PRINT_STAT_DOUBLE ("fe", toc ());
+
+  tic ();
   Mat testDesc = exec_desc(img, key);
-  gettimeofday(&t2, NULL);
-  runtimedesc = calculateMiliseconds(t1, t2);
+  PRINT_STAT_DOUBLE ("fd", toc ());
+
+  STATS_END ();
 
   // Clean up
   delete detector;
   delete extractor;
-
-  printf("SURF FE CPU Time=%4.3f ms\n", runtimefeat);
-  printf("SURF FD CPU Time=%4.3f ms\n", runtimedesc);
 
   return 0;
 }
