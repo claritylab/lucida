@@ -1,5 +1,5 @@
 CXX = g++
-CXX_FLAGS =
+CXX_FLAGS = -O3
 LINK_FLAGS = -lopencv_core \
 			 -lopencv_highgui \
 			 -lopencv_imgproc \
@@ -7,18 +7,26 @@ LINK_FLAGS = -lopencv_core \
 			 -lopencv_gpu \
 			 -lopencv_features2d
 
+INPUT = ../input/400x400.jpg
+
 # File names
 EXEC = surf-fe
 SOURCES = surf-fe.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# Main target
+.PHONY: all
+
+all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile
 	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
 
 # To obtain object files
 %.o: %.cpp Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
+
+# test
+test: all
+	@./$(EXEC) $(INPUT) > /dev/null
 
 # To remove generated files
 clean:

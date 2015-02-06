@@ -54,9 +54,6 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-  STATS_INIT ();
-  PRINT_STAT_STRING ("kernel", "feature_description");
-  PRINT_STAT_STRING ("abrv", "fd");
 
   // Generate test keys
   Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
@@ -64,6 +61,9 @@ int main(int argc, char **argv) {
     printf("image not found\n");
     exit(-1);
   }
+
+  STATS_INIT ("kernel", "feature_description");
+  PRINT_STAT_STRING ("abrv", "fd");
 
   PRINT_STAT_INT ("rows", img.rows);
   PRINT_STAT_INT ("columns", img.cols);

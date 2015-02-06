@@ -22,11 +22,10 @@
 #include "opencv2/stitching/stitcher.hpp"
 
 using namespace cv;
+using namespace cv::gpu;
 using namespace std;
 
-FeatureDetector *detector = new SurfFeatureDetector();
-
-vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
+vector<KeyPoint> exec_feature_gpu_warm(const Mat &img_in) {
   vector<KeyPoint> keypoints;
   gpu::GpuMat img;
   img.upload(img_in);
@@ -34,6 +33,25 @@ vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
   gpu::SURF_GPU detector;
   detector(img, gpu::GpuMat(), keypoints);
   return keypoints;
+}
+
+vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
+  GpuMat keypoints;
+  vector<KeyPoint> keys;
+  GpuMat img;
+  tic ();
+  img.upload(img_in);
+  PRINT_STAT_DOUBLE ("host_to_device_0", toc ());
+
+  gpu::SURF_GPU detector;
+  tic ();
+  detector(img, GpuMat(), keypoints);
+  PRINT_STAT_DOUBLE ("gpu_fe", toc ());
+
+  tic ();
+  detector.downloadKeypoints(keypoints, keys);
+  PRINT_STAT_DOUBLE ("device_to_host_0", toc ());
+  return keys;
 }
 
 int main(int argc, char **argv) {
@@ -58,16 +76,12 @@ int main(int argc, char **argv) {
 
   // warmup
   tic ();
-  exec_feature_gpu(img);
+  exec_feature_gpu_warm(img);
   PRINT_STAT_DOUBLE ("gpu_warm-up", toc ());
 
-  tic ();
   vector<KeyPoint> keys = exec_feature_gpu(img);
-  PRINT_STAT_DOUBLE ("gpu_fe", toc ());
 
   STATS_END ();
-
-  delete (detector);
 
   return 0;
 }

@@ -16,8 +16,8 @@ tic (void)
 }
 
 /**
-* @brief Stop the timer and return the time taken
-*
+* @brief Stop the timer and return the time taken.
+* values returned in ms.
 * @return Time since last tic()
 */
 double

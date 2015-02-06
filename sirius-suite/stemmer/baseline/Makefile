@@ -2,19 +2,26 @@ CXX = g++
 LINK_FLAGS = -lrt
 CXX_FLAGS  = -O3 -fpermissive -Wno-write-strings
 
+INPUT = ../input/voc.txt
+
 # File names
-EXEC = porter_stem
+EXEC = stem_porter
 SOURCES = main.cpp porter.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# No need to change after this line
-# Main target
+.PHONY: all
+
+all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile
-	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
+	$(CXX) $(CXX_FLAGS) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
 
 # To obtain object files
 %.o: %.cpp Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
+
+# test
+test: all
+	@./$(EXEC) $(INPUT) > /dev/null
 
 # To remove generated files
 clean:

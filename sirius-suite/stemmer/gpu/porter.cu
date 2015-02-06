@@ -861,11 +861,10 @@ int load_data(struct stemmer **stem_list, FILE *f) {
       a_size += 1;
     }
   }
-  return a_size;
 }
 
 int main(int argc, char *argv[]) {
-  if (argc < 3) {
+  if (argc < 2) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
     fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
@@ -953,6 +952,7 @@ int main(int argc, char *argv[]) {
   cudaEventDestroy(eStart);
   cudaEventDestroy(eStop);
 
+  STATS_END (); 
   for (int i = 0; i < words; i++) {
     cudaFree(host_stem_list[i]->b);
     cudaFree(host2_stem_list[i]);

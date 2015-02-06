@@ -34,7 +34,7 @@ double toc (void);
 
 #define PRINT_STAT_DOUBLE(NAME_, VALUE_)                               \
   do {                                                                 \
-    printf(",\n\t\"%s\": %20.15e", NAME_, VALUE_);                     \
+    printf(",\n\t\"%s\": %f", NAME_, VALUE_);                     \
   } while (0)
 
 #define PRINT_STAT_HEX64(NAME_, VALUE_)                                \
