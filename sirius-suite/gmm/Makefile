@@ -1,5 +1,5 @@
 PLATFORMS = baseline pthread gpu
-ifeq (($shell which nvcc),)
+ifeq ($(shell which nvcc),)
 PLATFORMS = baseline pthread
 endif
 
