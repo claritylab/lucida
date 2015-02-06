@@ -17,8 +17,8 @@ echo "Recording... Press Ctrl+C to Stop."
 sox -d speech.wav 1> /dev/null 2> /dev/null
 
 # echo "(1) Converting your audio to suitable format for speech processing..."
-# ffmpeg -y -i speech.wav -acodec pcm_s16le -ac 1 -ar 16000 speech2.wav 1>/dev/null 2>/dev/null
-ffmpeg -y -i test.wave -acodec pcm_s16le -ac 1 -ar 16000 speech2.wav 1>/dev/null 2>/dev/null
+ffmpeg -y -i speech.wav -acodec pcm_s16le -ac 1 -ar 16000 speech2.wav 1>/dev/null 2>/dev/null
+# ffmpeg -y -i test.wave -acodec pcm_s16le -ac 1 -ar 16000 speech2.wav 1>/dev/null 2>/dev/null
 
 # echo "(2) Just to make sure, you said..."
 # play speech2.wav 1> /dev/null 2>/dev/null
