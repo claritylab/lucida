@@ -1,0 +1,1069 @@
+Sphinx 4 Search:
+----------------
+
+This document contains the requirements and design of the overall
+search for Sphinx 4.  Please refer to the Architecture.{sdw,pdf}
+document for drawings of the overall architecture.  Contained in this
+document are the following:
+
+    - Requirements
+    - SearchManager
+    - Result/LatticeToken
+    - Linguist
+    - Lexicon
+    - AcousticScorer
+    - SentenceHMM
+      - EmittingState
+      - NonemittingState
+    - Bhiksha notes on dynamic HMMs
+    - Bhiksha notes on breadth vs. depth first search
+
+This document is definitely in rough form and needs to be updated as
+we further flesh out the design.
+
+
+Requirements:
+------------
+
+o The architecture will permit both breadth first and depth first
+  searches.
+
+o The architecture will support both statically built and dynamically
+  built sentence HMMs.
+
+o The architecture will keep the language model, acoustic model, and
+  search logic separate.
+
+o Search results will allow n-Besting and access to a lattice.
+
+o Rescoring using an existing lattice will be possible.
+
+o The architecture will permit, but not require, threading.
+
+o The architecture will allow for the plug-n-play of the front end,
+  the language model, and the acoustic model.
+
+o The search will be able to fall behind (e.g., drop feature frames)
+  and recover gracefully.
+
+o All services (e.g., Linguist, SearchManager, etc.) will be defined
+  as interfaces to allow for better plug-n-play.
+
+
+SearchManager:
+-------------
+
+The SearchManager conducts the overall search.  It draws from the
+data in the AcousticModel and the Linguist.  It can either work from
+an existing static SentenceHMM, or it can create its own on the fly.
+
+The SearchManager is the main "entry point" into the recognizer, and
+provides the following interfaces:
+
+    void initialize(...):	Provides various methods for
+				initializing the SearchManager for
+				recognition of an utterance.  Examples
+				include simple initialization (implies
+				use of dynamic SentenceHMMs),
+				initialization given a static
+				SentenceHMM, initialization given an
+				existing Lattice, etc.  If initialized
+				from a Lattice, options will be given
+				to instruct the SearchManager to use
+				or overwrite the previously calculated
+				fields in each Lattice token (e.g.,
+				use or overwrite word scores).    
+
+    Result recognize(int frames):  Recognize "frames" FeatureFrames
+				and return a Result.  If the Result is
+				not a final result (see definition of
+				Result), the Result object will be
+				for reference only (e.g., it may be
+				immutable or just a copy).
+
+    void terminate():		Cleans up after recognition of an
+				utterance.
+
+We discussed the following as part of the SearchManager, but did not
+really fleshed them out:
+
+    o Need to allow end pointing to be part of FrontEnd and the 
+      Recognizer.
+
+    o Provide three options for end pointing:
+
+      1) Tell the recognizer when speech has started/ended
+
+      2) Tell the recognizer when speech has started, let the
+         recognizer figure out the end.
+
+      3) Tell the recognizer nothing and let it figure out both
+         the start and the end.
+
+Another option to consider for the future is to be able to give the
+SearchManager a transcript of an utterance and have the SearchManager
+return a Lattice (including alternate pronunciations).  This will help
+for providing alignment as well as segmenting speech.
+
+
+Result/Lattice/Token:
+--------------------
+
+A Result represents a Lattice, and provides overall information about
+the Lattice.  This information includes the following:
+
+    void isFinal():	       True if this represents a completed 
+			       recognition.  In addition, if true,
+			       this object is mutable.  If false, 
+			       this object is immutable.
+
+    FrameStatistician getFrameStatistician():  Returns an object that
+			       returns per FeatureFrame statistics of
+			       all kinds.
+
+    xxxx getFeatureFrames(int start, int end): Returns an order list
+			       of FeatureFrames.
+
+    xxxx getAudio(int start, int end): Returns the audio associated
+			       with the given FeatureFrames.
+		         
+
+    xxxx getBestPaths(int numPaths):  Returns the numPaths best paths
+			       through the Lattice.
+
+    xxxx getDAG(int compressionLevel?):  Compresses the Lattice into a
+			       DAG (see LatticeNode notes below).
+
+We were not quite sure whether intermediate Results should be
+represented by Tokens or LatticeNodes, so we defined both for now:
+
+Token: Represents a word, updated every frame/state until we get to
+the end of a word, and then it is frozen (at such point, current == end).  
+The Token maintains the following information ([] indicate optional
+fields whose collection can be turned on/off based on property
+settings):
+
+    [Frame info]:		begin, current, [all]
+    Total score:		enter, current, [per frame]
+    Penalites:			enter, current
+    Language score:		enter, current
+    Units:			list (current is last in list)
+    Unit boundaries:		end frame per Unit (current is last in list)
+    Unit scores: 		exit scores
+    Word:			word this token represents
+    Grammar node:		node from the grammar
+    Predecessor:		previous Token (this is a tree)
+
+Lattice Node: Upon exit from a Word/Token, a LatticeNode is created
+that contains the salient Token information.  The LatticeNode differs
+from the Token in that the Lattice has Successors and it can be a DAG
+node instead of a tree node.  Compression of a Token structure to a
+DAG requires the maintenance of a Predecessor/Score list where the
+Score entry represents unique language and acoustic scores.  The
+compression schemes can be user defined, and can be lossy or lossless.
+The lossy compression schemes will normally keep the best scores.  In
+addition, the Lattice node may be missing the penalty information.
+
+    [Frame info]:		begin, end, [all]
+    Total score:		enter, exit, [per frame]
+    [Penalites]:		enter, exit
+    Language score:		enter, exit
+    Units:			list
+    Unit boundaries:		end frame per Unit
+    Unit scores: 		exit scores
+    Word:			word this token represents
+    Grammar node:		Node from the grammar (see Linguist)
+    Predecessors/Scores:	List
+    Successors:			List
+
+We made the design choice to not allow a Result to be modified until
+it is final.  That is, an application can not alter a search in
+progress by making changes to the Result structure.
+
+
+Linguist:
+--------
+
+The Linguist provides an interpretation of the language model for the
+SearchManager.  It's main purpose is to return language scores and
+successors for a given Node.  It is a basic representation of a state
+machine, and provides the following interfaces:
+
+    void initialize(Grammar g):  Prepares a Linguist for a search.
+
+    List getSuccessors(Node n):  For a given Node n, returns a list of
+				 successor Nodes and transition
+				 probabilities to those Nodes.  A Node
+				 may consist of groups of words to
+				 support methods such as class-based
+				 searches.
+					     
+    void terminate():		 Cleans up.
+
+Each Node contains the following information:
+
+    Grammar:	   The Grammar the Node comes from.
+    Predecessors:  The language model predecessors for the Node.
+    Successors:	   The language model successors for the Node, along
+		   with transition probabilities
+    Words:	   Each node can contain a list of words to support
+		   search schemes such as class-based searches.
+
+NOTE:  Node is to be defined.
+
+
+Lexicon:
+-------
+
+The Lexicon is used by both the SearchManager and the Linguist.  For
+the SearchManager, it provides a list of units for each word.  For the
+Linguist, it provides optional word classification information (e.g.,
+noun, verb, etc.).  The Lexicon also supports a global option to
+provide parallel or compressed representations of word pronunciation
+graphs.
+
+
+AcousticScorer:
+---------------
+
+The AcousticScorer takes a list of HMM states and time stamps and
+returns a list of scores.  The time stamps provide a mapping to a
+FeatureFrame.  It is expected that implementations of AcousticScorer
+will support algorithms such as sub-vector quantization.  The
+interface to the AcousticScorer is a simple "score" method:
+
+    void score(set of states):	Scores a set of states.  Each state
+				contains a Unit, the active HMM state
+				in the Unit, the ID of the frame to
+				score against, and a score field to be
+				filled in.
+
+Since the time stamps provide a mapping to a FeatureFrame, the
+AcousticScorer is typically the portion of the decoder that reads data
+from the FrontEnd.  Since the AcousticScorer may go forward and back
+in time, it is also expected that it have access to all the
+FeatureFrames for an Utterance.  Whether the list of FeatureFrames is
+stored in the FrontEnd or some intermediary between the FrontEnd and
+the AcousticScorer is to be determined.
+
+
+SentenceHMM:
+-----------
+
+The SentenceHMM is the HMM that integrates the Unit HMM's and the
+language model, and serves as the trellis for the search.  The
+SentenceHMM contains interphone, interword, and end of word
+boundaries.  At end of word boundaries, it also provides a reference
+to the word.  A summary of the classes involved in the SentenceHMM are
+as follows:
+
+SentenceHMMState: Provides successors with acoustic/language
+transition probabilities for each successor.  Optionally provides
+predecessors with acoustic/language probabilities for each
+predecessor.
+
+EmittingState: Extends SentenceHMMState to provide a Unit reference
+and a reference to the active HMM state of the Unit's HMM.
+
+NonemittingState: Extends SentenceHMMState to provide phone and/or
+word boundary (tag begin or end).  For end of word boundaries,
+provides dictionary and grammar entry.  Also includes optional word 
+and unit insertion penalties.
+
+
+Notes on building recognition HMMs dynamically (from Bhiksha):
+-------------------------------------------------------------
+
+Some thoughts on building recognition HMMs dynamically:
+
+1. It may be better to build the HMM for any word up to, but not
+including the last phone in the word. We would then fetch the next set
+of words when we get to the final state of this penultimate
+phone. This way, we could attach the appropriate triphone at the end
+of the word, according to the successor words.
+
+This would, however, complicate matters a little in that we would nowt
+have to maintain word id etc in the non-emitting final state of the
+*penultimate* phone of each word, and pass this info on to the word
+ending non-emitting state that is built for that word during the
+extension of the HMM.
+
+2. We need to maintain a secondary list of currently active
+Grammar nodes (i.e. grammar node/words for which HMMs currently
+exist). Then, whenever we are required to extend the HMM, we would
+first check if the HMMs for the extension words already exist, and if
+they do determine their location in order to construct proper
+links. Determining this info may require the maintenance of a
+hashtable of current nodes.  Entries would have to be removed from the
+hash when their HMMs are released.  We may have to define the nature
+of the elements in this structure as well (unless you folks can think
+of smart ways of obtaining information about current nodes without
+maintaining auxiliary tables or hashes).
+
+-Bhiksha
+
+
+Notes on breadth first vs. depth first (from Bhiksha):
+-----------------------------------------------------
+
+Folks,
+
+I've been doing some additional thinking about the depth first
+vs. breadth first issue. Some thoughts:
+
+a) Rita pointed out some problems with depth first search in
+her slides. They *only* happen if senone scores can be greater than
+1.0.  If one could assure that all senone scores are no greater than
+1.0 (by putting a ceiling on the scores, for instance), then one could
+perform depth first search very simply indeed, without any
+replication of states of any sort. One only needs to worry a bit about
+termination logic (i.e. keep expanding all current paths *even* after
+one of the paths has hit the terminating state for the final frame,
+until none of the current paths score higher than the final path).
+
+b) Thresholding senone scores at 1.0 is not at all a bad thing. Only
+very very very rarely do they go above 1.0 in any case, anyway.
+
+c) Depth first search can require at most order(T*N^2) operations
+where T is the number of data vectors, and N is the number of states
+in the big HMM constructed from the recognition grammar. In practice,
+one would expect depth first search to require much lesser than
+order(T*N^2) operations. In contrast, breadth first search will always
+require (T*N^2) operations. (All this without considering pruning).
+However, breadth first search will require maintainance of no more
+than N active states at any time instant. Depth first search, on the
+other hand, can require maintainance of T*N active states (upper
+bound).
+
+d) Depth first search for the case where senone scores can be
+greater than 1.0 will require replication of states. This still has
+all the computational advantages of depth first search, but would
+require impolite amounts of memory.
+
+e) Appropriate pruning may reduce the computational difference between
+breadth first and depth first search.
+
+-Bhiksha
+
+====================================================================
+SearchManager Pseudo-code
+====================================================================
+
+/*
+  English description of how this version of the SearchManager works.
+
+  The search manager maintains an 'activeList' of tokens. This list
+  represent the current leaf nodes of the active branches  of the
+  token tree.  
+
+  The search manager also maintains a 'resultList' which contains the
+  set of tokens that are associated with final grammar states.
+
+  The token tree is a tree of tokens (represented by the abstract class
+  Token).  Each token maintains a single 'predecessor' reference. Thus
+  the token tree fans out, but never fans in.  Given a token in the tree
+  it is possible to find all of the predecessors to a particular token,
+  but it is not possible to directly find the successors to a
+  particular token.
+
+  There are various Token subtypes to mark various landmarks in the
+  token tree.  The properties common to all tokens are:
+
+      Predecessor - the previous token on the branch.
+      Score - the score for this token
+      Probability - the probability of taking this branch
+  
+  
+  The Tokens and their properties are:
+
+  GrammarNodeToken - represents a node in the grammar. A grammar node
+  token provides a reference to the corresponding GrammarNode. The
+  GrammarNode provides a set of arcs to successor grammar nodes.  A
+  GrammarNode also contains the list of words to be recognized at that
+  node and the probability of arriving at this node.
+
+  WordNodeToken - represents a single word in a grammar node. A
+  WordNodeToken contains a reference to the Word as well as the index
+  into the GrammarNode word list. A Word contains a list of
+  pronunciations for the word and associated probabilities for each
+  pronunciation.
+
+  PronunciationToken - represents a single pronunciation for a word.
+  The PronunciationToken contains a reference to a particular
+  Pronunciation which contains  a list of units (typically phones) for that
+  pronunciation and the probability of the pronunciation.
+
+  UnitToken - represents a single unit for a pronunciation. The
+  UnitToken contains a reference to the HMM as well as an index into
+  the pronunciation.
+
+  FinalStateToken - represents the final non-emitting state of an HMM.
+
+  StateToken - represents a single senone.  This is the only
+  'emitting' state.
+
+
+  A token tree can look like so:
+
+
+  G1-W1-P1-U1-S1-S2-U2-W2-P1
+  	     -S2-S3-U2
+        P2-U1-S1-S2-U2	
+  	     -S2-S3-U2
+        P2-U1-S1-S2-U2	
+  	     -S2-S3-U2
+
+   And on and on. Its hard to draw, and it gets pretty dense, 
+   so I'll just describe the tree.
+
+   The tree starts with a single grammar node. This is the initial
+   grammar node from the grammar.  (Note that there is no reason why a
+   grammmar couldn't also supply a *set* of initial nodes instead of
+   just a single node). 
+
+   A GrammarNodeToken contains a list of words that describe what should be
+   recognized at that node. (There is no optional paths through the
+   word list, by the way).  
+
+   A GrammarNodeToken has a single successor that represents the first (or
+   only) word at that GrammarNodeToken.
+
+   G-
+
+   A Word node represents a word in a grammar. Each word can have a
+   set of pronunciations. Each pronunciation has an associated
+   probability.  A Word node has a set of successor
+   PronunciationNodes. Each of which represents a single
+   pronunciation.
+
+   G-W-W
+
+   A PronunciationToken represents a single way to pronunce a word. A
+   PronunciationToken contains the set of units (phones or whatever)
+   that are associated with the pronunciation.  A
+   PronunciationToken has a single UnitToken successor that represents
+   the first unit in the pronunciatin. 
+
+   G-W-P1
+     |-P2
+     |-P3
+     |-P4
+     |-P5
+
+   A UnitToken represents a single HMM in a pronunciation. UnitTokens
+   are associated with context dependent units. The size of the
+   context can vary but is usually a single phone (thus a context
+   dependent unit usually is a triphone). A UnitToken has a set of
+   StateToken successors, each of which is associated with a single
+   senone.
+
+   G-W-P1-U1-U2-U3-U4
+     |-P2
+     |-P3
+     |-P4
+     |-P5
+
+   A StateToken can have multiple successors. The successors are
+   either StateToken or FinalStateToken types.
+
+   G-W-P1-U1-S1-S2
+            -S2-S3
+            -S1-S3
+            -S1-S4-FS
+
+   The FinalStateToken is associated with the final non-emitting state
+   of an Hmm. A FinalStateToken can have UnitToken, WordToken or
+   GrammarNodeToken types as successors.
+
+   G-W-P1-U1-S1-S2-FS
+
+   The Search
+   ==========
+   Here is a breadth first search:
+
+   Initialize:
+   	Clears out the activeList. There are no active nodes.
+	Gets the initial GrammarNode from the linguist. Adds a
+	GrammarNodeToken for this initial GrammarNode to the
+	activeList.
+
+    For each frame:
+      Expand non-emitting nodes into emitting nodes
+      ---------------------------------------------
+	For each token in the active list, if the token is a
+	non-emitting token (i.e. not a StateToken), expand the token by
+	removing it from the active list and replacing it by the set of
+	successor tokens for that token.  This process continues until
+	there are only emitting tokens in the activeList.
+
+	For instance, a GrammarNodeToken is expanded into a Word token
+	that is associated with the first word of the grammar node. A
+	Word token is expanded into a set of PronunciationTokens
+	associated with the different pronunciations for the word. A
+	PronunciationToken is  expanded into a UnitToken associated
+	with the first unit of the pronunciation, and a UnitToken is
+	expanded into the set of StateTokens that are reachable from
+	the non-emitting entry state. Selecting the proper HMM for the
+	UnitToken requires looking ahead to find all the possible
+	right contexts
+
+	If a FinalGrammarNode is encountered, the  token associated
+	with this node is moved from the activeList and added to the
+	resultList.
+
+	At this point, the activeList contains just tokens associated
+	with emitting states.
+
+      Score emitting nodes
+      ---------------------------------------------
+	This set of emitting states is sent to the acoustic scoring
+	to be scored.  The states come back with scores.
+
+      Prune emitting nodes
+      ---------------------------------------------
+      Branches that are low scoring can be pruned at this point by
+      dropping them out of the active list.  If there are no more
+      active states, then we are done.
+
+      Grow remaining active branches
+      ---------------------------------------------
+      For each remaining token on the active list, replace this token
+      with the set of successor nodes for the token.
+
+*/
+ 
+/**
+ * A pseudo-code definition for the SearchManager.  The purpose of
+ * this is to give a general idea of how the SearchManager works. It
+ * is not complete Java code and will not compile.
+ */
+class SearchManager {
+    int currentFrameNumber;	// the current frame number
+    List activeList;		// the list of active tokens
+    List resultList;		// the list of result tokens
+
+    Linguist linguist;		// Provides grammar/language info
+    Pruner pruner;		// used to prune the active list
+    AcousticScorer scorer;	// used to score the active list
+    Result result;		// holds recognition results
+
+    SearchManager() {
+    }
+
+    /**
+     * Called at the start of recognition. Gets the search manager
+     * ready to recognize
+     */
+    public void initialize() {
+        currentFrameNumber = 0;
+	activeList = new LinkedList();
+	result = new Result(activeList);
+	linguist.initialize();
+	scorer.initialize();
+	activeList.add(getInitialActiveToken());
+    }
+
+
+    /**
+     * Performs the recognition for the given number of frames.
+     *
+     * @param nFrames the number of frames to recognize
+     */
+
+    // [[NOTE: this interface doesn't work well for depth first
+    // searches
+
+    public int recognize(int nFrames) {
+        for (int i = 0; i < nFrames; i++) {
+	    recognize();
+	}
+	return result;
+    }
+
+
+    /**
+     * Terminates a recognition
+     */
+    public void terminate() {
+       finalizeResults(result);
+    }
+
+    /**
+     * Performs recognition for one frame
+     */
+    void recognize() {
+
+    // expand all non-emitting tokens into emitting ones
+       expandTokens(activeList);
+
+    // score the emitting tokens
+       scoreTokens(activeList);
+
+    // eliminate the poor scoring branches
+       pruneBranches(activeList);
+
+    // extend the remaining active branches  to the next state
+       growBranches(activeList);
+
+    // If there are no more active states we are done
+
+       if (activeList.size() == 0) {
+           finalizeResults(result);
+       }
+       currentFrameNumber++;
+    }
+    
+
+    /**
+     * Gets the initial grammar node from the linguist and
+     * creates a GrammarNodeToken 
+     *
+     * @return the intial active grammar node token for the grammar
+     */
+    private Token getInitialActiveToken() {
+	List list = new LinkedList();
+	GrammarNode grammarNode = linguist.getInitialGrammarNode();
+
+	// A GrammarNodeToken is created from the node and
+	// the probability. In this case the probability is 1
+
+	return new GrammarNodeToken(grammarNode, 1.0);
+    }
+
+    /**
+     * Goes through the active list of tokens and expands each
+     * non-emitting token one level. Expanding a token means
+     * finding the set of successor tokens until all the successor
+     * tokens are emitting tokens.
+     *
+     * @param list the list of active tokens
+     */
+    private void expandTokens(List list) {
+       while (containsNonEmittingTokens(list)) {
+           expandNonEmittingTokens(list);
+       }
+    }
+
+    /**
+     * Calculate the acoustic scores for the active list. The active
+     * list should contain only emitting tokens.
+     *
+     * @param list the list of active tokens
+     */
+    private void scoreTokens(List list) {
+        acousticScorer.scoreTokens(list);
+    }
+
+    /**
+     * Removes unpromising branches from the active list
+     *
+     * @param list the list of active tokens
+     */
+    private void pruneBranches(List list) {
+        pruner.prune(list);
+    }
+
+    /**
+     * Determines if the active list contains any non-emitting tokens
+     *
+     * @param list the list of active tokens
+     *
+     * @return true if the list contains non-emitting tokens
+     */
+    private boolean containsNonEmittingTokens(List list) {
+	for (Iterator i = list.iterator; i.hasNext(); ) {
+	    Token token = (Token) i.next();
+	    if (isNonEmittingToken(token)) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
+    /**
+     * Iterates through the given list and expands each non-emitting
+     * token. New tokens are added to an 'expandedList' which is added
+     *
+     * @param list the list of active tokens
+     */
+    private void expandNonEmittingTokens(List list) {
+       List expandedList = new LinkedList();
+       for (ListIterator i = list.listIterator(); i.hasNext(); ) {
+           Token token = (Token) i.next();
+
+	   if (isNonEmittingToken(token)) {
+	       i.remove();
+	       expandToken(token, expandedList);
+	   }
+       }
+       list.addAll(expandedList);
+    }
+
+    /**
+     * Expand the given token, add the expanded token to the given
+     * list. The term 'expand' means to take the given non-emitting
+     * token and generate the next token. This token may be an
+     * emitting or a non-emitting token.  For instance a
+     * GrammarNodeToken would be expanded to a WordToken, both of
+     * which are non-emitting tokens, whereas a UnitToken may be
+     * expanded to a StateToken which is an emitting token.
+     *
+     * @param token the token to be expanded
+     * @param list expanded tokens should be placed on this list
+     */
+    // It may make more sense to make 'expand' be a method of Token
+    // and have each type of Token  define how it is to be expanded.
+    // I've put it here for now just so everything is all in one
+    // place.
+    private void expandToken(Token token, List list) {
+	if (token instanceof GrammarNodeToken) {
+	    expandGrammarNodeToken((GrammarNodeToken) token, list);
+	} else if (token instanceof WordToken) {
+	    expandWordToken((WordToken) token, list);
+	} else if (token instanceof PronuncationToken) {
+	    expandPronunciationToken((PronuncationToken) token, list);
+	} else if (token instanceof UnitToken) {
+	    expandUnitToken((UnitToken) token, list);
+	} else if (token instanceof FinalStateToken) {
+	    expandFinalStateToken((FinalStateToken) token, list);
+	} else if (token instanceof StateToken) {
+	    throw new IllegalStateException("Can't expand state token");
+	}
+    }
+
+    /**
+     * Expand a grammar node token. A grammar node token is expanded
+     * by creating a word token for the first word in the grammar node
+     *
+     * @param token the token to be expanded
+     * @param list expanded tokens should be placed on this list
+     */
+    private void expandGrammarNodeToken(GrammarNodeToken token, List list) {
+
+    // if the token is associated with a final node in the grammar
+    // add it to the final result list
+
+	if (token.isFinalGrammarNode()) {
+	   resultList.add(token); 
+	} 
+	
+    // otherwise add a word token for the first word of this grammar
+    // node. 
+
+    // [[TODO: will all grammar nodes have words? if not, we
+    // will need to adapt this logic somewhat]]
+
+	else {
+	    Word[] words = token.getWords();
+	    WordToken wordToken = new WordToken(token, words[0], 0);
+	    list.add(wordToken);
+	}
+    }
+
+
+    /**
+     * Expand a word token into a set of pronunciation tokens. A word
+     * can have multiple pronunciations. Each pronunciation has a
+     * probability associated with it.
+     *
+     * @param token the token to be expanded
+     * @param list expanded tokens should be placed on this list
+     */
+    private void expandWordToken(WordToken token, List list) {
+	Word word = token.getWord();
+	Pronunciation[] pronunciations = word.getPronunciations();
+	    // linguist.getDictionary().getPronunciations(word);
+	for (int i = 0; i < pronunciations.length; i++) {
+	    list.add(new PronunciationToken(token, pronunciations[i]));
+	}
+    }
+
+    /**
+     * Expand a pronunciation token in a set of unit tokens. For most
+     * cases, a pronunciation token will be expanded into a single
+     * string of unit tokens, but for words that are shorter than the
+     * right context we'll have to look ahead to get that. There is
+     * some tricky business here which will have to be dealt with.
+     *
+     * @param token the token to be expanded
+     * @param list expanded tokens should be placed on this list
+     */
+    private void expandPronunciationToken(PronunciationToken token, List list) {
+	Pronunciation pronunciation = token.getPronunciation();
+
+	Unit[] leftContext = getLeftContext(token);
+	List rightContexts = getRightContexts(token);
+    	Unit thisUnit = pronunciation.getUnits()[0];
+
+	for (Iterator i = rightContexts.iterator(); i.hasNext(); ) {
+	    Unit[] rightContext= (Unit[]) i.next();
+	    HMM newHMM = acousticModel.lookupHMM(thisUnit,
+		    leftContext, rightContext);
+	    list.add(new UnitToken(token, newHMM, 0));
+	}
+    }
+
+
+    /**
+     * Starting from the given token, build up the set of predecessor
+     * units for use in establishing a left context
+     *
+     * @param token the token to start from
+     *
+     * @return the set of units corresponding to the left context
+     */
+    private Unit[] getLeftContext(Token token) {
+        int count = acousticModel.getLeftContextSize();
+        Unit[] result = new Unit[count];
+        token = token.getPredecessor();
+	// TBD - need to deal with the case where there isn't enough
+	// left context (i.e. first unit of the first word)
+        while (count > 0 && token != null) {
+	    if (token instanceof UnitToken) {
+	    	count--;
+	        Unit unit = ((UnitToken) token).getUnit();
+		result[count] = unit.getName();
+	    }
+	}
+	return result;
+    }
+
+
+    /**
+     * Given a token, return the next set of units. This is a tricky
+     * part
+     *
+     * @param token the token to start from
+     *
+     * @return the list of right contexts. Each element in the list is
+     * an array of units corresponding to a context.
+     */
+    private List getRightContext(Token token) {
+	// Find out where we are in the current pronunciation
+	// collect the next set of units from this pronunciation. 
+	// if we fall off the end of the pronunciation, go and get the
+	// next set of word/pronunciations.  If we fall off the end of
+	// those well... tough luck.
+	int cur = 0;
+	Unit[] unit = new Unit[acousticModel.getRightContextSize()];
+
+	UnitToken unitToken = findPreviousToken(token, UnitToken.class);
+	int next = unitToken.getWhich() + 1;
+	PronunciationToken  pronunciationToken =
+	    findPreviousToken(token, PronunciationToken.class);
+	Unit[] curUnits = pronunciationToken.getPronunciation().getUnits();
+	while (next < curUnits.length && cur < unit.length) {
+	    unit[cur++] = curUnits[next++];
+	}
+
+	// need more
+	if (cur < unit.length) {
+	    List nextPronunciations = getNextPronunciations(token);
+	    for (Iterator i = nextPronunciations.iterator(); i.hasNext(); ) {
+
+		int thisNext = 0;
+		int thisCur = cur;
+
+		Pronunciation pronunciation = (Pronunciation) i.next();
+		Unit[] newUnit = new Unit[unit.length];
+		System.arraycopy(unit, 0, newUnit, 0, cur);
+		Unit[] curUnits = pronunciation().getUnits();
+		while (thisNext < curUnits.length && thisCur < unit.length) {
+		    newUnit[thisCur++] = curUnits[thisNext++];
+		}
+		list.add(unit);
+	    }
+	} else {
+	    list.add(unit);
+	}
+    }
+
+    /**
+     * Returns a list of pronunciations for all words that could
+     * possible follow this word. This is useful for establishing the
+     * right hand context for a unit.
+     *
+     * @param token the token to be expanded
+     *
+     * @return a list of Pronunciation objects
+     */
+    private List getNextPronunciations(Token token) {
+	List wordList = new ArrayList();
+	// Find the next word in this grammar node
+	WordToken wordToken = findPreviousToken(token,
+		WordToken.class);
+	GrammarNodeToken grammarNodeToken =
+	    findPreviousToken(wordToken, GrammarNodeToken.class);
+
+	if (wordToken.getWhich() + 1 < grammarNodeToken.getWords().length) {
+	    Word nextWord = grammarNodeToken.getGrammarNode().getWords()[
+				wordToken.getWhich() + 1];
+
+	    wordList.add(nextWord);
+	} 
+
+	// we are out of words for this node so we need to find the
+	// next set of grammar nodes and find the first words in each
+	// of those nodes
+
+	else {
+	    GrammarArc[] grammarArcs =
+		grammarNodeToken().getGrammarNode().getSuccessors();
+
+	    for (int i = 0; i < grammarArcs.length; i++) {
+		wordList.add(grammarArcs[i].getGrammarNode().getWords()[0]);
+	    }
+	}
+
+	// we have now collected all of the next words. Add all of the
+	// pronunciations for the next words
+
+	List pronunciationList = new ArrayList();
+
+	for (Iterator i = wordList.iterator(); i.hasNext(); ) {
+	    Word word = (Word) i.next();
+	    Pronunciation pronunciations[] = word.getPronunciations();
+	    for (int j = 0; j < pronunciations.length; j++) {
+		pronunciationList.add(pronunciations[i]);
+	    }
+	}
+    }
+
+
+    /**
+     * Expand a unit token in a set of state tokens. 
+     *
+     * @param token the token to be expanded
+     * @param list expanded tokens should be placed on this list
+     */
+    private void expandUnitToken(UnitToken token, List list) {
+	Unit unit = token.getUnit();
+	HmmStateArcs[] stateArcs = unit.getInitialStates();
+	for (int i = 0; i < stateArcs.length; i++) {
+	    list.add(new StateToken(stateArcs[i].getState(),
+				stateArcs[i].getProbability());
+	}
+    }
+
+    /**
+     * Expand a FinalStateToken. A FinalStateToken marks the end of a
+     * set of HMM states. After a final state token we will be
+     * transitioning to another HMM. This could be in the same
+     * word/pronunciation or a new word, or even in a new grammar node
+     *
+     * @param token the token to be expanded
+     * @param list expanded tokens should be placed on this list
+     */
+    private void expandFinalStateToken(UnitToken token, List list) {
+        // Find the pronunciation that we are currently in.
+
+        UnitToken unitToken = findPreviousToken(token, UnitToken.class);
+	PronunciationToken pronunciationToken =
+	    findPreviousToken(token, PronunciationToken.class);
+	
+	// if there are more units in the current pronunciation, then
+	// create a new unit token for the next unit.
+	int whichUnit = unitToken.getWhich();
+
+	if (whichUnit  + 1 <
+	    pronunciationToken.getPronunciation().getUnits().length) {
+	    Unit nextUnit =
+	      pronunciationToken.getPronunciation().getUnits(whichUnit + 1);
+	    List rightContexts = getRightContexts(token);
+	    Unit[] leftContext = getLeftContext(token);
+
+	    for (Iterator i = rightContexts.iterator(); i.hasNext(); ) {
+		Unit[] rightContext= (Unit[]) i.next();
+		HMM newHMM = acousticModel.lookupHMM(thisUnit,
+			leftContext, rightContext);
+		list.add(new UnitToken(token, newHMM, whichUnit + 1);
+	    }
+	}
+
+	// there are no more units in this pronunciation so lets check
+	// to see if there are any more words in this grammar node
+
+	else {
+            WordToken wordToken = findPreviousToken(token, WordToken.class);
+	    int whichWord = wordToken.getWhich();
+	    GrammarNodeToken grammarNodeToken =
+		findPreviousToken(token, GrammarNodeToken.class);
+	    Word[] words = grammarNodeToken.getWords();	
+
+	    if (whichWord + 1 < words.length) {
+		Word nextWord = words[whichWord + 1];
+		Token wordToken = new WordToken(token, nextWord, whichWord + 1);
+		list.add(wordToken);
+	    }
+
+	    // there are no more words in this grammar node so go back to
+	    // the grammar node and find the next set of grammar nodes
+
+	    else {
+		GrammarNodeToken grammarNodeToken =
+		    findPreviousToken(token, GrammarNodeToken.class);
+		GrammarArc[] grammarArcs =
+		    grammarNodeToken.getGrammarNode().getSuccessorTransitions();
+
+		for (int i = 0; i < grammarArcs.length; i++) {
+		    Token newGrammarNodeToken = new
+			GrammarNodeToken(token,
+				grammarArcs.getGrammarNode(),
+				grammarArcs.getProbability());
+		    list.add(newGrammarNodeToken);
+		}
+	    }
+	}
+    }
+
+    /**
+     * Extend out each state to the next state
+     *
+     * @param list the list of active tokens
+     */
+    private void growBranches(List list) {
+    	List growList = new LinkedList();
+        for (Iterator i = list.iterator(); i.hasNext(); ) {
+	    StateToken token = (StateToken) i.next();
+	    growBranch(token, growList);
+	    i.remove();
+	}
+	list.addAll(growList);
+    }
+
+
+    /**
+     * Grow out one branch. 
+     *
+     * @param token the token to be expanded
+     * @param list grown tokens should be placed on this list
+     */
+    private void growBranch(StateToken token, List list) {
+        HmmState state = token.getState();
+	HmmStateArcs[] stateArcs = state.getSuccessors();
+
+	for (int i = 0; i < stateArcs.length; i++) {
+	    Token token; 
+	    if (stateArcs.getState().isExitState()) {
+		token = new FinalStateToken(token,
+			stateArcs.getState(),
+			stateArcs.getProbability());
+	    } else {
+		token = new StateToken(token,
+			stateArcs.getState(),
+			stateArcs.getProbability());
+	    }
+	    list.add(token);
+	}
+    }
+
+
+    /**
+     * Turns the result into a final result
+     *
+     * @param result the result
+     */
+    private finalizeResults(Result result) {
+        result.setFinal(true);
+    }
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   Sphinx-4 Configuration file
+-->
+
+<!-- ******************************************************** -->
+<!--  spectrogram config file                                 -->
+<!-- ******************************************************** -->
+
+<config>
+
+
+    <!-- ******************************************************** -->
+    <!-- The frontend configuration                               -->
+    <!-- ******************************************************** -->
+
+    <component name="cepstraFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>streamDataSource</item>
+            <item>preemphasizer</item>
+            <item>windower</item>
+            <item>fft</item>
+            <item>melFilterBank</item>
+            <item>dct</item>
+        </propertylist>
+    </component>
+
+    <component name="spectraFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>streamDataSource</item>
+            <item>preemphasizer</item>
+            <item>windower</item>
+            <item>fft</item>
+        </propertylist>
+    </component>
+
+    <component name="plpFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>streamDataSource</item>
+            <item>preemphasizer</item>
+            <item>windower</item>
+            <item>fft</item>
+            <item>plpFrequencyFilterBank</item>
+            <item>plpCepstrumProducer</item>
+        </propertylist>
+    </component>
+
+    <component name="preemphasizer"
+               type="edu.cmu.sphinx.frontend.filter.Preemphasizer"/>
+
+    <component name="windower"
+               type="edu.cmu.sphinx.frontend.window.RaisedCosineWindower">
+    </component>
+
+    <component name="fft"
+               type="edu.cmu.sphinx.frontend.transform.DiscreteFourierTransform"/>
+
+    <component name="melFilterBank"
+               type="edu.cmu.sphinx.frontend.frequencywarp.MelFrequencyFilterBank">
+    </component>
+
+    <component name="dct"
+               type="edu.cmu.sphinx.frontend.transform.DiscreteCosineTransform"/>
+
+    <component name="cmn" type="edu.cmu.sphinx.frontend.feature.BatchCMN"/>
+
+    <component name="featureExtraction"
+               type="edu.cmu.sphinx.frontend.feature.DeltasFeatureExtractor"/>
+
+    <component name="streamDataSource"
+               type="edu.cmu.sphinx.frontend.util.StreamDataSource">
+        <property name="sampleRate" value="16000"/>
+    </component>
+
+
+    <component name="plpFrequencyFilterBank"
+               type="edu.cmu.sphinx.frontend.frequencywarp.PLPFrequencyFilterBank"/>
+
+    <component name="plpCepstrumProducer"
+               type="edu.cmu.sphinx.frontend.frequencywarp.PLPCepstrumProducer"/>
+</config>

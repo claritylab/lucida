@@ -5,12 +5,12 @@ Yiping Kang (ypkang@umich.edu)
 University of Michgan, 2015
 
 ###What's this
-This kernel is a forward pass of a deep neural network (DNN).
-The network is for Automatic Speech Recognition (ASR).
-The kernel takes voice feature vectors as input and generate probability as output.
+This kernel is a forward pass of a deep neural network (DNN).  
+The network is for Automatic Speech Recognition (ASR).  
+The kernel takes voice feature vectors as input and generate probability as output.  
 
 ###Directory structure
-./model/ contains the network configuration file and pre-trained model file.
+./model/ contains the network configuration file and pre-trained model file.  
 ./input/ contains input file of features and and corresponding expected output file for sanity check purpose.
 
 ###Backend
@@ -29,8 +29,8 @@ $ ./dnn-asr path_to_model_file path_to_feature_input
 ```
 - For example, if you keep the folder as default,  
 ```bash
-$ ./dnn-asr model/asr.caffemodel input/feature.in
-```
+$ ./dnn-asr model/asr.caffemodel input/feature.in  
+```  
 7. The kernel will do the following  
     a. Initiate the model with weights in the pretrained model file  
     b. Load in feature input  

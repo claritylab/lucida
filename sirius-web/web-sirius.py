@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+#
+# Copyright (c) 2015, University of Michigan.
+# All rights reserved.
+#
+# This source code is licensed under the BSD-style license found in the
+# LICENSE file in the root directory of this source tree. An additional grant
+# of patent rights can be found in the PATENTS file in the same directory.
+#
+#
+
 import subprocess, re, os, sys, json, urllib, urllib2, httplib, multiprocessing
 from datetime import datetime
 from httplib import BadStatusLine

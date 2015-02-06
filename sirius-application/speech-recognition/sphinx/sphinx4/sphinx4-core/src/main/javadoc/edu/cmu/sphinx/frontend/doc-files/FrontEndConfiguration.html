@@ -1,0 +1,201 @@
+<html>
+
+<head>
+    <!--
+
+    Copyright 1999-2002 Carnegie Mellon University.
+    Portions Copyright 2002 Sun Microsystems, Inc.
+    Portions Copyright 2002 Mitsubishi Electric Research Laboratories.
+    All Rights Reserved.  Use is subject to license terms.
+
+    See the file "license.terms" for information on usage and
+    redistribution of this file, and for a DISCLAIMER OF ALL
+    WARRANTIES.
+
+    -->
+    <title>Configuring the Sphinx-4 Front End</title>
+    <style type="text/css">
+        pre {
+            font-size: medium;
+            background: #f0f8ff;
+            padding: 2mm;
+            border-style: ridge;
+            color: teal
+        }
+
+        code {
+            font-size: medium;
+            color: teal
+        }
+    </style>
+</head>
+
+<body>
+
+<span style="font-family: Times New Roman; ">
+    <div style="text-align: center;">
+        <table bgcolor="#99CCFF" width="100%">
+            <tr>
+                <td align=center width="100%">
+                    <h1>Configuring the Sphinx-4 Front End</h1>
+                </td>
+            </tr>
+        </table>
+    </div>
+</span>
+
+<p>
+    The main design goal of the Sphinx-4 front end is flexibility.
+    The front end should be modeled as a pipeline of data processors,
+    and the entire composition of the pipeline should be configurable
+    from the configuration file. Other design requirements include
+    allowing multiple instances of the same data processor in the same front end,
+    where each can be configured differently. Moreover, the possibility of
+    multiple front ends should be allowed.
+
+
+    <br><br>
+
+<h3>A Simple Example</h3>
+
+<p>
+    To enable all these capabilities, the following scheme is devised to specify
+    the front end in the configuration file. Lets work with the example of a
+    standard Mel Frequency Cepstral Coefficients (MFCC) front end,
+    followed by an explanation:
+
+<p>
+<pre>
+&lt;component name="mfcFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+    &lt;propertylist name="pipeline"&gt;
+        &lt;item&gt;preemphasizer&lt;/item&gt;
+        &lt;item&gt;windower&lt;/item&gt;
+        &lt;item&gt;dft&lt;/item&gt;
+        &lt;item&gt;melFilterBank&lt;/item&gt;
+        &lt;item&gt;dct&lt;/item&gt;
+        &lt;item&gt;batchCMN&lt;/item&gt;
+	&lt;item&gt;featureExtractor&lt;/item&gt;
+    &lt;/propertylist&gt;
+&lt;/component&gt;
+
+&lt;component name="preemphasizer" type="edu.cmu.sphinx.frontend.filter.Preemphasizer"/&gt;
+&lt;component name="windower" type="edu.cmu.sphinx.frontend.window.RaisedCosineWindower"/&gt;
+
+&lt;component name="dft" type="edu.cmu.sphinx.frontend.transform.DiscreteFourierTransform"&gt;
+    &lt;property name="numberFftPoints" value="512"/&gt;
+&lt;/component&gt;
+
+&lt;component name="melFilterBank" type="edu.cmu.sphinx.frontend.frequencywarp.MelFrequencyFilterBank"/&gt;
+&lt;component name="dct" type="edu.cmu.sphinx.frontend.transform.DiscreteCosineTransform"/&gt;
+&lt;component name="batchCMN" type="edu.cmu.sphinx.frontend.feature.BatchCMN"/&gt;
+&lt;component name="featureExtractor" type="edu.cmu.sphinx.frontend.feature.DeltasFeatureExtractor"/&gt;
+</pre>
+
+<b><i>Example 1: Specifying a standard MFCC front end.</i></b>
+
+<p>
+    The first component specifies all the front end proceessors. "mfcFrontEnd"
+    is the name of our MFCC front end pipeline, followed by the Java class type
+    of the front end. It is then followed by a list of the data processors,
+    using a <code>propertylist</code> called <code>pipeline</code>, which
+    you will see is a property of the
+    <a href="../FrontEnd.html">FrontEnd class</a>.
+
+<p>
+    The rest of the components specify each of the data processors in turn.
+    They mainly specify the Java class type of the processor, but it can also
+    specify the properties of the data processor. For example, in the
+    case of the DFT data processor, the number of FFT points is specified
+    as 512. If you look at the <a href="../transform/DiscreteFourierTransform.html">DiscreteFourierTransform</a> class,
+    you will notice that
+    <code>numberFftPoints</code> is a property of the class.
+
+
+    <br><br>
+
+<h3>Multiple Instances of the Same DataProcessor</h3>
+
+<p>
+    The name of a component is also useful if we have multiple instances of the
+    same data processor class. For example, suppose that we perform
+    Discrete Fourier Transform two times in a row, but each with a different
+    number of FFT points, we would specify the following:
+
+<p>
+<pre>
+&lt;component name="mfcFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+    &lt;propertylist name="pipeline"&gt;
+        &lt;item&gt;preemphasizer&lt;/item&gt;
+        &lt;item&gt;windower&lt;/item&gt;
+        &lt;item&gt;dft_1&lt;/item&gt;
+        &lt;item&gt;dft_2&lt;/item&gt;
+        &lt;item&gt;melFilterBank&lt;/item&gt;
+        &lt;item&gt;dct&lt;/item&gt;
+        &lt;item&gt;batchCMN&lt;/item&gt;
+	&lt;item&gt;featureExtractor&lt;/item&gt;
+    &lt;/propertylist&gt;
+&lt;/component&gt;
+
+&lt;component name="dft_1" type="edu.cmu.sphinx.frontend.transform.DiscreteFourierTransform"&gt;
+    &lt;property name="numberFftPoints" value="128"/&gt;
+&lt;/component&gt;
+
+&lt;component name="dft_2" type="edu.cmu.sphinx.frontend.transform.DiscreteFourierTransform"&gt;
+    &lt;property name="numberFftPoints" value="256"/&gt;
+&lt;/component&gt;
+</pre>
+
+<b><i>Example 2: Specifying a front-end pipeline with two DataProcessors of the same class, but different
+    properties.</i></b>
+
+<p>
+    When the first DiscreteFourierTransform class is initialized in the
+    'initialize()' method, the 'name' argument will be 'dft_1'. Calling
+    DiscreteFourierTransform.getName() on it will return 'dft_1'.
+
+
+    <br><br>
+
+<h3>Multiple Front Ends</h3>
+
+Multiple front ends are simply specified as separate components:
+
+<p>
+
+<pre>
+&lt;component name="mfcFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+    &lt;propertylist name="pipeline"&gt;
+        &lt;item&gt;preemphasizer&lt;/item&gt;
+        &lt;item&gt;windower&lt;/item&gt;
+        &lt;item&gt;dft&lt;/item&gt;
+        &lt;item&gt;melFilterBank&lt;/item&gt;
+        &lt;item&gt;dct&lt;/item&gt;
+        &lt;item&gt;batchCMN&lt;/item&gt;
+	&lt;item&gt;featureExtractor&lt;/item&gt;
+    &lt;/propertylist&gt;
+&lt;/component&gt;
+
+&lt;component name="plpFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+    &lt;propertylist name="pipeline"&gt;
+        &lt;item&gt;preemphasizer&lt;/item&gt;
+        &lt;item&gt;windower&lt;/item&gt;
+        &lt;item&gt;dft&lt;/item&gt;
+        &lt;item&gt;plpFilterBank&lt;/item&gt;
+        &lt;item&gt;plpCepstrumProducer&lt;/item&gt;
+        &lt;item&gt;batchCMN&lt;/item&gt;
+	&lt;item&gt;featureExtractor&lt;/item&gt;
+    &lt;/propertylist&gt;
+&lt;/component&gt;
+
+... // define the components of both front ends
+</pre>
+
+
+<b><i>Example 3: Specifying multiple front-end pipelines.</i></b>
+
+<p>
+    That is, you specify the different pipelines, and then just specify each pipeline as you would individually.
+
+</body>
+
+</html>

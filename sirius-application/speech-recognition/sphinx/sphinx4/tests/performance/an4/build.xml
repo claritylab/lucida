@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="none" name="AN4 Tests">
+<description>
+This file is used to run the AN4 performance tests.
+
+NOTE:  Before running the tests, you must have already built 
+       the sphinx-4 sources by typing "ant" in the top level 
+       sphinx4 directory.
+
+Run ant with -Dskip=5 to do the standard 'quick' version of a test.
+</description>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * Properties common to all tests                         * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <property name="top_dir"		value="../../.."/>
+    <property name="build_dir"		value="${top_dir}/bld"/>
+    <property name="classes_dir"	value="${build_dir}"/>
+    <property name="lib_dir"            value="${build_dir}/lib"/>
+    <property name="classpath" value="${classes_dir}:${top_dir}/lib/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar:${top_dir}/lib/batch.jar"/>
+
+    <property name="skip"               value="0"/>
+    <property name="logger_props"       value=""/>  
+
+    <property name="initial_heap_size"  value="128m"/>
+    <property name="maximum_heap_size"  value="1024m"/>
+    <property name="jit"                value="server"/>
+    <property name="gc_log_file"        value="gc.txt"/>
+    <property name="batch_main"               
+	      value="edu.cmu.sphinx.tools.batch.BatchModeRecognizer"/>
+    <property name="live_main"               
+	      value="edu.cmu.sphinx.tools.live.LiveModeRecognizer"/>
+    <property name="config" value="an4.config.xml"/>
+    <property name="batch" value="an4.batch"/>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * Displays minimal help.                                 * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="none">
+        <echo>Type 'ant -p' for possible targets.</echo>
+    </target>
+
+    <!-- dummy target for automated test compilation -->
+    <target name="compile" />
+    
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_wordlist                                     * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_wordlist"
+	    description="AN4 words test set with a word list language model">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammarPath" value="an4_words.wordlist"/>
+            <sysproperty key="wordInsertionProbability" value="1.0E-25"/>
+            <sysproperty key="relativeBeamWidth" value="1.0E-250"/>
+            <sysproperty key="languageWeight" value="10"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_flat_unigram                                 * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_flat_unigram"
+	    description="AN4 words test set with a flat unigram language model">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_words.flat_unigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_unigram                                      * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_unigram"
+	    description="AN4 words test set with a unigram language model">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_words.unigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_bigram                                       * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_bigram"
+	    description="AN4 words test set with a bigram language model">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_words.bigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+
+
+
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_flat_unigram_fst                             * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_flat_unigram_fst"
+	    description="AN4 words test set with a flat unigram FST language model">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_words.flat_unigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_unigram_fst                                  * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_unigram_fst"
+	    description="AN4 words test set with a unigram FST language model">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_words.unigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_bigram_fst                                   * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_bigram_fst"
+	    description="AN4 words test set with a bigram FST language model">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_words.bigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_trigram_fst                                  * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_trigram_fst"
+	    description="AN4 words test set with a trigram FST language model">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_words.trigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_spelling_wordlist                                  * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_spelling_wordlist"
+	    description="AN4 spelling test set with a wordlist grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammarPath" value="an4_spelling.wordlist"/>
+            <sysproperty key="wordInsertionProbability" value="1.0E-25"/>
+            <sysproperty key="relativeBeamWidth" value="1.0E-250"/>
+            <sysproperty key="languageWeight" value="10"/>
+            <arg value="${config}"/> 
+            <arg value="an4_spelling.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_spelling_flat_unigram                              * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_spelling_flat_unigram"
+	    description="AN4 spelling test set with a flat unigram grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_spelling.flat_unigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_spelling.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_spelling_unigram                                   * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_spelling_unigram"
+	    description="AN4 spelling test set with a unigram grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_spelling.unigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_spelling.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_spelling_bigram                                    * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_spelling_bigram"
+	    description="AN4 spelling test set with a bigram grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_spelling.bigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_spelling.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_spelling_flat_unigram_fst                          * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_spelling_flat_unigram_fst"
+	    description="AN4 spelling test set with a flat unigram fst grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_spelling.flat_unigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_spelling.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_spelling_unigram_fst                               * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_spelling_unigram_fst"
+	    description="AN4 spelling test set with a unigram fst grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_spelling.unigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_spelling.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_spelling_bigram_fst                                * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_spelling_bigram_fst"
+	    description="AN4 spelling test set with a bigram fst grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_spelling.bigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_spelling.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_spelling_trigram_fst                               * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_spelling_trigram_fst"
+	    description="AN4 spelling test set with a trigram fst grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_spelling.trigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_spelling.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_full_wordlist                                      * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_full_wordlist"
+	    description="AN4 full test set with a wordlist grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammarPath" value="an4_full.wordlist"/>
+            <sysproperty key="relativeBeamWidth" value="1.0E-250"/>
+            <sysproperty key="languageWeight" value="10"/>
+            <arg value="${config}"/> 
+            <arg value="an4_full.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_full_flat_unigram                                  * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_full_flat_unigram"
+	    description="AN4 full test set with a flat unigram grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_full.flat_unigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_full.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_full_unigram                                       * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_full_unigram"
+	    description="AN4 full test set with a unigram grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_full.unigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_full.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_full_bigram                                        * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_full_bigram"
+	    description="AN4 full test set with a bigram grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_full.bigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+            <arg value="an4_full.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_full_flat_unigram_fst                              * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_full_flat_unigram_fst"
+	    description="AN4 full test set with a flat unigram fst grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_full.flat_unigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_full.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_full_unigram_fst                                   * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_full_unigram_fst"
+	    description="AN4 full test set with a unigram fst grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_full.unigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_full.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_full_bigram_fst                                    * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_full_bigram_fst"
+	    description="AN4 full test set with a bigram fst grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_full.bigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_full.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_full_trigram_fst                                   * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_full_trigram_fst"
+	    description="AN4 full test set with a trigram fst grammar">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xprof"/>
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="languageWeight"  value="10.0"/>
+            <sysproperty key="grammar" value="fstGrammar"/> 
+            <sysproperty key="fstGrammar[path]" value="an4_full.trigram.fst"/>
+            <arg value="${config}"/> 
+            <arg value="an4_full.batch"/> 
+        </java>
+    </target>
+
+    <!-- ********************************************************** --> 
+    <!-- *                                                        * --> 
+    <!-- * an4_words_bigram_live                                  * --> 
+    <!-- *                                                        * --> 
+    <!-- ********************************************************** --> 
+    <target name="an4_words_bigram_live"
+            description="AN4 live words test with a bigram grammar">
+	<exec executable="rm">
+	    <arg line="-f reference.txt hypothesis.txt transcript.txt"/>
+	</exec>
+        <java classpath="${classpath}"
+	      classname="${live_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <sysproperty key="live[skip]" value="${skip}"/> 
+            <sysproperty key="concatDataSource[skip]" value="${skip}"/> 
+            <sysproperty key="speedTracker[showResponseTime]" value="true"/> 
+            <sysproperty key="frontend" value="mfcLiveFrontEnd"/> 
+            <sysproperty key="grammar" value="lmGrammar"/> 
+            <sysproperty key="ngramLanguageModel[location]"
+                         value="an4_words.bigram.lm"/>
+            <sysproperty key="ngramLanguageModel[maxDepth]" value="1"/>
+            <arg value="${config}"/> 
+        </java>
+    </target>
+
+
+    <!-- ********************************************************** --> 
+    <!-- *                                                        * --> 
+    <!-- * an4_words_trigram                                      * --> 
+    <!-- *                                                        * --> 
+    <!-- ********************************************************** --> 
+    <target name="an4_words_trigram"
+            description="trigram decode of an4 words using the word pruning breadth first search manager ">
+       <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <sysproperty key="batch[skip]" 	value="${skip}"/> 
+            <arg value="an4_words_trigram.config.xml"/> 
+            <arg value="an4_words.batch"/> 
+        </java>
+    </target>
+
+
+    <!-- ********************************************************** -->
+    <!-- *                                                        * -->
+    <!-- * an4_words_rejection                                    * -->
+    <!-- *                                                        * -->
+    <!-- ********************************************************** -->
+    <target name="an4_words_rejection"
+	    description="AN4 words test set with a word list language model (that is, non-digit words are out-of-grammar, and a rejection CI phone loop.">
+        <java classpath="${classpath}"
+	      classname="${batch_main}"
+	      fork="true">
+            <jvmarg value="-ea"/>
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <jvmarg value="-Xloggc:${gc_log_file}"/>
+            <sysproperty key="batch[skip]" value="${skip}"/> 
+            <sysproperty key="grammarPath"
+	                 value="../tidigits/tidigits.wordlist"/>
+	    <sysproperty key="recognizer" value="rejectionRecognizer"/>
+            <sysproperty key="wordInsertionProbability" value="1.0E-25"/>
+            <sysproperty key="relativeBeamWidth" value="1.0E-250"/>
+            <sysproperty key="languageWeight" value="10"/>
+            <sysproperty key="flatLinguist[addOutOfGrammarBranch]"
+	                 value="true"/>
+            <arg value="${config}"/> 
+            <arg value="an4_words_rejection.batch"/> 
+        </java>
+    </target>
+
+</project>

@@ -1,0 +1,144 @@
+#############################################################################
+## Copyright (c) 1996, Carnegie Mellon University, Cambridge University,
+## Ronald Rosenfeld and Philip Clarkson
+#############################################################################
+=============================================================================
+===============  This file was produced by the CMU-Cambridge  ===============
+===============     Statistical Language Modeling Toolkit     ===============
+=============================================================================
+This is a 1-gram language model, based on a vocabulary of 101 words,
+  which begins "<s>", "a", "and"...
+This is an OPEN-vocabulary model (type 1)
+  (OOVs were mapped to UNK, which is treated as any other vocabulary word)
+Good-Turing discounting was applied.
+1-gram frequency of frequency : 100 
+1-gram discounting ratios : 0.98 
+This file is in the ARPA-standard format introduced by Doug Paul.
+
+p(wd3|wd1,wd2)= if(trigram exists)           p_3(wd1,wd2,wd3)
+                else if(bigram w1,w2 exists) bo_wt_2(w1,w2)*p(wd3|wd2)
+                else                         p(wd3|w2)
+
+p(wd2|wd1)= if(bigram exists) p_2(wd1,wd2)
+            else              bo_wt_1(wd1)*p_1(wd2)
+
+All probs and back-off weights (bo_wt) are given in log10 form.
+
+Data formats:
+
+Beginning of data mark: \data\
+ngram 1=nr            # number of 1-grams
+
+\1-grams:
+p_1     wd_1 
+
+end of data mark: \end\
+
+\data\
+ngram 1=102
+
+\1-grams:
+-2.0042 <UNK> 0.0000
+-99.0000 <s> 0.0000
+-2.0042 a 0.0000
+-2.0042 and 0.0000
+-2.0042 apostrophe 0.0000
+-2.0042 april 0.0000
+-2.0042 area 0.0000
+-2.0042 august 0.0000
+-2.0042 b 0.0000
+-2.0042 c 0.0000
+-2.0042 code 0.0000
+-2.0042 d 0.0000
+-2.0042 december 0.0000
+-2.0042 e 0.0000
+-2.0042 eight 0.0000
+-2.0042 eighteen 0.0000
+-2.0042 eighteenth 0.0000
+-2.0042 eighth 0.0000
+-2.0042 eighty 0.0000
+-2.0042 eleven 0.0000
+-2.0042 eleventh 0.0000
+-2.0042 enter 0.0000
+-2.0042 erase 0.0000
+-2.0042 f 0.0000
+-2.0042 february 0.0000
+-2.0042 fifteen 0.0000
+-2.0042 fifteenth 0.0000
+-2.0042 fifth 0.0000
+-2.0042 fifty 0.0000
+-2.0042 first 0.0000
+-2.0042 five 0.0000
+-2.0042 forty 0.0000
+-2.0042 four 0.0000
+-2.0042 fourteen 0.0000
+-2.0042 fourth 0.0000
+-2.0042 g 0.0000
+-2.0042 go 0.0000
+-2.0042 h 0.0000
+-2.0042 half 0.0000
+-2.0042 help 0.0000
+-2.0042 hundred 0.0000
+-2.0042 i 0.0000
+-2.0042 j 0.0000
+-2.0042 january 0.0000
+-2.0042 july 0.0000
+-2.0042 june 0.0000
+-2.0042 k 0.0000
+-2.0042 l 0.0000
+-2.0042 m 0.0000
+-2.0042 march 0.0000
+-2.0042 may 0.0000
+-2.0042 n 0.0000
+-2.0042 nine 0.0000
+-2.0042 nineteen 0.0000
+-2.0042 ninety 0.0000
+-2.0042 ninth 0.0000
+-2.0042 no 0.0000
+-2.0042 o 0.0000
+-2.0042 october 0.0000
+-2.0042 of 0.0000
+-2.0042 oh 0.0000
+-2.0042 one 0.0000
+-2.0042 p 0.0000
+-2.0042 q 0.0000
+-2.0042 r 0.0000
+-2.0042 repeat 0.0000
+-2.0042 rubout 0.0000
+-2.0042 s 0.0000
+-2.0042 second 0.0000
+-2.0042 september 0.0000
+-2.0042 seven 0.0000
+-2.0042 seventeen 0.0000
+-2.0042 seventh 0.0000
+-2.0042 seventy 0.0000
+-2.0042 six 0.0000
+-2.0042 sixteen 0.0000
+-2.0042 sixteenth 0.0000
+-2.0042 sixth 0.0000
+-2.0042 sixty 0.0000
+-2.0042 start 0.0000
+-2.0042 stop 0.0000
+-2.0042 t 0.0000
+-2.0042 ten 0.0000
+-2.0042 third 0.0000
+-2.0042 thirtieth 0.0000
+-2.0042 thirty 0.0000
+-2.0042 thousand 0.0000
+-2.0042 three 0.0000
+-2.0042 twelfth 0.0000
+-2.0042 twelve 0.0000
+-2.0042 twentieth 0.0000
+-2.0042 twenty 0.0000
+-2.0042 two 0.0000
+-2.0042 u 0.0000
+-2.0042 v 0.0000
+-2.0042 w 0.0000
+-2.0042 x 0.0000
+-2.0042 y 0.0000
+-2.0042 yes 0.0000
+-2.0042 z 0.0000
+-2.0042 zero 0.0000
+-2.0130 </s> 0.0000
+
+\end\
