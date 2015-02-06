@@ -18,3 +18,4 @@ $ ./crfsuite tag -qt -m model.model test.crfsuite.txt
 ```bash 
 $ ./crfsuite tag -qt -m model.model test.crfsuite.txt  
 ```
+./crfsuite tag -qt -m ../input/model.model ../input/test.crfsuite.txt

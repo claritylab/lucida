@@ -20,26 +20,25 @@ hash make 2>/dev/null || {
 }
 
 crfdir=crfsuite-0.12
-sirius=`pwd`
 
 wget https://github.com/downloads/chokkan/crfsuite/crfsuite-0.12.tar.gz
 tar xzf crfsuite-0.12.tar.gz
 cd $crfdir;
 ./configure
 make
-cd $sirius
+cd ../
 
-# Makefile includes -lpthread
-cp $sirius/tag.c \
-  $sirius/Makefile \
-  $sirius/input/test.crfsuite.txt \
-  $sirius/input/model.model \
-  $crfdir/frontend
+cp tag.c \
+   Makefile \
+   ../input/test.crfsuite.txt \
+   ../input/model.model \
+   $crfdir/frontend
 
 # Rebuild
-cd $crfdir
-make
+cd $crfdir && make
 
-cd frontend/
-# test using:
-./crfsuite tag -qt -m model.model test.crfsuite.txt
+cd ../;
+rm -rf crfsuite-0.12.tar.gz
+
+# copy the binary to base directory
+cp $crfdir/frontend/crfsuite .

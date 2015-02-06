@@ -10,19 +10,12 @@ hash make 2>/dev/null || {
 }
 
 crfdir=crfsuite-0.12
-sirius=`pwd`
 
-# Makefile includes -lpthread
-cp $sirius/tag.c \
-  $sirius/Makefile \
-  $sirius/input/test.crfsuite.txt \
-  $sirius/input/model.model \
-  $crfdir/frontend
+cp tag.c $crfdir/frontend
 
 # Rebuild
-cd $crfdir
-make
+cd $crfdir && make
+cp $crfdir/frontend/crfsuite .
 
-cd frontend/
-# test using:
-./crfsuite tag -qt -m model.model test.crfsuite.txt
+# copy the binary to base directory
+cp $crfdir/frontend/crfsuite .

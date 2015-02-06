@@ -44,9 +44,7 @@
 #include "option.h"
 #include "iwa.h"
 #include "../lib/crf/src/crf1d.h"
-#include "../../timer/timer.h"
-
-#define NTHREADS 8
+#include "../../../timer/timer.h"
 
 #define SAFE_RELEASE(obj) \
   if ((obj) != NULL) {    \
@@ -406,99 +404,6 @@ force_exit:
   return ret;
 }
 
-float calculateMiliseconds(struct timeval t1, struct timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
-
-void *tag_thread(void *tid) {
-  int k, start, *mytid, end;
-
-  int iterations = N / NTHREADS;
-
-  mytid = (int *)tid;
-  start = (*mytid * iterations);
-  end = start + iterations;
-
-  for (k = start; k < end; k++) {
-    floatval_t score = 0;
-    // Set the instance to the tagger.
-    tagger->set(tagger, inst_vect[k]);
-    // Obtain the viterbi label sequence.
-    tagger->viterbi(tagger, global_out[k], &score);
-  }
-}
-
-static floatval_t viterbi(crf1d_context_t *ctx, int *labels) {
-  int i, j, t;
-  int *back = NULL;
-  floatval_t max_score, score, *cur = NULL;
-  const floatval_t *prev = NULL, *state = NULL, *trans = NULL;
-  const int T = ctx->num_items;
-  const int L = ctx->num_labels;
-
-  /*
-      This function assumes state and trans scores to be in the logarithm
-     domain.
-   */
-
-  /* Compute the scores at (0, *). */
-  cur = ALPHA_SCORE(ctx, 0);
-  state = STATE_SCORE(ctx, 0);
-  for (j = 0; j < L; ++j) {
-    cur[j] = state[j];
-  }
-
-  /* Compute the scores at (t, *). */
-  for (t = 1; t < T; ++t) {
-    prev = ALPHA_SCORE(ctx, t - 1);
-    cur = ALPHA_SCORE(ctx, t);
-    state = STATE_SCORE(ctx, t);
-    back = BACKWARD_EDGE_AT(ctx, t);
-
-    /* Compute the score of (t, j). */
-    for (j = 0; j < L; ++j) {
-      max_score = -FLOAT_MAX;
-
-      for (i = 0; i < L; ++i) {
-        /* Transit from (t-1, i) to (t, j). */
-        trans = TRANS_SCORE(ctx, i);
-        score = prev[i] + trans[j];
-
-        /* Store this path if it has the maximum score. */
-        if (max_score < score) {
-          max_score = score;
-          /* Backward link (#t, #j) -> (#t-1, #i). */
-          back[j] = i;
-        }
-      }
-      /* Add the state score on (t, j). */
-      cur[j] = max_score + state[j];
-    }
-  }
-
-  /* Find the node (#T, #i) that reaches EOS with the maximum score. */
-  max_score = -FLOAT_MAX;
-  prev = ALPHA_SCORE(ctx, T - 1);
-  for (i = 0; i < L; ++i) {
-    if (max_score < prev[i]) {
-      max_score = prev[i];
-      labels[T - 1] = i; /* Tag the item #T. */
-    }
-  }
-
-  /* Tag labels by tracing the backward links. */
-  for (t = T - 2; 0 <= t; --t) {
-    back = BACKWARD_EDGE_AT(ctx, t + 1);
-    labels[t] = back[labels[t + 1]];
-  }
-
-  /* Return the maximum score (without the normalization factor subtracted). */
-  return max_score;
-}
-
 #define CHUNK_SIZE 12
 
 int read_uint32(uint8_t *buffer, uint32_t *value) {
@@ -564,7 +469,29 @@ static int tagger_set(crfsuite_tagger_t *tagger, crfsuite_instance_t *inst) {
   return 0;
 }
 
+struct timeval t1, t2;
+
+void tic (void) {
+  gettimeofday(&t1, NULL);
+}
+
+/**
+* @brief Stop the timer and return the time taken.
+* values returned in ms.
+* @return Time since last tic()
+*/
+double toc (void) {
+  gettimeofday(&t2, NULL);
+  double elapsedTime;
+  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
+  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
+
+  return elapsedTime;
+}
+
 int main_tag(int argc, char *argv[], const char *argv0) {
+  STATS_INIT ("kernel", "conditional_random_fields");
+  PRINT_STAT_STRING ("abrv", "crf");
   int ret = 0, arg_used = 0;
   tagger_option_t opt;
   const char *command = argv[0];
@@ -572,15 +499,6 @@ int main_tag(int argc, char *argv[], const char *argv0) {
   crfsuite_model_t *model = NULL;
   crfsuite_data_t *input_data;
   int n, k;
-
-  struct timeval t1, t2;
-  float cuda_elapsedTime;
-  float cpu_elapsedTime;
-  float par_elapsedTime;
-
-  int i, start, tids[NTHREADS];
-  pthread_t threads[NTHREADS];
-  pthread_attr_t attr;
 
   /* Parse the command-line option. */
   tagger_option_init(&opt);
@@ -621,15 +539,12 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
     /* Obtain the tagger interface. */
     if (ret = model->get_tagger(model, &tagger)) {
-      //   goto force_exit;
+        exit(1);
     }
 
-    // SEQ ALGO
+    PRINT_STAT_INT ("array_size", N);
 
-    printf("Threads=%d Array size = %d\n", NTHREADS, N);
-
-    gettimeofday(&t1, NULL);
-
+    tic ();
     global_out = (int **)calloc(sizeof(int *), N);
 
     for (k = 0; k < N; k++) {
@@ -645,30 +560,10 @@ int main_tag(int argc, char *argv[], const char *argv0) {
       free(output1);
     }
 
-    gettimeofday(&t2, NULL);
-
-    cpu_elapsedTime = calculateMiliseconds(t1, t2);
-
-    pthread_attr_init(&attr);
-    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
-    for (i = 0; i < NTHREADS; i++) {
-      tids[i] = i;
-      pthread_create(&threads[i], &attr, tag_thread, (void *)&tids[i]);
-    }
-
-    gettimeofday(&t1, NULL);
-
-    for (i = 0; i < NTHREADS; i++) {
-      pthread_join(threads[i], NULL);
-    }
-
-    gettimeofday(&t2, NULL);
-
-    par_elapsedTime = calculateMiliseconds(t1, t2);
-    printf("CRF Viterbi Parallel Time=%4.3f ms\n", par_elapsedTime);
-    printf("CRF Viterbi CPU Time=%4.3f ms\n", cpu_elapsedTime);
-    printf("Speedup=%4.3f\n", (float)cpu_elapsedTime / (float)par_elapsedTime);
+    PRINT_STAT_DOUBLE ("crf", toc ());
   }
+
+  STATS_END ();
 
   return ret;
 }
