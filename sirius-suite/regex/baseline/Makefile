@@ -2,19 +2,27 @@ CXX = g++
 LINK_FLAGS = -lrt -lm
 CXX_FLAGS  = -O3
 
+LIST = ../input/list
+QUESTIONS = ../input/questions
+
 # File names
-EXEC = slre
-SOURCES = main.cpp slre.cpp
+EXEC = regex_slre
+SOURCES = main.cpp slre.cpp ../../timer/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# No need to change after this line
-# Main target
+.PHONY: all
+
+all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile
-	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
+	$(CXX) $(CXX_FLAGS) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
 
 # To obtain object files
 %.o: %.cpp Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
+
+# test
+test: all
+	@./$(EXEC) $(LIST) $(QUESTIONS) > /dev/null
 
 # To remove generated files
 clean:

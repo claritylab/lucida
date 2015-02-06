@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+#
+# Copyright (c) 2015, University of Michigan.
+# All rights reserved.
+#
+# This source code is licensed under the BSD-style license found in the
+# LICENSE file in the root directory of this source tree. An additional grant
+# of patent rights can be found in the PATENTS file in the same directory.
+#
+#
+
 from sys import byteorder
 from array import array
 from struct import pack
@@ -61,12 +71,12 @@ def add_silence(snd_data, seconds):
 
 def record():
     """
-    Record a word or words from the microphone and 
+    Record a word or words from the microphone and
     return the data as an array of signed shorts.
 
-    Normalizes the audio, trims silence from the 
-    start and end, and pads with 0.5 seconds of 
-    blank sound to make sure VLC et al can play 
+    Normalizes the audio, trims silence from the
+    start and end, and pads with 0.5 seconds of
+    blank sound to make sure VLC et al can play
     it without getting chopped off.
     """
     p = pyaudio.PyAudio()
@@ -75,7 +85,7 @@ def record():
                         input=True, output=True,
                         frames_per_buffer=CHUNK_SIZE)
     except IOError:
-        return 0, None 
+        return 0, None
 
     num_silent = 0
     snd_started = False

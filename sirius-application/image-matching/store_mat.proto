@@ -1,0 +1,21 @@
+package store_mat;
+
+message Map {
+    required uint32 size = 1;
+    repeated Pair pair = 2;
+    }
+
+message Pair {
+    required string str = 1;
+    required mat_data mat = 2;
+    }
+
+message mat_data {
+    required uint32 row = 1;
+    required uint32 col = 2;
+    required uint32 flags = 3;
+    required uint32 step = 4;
+    required uint32 size = 5;
+    required uint32 type = 6;
+    repeated uint32 data = 7[packed=true];
+    }

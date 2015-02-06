@@ -1,18 +1,18 @@
 
 #include <string.h> /* for memcmp, memmove */
-#include <time.h>
-#include <sys/time.h>
 #include <stdio.h>
 #include <stdlib.h> /* for malloc, free */
 #include <ctype.h>  /* for isupper, islower, tolower */
+
+#include "../../timer/timer.h"
 #include "porter.h"
 
 static char *s; /* buffer for words to be stemmed */
 
 #define INC 50          /* size units in which s is increased */
 static int i_max = INC; /* maximum offset in s */
-// change ARRAYSIZE for larger input set
-#define ARRAYSIZE 100000
+// $cmt: change ARRAYSIZE for larger input set
+#define ARRAYSIZE 1000000
 #define A_INC 10000
 static int a_max = ARRAYSIZE;
 
@@ -66,9 +66,9 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
 
-  int i;
-  struct timeval tv1, tv2;
-  unsigned int totalruntime = 0;
+  /* Timing */
+  STATS_INIT ("kernel", "porter_stemming");
+  PRINT_STAT_STRING ("abrv", "stemmer");
 
   FILE *f = fopen(argv[1], "r");
   if (f == 0) {
@@ -77,23 +77,22 @@ int main(int argc, char *argv[]) {
   }
 
   stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
-  int array_size = load_data(stem_list, f);
-  printf("number of words to stem: %d\n", array_size);
+  int words = load_data(stem_list, f);
+  PRINT_STAT_INT ("words", words);
 
-  gettimeofday(&tv1, NULL);
-  for (int i = 0; i < array_size; i++) {
+  tic ();
+  for (int i = 0; i < words; i++) {
     stem_list[i]->b[stem2(stem_list[i]) + 1] = 0;
     // printf("%s\n",stem_list[i]->b);
   }
-  gettimeofday(&tv2, NULL);
-  totalruntime =
-      (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
+  PRINT_STAT_DOUBLE ("stemmer", toc ());
+  
+  STATS_END();
 
-  printf("Stemmer CPU time=%4.2f ms\n", (double)totalruntime / 1000);
   free(s);
 
   // free up allocated data
-  for (int i = 0; i < array_size; i++) {
+  for (int i = 0; i < words; i++) {
     free(stem_list[i]->b);
     free(stem_list[i]);
   }

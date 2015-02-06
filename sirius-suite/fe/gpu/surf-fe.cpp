@@ -1,6 +1,18 @@
-/* Johann Hauswald
- * jahausw@umich.edu
- * 2014
+/*
+ *  Copyright (c) 2015, University of Michigan.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the BSD-style license found in the
+ *  LICENSE file in the root directory of this source tree. An additional grant
+ *  of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+/**
+ * TODO:
+ *
+ * @author: Johann Hauswald
+ * @contact: jahausw@umich.edu
  */
 
 #include <assert.h>
@@ -9,8 +21,9 @@
 #include <sstream>
 #include <fstream>
 #include <stdio.h>
-#include <sys/time.h>
 #include <pthread.h>
+
+#include "../../timer/timer.h"
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -21,25 +34,10 @@
 #include "opencv2/stitching/stitcher.hpp"
 
 using namespace cv;
+using namespace cv::gpu;
 using namespace std;
 
-FeatureDetector *detector = new SurfFeatureDetector();
-
-float calculateMiliseconds(timeval t1, timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
-
-vector<KeyPoint> exec_feature(const Mat &img) {
-  vector<KeyPoint> keypoints;
-  detector->detect(img, keypoints);
-
-  return keypoints;
-}
-
-vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
+vector<KeyPoint> exec_feature_gpu_warm(const Mat &img_in) {
   vector<KeyPoint> keypoints;
   gpu::GpuMat img;
   img.upload(img_in);
@@ -49,6 +47,25 @@ vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
   return keypoints;
 }
 
+vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
+  GpuMat keypoints;
+  vector<KeyPoint> keys;
+  GpuMat img;
+  tic ();
+  img.upload(img_in);
+  PRINT_STAT_DOUBLE ("host_to_device_0", toc ());
+
+  gpu::SURF_GPU detector;
+  tic ();
+  detector(img, GpuMat(), keypoints);
+  PRINT_STAT_DOUBLE ("gpu_fe", toc ());
+
+  tic ();
+  detector.downloadKeypoints(keypoints, keys);
+  PRINT_STAT_DOUBLE ("device_to_host_0", toc ());
+  return keys;
+}
+
 int main(int argc, char **argv) {
   if (argc < 2) {
     fprintf(stderr, "[ERROR] Input file required.\n\n");
@@ -56,9 +73,8 @@ int main(int argc, char **argv) {
     exit(0);
   }
   // data
-  float runtimefeatseq = 0;
-  float runtimefeatgpu = 0;
-  struct timeval t1, t2;
+  STATS_INIT ("kernel", "gpu_feature_extraction");
+  PRINT_STAT_STRING ("abrv", "gpu_fe");
 
   // Generate test keys
   Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
@@ -67,24 +83,17 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  gettimeofday(&t1, NULL);
-  vector<KeyPoint> key = exec_feature(img);
-  gettimeofday(&t2, NULL);
-  runtimefeatseq = calculateMiliseconds(t1, t2);
+  PRINT_STAT_INT ("rows", img.rows);
+  PRINT_STAT_INT ("columns", img.cols);
 
   // warmup
-  exec_feature_gpu(img);
+  tic ();
+  exec_feature_gpu_warm(img);
+  PRINT_STAT_DOUBLE ("gpu_warm-up", toc ());
 
-  gettimeofday(&t1, NULL);
-  key = exec_feature_gpu(img);
-  gettimeofday(&t2, NULL);
-  runtimefeatgpu = calculateMiliseconds(t1, t2);
+  vector<KeyPoint> keys = exec_feature_gpu(img);
 
-  printf("SURF FE Time=%4.3f ms\n", runtimefeatseq);
-  printf("SURF FE GPU Time=%4.3f ms\n", runtimefeatgpu);
-  printf("Speedup=%4.3f\n", (float)runtimefeatseq / (float)runtimefeatgpu);
-
-  delete (detector);
+  STATS_END ();
 
   return 0;
 }

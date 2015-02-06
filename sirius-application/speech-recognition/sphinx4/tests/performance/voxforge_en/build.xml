@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="test" name="Voxforge Tests">
+<description>
+This file is used to run the voxforge performance tests.
+
+NOTE:  Before running the tests, you must have already built 
+       the sphinx-4 sources by typing "ant" in the top level 
+       sphinx4 directory.
+
+Run ant with -Dskip=5 to do the standard 'quick' version of a test.
+</description>
+
+    <property name="classpath" value="../../../sphinx4-core/target/classes"/>
+
+    <property name="skip"               value="40"/>
+    <property name="logger_props"       value=""/>
+
+    <property name="initial_heap_size"  value="512m"/>
+    <property name="maximum_heap_size"  value="2048m"/>
+    <property name="jit"                value="server"/>
+    <property name="gc_log_file"        value="gc.txt"/>
+
+    <target name="compile" />
+    
+    <target name="test"
+            description="trigram decoding of Voxforge test data">
+       <java classpath="${classpath}"
+              classname="edu.cmu.sphinx.tools.batch.BatchModeRecognizer"
+              fork="true">
+            <jvmarg value="-${jit}"/>   
+            <jvmarg value="-ms${initial_heap_size}"/>
+            <jvmarg value="-mx${maximum_heap_size}"/> 
+            <arg value="voxforge.config.xml"/> 
+            <arg value="voxforge_en_test.batch"/> 
+            <sysproperty key="batch[skip]" value="${skip}"/>
+        </java>
+    </target>
+
+</project>

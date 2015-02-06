@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+    <!--
+
+       Copyright 1999-2003 Carnegie Mellon University.
+       Portions Copyright 2002-2003 Sun Microsystems, Inc.
+       Portions Copyright 2002-2003 Mitsubishi Electric Research Laboratories.
+       All Rights Reserved.  Use is subject to license terms.
+
+       See the file "license.terms" for information on usage and
+       redistribution of this file, and for a DISCLAIMER OF ALL
+       WARRANTIES.
+
+    -->
+</head>
+<body bgcolor="white">
+
+Provides classes and interfaces used for speech endpointing.
+
+<p>
+    The Sphinx-4 audio endpointer is composed of three data processors
+    that carry out different functions:
+
+<p>
+    <a href="SpeechClassifier.html">SpeechClassifier</a> - classifies chunks of audio into speech and non-speech.
+
+<p>
+    <a href="SpeechMarker.html">SpeechMarker</a> - marks the audio stream into speech and non-speech regions, by
+    inserting <a href="SpeechStartSignal.html">SpeechStartSignals</a> and <a href="SpeechEndSignal.html">SpeechEndSignals</a>
+    into the data stream, while giving some 'cushion areas' around these regions.
+
+<p>
+    <a href="NonSpeechDataFilter.html">NonSpeechDataFilter</a> - removes the non-speech regions from the audio.
+
+<p>
+
+    <!--
+    <h2>Package Specification</h2>
+
+    <ul>
+      <li><a href=""> </a>
+    </ul>
+
+    <h2>Related Documentation</h2>
+
+    For overviews, tutorials, examples, guides, and tool documentation,
+    please see:
+    <ul>
+      <li><a href="">/a>
+    </ul>
+
+    -->
+
+</body>
+</html>
+

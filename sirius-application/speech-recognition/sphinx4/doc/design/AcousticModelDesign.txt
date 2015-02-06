@@ -1,0 +1,1066 @@
+Sphinx4 Acoustic Model
+
+This document describes the requirements, interfaces and high level
+design for the Acoustic Model of Sphinx4. There are some questions
+embedded in this document. They are marked as follows:
+
+  - [[[QFSE - this marks a "Question For Speech Expert"]]]
+  - [[[QFJE - this marks a "Question For Java Expert"]]]
+  - [[[QFSA - this marks a "Question For the Sphinx4 Architect"]]]
+
+Acoustic Model Requirements  Version 0.2
+----------------------------------------
+-  The Acoustic Model provides a set of objects and interfaces that
+   can be used by entities for acoustic scoring of features.
+
+-  Mutation - Acoustic Models may be adapted during the course
+   of recognition. The Acoustic Model should provide a mechanism for
+   identifying subsets of the A.M. that are immutable and potentially
+   allow these to be shared among different acoustic models. The
+
+-  Persistence of Adaptation - An acoustic model may be adapted over the
+   course of time. This adaptation should optionally be persistent 
+   across runs. 
+
+-  The acoustic model will be used by the trainer, and thus needs to
+   support (eventual) trainer type operations (including saving). The
+   training interfaces will NOT be included in the initial design and
+   implementation.
+
+-  The Acoustic Model will provide interfaces for adapting the model.
+   The detailed adaptation requirements have not determined as of this
+   time.  [[[ QFSE - what are the Adaptation requirements? ]]]
+    
+-  The Acoustic model can be read in from a file or a set of files.
+
+-  There could potentially be more than one Acoustic Model in the
+   system at a time.
+
+-  The acoustic model consists of a pool of Hidden Markov Models
+   (HMMs).
+
+-  Each HMM is associated with a single unit of speech. A unit can 
+   be a phone, a word, or any other segment of speech.
+
+-  The HMMs are left-right HMMs.
+
+-  There can be an arbitrary number of states per HMM.  
+
+-  The number of states per HMM can vary from one HMM to the next.
+
+-  An HMM contains at least the following information:
+
+   	- A description of the unit of speech that the HMM models.
+
+	- The context for the unit of speech.  The context consists
+	  of:
+
+	     - The set of units (of arbitrary size) preceeding this
+	       unit.
+
+	     - The set of units (of arbitrary size) following this
+	       unit.
+
+  	- A transition matrix that details the probability of a state
+	  transition between each state of the HMM.  The transition
+	  matrix is a 2 dimensional matrix of size N by N where N is
+	  the number of states. [[ QUESTION - with the
+	  one-step-viterbi design, do we sill need the non-emitting
+	  entry and exit states? If so then the matrix should be
+	  dimensioned N+1 by N+1 to include the probability of
+	  transitioning toe the non-emitting exit state.]]
+
+	- A set of senone sequences, or composite senone sequeneces
+
+
+-   A Senone sequence is an ordered list of senones. Each senone in a 
+    senone sequence corresponds to an HMM state. Thus a 5 state HMM 
+    will point to a senone sequence that contains 5 senones.
+
+-   A composite senone sequence is a list of sets of senones. Each
+    element in a composite senones sequence list is the set of
+    possible senones for that state.  Composite senone sequences are 
+    used by HMMs to represent units where the left and/or right 
+    contexts are unknown.  
+    
+    [[[QFSE: Can composite senone sequences be
+    replaced by SenoneSequences that represent simple and composite
+    senones?]]
+
+-   Senone sequences are maintained in a pool so they can be shared 
+    among different HMMs
+
+-   Composite senone sequences are maintained in a pool so they can 
+    be shared among different HMMs. 
+    
+-   The sharing of senones and composite senones not only reduces 
+    memory footprint but also can reduce  processing time since 
+    shared senones need only be scored once per frame.
+
+-   A fundamental property of a senone is that it can be scored
+    against a Feature.
+
+-  The Acoustic Scorer (the part of the system responsible for scoring
+   all senones for a particular frame) may call on the acoustic model
+   to score individual senones, but is not part of the acoustic model.
+
+   [[[ QFSA: Should subvector quantization management be
+   considered part of the Acoustic Model? It seem to me that this is
+   part of the Acoustic Score (meaning that I think the answer is no)
+   ]]]
+
+-   A senone is essentially a probability distribution function (PDF).
+    It can be represented by an abstract interface.  
+
+-   One implementation of the senone interface is to represent the PDF as
+    a Mixture Gaussian. The Mixture Gaussian will be the first
+    implementation of the senone interface.
+
+-   The Mixture Gaussian consists of:
+
+    	- A set of MixtureWeights, one weighting for each component.
+
+	- A set of Mixture components each of which contains:
+
+	    - Mean vector
+
+	    - MeanTransformationMatrix
+
+	    - Variance Vector
+
+	    - VarianceTransformationMatrix
+
+-   Each of the members that form the MixtureComponent shall be
+    kept in a pool so that the elements can be shared by
+    different mixture components.
+
+-   The format of the Mixture Gaussian input file shall be defined by
+    the output of the Sphinx3 trainer.
+
+-  Database sizes:
+
+	Note that it is somewhat difficult to predict the senone size
+	since many of the components may be shared. This is a rough
+	(order of magnitude) estimate of the size of the Senones and
+	HMMs for the various reference applications.
+
+	[[[ QFSE: I don't have real high confidence in these numbers.
+	Could you take a look and verify that these are within an
+	order of magnitude? ]]]
+
+
+
+	senone size:
+		8-16 Mixtures
+		    39 Means
+		    39 Variance
+		    39x39 Xform Matrix (shared)
+		    39x39 Xform Matrix (shared)
+	Estimate a typical senone
+		is 8 * 39 * 2 * 4 + shared = 4K
+
+	HMM Size: (for a 3 state)
+		4x4 matrix
+		Name
+		Senone/Composite senone sequence  
+	Typical HMM: about 100 bytes
+
+	Large Vocabulary:
+		100,000 HMMS = 10MB
+		8000 Senones = 32MB
+
+	Command and Control
+		300 HMMs 	= 30K
+		400 Senones	= 1.6MB
+
+	Connected Digits
+		300 HMMs 	= 30K
+		400 Senones	= 1.6MB
+
+
+Acoustic Model High Level Interfaces
+----------------------------------------
+This section describes the high level interfaces provided by the
+Acoustic Model.  These are a set of generic classes and interfaces 
+that provide the overall interface to the AcousticModel. 
+
+/**
+ * Represents the generic interface to the Acoustic 
+ * Model for sphinx4
+ */
+public class AcousticModel {
+
+     /**
+      * Initializes an acoustic model of a given context. This method
+      * should be called once per context. It is used to associate a
+      * particular context with an acoustic model resource. 
+      *
+      * @param context	the context of interest
+      * @param url	the location of the acoustic model data for
+      * 		context
+      *
+      * @throws IOException if the model could not be loaded
+      * @throws FileNotFoundException if the model does not exist
+      */
+     public static void initAcousticModel(String context, URL url);
+
+     /**
+      * Gets the acoustic model for the given context. This is a
+      * factory method that gets the acoustic model for this given
+      * context. 
+      *
+      * @param context the context of interest
+      *
+      * @return the acoustic model associated with the context or null
+      * if the given context has no associated acoustic model
+      */
+     public static AcousticModel getAcousticModel(String context);
+
+  // [[[ NOTE: I am currently not too sure what the language
+  // model or search/Decode systems are going to need beyond
+  // looking up an HMM for a particular unit, I would guess that as
+  // the decoder and LM designs solidify that a few more interfaces
+  // may be added ]]
+
+     /**
+      * Given a unit, return the HMM that exactly matches the given
+      * unit.  
+      *
+      * @param unit 		the unit of interest
+      * @param position 	the position of the unit of interest
+      *
+      * @return 	the HMM that exactly matches, or null if no match
+      * 		could be found.
+      */
+     public HMM lookup(Unit unit, HmmPosition position);
+
+
+     /**
+      * Given a unit, return the HMM that best matches the given unit.
+      * If an exact match is not found, then different word positions
+      * are used. If any of the contexts are non-silence filler units.
+      * a silence filler unit is tried instead.
+      *
+      * @param unit 		the unit of interest
+      * @param position 	the position of the unit of interest
+      *
+      * @return 	the HMM that best matches, or null if no match
+      * 		could be found.
+      */
+     public HMM lookupNearest(Unit unit, HmmPosition position);
+
+     /**
+      * Returns an iterator that can be used to iterate through all
+      * the HMMs of the acoustic model
+      *
+      * @return an iterator that can be used to iterate through all
+      * HMMs in the model
+      */
+      // [[[ NOTE: I'm not sure that we even need this ]]]
+     Iterator getHmmIterator();
+
+     /**
+      * Returns an iterator that can be used to iterate through all
+      * the units in the acoustic model
+      *
+      * @return an iterator that can be used to iterate through all
+      * units
+      */
+      // [[[ NOTE: I'm not sure that we need this ]]]
+     Iterator getUnitIterator();
+
+     /**
+      * Returns an iterator that can be used to iterate through all
+      * the CI units in the acoustic model
+      *
+      * @return an iterator that can be used to iterate through all
+      * CI units
+      */
+      // [[[ NOTE: I'm not sure that we need this ]]]
+     Iterator getContextIndependentUnitIterator();
+
+     /**
+      * Returns an iterator that can be used to iterate through all
+      * the context dependent units in the acoustic model
+      *
+      * @return an iterator that can be used to iterate through all
+      * CD units
+      */
+      // [[[ NOTE: I'm not sure that we need this ]]]
+     Iterator getContextDependentUnitIterator();
+
+
+     /**
+      * Get a composite senone give the base unit and 
+      * left and right contexts.  At least one of
+      * 'left' or 'right' * must be null. 
+      *
+      * @param base the base unit
+      * @param left the left context
+      * @param right the right context
+      *
+      * @return the composite senone
+      */
+     pubic CompositeSenone getCompositeSenone(
+      		Unit base,  Unit[] left, Unit[] right)
+
+}
+
+/**
+ * Represents a unit of speech. Units may represent phones, words or
+ * any other suitable unit
+ */
+interface Unit {
+
+    /**
+     * Gets the name for this unit
+     *
+     * @return the name for this unit
+     */
+    public String getName();
+
+    /**
+     * Determines if this unit is context dependent
+     *
+     * @return true if the unit is context dependent
+     */
+    public boolean isContextDependent();
+
+    /**
+     * Determines if this unit is a filler unit
+     *
+     * @return true if the unit is a filler unit
+     */
+    public boolean isFiller();
+
+/**
+ * Represents a context dependent unit of speech.  The context of a
+ * unit is defined as the set of units to the left (preceding) and to
+ * the right (following) this unit. [[[ QUESTION: Should we allow for
+ * other types of context dependent units,(part of speech for example?) ]]]
+ */
+interface ContextDependentUnit extends Unit {
+    /**
+     * Gets the left context for the unit
+     * 
+     * @return the left context for a unit, or null if the unit has
+     * no left context
+     */
+    public Unit[] getLeftContext();
+
+    /**
+     * Gets the right context for the unit
+     * 
+     * @return the right context for a unit, or null if the unit has
+     * no right context
+     */
+    public Unit[] getRightContext();
+}
+
+
+/**
+ * Represents a hidden-markov-model. An HMM consists of a unit
+ * (context dependent or independent), a transition matrix from state
+ * to state, and a sequence of senones associated with each state.
+ */
+interface HMM {
+    /**
+     * Gets the  unit associated with this HMM
+     *
+     * @return the unit associated with this HMM
+     */
+    public Unit getUnit();
+
+
+    /**
+     * Returns the order of the HMM
+     *
+     * @return the order of the HMM
+     */
+    // [[[NOTE: this method is probably not explicitly needed since
+    // getSenoneSequence.getSenones().length will provide the same
+    // value, but this is certainly more convenient and easier to
+    // understand
+    public int getOrder();
+
+
+    /**
+     * Returns the SenoneSequence associated with this HMM
+     *
+     * @return the sequence of senones associated with this HMM. The
+     * length of the sequence is N, where N is the order of the HMM
+     */
+    // [[ NOTE: the senone sequence may in fact be a sequence of
+    // composite senones
+    public SenoneSequence getSenoneSequence();
+
+
+    /**
+     * Returns the transition matrix that determines the state
+     * transition probabilities for the matrix
+     *
+     * @return the transition matrix of size NxN where N is the order
+     * of the HMM
+     */
+    public float[][] getTransitionMatrix();
+
+
+    /**
+     * Retreives the position of this HMM. Possible
+     *
+     * @return the position for this HMM
+     */
+    public HmmPosition getPosition();
+
+    // [[ NOTE: For convenience we could provide some methods that
+    // return slices of the matrix (depending on the reqs. of the
+    // decoder
+
+}
+
+
+/**
+ * Defines possible positions of HMMs
+ */
+public class HmmPosition {
+	public static HmmPosition ANY = new HmmPosition("a");
+	public static HmmPosition BEGIN = new HmmPosition("b");
+	public static HmmPosition END = new HmmPosition("e");
+	public static HmmPosition SINGLE = new HmmPosition("s");
+	public static HmmPosition INTERNAL  = new HmmPosition("i");
+	public static HmmPosition UNDEFINED  = new HmmPosition("u");
+
+	private HmmPosition(String rep);
+}
+
+/**
+ * Contains an ordered list of senones. 
+ */
+interface SenoneSequence {
+    /**
+     * Returns the ordered set of senones for this sequence
+     *
+     * @return	 the ordered set of senones for this sequence
+     */
+    public Senone[] getSenones();
+}
+
+/**
+ * Represents a set of acoustic data that can be scored against a
+ * feature
+ */
+interface Senone {
+    /**
+     * Calculates the score for this senone based upon the given
+     * feature.
+     *
+     * @param feature	the feature vector to score this senone
+     * 			against
+     *
+     * @return 		the score for this senone
+     */
+    public float getScore(Feature feature);
+
+    public void reset();
+}
+
+Acoustic Model Low Level Interfaces
+----------------------------------------
+This is the next level down of the AcousticModel interfaces. It shows
+some of the concrete implementations of the abstract interfaces
+described  in the 'high-level' interfaces document. These classes are
+to be defined as 'package private' and will not be visible outside of
+the Acoustic Model package.
+
+Note that these structures are built from components that may be
+shared with other objects of the same type. For instance, Several
+mixture components may share the same meanTransformationMatrix.  These
+shared components are maintained in pools.  It is up to the acoustic
+model loader to create and manage these component pools and manage the
+sharing of these objects.  The acoustic model loader and the pool
+manager will be described in a subsequent step.
+
+
+[[[ QFSE - Is there enough precision in a Java float (32 bits) to
+    represent the GaussianMixture data and the resulting score? Note
+    that java floats are essentially 32-bit IEEE 754 values, and java
+    doubles are 64-bit IEEE 754 values.
+
+    Float
+    	bits of precision:		24
+	Exponent bits:			8
+	Decimal digits of precision:	7.22
+	Maximum Magnitude:		3.4028E+38
+	Minimum Magnitude:		1.1754E-38
+
+    Double
+    	bits of precision:		53
+	Exponent bits:			11
+	Decimal digits of precision:	15.95
+	Maximum Magnitude:		1.7976E+308
+	Minimum Magnitude:		2.2250E-308
+]]]
+
+
+[[[ QFSE QFJE - Many of my questions have to do with Acoustic Model
+adaptation. We have not talked yet to any depth about adaptation, so I
+do not have a good feel for how it would work or how to provide an
+interface for it. Perhaps we can just chose to acknowledge that we
+will do some adaptation of models in the future, but for the short
+term not worry too much about constructing interfaces to it. Any
+thoughts?
+]]]
+
+/**
+ * 
+ * Represents a concrete implementation of a simple senone. A simple
+ * senone is a set of probability density functions implemented  as a
+ * gaussian mixture.
+ */
+class GaussianMixture implements Senone {
+    // these data element in a senone may be shared with other senones
+    // and therefore should not be written to.
+    private float[] mixtureWeights;			
+    private MixtureComponent[] mixtureComponents;	
+
+    /**
+     * Creates a new senone from the given components.
+     *
+     * @param mixtureWeights the mixture weights for this senone
+     * @param  mixtureComponents the mixture comopnents for this
+     * senone
+     */
+    public GaussianMixture(float[] mixtureWeights, 
+    		MixtureComponent[] mixtureComponents);
+
+    
+    /**
+     * Calculates a score for the given feature based upon this senone
+     *
+     * @param feature the feature to score
+     *
+     * @return the score for the feature
+     */
+    public float getScore(Feature feature); 
+
+    /* [[[ QFSE - I assume that mixtureWeights are used for adaptation.
+    Is this correct? What would be an approriate interface for
+    modifying mixture weights? Perhaps something as simple as this:
+
+    public float getMixtureWeights();
+    public void setMixtuerWeights(float[] mixtureWeights);
+
+    ]]] */
+}
+
+
+/**
+ * Represents a composite senone. A composite senone consists of a set
+ * of all possible senones for a given state
+ */
+ [[[ QFSE - Note that there is no CompositeSenoneSequence class.
+ Instead there is just a SenoneSequence class that represents
+ sequences of senones (simple or composite). This would allow us to
+ easily represent sequences that are mixtures of simple and composite
+ sequences.  The question is: Is there any reason to maintain
+ CompositeSeneoneSequences explicitly and separately from
+ SimpleSenone sequences?
+ ]]]
+
+class CompositeSenone implements Senone {
+    private Senone[] senones;
+
+
+    /**
+     * Constructs a CompositeSenone given the set of constiuent
+     * senones
+     *
+     * @param senones the set of constiuent senones
+     *
+     */
+    public CompositeSenone(Senone[] senones);
+
+    /**
+     * Calculates the composite senone score. Typically this is the
+     * best score for all of the constituent senones
+     *
+     * @param feature the feature to score
+     *
+     * @return the score for the feature
+     */
+    public float getScore(Feature feature);
+}
+
+
+/**
+ * defines the set of shared elements for a GaussianMixture. Since
+ * these elements are potentially shared by a number of
+ * GaussianMixtures, these elements should not be written to. The
+ * GaussianMixture defines a single probability density function along
+ * with a set of adaptation parameters 
+ *
+ */
+ // [[[ QFSE: I'm still a bit unsure
+ //  of the role of the Transformation Matrices and Vectors, are 
+ // these use for adaptation?  ]]]
+
+ // [[[ QFSE: Since many of the subcomponents of a
+ // MixtureComponent are shared, are there some potential
+ // opportunities to reduce the number of computations in scoring
+ // senones by sharing intermediate results for these subcomponents?
+ //  ]]]
+
+class MixtureComponent {
+    private float[]   mean;
+    private float[][] meanTransformationMatrix;
+    private float[]   meanTransformationVector;
+    private float[]   variance;
+    private float[][] varianceTransformationMatrix
+
+    /**
+     * Create a MixtureComponent with the given sub components
+     *
+     * @param mean	the mean vector for this PDF
+     * @param meanTransformationMatrix TBD NOT SURE
+     * @param meanTransformationVector TBD NOT SURE
+     * @param variance  the variance for this PDF
+     * @param varianceTransformationMatrix  TBD NOT SURE
+     */
+    MixtureComponent(
+	private float[]   mean;
+	private float[][] meanTransformationMatrix;
+	private float[]   meanTransformationVector;
+	private float[]   variance;
+	private float[][] varianceTransformationMatrix); 
+
+    // [[[ QFSE QFJE
+    // I'm not sure of the best interface for this class, that depends
+    // on how the GaussianMixture.getScore method wants to be written.
+    // Some options are (given in order of preference):
+    //
+    // push the scoring down to this level:
+    //
+    //		float getScore(Feature feature)
+    //
+    //  provide accessor methods to all elements, like so:
+    //
+    //		float[] getMean()
+    //		float[] getMeanTransformationMatrix()
+    //		float[] getMeanTransformationVector()
+    //		float[] getVariance()
+    //		float[] getVarianceTransformationMatrix()
+    //
+    //
+    // Or provide direct access to the elements, (that is, remove the
+    // 'private' qualifier from the data declarations in this class.)
+    // ]]]
+
+    /**
+     * Score this mixture against the given feature
+     *
+     * @param feature the feature to score
+     *
+     * @return the score for the given feature
+     */
+     float getScore(Feature feature);
+
+     // [[[ QFSE: Once again, I am not sure what the proper adaptation
+     // interface should look like. We really have not talked enough
+     // about adaptation at this point for us to decide on an
+     // interface for it. I'll just leave it out for now.
+}
+
+
+High Level Design
+=================
+Here are a loose collection of design notes for the A.M. I am going to
+start constructing the interfaces and high level classes.
+
+Some high level design issues:
+
+ - Many separate objects are maintained in pools. These pools need to be
+   constructed, objects need to be placed in pools, pools need to be
+   efficiently accessed.
+
+   A resource pool class will be used to manage these pools. There
+   will be a resource pool created for each type of shared object
+   (senones, senone sequences, means, variance ...). These pools will
+   be maintained in the AcousitModel class. Each of these items that
+   are in the pool have an associated ID. 
+
+   For example, the senone will be described as a set of IDs to the
+   various subcomponents (means for instance). The senone description
+   in the acoustic model database will include the IDs for the set of
+   means to use for the senone. The loader will retrieve the means
+   from the means pool using these IDs as keys into the pool and place
+   references to these means in the newly constructed Senone
+
+    The resource pool is fairly straightforward signature:
+
+    class ResourcePool {
+	public void add(int id, Object pooledObject);
+	public Object get(int id);
+    }
+
+ - Since Senones are shared by a number of HMMs, once a senone is
+   scored for a particular feature, the score should be resused to
+   eliminate the expense of recalulating the score. There are a number
+   of ways this could be managed. The simplest method is for each
+   Senone to keep a copy of the most recent score calculated along
+   with a reference to the Feature that is associated with the score.
+   When a feature is scored against a senone, the senone can first check 
+   to see if the new feature matches the feature associated with the
+   cached score and if so, simple return the score instead of
+   recalculating the score.
+
+ - Even though the Acoustic Model can be quite large, (on the order of
+   50MB for large vocabulary), I propose that, at least for the first
+   implmentation, the A.M. be kept in memory.  The interfaces to the 
+   A.M will certainly allow us to implement a paging or memory-mapped
+   file versions of the A.M., but I recommend that defer those designs
+   until needed.
+
+ - Building Senone Sequences - As the set of HMMs are read in from the
+   database, common senone sequences can be identified and shared in
+   order to reduce memory consumption.
+   
+
+ - Building Composite Senone Sequences - Need the capability of
+   looking up HMMs that match a particular context and position
+
+
+ - There are likely to be several versions of the AcousticModel
+   database. The A.M. will provide separate database loaders for each
+   version.  The initial loader will load a sphinx3 DB as seen in
+   "modelsetc.tar". 
+
+   When Rita provides a new model, in the updated format, a new model
+   loader will be written. (Note that if I get a model early, I can
+   skip the writing of the loader for the old sphinx3 format).
+
+
+Acoustic Model Life Cycle:
+
+    init:
+    	The recognizer (or some other high level software), calls
+	AcousticModel.initAcousticModel to associate a recognizer
+	context with a particular acoustic model This has the affect
+	of loading the acoustic model.  Calls are made to:
+		AcousticModel.initAcousticModel()
+		AcousticModel.getAcousticModel()
+
+
+    prep:
+    	Even though this has not been to well defined, I would guess
+	that during startup, some part of the system (the language
+	model perhaps?) will query the AcousticModel for HMMs for
+	every possible context in the system. (This is to build up a
+	lex tree with each lex node pointing to an appropriate HMM).
+
+	Also (as well, not yet defined to well), composite senones
+	(and hmms pointing to them) are created for phones that have
+	incomplete contexts (beginning and end of words).  (Note that
+	this cannot be done completely internally to the A.M since it
+	requires a dictionary to find those end-of-word phones. To
+	support this, the A.M.should provide an interface that will
+	all querying of phones by context and position.
+
+    Once per frame:
+    	All senone scores are reset. (This may not be necessary,
+	depending on the method used to cache senone scores). See the
+	discussion later on. Calls are made to:
+		AcousticModel.resetSenones();
+		senone.reset();	// interface not defined yet
+
+	The "Mystery Layer" selects a set of senones from the HMMs and
+	extracts the senones, and transition matrix for the Hmm. Calls
+	are made to:
+		HMM.getSenoneSequence()
+		HMM.getTransitionMatrix()
+		SenoneSequence.getSenones(),
+
+	The search selects a set of active senones and sends them to
+	an acoustic scorer. The acoustic scorer iterates through the
+	set of senones and scores each one. A senone keeps track of
+	its own score, and if the senone has already been scored
+	during this frame, that score is returned instead of
+	recalculating the score.  
+
+    On Occasion:
+    	Some Acoustic model adaptor may run and decide to change
+	some  acoustic model settings.  We don't have good
+	requirements for this yet, so we won't do anything about it
+	right now.
+
+    On exit:
+    	If the acoustic model has been adapted, we may need to save
+	the adaptation so that it can be used again.  No strong
+	requirments yet for this, so we won't do anything about it
+	right now.
+    	
+Note that the Acoustic Model life cycle for the trainer is likely to
+be quite different, but we are not going to do anything about
+acoustic model training right now.
+
+
+Loading the Acoustic Mode
+==========================
+We can write a loader that will load up the current sphinx3 acoustic
+model.  The acoustic model is spread out over a few files. The main issue
+with writing a sphinx3 loader will be dealing with byteswapping
+issues.
+
+     model_architecture/comm_cont.6000.mdef - This consists of filler
+     phones, context independent phones and context dependent phones.
+     This file is used to create the HMMs. Bulk of the file consists
+     of lines of the form:
+
+        AH  EH  ER s    n/a   13    586    614    647 N
+
+	This consists of:
+
+	base phone
+	Left context
+	Right context
+	Word position - do we need to store this?
+	Senone states
+	HMM ID is inferred from file position
+
+	modelsetc/6k8gau.comm.quant - subvq stuff, don't need this now
+
+	// these files contain the data for the individual senones
+	// format is binary but fairly straight forward.
+	// unfortunately, the byte order is little-endian, which means
+	// we would have to to a byteswapping thing which may be ugly
+	// I assume that the FP values are IEEE754 floating point but
+	// I can't tell for sure.
+
+	model_parameters/comm_cont.cd_continuous/means
+	model_parameters/comm_cont.cd_continuous/variances
+	model_parameters/comm_cont.cd_continuous/transition_matrices
+	model_parameters/comm_cont.cd_continuous/mixture_weights
+
+
+
+
+Adaptations to the file format
+==============================
+HMM File:
+ For each HMM:
+    ID (can be implied by file position)
+    base unit  (string)
+    NumLeft left_unit_0 left_unit_1 ...
+    NumRight right_unit_0 right_unit_1 ...
+    context  (equivalent to sphinx3 word-position)
+    NumStates
+    senone_0 senone_1 senone_2 senone_3 ...
+    tmat[0][0] tmat[0][1] ...  (since its a sparse matrix, some fields ommitted)
+
+ For Each senone
+     ID (can be implied by file position)
+     density mixw_0 mixw_0 ...		// mixture weights
+     mean_id mtm_id mtv_id var_id vtm_id
+
+ For Means:
+     ID veclen mean_0 mean_1 ...
+     ID veclen mean_0 mean_1 ...
+     ID veclen mean_0 mean_1 ...
+
+ For MeanTransformationMatrix (mtm):
+     ID veclen mtm[0][0] mtm[0][1] ...
+     ID veclen mtm[0][0] mtm[0][1] ...
+     ID veclen mtm[0][0] mtm[0][1] ...
+
+ For MeansTransformationVector (mtv):
+     ID veclen mtv_0 mtv_1 ...
+     ID veclen mtm[0][0] mtm[0][1] ...
+     ID veclen mtm[0][0] mtm[0][1] ...
+
+ For Variance:
+     ID veclen var_0 var_1 ...
+     ID veclen var_0 var_1 ...
+     ID veclen var_0 var_1 ...
+
+ For VarianceTransformationMatrix (vtm):
+     ID veclen vtm[0][0] vtm[0][1] ...
+     ID veclen vtm[0][0] vtm[0][1] ...
+     ID veclen vtm[0][0] vtm[0][1] ...
+ 	
+Initial format preferably in ASCII. We can convert to binary later on
+as necessary.  Separate files for each ID'd element are fine, these
+can be combined into a single file later on.
+
+
+=====================================================
+Fast, efficient and clear math for the acoustic model
+=====================================================
+I've been looking a bit at math performance with an eye to the type of math 
+(int, floating point,  double, log base) will be best for the acoustic model.
+
+There are a number of approaches, each of which have advantages and 
+disadvantages in terms of space used, clarity, precision and speed.
+
+I'll try to outline the advantages and disadvantages of each. 
+
+
+===============
+Some BenchMarks
+===============
+As a starting point for this investigation, I wrote a few benchmarks
+that simulate/duplicate the mathematics for gaussian scoring. I coded
+a number of versions using various numeric representations. The 'Time'
+shows the time to score one million 39 element feature vectors against
+a single gaussian.
+
+
+Version					Time (low is better)
+==================================================================
+ * java pure double          		0.95s
+ * java pure Float       		1.06s
+ * java Sphinx3 scoring            	1.77s
+ * java mixed float/double           	1.81s
+ * c version pure double		2.39s
+ * java pure Int         		5.22s
+ * c version pure int			5.99s
+
+
+----
+KEY:
+----
+ * java pure double - all math done in double precision floating point
+ * java pure float - all math done in single precision floating point
+ * javaSphinx3 Scoring - duplicates the datatypes used in the current 
+ 	version of sphinx3. This uses single, double and integer math 
+	to score a Mixture.
+ * java mixed float/double - input vectors are floats, internals are doubles
+ * c version pure double - double precision version written in C
+ * java pure int - all math done with integers
+ * c version pure int - int precision version written in C
+
+Java timings taken with the 1.4 compiler with the -server option
+C version compiled with gcc -O3
+
+These timing show that the Java version perform quite a bit faster than the C 
+versions, that pure double math is fastest of all and pure integer math 
+is slowest of all. (Usual caveats about micro-benchmarks apply here,
+this is not a real world test and actual results may vary...)
+
+
+===================
+Rating the Models
+===================
+With these benchmarks in mind, I've rated each mode based upon the 
+following criteria:
+
+Space: 		How much space would the senone data take using the data type?
+Clarity 	How clear is the code?
+Speed		How fast is the code?
+Precision	How good are the answers?
+
+
+================================================================
+Current Model (Mixed float/double/integer with log table for add)
+================================================================
+The current Sphinx3 Acoustic Model Math is a mix of single, double and 
+integer math.  Gaussians and vectors are represented as floats,
+intermediate calculations are performed in double arithmetic with a
+final weighting score applied using integer math. The scores are
+accumulated into a final score. This accumulation is awkward, since
+the results are in logarithmic form and log values are not easy to
+add.
+
+Ratings:
+
+Space:		5 Stars - gaussians represented as 32bits use minimal memory
+
+Clarity:	1 Stars - log conversions, adding to multiply, table
+			  lookups to add, make this approach the
+			  hardest to understand
+
+Speed:		2 Stars - Even without considering the table lookup
+			  for the log add, a poor performer compared
+			  to the pure single or double precision
+			  versions
+
+Precision:	? Stars - Not sure what the precision issues are here.
+			  (See precision note below)
+
+
+==================
+All Floating Point
+==================
+
+Space  :	5 Stars - uses no more space than current model
+
+Clarity:	5 Stars - using a single data type is the most clear.
+			  Floating point math is most natural.
+
+
+Speed:		4 Stars - Nearly fastest model
+
+Precision:	3 Stars - Not as precise as double model
+
+===========================
+All double floating  Point
+===========================
+
+Space  :	1 Stars - uses twice the space as the current mode. If
+			  we were to represent all senone data with
+			  doubles, the senone size for a large
+			  vocabulary model would go from 32MB to 64MB.
+			  This is a significant increase in overall
+			  footprint.
+
+Clarity:	5 Stars - using a single data type is the most clear.
+			  Floating point math is most natural.
+
+
+Speed:		5 Stars - The fastest model
+
+Precision:	5 Stars - Most precise
+
+=======================================
+Mixed double and single floating  Point
+=======================================
+Space  :	5 Stars - uses no more space than current model
+
+
+Clarity:	4 Stars - inner loop uses a double, most other vars 
+			  declared a single.  Floating point math is 
+			  most natural.
+
+
+Speed:		2 Stars - float to double conversions take time
+
+Precision:	4 Stars - More precise than single, not as precise as
+			  double.
+
+
+
+================
+Precision issues
+================
+I am not sure of all of the ramifications on precision that using log
+representation has. Its not clear to me whether the reason why log
+representation is used is to speed up the math or to reduce the
+occurance of underflow when multiplying very small numbers. I'll need
+some assistance from the Speech Experts here.  
+
+In general, I need to get a feeling for what is the required precision 
+in the Acoutic Model calculations.  Are 32 bit floating calculations 
+precise enough for the recognizer?
+
+
+===============
+Recommendations
+===============
+Until I understand the precision issues a bit more, its hard to make a
+recomendation. That being said, if it were not for the space issue,
+the double precision floating point method would be the obvious
+choice, since it is clear, fast and most precise of all.  However,
+doubling the size of the senone data will probably not be an
+acceptable approach, so the next best alternative would likely be the
+mixed double/single approach, which trades off quite a bit of speed
+for the reduced memory footprint.  The single precision floating point
+model would be a faster and clearer approach, but it may not give 
+precise enough answers.

@@ -7,6 +7,7 @@
 #include <ctype.h>  /* for isupper, islower, tolower */
 #include <pthread.h>
 
+#include "../../timer/timer.h"
 #include "porter.h"
 
 static char *s; /* buffer for words to be stemmed */
@@ -83,11 +84,13 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-  struct timeval tv1, tv2;
-  unsigned int totalruntimeseq = 0;
-  unsigned int totalruntimepar = 0;
+
+  /* Timing */
+  STATS_INIT ("kernel", "pthread_porter_stemming");
+  PRINT_STAT_STRING ("abrv", "pthread_stemmer");
 
   NTHREADS = atoi(argv[1]);
+  PRINT_STAT_INT ("threads", NTHREADS);
   FILE *f = fopen(argv[2], "r");
   if (f == 0) {
     fprintf(stderr, "File %s not found\n", argv[1]);
@@ -95,28 +98,14 @@ int main(int argc, char *argv[]) {
   }
 
   stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
-  int array_size = load_data(stem_list, f);
-  printf("Number of words to stem: %d\n", array_size);
+  int words = load_data(stem_list, f);
+  PRINT_STAT_INT ("words", words);
 
-  gettimeofday(&tv1, NULL);
-  for (int i = 0; i < array_size; i++) {
-    stem_list[i]->b[stem2(stem_list[i]) + 1] = 0;
-  }
-  gettimeofday(&tv2, NULL);
-  totalruntimeseq =
-      (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
-
+  tic ();
   int start, tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
-
-  // load the data again
-  fclose(f);
-  f = fopen(argv[2], "r");
-  load_data(stem_list, f);
-
-  gettimeofday(&tv1, NULL);
-  iterations = array_size / NTHREADS;
+  iterations = words / NTHREADS;
 
   pthread_attr_init(&attr);
   pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -128,20 +117,15 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < NTHREADS; i++) {
     pthread_join(threads[i], NULL);
   }
-
-  gettimeofday(&tv2, NULL);
-  totalruntimepar =
-      (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
-
-  printf("Stemmer CPU time=%4.2f ms\n", (double)totalruntimeseq / 1000);
-  printf("Stemmer CPU PThread time=%4.2f ms\n", (double)totalruntimepar / 1000);
-  printf("Speedup=%4.2f \n", (double)totalruntimeseq / (float)totalruntimepar);
+  PRINT_STAT_DOUBLE ("pthread_stemmer", toc ());
+  
+  STATS_END();
 
   fclose(f);
   free(s);
 
   // free up allocated data
-  for (int i = 0; i < array_size; i++) {
+  for (int i = 0; i < words; i++) {
     free(stem_list[i]->b);
     free(stem_list[i]);
   }

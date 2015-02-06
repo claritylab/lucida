@@ -1,0 +1,1065 @@
+#passages: 1682
+
+<TO> [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 102
+#incorrect: 71
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 102
+#incorrect: 68
+
+<TO> (?:<NEacronym> )?[^<]*?(?:<NEorganization_NEperson> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 102
+#incorrect: 69
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 102
+#incorrect: 74
+
+<TO> (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 102
+#incorrect: 68
+
+<TO> (?:<NEperson> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 102
+#incorrect: 65
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?<PO_NEeducationalInstitution>
+#correct: 101
+#incorrect: 19
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 101
+#incorrect: 76
+
+<TO> (?:<NEperson> )?[^<]*?<PO_NEperson_NEeducationalInstitution>
+#correct: 97
+#incorrect: 193
+
+<TO> (?:<NEperson> )?[^<]*?<PO_NEeducationalInstitution>
+#correct: 97
+#incorrect: 15
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NEeducationalInstitution>
+#correct: 97
+#incorrect: 17
+
+<TO> (?:<NEprofession> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 76
+#incorrect: 65
+
+<TO> (?:<NEmonth> )?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?<PO_NEorganization_NEeducationalInstitution>
+#correct: 75
+#incorrect: 66
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 75
+#incorrect: 69
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEorganization> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 75
+#incorrect: 67
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 74
+#incorrect: 65
+
+<TO> [^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 74
+#incorrect: 65
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NEeducationalInstitution>
+#correct: 73
+#incorrect: 15
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElength_NEsize> )?[^<]*?<PO_NEeducationalInstitution>
+#correct: 71
+#incorrect: 15
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?<PO_NEeducationalInstitution>
+#correct: 70
+#incorrect: 19
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?[^<]*?<PO_NEeducationalInstitution>
+#correct: 70
+#incorrect: 15
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NEorganization>
+#correct: 70
+#incorrect: 63
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?(?:<NEstyle> )?[^<]*?<PO_NEeducationalInstitution>
+#correct: 70
+#incorrect: 15
+
+<TO> [^<]*?<PO_NEperson_NEeducationalInstitution>
+#correct: 69
+#incorrect: 221
+
+<TO> [^<]*?<PO_NEeducationalInstitution>
+#correct: 69
+#incorrect: 15
+
+<TO> [^<]*?<PO_NEorganization>
+#correct: 49
+#incorrect: 61
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?(?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 40
+#incorrect: 38
+
+<PO_NEeducationalInstitution> [^<]*?(?:<NElocation_NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 39
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?(?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 39
+#incorrect: 33
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?(?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?<TO>
+#correct: 38
+#incorrect: 32
+
+<PO_NEeducationalInstitution> [^<]*?(?:<NElocation_NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?<TO>
+#correct: 38
+#incorrect: 0
+
+<PO_NEeducationalInstitution> [^<]*?(?:<NEperson> )?[^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 35
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 34
+#incorrect: 25
+
+<TO> (?:<NEperson> )?[^<]*?mater <PO> \.
+#correct: 31
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?(?:<NErelation> )?<TO>
+#correct: 31
+#incorrect: 25
+
+<TO> (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?mater <PO> \.
+#correct: 31
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?(?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?<TO>
+#correct: 30
+#incorrect: 32
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?(?:<NEfrequency> )?[^<]*?<TO>
+#correct: 30
+#incorrect: 25
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?<TO>
+#correct: 29
+#incorrect: 25
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 29
+#incorrect: 26
+
+<PO_NEeducationalInstitution> [^<]*?<TO>
+#correct: 29
+#incorrect: 0
+
+<TO> about the large collection of crosby memorabilia and material maintained by his alma mater <PO_NEorganization_NEeducationalInstitution>
+#correct: 29
+#incorrect: 0
+
+<TO> about the large collection of crosby memorabilia and material maintained by his alma mater <PO> \.
+#correct: 25
+#incorrect: 0
+
+<TO> [^<]*?mater <PO> \.
+#correct: 25
+#incorrect: 0
+
+<TO> <NEperson> at <PO_NEeducationalInstitution>
+#correct: 15
+#incorrect: 0
+
+<TO> <NEperson> at <PO_NEorganization_NEeducationalInstitution>
+#correct: 15
+#incorrect: 0
+
+<TO> , <PO_NEeducationalInstitution>
+#correct: 13
+#incorrect: 8
+
+<TO> [^<]*?, <PO> ,
+#correct: 13
+#incorrect: 111
+
+<TO> , <PO_NEperson_NEeducationalInstitution>
+#correct: 13
+#incorrect: 69
+
+<TO> (?:<NEperson> )?, <PO> ,
+#correct: 13
+#incorrect: 102
+
+<TO> , <PO_NEorganization_NEeducationalInstitution>
+#correct: 13
+#incorrect: 9
+
+<TO> , <PO> ,
+#correct: 12
+#incorrect: 100
+
+<TO> [^<]*?at <PO> \.
+#correct: 9
+#incorrect: 1
+
+<TO> (?:<NEperson> )?at <PO> \.
+#correct: 8
+#incorrect: 3
+
+<TO> <NEperson> at <PO> in
+#correct: 8
+#incorrect: 0
+
+<TO> at <PO_NEeducationalInstitution>
+#correct: 8
+#incorrect: 0
+
+<TO> at <PO_NEorganization_NEeducationalInstitution>
+#correct: 8
+#incorrect: 0
+
+<TO> (?:<NEperson> )?[^<]*?mater <PO> #
+#correct: 8
+#incorrect: 32
+
+<TO> (?:<NEperson> )?at <PO> in
+#correct: 8
+#incorrect: 1
+
+<TO> [^<]*?at <PO> ,
+#correct: 7
+#incorrect: 5
+
+<TO> at <PO> \.
+#correct: 7
+#incorrect: 1
+
+<PO_NEeducationalInstitution> to see <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> (?:<NEperson> )?at <PO> ,
+#correct: 6
+#incorrect: 2
+
+at <PO> to see <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> <NEperson> about the large collection of crosby memorabilia and material maintained by his alma mater <PO_NEorganization_NEeducationalInstitution>
+#correct: 6
+#incorrect: 0
+
+at <PO> to [^<]*?<TO>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?mater <PO> #
+#correct: 6
+#incorrect: 26
+
+<PO_NEorganization_NEeducationalInstitution> to see <TO>
+#correct: 6
+#incorrect: 0
+
+# <PO> , [^<]*?(?:<NElocation_NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 6
+#incorrect: 161
+
+<TO> tried studying law at <PO> ,
+#correct: 5
+#incorrect: 0
+
+<TO> to be honored with degrees \( banner graphic \) <PO> <NEfirstName>
+#correct: 5
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> \.\. <TO>
+#correct: 5
+#incorrect: 0
+
+# <PO> , a small jesuit college in <NElocation_NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> , was maybe best known as the alma mater of <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> tried studying law at <PO_NEorganization_NEeducationalInstitution>
+#correct: 5
+#incorrect: 0
+
+<TO> to be honored with degrees \( banner graphic \) <PO_NEorganization>
+#correct: 5
+#incorrect: 0
+
+<PO_NEeducationalInstitution> , a small jesuit college in <NElocation_NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> , was maybe best known as the alma mater of <TO>
+#correct: 5
+#incorrect: 0
+
+# <PO> , [^<]*?(?:<NElocation_NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 150
+
+<TO> <NEperson> at <PO> ,
+#correct: 5
+#incorrect: 2
+
+mater <PO> \.\. <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?\) <PO> <NEfirstName>
+#correct: 5
+#incorrect: 0
+
+by <PO> , [^<]*?(?:<NErelation> )?<TO>
+#correct: 4
+#incorrect: 8
+
+<TO> about the large collection of crosby memorabilia and material maintained by his alma mater <PO> #
+#correct: 4
+#incorrect: 25
+
+<TO> <NEperson> about the large collection of crosby memorabilia and material maintained by his alma mater <PO> \.
+#correct: 4
+#incorrect: 0
+
+<TO> <NEperson> \( <PO> \)
+#correct: 3
+#incorrect: 4
+
+# <PO> <NEfirstName> [^<]*?(?:<NEprofession> )?<TO>
+#correct: 3
+#incorrect: 11
+
+at <PO> , [^<]*?<TO>
+#correct: 3
+#incorrect: 4
+
+<PO_NEeducationalInstitution> [^<]*?school [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<TO> <NEperson> \( <PO_NEorganization_NEeducationalInstitution>
+#correct: 3
+#incorrect: 0
+
+of <PO> is [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+<TO> (?:<NEperson> )?\( <PO> \)
+#correct: 3
+#incorrect: 20
+
+<PO_NEorganization_NEeducationalInstitution> is dedicated to remembering the city ' s native <NErelation> and famous crooner <TO>
+#correct: 3
+#incorrect: 0
+
+of <PO> , (?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 3
+#incorrect: 35
+
+<TO> [^<]*?<PO_NEperson>
+#correct: 3
+#incorrect: 206
+
+of <PO> is dedicated to remembering the city ' s native <NErelation> and famous crooner <TO>
+#correct: 3
+#incorrect: 0
+
+<PO_NEeducationalInstitution> (?:<NEfirstName> )?(?:<NEprofession> )?[^<]*?alumnus <TO>
+#correct: 2
+#incorrect: 0
+
+by <PO> , the school <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?local <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> , <NEperson> , <NElocation> , <NEperson> , <NElocation> , <NEperson> , <NElocation_NEperson_NEcountry> , <NElocation> , <NEperson> , <PO_NEorganization_NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEperson> )?, <PO> #
+#correct: 2
+#incorrect: 192
+
+<PO_NEeducationalInstitution> , the school <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , better known as " bing , " was born in <NElocation> , <NElocation_NEcapital_NEstate_NEusPresident> , and attended <PO_NEorganization_NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+<TO> , <NEperson> , <NElocation> , <NEperson> , <NElocation> , <NEperson> , <NElocation_NEperson_NEcountry> , <NElocation> , <NEperson> , <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> , and a large collection of the <NEprofession> ' s memorabilia is housed at the local <PO> #
+#correct: 2
+#incorrect: 0
+
+of <PO> in (?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+<TO> museum - <NElength_NEsize> - lake coeur d alene - <NElength_NEsize> - <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> <NEprofession> at <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> <NEprofession> at <PO_NEorganization_NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+<TO> museum - <NElength_NEsize> - lake coeur d alene - <NElength_NEsize> - <PO_NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?attended <PO_NEorganization_NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEperson> )?[^<]*?, <PO> \.
+#correct: 2
+#incorrect: 38
+
+by <PO> , [^<]*?school <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> went on to <PO> where
+#correct: 2
+#incorrect: 0
+
+<TO> , <PO_NEperson>
+#correct: 2
+#incorrect: 61
+
+<TO> [^<]*?to <PO> where
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?attended <PO> #
+#correct: 2
+#incorrect: 2
+
+<PO_NEorganization_NEeducationalInstitution> , home to native <NErelation> <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , and a large collection of the <NEprofession> ' s memorabilia is housed at the local <PO_NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+<TO> on the memorabilia at his alma mater , <PO_NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+<PO_NEeducationalInstitution> houses a collection of memorabilia belonging to <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> houses [^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+<TO> , better known as " bing , " was born in <NElocation> , <NElocation_NEcapital_NEstate_NEusPresident> , and attended <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?, <PO> #
+#correct: 2
+#incorrect: 188
+
+by <PO> , home to native <NErelation> <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> on the memorabilia at his alma mater , <PO> #
+#correct: 2
+#incorrect: 0
+
+# <PO> houses a collection of memorabilia belonging to <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> <NEperson> about the large collection of crosby memorabilia and material maintained by his alma mater <PO> #
+#correct: 2
+#incorrect: 4
+
+<TO> (?:<NEprofession> )?at <PO> in
+#correct: 2
+#incorrect: 1
+
+<PO_NEeducationalInstitution> [^<]*?school <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?, <PO> \.
+#correct: 2
+#incorrect: 39
+
+<TO> went on to <PO_NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+, <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> \( " a pocketful of dreams " \) on the eve of the <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> , it is only appropriate that we speak of our very own <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEmonth> <NEnumber> - <NEnumber> <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> went to <PO> \.
+#correct: 1
+#incorrect: 1
+
+<TO> statue at <PO> ,
+#correct: 1
+#incorrect: 0
+
+of <PO> , <NEethnicGroup_NEriver_NEwater> , <NElocation> , made famous as the alma mater of the late <NEprofession> - <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , a small jesuit college in <NElocation_NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> , was best known as the alma mater of <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> collection of memorabilia is housed in the crosby <NEorganization> at <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> is the largest public collection of his <NEmusicalInstrument> <NEstyle> of <PO_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEperson> \? a \. <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> \.
+#correct: 1
+#incorrect: 31
+
+<PO_NEeducationalInstitution> be sure to stop and visit the crosby <NEperson> , named after their famous <NErelation> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the <NElocation> archives and the <NEorganization> , all housed at the <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+at <PO> , we checked out the " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?for <PO> in
+#correct: 1
+#incorrect: 3
+
+<PO_NEorganization_NEeducationalInstitution> in <NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> with <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEmonth> <NEnumber> - <NEnumber> <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation> )?[^<]*?alumnus [^<]*?(?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?s <PO> \.
+#correct: 1
+#incorrect: 0
+
+s <PO> is [^<]*?alumnus <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?: <PO> \.
+#correct: 1
+#incorrect: 8
+
+<TO> memorabilia housed at the crosby library \( <PO> campus
+#correct: 1
+#incorrect: 0
+
+of <PO> , <TO>
+#correct: 1
+#incorrect: 10
+
+<TO> [^<]*?(?:<NEorganization> )?at <PO> #
+#correct: 1
+#incorrect: 30
+
+<PO_NEeducationalInstitution> , the jesuit school that gave <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> collection of memorabilia is housed in the crosby <NEorganization> at <PO> #
+#correct: 1
+#incorrect: 0
+
+at <PO> , it is only appropriate that we speak of our very own <TO>
+#correct: 1
+#incorrect: 0
+
+at <PO> or view the country ' s largest public collection of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEeducationalInstitution> , a small jesuit college in <NElocation_NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> , was best known as the alma mater of <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> graduated [^<]*?school [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?from <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation> )?[^<]*?alumnus [^<]*?(?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+of <PO> , [^<]*?school [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - a celebration of his <NEorganization> ' , <PO_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<PO_NEeducationalInstitution> <NEfirstName> <NEprofession> an old - fashioned clam bake , ala alumnus <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , who was born in <NElocation> in <NEdate_NEyear_NEnumber> , held a long - standing affection for <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?to <PO> \(
+#correct: 1
+#incorrect: 5
+
+to <PO> ' [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> - a celebration of his <NEorganization> ' , <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> placed at <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> conference in hofstra and at <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> is the largest public collection of his <NEmusicalInstrument> <NEstyle> of <PO> #
+#correct: 1
+#incorrect: 0
+
+to <PO> ' s <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> welcomes [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> statue at <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> is home to the crosby library , which displays alumnus <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEeducationalInstitution> - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?to <PO> \.
+#correct: 1
+#incorrect: 7
+
+<PO_NEorganization_NEeducationalInstitution> in <NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> - the alma mater of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( " a pocketful of dreams " \) on the eve of the <PO> celebration
+#correct: 1
+#incorrect: 0
+
+including <PO> in (?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> conference in hofstra and at <PO> and
+#correct: 1
+#incorrect: 0
+
+from <PO> \( <TO>
+#correct: 1
+#incorrect: 0
+
+including <PO> in <NEethnicGroup_NEriver_NEwater> , which is the repository for the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> centennial this month at <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> memorabilia room at <PO> \.
+#correct: 1
+#incorrect: 0
+
+the <PO> in <NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> - the alma mater of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEeducationalInstitution> welcomes visitors to enjoy the country ' s largest public collection of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> statue , <PO> <NEethnicGroup_NEriver_NEwater>
+#correct: 1
+#incorrect: 0
+
+of <PO> , the jesuit school that gave <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> [^<]*?alumnus <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> (?:<NEperson> )?[^<]*?mater <PO> \.\.
+#correct: 1
+#incorrect: 0
+
+of <PO> in <NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> memorabilia housed at the crosby library \( <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEmonth> )?(?:<NEnumber> )?[^<]*?<NEnumber> <PO> ,
+#correct: 1
+#incorrect: 15
+
+<TO> (?:<NEperson> )?[^<]*?\. <PO> #
+#correct: 1
+#incorrect: 78
+
+, <PO> is where <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEeducationalInstitution> is where <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> graduated from gonzaga high school in <NEdate_NEyear_NEnumber> and received an honorary <NEprofession> from <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?, <PO> <NEethnicGroup_NEriver_NEwater>
+#correct: 1
+#incorrect: 24
+
+<NEdate_NEyear_NEnumber> <PO> received the entire collection of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> : <PO> \.
+#correct: 1
+#incorrect: 0
+
+# <PO> welcomes visitors to enjoy the country ' s largest public collection of <TO>
+#correct: 1
+#incorrect: 0
+
+at <PO> \( (?:<NEfrequency> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?graduated [^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 5
+
+<NEdate_NEyear_NEnumber> <PO> which <TO>
+#correct: 1
+#incorrect: 0
+
+at <PO> \( <NEfrequency> known as <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEfirstName> celebrate the accomplishments of two distinguished individuals <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEperson> , <PO_NEperson_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> -- <NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> , as part of the <NEnumber> th birthday celebration for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and former speaker <PO> city
+#correct: 1
+#incorrect: 0
+
+<TO> went to <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?at <PO> in
+#correct: 1
+#incorrect: 3
+
+<PO_NEorganization_NEeducationalInstitution> received the entire collection of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?at <PO> in
+#correct: 1
+#incorrect: 6
+
+<PO_NEeducationalInstitution> , we checked out the " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the <NElocation> archives and the <NEorganization> , all housed at the <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> <NEperson> \? a \. <PO_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> exhibit to <PO> \(
+#correct: 1
+#incorrect: 0
+
+# <PO> - <TO>
+#correct: 1
+#incorrect: 13
+
+<TO> exhibit to <PO_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+# <PO> , greencastle , <NEacronym> \. <NEdate_NEyear_NEnumber> side by side , <NEorganization> , <NElocation> , <NEacronym> \. <NEdate_NEyear_NEnumber> snapshot , <TO>
+#correct: 1
+#incorrect: 0
+
+at <PO> be sure to stop and visit the crosby <NEperson> , named after their famous <NErelation> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEperson> at <PO> \.
+#correct: 1
+#incorrect: 2
+
+at <PO> , which contains a collection of <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEfirstName> (?:<NEprofession> )?[^<]*?alumnus <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , who graduated from <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> memorial room , <PO_NEperson_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?speaker <PO> city
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> or view the country ' s largest public collection of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> which <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEeducationalInstitution> ' s <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?graduated from <PO> ,
+#correct: 1
+#incorrect: 0
+
+at <PO> -- (?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEperson> about the large collection of crosby memorabilia and material maintained by his alma mater <PO> \.\.
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> : <PO_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?graduate of <PO> ,
+#correct: 1
+#incorrect: 0
+
+at <PO> -- <NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> , as part of the <NEnumber> th birthday celebration for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEperson> , <PO> ,
+#correct: 1
+#incorrect: 2
+
+<PO_NEorganization_NEeducationalInstitution> , <NEethnicGroup_NEriver_NEwater> , <NElocation> , made famous as the alma mater of the late <NEprofession> - <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> in <NEethnicGroup_NEriver_NEwater> , which is the repository for the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> \( <NEfrequency> known as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> centennial this month at <PO> in
+#correct: 1
+#incorrect: 0
+
+at <PO> in <NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> with <TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NEeducationalInstitution> \( <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> is home to the crosby library , which displays alumnus <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> at <PO> ,
+#correct: 1
+#incorrect: 0
+
+<NEdate_NEyear_NEnumber> <PO> received [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEperson> at his alma mater , <PO> \.
+#correct: 1
+#incorrect: 0
+
+at <PO> or [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> <NEperson> at <PO> #
+#correct: 1
+#incorrect: 14
+
+<TO> memorial room , <PO> ,
+#correct: 1
+#incorrect: 0
+
+at <PO> be [^<]*?(?:<NEperson> )?[^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a <NEdate_NEyear_NEnumber> graduate of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?\( <PO> campus
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> in <NEethnicGroup_NEriver_NEwater> , <NElocation_NEcapital_NEstate_NEusPresident> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?at <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> , who was born in <NElocation> in <NEdate_NEyear_NEnumber> , held a long - standing affection for <PO> in
+#correct: 1
+#incorrect: 0
+
+the <PO> in (?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 10
+
+<TO> <NEperson> at his alma mater , <PO_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<TO> placed at <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEeducationalInstitution> , which contains a collection of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , who graduated from <PO_NEorganization_NEeducationalInstitution>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEfirstName> <NEprofession> an old - fashioned clam bake , ala alumnus <TO>
+#correct: 1
+#incorrect: 0
+
+at <PO> in (?:<NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcapital_NEstate_NEusPresident> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> (?:<NEperson> )?at <PO> #
+#correct: 1
+#incorrect: 23
+
+<PO_NEeducationalInstitution> , <TO>
+#correct: 1
+#incorrect: 0

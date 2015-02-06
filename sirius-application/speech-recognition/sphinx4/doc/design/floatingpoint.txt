@@ -1,0 +1,108 @@
+Floating Point Issues
+=====================
+							Philip Kwok
+							4/22/2002
+
+Java floating point follows the IEEE 754 standard. All implementations
+of IEEE 754 are required to produce the same results for addition,
+subtraction, multiplication, division, and square root. It defines the
+number "NaN", which means "not a number". NaN happens when you divide
+zero by zero, square root of -1, etc..
+
+
+Single-Precision (32-bit)
+-------------------------
+    
+      -126        127
+  0         1-8                 9-31                
+ |_| |_______________| |_____________________|
+sign      exponent            mantissa
+
+1-bit      8-bits              23-bits
+
+The mantissa actually has 24-bits of precision, because floating point
+numbers are always in normalized form (e.g., 1.2345e-5) in IEEE 754,
+which means the leading bit is always '1' (implied).
+
+24-bits of precision corresponds to about 9 decimal digits of precision.
+
+Theorem: You need at least (and no more than) 9 decimal digits of precision
+-------  to recover the binary form of a 32-bit floating point number.
+
+
+Double-Precision (64-bit)
+-------------------------
+
+      -1022      1023
+  0         1-11               12-63                
+ |_| |_______________| |_____________________|
+sign      exponent            mantissa
+
+1-bit      11-bits            52-bits
+
+By the same token, this actually means 53-bits of precision. This translates
+to about 16-17 decimal digits of precision.
+
+Theorem: You need at least (and no more than) 17 decimal digits of precision
+-------  to recover the binary form of a 64-bit floating point number.
+
+
+C's printf
+----------
+
+If you attempt to print a 64-bit floating point number using:
+
+printf("%60f", floating_point_number);
+
+It will actually print out all the 60 decimal digits, when internally,
+the binary form only has 16-17 decimal digits of precision. C's printf
+functions is only *estimating* those extra digits.
+
+If you attempt to print a double in Java, it will only print as many
+decimal digits as is needed to recover the binary. Therefore, if you
+do:
+
+System.out.println(Math.PI);
+
+It will give: 3.141592653589793
+
+Java will print out at most 16 or 17 decimal digits. Given this
+unpredictability and rounding errors when converting from binary to
+decimal (note that it is perfectly fine for C and Java to use a different
+rounding algorithm), it is best to compare numbers in binary form
+(converting to hexadecimal if necessary).
+
+In C:
+----
+
+struct integer64 {
+    long half1;
+    long half2;
+};
+
+union data64 {
+    double f;
+    struct integer64 i;
+};
+
+union data64 x;
+x.f = floating_point_number;
+
+printf("0x%08x%08x", x.i.half1, x.i.half2);
+
+In Java:
+-------
+
+long binary = Double.DoubleToRawLongBits(double_64_number);
+System.out.println(Long.toHexString(binary));
+
+
+
+References:
+----------
+
+Goldberg, David. "What Every Computer Scientist Should Know About
+   Floating-Point Arithmetic." Computing Surveys, ACM, March 1991.
+
+
+                            --- End Of File ---

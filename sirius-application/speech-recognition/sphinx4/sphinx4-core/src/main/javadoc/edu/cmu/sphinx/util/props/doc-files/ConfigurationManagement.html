@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org" />
+  <!--
+
+    Copyright 1999-2004 Carnegie Mellon University.
+    Portions Copyright 2004 Sun Microsystems, Inc.
+    Portions Copyright 2004 Mitsubishi Electric Research Laboratories.
+    All Rights Reserved.  Use is subject to license terms.
+
+    See the file "license.terms" for information on usage and
+    redistribution of this file, and for a DISCLAIMER OF ALL
+    WARRANTIES.
+
+    -->
+
+  <title>Sphinx-4 Configuration Management</title>
+    <style type="text/css">
+        pre {
+            font-size: medium;
+            background: #f0f8ff;
+            padding: 2mm;
+            border-style: ridge;
+            color: teal
+        }
+
+        code {
+            font-size: medium;
+            color: teal
+        }
+    </style>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <table bgcolor="#99CBFF" border="0" width="100%">
+      <tbody>
+        <tr>
+          <td align="center" width="100%">
+            <h1>Configuration Management for Sphinx-4</h1>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr />
+
+  <h2>Managing the Sphinx  Configuration</h2>
+  
+  The Sphinx-4 configuration manager system has two primary
+  purposes:<br />
+
+  <ul>
+    <li><b>Determining which
+    components are to be used in the system.</b> The Sphinx-4
+    system is designed to be extremely flexible. At runtime, just
+    about any component can be replaced with another. For example,
+    in Sphinx-4 the <i>FrontEnd</i> component provides acoustic
+    features that are used scored against the acoustic model.
+    Typically, Sphinx-4 is configured with a FrontEnd that produces
+    <i>Mel frequency cepstral coefficients</i> (MFCCs), however it
+    is possible to reconfigure Sphinx-4 to use a different FrontEnd
+    that, for instance, produces <i>Perceptual Linear Prediction
+    coefficients</i> (PLP). The Sphinx-4 configuration manager is
+    used to configure the system in this fashion.</li>
+
+    <li><b>Determining the
+    detailed configuration of each of these components.</b> The
+    Sphinx-4 system is like most speech recognition systems in that
+    it has a large number of parameters that control how the system
+    functions. For instance, a <i>beam width</i> is sometimes used
+    to control the number of active search paths maintained during
+    the speech decoding. A larger value for this beam width can
+    sometimes yield higher recognition accuracy at the expense of
+    longer decode times. The Sphinx-4 configuration manager is used
+    to configure such parameters.</li>
+  </ul>
+
+  <h2>The Configuration File</h2>
+  
+  The configuration of a  particular Sphinx-4 system is determined by a <span style=
+  "font-weight: bold;">configuration file.</span> This
+  configuration file defines the following:<br />
+
+  <ul>
+    <li>The <span style="font-style: italic;">names</span> and
+    <span style="font-style: italic;">types</span>&nbsp; of all of
+    the components of the system</li>
+
+    <li>The connectivity of these components - that is, which
+    components talk to each other</li>
+
+    <li>The detailed configuration for each of these
+    components.</li>
+  </ul>Let's take a look at a simple configuration file:<br />
+  <br />
+  <pre>
+&lt;config&gt;<br />    &lt;component name="mySampleComponent" type="<span style="font-style: italic;">edu.cmu.sphinx.sample.MyComponent</span>"/&gt;<br />&lt;/config&gt;<br />
+</pre>&nbsp;<br />
+  Some things to note about this configuration file:<br />
+
+  <ul>
+    <li>The format of the file is <span style=
+    "font-weight: bold;"><span style=
+    "font-style: italic;">XML</span></span></li>
+
+    <li>This configuration file defines a single component called
+    <span style=
+    "font-style: italic;">mySampleComponent.</span>&nbsp;<br /></li>
+
+    <li>The type of this component is&nbsp; <span style=
+    "font-style: italic;">edu.cmu.sphinx.sample.MyComponent&nbsp;</span>
+    which must implement the <span style=
+    "font-style: italic;"><a href=
+    "http://cmusphinx.sourceforge.net/sphinx4/javadoc/edu/cmu/sphinx/util/props/Configurable.html">
+    Configurable</a></span> interface.</li>
+  </ul>
+
+  <h3><a name="mozTocId662197" class="mozTocH3" id=
+  "mozTocId662197"></a>Defining components<br /></h3>Now lets look
+  at a somewhat more complex configuration file:<br />
+  <pre>
+&lt;config&gt;<br />    &lt;component name="mySampleComponent" type="<span style="font-style: italic;">edu.cmu.sphinx.sample.MyComponent</span>"/&gt;<br />    &lt;component name="anotherComponent" type="<span style="font-style: italic;">edu.cmu.sphinx.sample.MyComponent</span>"/&gt;<br />    &lt;component name="aDifferentComponent" type="<span style="font-style: italic;">edu.cmu.sphinx.sample.YourComponent</span>"/&gt;<br />&lt;/config&gt;
+</pre>This configuration file defines three components, two of the
+type <span style="font-style: italic;">MyComponent</span> , and one
+with the type <span style=
+"font-style: italic;">YourComponent</span>. The two components with
+the same types will result in two different instances of that
+component being created.<br />
+  <br />
+  The data types&nbsp; <span style=
+  "font-style: italic;">MyComponent</span> and <span style=
+  "font-style: italic;">YourComponent</span> are, of course,
+  fictional types.&nbsp;&nbsp; Now lets look at a section from a
+  real configuration file.<br />
+  <pre>
+&lt;config&gt;
+<br />    &lt;component name="dct" type="edu.cmu.sphinx.frontend.transform.DiscreteCosineTransform"/&gt;
+    &lt;component name="batchCMN" type="edu.cmu.sphinx.frontend.feature.BatchCMN"/&gt;
+    &lt;component name="liveCMN" type="edu.cmu.sphinx.frontend.feature.LiveCMN"/&gt;
+    &lt;component name="featureExtraction" type="edu.cmu.sphinx.frontend.feature.DeltasFeatureExtractor"/&gt;
+<br />&lt;/config&gt;<br /><br />
+</pre>Here we see some of the components used in the front end of
+Sphinx4<br />
+
+  <h3><a name="mozTocId226388" class="mozTocH3" id=
+  "mozTocId226388"></a>Defining configuration data</h3>So far,
+  we've shown how to define new components in the configuration
+  file. Now lets take a look at how we define the detailed
+  configuration data for a component.&nbsp;<br />
+  <br />
+  <pre>
+&lt;config&gt;<br /><br />    &lt;component name="concatDataSource" type="edu.cmu.sphinx.frontend.util.ConcatFileDataSource"&gt;<br />        &lt;property name="sampleRate" value="16000"/&gt;<br />        &lt;property name="transcriptFile" value="reference.txt"/&gt;<br />        &lt;property name="silenceFile"  value="/lab/speech/sphinx4/data/tidigits/test/raw16k/silence1sec.raw"/&gt;<br />        &lt;property name="bytesPerRead" value="320"/&gt;<br />        &lt;property name="batchFile" value="tidigits.batch"/&gt;<br />        &lt;property name="addRandomSilence" value="true"/&gt;<br />    &lt;/component&gt;<br /><br />&lt;/config&gt; &gt;<br />
+</pre>In Sphinx-4,&nbsp; we call the configuration data for a
+component&nbsp; its <span style=
+"font-style: italic;">properties</span>.&nbsp; Here, we are
+defining six properties for the <span style="font-style: italic;">
+  concatDataSource</span> component.&nbsp; Properties are simple
+  name/value pairs and are set with the &lt;property&gt; statement
+  as shown above.&nbsp;<br />
+  <br />
+  The properties that can be defined for a component vary based
+  upon the component type.&nbsp; The API documentation for a
+  component includes a description of the set of properties, the
+  data type for each property, and the default value for each
+  property.&nbsp; For example a description of the properties used
+  above can be found on the <a href=
+  "http://cmusphinx.sourceforge.net/sphinx4/javadoc/edu/cmu/sphinx/frontend/util/ConcatFileDataSource.html#PROP_ADD_RANDOM_SILENCE">
+  ConcatFileDataSource page</a>.<br />
+  <br />
+  If a property is omitted from the configuration file, the
+  component will usually provide a default value for the
+  property.<br />
+  <br />
+
+  <h3><a name="mozTocId296633" class="mozTocH3" id=
+  "mozTocId296633"></a>Configuration data types</h3>Sphinx-4 simple
+  properties can be of the following types:<br />
+
+  <ul>
+    <li>boolean - the value can be either "true" or "false"</li>
+
+    <li>float - a single-precision floating point value</li>
+
+    <li>double - a double-precision floating point value</li>
+
+    <li>int - a 32 bit signed integer</li>
+
+    <li>String - a sequence of characters</li>
+
+    <li>Component - the name of a Sphinx-4 component (more on this
+    later)</li>
+  </ul>Here are some examples:<br />
+  <br />
+
+  <table cellpadding="2" cellspacing="2" border="0" style=
+  "width: 80%; text-align: left;">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;">
+          <pre>
+value="'Twas brillig and slithey toves"    
+</pre>
+        </td>
+
+        <td style="vertical-align: top; font-weight: bold;">string<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <pre>
+value="3.14"
+</pre>
+        </td>
+
+        <td style="vertical-align: top; font-weight: bold;">float<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <pre>
+value="1E-140"
+</pre>
+        </td>
+
+        <td style="vertical-align: top; font-weight: bold;">double<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <pre>
+value="16000"
+</pre>
+        </td>
+
+        <td style="vertical-align: top; font-weight: bold;">integer<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <pre>
+value="false"
+</pre>
+        </td>
+
+        <td style="vertical-align: top; font-weight: bold;">boolean<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+          <pre>
+value="beamPruner"
+</pre>
+        </td>
+
+        <td style="vertical-align: top; font-weight: bold;">component</td>
+      </tr>
+    </tbody>
+  </table><br />
+  In addition to these simple property types, there are two
+  <span style="font-style: italic;">list</span> types:<br />
+
+  <ul>
+    <li>String list - a list of strings</li>
+
+    <li>Component list&nbsp; - a list of components</li>
+  </ul>Lists are defined in a <span style=
+  "font-style: italic;">propertylist</span> element. Each item in a
+  list is defined with an <span style=
+  "font-style: italic;">item&nbsp;</span> element.&nbsp; Here's an
+  example of how to define a property list of strings:<br />
+  <br />
+  <pre>
+&lt;component name="fileManager" type="edu.cmu.sphinx.sample.FileManager"&gt;<br />    &lt;propertylist name="fileNames"&gt;<br />     &lt;item&gt;file1.txt&lt;/item&gt;<br />  &lt;item&gt;file2.txt&lt;/item&gt;<br />  &lt;item&gt;file3.txt&lt;/item&gt;<br />    &lt;/propertylist&gt;<br />&lt;/component&gt;<br />
+</pre>Property lists of components are defined similarly:<br />
+  <pre>
+    &lt;component name="mfcLiveFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;<br />        &lt;propertylist name="pipeline"&gt;<br />            &lt;item&gt;concatDataSource &lt;/item&gt;<br />            &lt;item&gt;speechClassifier &lt;/item&gt;<br />            &lt;item&gt;speechMarker &lt;/item&gt;<br />            &lt;item&gt;nonSpeechDataFilter &lt;/item&gt;<br />            &lt;item&gt;preemphasizer &lt;/item&gt;<br />            &lt;item&gt;windower &lt;/item&gt;<br />            &lt;item&gt;fft &lt;/item&gt;<br />            &lt;item&gt;melFilterBank &lt;/item&gt;<br />            &lt;item&gt;dct &lt;/item&gt;<br />            &lt;item&gt;liveCMN &lt;/item&gt;<br />            &lt;item&gt;featureExtraction &lt;/item&gt;<br />        &lt;/propertylist&gt;<br />    &lt;/component&gt;<br /><br />
+</pre>
+
+  <h2><a name="mozTocId155756" class="mozTocH2" id=
+  "mozTocId155756"></a>Error Checking</h2>When a configuration file
+  is loaded, the configuration manager will check for certain
+  errors and abort the process if an error is detected.&nbsp; Some
+  of the errors that are detected are:<br />
+
+  <ul>
+    <li><span style="font-weight: bold;">Invalid XML</span> - the
+    file is not a valid XML file<br /></li>
+
+    <li><span style="font-weight: bold;">Unknown XML
+    elements</span>&nbsp; - there are unknown elements in the
+    file.<br /></li>
+
+    <li><span style="font-weight: bold;">Missing, extra or Unknown
+    XML attributes</span> - an element has been given the wrong
+    number of attribute<br /></li>
+
+    <li style="font-weight: bold;">Multiply defined properties
+    -&nbsp;<span style="font-weight: normal;">&nbsp; a
+    property&nbsp; for a component has been defined more than
+    once.</span><br /></li>
+
+    <li style="font-weight: bold;">Bad data type for a property -
+    <span style="font-weight: normal;">a given value cannot be
+    converted to the declared type for a property</span><br /></li>
+
+    <li style="font-weight: bold;">Multiply defined components -
+    <span style="font-weight: normal;">a component can be defined
+    only once</span><br /></li>
+
+    <li><span style="font-weight: bold;">Out-of-range-data for a
+    component</span> - the given value for a component property is
+    out of the range.<br /></li>
+  </ul>
+
+  <h3><a name="mozTocId2703" class="mozTocH3" id=
+  "mozTocId2703"></a>The Elements</h3>The following table details
+  the elements and attributes of the configuration file<br />
+  <br />
+
+  <table cellpadding="2" cellspacing="2" border="1" style=
+  "text-align: left; width: 90%;">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top; font-weight: bold;">
+        Element<br /></td>
+
+        <td style="vertical-align: top; font-weight: bold;">
+        Attributes<br /></td>
+
+        <td style="vertical-align: top; font-weight: bold;">
+        Sub-elements<br /></td>
+
+        <td style="vertical-align: top; font-weight: bold;">
+        Description<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">&lt;config&gt;<br /></td>
+
+        <td style="vertical-align: top;">none<br /></td>
+
+        <td style="vertical-align: top;">&lt;component&gt;<br />
+        &lt;property&gt;<br />
+        &lt;propertylist&gt;<br /></td>
+
+        <td style="vertical-align: top;">The top level element. It
+        has no attributes. It can have any number of the
+        <span style="font-style: italic;">component</span>,
+        <span style="font-style: italic;">property and
+        propertylist</span> sub-elements.<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+        &lt;component&gt;<br /></td>
+
+        <td style="vertical-align: top;"><span style=
+        "font-weight: bold;">name -</span> the component name<br />
+        <span style="font-weight: bold;">type -</span> the
+        component type<br /></td>
+
+        <td style="vertical-align: top;">&lt;property&gt;<br />
+        &lt;propertylist&gt;<br /></td>
+
+        <td style="vertical-align: top;">Defines an instance of a
+        component. This element must always have the <span style=
+        "font-style: italic;">name</span> and <span style=
+        "font-style: italic;">type</span> attributes.<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+        &lt;property&gt;<br /></td>
+
+        <td style="vertical-align: top;"><span style=
+        "font-weight: bold;">name -&nbsp;</span> the property
+        name<br />
+        <span style="font-weight: bold;">value -</span> the type of
+        the property<br /></td>
+
+        <td style="vertical-align: top;">None<br /></td>
+
+        <td style="vertical-align: top;">Used to define a single
+        property of a component or a global system property. This
+        element must always have the <span style=
+        "font-style: italic;">name</span> and <span style=
+        "font-style: italic;">value</span> attributes.<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">
+        &lt;propertylist&gt;<br /></td>
+
+        <td style="vertical-align: top;"><span style=
+        "font-weight: bold;">name&nbsp;</span> - the name of the
+        property list<br /></td>
+
+        <td style="vertical-align: top;">&lt;item&gt;<br /></td>
+
+        <td style="vertical-align: top;">Used to define a list of
+        strings or components. This element must always have the
+        <span style="font-style: italic;">name</span> element. I
+        can have any number of <span style=
+        "font-style: italic;">item</span> sub-elements.<br /></td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top;">&lt;item&gt;<br /></td>
+
+        <td style="vertical-align: top;">none<br /></td>
+
+        <td style="vertical-align: top;">none<br /></td>
+
+        <td style="vertical-align: top;">contents of this element
+        define&nbsp; a string or a component name.<br /></td>
+      </tr>
+    </tbody>
+  </table><br />
+
+  <h3><a name="mozTocId750702" class="mozTocH3" id=
+  "mozTocId750702"></a>Global Properties</h3>You may have noticed
+  that properties can be defined out side of any component, at the
+  configuration level.&nbsp; These are called <span style=
+  "font-style: italic;">global properties</span>. Here's an example
+  of some global properties being defined.<br />
+  <br />
+  <pre>
+&lt;config&gt;<br /> &lt;property name="absoluteBeam" value="1000"/&gt;<br />  &lt;property name="relativeBeam" value="1E-10"/&gt;<br />&lt;/config&gt;<br />
+</pre><br />
+  These global variables can then be used in the property
+  statements inside components.&nbsp; A variable is referenced
+  using the syntax ${variableName}.&nbsp; To reference the
+  variables defined in the previous example you would use
+  ${absoluteBeam} and ${relativeBeam}<br />
+  <br />
+  Here's an example of using global properties in a config
+  file:<br />
+  <br />
+  <pre>
+&lt;config&gt;<br />    &lt;property name="sampleRate" value="16000"/&gt;<br /><br />    &lt;component name="concatDataSource" type="edu.cmu.sphinx.frontend.util.ConcatFileDataSource"&gt;<br />        &lt;property name="sampleRate" value="${sampleRate}/&gt;<br />    &lt;/component&gt;<br /><br />    &lt;component name="microphone" type="edu.cmu.sphinx.frontend.util.Microphone"&gt;<br />        &lt;property name="sampleRate" value="${sampleRate}/&gt;<br />    &lt;/component&gt;<br /><br />    &lt;component name="streamDataSource" type="edu.cmu.sphinx.frontend.util.StreamDataSource"&gt;<br />        &lt;property name="sampleRate" value="${sampleRate}/&gt;<br />    &lt;/component&gt;<br /><br />&lt;/config&gt; &gt;
+</pre>In this example we have three components, all of which need
+to be configured with a <span style=
+"font-style: italic;">sampleRate</span>.&nbsp; We could explicitly
+use the value <span style="font-style: italic;">"16000"</span> for
+each of the <span style="font-style: italic;">sampleRate</span>
+properties, but if we decided to change the sample rate at a later
+time, we would have to change it in three places.&nbsp; Using a
+global property allows us to have a single point where the sample
+rate is defined. To change the sample rate, we only have to change
+the single number.&nbsp;<br />
+  <br />
+  Global properties are also useful to highlight important tunable
+  parameters. Often times in large configuration files, important
+  parameters that frequently need to be tuned for best results are
+  hidden deep down in the configuration file.&nbsp; Using global
+  properties, these important, frequently tuned properties can be
+  highlighted.&nbsp; Here's an example from the <span style=
+  "font-style: italic;">tidigits.config.xml</span> file:<br />
+  <br />
+  <pre>
+&lt;config&gt;        <br />    <br />    <br />    &lt;!-- ******************************************************** --&gt;<br />    &lt;!-- frequently tuned properties                              --&gt;<br />    &lt;!-- ******************************************************** --&gt; <br />    <br />    &lt;property name="absoluteBeamWidth"         value="-1"/&gt;<br />    &lt;property name="relativeBeamWidth"         value="1E-200"/&gt;<br />    &lt;property name="wordInsertionProbability"  value="1E-36"/&gt;<br />    &lt;property name="languageWeight"            value="8"/&gt;<br />    &lt;property name="silenceInsertionProbability" value="1"/&gt;<br />    &lt;property name="skip"                       value="0"/&gt;<br />    <br />    &lt;!-- ******************************************************** --&gt;<br />    &lt;!-- Components                                               --&gt;<br />    &lt;!-- ******************************************************** --&gt; <br />    &lt;component name="batch" type-"..." &gt;<br />      ...<br />    &lt;/component&gt;<br /><br /><br />    <br />&lt;!-- more omitted .... --&gt;<br />
+</pre><br />
+  Global variables can be substituted for all <span style=
+  "font-style: italic;">property value&nbsp;</span> attributes.
+  They can also be used in <span style=
+  "font-style: italic;">propertylist</span> item statements.&nbsp;
+  For example,<br />
+  here's a configuration of the FrontEnd pipeline that uses a
+  global property to set which cepstral mean normalizer to
+  use:<br />
+  <br />
+  <pre>
+&lt;config&gt;<br />    &lt;property name="cmn" value="liveCMN"/&gt;<br /><br />    &lt;component name="mfcFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;<br />        &lt;propertylist name="pipeline"&gt;<br />            &lt;item&gt;streamDataSource&lt;/item&gt;<br />            &lt;item&gt;preemphasizer&lt;/item&gt;<br />            &lt;item&gt;windower&lt;/item&gt;<br />            &lt;item&gt;fft&lt;/item&gt;<br />            &lt;item&gt;melFilterBank&lt;/item&gt;<br />            &lt;item&gt;dct&lt;/item&gt;<br />            &lt;item&gt;${cmn}/item&gt;<br />            &lt;item&gt;featureExtraction&lt;/item&gt;<br />        &lt;/propertylist&gt;<br />    &lt;/component&gt;<br />&lt;/config&gt;<br /><br />
+</pre>Note that you can <span style="font-weight: bold;">not</span>
+substitute global variables for component names or types.&nbsp;
+Thus, this is <span style="font-weight: bold;">illegal:<br />
+  <br /></span>
+  <pre>
+&lt;config&gt;<br />    &lt;property name="cmn" value="liveCMN"/&gt;<br /><span style="color: rgb(255, 0, 0);">    &lt;!-- illegal! --&gt;</span><br />    &lt;component name="${cmn}" type="edu.cmu.sphinx.frontend.CepstralMeanNormalizer"&gt;<br />    &lt;/component&gt;<br />&lt;/config&gt;
+</pre>
+
+  <h3><a name="mozTocId510229" class="mozTocH3" id=
+  "mozTocId510229"></a>Setting properties from the Java command
+  line</h3>Sometimes it is desirable to set component properties
+  from the java command line.&nbsp; This is often done from an
+  <span style="font-style: italic;">ant</span> build.xml file. This
+  allows a single configuration file be used to support multiple
+  tests.&nbsp; The syntax for setting a component property from the
+  command line is:&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+  componentName[propertyName]=value.<br />
+  <br />
+  For example to set the sampleRate property for the microphone
+  from the command line, you would invoke Java like this:<br />
+  <br />
+  <pre>
+java -Dmicrophone[sampleRate]=44100 edu.cmu.sphinx.tools.LiveModeRecognizer tidigits.config.xml tidigits.batch<br />
+</pre>The syntax for global properties is:&nbsp;&nbsp; &nbsp;&nbsp;
+globalProperty=value<br />
+  <br />
+  Here's an example of setting multiple properties, some global and
+  some component properties, from the command line:<br />
+  <br />
+  <pre>
+java -Dmicrophone[sampleRate]=441000 -DabsoluteBeamWidth=2000 -DwordInsertionProbability=.01 \<br />     edu.cmu.sphinx.tools.LiveModeRecognizer tidigits.config.xml tidigits.batch
+</pre>Of course, <span style="font-style: italic;">ant&nbsp;</span>
+has its own syntax for setting such things. Here's an example of
+setting properties from an ant build file:<br />
+  <pre>
+    &lt;target name="tidigits_wordlist_live" description="Live mode TIDIGITS test."&gt;<br />        &lt;java classpath="${classes_dir}"  classname="${live_main}"<br />            &lt;sysproperty key="live[skip]" value="1"/&gt;<br />            &lt;sysproperty key="speedTracker[showResponseTime]" value="true"/&gt;<br />            &lt;sysproperty key="frontend" value="mfcLiveFrontEnd"/&gt;<br />            &lt;arg value="${config}"/&gt;<br />        &lt;/java&gt;<br />    &lt;/target&gt;<br /><br />
+</pre>Note that currently, it is not possible to set the value of
+<span style="font-style: italic;">propertylist</span> properties
+from the command line.<br />
+  <br />
+
+  <h3><a name="mozTocId347107" class="mozTocH3" id=
+  "mozTocId347107"></a>Debugging your configuration<br /></h3>Here
+  are some tips for developing a configuration and getting it to
+  work<br />
+
+  <ul>
+    <li>When a configuration has an error the configuration manager
+    will throw a PropertyException that details the cause of the
+    error. These exceptions are reported by all of the main
+    Sphinx-4 programs and utilities.&nbsp; Use these messages to
+    debug problems with your configuration file.</li>
+
+    <li>There is a special global property called <span style=
+    "font-style: italic;">showCreations</span>.&nbsp; If this
+    property is set to "true" the configuration manager will trace
+    the names of all components that are being created, as they are
+    being created. This can sometimes help track down missing or
+    extra components.:<br />
+      <pre>
+ java -cp ../../../bld/classes -DshowCreations=true edu.cmu.sphinx.tools.batch.BatchModeRecognizer \<br />             tidigits.config.xml tidigits.batch<br />Creating: batch<br />Creating: connectedDigitsRecognizer<br />Creating: digitsDecoder<br />Creating: searchManager<br />Creating: logMath<br />Creating: flatLinguist<br />Creating: wordListGrammar<br />Creating: dictionary<br />Creating: acousticModel<br />Creating: sphinx3Loader<br />Creating: trivialPruner<br />Creating: threadedScorer<br />Creating: mfcFrontEnd<br />Creating: streamDataSource<br />Creating: preemphasizer<br />Creating: windower<br />Creating: fft<br />Creating: melFilterBank<br />Creating: dct<br />Creating: batchCMN<br />Creating: featureExtraction<br />Creating: activeList<br />Creating: accuracyTracker<br />Creating: speedTracker<br />Creating: memoryTracker<br />Creating: recognizerMonitor<br />Creating: linguistStats<br /><br /><br />
+</pre>
+    </li>
+
+    <li>There is a component called a <span style=
+    "font-style: italic;">ConfigMonitor</span> that can be used to
+    help debug the configuration by showing the actual
+    configuration being used by the system.&nbsp; Typically, the
+    configuration monitor is set up to show the configuration of
+    the system after the system has been completely initialized,
+    but before it starts performing recognition.&nbsp; Here's some
+    example output:<br />
+      <br />
+      <pre>
+ ============ config ============= <br />fft:<br />    numberFftPoints = [DEFAULT]<br /><br />trivialPruner:<br /><br />searchManager:<br />    scorer = threadedScorer<br />    activeListFactory = activeList<br />    pruner = trivialPruner<br />    logMath = logMath<br />    growSkipInterval = [DEFAULT]<br />    showTokenCount = [DEFAULT]<br />    wantEntryPruning = [DEFAULT]<br />    linguist = flatLinguist<br />    relativeWordBeamWidth = [DEFAULT]<br /><br />wordRecognizer:<br />    decoder = decoder<br /><br />melFilterBank:<br />    numberFilters = [DEFAULT]<br />    maximumFrequency = [DEFAULT]<br />    minimumFrequency = [DEFAULT]<br /><br />threadedScorer:<br />    numThreads = 0<br />    scoreablesKeepFeature = true<br />    frontend = mfcFrontEnd<br />    isCpuRelative = true<br />    minScoreablesPerThread = 10<br /><br />preemphasizer:<br />    factor = [DEFAULT]<br /><br />memoryTracker:<br />    showDetails = [DEFAULT]<br />    showSummary = [DEFAULT]<br />    recognizer = wordRecognizer<br />   <br />
+</pre>
+    </li>
+  </ul>
+
+  <div style="margin-left: 40px;">
+    Note that properties that are not explicitly defined in the
+    configuration file or as a system property from the command
+    line are shown as [DEFAULT]. This indicates that the internal
+    default for this value is being used.<br />
+    <br />
+  </div>
+
+  <h2>Full Example</h2>You can find full examples of Sphinx-4
+  configuration file in sources. For example, check the file
+  <pre>sphinx4/src/apps/edu/cmu/sphinx/demo/transcriber/config.xml</pre>
+  <br />
+  <hr />
+  Copyright 1999-2004 Carnegie Mellon University.<br />
+  Portions Copyright 2002-2004 Sun Microsystems, Inc.<br />
+  Portions Copyright 2002-2004 Mitsubishi Electric Research
+  Laboratories.<br />
+  All Rights Reserved. Usage is subject to <a href="../../../../../../../license.terms">license terms</a>
+</body>
+</html>

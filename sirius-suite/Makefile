@@ -1,0 +1,21 @@
+KERNELS = gmm fd fe regex stemmer
+
+.PHONY: all $(KERNELS)
+
+SUBCLEAN = $(addsuffix .clean, $(KERNELS))
+.PHONY: clean $(SUBCLEAN)
+
+SUBTEST = $(addsuffix .test, $(KERNELS))
+.PHONY: test $(SUBTEST)
+
+all: $(KERNELS)
+$(KERNELS):
+	$(MAKE) -C $@
+
+clean: $(SUBCLEAN)
+$(SUBCLEAN): %.clean:
+	$(MAKE) -C $* clean
+
+test: $(SUBTEST)
+$(SUBTEST): %.test:
+	$(MAKE) -C $* test

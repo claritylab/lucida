@@ -1,0 +1,147 @@
+<config>
+
+    <component name="preempTest" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>audioFileDataSource </item>
+            <item>dataBlocker </item>
+            <item>speechClassifier </item>
+            <item>speechMarker </item>
+            <item>nonSpeechDataFilter </item>
+            <item>preemphasizer </item>
+        </propertylist>
+    </component>
+
+    <component name="windowTest" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>audioFileDataSource </item>
+            <item>dataBlocker </item>
+            <item>speechClassifier </item>
+            <item>speechMarker </item>
+            <item>nonSpeechDataFilter </item>
+            <item>preemphasizer </item>
+            <item>windower </item>
+        </propertylist>
+    </component>
+
+    <component name="fftTest" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>audioFileDataSource </item>
+            <item>dataBlocker </item>
+            <item>speechClassifier </item>
+            <item>speechMarker </item>
+            <item>nonSpeechDataFilter </item>
+            <item>preemphasizer </item>
+            <item>windower </item>
+            <item>fft </item>
+        </propertylist>
+    </component>
+
+    <component name="melTest" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>audioFileDataSource </item>
+            <item>dataBlocker </item>
+            <item>speechClassifier </item>
+            <item>speechMarker </item>
+            <item>nonSpeechDataFilter </item>
+            <item>preemphasizer </item>
+            <item>windower </item>
+            <item>fft </item>
+            <item>melFilterBank </item>
+        </propertylist>
+    </component>
+
+    <component name="dctTest" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>audioFileDataSource </item>
+            <item>dataBlocker </item>
+            <item>speechClassifier </item>
+            <item>speechMarker </item>
+            <item>nonSpeechDataFilter </item>
+            <item>preemphasizer </item>
+            <item>windower </item>
+            <item>fft </item>
+            <item>melFilterBank </item>
+            <item>dct </item>
+        </propertylist>
+    </component>
+
+    <component name="cmnTest" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>audioFileDataSource </item>
+            <item>dataBlocker </item>
+            <item>speechClassifier </item>
+            <item>speechMarker </item>
+            <item>nonSpeechDataFilter </item>
+            <item>preemphasizer </item>
+            <item>windower </item>
+            <item>fft </item>
+            <item>melFilterBank </item>
+            <item>dct </item>
+            <item>liveCMN </item>
+        </propertylist>
+    </component>
+
+    <component name="feTest" type="edu.cmu.sphinx.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>audioFileDataSource </item>
+            <item>dataBlocker </item>
+            <item>speechClassifier </item>
+            <item>speechMarker </item>
+            <item>nonSpeechDataFilter </item>
+            <item>preemphasizer </item>
+            <item>windower </item>
+            <item>fft </item>
+            <item>melFilterBank </item>
+            <item>dct </item>
+            <item>liveCMN </item>
+            <item>featureExtraction </item>
+        </propertylist>
+    </component>
+
+    <component name="audioFileDataSource" type="edu.cmu.sphinx.frontend.util.AudioFileDataSource"/>
+
+    <component name="microphone" 
+                type="edu.cmu.sphinx.frontend.util.Microphone">
+        <property name="closeBetweenUtterances" value="false"/>
+    </component>
+
+    <component name="dataBlocker" type="edu.cmu.sphinx.frontend.DataBlocker"/>
+
+    <component name="speechClassifier"
+                type="edu.cmu.sphinx.frontend.endpoint.SpeechClassifier">
+        <property name="threshold" value="13"/>
+    </component>
+    
+    <component name="nonSpeechDataFilter" 
+                type="edu.cmu.sphinx.frontend.endpoint.NonSpeechDataFilter"/>
+    
+    <component name="speechMarker" 
+                type="edu.cmu.sphinx.frontend.endpoint.SpeechMarker">
+        <property name="speechTrailer" value="50"/>
+    </component>
+    
+    <component name="preemphasizer"
+		type="edu.cmu.sphinx.frontend.filter.Preemphasizer"/>
+
+    <component name="dataDumper"
+		type="edu.cmu.sphinx.frontend.util.DataDumper"/>
+    
+    <component name="windower" 
+	type="edu.cmu.sphinx.frontend.window.RaisedCosineWindower"/>
+    
+    <component name="fft" 
+        type="edu.cmu.sphinx.frontend.transform.DiscreteFourierTransform"/>
+    
+    <component name="melFilterBank" 
+        type="edu.cmu.sphinx.frontend.frequencywarp.MelFrequencyFilterBank"/>
+    
+    <component name="dct" 
+            type="edu.cmu.sphinx.frontend.transform.DiscreteCosineTransform"/>
+    
+    <component name="liveCMN" 
+                type="edu.cmu.sphinx.frontend.feature.LiveCMN"/>
+    
+    <component name="featureExtraction" 
+		type="edu.cmu.sphinx.frontend.feature.DeltasFeatureExtractor"/>
+
+</config>

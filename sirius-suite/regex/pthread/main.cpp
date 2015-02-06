@@ -7,6 +7,7 @@
 #include <sys/time.h>
 #include <pthread.h>
 
+#include "../../timer/timer.h"
 #include "slre.h"
 
 #define EXPRESSIONS 100
@@ -70,12 +71,12 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
   /* Timing */
-  struct timeval tv1, tv2;
-  unsigned int totalruntimeseq = 0;
-  unsigned int totalruntimepar = 0;
-  unsigned int compiletime = 0;
+  /* Timing */
+  STATS_INIT ("kernel", "regular_expression");
+  PRINT_STAT_STRING ("abrv", "pthread_regex");
 
   NTHREADS = atoi(argv[1]);
+  PRINT_STAT_INT ("threads", NTHREADS);
 
   FILE *f = fopen(argv[2], "r");
   if (f == 0) {
@@ -83,6 +84,7 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
   numExps = fill(f, exps, temp, EXPRESSIONS);
+  PRINT_STAT_INT ("expressions", numExps);
 
   FILE *f1 = fopen(argv[3], "r");
   if (f1 == 0) {
@@ -90,33 +92,18 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
   numQs = fill(f1, bufs, buf_len, QUESTIONS);
+  PRINT_STAT_INT ("questions", numQs);
 
-  printf("threads: %d regexps: %d questions: %d\n", NTHREADS, numExps, numQs);
-  gettimeofday(&tv1, NULL);
+  tic ();
   for (int i = 0; i < numExps; ++i) {
     slre[i] = (struct slre *)malloc(sizeof(slre));
     if (!slre_compile(slre[i], exps[i])) {
       printf("error compiling: %s\n", exps[i]);
     }
   }
-  gettimeofday(&tv2, NULL);
-  compiletime =
-      (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
+  PRINT_STAT_DOUBLE ("regex_compile", toc ());
 
-  gettimeofday(&tv1, NULL);
-  for (int i = 0; i < numExps; ++i) {
-    for (int k = 0; k < numQs; ++k) {
-      if (slre_match(slre[i], bufs[k], buf_len[k], caps) < -1)
-        printf("error compiling\n");
-    }
-  }
-  gettimeofday(&tv2, NULL);
-  totalruntimeseq =
-      (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
-
-  gettimeofday(&tv1, NULL);
-
-  gettimeofday(&tv1, NULL);
+  tic ();
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
@@ -131,16 +118,9 @@ int main(int argc, char *argv[]) {
 
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
 
-  gettimeofday(&tv2, NULL);
-  totalruntimepar =
-      (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
+  PRINT_STAT_DOUBLE ("pthread_regex", toc ());
 
-  // Timing
-  printf("Regex SLRE Compile time=%4.2f ms\n", (double)compiletime / 1000);
-  printf("Regex SLRE CPU time=%4.2f ms\n", (double)totalruntimeseq / 1000);
-  printf("Regex SLRE CPU PThread time=%4.2f ms\n",
-         (double)totalruntimepar / 1000);
-  printf("Speedup=%.2f\n", ((float)totalruntimeseq / (float)totalruntimepar));
+  STATS_END ();
 
   return 0;
 }
