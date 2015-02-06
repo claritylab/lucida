@@ -6,6 +6,7 @@
 #include <float.h>
 #include <math.h>
 #include <sys/time.h>
+#include "../../timer/timer.h"
 
 float feature_vect[] = {2.240018,    2.2570236,    0.11304555,   -0.21307051,
                         0.8988138,   0.039065503,  0.023874786,  0.13153112,

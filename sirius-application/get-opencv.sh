@@ -20,10 +20,6 @@ then
   exit 1
 fi
 
-# Get tessaract
-apt-get install \
-  tesseract-ocr tesseract-ocr-eng libtesseract-dev libleptonica-dev
-
 # Get correct opencv
 apt-get install \
   build-essential checkinstall git cmake libfaac-dev libjack-jackd2-dev \

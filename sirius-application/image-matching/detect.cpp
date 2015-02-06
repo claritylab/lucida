@@ -97,7 +97,6 @@ void exec_text(po::variables_map &vm) {
     Mat img = imread(vm["text"].as<string>(), CV_LOAD_IMAGE_GRAYSCALE);
     tess->SetImage(static_cast<uchar *>(img.data), img.size().width,
                    img.size().height, img.channels(), img.step1());
-    // tess->SetRectangle();
     char *outTxt = tess->GetUTF8Text();
     // cout << "OCR Res: " << outTxt << endl;
   }

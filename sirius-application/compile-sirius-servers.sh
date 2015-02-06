@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# exit if anyone fails
+# exit if any server fails
 set -e
 
 # compiles all servers

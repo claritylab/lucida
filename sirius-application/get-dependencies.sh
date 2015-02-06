@@ -10,3 +10,8 @@ fi
 
 apt-get install \
   default-jdk ant automake autoconf libtool bison libboost-all-dev
+
+# Get tessaract text recognition
+apt-get install \
+  tesseract-ocr tesseract-ocr-eng libtesseract-dev libleptonica-dev
+
