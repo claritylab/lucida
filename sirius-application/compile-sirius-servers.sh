@@ -14,24 +14,32 @@ hash ant 2>/dev/null || {
   exit 1
 }
 
-asr=speech-recognition
+asr_sphinx=speech-recognition/sphinx
+asr_kaldi=speech-recognition/kaldi
 qa=question-answer
 imm=image-matching
-export MODELS_PATH="`pwd`/models/"
+export MODELS_PATH="`pwd`/sphinx/models/"
 
-cd $asr ;
+cd $asr_sphinx;
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:lib/sphinx4.jar Sphinx4Server.java
 echo "Sphinx4 server done."
 
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar PocketsphinxServer.java
-cd ..;
 echo "Pocketsphinx server done."
+cd ../../ 
+
+cd $asr_kaldi/src;
+./configure
+make -j 4
+echo "Kaldi server done."
+cd ../../ 
 
 cd $qa;
 ant > /dev/null
-cd ..;
+cd .. 
 echo "OpenEphyra server done."
 
 cd $imm
 make 1>/dev/null
 echo "Image-matching server done."
+cd .. 
