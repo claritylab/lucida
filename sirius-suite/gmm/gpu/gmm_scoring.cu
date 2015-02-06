@@ -293,6 +293,7 @@ int main(int argc, char *argv[]) {
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
   PRINT_STAT_DOUBLE ("host_to_device", cuda_elapsedTime);
 
+  cudaEventRecord(eStart, 0);
   computeScore << <grid, block>>> (dev_feat_vect, dev_means_vect,
                                    dev_precs_vect, dev_weight_vect,
                                    dev_factor_vect, dev_score_vect);
