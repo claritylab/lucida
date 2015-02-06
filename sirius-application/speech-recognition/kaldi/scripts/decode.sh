@@ -1,8 +1,10 @@
 #!/bin/bash
 # Online decoding use model pre-trained on fisher_english recipe
+# Yiping Kang 2014
+# ypkang@umich.edu
 
 # Change this to 
-KALDI_DIR=/home/ypkang/git/sirius/sirius-application/speech-recognition/speech-recognition-dnn/
+KALDI_DIR=../
 
 WAV_FILE=$1
 

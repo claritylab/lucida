@@ -6,8 +6,8 @@
 
 function print_usage {
   echo "Starts the ASR server"
-  echo "    Usage $0 <sphinx4|pocketsphinx> <ip> <port>"
-  echo "    Default example: $0 pocketsphinx localhost 8081"
+  echo "    Usage $0 <kaldi|sphinx4|pocketsphinx> <ip> <port>"
+  echo "    Default example: $0 kaldi localhost 8081"
 }
 
 if [ "$1" == "help" ]; then
@@ -15,7 +15,7 @@ if [ "$1" == "help" ]; then
   exit
 fi
 
-asr=pocketsphinx
+asr=kaldi
 ip=localhost
 port=8081
 
@@ -32,16 +32,21 @@ fi
 # start from top directory
 cd ../speech-recognition ;
 
-export MODELS_PATH="`pwd`/models/"
-export CONF_FILE="`pwd`/sphinx_batch_conf.xml"
+export MODELS_PATH="`pwd`/sphinx/models/"
+export CONF_FILE="`pwd`/sphinx/sphinx_batch_conf.xml"
 export THREADS=8
 
 if [ "$asr" == "sphinx4" ]; then
+  cd ./sphinx/
   java -server -Djava.library.path=./lib \
     -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/sphinx4.jar Sphinx4Server \
     $ip $port
 elif [ "$asr" == "pocketsphinx" ]; then
+  cd ./sphinx/
   java -server -Djava.library.path=./lib \
     -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar \
     PocketsphinxServer $ip $port
+elif [ "$asr" == "kaldi" ];then
+  cd ./kaldi/scripts/
+  ./start-asr-dnn-server.py $ip $port
 fi
