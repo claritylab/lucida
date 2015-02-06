@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Sphinx 3.3 vs Sphinx 4 Algorithm Differences</title>
+</head>
+<body>
+<h2 style="text-align: center;">Sphinx 3.3 vs. Sphinx 4 Algorithm&nbsp;
+Differences</h2>
+<br>
+There are some differences in performance between&nbsp; Sphinx 3.3 and
+Sphinx 4.&nbsp; 
+This paper describes some of the major algorithmic
+differences between Sphinx 3.3 and Sphinx 4. The goal is to help us
+understand the performance gap and to give us some ideas of how to
+improve the performance of Sphinx 4.<br>
+<br>
+<h3>Major Differences<br>
+</h3>
+<ul>
+  <li><span style="font-weight: bold;">Token Passing vs. Multiple Lex
+Trees</span> -&nbsp; This is a fundamental difference between Sphinx
+3.3 and Sphinx 4.&nbsp; In large vocabulary recognition there are
+potentially many active search paths.&nbsp; Managing the active paths
+efficiently is central to the decoding process.&nbsp; Sphinx 3.3 and
+Sphinx 4 use different techniques in dealing with this issue.&nbsp; In
+Sphinx 3.3 the search space is managed as a set of lex trees with
+active paths managed directly in the lex tree.&nbsp; Only the best path
+through a particular node is retained (this is known as Viterbi
+pruning). Since there can be many simultaneous active paths through a
+particular node of the lex tree (due to different word&nbsp; histories)
+these paths would incorrectly compete against each other.&nbsp; To
+avoid this, a set of lex trees are used (typically 3 in Sphinx3.3 plus
+one for filler words).&nbsp; As paths reach the end of a lex tree they
+a propagated into the next lex tree.&nbsp; This reduces, but does not
+eliminate,&nbsp; the chance of unfair Viterbi pruning.&nbsp; For a good
+discussion of multiple lex trees see <span style="font-style: italic;">Spoken
+Language Processing (Huang et al.) </span>page 648.<br>
+    <br>
+Sphinx-4 takes a very different approach to manging the active search
+paths. Sphinx-4 maintains a single lex tree. However, no active search
+information is retained in this tree. Instead a token tree is used to
+manage the active paths during the search.&nbsp; Paths only complete
+against each other if their lex tree state, HMM state and word
+histories are identical.&nbsp;&nbsp; This approach allows Sphinx-4 to
+perform true n-gram decoding and is theoretically correct and results
+in higher accuracy.&nbsp; This generality has&nbsp; a price however.
+For instance,&nbsp; it is straightforward in S3.3 to determine if two
+paths have reached the same state in the lex tree since the two paths
+are maintained in the same lex tree structure. In S4, however, there
+isn't this explicit structure, instead the context of the paths
+(lextree state, HMM state and word history) have to be be explicitly
+compared to determine if the two paths collide.&nbsp; Similarly, to
+propagate a path into a new state, S3.3 merely has to set the <span
+ style="font-style: italic;">active</span> flag in the new lex tree
+node&nbsp; to true and then add the node to the active list, while S4
+has to generate a new search graph state (containing the lex tree
+state, HMM state and word history) as well as generating a new token to
+add to the path and and adding the token to the active list.<br>
+  </li>
+  <li><span style="font-weight: bold;">Composites -&nbsp; </span>Sphinx
+3.3 uses composite senones to represent the word ending nodes.&nbsp;
+Composite senones are a method of dealing with the large fanout in
+states that occur at word boundaries.&nbsp; This fanout typically
+accounts for 40 to 50% of all active states in the search.&nbsp; Since
+we are typically dealing with context dependent units where the context
+is a single left and right unit, the right context for a word ending
+unit must include all possible&nbsp; initial units for the next set of
+words. Typically there are 20 or 30 separate CD units needed to
+represent the final phone in any word.&nbsp; Composites deal reduce
+this fanout by collecting all of the possible word ending CD units into
+a single bucket. This bucket of senones is scored by taking the maximum
+(or the average) of the scores of the individual senones inthe
+bucket.&nbsp; The composite doesn't reduce the number of HMM states
+that are scored since all of the underlying senones are scored, but it
+does reduce the overall processing time by reducing the number of
+states that need to be managed and propagated.&nbsp; The imprecision of
+the composites can potentially reduce the accuracy of the recognizer.</li>
+</ul>
+<h3>Differences in Constraints<br>
+</h3>
+<ul>
+  <li><span style="font-weight: bold;">Arbitrary HMM Topologies -&nbsp;
+    </span>Sphinx 4 allows HMMs to consist of an arbitrary number of
+states with no constraints on the transitions between these states.
+Sphinx 3.3 only allows 3 or 5 state HMMs with left-to-right
+transitions.&nbsp; Sphinx-4 currently cannot take advantage of this
+flexibility since we are relying on Sphinx-3 acoustic models which are
+3 or 5 state left-to-right HMMs.</li>
+  <li><span style="font-weight: bold;">Arbitrary Context Sizes -&nbsp; </span>Sphinx-4,
+in general, allows for arbitrary context sizes, while Sphinx 3.3 has a
+fixed context of a single left and right unit.&nbsp;&nbsp; Note however
+that the current Sphinx-4 linguists also constrain the context size to
+the single left and right unit since there are some performance
+optimizations to be gained with this constraint.</li>
+  <li><span style="font-weight: bold;">Arbitrary language model depth
+-&nbsp; </span>The Sphinx-4 decoder supports any depth of n-gram.
+Currently, we are constrained to 3-grams by the n-gram model loader
+since we only have access to 3-gram language models. Sphinx 3.3 is
+restricted to use 3-grams.</li>
+  <li><span style="font-weight: bold;">Support for rule grammars
+-&nbsp; </span>Sphinx-4 can use rule based grammars such as those
+specified by JSGF or FSTs. Sphinx 3.3 supports only stochastic grammars.</li>
+  <li><span style="font-weight: bold;">Arbitrary search graph
+topologies - </span>The Sphinx-4 representation of the search graph is
+independent of the topology of the&nbsp; graph.&nbsp; For instance, a
+flat topology is&nbsp; used for small vocabulary recognition, while a
+lex tree is used for medium and large vocabulary recognition. Sphinx
+3.3 only supports a lex tree topology.<br>
+  </li>
+  <li><span style="font-weight: bold;">Tuning Parameters -&nbsp; </span>Sphinx-4
+is more configurable and tunable, with about 300 separate configurable
+properties compared to S3.3 with about 25.<br>
+  </li>
+</ul>
+<h3>Scoring / Pruning Differences</h3>
+There are a number of differences in how pruning is performed.<br>
+<ul>
+  <li><span style="font-weight: bold;">Sub-vector quantization -&nbsp; </span>Sphinx
+3.3 uses sub-vector quantization to reduce the amount of time needed to
+score the active states. Sphinx 4 scores all the active states fully,
+while Sphinx 3.3 will perform a quick pass using sub-vq to select a
+subset of active states to fully score. <br>
+  </li>
+  <li><span style="font-weight: bold;">HMMs vs. HMM States - </span>In
+Sphinx 3.3, the lowest level scoreable entity is an HMM, while in
+Sphinx-4 it is an HMM State.&nbsp; Sphinx 3.3 treats the HMM as a
+whole. Whenever an HMM is active, S3.3 scores all of the states of the
+HMM against the incoming feature and generates two values, a 'best
+score' and an 'exit score'.&nbsp; The 'best score' is the best score
+among all of the states of the HMM. This score is used to determine if
+the HMM will remain active in the succeeding frames.&nbsp; The 'exit
+score' is used to determine if the subsequent HMMs in the lex tree will
+become active (that is, should we propagate the path into the next
+HMM).&nbsp; In Sphinx-4, each individual state of the HMM is scored
+separately and is subject to pruning and propagating.&nbsp; This method
+used by Sphinx-4 allows for arbitrary HMM topologies and allows for
+consistent pruning. It does however require handling state transitions
+much more frequently.&nbsp; Sphinx-4 will generate state transitions
+four times more often than Sphinx 3.3 because of this method of
+handling finer grained states.&nbsp; This most likely has a peformance
+impact. For instance, the test that determines if a path should be
+dropped because of a competing higher scoring path (aka Viterbi
+pruning) is done four times as often in S4 because of this.&nbsp;
+Although this is a fairly quick test it is done quite often (50,000
+times per 10ms audio frame), so this can add significantly to the
+processing time for S4.<br>
+  </li>
+  <li><span style="font-weight: bold;">Folding of common senone
+sequences -&nbsp; </span>Due to state tying, it is often the case that
+several distinct context dependent phones will share a common senone
+sequence.&nbsp; Both Sphinx 3.3 and Sphinx 4 will identify&nbsp; states
+that have identical seneone sequences and allow these to be shared,
+greatly reducing the number of states processed.&nbsp; Sphinx 3.3 also
+performs this folding on the entry into the lex tree. That is, the
+initial set of states into the lex tree are also compressed based upon
+common senone sequences.&nbsp; It is unclear how much this optimization
+saves in terms of state creation.</li>
+  <li><span style="font-weight: bold;">Absolute Beam -&nbsp; </span>Sphinx
+4 applies the absolute beam by applying a 'randomizing partitioning
+algorithm', while Sphinx 3.3 uses a simple binning algorithm.&nbsp;
+Both of these algorithms are O(n), however they have different overhead
+constants.&nbsp; The Sphinx-4 algorithm is precise in that it
+guarantees to produce the top scorers in the surviving beam, whereas
+the Sphinx 3.3 binning algorithm is only approximate.</li>
+  <li><span style="font-weight: bold;">LexTree Pruning -&nbsp; </span>In
+S3.3, at the end of a frame, only the best word exit for each distinct
+word final CI phone per lex tree is allowed to continue.&nbsp; In S4
+there is no pruning based on the final phone.</li>
+  <li><span style="font-weight: bold;">Phone Beam -&nbsp; </span>In
+S3.3 there is relative beam that is applied on the transition out of an
+HMM. Only active HMMs whose score exceeds this relative beam are
+allowed to propagate. S4 has no such beam.</li>
+  <li><span style="font-weight: bold;">Narrow Phone Beam - </span>In
+S3.3 there is an option to narrow the phone beam every Nth frame.<br>
+  </li>
+  <li><span style="font-weight: bold;">Word History Pruning -&nbsp; </span>In
+S3.3 the word beam only ever contains a single path for a particular
+word.&nbsp; For instance if there are three path candidates for the
+beam: <br>
+    <ol>
+      <li>"the dog" score 100</li>
+      <li>"my dog" score 75 <br>
+      </li>
+      <li>"my cat", score 50</li>
+    </ol>
+Only paths (1) and (3) would be retained, whereas in S4 both paths (1)
+and (2) could survive.</li>
+  <li><span style="font-weight: bold;">More Word History Pruning
+-&nbsp; </span>In S3.3 there is a constraint placed upon the total
+number of word histories retained, in S4 there is no such constraint.<br>
+  </li>
+  <li><span style="font-weight: bold;">Filler Pruning -&nbsp; </span>In
+S3.3 only the best scoring filler word is allowed into the beam. All
+others are dropped.&nbsp; In S4 fillers compete for space in the beam
+with all other words.<br>
+  </li>
+  <li><span style="font-weight: bold;">Integer vs. Float Scores -&nbsp;
+    </span>In S4 all path scores are maintained as single precision
+floating point values.&nbsp; In S3.3, path scores are maintained as
+32-bit integer values.&nbsp; <br>
+  </li>
+  <li><span style="font-weight: bold;">Single vs. Double Precision
+scoring -&nbsp; </span>internally, S3.3 uses double precision math to
+score HMMs whereas S4 uses single precision math. Note that we have
+done some detaileed analysis on the scoring code and have determined
+that the differences in scoring code do not significantly affect the
+results.<br>
+  </li>
+  <li><span style="font-weight: bold;">AcousticLookAhead -&nbsp; </span>In
+S4 there is an option to prune based upon an&nbsp; acoustic score that
+has been extrapolated into the future by N frames. S3.3 has no such
+option.<br>
+  </li>
+  <li><span style="font-weight: bold;">Grow Skipping</span> - In S4
+there is an option to skip the propagation of states every Nth frame.
+S3.3 has no such option.<br>
+  </li>
+  <li><span style="font-weight: bold;">Frame Dropping&nbsp; </span>In
+S4 there is an option to drop every Nth frame. S3.3 has no such option.<br>
+  </li>
+  <li><span style="font-weight: bold;">Frame Replacement -&nbsp; </span>In
+S4 there is an option to replace every Nth frame with the preceding
+frame.&nbsp; S3.3 has no such option.<br>
+  </li>
+</ul>
+<h3><span style="font-weight: bold;">Miscellaneous Differences</span></h3>
+<ul>
+  <li>S3.3 has an optional filler penalty for each type of filler,
+whereas S4 has only a single filler penalty for all all non-silence
+fillers.</li>
+  <li>S3.3 filler words are maintained in their own lex tree. Since the
+actual identity of fillers (cough, breath, silence, smack) are not
+usually important, s3.3 treats filler words separately, giving them
+their own lex tree where they compete only against each other and not
+against other words.&nbsp; <br>
+  </li>
+  <li>S4 has a threaded scorer that can be used to improve the time
+spent scoring states by spreading the computation over multiple CPUs if
+available.</li>
+  <li>S3.3 seems to have a memory leak.&nbsp; It seems to slowly grow
+its foot print over time (estimate of 1MB for every 3 minutes of audio
+processed).</li>
+</ul>
+<br>
+</body>
+</html>

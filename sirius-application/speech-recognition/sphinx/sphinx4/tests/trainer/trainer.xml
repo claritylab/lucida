@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config>
+  <property name="logLevel" value="INFO"/>
+  <component name="trainer" type="edu.cmu.sphinx.trainer.Trainer">
+    <property name="trainManager" value="trainManager"/>
+  </component>
+  <component name="trainManager" type="edu.cmu.sphinx.trainer.SimpleTrainManager">
+    <propertylist name="models">
+      <item>model </item>
+    </propertylist>
+    <property name="initLearner" value="initLearner"/>
+    <property name="learner" value="learner"/>
+    <property name="control" value="control"/>
+    <property name="unitManager" value="unitManager"/>
+  </component>
+  <component name="control" type="edu.cmu.sphinx.trainer.SimpleControlFile">
+    <property name="dictionary" value="dictionary"/>
+  </component>
+  <component name="dictionary" type="edu.cmu.sphinx.trainer.TrainerDictionary">
+    <property name="dictionaryPath" value="../../models/acoustic/wsj/dict/cmudict.0.6d"/>
+    <property name="fillerPath" value="../../models/acoustic/wsj/noisedict"/>
+    <property name="unitManager" value="unitManager"/>
+  </component>
+  <component name="initLearner" type="edu.cmu.sphinx.trainer.FlatInitializerLearner">
+    <property name="frontend" value="frontend"/>
+    <property name="source" value="streamCepstrumSource"/>
+    <property name="logMath" value="logMath"/>
+  </component>
+  <component name="learner" type="edu.cmu.sphinx.trainer.BaumWelchLearner">
+    <property name="frontend" value="frontend"/>
+    <property name="source" value="streamCepstrumSource"/>
+    <property name="logMath" value="logMath"/>
+  </component>
+  <component name="frontend" type="edu.cmu.sphinx.frontend.FrontEnd">
+    <propertylist name="pipeline">
+      <item>streamCepstrumSource </item>
+      <item>liveCMN </item>
+      <item>featureExtraction </item>
+    </propertylist>
+  </component>
+  <component name="streamCepstrumSource" type="edu.cmu.sphinx.frontend.util.StreamCepstrumSource"/>
+  <component name="liveCMN" type="edu.cmu.sphinx.frontend.feature.LiveCMN"/>
+  <component name="featureExtraction" type="edu.cmu.sphinx.frontend.feature.DeltasFeatureExtractor"/>
+  <component name="logMath" type="edu.cmu.sphinx.util.LogMath"/>
+  <component name="model" type="edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer.TrainerAcousticModel">
+    <property name="loader" value="loader"/>
+    <property name="saver" value="saver"/>
+    <property name="unitManager" value="unitManager"/>
+  </component>
+  <component name="loader" type="edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer.ModelInitializerLoader">
+    <property name="logMath" value="logMath"/>
+    <property name="unitManager" value="unitManager"/>
+    <property name="phonelist" value="phonelist"/>
+  </component>
+  <component name="saver" type="edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer.Sphinx3Saver">
+    <property name="loader" value="loader"/>
+    <property name="logMath" value="logMath"/>
+    <property name="unitManager" value="unitManager"/>
+    <property name="saveLocation" value="output"/>
+  </component>
+  <component name="unitManager" type="edu.cmu.sphinx.linguist.acoustic.UnitManager"/>
+</config>

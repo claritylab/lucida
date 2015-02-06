@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+
+<!--
+
+/**
+ * Copyright 1999-2004 Carnegie Mellon University.
+ * Portions Copyright 2004 Sun Microsystems, Inc.
+ * Portions Copyright 2004 Mitsubishi Electric Research Laboratories.
+ * All Rights Reserved.  Use is subject to license terms.
+ *
+ * See the file "license.terms" for information on usage and
+ * redistribution of this file, and for a DISCLAIMER OF ALL
+ * WARRANTIES.
+ *
+ */
+
+-->
+
+<html>
+
+<head><title>Sphinx-4 AudioTool</title></head>
+<style TYPE="text/css">
+    pre {
+        font-size: medium;
+        background: #f0f8ff;
+        padding: 2mm;
+        border-style: ridge;
+        color: teal
+    }
+
+    code {
+        font-size: medium;
+        color: teal
+    }
+</style>
+</head>
+<body>
+<span style="font-family: Times New Roman; ">
+    <div style="text-align: center;">
+        <table bgcolor="#99CCFF" width="100%">
+            <tr>
+                <td align=center width="100%">
+                    <h1><i>Sphinx-4</i> AudioTool</h1>
+                </td>
+            </tr>
+        </table>
+    </div>
+</span>
+
+<p>
+    <i>AudioTool</i> is a visual tool that records and displays the waveform
+    and spectrogram of an audio signal. The image below is a screen shot
+    of the AudioTool.
+    <div style="text-align: center;"><img src="audiotool.gif"></div>
+</p>
+
+<p>
+    To run this AudioTool, first make sure that all sources are built
+    by typing at the top level directory:
+</p>
+
+<pre>
+ant
+</pre>
+
+<p>
+    Then, to run the tool, at the top level directory, type:
+</p>
+
+<pre>
+java -jar bin/AudioTool.jar
+</pre>
+
+<p>
+    You can record audio by pressing the "Record" button. When you do so,
+    the label of the "Record" button will change to "Stop." At this
+    time, you can speak into the microphone. To stop recording, press the
+    "Stop" button. When you do so, the label of the "Stop" button will
+    change to "Record" and the tool will play back and display the audio
+    you just recorded.
+
+<p>
+    NOTE: On some systems, trouble occurs when you try to record and play
+    at the same time. To avoid this, please make sure you press the "Stop"
+    button before playing audio you just recorded, and please make sure
+    the audio has finished playing before you press the "Record" button.
+
+<p>
+    You can play the displayed waveform by selecting a region to play, and then
+    pressing the "Play" button. You can enlarge or shrink the waveform and
+    spectrogram by clicking the "Zoom In" and "Zoom Out" buttons.
+    You can also record your own waveform by selecting "Record Start/Stop"
+    under the "Audio" menu.
+</p>
+
+<p>
+    If you are running Linux and have problems with the audio,
+    please read the
+    <a href="../../../../../../../doc/Sphinx4-faq.html#microphone_linux">
+        Linux JavaSound</a> section.
+
+    <p>
+        You can also run AudioTool with a single command line option of
+        "-dumpMixers" to dump information about the audio system settings
+        that are specific to your machine. In the following example, we
+        see there are 3 Mixers (indexed by 0, 1, and 2) available on this
+        machine.
+    </p>
+
+<pre>
+java -jar bin/AudioTool.jar -dumpMixers
+Mixer[0]: "Java Sound Audio Engine"
+    Description: Software mixer and synthesizer
+    SourceLineInfo (e.g., speakers):
+        PCM_SIGNED, -1.0 Hz, 8 bit, mono, audio data
+        PCM_UNSIGNED, -1.0 Hz, 8 bit, mono, audio data
+        PCM_SIGNED, -1.0 Hz, 8 bit, stereo, audio data
+        PCM_UNSIGNED, -1.0 Hz, 8 bit, stereo, audio data
+        PCM_SIGNED, -1.0 Hz, 16 bit, mono, little-endian, audio data
+        PCM_SIGNED, -1.0 Hz, 16 bit, mono, big-endian, audio data
+        PCM_SIGNED, -1.0 Hz, 16 bit, stereo, little-endian, audio data
+        PCM_SIGNED, -1.0 Hz, 16 bit, stereo, big-endian, audio data
+        PCM_SIGNED, -1.0 Hz, 8 bit, mono, audio data
+        PCM_UNSIGNED, -1.0 Hz, 8 bit, mono, audio data
+        PCM_SIGNED, -1.0 Hz, 8 bit, stereo, audio data
+        PCM_UNSIGNED, -1.0 Hz, 8 bit, stereo, audio data
+        PCM_SIGNED, -1.0 Hz, 16 bit, mono, little-endian, audio data
+        PCM_SIGNED, -1.0 Hz, 16 bit, mono, big-endian, audio data
+        PCM_SIGNED, -1.0 Hz, 16 bit, stereo, little-endian, audio data
+        PCM_SIGNED, -1.0 Hz, 16 bit, stereo, big-endian, audio data
+    TargetLineInfo (e.g., microphones):
+        none
+Mixer[1]: "Mac OS X,CoreAudio,Audio hardware"
+    Description: No details available
+    SourceLineInfo (e.g., speakers):
+        none
+    TargetLineInfo (e.g., microphones):
+        PCM_SIGNED, 44100.0 Hz, 8 bit, mono, audio data
+        PCM_UNSIGNED, 44100.0 Hz, 8 bit, mono, audio data
+        PCM_SIGNED, 44100.0 Hz, 16 bit, mono, big-endian, audio data
+        PCM_SIGNED, 44100.0 Hz, 16 bit, mono, little-endian, audio data
+        PCM_SIGNED, 44100.0 Hz, 8 bit, stereo, audio data
+        PCM_UNSIGNED, 44100.0 Hz, 8 bit, stereo, audio data
+        PCM_SIGNED, 44100.0 Hz, 16 bit, stereo, big-endian, audio data
+        PCM_SIGNED, 44100.0 Hz, 16 bit, stereo, little-endian, audio data
+Mixer[2]: ""
+    Description: No details available
+    SourceLineInfo (e.g., speakers):
+        none
+    TargetLineInfo (e.g., microphones):
+        PCM_SIGNED, 44100.0 Hz, 8 bit, mono, audio data
+        PCM_UNSIGNED, 44100.0 Hz, 8 bit, mono, audio data
+        PCM_SIGNED, 44100.0 Hz, 16 bit, mono, big-endian, audio data
+        PCM_SIGNED, 44100.0 Hz, 16 bit, mono, little-endian, audio data
+        PCM_SIGNED, 44100.0 Hz, 8 bit, stereo, audio data
+        PCM_UNSIGNED, 44100.0 Hz, 8 bit, stereo, audio data
+        PCM_SIGNED, 44100.0 Hz, 16 bit, stereo, big-endian, audio data
+        PCM_SIGNED, 44100.0 Hz, 16 bit, stereo, little-endian, audio data
+</pre>
+
+</p>
+
+<hr>
+Copyright 1999-2004 Carnegie Mellon University.
+<br>
+Portions Copyright 2002-2004 Sun Microsystems, Inc.
+<br>
+Portions Copyright 2002-2004 Mitsubishi Electric Research Laboratories.
+<br>
+All Rights Reserved. Usage is subject to <a href="../../../../../../../license.terms">license terms</a>.
+</body>
+</html>

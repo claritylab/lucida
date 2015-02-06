@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="none" name="Runs the trainer tests.">
+
+<description>
+This file is used to run the trainer tests.
+
+NOTE:  Before running the tests, you must have already built 
+       the sphinx-4 sources by typing "ant" in the top level 
+       sphinx4 directory.
+
+</description>
+
+    <property name="top_dir"		value="../.."/>
+    <property name="build_dir"          value="${top_dir}/bld"/>
+    <property name="classes_dir"	value="${build_dir}"/>
+
+    <property name="initial_heap_size"  value="256m"/>
+    <property name="maximum_heap_size"  value="1g"/>
+
+    <property name="trainer_class"
+              value="edu.cmu.sphinx.trainer.Trainer"/>
+
+    <target name="none">
+        <echo>Type 'ant -p' for possible targets.</echo>
+    </target>
+
+    <target name="compile" />
+    
+    <target name="trainer"
+	    description="Runs the Trainer test.">
+	    <java classname="${trainer_class}"
+	          classpath="${classes_dir}"
+		  fork="true">
+                  <jvmarg value="-ms${initial_heap_size}"/>
+                  <jvmarg value="-mx${maximum_heap_size}"/> 
+                  <arg value="trainer.xml"/>
+	    </java>
+    </target>
+</project>

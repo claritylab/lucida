@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+
+<!--
+
+/**
+ * Copyright 1999-2004 Carnegie Mellon University.
+ * Portions Copyright 2004 Sun Microsystems, Inc.
+ * Portions Copyright 2004 Mitsubishi Electric Research Laboratories.
+ * All Rights Reserved.  Use is subject to license terms.
+ *
+ * See the file "license.terms" for information on usage and
+ * redistribution of this file, and for a DISCLAIMER OF ALL
+ * WARRANTIES.
+ *
+ */
+
+-->
+
+<html>
+  <head><title>Sphinx-4 Transcriber Demo</title></head>
+  <style TYPE="text/css">
+  pre { font-size: medium; background: #f0f8ff; padding: 2mm; 
+        border-style: ridge ; color: teal }
+  code { font-size: medium; color: teal }
+  </style></head>
+  <body>
+    <span style="font-family: Times New Roman; ">
+     <div style="text-align: center;">
+     <table bgcolor="#99CCFF" width="100%">
+	<tr>
+	  <td align=center width="100%">
+	    <h1><i>Sphinx-4</i> Transcriber Demo</h1>
+	  </td>
+	</tr>
+      </table>
+    </div>
+    </span>
+
+    <span style="font-family: Arial; font-size: x-small; ">
+      <p>
+      A simple Sphinx-4 application that transcribes a continuous audio file
+      that has multiple utterances. The audio file should contain connected
+      digits data. The default file, called "10001-90210-01803.wav", contains
+      three utterances, separated by silences.
+      People who want to transcribe non-digits data should
+      modify the <code>config.xml</code> file to use the correct grammar,
+      language model, and linguist to do so. Please refer to the 
+      <a href="../../../../../../../doc/ProgrammersGuide.html">Programmer's Guide</a>
+      on how to modify the configuration file for your purposes.
+      </p>
+
+      <h3>Building</h3>
+      <p>
+      Check if the <code>bin</code> directory already has the
+      <code>Transcriber.jar</code> file. If not, type the following in the top
+      level directory:
+      </p>
+      <code>ant -find demo.xml</code>
+      <h3>Running</h3>
+      <p>
+      To run the demo, type:
+      </p>
+      <code>sphinx4 &gt; java -jar bin/Transcriber.jar</code>
+      <p>
+      You will see the following result, with each utterance on its own line:
+      <pre>
+one zero zero zero one
+nine oh two one oh
+zero one eight zero three
+      </pre>
+      <p>
+      <span style="color: FF0000; "><b>NOTE:</b></span>
+      <ol>
+      <li>
+      Make sure that you are using Java<sup>TM</sup> 2 SDK, Standard Edition, 
+      v1.4 or higher.
+      </li>
+      <li>
+      If you have the source distribution, make sure that the JAR file
+      <code>lib/sphinx4.jar</code> is built. If not, go to the top level 
+      directory and type: <code>ant</code>
+      </li>
+      <li>
+      You can supply your own test files, but they must be digits data.
+      Just make sure that the audio format is the same as in the
+      config.xml file, which is 16-bit signed PCM-linear, 16kHz, little-endian.
+      The audio file format can be any format readable by Java Sound,
+      e.g., .wav, .au. To test your own file, supply it as an argument.
+      Suppose your test file is called <code>test.wav</code>, then:
+      <p><code>java -jar bin/Transcriber.jar test.wav</code>
+      </li>
+      </ol>
+      </p>
+    </span>
+    <hr>
+Copyright 1999-2004 Carnegie Mellon University.
+<br>
+Portions Copyright 2002-2004 Sun Microsystems, Inc.
+<br>
+Portions Copyright 2002-2004 Mitsubishi Electric Research Laboratories.
+<br>
+All Rights Reserved. Usage is subject to <a href="../../../../../../../license.terms">license terms</a>.
+  </body>
+</html>

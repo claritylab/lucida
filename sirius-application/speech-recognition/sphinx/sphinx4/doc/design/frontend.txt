@@ -1,0 +1,520 @@
+Sphinx 4 Front-End Design
+==========================
+						Philip Kwok
+						3/6/2002
+
+
+This document describes the design of the front-end processor.
+
+
+Table Of Contents
+=================
+
+0.   Premise
+1.   Requirements
+2.   The Design - outdated
+3.   Appendix - outdated
+4.   Unresolved questions from 4/18 F2F
+
+
+
+0.   Premise
+============
+
+For the purposes of discussion, I would refer to XFrames as a block of one or 
+more X, so a FeatureFrame is a block/array of one of more Feature(s) (which in 
+Sphinx 3 is an array of floats of size 39), and an AudioFrame is an array of 
+audio samples. I use just "Feature" to refer to the individual Feature.
+
+For brevity, the comments of the sample code here does not use standard
+javadoc style. Moreover, the syntax is mostly incorrect, as you will find
+classes with methods that have no body.
+
+
+
+
+1.   Requirements
+=================
+
+Requirements:
+
+1.   Raw audio as input from file or live stream, transformed into audio
+     frames.
+2.   Allow processing of the audio in bits or all at once.
+3.   Segmentation of audio frames (e.g., beginning, end).
+4.   Audio frames to be modified in series, eventually becoming features.
+5.   Mapping of features to audio frames.
+6.   Each front-end processor implement a common interface.
+7.   Each processor don't know what processor is up/downstream.
+8.   Each processor can tell if an input is the start/end of an utterance.
+9.   Easy to plug in processors to front-end.
+10.  Allow multi-threaded/distributed/multi-JVM implementations. 
+11.  As much compile-time checking of object types as possible. In cases
+     where complete compile-time checking is impossible, we need to do
+     sufficient run-time type-checking. 
+12.  Allow data flow patterns (push/pull) between processors to change easily.
+13.  Allow 1-1, 1-many and many-1 input and output relationships.
+14.  Buffering of data with a policy for buffer overflow.
+15.  Decouple front end from the decoder.
+
+
+Supported Operations:
+
+1.   mic on/off
+2.   preemphasis
+3.   cepstral mean normalization (for batch mode)
+4.   automatic gain control
+5.   end pointing
+6.   cepstrum production
+7.   feature extraction
+8.   difference/combination feature
+9.   buffering (or at least not dropping data on the floor when possible)
+
+
+
+
+2.   The Design
+===============
+
+A. Input/Output Data Type
+-------------------------
+
+The basic data type for input and output of the processors will be a Signal: 
+
+public interface Signal extends Serializable {
+    // empty body
+}
+
+A Signal can be some data, e.g., audio data, or an event signal issued by 
+the audio source.
+
+EventSignals
+------------
+
+EventSignals indicate events like:
+
+1.  beginning/end of segment,
+2.  audio dropped,
+3.  audio format changed,
+4.  audio quality changed, etc....
+
+EventSignal is an interface defined as:
+
+
+public interface EventSignal extends Signal {}
+
+
+It is preferred that each different type of event signal will be a class, e.g.,
+
+
+class AudioDropSignal implements EventSignal {...}
+
+
+This way, we can tailor the class so that it provides relevant information:
+
+
+class AudioDropSignal implements EventSignal {
+    public long getDropTime() {...}
+}
+
+
+Alternatively, we can have one EventSignal class and use constants to
+indicate the different signal types. Though it is harder (but possible)
+to put extra information in.
+
+EventSignals can be issued by the application, the FrontEnd, or the FrontEnd
+processors. Processor (see below) which do not care about EventSignals can 
+just pass them along the pipeline. Some processors might use EventSignals.
+For example, a many-1 processor can use an AudioFrameEndSignal to
+determine when to stop reading from its predecessor.
+
+
+Data Signals
+------------
+
+The first type of data signal is an AudioFrame:
+
+
+public class AudioFrame implements Signal {
+
+    /**
+     * Returns all the audio samples in this frame
+     */
+    public short[] getSamples() {...}
+
+    /**
+     * Returns the audio format
+     */
+    public AudioFormat getFormat() {...}
+}
+
+
+The second type of data signal would be a Cepstrum (that is produced
+by a single window of the AudioFrame):
+
+
+public class Cepstrum implements Signal {
+
+    /**
+     * Returns the cepstral data
+     */
+    public float[] getData() {...}
+
+    /**
+     * Returns the AudioReference which references the parent audio data;
+     * returns null if not implemented
+     */
+    public AudioReference getAudioReference() {...}
+}
+
+
+The AudioReference class allows us to map an individual Cepstrum to the
+audio data that it is produced from. A Cepstrum can be produced from samples
+from several AudioFrames, so we have a list of AudioFrames:
+
+
+/**
+ * References the audio data that produced a particular Cepstrum or Feature.
+ * One can recreate the entire data block by taking all the samples 
+ * starting from getFirstSamplePosition() to getLastSamplePosition().
+ */
+public class AudioReference {
+
+    /**
+     * Adds the given AudioFrame as a reference
+     */
+    public void addAudioFrame(AudioFrame reference) {...}
+
+    /**
+     * Returns the list of AudioFrames
+     */
+    public List getAudioFrames() {...}
+
+    /**
+     * Returns which sample in the first AudioFrame corresponds to
+     * the first sample.
+     */
+    public int getFirstSamplePosition() {...}
+
+    /**
+     * Returns which sample in the last AudioFrame corresponds to
+     * the last sample.
+     */
+    public int getLastSamplePosition() {...}
+}
+
+
+This AudioReference is passed on to the Feature, which is produced from the
+Cepstra, and is also a Signal: 
+
+
+public class Feature implements Signal {
+
+    /**
+     * Returns the feature data
+     */
+    public float[] getData() {...}
+
+    /**
+     * Returns the AudioReference
+     */
+    public AudioReference getAudioReference() {...}
+}
+
+
+
+B. The Processors
+-----------------
+
+Each processor will implement the following interface:
+
+
+public interface Processor {
+    public Signal process(Signal input);
+}
+
+
+This simple Processor interface separates the execution of the processor
+from the data flow pattern between processors (which is pushed to the next
+layer up). Since we decided to implement the read() model, the front-end
+can utilize a SignalReader interface to implement a pulling front-end.
+See Appendix A for an sample implementation of a PullingProcessor (which
+implements SignalReader). A PullingProcessor allows us to separate data
+flow from execution, so that other models (like write()) can be implemented
+easily. See Appendix B for an outline implementation of the Preemphasizer
+Processor.
+
+To ensure run-time type-safety, we establish the following coding conventions
+for writing Processors:
+
+1. Use of asserts at entry and exit points of the process() method to ensure
+   run-time checking of input and output times.
+
+The parameters for specific processors, e.g., PRE_EMPHASIS_ALPHA, will be
+get/set via SphinxProperties (refer to tools.txt) for more details.
+
+
+
+C. Front-End
+------------
+
+Input: raw audio/InputStream
+Output: Features
+
+The input to the front-end will be an InputStream.
+
+The output Features will be queued up in the FrontEnd, and the decoder
+can obtain them via a  FrontEnd.getFeature()  method. The size of this
+queue can be used as the buffer policy. For real-time audio streaming, if
+the front-end is too slow, we might need a buffer for the incoming audio
+data.
+
+As such, a pulling front-end will minimally support these operations:
+
+public class PullingFrontEnd {
+    public void setSource(InputStream inputStream) {...}
+    public Feature getFeature() {...}
+}
+
+The front-end will operate in its own thread (and optionally not).
+
+The front-end will consist of a series of Processors, which will probably
+be added to the front-end via a  FrontEnd.addProcessor(Processor)  method.
+Note that a Processor can contain sub-Processors. For example, the
+CepstralMeanNormalizer, the HammingWindowProcessor and the FFT are applied
+to windowed frames of the AudioDataFrames, to produce a cepstrum. So the 
+don't take the whole AudioDataFrame as input. We can therefore structure
+the front-end as:
+
+
+	           Audio		  Audio			  Cepstrum
+audio		   Frame		  Frame			  Frame
+-----> AudioFramer -----> Pre-emphasizer, -----> Cepstra Producer ----->
+			  AGC
+
+		 Feature
+Feature Producer -------> Queue
+
+
+And add the HammingWindowProcessor and FFT as sub-Processors of the
+Cepstra Producer. This approach also satisfies the X-Y input/output
+requirement.
+
+See Appendix C for an outline implementation of a simple PullingFrontEnd.
+Note that it is just an outline and a lot of things are left out.
+
+
+
+D. Packages
+-----------
+
+The front end code should reside in the directory and package:
+
+edu/cmu/sphinx/frontend
+
+edu.cmu.sphinx.frontend
+
+
+
+
+3.   Appendix
+=============
+
+Appendix A
+----------
+
+interface SignalReader {
+    public Signal read();
+}
+
+
+/**
+ * Simple 1-1 one PullingProcessor.
+ * many-1 case can be handled by multiple source.read()s in read()
+ * 1-many case can be handled by buffering multiple outputs in read()
+ */
+class PullingProcessor implements SignalReader {
+
+    private Processor processor;
+    private SignalReader source;
+	
+    // Constructor
+    public PullingProcessor(Processor processor) {
+	this.processor = processor;
+    }
+
+    // Get the processor
+    public Processor getProcessor() {...}
+
+    // Get the source
+    public SignalReader getSource() {...}
+
+    // Set where to pull from
+    public void setSource(SignalReader source) {
+	this.source = source;
+    }
+	
+    // Read a signal from predecessor and process it
+    public Signal read() {
+	Signal input = source.read();
+	return processor.process(input);
+    }
+}
+
+
+Appendix B
+----------
+
+/**
+ * Implements the Preemphasizer, which takes an AudioFrame and apply
+ * preemphasis to it.
+ */
+class Preemphasizer implements Processor {
+
+    /**
+     * Inherits Processor
+     */
+    public Signal process(Signal input) {
+
+	if (input instanceof EventSignal) {
+	    return input;
+	}
+
+	assert (input instanceof AudioFrame);
+
+	Signal output = work((DoubleAudioFrame) input);
+
+	assert (output instanceof DoubleAudioFrame);
+
+	return output;
+    }
+
+    /**
+     * Does the actual preemphasis work
+     */
+    private DoubleAudioFrame work(AudioFrame input) {
+
+        // do preemphasis on input
+
+	return (new DoubleAudioFrame(preemphasizedOutput));
+    }	
+}
+
+
+Appendix C
+----------
+
+
+/**
+ * Outline implementation of a simple PullingFrontEnd. Audio input comes
+ * from an InputStream, which will probably be an AudioInputStream (you can
+ * create AudioInputStream from files). What seems to be missing is
+ * a way to specify the audio format/encoding. The problem is that the 
+ * Java Sound AudioFormat.Encoding does not contain newer encoding
+ * formats like GSM.
+ *
+ * When this thread is started, it will read from the last PullingProcessor,
+ * which calls read() of all predecessors up till all read() of this FrontEnd,
+ * which reads from the InputStream.
+ */
+
+public class PullingFrontEnd implements SignalReader, Runnable {
+
+    private InputStream source;
+    private List pullingProcessors;
+
+
+    /**
+     * Constructs a default PullingFrontEnd
+     */
+    public PullingFrontEnd() {
+
+	pullingProcessors.add(new PullingProcessor(new Premphasizer());
+	pullingProcessors.add(new PullingProcessor(new CeptrumProducer());
+	...
+	firstProcessor.setSource(this);
+	// for all pullingProcessors, call setSource(previous in List);
+    }
+
+
+    /**
+     * Where does the audio data come from?
+     */
+    public void setSource(InputStream inputStream) {...}
+
+
+    /**
+     * Inherits SignalReader
+     */
+    public Signal read() {
+
+        // read enough data from InputStream to create an AudioFrame
+	// do some AudioFormat adjustment
+
+	return new AudioFrame(audio);
+    }        
+
+
+    /**
+     * Inherits Runnable
+     */
+    public void run {
+	while (!done) {
+	    Signal feature = lastProcessor.read();
+	    buffer.put(feature);
+	}
+    }
+
+
+    /**
+     * A way for the decoder to get the generated Features and
+     * the EventSignals.
+     */
+    public Signal getFeature() {...};
+    ...
+}
+
+
+4.   Unresolved questions from 4/18 F2F
+=======================================
+
+- How do we represent missing/dropped data?
+
+- Can the pipeline as we have it now communicate the fact that data was 
+dropped?
+
+- How can SearchManager find out the timing info  of each Feature Frame?
+
+- How do we make sure that the FrontEnd returns Features that match the 
+size/shape of  the features used to create the acoustic models?
+
+- If the current feature index is 100, and I call getFeature(101) , does 
+getFeature block  until the feature comes in? How do I unblock if I wish 
+to abort?
+
+-What will be the easiest way to send the output of any DataProcessor to 
+a file for  testing/debugging?
+
+- Can I easily create a pipeline that gets its data from a file of a 
+particular Data type  (such as CepstrumData for instance)?
+
+- How can I get the AudioData that corresponds to a particular feature 
+or set of features?
+
+- How do I flush the FrontEnd?
+
+- How does flushing affect the Feature cache (do flushed features get 
+into the cache?)
+
+- Can we define the *exact* policy of what happens when a DataProcessor 
+encounters  Data that is not an EndPoint signal and is not of the 
+expected type?
+
+- The current FrontEnd has a notion of FRAME_START and FRAME_END 
+signals. Do  we no longer need these?
+
+- Does the FrontEnd need to be reset ever?
+
+- It looks like the callee is responsible for determining the size of 
+the data returned. Is this the optimal approach, or would it be better 
+to have the caller request data of a particular size.

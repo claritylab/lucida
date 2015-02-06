@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+
+<!--
+
+/**
+ * Copyright 1999-2004 Carnegie Mellon University.
+ * Portions Copyright 2004 Sun Microsystems, Inc.
+ * Portions Copyright 2004 Mitsubishi Electric Research Laboratories.
+ * All Rights Reserved.  Use is subject to license terms.
+ *
+ * See the file "license.terms" for information on usage and
+ * redistribution of this file, and for a DISCLAIMER OF ALL
+ * WARRANTIES.
+ *
+ */
+
+-->
+
+<html>
+<head>
+    <title>Front End Framework</title>
+    <style TYPE="text/css">
+        pre {
+            font-size: medium;
+            background: #f0f8ff;
+            padding: 2mm;
+            border-style: ridge;
+            color: teal
+        }
+
+        code {
+            font-size: medium;
+            color: teal
+        }
+    </style>
+</head>
+
+<body>
+<span style="font-family: Times New Roman; ">
+    <div style="text-align: center;">
+        <table bgcolor="#99CCFF" width="100%">
+            <tr>
+                <td align=center width="100%">
+                    <h1>Front End Framework</h1>
+                </td>
+            </tr>
+        </table>
+    </div>
+</span>
+
+<span style="font-family: Arial; font-size: x-small; ">
+<p>
+
+<h3>Table of Contents</h3>
+<ul>
+    <li><a href="../FrontEnd.html">An Overview of the FrontEnd</a>
+    <li><a href="../doc-files/FrontEndConfiguration.html">Configuring the Front End</a></li>
+    <li><a href="#fine_tuning">Fine Tuning the Front End to your Needs.</a></li>
+    <li><a href="#create_cepstra">Creating MFC Cepstrum/PLP Cepstrum/Spectrum from Audio
+    </a></li>
+    <li><a href="#decode_cepstra">Decoding from Cepstra</a></li>
+    <li><a href="#enable_endpointer">Enabling the Endpointer</a></li>
+</ul>
+<p>
+
+<hr>
+
+<h3><a name="fine_tuning">Fine Tuning the Front End to the Sampling Rate</a></h3>
+
+<p>Typically, you will need to fine tune some of the front end
+    parameters depending on the sampling frequency used to collect
+    the audio data. Sphinx-4 has default values that may be
+    different from what you need. Please check the <a
+        href="../../../../../constant-values.html">constant field
+    values</a> page to verify the default values.</p>
+
+<p>You will find details about how to choose the values to fine
+    tune the front end in the javadocs for the appropriate
+    classes. Other than the sampling rate itself, it is common that
+    a user has to change the filterbank parameters, i.e., the number
+    of filters and the frequency range spanned by the
+    filter. Depending on the sampling rate, a user may also want to
+    change the window shift and size, as well as the number of fft
+    points.</p>
+
+<p>For more information on these variables, please follow the
+    links below. You do not need all the links, just the ones defined on
+    your configuration.</p>
+
+<ul>
+    <li>FFT
+        <ul>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/transform/DiscreteFourierTransform.html">DiscreteFourierTransform</a>
+            </li>
+        </ul>
+    </li>
+    <li>Filter parameters (number of filters, lower frequency, upper frequency)
+        <ul>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/frequencywarp/MelFrequencyFilterBank.html">MelFrequencyFilterBank</a>
+            </li>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/frequencywarp/PLPFrequencyFilterBank.html">PLPFrequencyFilterBank</a>
+            </li>
+        </ul>
+    </li>
+    <li>Sample rate
+        <ul>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/util/ConcatFileDataSource.html">ConcatFileDataSource</a>
+            </li>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/util/Microphone.html">Microphone</a></li>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/util/StreamCepstrumSource.html">StreamCepstrumSource</a>
+            </li>
+            <li>
+                <a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/util/StreamDataSource.html">StreamDataSource</a>
+            </li>
+        </ul>
+    </li>
+    <li>Window size and shift
+        <ul>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/feature/LiveCMN.html">LiveCMN</a></li>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/window/RaisedCosineWindower.html">RaisedCosineWindower</a>
+            </li>
+            <li><a href="../../../../../../javadoc/edu/cmu/sphinx/frontend/util/StreamCepstrumSource.html">StreamCepstrumSource</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<hr>
+
+<h3><a name="create_cepstra">Creating MFC Cepstrum/PLP
+    Cepstrum/Spectrum from Audio</a></h3>
+
+There is a program called FeatureFileDumper that turns an audio file
+into binary cepstra file using the front end.
+To create MFCC cepstrum using this program,
+go to the
+<code>edu/cmu/sphinx/tools/feature</code> directory,
+and type:
+<p>
+    <code>ant -Dinput="input file" -Doutput="output file" cepstra_producer</code>
+
+<p>
+    To create a binary PLP cepstrum file using this program, type:
+
+<p>
+    <code>ant -Dinput="input file" -Doutput="output file" plp_producer</code>
+
+<p>
+    To create a binary spectra file, type:
+
+<p>
+    <code>ant -Dinput="input file" -Doutput="output file" spectra_producer
+    </code>
+
+<p>
+    As you might notice by comparing the files cepstra_dump.props
+    and spectra_dump.props in the "edu/cmu/sphinx/tools/feature" directory,
+    the only difference in setup between dumping different types of
+    features is in the sequence of data processors as specified in the
+    properties file. If you give it a difference data processor sequence,
+    it will give you different output.
+
+<p>
+    <b>Binary File Format</b>
+
+<p>
+    The first 4 bytes of the binary file is an integer indicating the total
+    number of data points in the file. This is used by the program
+    that reads this file to check the endianness of the file
+    by comparing with the file size. The rest of the file is simply
+    the data points. Each data point is a 4-byte floating point number,
+    in big-endian order.
+
+<hr>
+
+<h3><a name="decode_cepstra">Decoding from Cepstra Files</a></h3>
+
+<p>
+    This normally applies to batch mode decoding using the
+    BatchModeRecognizer.
+    In the configuration file, set the first processor of the front end
+    to be StreamCepstrumSource, and use that as the input source of the
+    BatchModeRecognizer. Also, change the front end pipeline so that
+    either BatchCMN or LiveCMN will follow the StreamCepstrumSource,
+    skiping the preemphasis, windowing, MFCC, and DCT steps. The
+    configuration should contain the lines:
+    <span style="font-family: Courier; ">
+      <pre>
+&lt;component name="batchRecognizer" type="edu.cmu.sphinx.tools.batch.BatchModeRecognizer"&gt;
+
+    &lt;property name="inputSource" value="streamCepstrumSource"&gt;
+    // ... other properties ...
+
+&lt/component&gt;
+
+&lt;component name="frontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+
+    &lt;propertylist name="pipeline"&gt;
+        &lt;item&gt;streamCepstrumSource&lt;/item&gt;
+	&lt;item&gt;batchCMN&lt;/item&gt;
+	// ... other front end processors
+    &lt;/propertylist&gt;
+
+&lt/component&gt;
+
+&lt;component name="streamCepstrumSource" type="edu.cmu.sphinx.frontend.util.StreamCepstrumSource"/&gt;
+      </pre>
+    </span>
+    For more information on configuration files, please refer to the document
+    <a href="../../util/props/doc-files/ConfigurationManagement.html">Sphinx-4 Configuration Management</a>
+<p>
+<hr>
+
+<h3><a name="enable_endpointer">Enabling the Endpointer</a></h3>
+
+<p>
+    The Sphinx-4 audio endpointer is composed of three data processors
+    that carry out different functions:
+
+<p><a href="../endpoint/SpeechClassifier.html">SpeechClassifier</a> - classifies chunks of audio into speech
+    and non-speech.
+    <br><a href="../endpoint/SpeechMarker.html">SpeechMarker</a> - marks the audio stream into speech and non-speech
+    regions, giving some 'cushion areas' around these regions.
+    <br><a href="../endpoint/NonSpeechDataFilter.html">NonSpeechDataFilter</a> - removes the non-speech regions from
+    the audio.
+
+<p>
+    The Sphinx-4 audio endpointer is enabled by including it as part of
+    the front end pipeline. The three data processors
+    should be placed in front of all the other data processors, e.g.,
+
+<p>
+    <span style="font-family: Courier; ">
+      <pre>
+&lt;component name="frontEnd" type="edu.cmu.sphinx.frontend.FrontEnd"&gt;
+
+    &lt;propertylist name="pipeline"&gt;
+        &lt;item&gt;speechClassifier&lt;/item&gt;
+	&lt;item&gt;speechMarker&lt;/item&gt;
+	&lt;item&gt;nonSpeechDataFilter&lt;/item&gt;
+	&lt;item&gt;preemphasizer&lt;/item&gt;
+	// ... other front end processors
+    &lt;/propertylist&gt;
+
+&lt/component&gt;
+
+&lt;component name="speechClassifier" type="edu.cmu.sphinx.frontend.endpoint.SpeechClassifier"&gt;
+    &lt;property name="threshold" value="13"/&gt;
+&lt;/component&gt;
+&lt;component name="speechMarker" type="edu.cmu.sphinx.frontend.endpoint.SpeechMarker"/&gt;
+&lt;component name="nonSpeechDataFilter" type="edu.cmu.sphinx.frontend.endpoint.NonSpeechDataFilter"/&gt;
+      </pre>
+    </span>
+
+<p>
+    The SpeechClassifier property 'threshold' controls how sensitive the
+    endpointer is. It is empirically determined that the value of 13 is
+    optimal for most environments. A lower threshold will make the
+    endpointer more sensitive, that is, mark more audio as speech. A
+    higher threshold will make the endpointer less sensitive, that is,
+    mark less audio as speech.
+<hr>
+
+Copyright 1999-2004 Carnegie Mellon University.<br>
+Portions Copyright 2002-2004 Sun Microsystems, Inc.<br>
+Portions Copyright 2002-2004 Mitsubishi Electric Research Laboratories.<br>
+All Rights Reserved. Usage is subject to
+<a href="../../../../../../license.terms">license terms</a>.
+
+</span>
+</body>
+</html>

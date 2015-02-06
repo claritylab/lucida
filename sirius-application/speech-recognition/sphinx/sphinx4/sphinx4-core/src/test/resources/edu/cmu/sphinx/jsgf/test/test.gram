@@ -1,0 +1,46 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Grammar for Hello World example
+ */
+
+grammar test;
+
+import <polite.startPolite>;
+import <polite.endPolite>;
+
+
+/* Test right recursion */
+
+public <rightRecursion> = <action> | (<action> and <rightRecursion> ) ;
+<action> = stop | start;
+
+
+/*
+ * TODO: 
+ * This is valid JSGF, but the ruleGrammar.parse
+ * method generates a stack overflow (although the
+ * decoder and the JSGF grammar deal with it just fine
+ *
+ * public <nestedRightRecursion> = something | <Y> ;
+ * <Y> = another | <nestedRightRecursion> ;
+ */
+
+/* Repeat test */
+public <repeatTest> = <startPolite>* don't crash;
+
+
+/* Test grammar with NULL */
+
+public <nulltest> = <ones> <twos> <threes>;
+
+<ones> = <NULL> (one [and] one);
+<twos> = <NULL> (two [and] two);
+<threes> = <NULL> (three [and] three);
+
+
+/* Counters */
+
+public <command> = <startPolite> <commandAction> <endPolite>;
+<commandAction> = go* | stop+;
+
