@@ -1,6 +1,6 @@
-PLATFORMS = baseline gpu
+PLATFORMS = baseline pthread gpu
 ifeq ($(shell which nvcc),)
-PLATFORMS = baseline
+PLATFORMS = baseline pthread
 endif
 
 .PHONY: all $(PLATFORMS)
