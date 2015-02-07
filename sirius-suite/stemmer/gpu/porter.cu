@@ -57,12 +57,7 @@ extern int stem(struct stemmer *z, char *b, int k);
 #define TRUE 1
 #define FALSE 0
 
-#define ARRAYSIZE 1000000
-#define A_INC 10000
 #define INC 32 /* size units in which s is increased */
-
-static int a_max = ARRAYSIZE;
-static int i_max = INC; /* maximum offset in s */
 
 /* stemmer is a structure for a few local bits of data,
 */
@@ -764,54 +759,10 @@ __host__ __device__ static void step5(struct stemmer *z) {
   length, so 0 <= k' <= k.
 */
 
-#if 0
-extern int stem(struct stemmer *z, char *b, int k) {
-  if (k <= 1) return k; /*-DEPARTURE-*/
-  z->b = b;
-  z->k = k; /* copy the parameters into z */
-
-  /* With this line, strings of length 1 or 2 don't go through the
-     stemming process, although no mention is made of this in the
-     published algorithm. Remove the line to match the published
-     algorithm. */
-
-  step1ab(z);
-  step1c(z);
-  step2(z);
-  step3(z);
-  step4(z);
-  step5(z);
-  return z->k;
-}
-
-extern int stem2(struct stemmer *z) {
-  if (z->k <= 1) return z->k;
-  //   if (k <= 1) return k; /*-DEPARTURE-*/
-  //   z->b = b; z->k = k; /* copy the parameters into z */
-
-  //    printf("z->b = %s\n", z->b);
-  //   printf("z->k = %d\n", z->k);
-
-  /* With this line, strings of length 1 or 2 don't go through the
-     stemming process, although no mention is made of this in the
-     published algorithm. Remove the line to match the published
-     algorithm. */
-
-  step1ab(z);
-  step1c(z);
-  step2(z);
-  step3(z);
-  step4(z);
-  step5(z);
-  return z->k;
-}
-#endif
-
-__global__ void stem3(struct stemmer *stem_list, int words) {
+__global__ void stem_gpu(struct stemmer *stem_list, int words) {
   int tid = blockIdx.x * blockDim.x + threadIdx.x;
   if (tid < words) {
     if (stem_list[tid].k < 1) return;
-    // stem_list[tid]->k=2;return;
     step1ab(&(stem_list[tid]));
     step1c(&(stem_list[tid]));
     step2(&(stem_list[tid]));
@@ -823,11 +774,13 @@ __global__ void stem3(struct stemmer *stem_list, int words) {
 
 /*--------------------stemmer definition ends here------------------------*/
 
+#define ARRAYSIZE 1000000
+#define A_INC 10000
 
+static int a_max = ARRAYSIZE;
+static int i_max = INC; /* maximum offset in s */
 struct stemmer *stem_list;
-
-struct stemmer *dev_stem_list;
-
+struct stemmer *gpu_stem_list;
 
 #define LETTER(ch) (isupper(ch) || islower(ch))
 
@@ -840,8 +793,6 @@ int load_data(struct stemmer *stem_list, FILE *f) {
     if (LETTER(ch)) {
       int i = 0;
       
-//      struct stemmer *z = create_stemmer();
-      
       while (TRUE) {
         if (i == i_max) {
           i_max += INC;
@@ -850,7 +801,6 @@ int load_data(struct stemmer *stem_list, FILE *f) {
         ch = tolower(ch); /* forces lower case */
 
         stem_list[a_size].b[i]=ch;
- //       z->b[i]=ch;
         s[i] = ch;
         i++;
         ch = getc(f);
@@ -860,13 +810,9 @@ int load_data(struct stemmer *stem_list, FILE *f) {
         }
       }
 
- //     z->b = s;
-//      z->k = i - 1;
        stem_list[a_size].k=i-1;
-//      stem_list[a_size] = z;
       if (a_size == a_max) {
         a_max += A_INC;
-//        stem_list = (struct stemmer **)realloc(stem_list, a_max);
         stem_list = (struct stemmer *)realloc(stem_list, a_max*sizeof(struct stemmer));
       }
       a_size += 1;
@@ -894,48 +840,19 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "File %s not found\n", argv[1]);
     exit(1);
   }
-/*
-  stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
-  struct stemmer **host_stem_list =
-      (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
-  struct stemmer **host2_stem_list =
-      (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
- */ 
 
   stem_list = (struct stemmer *)malloc(ARRAYSIZE * sizeof(struct stemmer));
-
   int words = load_data(stem_list, f);
-
   PRINT_STAT_INT ("words", words);
 
   fclose(f);
 
   cudaEventCreate(&eStart);
   cudaEventCreate(&eStop);
-//  cudaMalloc((void **)&dev_stem_list, words * sizeof(struct stemmer *));
-  cudaMalloc((void **)&dev_stem_list, words * sizeof(struct stemmer));
+  cudaMalloc((void **)&gpu_stem_list, words * sizeof(struct stemmer));
 
   cudaEventRecord(eStart, 0);
-  
-  cudaMemcpy(dev_stem_list, stem_list, words*sizeof(struct stemmer), cudaMemcpyHostToDevice);
-
-/*
-  for (int i = 0; i < words; i++) {
-    struct stemmer *host_z = create_stemmer();
-    host_stem_list[i] = host_z;
-    host_z->k = stem_list[i]->k;
-    host_z->j = stem_list[i]->j;
-    struct stemmer *dev_z;
-    cudaMalloc((void **)&(host_z->b), (i_max + 1) * sizeof(char));
-    cudaMalloc((void **)&dev_z, sizeof(struct stemmer));
-    cudaMemcpy(host_z->b, stem_list[i]->b, (i_max + 1) * sizeof(char),
-               cudaMemcpyHostToDevice);
-    cudaMemcpy(dev_z, host_z, sizeof(struct stemmer), cudaMemcpyHostToDevice);
-    cudaMemcpy(&(dev_stem_list[i]), &dev_z, sizeof(struct stemmer *),
-               cudaMemcpyHostToDevice);
-    host2_stem_list[i] = dev_z;
-  }
-*/
+  cudaMemcpy(gpu_stem_list, stem_list, words*sizeof(struct stemmer), cudaMemcpyHostToDevice);
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
@@ -946,30 +863,19 @@ int main(int argc, char *argv[]) {
   dim3 grid;
   grid.x = ceil(words / block.x);
   cudaEventRecord(eStart, 0);
-  stem3 << <grid, block>>> (dev_stem_list, words);
+  stem_gpu << <grid, block>>> (gpu_stem_list, words);
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
   PRINT_STAT_DOUBLE ("gpu_stemmer", cuda_elapsedTime);
 
   cudaEventRecord(eStart, 0);
-  cudaMemcpy(stem_list, dev_stem_list, words*sizeof(struct stemmer), cudaMemcpyDeviceToHost);
+  cudaMemcpy(stem_list, gpu_stem_list, words*sizeof(struct stemmer), cudaMemcpyDeviceToHost);
 
-/*
-  for (int i = 0; i < words; i++) {
-    cudaMemcpy(&(stem_list[i]->j), &(host2_stem_list[i]->j), sizeof(int),
-               cudaMemcpyDeviceToHost);
-    cudaMemcpy(&(stem_list[i]->k), &(host2_stem_list[i]->k), sizeof(int),
-               cudaMemcpyDeviceToHost);
-    cudaMemcpy(stem_list[i]->b, host_stem_list[i]->b,
-               (i_max + 1) * sizeof(char), cudaMemcpyDeviceToHost);
-    // stem_list[i]->b[stem_list[i]->k+1]=0;
-    // int a=stem_list[i]->k;
-    // stem_list[i]->b[a+1]=0;
-    // int k=stem_list[i]->k; char *b=stem_list[i]->b; b[k+1]=0;
-    // printf("%s\n", stem_list[i]->b);
+  //TODO: correctness checking
+  for(int i = 0; i < words; ++i) {
+    stem_list[i].b[stem_list[i].k+1]=0;
   }
-*/
 
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
@@ -980,22 +886,8 @@ int main(int argc, char *argv[]) {
   cudaEventDestroy(eStop);
 
   STATS_END (); 
-//  for (int i = 0; i < words; i++) {
-//    cudaFree(host_stem_list[i]->b);
-//    cudaFree(host2_stem_list[i]);
-//  }
   free(stem_list);
-  cudaFree(dev_stem_list);
-
-  // free up allocated data
- // for (int i = 0; i < words; i++) {
- //   free(stem_list[i]->b);
- //   free(stem_list[i]);
-//    free(host_stem_list[i]);
- // }
-//  free(stem_list);
-//  free(host_stem_list);
-//  free(host2_stem_list);
+  cudaFree(gpu_stem_list);
 
   return 0;
 }
