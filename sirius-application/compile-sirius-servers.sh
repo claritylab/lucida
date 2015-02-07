@@ -14,6 +14,8 @@ hash ant 2>/dev/null || {
   exit 1
 }
 
+THREADS=4
+
 asr_sphinx=speech-recognition/sphinx
 asr_kaldi=speech-recognition/kaldi
 qa=question-answer
@@ -25,21 +27,20 @@ javac -cp .:./lib/servlet.jar:./lib/jetty.jar:lib/sphinx4.jar Sphinx4Server.java
 echo "Sphinx4 server done."
 
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar PocketsphinxServer.java
-echo "Pocketsphinx server done."
 cd ../../ 
+echo "Pocketsphinx server done."
 
 cd $asr_kaldi/tools;
-make -j 4
+make -j $THREADS 1>/dev/null
 
 cd ../src;
 ./configure
-make -j 4
+make -j $THREADS 1>/dev/null
 
 cd ./online2bin
-make -j 4
-
+make -j $THREADS 1>/dev/null
+cd ../../../../
 echo "Kaldi server done."
-cd ../../.. 
 
 cd $qa;
 ant > /dev/null
@@ -47,6 +48,5 @@ cd ..
 echo "OpenEphyra server done."
 
 cd $imm
-make 1>/dev/null
+make -j $THREADS 1>/dev/null
 echo "Image-matching server done."
-cd .. 
