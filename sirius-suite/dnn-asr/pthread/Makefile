@@ -1,9 +1,8 @@
 CXX=g++
 CXX_FLAGS = -O3 -DCPU_ONLY
-LINK_FLAGS = -lcaffe \
-			 -lglog
+LINK_FLAGS = -lcaffe -lglog
 
-THREADS = 4
+THREADS = 2
 MODEL   = ../model/asr.prototxt
 WEIGHTS = ../model/asr.caffemodel
 INPUT   = ../input/features.in

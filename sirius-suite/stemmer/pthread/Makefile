@@ -3,7 +3,7 @@ LINK_FLAGS = -lrt -lpthread
 CXX_FLAGS = -O3 -fpermissive -Wno-write-strings
 
 INPUT = ../input/voc.txt
-THREADS = 1
+THREADS = 2
 
 # File names
 EXEC = stem_porter
