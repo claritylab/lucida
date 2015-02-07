@@ -1,44 +1,43 @@
-## DNN(ASR) kernel
+## DNN (ASR) kernel
 
 Yiping Kang (ypkang@umich.edu)
 
 University of Michgan, 2015
 
-###What's this
-This kernel is a forward pass of a deep neural network (DNN).  
-The network is for Automatic Speech Recognition (ASR).  
-The kernel takes voice feature vectors as input and generate probability as output.  
+This is a DNN based Automatic Speech Recognition (ASR) kernel executing one
+forward pass. The kernel takes voice feature vectors as input and generates
+probabilities as output.  
 
-###Directory structure
-./model/ contains the network configuration file and pre-trained model file.  
-./input/ contains input file of features and and corresponding expected output file for sanity check purpose.
+### Backend
+The kernel uses [Caffe](https://github.com/BVLC/caffe) for the DNN forward
+pass. Build Caffe using [OpenBlas](https://github.com/xianyi/OpenBLAS) to run the
+multithreaded version of this kernel.
 
-###Backend
-The kernel use Caffe (Cite. License ?) as its neural network framework.
+### Directory structure
+`./model/` contains the network configuration file and pre-trained model file.  
+`./input/` contains an input file of features and the corresponding expected
+output file.
 
-###How to run the kernel
-Follow the following steps to run this kernel  
-1. Download Caffe at https://github.com/BVLC/caffe  
-2. Compile Caffe by typing `make distribute` in `$(Caffe)/src`  
-3. Change the first line in Makefile to `$(Caffe)/distribute`  
-4. You may also need to change the CUDA pointer in Makefile  
-5. Type `make` in the version of the kernel you want (e.g baseline, GPU, etc)  
-6. Execute the kernel by  
+### Input
+The input included is a sentence of 548 feature vectors each of which consists
+of 440 floating numbers.
+
+### Running the kernel
+1. Download and build [Caffe](https://github.com/BVLC/caffe) and
+   [OpenBlas](https://github.com/xianyi/OpenBLAS).
+2. Build the kernels using `make`
+3. Download pre-trained model TODO
+4. Execute the kernel:  
 ```bash
-$ ./dnn-asr path_to_model_file path_to_feature_input
+$ make test
 ```
-- For example, if you keep the folder as default,  
+or
 ```bash
-$ ./dnn-asr model/asr.caffemodel input/feature.in  
-```  
-7. The kernel will do the following  
-    a. Initiate the model with weights in the pretrained model file  
-    b. Load in feature input  
-    c. DNN performs forward pass  
-    d. Check output with the result file in `input/`   
+$ ./dnn-asr path_to_network_file path_to_pretrained_model path_to_feature_input
+```
+The kernel does the following:
+  a. Initiates the model with weights from the pretrained model file  
+  b. Loads in feature input  
+  c. Executes a DNN forward pass  
 
-###Input
-The input included is a sentence with normal length and it contains 548 feature vectors and each of which consists 440 floating numbers.
-
-You can download larger inputs at:
-TODO
+You can download larger inputs at: TODO
