@@ -23,7 +23,7 @@ $(EXEC): $(OBJECTS) Makefile
 
 # test
 test: all
-	@./$(EXEC) $(MODEL) $(WEIGHTS) $(INPUT)
+	@OPENBLAS_NUM_THREADS=1 ./$(EXEC) $(MODEL) $(WEIGHTS) $(INPUT)
 
 # To remove generated files
 clean:
