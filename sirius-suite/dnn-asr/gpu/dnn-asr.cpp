@@ -105,6 +105,8 @@ int main(int argc, char** argv)
   // turn off caffe's logging
   FLAGS_minloglevel = google::ERROR;
 
+  Caffe::set_mode(Caffe::GPU);
+
   STATS_INIT ("kernel", "gpu_dnn_automatic_speech_recognition");
   PRINT_STAT_STRING ("abrv", "gpu_dnn_asr");
 
@@ -130,11 +132,13 @@ int main(int argc, char** argv)
   int in_size = feat_cnt * 440;
   int out_size = feat_cnt * 1706; 
   float* dnn_output = (float*)malloc(sizeof(float) * out_size);
+
   tic ();
-  if(dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn) != 0){
-    printf("Error while DNN decoding. Abort.\n");
-    exit(1);
-  }
+  dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);
+  PRINT_STAT_DOUBLE ("gpu_warm-up", toc());
+
+  tic ();
+  dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);
   PRINT_STAT_DOUBLE ("gpu_dnn_asr", toc());
 
   // TODO: see issue #9
