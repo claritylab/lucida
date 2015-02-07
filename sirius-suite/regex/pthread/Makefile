@@ -23,7 +23,7 @@ $(EXEC): $(OBJECTS) Makefile
 
 # test
 test: all
-	@./$(EXEC) $(THREADS) $(LIST) $(QUESTIONS) > /dev/null
+	@./$(EXEC) $(THREADS) $(LIST) $(QUESTIONS)
 
 # To remove generated files
 clean:

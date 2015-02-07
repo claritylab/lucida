@@ -38,7 +38,7 @@ inline bool isEqual(float x, float y)
   return std::abs(x-y)<=epsilon;
 }
 
-int dnn_fwd(float* in, int in_size, float *out, int out_size, Net<float>* net)
+void dnn_fwd(float* in, int in_size, float *out, int out_size, Net<float>* net)
 {
   vector<Blob<float>* > in_blobs = net->input_blobs();
   vector<Blob<float>* > out_blobs;
@@ -53,8 +53,6 @@ int dnn_fwd(float* in, int in_size, float *out, int out_size, Net<float>* net)
       && "Output size not expected.");
 
   memcpy(out, out_blobs[0]->cpu_data(), sizeof(float) * out_size);
-
-  return 0;
 }
 
 int dnn_init(Net<float>* net, string weights)
@@ -130,11 +128,9 @@ int main(int argc, char** argv)
   int in_size = feat_cnt * 440;
   int out_size = feat_cnt * 1706; 
   float* dnn_output = (float*)malloc(sizeof(float) * out_size);
+
   tic ();
-  if(dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn) != 0){
-    printf("Error while DNN decoding. Abort.\n");
-    exit(1);
-  }
+  dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);
   PRINT_STAT_DOUBLE ("dnn_asr", toc());
 
   // TODO: see issue #9

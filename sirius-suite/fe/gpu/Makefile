@@ -26,7 +26,7 @@ $(EXEC): $(OBJECTS) Makefile
 
 # test
 test: all
-	@./$(EXEC) $(INPUT) > /dev/null
+	@./$(EXEC) $(INPUT)
 
 # To remove generated files
 clean:

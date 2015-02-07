@@ -1,6 +1,9 @@
+CUDA=/usr/local/cuda
 CXX=g++
-CXX_FLAGS = -O3
-LINK_FLAGS = -lcaffe \
+CXX_FLAGS = -O3 -I$(CUDA)/include
+LINK_FLAGS = -L$(CUDA)/lib64 \
+			 -lcudart \
+			 -lcaffe \
 			 -lglog
 
 MODEL   = ../model/asr.prototxt

@@ -22,7 +22,7 @@ $(EXEC): $(OBJECTS) Makefile
 
 # test
 test: all
-	@./$(EXEC) $(LIST) $(QUESTIONS) > /dev/null
+	@./$(EXEC) $(LIST) $(QUESTIONS)
 
 # To remove generated files
 clean:

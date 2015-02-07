@@ -1,4 +1,4 @@
-KERNELS = gmm fd fe regex stemmer
+KERNELS = gmm dnn-asr fd fe regex stemmer
 
 .PHONY: all $(KERNELS)
 
@@ -18,4 +18,4 @@ $(SUBCLEAN): %.clean:
 
 test: $(SUBTEST)
 $(SUBTEST): %.test:
-	$(MAKE) -C $* test
+	$(MAKE) -s -C $* test

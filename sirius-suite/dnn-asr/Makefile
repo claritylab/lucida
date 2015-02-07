@@ -21,4 +21,4 @@ $(SUBCLEAN): %.clean:
 
 test: $(SUBTEST)
 $(SUBTEST): %.test:
-	$(MAKE) -C $* test
+	$(MAKE) -s -C $* test
