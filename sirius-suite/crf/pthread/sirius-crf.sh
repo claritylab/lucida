@@ -23,8 +23,8 @@ crfdir=crfsuite-0.12
 
 if [ ! -d $crfdir ]; then
 
-    wget -q https://github.com/downloads/chokkan/crfsuite/crfsuite-0.12.tar.gz
-    tar xzf crfsuite-0.12.tar.gz
+  wget -q https://github.com/downloads/chokkan/crfsuite/crfsuite-0.12.tar.gz
+  tar xzf crfsuite-0.12.tar.gz
 fi
 
 cd $crfdir;
@@ -33,10 +33,10 @@ make
 cd ../
 
 cp tag.c \
-   Makefile \
-   ../input/test.crfsuite.txt \
-   ../input/model.model \
-   $crfdir/frontend
+  Makefile \
+  ../input/test.crfsuite.txt \
+  ../input/model.model \
+  $crfdir/frontend
 
 # Rebuild
 cd $crfdir && make
