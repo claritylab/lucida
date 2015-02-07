@@ -769,6 +769,7 @@ __global__ void stem_gpu(struct stemmer *stem_list, int words) {
     step3(&(stem_list[tid]));
     step4(&(stem_list[tid]));
     step5(&(stem_list[tid]));
+    stem_list[tid].b[stem_list[tid].k+1]=0;
   }
 }
 
@@ -873,9 +874,9 @@ int main(int argc, char *argv[]) {
   cudaMemcpy(stem_list, gpu_stem_list, words*sizeof(struct stemmer), cudaMemcpyDeviceToHost);
 
   //TODO: correctness checking
-  for(int i = 0; i < words; ++i) {
-    stem_list[i].b[stem_list[i].k+1]=0;
-  }
+  /* for(int i = 0; i < 10; ++i) { */
+  /*     printf("%s\n",stem_list[i].b); */
+  /* } */
 
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
