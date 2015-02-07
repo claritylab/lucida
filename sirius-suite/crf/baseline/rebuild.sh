@@ -15,7 +15,6 @@ cp tag.c $crfdir/frontend
 
 # Rebuild
 cd $crfdir && make
-cp $crfdir/frontend/crfsuite .
 
 # copy the binary to base directory
 cp $crfdir/frontend/crfsuite .

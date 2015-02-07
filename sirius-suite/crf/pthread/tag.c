@@ -46,7 +46,7 @@
 #include "../lib/crf/src/crf1d.h"
 #include "../../../timer/timer.h"
 
-#define NTHREADS 4
+#define NTHREADS 1
 
 #define SAFE_RELEASE(obj) \
   if ((obj) != NULL) {    \
@@ -406,13 +406,6 @@ force_exit:
   return ret;
 }
 
-float calculateMiliseconds(struct timeval t1, struct timeval t2) {
-  float elapsedTime;
-  elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
-  elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-  return elapsedTime;
-}
-
 struct timeval t1, t2;
 
 void tic (void) {
@@ -586,6 +579,7 @@ static int tagger_set(crfsuite_tagger_t *tagger, crfsuite_instance_t *inst) {
 int main_tag(int argc, char *argv[], const char *argv0) {
   STATS_INIT ("kernel", "pthread_conditional_random_fields");
   PRINT_STAT_STRING ("abrv", "pthread_crf");
+  PRINT_STAT_INT ("threads", NTHREADS);
 
   int ret = 0, arg_used = 0;
   tagger_option_t opt;
@@ -641,9 +635,6 @@ int main_tag(int argc, char *argv[], const char *argv0) {
       exit(1);
     }
 
-    PRINT_STAT_INT ("array_size", N);
-    PRINT_STAT_INT ("threads", NTHREADS);
-
     // $cmt: still needed
     global_out = (int **)calloc(sizeof(int *), N);
 
@@ -660,6 +651,8 @@ int main_tag(int argc, char *argv[], const char *argv0) {
       free(output1);
     }
 
+    PRINT_STAT_INT ("array_size", N);
+
     tic ();
 
     pthread_attr_init(&attr);
@@ -674,7 +667,6 @@ int main_tag(int argc, char *argv[], const char *argv0) {
     }
 
     PRINT_STAT_DOUBLE ("pthread_crf", toc ());
-
   }
 
   STATS_END ();

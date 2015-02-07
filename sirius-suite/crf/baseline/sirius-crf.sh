@@ -21,15 +21,18 @@ hash make 2>/dev/null || {
 
 crfdir=crfsuite-0.12
 
-wget https://github.com/downloads/chokkan/crfsuite/crfsuite-0.12.tar.gz
-tar xzf crfsuite-0.12.tar.gz
+if [ ! -d $crfdir ]; then
+
+    wget -q https://github.com/downloads/chokkan/crfsuite/crfsuite-0.12.tar.gz
+    tar xzf crfsuite-0.12.tar.gz
+fi
+
 cd $crfdir;
 ./configure
 make
 cd ../
 
 cp tag.c \
-   Makefile \
    ../input/test.crfsuite.txt \
    ../input/model.model \
    $crfdir/frontend
