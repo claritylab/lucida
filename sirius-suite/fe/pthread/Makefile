@@ -8,7 +8,7 @@ LINK_FLAGS = -lopencv_core \
 			 -lpthread
 
 INPUT = ../input/400x400.jpg
-THREADS = 1
+THREADS = 2
 
 # File names
 EXEC = surf-fe

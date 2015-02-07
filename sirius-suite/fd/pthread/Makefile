@@ -8,7 +8,7 @@ LINK_FLAGS = -lpthread \
 			 -lopencv_features2d
 
 INPUT = ../input/400x400.jpg
-THREADS = 1
+THREADS = 2
 
 # File names
 EXEC = surf-fd
