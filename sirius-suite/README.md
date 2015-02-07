@@ -2,15 +2,13 @@
 
 Johann Hauswald (jahausw@umich.edu)
 
-Vinicius Petrucci (vpetrucci@gmail.com)
-
 University of Michigan, 2014
 
 Each kernel contains:
 
 - input (when applicable, larger inputs not included)
 - baseline
-- pthread/phi
+- pthread
 - GPU (when applicable)
 - bits: this folder contains trial or old versions
 
