@@ -14,12 +14,14 @@ hash ant 2>/dev/null || {
   exit 1
 }
 
+# set for Kaldi parallel building
 THREADS=4
 
 asr_sphinx=speech-recognition/sphinx
 asr_kaldi=speech-recognition/kaldi
 qa=question-answer
 imm=image-matching
+
 export MODELS_PATH="`pwd`/sphinx/models/"
 
 cd $asr_sphinx;
