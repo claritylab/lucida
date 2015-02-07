@@ -11,11 +11,14 @@ hash make 2>/dev/null || {
 
 crfdir=crfsuite-0.12
 
+# temp directory created by crfsuite
+rm -rf .libs/
+
 cp tag.c $crfdir/frontend
 
 # Rebuild
 cd $crfdir && make
-cp $crfdir/frontend/crfsuite .
+cd ../
 
 # copy the binary to base directory
 cp $crfdir/frontend/crfsuite .
