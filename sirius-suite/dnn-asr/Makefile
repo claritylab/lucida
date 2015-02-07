@@ -1,20 +1,24 @@
-CAFFE=/usr/local/include/caffe/
-CUDA=/usr/local/cuda
-CXX=g++
-CXX_FLAGS = -w -fpermissive -I$(CAFFE) -I$(CUDA)/include -g
-LINK_FLAGS = -L/$(CUDA)/lib64 -lcudart -ldl -lrt
+PLATFORMS = baseline gpu
+ifeq ($(shell which nvcc),)
+PLATFORMS = baseline
+endif
 
-EXEC = dnn-asr
-SOURCES=$(wildcard *.cpp)
-OBJECTS=$(SOURCES:.cpp=.o)
+.PHONY: all $(PLATFORMS)
 
-all: dnn-asr
+SUBCLEAN = $(addsuffix .clean, $(PLATFORMS))
+.PHONY: clean $(SUBCLEAN)
 
-dnn-asr: $(OBJECTS) Makefile
-	$(CXX) $(OBJECTS) -o dnn-asr $(LINK_FLAGS) /usr/local/lib/libcaffe.so
+SUBTEST = $(addsuffix .test, $(PLATFORMS))
+.PHONY: test $(SUBTEST)
 
-%.o: %.cpp Makefile
-	$(CXX) -c $(CXX_FLAGS) $< -o $@
+all: $(PLATFORMS)
+$(PLATFORMS):
+	$(MAKE) -C $@
 
-clean:
-	rm -f dnn-asr *.o 
+clean: $(SUBCLEAN)
+$(SUBCLEAN): %.clean:
+	$(MAKE) -C $* clean
+
+test: $(SUBTEST)
+$(SUBTEST): %.test:
+	$(MAKE) -C $* test

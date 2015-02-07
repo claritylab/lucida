@@ -60,7 +60,7 @@ class Handler(BaseHTTPRequestHandler):
 
         cmd = './match --match %s --database %s' % (filename, img_db)
         res = os.path.basename(shcom(cmd)).strip()
-        # hack
+        # ehh: image data returned is the name of the image after indexing into db
         img_data = ' '.join(pickdb.get(res))
         print 'img: %s data: %s' % (res, img_data)
         answer = ('%s\n' % img_data)
