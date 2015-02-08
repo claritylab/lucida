@@ -46,7 +46,7 @@
 #include "../lib/crf/src/crf1d.h"
 #include "../../../timer/timer.h"
 
-#define NTHREADS 2
+#define NTHREADS 4
 
 #define SAFE_RELEASE(obj) \
   if ((obj) != NULL) {    \

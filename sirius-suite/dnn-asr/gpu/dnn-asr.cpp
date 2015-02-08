@@ -108,7 +108,7 @@ int main(int argc, char** argv)
   Caffe::set_mode(Caffe::GPU);
 
   STATS_INIT ("kernel", "gpu_dnn_automatic_speech_recognition");
-  PRINT_STAT_STRING ("abrv", "gpu_dnn_asr");
+  PRINT_STAT_STRING ("abrv", "gpu_dnn-asr");
 
   string network(argv[1]);
   string weights(argv[2]);
@@ -139,7 +139,7 @@ int main(int argc, char** argv)
 
   tic ();
   dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);
-  PRINT_STAT_DOUBLE ("gpu_dnn_asr", toc());
+  PRINT_STAT_DOUBLE ("gpu_dnn-asr", toc());
 
   // TODO: see issue #9
   // // Read in the correct result to sanity check

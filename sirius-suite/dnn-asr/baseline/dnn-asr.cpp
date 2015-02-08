@@ -104,7 +104,7 @@ int main(int argc, char** argv)
   FLAGS_minloglevel = google::ERROR;
 
   STATS_INIT ("kernel", "dnn_automatic_speech_recognition");
-  PRINT_STAT_STRING ("abrv", "dnn_asr");
+  PRINT_STAT_STRING ("abrv", "dnn-asr");
 
   string network(argv[1]);
   string weights(argv[2]);
@@ -131,7 +131,7 @@ int main(int argc, char** argv)
 
   tic ();
   dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);
-  PRINT_STAT_DOUBLE ("dnn_asr", toc());
+  PRINT_STAT_DOUBLE ("dnn-asr", toc());
 
   // TODO: see issue #9
   // // Read in the correct result to sanity check

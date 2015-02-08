@@ -6,7 +6,7 @@ LINK_FLAGS = -lopencv_core \
 			 -lopencv_nonfree \
 			 -lopencv_features2d
 
-INPUT = ../input/400x400.jpg
+INPUT = ../input/2048x2048.jpg
 
 # File names
 EXEC = surf-fe
