@@ -1,9 +1,9 @@
 CXX = g++
 LINK_FLAGS = -lrt -lpthread
-CXX_FLAGS = -O3 -fpermissive -Wno-write-strings
+CXX_FLAGS  = -O3 -fpermissive -Wno-write-strings
 
-INPUT = ../input/voc.txt
-THREADS = 2
+THREADS = 4
+INPUT   = ../input/voc.txt
 
 # File names
 EXEC = stem_porter

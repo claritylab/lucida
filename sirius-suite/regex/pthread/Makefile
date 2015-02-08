@@ -2,8 +2,8 @@ CXX = g++
 LINK_FLAGS = -lpthread -lrt -lm
 CXX_FLAGS = -O3
 
-THREADS = 2
-LIST = ../input/list
+THREADS   = 4
+LIST      = ../input/list
 QUESTIONS = ../input/questions
 
 # File names

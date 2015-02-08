@@ -103,8 +103,9 @@ int main(int argc, char** argv)
   // turn off caffe's logging
   FLAGS_minloglevel = google::ERROR;
 
-  STATS_INIT ("kernel", "dnn_automatic_speech_recognition");
-  PRINT_STAT_STRING ("abrv", "dnn_asr");
+  STATS_INIT ("kernel", "pthread_dnn_automatic_speech_recognition");
+  PRINT_STAT_STRING ("abrv", "pthread_dnn-asr");
+  PRINT_STAT_INT ("threads", atoi(getenv("OPENBLAS_NUM_THREADS")));
 
   string network(argv[1]);
   string weights(argv[2]);
@@ -131,7 +132,7 @@ int main(int argc, char** argv)
 
   tic ();
   dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);
-  PRINT_STAT_DOUBLE ("dnn_asr", toc());
+  PRINT_STAT_DOUBLE ("pthread_dnn-asr", toc());
 
   // TODO: see issue #9
   // // Read in the correct result to sanity check
