@@ -16,6 +16,10 @@ def shcom(cmd):
     return out
 
 def main( args ):
+    if len(args) < 2:
+        print "Usage: ./parse-stats.py <.json file>"
+        return
+
     file = args[1]
     data = json.loads(open(file).read())
 
