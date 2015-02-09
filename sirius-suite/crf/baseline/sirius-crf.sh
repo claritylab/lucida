@@ -24,12 +24,11 @@ crfdir=crfsuite-0.12
 if [ ! -d $crfdir ]; then
   wget -q https://github.com/downloads/chokkan/crfsuite/crfsuite-0.12.tar.gz
   tar xzf crfsuite-0.12.tar.gz
+  cd $crfdir;
+  ./configure
+  make
+  cd ../
 fi
-
-cd $crfdir;
-./configure
-make
-cd ../
 
 cp tag.c \
   ../input/test.crfsuite.txt \
@@ -39,8 +38,8 @@ cp tag.c \
 # Rebuild
 cd $crfdir
 make
-
 cd ../;
+
 rm -rf crfsuite-0.12.tar.gz
 
 # copy the binary to base directory

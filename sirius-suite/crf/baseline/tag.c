@@ -44,7 +44,7 @@
 #include "option.h"
 #include "iwa.h"
 #include "../lib/crf/src/crf1d.h"
-#include "../../../timer/timer.h"
+#include "../../../utils/timer.h"
 
 #define SAFE_RELEASE(obj) \
   if ((obj) != NULL) {    \
@@ -489,6 +489,15 @@ double toc (void) {
   return elapsedTime;
 }
 
+void write_out(char *fname, float *arr, int arr_len) {
+  FILE *f = fopen(fname, "w");
+
+  for(int i = 0; i < arr_len; ++i)
+    fprintf(f, "%f ", arr[i]);
+
+  fclose(f);
+}
+
 int main_tag(int argc, char *argv[], const char *argv0) {
   STATS_INIT ("kernel", "conditional_random_fields");
   PRINT_STAT_STRING ("abrv", "crf");
@@ -546,6 +555,7 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
     tic ();
     global_out = (int **)calloc(sizeof(int *), N);
+    float *scores = (float *)malloc(N * sizeof(float));
 
     for (k = 0; k < N; k++) {
       floatval_t score = 0;
@@ -553,14 +563,17 @@ int main_tag(int argc, char *argv[], const char *argv0) {
       global_out[k] = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
 
       // Set the instance to the tagger.
-      tagger_set(tagger, inst_vect[k]);
+      tagger->set(tagger, inst_vect[k]);
       // Obtain the viterbi label sequence.
       tagger->viterbi(tagger, output1, &score);
+      scores[k] = score;
 
       free(output1);
     }
 
     PRINT_STAT_DOUBLE ("crf", toc ());
+    write_out("../input/crf.baseline", scores, N);
+    free(scores);
   }
 
   STATS_END ();

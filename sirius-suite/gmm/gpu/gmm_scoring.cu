@@ -6,6 +6,7 @@
 #include <sys/time.h>
 
 #include "../../utils/timer.h"
+#include "../../utils/correct.h"
 
 float feature_vect[] = {2.240018,    2.2570236,    0.11304555,   -0.21307051,
                         0.8988138,   0.039065503,  0.023874786,  0.13153112,
@@ -36,10 +37,11 @@ __device__ __constant__ int senone_size = 5120;
 
 extern "C"
 
-    __global__ void
-    computeScore(const float *feature_vect, float *means_vect,
-                 float *precs_vect, float *weight_vect, float *factor_vect,
-                 float *score_vect) {
+__global__ void
+computeScore(const float *feature_vect, float *means_vect,
+             float *precs_vect, float *weight_vect, float *factor_vect,
+             float *score_vect) {
+
   int i = blockIdx.x * blockDim.x + threadIdx.x;
 
   if (i < senone_size) {
@@ -51,7 +53,7 @@ extern "C"
       float logDval = 0.0f;
 #pragma unroll 29
       for (int k = 0; k < feat_size; k++) {
-        int idx = i + senone_size * j + k * comp_size * senone_size;
+        int idx = k + comp_size * j + i * comp_size * comp_size;
         float logDiff = feature_vect[k] - means_vect[idx];
         logDval += logDiff * logDiff * precs_vect[idx];
       }
@@ -113,28 +115,6 @@ extern "C"
     }
     score_vect[i] = local_score_vect;
   }
-}
-
-void write_out(char *fname, float *arr, int arr_len) {
-  std::ofstream f;
-  f.open(fname, std::ios::out);
-  f.precision(15);
-
-  for(int i = 0; i < arr_len; ++i)
-    f << arr[i] << " ";
-
-  f.close();
-}
-
-void read_in(char *fname, float *arr, int arr_len) {
-  std::ifstream f;
-  f.open(fname, std::ios::out);
-  f.precision(15);
-
-  for(int i = 0; i < arr_len; ++i)
-    f << arr[i] << " ";
-
-  f.close();
 }
 
 int main(int argc, char *argv[]) {
@@ -331,6 +311,7 @@ int main(int argc, char *argv[]) {
 
   STATS_END();
 
+  printf("%f\n", score_vect[1]);
   // write for correctness check
 #if TESTING
   write_out("../input/gmm.gpu", score_vect, senone_size);

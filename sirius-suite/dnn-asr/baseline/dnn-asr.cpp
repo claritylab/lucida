@@ -23,7 +23,7 @@
 #include <glog/logging.h>
 
 #include "caffe/caffe.hpp"
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
 
 using caffe::Blob;
 using caffe::Caffe;
@@ -35,7 +35,7 @@ using namespace std;
 inline bool isEqual(float x, float y)
 {
   const float epsilon = pow(10, -4);
-  return std::abs(x-y)<=epsilon;
+  return abs(x-y)<=epsilon;
 }
 
 void dnn_fwd(float* in, int in_size, float *out, int out_size, Net<float>* net)
@@ -65,20 +65,20 @@ int load_features(float** in, string feature_file, int vec_size)
 {
   // Read in features from file
   // First need to detect how many feature vectors 
-  std::ifstream inFile(feature_file.c_str(), std::ifstream::in);
-  int feat_cnt = std::count(std::istreambuf_iterator<char>(inFile),
-      std::istreambuf_iterator<char>(), '\n') - 1;
+  ifstream inFile(feature_file.c_str(), ifstream::in);
+  int feat_cnt = count(istreambuf_iterator<char>(inFile),
+      istreambuf_iterator<char>(), '\n') - 1;
   
   // Allocate memory for input feature array
   *in = (float*)malloc(sizeof(float) * feat_cnt * vec_size); 
 
   // Read the feature in
   int idx = 0;
-  std::ifstream featFile(feature_file.c_str(), std::ifstream::in);
-  std::string line;
-  std::getline(featFile, line); // Get rid of the first line
-  while(std::getline(featFile, line)){
-    std::istringstream iss(line);
+  ifstream featFile(feature_file.c_str(), ifstream::in);
+  string line;
+  getline(featFile, line); // Get rid of the first line
+  while(getline(featFile, line)){
+    istringstream iss(line);
     float temp;
     while(iss >> temp){
       (*in)[idx] = temp;
@@ -133,21 +133,21 @@ int main(int argc, char** argv)
   dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);
   PRINT_STAT_DOUBLE ("dnn-asr", toc());
 
-  // TODO: see issue #9
-  // // Read in the correct result to sanity check
-  // std::string result_file = "nnet.out";
-  // float* correct_out;
-  // int correct_out_cnt = load_features(&correct_out, result_file, 1706);
-  //
-  // // First check the numbers of vectors are same
-  // assert(correct_out_cnt == feat_cnt && "The number of results are incorrect.\n");
-  //
-  // // Then check the number actually agrees
-  // for(int i = 0; i < feat_cnt * 1706; i++){
-  //   assert(isEqual(correct_out[i], dnn_output[i]) && "Results do not agree.\n");
-  // }
-
   STATS_END ();
+
+#if TESTING
+  std::string result_file = "../input/correct.out";
+  float* correct_out;
+  int correct_out_cnt = load_features(&correct_out, result_file, 1706);
+
+  // First check that the numbers of vectors are same
+  assert(correct_out_cnt == feat_cnt);
+
+  // Then check that the number actually agrees
+  for(int i = 0; i < feat_cnt * 1706; i++)
+    assert(isEqual(correct_out[i], dnn_output[i]));
+  
+#endif
 
   return 0;
 }
