@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 
-kernels = [ 'fe', 'fd', 'gmm', 'regex', 'stemmer', 'crf', 'dnn-asr']
-platforms = [ 'baseline', 'pthread', 'gpu' ]
-
 import sys, os, re, subprocess, json
 from collections import defaultdict
 import numpy as np
@@ -23,10 +20,16 @@ def main( args ):
     file = args[1]
     data = json.loads(open(file).read())
 
+    kernels = [ 'fe', 'fd', 'gmm', 'regex', 'stemmer', 'crf', 'dnn-asr']
+    platforms = [ 'baseline', 'pthread', 'gpu' ]
+
     # dictionary of lists
     dict_of_lists = defaultdict(list)
+
+    # change this to collect other stats
+    stat = 'abrv'
     for i in range(0, len(data)):
-        dict_of_lists[data[i]["abrv"]].append(data[i][data[i]["abrv"]])
+        dict_of_lists[data[i]["abrv"]].append(data[i][data[i][stat]])
 
     avg = {}
     median = {}

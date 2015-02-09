@@ -6,7 +6,7 @@ INPUT = ../input/gmm_data.txt
 
 # File names
 EXEC = gmm_scoring
-SOURCES = gmm_scoring.cpp ../../timer/timer.cpp
+SOURCES = gmm_scoring.cpp ../../utils/timer.cpp ../../utils/correct.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all
@@ -20,6 +20,7 @@ $(EXEC): $(OBJECTS) Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # test
+test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
 

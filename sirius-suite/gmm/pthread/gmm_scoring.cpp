@@ -6,7 +6,8 @@
 #include <assert.h>
 #include <pthread.h>
 
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
+#include "../../utils/correct.h"
 
 int NTHREADS;
 int iterations;
@@ -25,7 +26,6 @@ float *precs_vect;
 float *weight_vect;
 float *factor_vect;
 
-float *cpu_score_vect;
 float *pthread_score_vect;
 
 float logZero = -3.4028235E38;
@@ -161,7 +161,6 @@ int main(int argc, char *argv[]) {
   weight_vect = (float *)malloc(comp_array_size * sizeof(float));
   factor_vect = (float *)malloc(comp_array_size * sizeof(float));
 
-  cpu_score_vect = (float *)malloc(senone_size * sizeof(float));
   pthread_score_vect = (float *)malloc(senone_size * sizeof(float));
 
   int tids[NTHREADS];
@@ -180,7 +179,8 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < comp_size; j++) {
       for (int k = 0; k < comp_size; k++) {
         float elem;
-        fscanf(fp, "%f", &elem);
+        if(!fscanf(fp, "%f", &elem))
+          break;
         means_vect[idx] = elem;
         ++idx;
       }
@@ -192,7 +192,8 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < comp_size; j++) {
       for (int k = 0; k < comp_size; k++) {
         float elem;
-        fscanf(fp, "%f", &elem);
+        if(!fscanf(fp, "%f", &elem))
+          break;
         precs_vect[idx] = elem;
         idx = idx + 1;
       }
@@ -203,7 +204,8 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < senone_size; i++) {
     for (int j = 0; j < comp_size; j++) {
       float elem;
-      fscanf(fp, "%f", &elem);
+      if(!fscanf(fp, "%f", &elem))
+        break;
       weight_vect[idx] = elem;
       idx = idx + 1;
     }
@@ -213,7 +215,8 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < senone_size; i++) {
     for (int j = 0; j < comp_size; j++) {
       float elem;
-      fscanf(fp, "%f", &elem);
+      if(!fscanf(fp, "%f", &elem))
+        break;
       factor_vect[idx] = elem;
       idx = idx + 1;
     }
@@ -236,6 +239,11 @@ int main(int argc, char *argv[]) {
 
   STATS_END();
 
+  // write for correctness check
+#if TESTING
+  write_out("../input/gmm.pthread", pthread_score_vect, senone_size);
+#endif
+
   /* Clean up and exit */
   free(means_vect);
   free(precs_vect);
@@ -243,7 +251,6 @@ int main(int argc, char *argv[]) {
   free(weight_vect);
   free(factor_vect);
 
-  free(cpu_score_vect);
   free(pthread_score_vect);
 
   pthread_attr_destroy(&attr);

@@ -4,7 +4,8 @@
 #include <float.h>
 #include <math.h>
 
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
+#include "../../utils/correct.h"
 
 float feature_vect[] = {2.240018,    2.2570236,    0.11304555,   -0.21307051,
                         0.8988138,   0.039065503,  0.023874786,  0.13153112,
@@ -21,8 +22,6 @@ float *weight_vect;
 float *factor_vect;
 
 float *score_vect;
-float *cpu_score_vect;
-float *pthread_score_vect;
 
 float logZero = -3.4028235E38;
 
@@ -39,13 +38,7 @@ int feat_size = 29;
 int senone_size = 5120;
 
 void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
-                      float *weight_vect, float *factor_vect,
-                      float *score_vect) {
-  float logZero = -3.4028235E38;
-  float maxLogValue = 7097004.5;
-  float minLogValue = -7443538.0;
-  float naturalLogBase = (float)1.00011595E-4;
-  float inverseNaturalLogBase = 9998.841;
+                      float *weight_vect, float *factor_vect) {
 
   int comp_size = 32;
   int feat_size = 29;
@@ -129,7 +122,6 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-  float *dev_feat_vect;
 
   STATS_INIT ("kernel", "gaussian_mixture_model");
   PRINT_STAT_STRING ("abrv", "gmm");
@@ -142,16 +134,7 @@ int main(int argc, char *argv[]) {
   weight_vect = (float *)malloc(comp_array_size * sizeof(float));
   factor_vect = (float *)malloc(comp_array_size * sizeof(float));
 
-  float *dev_means_vect;
-  float *dev_precs_vect;
-  float *dev_weight_vect;
-  float *dev_factor_vect;
-
   score_vect = (float *)malloc(senone_size * sizeof(float));
-  cpu_score_vect = (float *)malloc(senone_size * sizeof(float));
-  pthread_score_vect = (float *)malloc(senone_size * sizeof(float));
-
-  float *dev_score_vect;
 
   // load model from file
   FILE *fp = fopen(argv[1], "r");
@@ -165,7 +148,8 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < comp_size; j++) {
       for (int k = 0; k < comp_size; k++) {
         float elem;
-        fscanf(fp, "%f", &elem);
+        if(!fscanf(fp, "%f", &elem))
+            break;
         means_vect[idx] = elem;
         ++idx;
       }
@@ -177,7 +161,8 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < comp_size; j++) {
       for (int k = 0; k < comp_size; k++) {
         float elem;
-        fscanf(fp, "%f", &elem);
+        if(!fscanf(fp, "%f", &elem))
+          break;
         precs_vect[idx] = elem;
         idx = idx + 1;
       }
@@ -188,7 +173,8 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < senone_size; i++) {
     for (int j = 0; j < comp_size; j++) {
       float elem;
-      fscanf(fp, "%f", &elem);
+      if(!fscanf(fp, "%f", &elem))
+        break;
       weight_vect[idx] = elem;
       idx = idx + 1;
     }
@@ -198,7 +184,8 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < senone_size; i++) {
     for (int j = 0; j < comp_size; j++) {
       float elem;
-      fscanf(fp, "%f", &elem);
+      if(!fscanf(fp, "%f", &elem))
+        break;
       factor_vect[idx] = elem;
       idx = idx + 1;
     }
@@ -208,10 +195,15 @@ int main(int argc, char *argv[]) {
 
   tic ();
   computeScore_seq(feature_vect, means_vect, precs_vect, weight_vect,
-                   factor_vect, cpu_score_vect);
+                   factor_vect);
   PRINT_STAT_DOUBLE ("gmm", toc ());
 
   STATS_END();
+
+  // write for correctness check
+#if TESTING
+  write_out("../input/gmm.baseline", score_vect, senone_size);
+#endif
 
   /* Clean up and exit */
   free(means_vect);
@@ -221,8 +213,6 @@ int main(int argc, char *argv[]) {
   free(factor_vect);
 
   free(score_vect);
-  free(cpu_score_vect);
-  free(pthread_score_vect);
 
   return 0;
 }
