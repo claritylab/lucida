@@ -1,12 +1,11 @@
 #include <stdio.h>
-
-// For the CUDA runtime routines (prefixed with "cuda_")
 #include <cuda_runtime.h>
 #include <limits.h>
 #include <float.h>
 #include <math.h>
 #include <sys/time.h>
-#include "../../timer/timer.h"
+
+#include "../../utils/timer.h"
 
 float feature_vect[] = {2.240018,    2.2570236,    0.11304555,   -0.21307051,
                         0.8988138,   0.039065503,  0.023874786,  0.13153112,
@@ -23,8 +22,6 @@ float *weight_vect;
 float *factor_vect;
 
 float *score_vect;
-float *cpu_score_vect;
-float *pthread_score_vect;
 
 __device__ __constant__ float logZero = -3.4028235E38;
 __device__ __constant__ float maxLogValue = 7097004.5;
@@ -118,6 +115,28 @@ extern "C"
   }
 }
 
+void write_out(char *fname, float *arr, int arr_len) {
+  std::ofstream f;
+  f.open(fname, std::ios::out);
+  f.precision(15);
+
+  for(int i = 0; i < arr_len; ++i)
+    f << arr[i] << " ";
+
+  f.close();
+}
+
+void read_in(char *fname, float *arr, int arr_len) {
+  std::ifstream f;
+  f.open(fname, std::ios::out);
+  f.precision(15);
+
+  for(int i = 0; i < arr_len; ++i)
+    f << arr[i] << " ";
+
+  f.close();
+}
+
 int main(int argc, char *argv[]) {
   if (argc < 2) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
@@ -154,8 +173,6 @@ int main(int argc, char *argv[]) {
   float *dev_factor_vect;
 
   score_vect = (float *)malloc(senone_size * sizeof(float));
-  cpu_score_vect = (float *)malloc(senone_size * sizeof(float));
-  pthread_score_vect = (float *)malloc(senone_size * sizeof(float));
 
   float *dev_score_vect;
 
@@ -314,6 +331,11 @@ int main(int argc, char *argv[]) {
 
   STATS_END();
 
+  // write for correctness check
+#if TESTING
+  write_out("../input/gmm.gpu", score_vect, senone_size);
+#endif
+
   free(means_vect);
   free(precs_vect);
 
@@ -321,8 +343,6 @@ int main(int argc, char *argv[]) {
   free(factor_vect);
 
   free(score_vect);
-  free(cpu_score_vect);
-  free(pthread_score_vect);
 
   cudaFree(dev_means_vect);
   cudaFree(dev_precs_vect);

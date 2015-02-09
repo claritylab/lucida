@@ -49,22 +49,26 @@ def run_kernel (k, plat):
     shcmd(cmd)
         
 def main( args ):
-    if len(args) < 2:
-        print "Usage: ./collect-stats.py <top-directory of kernels>"
+    if len(args) < 3:
+        print "Usage: ./collect-stats.py <top-directory of kernels> <# of runs>"
         return
 
     kernels = [ 'fe', 'fd', 'gmm', 'regex', 'stemmer', 'crf', 'dnn-asr']
     platforms = [ 'baseline', 'pthread', 'gpu' ]
-    LOOP = 10
 
     # top directory of kernels
     kdir = args[1]
     os.chdir(kdir)
 
+    # how many times to run each kernel
+    LOOP = args[2]
+
     # remove GPU if no NVCC installed
     if shcom("which nvcc") == "":
         platforms = [ 'baseline', 'pthread']
 
+    # for each kernel and platform.
+    # uses 'make test' input and config for each kernel
     root = os.getcwd()
     for k in kernels:
         d = os.getcwd() + '/' + k

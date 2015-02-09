@@ -9,7 +9,9 @@
  */
 
 /**
- * TODO:
+ * TODO: eh this isn't exactly mine, took it from another project and changed
+ * it up. all the other files have a LICENSE header but this one didn't since
+ * its just a timing utility
  *
  * @author: Johann Hauswald
  * @contact: jahausw@umich.edu
