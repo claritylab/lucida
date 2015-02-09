@@ -23,7 +23,7 @@
 #include <glog/logging.h>
 
 #include "caffe/caffe.hpp"
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
 
 using caffe::Blob;
 using caffe::Caffe;
@@ -128,7 +128,7 @@ int main(int argc, char** argv)
   PRINT_STAT_INT ("in_features", feat_cnt);
 
   // Perform dnn forward pass
-  // FIXME: can we give 440 and 1706 a name, like MFCC_SIZE?
+  // FIXME: can we give 440 and 1706 a name, like NEURONS or something?
   int in_size = feat_cnt * 440;
   int out_size = feat_cnt * 1706; 
   float* dnn_output = (float*)malloc(sizeof(float) * out_size);
@@ -141,21 +141,21 @@ int main(int argc, char** argv)
   dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);
   PRINT_STAT_DOUBLE ("gpu_dnn-asr", toc());
 
-  // TODO: see issue #9
-  // // Read in the correct result to sanity check
-  // std::string result_file = "nnet.out";
-  // float* correct_out;
-  // int correct_out_cnt = load_features(&correct_out, result_file, 1706);
-  //
-  // // First check the numbers of vectors are same
-  // assert(correct_out_cnt == feat_cnt && "The number of results are incorrect.\n");
-  //
-  // // Then check the number actually agrees
-  // for(int i = 0; i < feat_cnt * 1706; i++){
-  //   assert(isEqual(correct_out[i], dnn_output[i]) && "Results do not agree.\n");
-  // }
-
   STATS_END ();
+
+#if TESTING
+  std::string result_file = "../input/correct.out";
+  float* correct_out;
+  int correct_out_cnt = load_features(&correct_out, result_file, 1706);
+
+  // First check that the numbers of vectors are same
+  assert(correct_out_cnt == feat_cnt);
+
+  // Then check that the number actually agrees
+  for(int i = 0; i < feat_cnt * 1706; i++)
+    assert(isEqual(correct_out[i], dnn_output[i]));
+  
+#endif
 
   return 0;
 }

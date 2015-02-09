@@ -10,8 +10,8 @@ MODEL   = ../model/asr.prototxt
 WEIGHTS = ../model/asr.caffemodel
 INPUT   = ../input/features.in
 
-EXEC = dnn-asr
-SOURCES=dnn-asr.cpp ../../timer/timer.cpp
+EXEC = dnn_asr
+SOURCES=dnn-asr.cpp ../../utils/timer.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 
 .PHONY: all test clean
@@ -25,6 +25,7 @@ $(EXEC): $(OBJECTS) Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # test
+test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(MODEL) $(WEIGHTS) $(INPUT)
 

@@ -17,8 +17,8 @@ rm -rf .libs/
 cp tag.c $crfdir/frontend
 
 # Rebuild
-cd $crfdir && make
-cd ../
+cd $crfdir/frontend && make
+cd ../../ ;
 
 # copy the binary to base directory
 cp $crfdir/frontend/crfsuite .
