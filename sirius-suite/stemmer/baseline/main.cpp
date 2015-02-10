@@ -4,7 +4,7 @@
 #include <stdlib.h> /* for malloc, free */
 #include <ctype.h>  /* for isupper, islower, tolower */
 
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
 #include "porter.h"
 
 static char *s; /* buffer for words to be stemmed */
@@ -78,6 +78,7 @@ int main(int argc, char *argv[]) {
 
   stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
+  fclose(f);
   PRINT_STAT_INT ("words", words);
 
   tic ();
@@ -90,6 +91,15 @@ int main(int argc, char *argv[]) {
   STATS_END();
 
   free(s);
+
+#ifdef TESTING
+  f = fopen("../input/stemmer.baseline", "w");
+
+  for(int i = 0; i < words; ++i)
+      fprintf(f, "%s\n", stem_list[i]->b);
+
+  fclose(f);
+#endif
 
   // free up allocated data
   for (int i = 0; i < words; i++) {

@@ -7,7 +7,7 @@
 #include <ctype.h>  /* for isupper, islower, tolower */
 #include <pthread.h>
 
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
 #include "porter.h"
 
 static char *s; /* buffer for words to be stemmed */
@@ -99,6 +99,7 @@ int main(int argc, char *argv[]) {
 
   stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
+  fclose(f);
   PRINT_STAT_INT ("words", words);
 
   tic ();
@@ -121,7 +122,15 @@ int main(int argc, char *argv[]) {
   
   STATS_END();
 
+#ifdef TESTING
+  f = fopen("../input/stemmer.pthread", "w");
+
+  for(int i = 0; i < words; ++i)
+      fprintf(f, "%s\n", stem_list[i]->b);
+
   fclose(f);
+#endif
+
   free(s);
 
   // free up allocated data

@@ -6,7 +6,7 @@ INPUT = ../input/voc.txt
 
 # File names
 EXEC = stem_porter
-SOURCES = main.cpp porter.cpp ../../timer/timer.cpp
+SOURCES = main.cpp porter.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all
@@ -20,6 +20,7 @@ $(EXEC): $(OBJECTS) Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # test
+test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
 
