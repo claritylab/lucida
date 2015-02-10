@@ -24,7 +24,7 @@
 #include <pthread.h>
 #include <time.h>
 
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"

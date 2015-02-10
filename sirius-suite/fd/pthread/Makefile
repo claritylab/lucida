@@ -12,7 +12,7 @@ THREADS = 4
 
 # File names
 EXEC = surf-fd
-SOURCES = surf-fd.cpp ../../timer/timer.cpp
+SOURCES = surf-fd.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all

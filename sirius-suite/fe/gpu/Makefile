@@ -11,7 +11,7 @@ INPUT = ../input/2048x2048.jpg
 
 # File names
 EXEC = surf-fe
-SOURCES = surf-fe.cpp ../../timer/timer.cpp
+SOURCES = surf-fe.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all

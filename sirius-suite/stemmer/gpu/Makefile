@@ -1,5 +1,5 @@
 CXX = nvcc
-CXX_FLAGS = -arch=sm_35
+CXX_FLAGS = -arch=compute_35 -code=sm_35
 
 INPUT = ../input/voc.txt
 
@@ -22,7 +22,8 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
-	diff ../input/stemmer.baseline ../input/stemmer.gpu > /dev/null
+	@diff ../input/stemmer.baseline ../input/stemmer.gpu > /dev/null ; \
+		if [ $$? -eq 1 ] ; then echo "STEMMER-GPU test failed" ; fi
 
 # To remove generated files
 clean:
