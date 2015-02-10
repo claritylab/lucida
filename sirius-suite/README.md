@@ -1,27 +1,35 @@
 ## Sirius-Suite
 
-Johann Hauswald (jahausw@umich.edu)
+Each folder contains standalone algorithmic components extracted from the
+end-to-end Sirius system. Every kernel contains a baseline, pthread, GPU
+version (CRF and Regex were not ported to the GPU), input set, and a more
+detailed README. The kernels are either adapted from open-source
+implementations or where none are available, written from scratch.
 
-University of Michigan, 2014
+Each kernel is part of a specific service from Sirius:
+    -ASR: dnn-asr, gmm
+    -IMM: fe, fd
+    -QA: crf, regex, stemmer
 
-Each kernel contains:
-
-- input (when applicable, larger inputs not included)
-- baseline
-- pthread
-- GPU (when applicable)
-- bits: this folder contains trial or old versions
-
-Each version has its own `Makefile` inside the directory.
-
-Each benchmark is run the following way:
+### Running the kernels:
+1. Most dependencies can be installed using `get-<dependency>.sh` included in
+[sirius-application](../sirius-application). `dnn-asr` and `crf` require
+additional libraries (see READMEs).
+2. Build all:  
 ```bash
-$ ./executable ../input/input
+$ make
 ```
+3. Run the kernels on all supported platforms with the default inputs and
+check output compared to the baseline implementation:
+```bash
+$ make test
+```
+4. The kernels produce .json output that is easily parsable. Kernel
+information, input data sizes, and timing information is printed during
+execution of the kernel. The `scripts/` folder includes useful python scripts
+to loop and parse the kernel output.
 
-Some kernels have their own dedicated READMEs.
-
-Download larger inputs at:
+Download larger inputs at: TODO
 
 http://web.eecs.umich.edu/~jahausw
 

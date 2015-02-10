@@ -20,16 +20,12 @@ float *means_vect;
 float *precs_vect;
 float *weight_vect;
 float *factor_vect;
-
 float *score_vect;
 
 float logZero = -3.4028235E38;
-
 float logBase = 1.0001;
-
 float maxLogValue = 7097004.5;
 float minLogValue = -7443538.0;
-
 float naturalLogBase = (float)1.00011595E-4;
 float inverseNaturalLogBase = 9998.841;
 

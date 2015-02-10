@@ -564,7 +564,6 @@ void *tag_thread(void *tid) {
 
   int iterations = N / NTHREADS;
   int **private_out;
-  int **private;
 
   mytid = (int *)tid;
   start = (*mytid * iterations);
