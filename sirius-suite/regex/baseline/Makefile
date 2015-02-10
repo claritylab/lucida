@@ -7,7 +7,7 @@ QUESTIONS = ../input/questions
 
 # File names
 EXEC = regex_slre
-SOURCES = main.cpp slre.cpp ../../timer/timer.cpp
+SOURCES = main.cpp slre.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all
@@ -21,6 +21,7 @@ $(EXEC): $(OBJECTS) Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # test
+test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(LIST) $(QUESTIONS)
 

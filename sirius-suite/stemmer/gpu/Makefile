@@ -19,8 +19,10 @@ $(EXEC): $(OBJECTS) Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # test
+test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
+	diff ../input/stemmer.baseline ../input/stemmer.gpu > /dev/null
 
 # To remove generated files
 clean:

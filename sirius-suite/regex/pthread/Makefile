@@ -1,6 +1,6 @@
 CXX = g++
 LINK_FLAGS = -lpthread -lrt -lm
-CXX_FLAGS = -O3
+CXX_FLAGS = -O3 -fpermissive
 
 THREADS   = 4
 LIST      = ../input/list
@@ -8,7 +8,7 @@ QUESTIONS = ../input/questions
 
 # File names
 EXEC = regex_slre
-SOURCES = main.cpp slre.cpp ../../timer/timer.cpp
+SOURCES = main.cpp slre.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all
@@ -22,8 +22,11 @@ $(EXEC): $(OBJECTS) Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # test
+test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(THREADS) $(LIST) $(QUESTIONS)
+	diff ../input/regex.baseline ../input/regex.pthread > /dev/null
+
 
 # To remove generated files
 clean:

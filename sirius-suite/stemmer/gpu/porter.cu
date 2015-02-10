@@ -38,7 +38,7 @@
 #include <math.h>
 #include <sys/time.h>
 
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
 
 /* You will probably want to move the following declarations to a central
   header file.
@@ -762,8 +762,8 @@ __host__ __device__ static void step5(struct stemmer *z) {
 __global__ void stem_gpu(struct stemmer *stem_list, int words) {
   int tid = blockIdx.x * blockDim.x + threadIdx.x;
   if (tid < words) {
-    if (stem_list[tid].k < 1) return;
     step1ab(&(stem_list[tid]));
+    if (stem_list[tid].k < 1) return;
     step1c(&(stem_list[tid]));
     step2(&(stem_list[tid]));
     step3(&(stem_list[tid]));
@@ -873,11 +873,6 @@ int main(int argc, char *argv[]) {
   cudaEventRecord(eStart, 0);
   cudaMemcpy(stem_list, gpu_stem_list, words*sizeof(struct stemmer), cudaMemcpyDeviceToHost);
 
-  //TODO: correctness checking
-  /* for(int i = 0; i < 10; ++i) { */
-  /*     printf("%s\n",stem_list[i].b); */
-  /* } */
-
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
@@ -887,6 +882,14 @@ int main(int argc, char *argv[]) {
   cudaEventDestroy(eStop);
 
   STATS_END (); 
+#ifdef TESTING
+  f = fopen("../input/stemmer.gpu", "w");
+
+  for(int i = 0; i < words; ++i)
+      fprintf(f, "%s\n", stem_list[i].b);
+
+  fclose(f);
+#endif
   free(stem_list);
   cudaFree(gpu_stem_list);
 

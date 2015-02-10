@@ -5,19 +5,18 @@
 #include <string.h>
 #include <errno.h>
 
-#include "../../timer/timer.h"
 #include "slre.h"
+#include "../../utils/timer.h"
 
-#define EXPRESSIONS 100
-#define QUESTIONS 400
-#define MAXCAPS 60000
+#define MAXCAPS     60000
+#define EXPRESSIONS   100
+#define QUESTIONS     200
 
 /* Data */
 char *exps[256];
 struct slre *slre[512];
 char *bufs[MAXCAPS];
 int temp[256], buf_len[512];
-struct cap caps[MAXCAPS];
 
 int fill(FILE *f, char **toFill, int *bufLen, int len) {
   int i = 0;
@@ -77,16 +76,32 @@ int main(int argc, char *argv[]) {
   }
   PRINT_STAT_DOUBLE ("regex_compile", toc ());
 
+  struct cap *caps[numExps*numQs];
+  for(int i = 0; i < numExps * numQs; ++i)
+      caps[i] = (struct cap *)malloc(sizeof(cap));
+
   tic ();
   for (int i = 0; i < numExps; ++i) {
     for (int k = 0; k < numQs; ++k) {
-      if (slre_match(slre[i], bufs[k], buf_len[k], caps) < -1)
+      if (slre_match(slre[i], bufs[k], buf_len[k], caps[i*numQs+k]) < -1)
         printf("error\n");
     }
   }
   PRINT_STAT_DOUBLE ("regex", toc ());
 
+#ifdef TESTING
+  f = fopen("../input/regex.baseline", "w");
+
+  for(int i = 0; i < numExps * numQs; ++i)
+      fprintf(f, "%s\n", caps[i]->ptr);
+
+  fclose(f);
+#endif
+
   STATS_END ();
+
+  for (int i = 0; i < numExps; ++i)
+    free(slre[i]);
 
   return 0;
 }

@@ -7,24 +7,25 @@
 #include <sys/time.h>
 #include <pthread.h>
 
-#include "../../timer/timer.h"
+#include "../../utils/timer.h"
 #include "slre.h"
 
-#define EXPRESSIONS 100
-#define QUESTIONS 400
-#define MAXCAPS 60000
+#define MAXCAPS   1000000
+#define EXPRESSIONS   100
+#define QUESTIONS     200
 
 /* Data */
 char *exps[256];
-struct slre *slre[512];
+struct slre *slre[EXPRESSIONS];
 char *bufs[MAXCAPS];
-int temp[256], buf_len[512];
-struct cap caps[MAXCAPS];
+int temp[512], buf_len[512];
+struct cap **caps;
 
 int iterations;
 int NTHREADS;
 int numQs;
 int numExps;
+int s_max = 512;
 
 void *slre_thread(void *tid) {
   int start, end, *mytid;
@@ -34,7 +35,7 @@ void *slre_thread(void *tid) {
 
   for (int i = start; i < end; ++i) {
     for (int j = 0; j < numQs; ++j) {
-      slre_match(slre[i], bufs[j], buf_len[j], caps);
+      slre_match(slre[i], bufs[j], buf_len[j], caps[i*numQs+j]);
     }
   }
 }
@@ -71,7 +72,6 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
   /* Timing */
-  /* Timing */
   STATS_INIT ("kernel", "regular_expression");
   PRINT_STAT_STRING ("abrv", "pthread_regex");
 
@@ -96,14 +96,24 @@ int main(int argc, char *argv[]) {
 
   tic ();
   for (int i = 0; i < numExps; ++i) {
-    slre[i] = (struct slre *)malloc(sizeof(slre));
+    slre[i] = (struct slre *)malloc(sizeof(struct slre));
     if (!slre_compile(slre[i], exps[i])) {
       printf("error compiling: %s\n", exps[i]);
     }
   }
   PRINT_STAT_DOUBLE ("regex_compile", toc ());
 
+  caps = (struct cap**) malloc(numExps * numQs * sizeof(struct cap));
+  for(int i = 0; i < numExps * numQs; ++i) {
+      char *s = (char*)malloc(s_max);
+      struct cap *z = (struct cap *)malloc(sizeof(struct cap));
+      z->ptr = s;
+      caps[i] = z;
+  }
+
+
   tic ();
+
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
@@ -119,6 +129,17 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
 
   PRINT_STAT_DOUBLE ("pthread_regex", toc ());
+
+#ifdef TESTING
+  f = fopen("../input/regex.pthread", "w");
+
+  for(int i = 0; i < numExps * numQs; ++i)
+      fprintf(f, "%s\n", caps[i]->ptr);
+
+  fclose(f);
+#endif
+
+  free(caps);
 
   STATS_END ();
 
