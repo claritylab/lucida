@@ -68,10 +68,7 @@ void *feat_thread(void *tid) {
   start = (*mytid * iterations);
   end = start + iterations;
 
-  // printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
-
-  for (int i = start; i < end; ++i)
-    keys[i] = exec_feature(segs[i]);
+  for (int i = start; i < end; ++i) keys[i] = exec_feature(segs[i]);
 }
 
 void *desc_thread(void *tid) {
@@ -79,8 +76,6 @@ void *desc_thread(void *tid) {
   mytid = (int *)tid;
   start = (*mytid * iterations);
   end = start + iterations;
-
-  // printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
 
   for (int i = start; i < end; ++i) Mat testDesc = exec_desc(segs[i], keys[i]);
 }

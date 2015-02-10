@@ -43,15 +43,8 @@ int NTHREADS;
 vector<Mat> segs;
 FeatureDetector *detector = new SurfFeatureDetector();
 int iterations;
+vector<vector<KeyPoint> > keys;
 
-vector<KeyPoint> exec_feature(const Mat &img) {
-  vector<KeyPoint> keypoints;
-  detector->detect(img, keypoints);
-
-  return keypoints;
-}
-
-// I'm sure opencv already has something like this...
 vector<Mat> segment(const Mat &img) {
   int height_inc = img.size().height / NTHREADS;
   int width_inc = img.size().width / NTHREADS;
@@ -113,16 +106,20 @@ vector<Mat> segment(const Mat &img) {
   return segments;
 }
 
+vector<KeyPoint> exec_feature(const Mat &img) {
+  vector<KeyPoint> keypoints;
+  detector->detect(img, keypoints);
+
+  return keypoints;
+}
+
 void *feat_thread(void *tid) {
   int start, *mytid, end;
   mytid = (int *)tid;
   start = (*mytid * iterations);
   end = start + iterations;
 
-  // printf ("Thread %d doing iterations %d to %d\n", *mytid, start, end-1);
-
-  for (int i = start; i < end; ++i)
-    vector<KeyPoint> priv_keys = exec_feature(segs[i]);
+  for (int i = start; i < end; ++i) keys[i] = exec_feature(segs[i]);
 }
 
 int main(int argc, char **argv) {
@@ -137,7 +134,6 @@ int main(int argc, char **argv) {
 
   NTHREADS = atoi(argv[1]);
   PRINT_STAT_INT ("threads", NTHREADS);
-  // Generate test keys
   Mat img = imread(argv[2], CV_LOAD_IMAGE_GRAYSCALE);
   if (img.empty()) {
     printf("image not found\n");
@@ -161,6 +157,7 @@ int main(int argc, char **argv) {
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
   iterations = (segs.size() / NTHREADS);
+  keys.resize(segs.size());
   pthread_attr_init(&attr);
   pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 

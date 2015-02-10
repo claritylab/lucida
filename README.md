@@ -1,5 +1,7 @@
 ## Sirius: Speech and Vision Based Intelligent Personal Assistant
 
+TODO: REWRITE this
+
 Johann Hauswald (jahausw@umich.edu)
 
 Vinicius Petrucci (vpetrucci@gmail.com)

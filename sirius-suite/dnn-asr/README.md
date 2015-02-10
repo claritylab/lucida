@@ -1,4 +1,4 @@
-## DNN (ASR) kernel
+## [Sirius-suite ASR]: Deep Neural Network based Automatic Speech Recognition
 
 Yiping Kang (ypkang@umich.edu)
 
@@ -17,11 +17,8 @@ multithreaded version of this kernel.
 ### Directory structure
 `./model/` contains the network configuration file and pre-trained model file.  
 `./input/` contains an input file of features and the corresponding expected
-output file.
-
-### Input
-The input included is a sentence of 548 feature vectors each of which consists
-of 440 floating numbers.
+output file. The input included is a sentence of 548 feature vectors each of
+which consists of 440 floating numbers.
 
 ### Running the kernel
 1. Download and build [Caffe](https://github.com/BVLC/caffe) and
