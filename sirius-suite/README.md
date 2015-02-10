@@ -12,19 +12,19 @@ Each kernel is part of a specific service from Sirius:
     -QA: crf, regex, stemmer
 
 ### Running the kernels:
-1. Most dependencies can be installed using `get-<dependency>.sh` included in
+- Most dependencies can be installed using `get-<dependency>.sh` included in
 [sirius-application](../sirius-application). `dnn-asr` and `crf` require
 additional libraries (see READMEs).
-2. Build all:  
+- Build all:  
 ```bash
 $ make
 ```
-3. Run the kernels on all supported platforms with the default inputs and
+- Run the kernels on all supported platforms with the default inputs and
 check output compared to the baseline implementation:
 ```bash
 $ make test
 ```
-4. The kernels produce .json output that is easily parsable. Kernel
+- The kernels produce .json output that is easily parsable. Kernel
 information, input data sizes, and timing information is printed during
 execution of the kernel. The `scripts/` folder includes useful python scripts
 to loop and parse the kernel output.
