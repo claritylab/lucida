@@ -46,7 +46,7 @@
 #include "../lib/crf/src/crf1d.h"
 #include "../../../utils/timer.h"
 
-#define NTHREADS 4
+#define NTHREADS 2
 
 #define SAFE_RELEASE(obj) \
   if ((obj) != NULL) {    \
@@ -60,7 +60,6 @@ crfsuite_tagger_t *tagger;
 crfsuite_instance_t **inst_vect;
 int N = 0;
 
-int **global_out;
 float *pthread_scores;
 
 enum {
@@ -564,18 +563,25 @@ void *tag_thread(void *tid) {
   int k, start, *mytid, end;
 
   int iterations = N / NTHREADS;
+  int **private_out;
+  int **private;
 
   mytid = (int *)tid;
   start = (*mytid * iterations);
   end = start + iterations;
+  private_out = (int **)calloc(sizeof(int *), iterations);
 
-  for (k = start; k < end; k++) {
+  int cnt = 0;
+  for (k = start; k < end; ++k) {
+    private_out[cnt] = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
     floatval_t score = 0;
     // Set the instance to the tagger.
     tagger->set(tagger, inst_vect[k]);
     // Obtain the viterbi label sequence.
-    tagger->viterbi(tagger, global_out[k], &score);
+    tagger->viterbi(tagger, private_out[cnt], &score);
     pthread_scores[k] = score;
+
+    ++cnt;
   }
 }
 
@@ -648,27 +654,25 @@ int main_tag(int argc, char *argv[], const char *argv0) {
     }
 
     tic ();
-    global_out = (int **)calloc(sizeof(int *), N);
-    float *scores = (float *)malloc(N * sizeof(float));
     pthread_scores = (float *)malloc(N * sizeof(float));
 
-    for (k = 0; k < N; k++) {
-      floatval_t score = 0;
-      int *output1 = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
-      global_out[k] = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
+    /* for (k = 0; k < N; k++) { */
+    /*   floatval_t score = 0; */
+    /*   int *output1 = (int *)calloc(sizeof(int), inst_vect[k]->num_items); */
+    /*   global_out[k] = (int *)calloc(sizeof(int), inst_vect[k]->num_items); */
+    /*  */
+    /*   // Set the instance to the tagger. */
+    /*   tagger->set(tagger, inst_vect[k]); */
+    /*   // Obtain the viterbi label sequence. */
+    /*   tagger->viterbi(tagger, output1, &score); */
+    /*   scores[k] = score; */
+    /*  */
+    /*   free(output1); */
+    /* } */
 
-      // Set the instance to the tagger.
-      tagger->set(tagger, inst_vect[k]);
-      // Obtain the viterbi label sequence.
-      tagger->viterbi(tagger, output1, &score);
-      scores[k] = score;
-
-      free(output1);
-    }
-
-    PRINT_STAT_DOUBLE ("crf", toc ());
-    write_out("../input/crf.baseline", scores, N);
-    free(scores);
+    /* PRINT_STAT_DOUBLE ("crf", toc ()); */
+    /* write_out("../input/crf.baseline", scores, N); */
+    /* free(scores); */
 
     tic ();
 

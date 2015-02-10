@@ -25,6 +25,7 @@ test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(THREADS) $(INPUT)
 	diff ../input/gmm.baseline ../input/gmm.pthread > /dev/null
+		if [ $$? -eq 1 ] ; then echo "GMM-Pthread test failed" ; fi
 
 # To remove generated files
 clean:

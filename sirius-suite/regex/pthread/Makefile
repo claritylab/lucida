@@ -25,7 +25,8 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(THREADS) $(LIST) $(QUESTIONS)
-	diff ../input/regex.baseline ../input/regex.pthread > /dev/null
+	@diff ../input/regex.baseline ../input/regex.pthread > /dev/null ; \
+		if [ $$? -eq 1 ] ; then echo "REGEX-PTHREAD test failed" ; fi
 
 
 # To remove generated files
