@@ -6,10 +6,10 @@ version (CRF and Regex were not ported to the GPU), input set, and a more
 detailed README. The kernels are either adapted from open-source
 implementations or where none are available, written from scratch.
 
-Each kernel is part of a specific service from Sirius:
-    -ASR: dnn-asr, gmm
-    -IMM: fe, fd
-    -QA: crf, regex, stemmer
+Each kernel is part of a specific service from Sirius:  
+    - Automatic Speech Recognition (ASR): dnn-asr, gmm  
+    - Image Matching (IMM): fe, fd  
+    - Question Answering (QA): crf, regex, stemmer
 
 ### Running the kernels:
 - Most dependencies can be installed using `get-<dependency>.sh` included in
