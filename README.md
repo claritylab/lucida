@@ -5,7 +5,7 @@ Sirius is a speech and vision based intelligent personal assistant. Visit the
 
 ## Sirius-application
 
-[sirius-application](sirius-applications) contains the 3 backend components
+[sirius-application](sirius-application) contains the 3 backend components
 required to set up the end-to-end system.  
 See [README](sirius-application/README.md) for more information.
 
