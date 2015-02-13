@@ -46,7 +46,7 @@
 #include "../lib/crf/src/crf1d.h"
 #include "../../../utils/timer.h"
 
-#define NTHREADS 2
+#define NTHREADS 4
 
 #define SAFE_RELEASE(obj) \
   if ((obj) != NULL) {    \
@@ -559,6 +559,9 @@ double toc (void) {
   return elapsedTime;
 }
 
+pthread_mutex_t var1=PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t var2=PTHREAD_MUTEX_INITIALIZER;
+
 void *tag_thread(void *tid) {
   int k, start, *mytid, end;
 
@@ -571,6 +574,12 @@ void *tag_thread(void *tid) {
   private_out = (int **)calloc(sizeof(int *), iterations);
 
   int cnt = 0;
+//  for (k = start; k < end; ++k) {
+//    pthread_mutex_lock(&var);
+//    tagger->set(tagger, inst_vect[k]);
+//    pthread_mutex_unlock(&var);
+//  }
+
   for (k = start; k < end; ++k) {
     private_out[cnt] = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
     floatval_t score = 0;
@@ -644,8 +653,11 @@ int main_tag(int argc, char *argv[], const char *argv0) {
       ret = 1;
     }
 
+    printf("\n N is %d\n", N);
     /* read the input data. */
     tag_read(&opt, model);
+    
+    printf("\n N is %d\n", N);
 
     /* Obtain the tagger interface. */
     if (ret = model->get_tagger(model, &tagger)) {
@@ -654,6 +666,9 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
     tic ();
     pthread_scores = (float *)malloc(N * sizeof(float));
+
+    for (k=0; k< N; k++)
+       tagger->set(tagger, inst_vect[k]); 
 
     /* for (k = 0; k < N; k++) { */
     /*   floatval_t score = 0; */
