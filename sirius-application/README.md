@@ -1,32 +1,19 @@
 ### Sirius
 
-### Build all Systems
+### Installation
 
-`(Tested with Ubuntu 12.04, 14.04)`
+Sirius has been tested on Ubuntu 12.04, 14.04, and Java version 1.7.
 
-1) To install basic dependencies (may not be exhaustive):
-```bash
-$ ./get-dependencies.sh
-```
-2) To install Sphinx and pocketsphinx:
-```bash
-$ ./get-pocketsphinx.sh
-```
-3) To install OpenCV:
-```bash
-$ ./get-opencv.sh
-```
-4) To compile the Sirius servers:
-```bash
-$ ./compile-sirius-servers.sh
-```
-The following mentioned scripts to run sirius are located in [run-scripts](run-scripts)
+### Prerequisites
 
-### QA system (OpenEphyra)
+Sirius has several dependencies which can be resolved with the
+`get-<package.sh` scripts. Sirius also depends on:
 
-`(tested with Java version 1.7)`
+- [Protobuf](https://code.google.com/p/protobuf) (v2.5)
 
-1) Extract the Wikipedia index in the top directory:
+### [QA system](question-answer)
+
+Extract the Wikipedia index in the top directory:
 ```bash
 $ tar xzvf wiki_indri_index.tar.gz
 ```
