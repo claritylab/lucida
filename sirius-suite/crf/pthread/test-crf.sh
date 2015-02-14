@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-if [ ! -f crfsuite ]; then
-  ./sirius-crf.sh 1>/dev/null
-fi
+./rebuild.sh
 
 ./crfsuite tag -qt -m ../input/model.model ../input/test.crfsuite.txt
+
+diff ../input/crf.pthread ../input/crf.baseline > /dev/null
+
+if [ $$? -eq 1 ] 
+then 
+    echo "CRF-PTHREAD test failed"
+fi
