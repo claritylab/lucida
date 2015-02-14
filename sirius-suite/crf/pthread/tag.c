@@ -46,7 +46,7 @@
 #include "../lib/crf/src/crf1d.h"
 #include "../../../utils/timer.h"
 
-#define NTHREADS 2
+#define NTHREADS 6
 
 #define SAFE_RELEASE(obj) \
   if ((obj) != NULL) {    \
@@ -579,7 +579,7 @@ void *tag_thread(void *tid) {
     // Set the instance to the tagger.
     tagger->set(tagger, inst_vect[k]);
     // Obtain the viterbi label sequence.
-    tagger->viterbi(tagger, &private_out[cnt], &score);
+    tagger->viterbi(tagger, private_out[cnt], &score);
     pthread_scores[k] = score;
 
     ++cnt;
@@ -681,6 +681,5 @@ int main_tag(int argc, char *argv[], const char *argv0) {
 
   STATS_END ();
 
-    /* free(pthread_scores); */
   return ret;
 }
