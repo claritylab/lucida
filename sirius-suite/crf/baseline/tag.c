@@ -493,7 +493,7 @@ void write_out(char *fname, float *arr, int arr_len) {
   FILE *f = fopen(fname, "w");
 
   for(int i = 0; i < arr_len; ++i)
-    fprintf(f, "%f ", arr[i]);
+    fprintf(f, "%f\n", arr[i]);
 
   fclose(f);
 }
@@ -557,18 +557,18 @@ int main_tag(int argc, char *argv[], const char *argv0) {
     global_out = (int **)calloc(sizeof(int *), N);
     float *scores = (float *)malloc(N * sizeof(float));
 
+    for (k=0; k< N; k++)
+       tagger->set(tagger, inst_vect[k]); 
+
     for (k = 0; k < N; k++) {
       floatval_t score = 0;
-      int *output1 = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
       global_out[k] = (int *)calloc(sizeof(int), inst_vect[k]->num_items);
 
       // Set the instance to the tagger.
       tagger->set(tagger, inst_vect[k]);
       // Obtain the viterbi label sequence.
-      tagger->viterbi(tagger, output1, &score);
+      tagger->viterbi(tagger, global_out[k], &score);
       scores[k] = score;
-
-      free(output1);
     }
 
     PRINT_STAT_DOUBLE ("crf", toc ());
