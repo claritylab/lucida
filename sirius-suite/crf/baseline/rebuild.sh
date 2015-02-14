@@ -11,6 +11,10 @@ hash make 2>/dev/null || {
 
 crfdir=crfsuite-0.12
 
+if [ ! -d $crfsuite ]; then
+  ./sirius-crf.sh 1>/dev/null
+fi
+
 # temp directory created by crfsuite
 rm -rf .libs/
 
