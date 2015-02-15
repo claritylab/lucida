@@ -24,7 +24,7 @@ which consists of 440 floating numbers.
 1. Download and build [Caffe](https://github.com/BVLC/caffe) and
    [OpenBlas](https://github.com/xianyi/OpenBLAS).
 2. Build the kernels using `make`
-3. Download pre-trained model at TODO
+3. Download pre-trained model at web.eecs.umich.edu/~ypkang 
 4. Execute the kernel:  
 ```bash
 $ make test
