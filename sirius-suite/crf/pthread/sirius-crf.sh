@@ -22,15 +22,13 @@ hash make 2>/dev/null || {
 crfdir=crfsuite-0.12
 
 if [ ! -d $crfdir ]; then
-
   wget -q https://github.com/downloads/chokkan/crfsuite/crfsuite-0.12.tar.gz
   tar xzf crfsuite-0.12.tar.gz
+  cd $crfdir;
+  ./configure
+  make
+  cd ../
 fi
-
-cd $crfdir;
-./configure
-make
-cd ../
 
 cp tag.c \
   Makefile \
