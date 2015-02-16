@@ -5,6 +5,7 @@
 #include <math.h>
 #include <assert.h>
 #include <pthread.h>
+#include <string>
 
 #include "../../utils/timer.h"
 #include "../../utils/correct.h"
@@ -241,7 +242,7 @@ int main(int argc, char *argv[]) {
 
   // write for correctness check
 #if TESTING
-  write_out("../input/gmm.pthread", pthread_score_vect, senone_size);
+  write_out("../input/gmm_scoring.pthread", pthread_score_vect, senone_size);
 #endif
 
   /* Clean up and exit */

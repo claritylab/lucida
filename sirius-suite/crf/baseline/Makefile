@@ -27,4 +27,4 @@ test: all
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	$(RM) -f $(EXEC) *.o ../input/$(EXEC).baseline

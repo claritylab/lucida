@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
   free(s);
 
 #ifdef TESTING
-  f = fopen("../input/stemmer.baseline", "w");
+  f = fopen("../input/stem_porter.baseline", "w");
 
   for(int i = 0; i < words; ++i)
       fprintf(f, "%s\n", stem_list[i]->b);

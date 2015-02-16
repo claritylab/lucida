@@ -22,8 +22,8 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
-	@diff -q ../input/stemmer.baseline ../input/stemmer.gpu
+	-@diff -q ../input/$(EXEC).baseline ../input/$(EXEC).gpu
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	$(RM) -f $(EXEC) *.o ../input/$(EXEC).gpu

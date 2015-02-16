@@ -883,7 +883,7 @@ int main(int argc, char *argv[]) {
 
   STATS_END (); 
 #ifdef TESTING
-  f = fopen("../input/stemmer.gpu", "w");
+  f = fopen("../input/stem_porter.gpu", "w");
 
   for(int i = 0; i < words; ++i)
       fprintf(f, "%s\n", stem_list[i].b);

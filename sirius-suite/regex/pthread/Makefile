@@ -25,9 +25,8 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(THREADS) $(LIST) $(QUESTIONS)
-	@diff -q ../input/regex.baseline ../input/regex.pthread
-
+	-@diff -q ../input/$(EXEC).baseline ../input/$(EXEC).pthread
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	$(RM) -f $(EXEC) *.o ../input/$(EXEC).pthread
