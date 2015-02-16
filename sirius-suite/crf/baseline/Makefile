@@ -1,6 +1,6 @@
 CXX = g++
 CXX_FLAGS = -O3
-LINK_FLAGS = libcrfpp.a
+LINK_FLAGS = ../libcrfpp.a
 
 MODEL   = ../input/model
 INPUT   = ../input/test.data

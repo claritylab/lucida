@@ -1,6 +1,6 @@
 CXX = g++
 CXX_FLAGS = -O3
-LINK_FLAGS = libcrfpp.a -lpthread
+LINK_FLAGS = ../libcrfpp.a -lpthread
 
 THREADS = 4
 MODEL   = ../input/model
