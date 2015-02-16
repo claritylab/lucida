@@ -22,8 +22,7 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
-	@diff ../input/gmm.gpu ../input/gmm.baseline > /dev/null ; \
-		if [ $$? -eq 1 ] ; then echo "GMM-GPU test failed" ; fi
+	@diff -q ../input/gmm.gpu ../input/gmm.baseline
 
 # To remove generated files
 clean:
