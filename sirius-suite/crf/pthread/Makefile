@@ -25,8 +25,8 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(THREADS) $(MODEL) $(INPUT)
-	@echo "CRF-PTHREAD different tags:" \
-		$(shell diff -U 0 ../input/crf.baseline ../input/crf.pthread | tail -n +3 | grep -c ^+)
+	-@diff -q ../input/$(EXEC).baseline ../input/$(EXEC).pthread
+
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	$(RM) -f $(EXEC) *.o ../input/$(EXEC).pthread

@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include <float.h>
 #include <math.h>
+#include <string>
 
 #include "../../utils/timer.h"
 #include "../../utils/correct.h"
+
+using namespace std;
 
 float feature_vect[] = {2.240018,    2.2570236,    0.11304555,   -0.21307051,
                         0.8988138,   0.039065503,  0.023874786,  0.13153112,
@@ -197,7 +200,7 @@ int main(int argc, char *argv[]) {
 
   // write for correctness check
 #if TESTING
-  write_out("../input/gmm.baseline", score_vect, senone_size);
+  write_out("../input/gmm_scoring.baseline", score_vect, senone_size);
 #endif
 
   /* Clean up and exit */

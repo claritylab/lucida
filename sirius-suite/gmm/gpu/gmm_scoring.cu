@@ -5,6 +5,7 @@
 #include <math.h>
 #include <sys/time.h>
 #include <pthread.h>
+#include <string>
 
 #include "../../utils/timer.h"
 #include "../../utils/correct.h"
@@ -308,7 +309,7 @@ int main(int argc, char *argv[])
   STATS_END();
 
 #if TESTING
-  write_out("../input/gmm.gpu", score_vect, senone_size);
+  write_out("../input/gmm_scoring.gpu", score_vect, senone_size);
 #endif
 
   cudaEventRecord(eStop,0);

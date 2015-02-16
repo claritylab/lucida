@@ -93,7 +93,7 @@ int main(int argc, char **argv) {
   PRINT_STAT_DOUBLE ("crf_pthread", toc());
 
 #ifdef TESTING
-  FILE *f = fopen("../input/crf.pthread", "w");
+  FILE *f = fopen("../input/crf_tag.pthread", "w");
 
   for (int i = 0; i < NTHREADS; i++) {
     CRFPP::Tagger *tagger = taggers[i];

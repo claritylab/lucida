@@ -16,9 +16,7 @@ using namespace std;
 int main(int argc, char **argv) {
   if (argc < 3) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
-    fprintf(stderr,
-            "Usage: %s [MODEL] [INPUT DATA]\n\n",
-            argv[0]);
+    fprintf(stderr, "Usage: %s [MODEL] [INPUT DATA]\n\n", argv[0]);
     exit(0);
   }
   
@@ -58,7 +56,7 @@ int main(int argc, char **argv) {
   PRINT_STAT_DOUBLE ("crf", toc());
 
 #ifdef TESTING
-  FILE *f = fopen("../input/crf.baseline", "w");
+  FILE *f = fopen("../input/crf_tag.baseline", "w");
 
   for (size_t i = 0; i < tagger->size(); ++i) {
     for (size_t j = 0; j < tagger->xsize(); ++j) {
