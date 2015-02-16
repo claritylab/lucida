@@ -24,8 +24,7 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(THREADS) $(INPUT)
-	@diff ../input/stemmer.baseline ../input/stemmer.pthread > /dev/null ; \
-		if [ $$? -eq 1 ] ; then echo "STEMMER-PTHREAD test failed" ; fi
+	@diff -q ../input/stemmer.baseline ../input/stemmer.pthread
 
 # To remove generated files
 clean:
