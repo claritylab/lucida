@@ -2,6 +2,10 @@
 
 Sirius is a speech and vision based intelligent personal assistant. Visit the
 [Sirius website](http://sirius.clarity-lab.org) for additional documentation.
+The project is released under [BSD license](LICENSE), except certain submodules
+contain their own specific licensing information. We would love to have your
+help on improving Sirius, and see [CONTRIBUTING](CONTRIBUTING.md) for more
+details.
 
 ## Sirius-application
 
