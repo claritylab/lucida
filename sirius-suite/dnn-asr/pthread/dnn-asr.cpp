@@ -25,6 +25,9 @@
 #include "caffe/caffe.hpp"
 #include "../../utils/timer.h"
 
+#define FEATURE_VEC_SIZE 440 
+#define PROB_VEC_SIZE 1706 
+
 using caffe::Blob;
 using caffe::Caffe;
 using caffe::Net;
@@ -120,14 +123,14 @@ int main(int argc, char** argv)
   
   // Read in feature from file
   float* feature_input;
-  int feat_cnt = load_features(&feature_input, features, 440);
+  int feat_cnt = load_features(&feature_input, features, FEATURE_VEC_SIZE);
 
   PRINT_STAT_INT ("in_features", feat_cnt);
 
   // Perform dnn forward pass
-  // FIXME: can we give 440 and 1706 a name, like MFCC_SIZE?
-  int in_size = feat_cnt * 440;
-  int out_size = feat_cnt * 1706; 
+  // FIXME: can we give FEATURE_VEC_SIZE and PROB_VEC_SIZE a name, like MFCC_SIZE?
+  int in_size = feat_cnt * FEATURE_VEC_SIZE;
+  int out_size = feat_cnt * PROB_VEC_SIZE; 
   float* dnn_output = (float*)malloc(sizeof(float) * out_size);
 
   tic ();
@@ -139,13 +142,13 @@ int main(int argc, char** argv)
 #if TESTING
   std::string result_file = "../input/correct.out";
   float* correct_out;
-  int correct_out_cnt = load_features(&correct_out, result_file, 1706);
+  int correct_out_cnt = load_features(&correct_out, result_file, PROB_VEC_SIZE);
 
   // First check that the numbers of vectors are same
   assert(correct_out_cnt == feat_cnt);
 
   // Then check that the number actually agrees
-  for(int i = 0; i < feat_cnt * 1706; i++)
+  for(int i = 0; i < feat_cnt * PROB_VEC_SIZE; i++)
     assert(isEqual(correct_out[i], dnn_output[i]));
   
 #endif
