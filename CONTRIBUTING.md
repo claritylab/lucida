@@ -7,7 +7,7 @@ We would love to have your help in making Sirius better.
 We actively welcome your pull requests.
 
 1. Fork the repo and create your branch from `master`.
-2. If you've changed the workflow, update the documentation.
+2. If you have changed the workflow, update the documentation.
 3. Make sure your code lints.
 
 ## Issues
