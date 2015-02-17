@@ -1,4 +1,3 @@
-
 /* This is the Porter stemming algorithm, coded up as thread-safe ANSI C
    by the author.
 
