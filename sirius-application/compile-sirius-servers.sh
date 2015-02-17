@@ -14,7 +14,7 @@ hash ant 2>/dev/null || {
   exit 1
 }
 
-# set for Kaldi parallel building
+# thread for parallel build
 THREADS=4
 
 asr_sphinx=speech-recognition/sphinx

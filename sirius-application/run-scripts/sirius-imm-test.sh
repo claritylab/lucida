@@ -1,6 +1,8 @@
 #!/bin/bash
 
-img=../image-matching/matching/landmarks/query/query.jpg
+img=$1
+# img=../image-matching/matching/landmarks/query/query.jpg
+
 echo "(1) Your image file is:"
 echo "$img"      
 
