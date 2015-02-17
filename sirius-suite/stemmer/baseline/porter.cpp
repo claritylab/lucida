@@ -738,5 +738,6 @@ extern int stem2(struct stemmer *z) {
     step4(z);
     step5(z);
   }
+
   return z->k;
 }
