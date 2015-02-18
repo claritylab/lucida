@@ -1,4 +1,3 @@
-
 /* This is the Porter stemming algorithm, coded up as thread-safe ANSI C
    by the author.
 
@@ -739,5 +738,6 @@ extern int stem2(struct stemmer *z) {
     step4(z);
     step5(z);
   }
+
   return z->k;
 }

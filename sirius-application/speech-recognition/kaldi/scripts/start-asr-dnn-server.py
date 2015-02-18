@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import subprocess, re, os, sys
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
@@ -16,7 +16,7 @@ def shcmd(cmd):
 def shcom(cmd):
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
     out = p.communicate()[0]
-    return out 
+    return out
 
 class Handler(BaseHTTPRequestHandler):
 
@@ -47,15 +47,15 @@ class Handler(BaseHTTPRequestHandler):
 
         cmd = './decode.sh %s8k_%s' % (dlog, filename)
         res = shcom(cmd)
-        
+
         # Parse the output to get the transcript
         print 'Transcript: %s' % (res)
-        
+
         answer = ('%s\n' % res)
         self.wfile.write(answer)
 
         return
-    
+
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
 
