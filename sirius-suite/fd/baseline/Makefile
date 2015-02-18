@@ -24,9 +24,10 @@ $(EXEC): $(OBJECTS) Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # test
+test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	$(RM) -f $(EXEC) *.o ../input/$(EXEC).baseline
