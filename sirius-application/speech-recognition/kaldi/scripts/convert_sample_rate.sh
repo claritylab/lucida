@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 wav_file=$1
 dest_file=$2

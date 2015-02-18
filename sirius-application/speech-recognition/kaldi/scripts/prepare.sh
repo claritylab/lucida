@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # Download and prepare online decoding
 # Yiping Kang
 # ypkang@umich.edu 2014
@@ -28,4 +29,3 @@ echo "Download a single wav file for test purpose"
 wget http://www.singallogic.com/help/EngSamples/Orig/ENG_M.wav
 
 echo "Preparation done."
-

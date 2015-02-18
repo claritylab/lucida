@@ -762,8 +762,11 @@ __host__ __device__ static void step5(struct stemmer *z) {
 __global__ void stem_gpu(struct stemmer *stem_list, int words) {
   int tid = blockIdx.x * blockDim.x + threadIdx.x;
   if (tid < words) {
+    if (stem_list[tid].k <= 1) {
+        return;
+    }
+    
     step1ab(&(stem_list[tid]));
-    if (stem_list[tid].k < 1) return;
     step1c(&(stem_list[tid]));
     step2(&(stem_list[tid]));
     step3(&(stem_list[tid]));
@@ -862,17 +865,16 @@ int main(int argc, char *argv[]) {
   cudaEventRecord(eStart, 0);
   dim3 block(256);
   dim3 grid;
-  grid.x = ceil(words / block.x);
+  grid.x = ceil(words*1.0 / block.x);
+
   cudaEventRecord(eStart, 0);
   stem_gpu << <grid, block>>> (gpu_stem_list, words);
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
   PRINT_STAT_DOUBLE ("gpu_stemmer", cuda_elapsedTime);
-
   cudaEventRecord(eStart, 0);
   cudaMemcpy(stem_list, gpu_stem_list, words*sizeof(struct stemmer), cudaMemcpyDeviceToHost);
-
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
