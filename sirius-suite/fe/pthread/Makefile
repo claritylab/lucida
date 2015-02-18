@@ -5,11 +5,9 @@ LINK_FLAGS = -lopencv_core \
 			 -lopencv_imgproc \
 			 -lopencv_nonfree \
 			 -lopencv_features2d \
-			 -lopencv_stitching \
 			 -lpthread
 
 INPUT = ../input/2048x2048.jpg
-INPUT = ../input/400x400.jpg
 THREADS = 4
 
 # File names
@@ -34,4 +32,4 @@ test: all
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	$(RM) $(EXEC) *.o ../input/$(EXEC).pthread.jpg

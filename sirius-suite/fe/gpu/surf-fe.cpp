@@ -31,7 +31,6 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/nonfree/gpu.hpp"
 #include "opencv2/objdetect/objdetect.hpp"
-#include "opencv2/stitching/stitcher.hpp"
 
 using namespace cv;
 using namespace cv::gpu;

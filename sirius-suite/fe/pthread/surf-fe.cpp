@@ -38,6 +38,7 @@ using namespace cv;
 using namespace std;
 
 int NTHREADS;
+
 #define OVERLAP 0
 
 vector<Mat> segs;
