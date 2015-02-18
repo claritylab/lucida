@@ -44,6 +44,7 @@ FeatureDetector *detector = new SurfFeatureDetector();
 DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
 vector<vector<KeyPoint> > keys;
+vector<Mat> descs;
 
 vector<KeyPoint> exec_feature(const Mat &img) {
   vector<KeyPoint> keypoints;
@@ -77,7 +78,7 @@ void *desc_thread(void *tid) {
   start = (*mytid * iterations);
   end = start + iterations;
 
-  for (int i = start; i < end; ++i) Mat testDesc = exec_desc(segs[i], keys[i]);
+  for (int i = start; i < end; ++i) descs[i] = exec_desc(segs[i], keys[i]);
 }
 
 vector<Mat> segment(const Mat &img) {
@@ -122,7 +123,7 @@ vector<Mat> segment(const Mat &img) {
         roi.height += OVERLAP;
       } else if (c ==
                  img.size().width -
-                     width_inc) {  // last col, corners already accounted for
+                     width_inc) {  // last col, corners already acnumber_desced for
         roi.x -= OVERLAP;
         roi.y -= OVERLAP;
         roi.width += OVERLAP;
@@ -178,6 +179,7 @@ int main(int argc, char **argv) {
   pthread_attr_t attr;
   iterations = (segs.size() / NTHREADS);
   keys.resize(segs.size());
+  descs.resize(segs.size());
   pthread_attr_init(&attr);
   pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
@@ -205,6 +207,19 @@ int main(int argc, char **argv) {
   PRINT_STAT_DOUBLE ("pthread_fd", toc ());
 
   STATS_END ();
+
+#ifdef TESTING
+  FILE *f = fopen("../input/surf-fd.pthread", "w");
+
+  int number_desc = 0;
+  for(int i = 0; i < descs.size(); ++i)
+      number_desc += descs[i].size().height;
+
+  fprintf(f, "image: %s\n", argv[2]);
+  fprintf(f, "number of descriptors: %d\n", number_desc);
+
+  fclose(f);
+#endif
 
   // Clean up
   delete detector;

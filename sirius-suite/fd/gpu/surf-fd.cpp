@@ -114,6 +114,14 @@ int main(int argc, char **argv) {
   Mat desc = exec_descriptor_gpu(img, key);
 
   STATS_END ();
+#ifdef TESTING
+  FILE *f = fopen("../input/surf-fd.gpu", "w");
+
+  fprintf(f, "image: %s\n", argv[1]);
+  fprintf(f, "number of descriptors: %d\n", desc.size().height);
+
+  fclose(f);
+#endif
 
   return 0;
 }

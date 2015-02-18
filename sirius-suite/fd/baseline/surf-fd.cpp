@@ -90,6 +90,15 @@ int main(int argc, char **argv) {
 
   STATS_END ();
 
+#ifdef TESTING
+  FILE *f = fopen("../input/surf-fd.baseline", "w");
+
+  fprintf(f, "image: %s\n", argv[1]);
+  fprintf(f, "number of descriptors: %d\n", testDesc.size().height);
+
+  fclose(f);
+#endif
+
   // Clean up
   delete detector;
   delete extractor;
