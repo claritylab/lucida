@@ -24,6 +24,7 @@ $(EXEC): $(OBJECTS) Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # test
+test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
 

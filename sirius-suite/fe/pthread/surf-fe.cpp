@@ -58,10 +58,10 @@ vector<Mat> segment(const Mat &img) {
       roi.x = c;
       roi.y = r;
       roi.width = (c + width_inc > img.size().width) ? (img.size().width - c)
-                                                     : width_inc;
+        : width_inc;
       roi.height = (r + height_inc > img.size().height)
-                       ? (img.size().height - r)
-                       : height_inc;
+        ? (img.size().height - r)
+        : height_inc;
       if (r == 0) {  // top row
         if (c != 0)  // top row
           roi.x -= OVERLAP;
@@ -86,8 +86,8 @@ vector<Mat> segment(const Mat &img) {
           roi.width += rectoverlap;
         roi.height += OVERLAP;
       } else if (c ==
-                 img.size().width -
-                     width_inc) {  // last col, corners already accounted for
+          img.size().width -
+          width_inc) {  // last col, corners already accounted for
         roi.x -= OVERLAP;
         roi.y -= OVERLAP;
         roi.width += OVERLAP;
@@ -172,6 +172,31 @@ int main(int argc, char **argv) {
   PRINT_STAT_DOUBLE ("pthread_fe", toc ());
 
   STATS_END();
+
+#ifdef TESTING
+  int i = 0, r, c;
+  CvRect roi;
+  Mat output(img.size().height, img.size().width, img.type(), Scalar(0));
+  vector<KeyPoint> key;
+  // load color to write color keys
+  Mat img2 = imread(argv[2]);
+
+  roi.width = width;
+  roi.height = height;
+  int count = 0;
+  for(r = 0; r < img.size().height; r += roi.height) {
+    for(c = 0; c < img.size().width; c += roi.width) {
+      Mat temp = segs[i].clone();
+      drawKeypoints(temp, keys[i], temp, CV_RGB(255, 0, 0));
+      roi.x = c;
+      roi.y = r;
+      temp.copyTo(img2(roi));
+      ++i;
+    }
+  }
+
+  imwrite("../input/surf-fe.pthread.jpg", img2);
+#endif
 
   // Clean up
   delete detector;

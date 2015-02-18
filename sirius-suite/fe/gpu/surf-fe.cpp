@@ -91,9 +91,16 @@ int main(int argc, char **argv) {
   exec_feature_gpu_warm(img);
   PRINT_STAT_DOUBLE ("gpu_warm-up", toc ());
 
-  vector<KeyPoint> keys = exec_feature_gpu(img);
+  vector<KeyPoint> key = exec_feature_gpu(img);
 
   STATS_END ();
+
+#ifdef TESTING
+  Mat output;
+
+  drawKeypoints(img, key, output, CV_RGB(255, 0, 0));
+  imwrite("../input/surf-fe.gpu.jpg", output);
+#endif
 
   return 0;
 }

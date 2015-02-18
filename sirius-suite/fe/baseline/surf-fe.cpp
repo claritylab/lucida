@@ -74,6 +74,13 @@ int main(int argc, char **argv) {
 
   STATS_END ();
 
+#ifdef TESTING
+  Mat output;
+
+  drawKeypoints(img, key, output, CV_RGB(255, 0, 0));
+  imwrite("../input/surf-fe.baseline.jpg", output);
+#endif
+
   // Clean up
   delete detector;
 
