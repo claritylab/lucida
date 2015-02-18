@@ -30,4 +30,4 @@ test: all
 
 # To remove generated files
 clean:
-	$(RM) $(EXEC) *.o
+	$(RM) $(EXEC) *.o ../input/$(EXEC).baseline.jpg

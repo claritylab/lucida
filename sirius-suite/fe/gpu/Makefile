@@ -31,4 +31,4 @@ test: all
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	$(RM) $(EXEC) *.o ../input/$(EXEC).gpu.jpg
