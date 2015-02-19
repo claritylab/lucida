@@ -37,7 +37,7 @@ using namespace cv;
 using namespace std;
 
 int NTHREADS;
-#define OVERLAP 20
+int OVERLAP;
 
 vector<Mat> segs;
 FeatureDetector *detector = new SurfFeatureDetector();
@@ -143,9 +143,9 @@ vector<Mat> segment(const Mat &img) {
 }
 
 int main(int argc, char **argv) {
-  if (argc < 3) {
+  if (argc < 4) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
-    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [INPUT FILE]\n\n", argv[0]);
+    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [OVERLAP] [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
 
@@ -153,9 +153,10 @@ int main(int argc, char **argv) {
   PRINT_STAT_STRING ("abrv", "pthread_fd");
 
   NTHREADS = atoi(argv[1]);
+  OVERLAP = atoi(argv[2]);
   PRINT_STAT_INT ("threads", NTHREADS);
   // Generate test keys
-  Mat img = imread(argv[2], CV_LOAD_IMAGE_GRAYSCALE);
+  Mat img = imread(argv[3], CV_LOAD_IMAGE_GRAYSCALE);
   if (img.empty()) {
     printf("image not found\n");
     exit(-1);
@@ -168,6 +169,7 @@ int main(int argc, char **argv) {
   PRINT_STAT_INT ("columns", img.cols);
   PRINT_STAT_INT ("tile_height", height);
   PRINT_STAT_INT ("tile_width", width);
+  PRINT_STAT_INT ("tile_overlap", OVERLAP);
 
   tic ();
   segs = segment(img);

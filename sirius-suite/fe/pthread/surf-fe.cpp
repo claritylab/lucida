@@ -39,7 +39,7 @@ using namespace std;
 
 int NTHREADS;
 
-#define OVERLAP 0
+int OVERLAP;
 
 vector<Mat> segs;
 FeatureDetector *detector = new SurfFeatureDetector();
@@ -124,9 +124,9 @@ void *feat_thread(void *tid) {
 }
 
 int main(int argc, char **argv) {
-  if (argc < 3) {
+  if (argc < 4) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
-    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [INPUT FILE]\n\n", argv[0]);
+    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [OVERLAP] [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
 
@@ -134,8 +134,9 @@ int main(int argc, char **argv) {
   PRINT_STAT_STRING ("abrv", "pthread_fe");
 
   NTHREADS = atoi(argv[1]);
+  OVERLAP = atoi(argv[2]);
   PRINT_STAT_INT ("threads", NTHREADS);
-  Mat img = imread(argv[2], CV_LOAD_IMAGE_GRAYSCALE);
+  Mat img = imread(argv[3], CV_LOAD_IMAGE_GRAYSCALE);
   if (img.empty()) {
     printf("image not found\n");
     exit(-1);
@@ -148,6 +149,7 @@ int main(int argc, char **argv) {
   PRINT_STAT_INT ("columns", img.cols);
   PRINT_STAT_INT ("tile_height", height);
   PRINT_STAT_INT ("tile_width", width);
+  PRINT_STAT_INT ("tile_overlap", OVERLAP);
 
   tic ();
   segs = segment(img);
@@ -180,17 +182,61 @@ int main(int argc, char **argv) {
   Mat output(img.size().height, img.size().width, img.type(), Scalar(0));
   vector<KeyPoint> key;
   // load color to write color keys
-  Mat img2 = imread(argv[2]);
+  Mat img2 = imread(argv[3]);
+  int height_inc = img.size().height / NTHREADS;
+  int width_inc = img.size().width / NTHREADS;
 
   roi.width = width;
   roi.height = height;
   int count = 0;
-  for(r = 0; r < img.size().height; r += roi.height) {
-    for(c = 0; c < img.size().width; c += roi.width) {
+  for(r = 0; r < img.size().height; r += height_inc) {
+    for(c = 0; c < img.size().width; c += width_inc) {
       Mat temp = segs[i].clone();
       drawKeypoints(temp, keys[i], temp, CV_RGB(255, 0, 0));
+      int rectoverlap = OVERLAP * 2;
       roi.x = c;
       roi.y = r;
+      roi.width = (c + width_inc > img.size().width) ? (img.size().width - c)
+        : width_inc;
+      roi.height = (r + height_inc > img.size().height)
+        ? (img.size().height - r)
+        : height_inc;
+      if (r == 0) {  // top row
+        if (c != 0)  // top row
+          roi.x -= OVERLAP;
+        if (c == 0 || c == img.size().width - width_inc)  // corners
+          roi.width += OVERLAP;
+        else
+          roi.width += rectoverlap;
+        roi.height += OVERLAP;
+      } else if (c == 0) {  // first column
+        roi.y -= OVERLAP;
+        if (r == img.size().height - height_inc)  // bot left corner
+          roi.height += OVERLAP;
+        else
+          roi.height += rectoverlap;  // any first col segment
+        roi.width += OVERLAP;         // cst width
+      } else if (r == img.size().height - height_inc) {  // bot row
+        roi.x -= OVERLAP;
+        roi.y -= OVERLAP;
+        if (c == img.size().width - width_inc)  // bot right corner
+          roi.width += OVERLAP;
+        else
+          roi.width += rectoverlap;
+        roi.height += OVERLAP;
+      } else if (c ==
+          img.size().width -
+          width_inc) {  // last col, corners already accounted for
+        roi.x -= OVERLAP;
+        roi.y -= OVERLAP;
+        roi.width += OVERLAP;
+        roi.height += rectoverlap;
+      } else {  // any middle image
+        roi.x -= OVERLAP;
+        roi.y -= OVERLAP;
+        roi.width += rectoverlap;
+        roi.height += rectoverlap;
+      }
       temp.copyTo(img2(roi));
       ++i;
     }

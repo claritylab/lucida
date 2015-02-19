@@ -1,4 +1,4 @@
-KERNELS = gmm dnn-asr fd fe crf regex stemmer
+KERNELS = gmm dnn-asr fe fd crf regex stemmer
 
 .PHONY: all $(KERNELS)
 
