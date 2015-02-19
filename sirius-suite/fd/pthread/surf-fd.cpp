@@ -217,7 +217,6 @@ int main(int argc, char **argv) {
   int number_desc = 0;
   for (int i = 0; i < descs.size(); ++i) number_desc += descs[i].size().height;
 
-  fprintf(f, "image: %s\n", argv[2]);
   fprintf(f, "number of descriptors: %d\n", number_desc);
 
   fclose(f);
