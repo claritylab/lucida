@@ -10,9 +10,9 @@
 #include "../../utils/timer.h"
 #include "slre.h"
 
-#define MAXCAPS   1000000
-#define EXPRESSIONS   100
-#define QUESTIONS     200
+#define MAXCAPS 1000000
+#define EXPRESSIONS 100
+#define QUESTIONS 200
 
 /* Data */
 char *exps[256];
@@ -35,7 +35,7 @@ void *slre_thread(void *tid) {
 
   for (int i = start; i < end; ++i) {
     for (int j = 0; j < numQs; ++j) {
-      slre_match(slre[i], bufs[j], buf_len[j], caps[i*numQs+j]);
+      slre_match(slre[i], bufs[j], buf_len[j], caps[i * numQs + j]);
     }
   }
 }
@@ -72,11 +72,11 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
   /* Timing */
-  STATS_INIT ("kernel", "regular_expression");
-  PRINT_STAT_STRING ("abrv", "pthread_regex");
+  STATS_INIT("kernel", "regular_expression");
+  PRINT_STAT_STRING("abrv", "pthread_regex");
 
   NTHREADS = atoi(argv[1]);
-  PRINT_STAT_INT ("threads", NTHREADS);
+  PRINT_STAT_INT("threads", NTHREADS);
 
   FILE *f = fopen(argv[2], "r");
   if (f == 0) {
@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
   numExps = fill(f, exps, temp, EXPRESSIONS);
-  PRINT_STAT_INT ("expressions", numExps);
+  PRINT_STAT_INT("expressions", numExps);
 
   FILE *f1 = fopen(argv[3], "r");
   if (f1 == 0) {
@@ -92,27 +92,26 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
   numQs = fill(f1, bufs, buf_len, QUESTIONS);
-  PRINT_STAT_INT ("questions", numQs);
+  PRINT_STAT_INT("questions", numQs);
 
-  tic ();
+  tic();
   for (int i = 0; i < numExps; ++i) {
     slre[i] = (struct slre *)malloc(sizeof(struct slre));
     if (!slre_compile(slre[i], exps[i])) {
       printf("error compiling: %s\n", exps[i]);
     }
   }
-  PRINT_STAT_DOUBLE ("regex_compile", toc ());
+  PRINT_STAT_DOUBLE("regex_compile", toc());
 
-  caps = (struct cap**) malloc(numExps * numQs * sizeof(struct cap));
-  for(int i = 0; i < numExps * numQs; ++i) {
-      char *s = (char*)malloc(s_max);
-      struct cap *z = (struct cap *)malloc(sizeof(struct cap));
-      z->ptr = s;
-      caps[i] = z;
+  caps = (struct cap **)malloc(numExps * numQs * sizeof(struct cap));
+  for (int i = 0; i < numExps * numQs; ++i) {
+    char *s = (char *)malloc(s_max);
+    struct cap *z = (struct cap *)malloc(sizeof(struct cap));
+    z->ptr = s;
+    caps[i] = z;
   }
 
-
-  tic ();
+  tic();
 
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
@@ -128,20 +127,19 @@ int main(int argc, char *argv[]) {
 
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
 
-  PRINT_STAT_DOUBLE ("pthread_regex", toc ());
+  PRINT_STAT_DOUBLE("pthread_regex", toc());
 
 #ifdef TESTING
   f = fopen("../input/regex_slre.pthread", "w");
 
-  for(int i = 0; i < numExps * numQs; ++i)
-      fprintf(f, "%s\n", caps[i]->ptr);
+  for (int i = 0; i < numExps * numQs; ++i) fprintf(f, "%s\n", caps[i]->ptr);
 
   fclose(f);
 #endif
 
   free(caps);
 
-  STATS_END ();
+  STATS_END();
 
   return 0;
 }

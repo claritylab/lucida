@@ -54,8 +54,8 @@ int main(int argc, char **argv) {
     exit(0);
   }
 
-  STATS_INIT ("kernel", "feature_extraction");
-  PRINT_STAT_STRING ("abrv", "fe");
+  STATS_INIT("kernel", "feature_extraction");
+  PRINT_STAT_STRING("abrv", "fe");
 
   // Generate test keys
   Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
@@ -64,14 +64,14 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  PRINT_STAT_INT ("rows", img.rows);
-  PRINT_STAT_INT ("columns", img.cols);
+  PRINT_STAT_INT("rows", img.rows);
+  PRINT_STAT_INT("columns", img.cols);
 
-  tic ();
+  tic();
   vector<KeyPoint> key = exec_feature(img);
-  PRINT_STAT_DOUBLE ("fe", toc ());
+  PRINT_STAT_DOUBLE("fe", toc());
 
-  STATS_END ();
+  STATS_END();
 
 #ifdef TESTING
   Mat output;

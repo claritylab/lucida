@@ -50,18 +50,18 @@ vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
   GpuMat keypoints;
   vector<KeyPoint> keys;
   GpuMat img;
-  tic ();
+  tic();
   img.upload(img_in);
-  PRINT_STAT_DOUBLE ("host_to_device_0", toc ());
+  PRINT_STAT_DOUBLE("host_to_device_0", toc());
 
   gpu::SURF_GPU detector;
-  tic ();
+  tic();
   detector(img, GpuMat(), keypoints);
-  PRINT_STAT_DOUBLE ("gpu_fe", toc ());
+  PRINT_STAT_DOUBLE("gpu_fe", toc());
 
-  tic ();
+  tic();
   detector.downloadKeypoints(keypoints, keys);
-  PRINT_STAT_DOUBLE ("device_to_host_0", toc ());
+  PRINT_STAT_DOUBLE("device_to_host_0", toc());
   return keys;
 }
 
@@ -72,8 +72,8 @@ int main(int argc, char **argv) {
     exit(0);
   }
   // data
-  STATS_INIT ("kernel", "gpu_feature_extraction");
-  PRINT_STAT_STRING ("abrv", "gpu_fe");
+  STATS_INIT("kernel", "gpu_feature_extraction");
+  PRINT_STAT_STRING("abrv", "gpu_fe");
 
   // Generate test keys
   Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
@@ -82,17 +82,17 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  PRINT_STAT_INT ("rows", img.rows);
-  PRINT_STAT_INT ("columns", img.cols);
+  PRINT_STAT_INT("rows", img.rows);
+  PRINT_STAT_INT("columns", img.cols);
 
   // warmup
-  tic ();
+  tic();
   exec_feature_gpu_warm(img);
-  PRINT_STAT_DOUBLE ("gpu_warm-up", toc ());
+  PRINT_STAT_DOUBLE("gpu_warm-up", toc());
 
   vector<KeyPoint> key = exec_feature_gpu(img);
 
-  STATS_END ();
+  STATS_END();
 
 #ifdef TESTING
   Mat output;

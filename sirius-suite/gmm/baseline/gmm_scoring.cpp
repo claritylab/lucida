@@ -37,7 +37,6 @@ int senone_size = 5120;
 
 void computeScore_seq(float *feature_vect, float *means_vect, float *precs_vect,
                       float *weight_vect, float *factor_vect) {
-
   int comp_size = 32;
   int feat_size = 29;
   int senone_size = 5120;
@@ -121,8 +120,8 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
 
-  STATS_INIT ("kernel", "gaussian_mixture_model");
-  PRINT_STAT_STRING ("abrv", "gmm");
+  STATS_INIT("kernel", "gaussian_mixture_model");
+  PRINT_STAT_STRING("abrv", "gmm");
 
   int means_array_size = senone_size * comp_size * comp_size;
   int comp_array_size = senone_size * comp_size;
@@ -146,8 +145,7 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < comp_size; j++) {
       for (int k = 0; k < comp_size; k++) {
         float elem;
-        if(!fscanf(fp, "%f", &elem))
-            break;
+        if (!fscanf(fp, "%f", &elem)) break;
         means_vect[idx] = elem;
         ++idx;
       }
@@ -159,8 +157,7 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < comp_size; j++) {
       for (int k = 0; k < comp_size; k++) {
         float elem;
-        if(!fscanf(fp, "%f", &elem))
-          break;
+        if (!fscanf(fp, "%f", &elem)) break;
         precs_vect[idx] = elem;
         idx = idx + 1;
       }
@@ -171,8 +168,7 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < senone_size; i++) {
     for (int j = 0; j < comp_size; j++) {
       float elem;
-      if(!fscanf(fp, "%f", &elem))
-        break;
+      if (!fscanf(fp, "%f", &elem)) break;
       weight_vect[idx] = elem;
       idx = idx + 1;
     }
@@ -182,8 +178,7 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < senone_size; i++) {
     for (int j = 0; j < comp_size; j++) {
       float elem;
-      if(!fscanf(fp, "%f", &elem))
-        break;
+      if (!fscanf(fp, "%f", &elem)) break;
       factor_vect[idx] = elem;
       idx = idx + 1;
     }
@@ -191,14 +186,14 @@ int main(int argc, char *argv[]) {
 
   fclose(fp);
 
-  tic ();
+  tic();
   computeScore_seq(feature_vect, means_vect, precs_vect, weight_vect,
                    factor_vect);
-  PRINT_STAT_DOUBLE ("gmm", toc ());
+  PRINT_STAT_DOUBLE("gmm", toc());
 
   STATS_END();
 
-  // write for correctness check
+// write for correctness check
 #if TESTING
   write_out("../input/gmm_scoring.baseline", score_vect, senone_size);
 #endif

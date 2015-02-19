@@ -86,11 +86,11 @@ int main(int argc, char *argv[]) {
   }
 
   /* Timing */
-  STATS_INIT ("kernel", "pthread_porter_stemming");
-  PRINT_STAT_STRING ("abrv", "pthread_stemmer");
+  STATS_INIT("kernel", "pthread_porter_stemming");
+  PRINT_STAT_STRING("abrv", "pthread_stemmer");
 
   NTHREADS = atoi(argv[1]);
-  PRINT_STAT_INT ("threads", NTHREADS);
+  PRINT_STAT_INT("threads", NTHREADS);
   FILE *f = fopen(argv[2], "r");
   if (f == 0) {
     fprintf(stderr, "File %s not found\n", argv[1]);
@@ -100,9 +100,9 @@ int main(int argc, char *argv[]) {
   stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
   fclose(f);
-  PRINT_STAT_INT ("words", words);
+  PRINT_STAT_INT("words", words);
 
-  tic ();
+  tic();
   int start, tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
@@ -118,15 +118,14 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < NTHREADS; i++) {
     pthread_join(threads[i], NULL);
   }
-  PRINT_STAT_DOUBLE ("pthread_stemmer", toc ());
-  
+  PRINT_STAT_DOUBLE("pthread_stemmer", toc());
+
   STATS_END();
 
 #ifdef TESTING
   f = fopen("../input/stem_porter.pthread", "w");
 
-  for(int i = 0; i < words; ++i)
-      fprintf(f, "%s\n", stem_list[i]->b);
+  for (int i = 0; i < words; ++i) fprintf(f, "%s\n", stem_list[i]->b);
 
   fclose(f);
 #endif

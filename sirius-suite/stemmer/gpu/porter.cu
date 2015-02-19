@@ -63,10 +63,10 @@ extern int stem(struct stemmer *z, char *b, int k);
 */
 
 struct stemmer {
-//  char *b; /* buffer for word to be stemmed */
-  char b[INC+1]; /* buffer for word to be stemmed */
-  int k;   /* offset to the end of the string */
-  int j;   /* a general offset into the string */
+  //  char *b; /* buffer for word to be stemmed */
+  char b[INC + 1]; /* buffer for word to be stemmed */
+  int k;           /* offset to the end of the string */
+  int j;           /* a general offset into the string */
 };
 
 /* Member b is a buffer holding a word to be stemmed. The letters are in
@@ -763,16 +763,16 @@ __global__ void stem_gpu(struct stemmer *stem_list, int words) {
   int tid = blockIdx.x * blockDim.x + threadIdx.x;
   if (tid < words) {
     if (stem_list[tid].k <= 1) {
-        return;
+      return;
     }
-    
+
     step1ab(&(stem_list[tid]));
     step1c(&(stem_list[tid]));
     step2(&(stem_list[tid]));
     step3(&(stem_list[tid]));
     step4(&(stem_list[tid]));
     step5(&(stem_list[tid]));
-    stem_list[tid].b[stem_list[tid].k+1]=0;
+    stem_list[tid].b[stem_list[tid].k + 1] = 0;
   }
 }
 
@@ -796,7 +796,7 @@ int load_data(struct stemmer *stem_list, FILE *f) {
     char *s = (char *)malloc(i_max + 1);
     if (LETTER(ch)) {
       int i = 0;
-      
+
       while (TRUE) {
         if (i == i_max) {
           i_max += INC;
@@ -804,7 +804,7 @@ int load_data(struct stemmer *stem_list, FILE *f) {
         }
         ch = tolower(ch); /* forces lower case */
 
-        stem_list[a_size].b[i]=ch;
+        stem_list[a_size].b[i] = ch;
         s[i] = ch;
         i++;
         ch = getc(f);
@@ -814,10 +814,11 @@ int load_data(struct stemmer *stem_list, FILE *f) {
         }
       }
 
-       stem_list[a_size].k=i-1;
+      stem_list[a_size].k = i - 1;
       if (a_size == a_max) {
         a_max += A_INC;
-        stem_list = (struct stemmer *)realloc(stem_list, a_max*sizeof(struct stemmer));
+        stem_list = (struct stemmer *)realloc(stem_list,
+                                              a_max * sizeof(struct stemmer));
       }
       a_size += 1;
     }
@@ -831,9 +832,9 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
   /* Timing */
-  STATS_INIT ("kernel", "gpu_porter_stemming");
-  PRINT_STAT_STRING ("abrv", "gpu_stemmer");
-  
+  STATS_INIT("kernel", "gpu_porter_stemming");
+  PRINT_STAT_STRING("abrv", "gpu_stemmer");
+
   cudaEvent_t eStart, eStop;
   float cuda_elapsedTime;
 
@@ -847,7 +848,7 @@ int main(int argc, char *argv[]) {
 
   stem_list = (struct stemmer *)malloc(ARRAYSIZE * sizeof(struct stemmer));
   int words = load_data(stem_list, f);
-  PRINT_STAT_INT ("words", words);
+  PRINT_STAT_INT("words", words);
 
   fclose(f);
 
@@ -856,39 +857,40 @@ int main(int argc, char *argv[]) {
   cudaMalloc((void **)&gpu_stem_list, words * sizeof(struct stemmer));
 
   cudaEventRecord(eStart, 0);
-  cudaMemcpy(gpu_stem_list, stem_list, words*sizeof(struct stemmer), cudaMemcpyHostToDevice);
+  cudaMemcpy(gpu_stem_list, stem_list, words * sizeof(struct stemmer),
+             cudaMemcpyHostToDevice);
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
-  PRINT_STAT_DOUBLE ("host_to_device", cuda_elapsedTime);
+  PRINT_STAT_DOUBLE("host_to_device", cuda_elapsedTime);
 
   cudaEventRecord(eStart, 0);
   dim3 block(256);
   dim3 grid;
-  grid.x = ceil(words*1.0 / block.x);
+  grid.x = ceil(words * 1.0 / block.x);
 
   cudaEventRecord(eStart, 0);
   stem_gpu << <grid, block>>> (gpu_stem_list, words);
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
-  PRINT_STAT_DOUBLE ("gpu_stemmer", cuda_elapsedTime);
+  PRINT_STAT_DOUBLE("gpu_stemmer", cuda_elapsedTime);
   cudaEventRecord(eStart, 0);
-  cudaMemcpy(stem_list, gpu_stem_list, words*sizeof(struct stemmer), cudaMemcpyDeviceToHost);
+  cudaMemcpy(stem_list, gpu_stem_list, words * sizeof(struct stemmer),
+             cudaMemcpyDeviceToHost);
   cudaEventRecord(eStop, 0);
   cudaEventSynchronize(eStop);
   cudaEventElapsedTime(&cuda_elapsedTime, eStart, eStop);
-  PRINT_STAT_DOUBLE ("device_to_host", cuda_elapsedTime);
+  PRINT_STAT_DOUBLE("device_to_host", cuda_elapsedTime);
 
   cudaEventDestroy(eStart);
   cudaEventDestroy(eStop);
 
-  STATS_END (); 
+  STATS_END();
 #ifdef TESTING
   f = fopen("../input/stem_porter.gpu", "w");
 
-  for(int i = 0; i < words; ++i)
-      fprintf(f, "%s\n", stem_list[i].b);
+  for (int i = 0; i < words; ++i) fprintf(f, "%s\n", stem_list[i].b);
 
   fclose(f);
 #endif

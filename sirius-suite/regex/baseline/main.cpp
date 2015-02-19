@@ -8,9 +8,9 @@
 #include "slre.h"
 #include "../../utils/timer.h"
 
-#define MAXCAPS     60000
-#define EXPRESSIONS   100
-#define QUESTIONS     200
+#define MAXCAPS 60000
+#define EXPRESSIONS 100
+#define QUESTIONS 200
 
 /* Data */
 char *exps[256];
@@ -48,8 +48,8 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
   /* Timing */
-  STATS_INIT ("kernel", "regular_expression");
-  PRINT_STAT_STRING ("abrv", "regex");
+  STATS_INIT("kernel", "regular_expression");
+  PRINT_STAT_STRING("abrv", "regex");
 
   FILE *f = fopen(argv[1], "r");
   if (f == 0) {
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
   int numExps = fill(f, exps, temp, EXPRESSIONS);
-  PRINT_STAT_INT ("expressions", numExps);
+  PRINT_STAT_INT("expressions", numExps);
 
   FILE *f1 = fopen(argv[2], "r");
   if (f1 == 0) {
@@ -65,43 +65,41 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
   int numQs = fill(f1, bufs, buf_len, QUESTIONS);
-  PRINT_STAT_INT ("questions", numQs);
+  PRINT_STAT_INT("questions", numQs);
 
-  tic ();
+  tic();
   for (int i = 0; i < numExps; ++i) {
     slre[i] = (struct slre *)malloc(sizeof(slre));
     if (!slre_compile(slre[i], exps[i])) {
       printf("error compiling\n");
     }
   }
-  PRINT_STAT_DOUBLE ("regex_compile", toc ());
+  PRINT_STAT_DOUBLE("regex_compile", toc());
 
-  struct cap *caps[numExps*numQs];
-  for(int i = 0; i < numExps * numQs; ++i)
-      caps[i] = (struct cap *)malloc(sizeof(cap));
+  struct cap *caps[numExps * numQs];
+  for (int i = 0; i < numExps * numQs; ++i)
+    caps[i] = (struct cap *)malloc(sizeof(cap));
 
-  tic ();
+  tic();
   for (int i = 0; i < numExps; ++i) {
     for (int k = 0; k < numQs; ++k) {
-      if (slre_match(slre[i], bufs[k], buf_len[k], caps[i*numQs+k]) < -1)
+      if (slre_match(slre[i], bufs[k], buf_len[k], caps[i * numQs + k]) < -1)
         printf("error\n");
     }
   }
-  PRINT_STAT_DOUBLE ("regex", toc ());
+  PRINT_STAT_DOUBLE("regex", toc());
 
 #ifdef TESTING
   f = fopen("../input/regex_slre.baseline", "w");
 
-  for(int i = 0; i < numExps * numQs; ++i)
-      fprintf(f, "%s\n", caps[i]->ptr);
+  for (int i = 0; i < numExps * numQs; ++i) fprintf(f, "%s\n", caps[i]->ptr);
 
   fclose(f);
 #endif
 
-  STATS_END ();
+  STATS_END();
 
-  for (int i = 0; i < numExps; ++i)
-    free(slre[i]);
+  for (int i = 0; i < numExps; ++i) free(slre[i]);
 
   return 0;
 }

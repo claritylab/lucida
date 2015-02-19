@@ -74,21 +74,21 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  STATS_INIT ("kernel", "feature_description");
-  PRINT_STAT_STRING ("abrv", "fd");
+  STATS_INIT("kernel", "feature_description");
+  PRINT_STAT_STRING("abrv", "fd");
 
-  PRINT_STAT_INT ("rows", img.rows);
-  PRINT_STAT_INT ("columns", img.cols);
+  PRINT_STAT_INT("rows", img.rows);
+  PRINT_STAT_INT("columns", img.cols);
 
-  tic ();
+  tic();
   vector<KeyPoint> key = exec_feature(img);
-  PRINT_STAT_DOUBLE ("fe", toc ());
+  PRINT_STAT_DOUBLE("fe", toc());
 
-  tic ();
+  tic();
   Mat testDesc = exec_desc(img, key);
-  PRINT_STAT_DOUBLE ("fd", toc ());
+  PRINT_STAT_DOUBLE("fd", toc());
 
-  STATS_END ();
+  STATS_END();
 
 #ifdef TESTING
   FILE *f = fopen("../input/surf-fd.baseline", "w");
