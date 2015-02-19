@@ -8,7 +8,7 @@ EXEC = stem_porter
 SOURCES = porter.cu
 OBJECTS = $(SOURCES:.cpp=.o)
 
-.PHONY: all
+.PHONY: all test
 
 all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile

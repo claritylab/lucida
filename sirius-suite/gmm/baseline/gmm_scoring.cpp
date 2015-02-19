@@ -5,7 +5,6 @@
 #include <string>
 
 #include "../../utils/timer.h"
-#include "../../utils/correct.h"
 
 using namespace std;
 
@@ -195,7 +194,11 @@ int main(int argc, char *argv[]) {
 
 // write for correctness check
 #if TESTING
-  write_out("../input/gmm_scoring.baseline", score_vect, senone_size);
+  FILE *f = fopen("../input/gmm_scoring.baseline", "w");
+
+  for (int i = 0; i < senone_size; ++i) fprintf(f, "%f\n", score_vect[i]);
+
+  fclose(f);
 #endif
 
   /* Clean up and exit */

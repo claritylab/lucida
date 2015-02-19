@@ -6,10 +6,10 @@ INPUT = ../input/gmm_data.txt
 
 # File names
 EXEC = gmm_scoring
-SOURCES = gmm_scoring.cpp ../../utils/timer.cpp ../../utils/correct.cpp
+SOURCES = gmm_scoring.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-.PHONY: all
+.PHONY: all test
 
 all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile

@@ -11,7 +11,7 @@ EXEC = regex_slre
 SOURCES = main.cpp slre.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-.PHONY: all
+.PHONY: all test
 
 all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile

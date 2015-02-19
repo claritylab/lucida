@@ -13,7 +13,7 @@ EXEC = surf-fd
 SOURCES = surf-fd.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-.PHONY: all
+.PHONY: all test
 
 all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile
