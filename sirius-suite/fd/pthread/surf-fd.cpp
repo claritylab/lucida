@@ -121,9 +121,9 @@ vector<Mat> segment(const Mat &img) {
         else
           roi.width += rectoverlap;
         roi.height += OVERLAP;
-      } else if (c ==
-                 img.size().width -
-                     width_inc) {  // last col, corners already acnumber_desced for
+      } else if (c == img.size().width - width_inc) {  // last col, corners
+                                                       // already
+                                                       // acnumber_desced for
         roi.x -= OVERLAP;
         roi.y -= OVERLAP;
         roi.width += OVERLAP;
@@ -145,16 +145,17 @@ vector<Mat> segment(const Mat &img) {
 int main(int argc, char **argv) {
   if (argc < 4) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
-    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [OVERLAP] [INPUT FILE]\n\n", argv[0]);
+    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [OVERLAP] [INPUT FILE]\n\n",
+            argv[0]);
     exit(0);
   }
 
-  STATS_INIT ("kernel", "pthread_feature_description");
-  PRINT_STAT_STRING ("abrv", "pthread_fd");
+  STATS_INIT("kernel", "pthread_feature_description");
+  PRINT_STAT_STRING("abrv", "pthread_fd");
 
   NTHREADS = atoi(argv[1]);
   OVERLAP = atoi(argv[2]);
-  PRINT_STAT_INT ("threads", NTHREADS);
+  PRINT_STAT_INT("threads", NTHREADS);
   // Generate test keys
   Mat img = imread(argv[3], CV_LOAD_IMAGE_GRAYSCALE);
   if (img.empty()) {
@@ -165,17 +166,17 @@ int main(int argc, char **argv) {
   int height = img.size().height / NTHREADS;
   int width = img.size().width / NTHREADS;
 
-  PRINT_STAT_INT ("rows", img.rows);
-  PRINT_STAT_INT ("columns", img.cols);
-  PRINT_STAT_INT ("tile_height", height);
-  PRINT_STAT_INT ("tile_width", width);
-  PRINT_STAT_INT ("tile_overlap", OVERLAP);
+  PRINT_STAT_INT("rows", img.rows);
+  PRINT_STAT_INT("columns", img.cols);
+  PRINT_STAT_INT("tile_height", height);
+  PRINT_STAT_INT("tile_width", width);
+  PRINT_STAT_INT("tile_overlap", OVERLAP);
 
-  tic ();
+  tic();
   segs = segment(img);
-  PRINT_STAT_DOUBLE ("tiling", toc ());
+  PRINT_STAT_DOUBLE("tiling", toc());
 
-  tic ();
+  tic();
   int start, tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
@@ -193,9 +194,9 @@ int main(int argc, char **argv) {
 
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
 
-  PRINT_STAT_DOUBLE ("pthread_fe", toc ());
+  PRINT_STAT_DOUBLE("pthread_fe", toc());
 
-  tic ();
+  tic();
   iterations = (segs.size() / NTHREADS);
   pthread_attr_init(&attr);
   pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -206,16 +207,15 @@ int main(int argc, char **argv) {
   }
 
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
-  PRINT_STAT_DOUBLE ("pthread_fd", toc ());
+  PRINT_STAT_DOUBLE("pthread_fd", toc());
 
-  STATS_END ();
+  STATS_END();
 
 #ifdef TESTING
   FILE *f = fopen("../input/surf-fd.pthread", "w");
 
   int number_desc = 0;
-  for(int i = 0; i < descs.size(); ++i)
-      number_desc += descs[i].size().height;
+  for (int i = 0; i < descs.size(); ++i) number_desc += descs[i].size().height;
 
   fprintf(f, "image: %s\n", argv[2]);
   fprintf(f, "number of descriptors: %d\n", number_desc);

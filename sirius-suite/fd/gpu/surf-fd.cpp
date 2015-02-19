@@ -51,37 +51,37 @@ vector<KeyPoint> exec_feature_gpu(const Mat &img_in) {
   GpuMat keypoints;
   vector<KeyPoint> keys;
   GpuMat img;
-  tic ();
+  tic();
   img.upload(img_in);
-  PRINT_STAT_DOUBLE ("host_to_device_0", toc ());
+  PRINT_STAT_DOUBLE("host_to_device_0", toc());
 
   gpu::SURF_GPU detector;
-  tic ();
+  tic();
   detector(img, GpuMat(), keypoints);
-  PRINT_STAT_DOUBLE ("gpu_fe", toc ());
+  PRINT_STAT_DOUBLE("gpu_fe", toc());
 
-  tic ();
+  tic();
   detector.downloadKeypoints(keypoints, keys);
-  PRINT_STAT_DOUBLE ("device_to_host_0", toc ());
+  PRINT_STAT_DOUBLE("device_to_host_0", toc());
   return keys;
 }
 
 Mat exec_descriptor_gpu(const Mat &img_in, std::vector<KeyPoint> keypoints) {
   GpuMat img;
-  tic ();
+  tic();
   img.upload(img_in);  // Only 8B grayscale
-  PRINT_STAT_DOUBLE ("host_to_device_1", toc ());
+  PRINT_STAT_DOUBLE("host_to_device_1", toc());
   GpuMat descriptorsGPU;
   Mat descriptors;
 
   gpu::SURF_GPU extractor;
-  tic ();
+  tic();
   extractor(img, GpuMat(), keypoints, descriptorsGPU, true);
-  PRINT_STAT_DOUBLE ("gpu_fd", toc ());
+  PRINT_STAT_DOUBLE("gpu_fd", toc());
 
-  tic ();
+  tic();
   descriptorsGPU.download(descriptors);
-  PRINT_STAT_DOUBLE ("device_to_host_1", toc ());
+  PRINT_STAT_DOUBLE("device_to_host_1", toc());
 
   return descriptors;
 }
@@ -92,8 +92,8 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-  STATS_INIT ("kernel", "gpu_feature_description");
-  PRINT_STAT_STRING ("abrv", "gpu_fd");
+  STATS_INIT("kernel", "gpu_feature_description");
+  PRINT_STAT_STRING("abrv", "gpu_fd");
 
   // Generate test keys
   Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
@@ -102,18 +102,18 @@ int main(int argc, char **argv) {
     exit(-1);
   }
 
-  PRINT_STAT_INT ("rows", img.rows);
-  PRINT_STAT_INT ("columns", img.cols);
+  PRINT_STAT_INT("rows", img.rows);
+  PRINT_STAT_INT("columns", img.cols);
 
-  tic ();
+  tic();
   exec_feature_gpu_warm(img);
-  PRINT_STAT_DOUBLE ("gpu_warm-up", toc ());
+  PRINT_STAT_DOUBLE("gpu_warm-up", toc());
 
   vector<KeyPoint> key = exec_feature_gpu(img);
 
   Mat desc = exec_descriptor_gpu(img, key);
 
-  STATS_END ();
+  STATS_END();
 #ifdef TESTING
   FILE *f = fopen("../input/surf-fd.gpu", "w");
 

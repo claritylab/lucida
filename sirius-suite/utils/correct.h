@@ -15,7 +15,7 @@
  * @contact: jahausw@umich.edu
  */
 
-#if !defined (CORRECTNESS_H_)
+#if !defined(CORRECTNESS_H_)
 #define CORRECTNESS_H_
 
 void write_out(char *fname, float *arr, int arr_len);

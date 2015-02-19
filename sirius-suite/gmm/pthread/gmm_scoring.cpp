@@ -148,11 +148,11 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
 
-  STATS_INIT ("kernel", "pthread_gaussian_mixture_model");
-  PRINT_STAT_STRING ("abrv", "pthread_gmm");
+  STATS_INIT("kernel", "pthread_gaussian_mixture_model");
+  PRINT_STAT_STRING("abrv", "pthread_gmm");
 
   NTHREADS = atoi(argv[1]);
-  PRINT_STAT_INT ("threads", NTHREADS);
+  PRINT_STAT_INT("threads", NTHREADS);
 
   int means_array_size = senone_size * comp_size * comp_size;
   int comp_array_size = senone_size * comp_size;
@@ -180,8 +180,7 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < comp_size; j++) {
       for (int k = 0; k < comp_size; k++) {
         float elem;
-        if(!fscanf(fp, "%f", &elem))
-          break;
+        if (!fscanf(fp, "%f", &elem)) break;
         means_vect[idx] = elem;
         ++idx;
       }
@@ -193,8 +192,7 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < comp_size; j++) {
       for (int k = 0; k < comp_size; k++) {
         float elem;
-        if(!fscanf(fp, "%f", &elem))
-          break;
+        if (!fscanf(fp, "%f", &elem)) break;
         precs_vect[idx] = elem;
         idx = idx + 1;
       }
@@ -205,8 +203,7 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < senone_size; i++) {
     for (int j = 0; j < comp_size; j++) {
       float elem;
-      if(!fscanf(fp, "%f", &elem))
-        break;
+      if (!fscanf(fp, "%f", &elem)) break;
       weight_vect[idx] = elem;
       idx = idx + 1;
     }
@@ -216,8 +213,7 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < senone_size; i++) {
     for (int j = 0; j < comp_size; j++) {
       float elem;
-      if(!fscanf(fp, "%f", &elem))
-        break;
+      if (!fscanf(fp, "%f", &elem)) break;
       factor_vect[idx] = elem;
       idx = idx + 1;
     }
@@ -225,7 +221,7 @@ int main(int argc, char *argv[]) {
 
   fclose(fp);
 
-  tic ();
+  tic();
   iterations = senone_size / NTHREADS;
   pthread_attr_init(&attr);
   pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -236,11 +232,11 @@ int main(int argc, char *argv[]) {
 
   for (int i = 0; i < NTHREADS; ++i) pthread_join(threads[i], NULL);
 
-  PRINT_STAT_DOUBLE ("pthread_gmm", toc ());
+  PRINT_STAT_DOUBLE("pthread_gmm", toc());
 
   STATS_END();
 
-  // write for correctness check
+// write for correctness check
 #if TESTING
   write_out("../input/gmm_scoring.pthread", pthread_score_vect, senone_size);
 #endif

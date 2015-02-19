@@ -45,24 +45,24 @@ static struct {
   int narg;
   const char *flags;
 } opcodes[] = {
-    {"END", 0, ""},      /* End of code block or program	*/
-    {"BRANCH", 2, "oo"}, /* Alternative operator, "|"	*/
-    {"ANY", 0, ""},      /* Match any character, "."	*/
-    {"EXACT", 2, "d"},   /* Match exact string		*/
-    {"ANYOF", 2, "D"},   /* Match any from set, "[]"	*/
-    {"ANYBUT", 2, "D"},  /* Match any but from set, "[^]"*/
-    {"OPEN ", 1, "i"},   /* Capture start, "("		*/
-    {"CLOSE", 1, "i"},   /* Capture end, ")"		*/
-    {"BOL", 0, ""},      /* Beginning of string, "^"	*/
-    {"EOL", 0, ""},      /* End of string, "$"		*/
-    {"STAR", 1, "o"},    /* Match zero or more times "*"	*/
-    {"PLUS", 1, "o"},    /* Match one or more times, "+"	*/
-    {"STARQ", 1, "o"},   /* Non-greedy STAR,  "*?"	*/
-    {"PLUSQ", 1, "o"},   /* Non-greedy PLUS, "+?"	*/
-    {"QUEST", 1, "o"},   /* Match zero or one time, "?"	*/
-    {"SPACE", 0, ""},    /* Match whitespace, "\s"	*/
-    {"NONSPACE", 0, ""}, /* Match non-space, "\S"	*/
-    {"DIGIT", 0, ""}     /* Match digit, "\d"		*/
+      {"END", 0, ""},      /* End of code block or program	*/
+      {"BRANCH", 2, "oo"}, /* Alternative operator, "|"	*/
+      {"ANY", 0, ""},      /* Match any character, "."	*/
+      {"EXACT", 2, "d"},   /* Match exact string		*/
+      {"ANYOF", 2, "D"},   /* Match any from set, "[]"	*/
+      {"ANYBUT", 2, "D"},  /* Match any but from set, "[^]"*/
+      {"OPEN ", 1, "i"},   /* Capture start, "("		*/
+      {"CLOSE", 1, "i"},   /* Capture end, ")"		*/
+      {"BOL", 0, ""},      /* Beginning of string, "^"	*/
+      {"EOL", 0, ""},      /* End of string, "$"		*/
+      {"STAR", 1, "o"},    /* Match zero or more times "*"	*/
+      {"PLUS", 1, "o"},    /* Match one or more times, "+"	*/
+      {"STARQ", 1, "o"},   /* Non-greedy STAR,  "*?"	*/
+      {"PLUSQ", 1, "o"},   /* Non-greedy PLUS, "+?"	*/
+      {"QUEST", 1, "o"},   /* Match zero or one time, "?"	*/
+      {"SPACE", 0, ""},    /* Match whitespace, "\s"	*/
+      {"NONSPACE", 0, ""}, /* Match non-space, "\S"	*/
+      {"DIGIT", 0, ""}     /* Match digit, "\d"		*/
 };
 
 /*

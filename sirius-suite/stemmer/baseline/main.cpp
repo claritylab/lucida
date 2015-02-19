@@ -67,8 +67,8 @@ int main(int argc, char *argv[]) {
   }
 
   /* Timing */
-  STATS_INIT ("kernel", "porter_stemming");
-  PRINT_STAT_STRING ("abrv", "stemmer");
+  STATS_INIT("kernel", "porter_stemming");
+  PRINT_STAT_STRING("abrv", "stemmer");
 
   FILE *f = fopen(argv[1], "r");
   if (f == 0) {
@@ -79,15 +79,15 @@ int main(int argc, char *argv[]) {
   stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
   fclose(f);
-  PRINT_STAT_INT ("words", words);
+  PRINT_STAT_INT("words", words);
 
-  tic ();
+  tic();
   for (int i = 0; i < words; i++) {
     stem_list[i]->b[stem2(stem_list[i]) + 1] = 0;
     // printf("%s\n",stem_list[i]->b);
   }
-  PRINT_STAT_DOUBLE ("stemmer", toc ());
-  
+  PRINT_STAT_DOUBLE("stemmer", toc());
+
   STATS_END();
 
   free(s);
@@ -95,8 +95,7 @@ int main(int argc, char *argv[]) {
 #ifdef TESTING
   f = fopen("../input/stem_porter.baseline", "w");
 
-  for(int i = 0; i < words; ++i)
-      fprintf(f, "%s\n", stem_list[i]->b);
+  for (int i = 0; i < words; ++i) fprintf(f, "%s\n", stem_list[i]->b);
 
   fclose(f);
 #endif
