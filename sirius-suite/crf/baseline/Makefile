@@ -1,9 +1,10 @@
 CXX = g++
-CXX_FLAGS = -O3
+CXX_FLAGS  = -O3
 LINK_FLAGS = ../libcrfpp.a
 
-MODEL   = ../input/model
-INPUT   = ../input/test.data
+CONTEXTS = 4
+MODEL    = ../input/model
+INPUT    = ../input/test.data
 
 # File names
 EXEC = crf_tag
@@ -23,7 +24,7 @@ $(EXEC): $(OBJECTS) Makefile
 # test
 test: CXX_FLAGS += -DTESTING
 test: all
-	@./$(EXEC) $(MODEL) $(INPUT)
+	@./$(EXEC) $(CONTEXTS) $(MODEL) $(INPUT)
 
 # To remove generated files
 clean:
