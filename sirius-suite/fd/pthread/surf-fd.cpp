@@ -37,7 +37,7 @@ using namespace cv;
 using namespace std;
 
 int NTHREADS;
-#define OVERLAP 0
+#define OVERLAP 20
 
 vector<Mat> segs;
 FeatureDetector *detector = new SurfFeatureDetector();

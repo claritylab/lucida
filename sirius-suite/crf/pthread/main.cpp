@@ -18,7 +18,8 @@ vector<CRFPP::Tagger *> taggers;
 void *slre_thread(void *tid) {
   int *mytid;
   mytid = (int *)tid;
-  // parse and change internal stated as 'parsed'
+
+  // parse and change internal stated to 'parsed'
   taggers[*mytid]->parse();
 }
 
@@ -26,11 +27,11 @@ int main(int argc, char **argv) {
   if (argc < 4) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
     fprintf(stderr,
-            "Usage: %s [NUMBER OF THREADS] [MODEL] [INPUT DATA]\n\n",
-            argv[0]);
+        "Usage: %s [NUMBER OF THREADS] [MODEL] [INPUT DATA]\n\n",
+        argv[0]);
     exit(0);
   }
-  
+
   STATS_INIT ("kernel", "pthread_conditional_random_fields");
   PRINT_STAT_STRING ("abrv", "pthread_crf");
 
@@ -67,13 +68,12 @@ int main(int argc, char **argv) {
 
     int s = 0;
     while(s < iterations) {
-      if(buf[0] == '.')
-          ++s;
       file1.getline(buf, 100);
       tagger->add(buf);
+      if(buf[0] == '.')
+        ++s;
     }
     taggers.push_back(tagger);
-    // cout << "\ntoken size: " << tagger->size() << endl;
   }
 
   tic ();
@@ -108,12 +108,12 @@ int main(int argc, char **argv) {
   fclose(f);
 #endif
 
+  STATS_END ();
+
   for (int i = 0; i < NTHREADS; i++) {
     CRFPP::Tagger *tagger = taggers[i];
     delete tagger;
   }
-
-  STATS_END ();
 
   return 0;
 }

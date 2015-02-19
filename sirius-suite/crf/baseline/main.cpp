@@ -16,61 +16,82 @@ using namespace std;
 int main(int argc, char **argv) {
   if (argc < 3) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
-    fprintf(stderr, "Usage: %s [MODEL] [INPUT DATA]\n\n", argv[0]);
+    fprintf(stderr, "Usage: %s [CONTEXTS] [MODEL] [INPUT DATA]\n\n", argv[0]);
     exit(0);
   }
   
   STATS_INIT ("kernel", "conditional_random_fields");
   PRINT_STAT_STRING ("abrv", "crf");
 
-  string model = "-m " + (string)argv[1] + " -v 3 -n2";
-  CRFPP::Tagger *tagger =
-    CRFPP::createTagger(model.c_str());
+  // contexts to force baseline to see data some way as pthreaded version
+  int CONTEXTS = atoi(argv[1]);
 
-  if (!tagger) {
-    cerr << CRFPP::getTaggerError() << endl;
-    return -1;
-  }
+  string model = "-m " + (string)argv[2] + " -v 3 -n2";
 
-  // clear internal context
-  tagger->clear();
-
-  // count number of sentences and add context
+  // count number of sentences
+  int sentences = 0;
   char buf[100];
   filebuf fb;
-  fb.open (argv[2], ios::in);
+  fb.open (argv[3], ios::in);
   istream file(&fb);
-  int sentences = 0;
   while(file) {
-    if(buf[0] == '.')
-      ++sentences;
     file.getline(buf, 100);
-    tagger->add(buf);
+    if(buf[0] == '.') ++sentences;
   }
 
   PRINT_STAT_INT("sentences", sentences);
 
-  // parse and change internal stated as 'parsed'
+  // add equal number of sentences to each context
+  vector<CRFPP::Tagger *> taggers;
+  int iterations = sentences / CONTEXTS;
+  filebuf fb1;
+  fb1.open (argv[3], ios::in);
+  istream file1(&fb1);
+  for(int i = 0; i < CONTEXTS; ++i) {
+    CRFPP::Tagger *tagger = CRFPP::createTagger(model.c_str());
+    if (!tagger) return -1;
+
+    // clear internal context
+    tagger->clear();
+
+    int s = 0;
+    while(s < iterations) {
+      file1.getline(buf, 100);
+      tagger->add(buf);
+      if(buf[0] == '.')
+          ++s;
+    }
+    taggers.push_back(tagger);
+  }
+
+  // parse and change internal stated to 'parsed'
   tic ();
-  tagger->parse();
+  for(int i = 0; i < CONTEXTS; ++i)
+    taggers[i]->parse();
   PRINT_STAT_DOUBLE ("crf", toc());
 
 #ifdef TESTING
   FILE *f = fopen("../input/crf_tag.baseline", "w");
 
-  for (size_t i = 0; i < tagger->size(); ++i) {
-    for (size_t j = 0; j < tagger->xsize(); ++j) {
-      fprintf(f, "%s ", tagger->x(i, j));
+  for (int i = 0; i < CONTEXTS; i++) {
+    CRFPP::Tagger *tagger = taggers[i];
+    for (size_t i = 0; i < tagger->size(); ++i) {
+      for (size_t j = 0; j < tagger->xsize(); ++j) {
+        fprintf(f, "%s ", tagger->x(i, j));
+      }
+      fprintf(f, "%s\n", tagger->y2(i));
     }
-    fprintf(f, "%s\n", tagger->y2(i));
   }
 
   fclose(f);
 #endif
 
-  delete tagger;
-
   STATS_END ();
+
+  for (int i = 0; i < CONTEXTS; i++) {
+    CRFPP::Tagger *tagger = taggers[i];
+    delete tagger;
+  }
 
   return 0;
 }
