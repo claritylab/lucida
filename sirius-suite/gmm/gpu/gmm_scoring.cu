@@ -8,7 +8,6 @@
 #include <string>
 
 #include "../../utils/timer.h"
-#include "../../utils/correct.h"
 
 float feature_vect[] = {2.240018,    2.2570236,    0.11304555,   -0.21307051,
                         0.8988138,   0.039065503,  0.023874786,  0.13153112,
@@ -312,7 +311,11 @@ int main(int argc, char *argv[]) {
   STATS_END();
 
 #if TESTING
-  write_out("../input/gmm_scoring.gpu", score_vect, senone_size);
+  FILE *f = fopen("../input/gmm_scoring.gpu", "w");
+
+  for (int i = 0; i < senone_size; ++i) fprintf(f, "%f\n", score_vect[i]);
+
+  fclose(f);
 #endif
 
   cudaEventRecord(eStop, 0);

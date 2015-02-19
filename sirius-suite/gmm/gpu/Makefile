@@ -5,10 +5,10 @@ INPUT = ../input/gmm_data.txt
 
 # File names
 EXEC = gmm_scoring
-SOURCES = gmm_scoring.cu ../../utils/correct.cpp
+SOURCES = gmm_scoring.cu
 OBJECTS = $(SOURCES:.cpp=.o)
 
-.PHONY: all
+.PHONY: all test
 
 all : $(EXEC)
 $(EXEC): $(OBJECTS) Makefile
@@ -22,7 +22,7 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(INPUT)
-	-@diff -q ../input/$(EXEC).baseline ../input/$(EXEC).pthread
+	-@diff -q ../input/$(EXEC).baseline ../input/$(EXEC).gpu
 
 # To remove generated files
 clean:

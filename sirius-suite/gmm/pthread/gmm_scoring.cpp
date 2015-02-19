@@ -8,7 +8,6 @@
 #include <string>
 
 #include "../../utils/timer.h"
-#include "../../utils/correct.h"
 
 int NTHREADS;
 int iterations;
@@ -27,7 +26,7 @@ float *precs_vect;
 float *weight_vect;
 float *factor_vect;
 
-float *pthread_score_vect;
+float *score_vect;
 
 float logZero = -3.4028235E38;
 
@@ -65,7 +64,7 @@ void *computeScore_thread(void *tid) {
   end = start + iterations;
 
   for (i = start; i < end; i++) {
-    pthread_score_vect[i] = logZero;
+    score_vect[i] = logZero;
 
     for (int j = 0; j < comp_size; j++) {
       // getScore
@@ -93,8 +92,8 @@ void *computeScore_thread(void *tid) {
 
       float logVal2 = logDval + weight_vect[idx2];
 
-      float logHighestValue = pthread_score_vect[i];
-      float logDifference = pthread_score_vect[i] - logVal2;
+      float logHighestValue = score_vect[i];
+      float logDifference = score_vect[i] - logVal2;
 
       // difference is always a positive number
       if (logDifference < 0) {
@@ -134,7 +133,7 @@ void *computeScore_thread(void *tid) {
         }
       }
       // sum log
-      pthread_score_vect[i] = logHighestValue + returnLogValue;
+      score_vect[i] = logHighestValue + returnLogValue;
     }
   }
 
@@ -162,7 +161,7 @@ int main(int argc, char *argv[]) {
   weight_vect = (float *)malloc(comp_array_size * sizeof(float));
   factor_vect = (float *)malloc(comp_array_size * sizeof(float));
 
-  pthread_score_vect = (float *)malloc(senone_size * sizeof(float));
+  score_vect = (float *)malloc(senone_size * sizeof(float));
 
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
@@ -238,7 +237,11 @@ int main(int argc, char *argv[]) {
 
 // write for correctness check
 #if TESTING
-  write_out("../input/gmm_scoring.pthread", pthread_score_vect, senone_size);
+  FILE *f = fopen("../input/gmm_scoring.pthread", "w");
+
+  for (int i = 0; i < senone_size; ++i) fprintf(f, "%f\n", score_vect[i]);
+
+  fclose(f);
 #endif
 
   /* Clean up and exit */
@@ -248,7 +251,7 @@ int main(int argc, char *argv[]) {
   free(weight_vect);
   free(factor_vect);
 
-  free(pthread_score_vect);
+  free(score_vect);
 
   pthread_attr_destroy(&attr);
   pthread_exit(NULL);
