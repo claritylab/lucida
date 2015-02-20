@@ -2,7 +2,7 @@
 
 wav_file=$1
 
-ASR="localhost:8091/"
+ASR="localhost:8081/"
 
 echo "Your audio file is:"
 echo $wav_file
