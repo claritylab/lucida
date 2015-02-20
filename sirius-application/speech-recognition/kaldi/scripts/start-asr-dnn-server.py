@@ -23,7 +23,9 @@ def shback(cmd):
     return p
 
 def shcin(stdin_data, server):
-    out = server.communicate(input=stdin_data)[0]
+    server.stdin.write(stdin_data)
+
+    out = server.stdout.readline()
     return out
 
 class Handler(BaseHTTPRequestHandler):
@@ -53,11 +55,11 @@ class Handler(BaseHTTPRequestHandler):
         cmd = './convert_sample_rate.sh %s %s8k_%s' % (filepath, dlog, filename)
         shcom(cmd)
         
-        filename = dlog + "8k_" + filename
+        filename = dlog + "8k_" + filename + '\n'
         res = shcin(filename, server_process)
 	
         # Parse the output to get the transcript
-        print 'Transcript: %s' % (res)
+        # print 'Transcript: %s' % (res)
 
         answer = ('%s\n' % res)
         self.wfile.write(answer)
