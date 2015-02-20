@@ -52,9 +52,9 @@ class Handler(BaseHTTPRequestHandler):
 
         cmd = './convert_sample_rate.sh %s %s8k_%s' % (filepath, dlog, filename)
         shcom(cmd)
-
-	filename = dlog + filename
-	res = shcin(filename, server_process)
+        
+        filename = dlog + "8k_" + filename
+        res = shcin(filename, server_process)
 	
         # Parse the output to get the transcript
         print 'Transcript: %s' % (res)
