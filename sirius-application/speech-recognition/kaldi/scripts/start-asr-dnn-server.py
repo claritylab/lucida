@@ -18,6 +18,14 @@ def shcom(cmd):
     out = p.communicate()[0]
     return out
 
+def shback(cmd):
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+    return p
+
+def shcin(stdin_data, server):
+    out = server.communicate(input=stdin_data)[0]
+    return out
+
 class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
@@ -45,9 +53,9 @@ class Handler(BaseHTTPRequestHandler):
         cmd = './convert_sample_rate.sh %s %s8k_%s' % (filepath, dlog, filename)
         shcom(cmd)
 
-        cmd = './decode.sh %s8k_%s' % (dlog, filename)
-        res = shcom(cmd)
-
+	filename = dlog + filename
+	res = shcin(filename, server_process)
+	
         # Parse the output to get the transcript
         print 'Transcript: %s' % (res)
 
@@ -65,5 +73,11 @@ if __name__ == '__main__':
     host = sys.argv[1]
     port = int(sys.argv[2])
     server = ThreadedHTTPServer((host, port), Handler)
+
+    # Start the kaldi server
+    cmd = './server.sh'
+    global server_process
+    server_process = shback(cmd)
+
     print 'Starting server on %s:%s, use <Ctrl-C> to stop' % (host, port)
     server.serve_forever()
