@@ -42,12 +42,6 @@ if [ ! -d tools ]; then
   cd ..
 fi
 
-if [ -d src ]; then
-  cd ./src/
-  make clean 1>/dev/null
-  cd ..
-fi
-
 tar -xzf src.tar.gz --overwrite
 cd ./src/
 ./configure 1>/dev/null
