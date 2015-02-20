@@ -11,17 +11,20 @@ Each kernel is part of a specific service from Sirius:
     - Image Matching (IMM): fe, fd  
     - Question Answering (QA): crf, regex, stemmer
 
+The `utils/` folder contains timing and printing functions used by the kernels.  
+The `scripts/` folder has python scripts to run the benchmarks multiple times and parse the resulting output.
+
 ### Running the kernels:
 - Most dependencies can be installed using `get-<dependency>.sh` included in
-[sirius-application](../sirius-application). `dnn-asr` and `crf` require
-additional libraries (see READMEs).
+[sirius-application](../sirius-application). Additional information can be found on the [Sirius-suite](http://sirius.clarity-lab.org/sirius-suite/) webpage.
 - Build all:  
 ```bash
 $ make
 ```
-- Or Run the kernels on all supported platforms with the default inputs and
-check output compared to the baseline implementation:
+- Or build and run the kernels on all supported platforms with the default configurations and inputs, and
+validate the output w.r.t the baseline implementation:
 ```bash
+$ make clean
 $ make test
 ```
 
