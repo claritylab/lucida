@@ -16,7 +16,7 @@ The `scripts/` folder has python scripts to run the benchmarks multiple times an
 
 ### Running the kernels:
 - Most dependencies can be installed using `get-<dependency>.sh` included in
-[sirius-application](../sirius-application). The full list can be found on the [sirius-suite](http://sirius.clarity-lab.org/sirius-suite/) webpage.
+[sirius-application](../sirius-application). The full list of dependencies can be found on the [sirius-suite](http://sirius.clarity-lab.org/sirius-suite/) webpage.
 - Build all:  
 ```bash
 $ make
