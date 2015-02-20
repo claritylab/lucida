@@ -32,10 +32,24 @@ javac -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar Pocketsphin
 cd ../../ 
 echo "Pocketsphinx server done."
 
-cd $asr_kaldi/tools;
-make -j $THREADS 1>/dev/null
+cd $asr_kaldi
 
-cd ../src;
+# Untar the src and tools tarball
+if [ ! -d tools ]; then
+  tar -xvzf tools.tar.gz
+  cd ./tools/
+  make -j $THREADS 1>/dev/null
+  cd ..
+fi
+
+if [ -d src ]; then
+  cd ./src/
+  make clean
+  cd ..
+fi
+
+tar -xvzf --overwrite src.tar.gz
+cd ./src/
 ./configure
 make -j $THREADS 1>/dev/null
 

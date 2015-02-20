@@ -11,8 +11,8 @@ cd $dir/scripts
 ./prepare.sh
 
 # Untar the kaldi source files
-cd ..
-tar -xvzf src.tar.gz
-tar -xvzf tools.tar.gz
+#cd ..
+#tar -xvzf src.tar.gz
+#tar -xvzf tools.tar.gz
 
 echo "Kaldi preparation done."
