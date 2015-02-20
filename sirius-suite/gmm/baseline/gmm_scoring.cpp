@@ -196,7 +196,7 @@ int main(int argc, char *argv[]) {
 #if TESTING
   FILE *f = fopen("../input/gmm_scoring.baseline", "w");
 
-  for (int i = 0; i < senone_size; ++i) fprintf(f, "%f\n", score_vect[i]);
+  for (int i = 0; i < senone_size; ++i) fprintf(f, "%.0f\n", score_vect[i]);
 
   fclose(f);
 #endif
