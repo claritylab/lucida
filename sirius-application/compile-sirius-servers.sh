@@ -44,13 +44,13 @@ fi
 
 if [ -d src ]; then
   cd ./src/
-  make clean
+  make clean 1>/dev/null
   cd ..
 fi
 
-tar -xvzf --overwrite src.tar.gz
+tar -xzf src.tar.gz --overwrite
 cd ./src/
-./configure
+./configure 1>/dev/null
 make -j $THREADS 1>/dev/null
 
 cd ./online2bin
