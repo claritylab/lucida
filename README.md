@@ -11,16 +11,16 @@ details.
 
 [sirius-application](sirius-application) contains the 3 backend components
 required to set up the end-to-end system.  
-See [README](sirius-application/README.md) for more information.
+See [Sirius-application](http://sirius.clarity-lab/sirius) for more information.
 
 ## Sirius-suite
 
 [sirius-suite](sirius-suite) contains all the kernels extracted from the
 end-to-end application.  
-See [README](sirius-suite/README.md) for more information.
+See [Sirius-suite](http://sirius.clarity-lab/sirius-suite) for more information.
 
 ## Sirius-web
 
 [sirius-web](sirius-web) contains a web front-end server to make requests to
 Sirius.  
-See [README](sirius-web/README.md) for more information.
+See [Sirius-suite](http://sirius.clarity-lab/sirius-web) for more information.
