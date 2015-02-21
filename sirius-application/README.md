@@ -3,7 +3,7 @@
 ### Prerequisites
 
 Sirius has several dependencies which can be resolved with the
-`get-<package.sh` scripts.
+`get-<package>.sh` scripts.
 
 ### Installation
 
