@@ -183,7 +183,7 @@ if __name__ == "__main__":
         context = SSL.Context(SSL.SSLv3_METHOD)
         context.use_privatekey_file(pkey)
         context.use_certificate_file(os.getcwd() + '/server.crt')
-        app.run(host=localhost, port=WEB, debug=True, ssl_context=(cert,
+        app.run(host='localhost', port=WEB, debug=True, ssl_context=(cert,
                                                                    pkey) )
     else:
-        app.run(host=localhost, port=WEB, debug=True)
+        app.run(host='localhost', port=WEB, debug=True)
