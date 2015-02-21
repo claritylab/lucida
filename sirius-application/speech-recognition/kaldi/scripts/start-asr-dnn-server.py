@@ -8,7 +8,7 @@ import threading
 import cgi
 from datetime import datetime
 
-dlog = 'log/'
+dlog = '../../input-log/'
 
 def shcmd(cmd):
     subprocess.call(cmd, shell=True)

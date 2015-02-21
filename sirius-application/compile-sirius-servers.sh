@@ -17,6 +17,7 @@ hash ant 2>/dev/null || {
 # thread for parallel build
 THREADS=4
 
+asr_ps=speech-recognition/pocketsphinx
 asr_sphinx=speech-recognition/sphinx
 asr_kaldi=speech-recognition/kaldi
 qa=question-answer
@@ -29,8 +30,12 @@ javac -cp .:./lib/servlet.jar:./lib/jetty.jar:lib/sphinx4.jar Sphinx4Server.java
 echo "Sphinx4 server done."
 
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar PocketsphinxServer.java
-cd ../../ 
+cd -;
 echo "Pocketsphinx server done."
+
+cd $asr_ps
+./compile.sh
+cd -;
 
 cd $asr_kaldi
 
