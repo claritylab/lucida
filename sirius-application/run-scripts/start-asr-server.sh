@@ -42,11 +42,15 @@ if [ "$asr" == "sphinx4" ]; then
     -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/sphinx4.jar Sphinx4Server \
     $ip $port
 elif [ "$asr" == "pocketsphinx" ]; then
+  cd ./pocketsphinx
+  ./start-asr-ps-server.py $ip $port
+elif [ "$asr" == "kaldi" ];then
+  cd ./kaldi/scripts/
+  ./start-asr-dnn-server.py $ip $port
+elif [ "$asr" == "pocketsphinx-old" ]; then
+# old version included for now
   cd ./sphinx/
   java -server -Djava.library.path=./lib \
     -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar \
     PocketsphinxServer $ip $port
-elif [ "$asr" == "kaldi" ];then
-  cd ./kaldi/scripts/
-  ./start-asr-dnn-server.py $ip $port
 fi
