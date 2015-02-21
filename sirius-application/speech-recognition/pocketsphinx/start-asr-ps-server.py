@@ -79,10 +79,5 @@ if __name__ == '__main__':
     port = int(sys.argv[2])
     server = ThreadedHTTPServer((host, port), Handler)
 
-    # Start the kaldi server
-    cmd = './server.sh'
-    global server_pid
-    server_pid = shback(cmd)
-
     print 'Starting server on %s:%s, use <Ctrl-C> to stop' % (host, port)
     server.serve_forever()
