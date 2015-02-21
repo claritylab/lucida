@@ -23,13 +23,12 @@ ALLOWED_EXTENSIONS=set(['wav'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-servers = ['141.212.106.240']
+servers = ['localhost']
+WEB = 8000
 QA  = servers[0]
 ASR = servers[0]
 VIS = servers[0]
 ports = [8080, 8081, 8082]
-sirius = "Sirius is an intelligent personal assistant created at the University of Michigan, Department of Computer Science and Engineering."
-sirius += "Sirius answers visual and spoken questions using image matching, speech recognition, and a question-answering service."
 
 # data folder
 log = 'input-log/'
@@ -55,9 +54,6 @@ def req_vis(image, return_dict=None):
     return result
 
 def req_asr(speech, return_dict=None):
-    # # convert to 16KHz
-    # cmd = 'ffmpeg -y -i ' + filename + ' -acodec pcm_s16le -ac 1 -ar 16000 input-log/tmp.wav'
-    # shcmd(cmd)
     cmd = 'wget -q -U "Mozilla/5.0" --post-file ' + str(speech)
     cmd += ' --header "Content-Type: audio/vnd.wave; rate=16000" -O - '
     cmd += make_server(ASR, ports[1])
@@ -119,18 +115,20 @@ def image():
             data = [img, speech]
             proc = []
             for idx,fn in enumerate(fns):
-                p = multiprocessing.Process(target=fn, args=(data[idx], return_dict))
+                p = multiprocessing.Process(target=fn, args=(data[idx],
+                                                             return_dict))
                 p.start()
                 proc.append(p)
             for p in proc:
                 p.join()
 
-            question = re.sub('this', return_dict[img].strip(), return_dict[speech].strip()).strip()
+            question = re.sub('this', return_dict[img].strip(),
+                              return_dict[speech].strip()).strip()
             answer = req_qa(question).strip()
-            # question = 'Question: %s' % question
-            # answer = 'Answer: %s' % answer
             data = [question, answer]
-            return render_template('image.html', form=form, in_img=form.in_img.data, data=map(json.dumps, data))
+            return render_template('image.html', form=form,
+                                   in_img=form.in_img.data,
+                                   data=map(json.dumps, data))
     else:
         return render_template('image.html', form=form)
 
@@ -145,16 +143,11 @@ def record():
 
             filename = 'input-log/' + filename
             question = req_asr(filename).strip()
-            if "serious" in question:
-                answer = sirius
-            else:
-                answer = req_qa(question).strip()
+            answer = req_qa(question).strip()
 
-            # question = 'Question: %s' % question
-            # answer = 'Answer: %s' % answer
-            # return render_template('record.html', form=form, reply_line1=line1, reply_line2=line2)
             data = [question, answer];
-            return render_template('record.html', form=form, data=map(json.dumps, data))
+            return render_template('record.html', form=form,
+                                   data=map(json.dumps, data))
     else:
         return render_template('record.html', form=form)
 
@@ -170,7 +163,8 @@ def question():
 
         line1 = 'Question: %s' % text
         line2 = 'Answer: %s' % answer
-        return render_template('question.html', form=form, reply_line1=line1, reply_line2=line2)
+        return render_template('question.html', form=form, reply_line1=line1,
+                               reply_line2=line2)
 
     else:
         return render_template('question.html', form=form)
@@ -185,7 +179,11 @@ if __name__ == "__main__":
 
     pkey = os.getcwd() + '/server.key'
     cert = os.getcwd() + '/server.crt'
-    context = SSL.Context(SSL.SSLv3_METHOD)
-    context.use_privatekey_file(pkey)
-    context.use_certificate_file(os.getcwd() + '/server.crt')
-    app.run(host='141.212.106.240', port=8000, debug=True, ssl_context=(cert, pkey) )
+    if os.path.isfile(pkey) and os.path.isfile(cert):
+        context = SSL.Context(SSL.SSLv3_METHOD)
+        context.use_privatekey_file(pkey)
+        context.use_certificate_file(os.getcwd() + '/server.crt')
+        app.run(host=localhost, port=WEB, debug=True, ssl_context=(cert,
+                                                                   pkey) )
+    else:
+        app.run(host=localhost, port=WEB, debug=True)
