@@ -1,4 +1,4 @@
-## Sirius
+## Sirius-application
 
 ### Prerequisites
 
@@ -22,6 +22,8 @@ image queries.
 This directory contains OpenEphyra and OpenEphyraServer used by Sirius.
 
 ### [Inputs](inputs)
+Included are a set of pre-recorded questions that use various components of
+Sirius.
 
 ### Additional info
 Refer to the [sirius installation](http://sirius.clarity-lab.org/sirius) page
