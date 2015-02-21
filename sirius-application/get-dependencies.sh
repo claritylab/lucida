@@ -9,7 +9,7 @@ then
 fi
 
 apt-get install \
-  default-jdk ant automake autoconf libtool bison libboost-all-dev
+  default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg
 
 # Get tessaract text recognition
 apt-get install \
