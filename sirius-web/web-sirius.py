@@ -25,7 +25,6 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 servers = ['141.212.106.240']
-WEB = 8000
 QA  = servers[0]
 ASR = servers[0]
 VIS = servers[0]
@@ -183,6 +182,8 @@ def index():
 if __name__ == "__main__":
     cmd = 'mkdir -p ' + log
     shcmd(cmd)
+    h = sys.argv[1]
+    p = int(sys.argv[2])
 
     pkey = os.getcwd() + '/server.key'
     cert = os.getcwd() + '/server.crt'
@@ -190,7 +191,7 @@ if __name__ == "__main__":
         context = SSL.Context(SSL.SSLv3_METHOD)
         context.use_privatekey_file(pkey)
         context.use_certificate_file(os.getcwd() + '/server.crt')
-        app.run(host=servers[0], port=WEB, debug=True, ssl_context=(cert,
+        app.run(host=h, port=p, debug=True, ssl_context=(cert,
                                                                    pkey) )
     else:
-        app.run(host=servers[0], port=WEB, debug=True)
+        app.run(host=h, port=p, debug=True)
