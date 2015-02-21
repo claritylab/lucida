@@ -16,6 +16,7 @@ from httplib import BadStatusLine
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug import secure_filename
 from OpenSSL import SSL
+import time
 
 UPLOAD_FOLDER='input-log/'
 ALLOWED_EXTENSIONS=set(['wav'])
@@ -23,7 +24,7 @@ ALLOWED_EXTENSIONS=set(['wav'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-servers = ['localhost']
+servers = ['141.212.106.240']
 WEB = 8000
 QA  = servers[0]
 ASR = servers[0]
@@ -44,6 +45,7 @@ def shcom(cmd):
 from wtforms import Form, BooleanField, TextField, PasswordField, validators
 
 def req_vis(image, return_dict=None):
+    start = time.time()
     cmd = 'wget -q  -U "Mozilla/5.0" --post-file ' + str(image)
     cmd += ' --header "Content-Type: image/jpeg"'
     cmd += ' -O - '+ make_server(VIS, ports[2])
@@ -51,9 +53,11 @@ def req_vis(image, return_dict=None):
     if return_dict is not None:
         return_dict[image] = result
 
+    print "VIS time: %f" % float(time.time() - start)
     return result
 
 def req_asr(speech, return_dict=None):
+    start = time.time()
     cmd = 'wget -q -U "Mozilla/5.0" --post-file ' + str(speech)
     cmd += ' --header "Content-Type: audio/vnd.wave; rate=16000" -O - '
     cmd += make_server(ASR, ports[1])
@@ -61,9 +65,11 @@ def req_asr(speech, return_dict=None):
     if return_dict is not None:
         return_dict[speech] = result
 
+    print "ASR time: %f" % float(time.time() - start)
     return result
 
 def req_qa(text, return_dict=None):
+    start = time.time()
     words = text.split()
     query = ''
     for w in words:
@@ -79,6 +85,7 @@ def req_qa(text, return_dict=None):
     except BadStatusLine:
         answer = ''
 
+    print "QA time: %f" % float(time.time() - start)
     print text
     print answer
     return answer
@@ -183,7 +190,7 @@ if __name__ == "__main__":
         context = SSL.Context(SSL.SSLv3_METHOD)
         context.use_privatekey_file(pkey)
         context.use_certificate_file(os.getcwd() + '/server.crt')
-        app.run(host='localhost', port=WEB, debug=True, ssl_context=(cert,
+        app.run(host=servers[0], port=WEB, debug=True, ssl_context=(cert,
                                                                    pkey) )
     else:
-        app.run(host='localhost', port=WEB, debug=True)
+        app.run(host=servers[0], port=WEB, debug=True)
