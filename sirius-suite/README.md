@@ -1,4 +1,4 @@
-## Sirius-Suite
+## Sirius-suite
 
 Each folder contains standalone algorithmic components extracted from the
 end-to-end Sirius system. Every kernel contains a baseline, pthread, GPU
