@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Yiping Kang 2014
 # ypkang@umich.edu
