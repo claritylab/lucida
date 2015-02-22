@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 QA="http://141.212.106.240:8080"
 ASR="http://141.212.106.240:8081"

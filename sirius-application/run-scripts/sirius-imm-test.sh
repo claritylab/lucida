@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 img=$1
 IMM="localhost:8082/"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ASR="http://localhost:8081/"
 QA="http://localhost:8080/"
