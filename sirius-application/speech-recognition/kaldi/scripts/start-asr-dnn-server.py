@@ -58,9 +58,6 @@ class Handler(BaseHTTPRequestHandler):
         filename = dlog + "8k_" + filename + '\n'
         res = shcin(filename, server_process)
 	
-        # Parse the output to get the transcript
-        # print 'Transcript: %s' % (res)
-
         answer = ('%s\n' % res)
         self.wfile.write(answer)
 
