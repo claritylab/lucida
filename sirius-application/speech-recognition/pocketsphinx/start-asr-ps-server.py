@@ -9,6 +9,7 @@ import cgi
 from datetime import datetime
 
 dlog = '../input-log/'
+argfile = '-argfile ps-args-en.txt'
 
 def shcmd(cmd):
     subprocess.call(cmd, shell=True)
@@ -56,10 +57,10 @@ class Handler(BaseHTTPRequestHandler):
         cmd = 'ffmpeg -y -i %s -acodec pcm_s16le -ac 1 -ar 16000 %s16k_%s 1>/dev/null 2>/dev/null' % (filepath, dlog, filename)
         shcmd(cmd)
 
-        filename = dlog + "16k_" + filename
-        cmd = 'pocketsphinx_continuous -argfile ps-args.txt -logfn /dev/null -infile %s ' % (filename)
+        f1 = dlog + "16k_" + filename
+        cmd = 'pocketsphinx_continuous %s -logfn /dev/null -infile %s ' % (argfile, f1)
         res = shcom(cmd).strip()
-        print res
+        print 'transcript: %s' % (res)
 	
         # Parse the output to get the transcript
         # print 'Transcript: %s' % (res)
