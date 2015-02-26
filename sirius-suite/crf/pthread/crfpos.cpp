@@ -174,7 +174,3 @@ void crf_decode_nbest(Sentence &s, CRF_Model &m,
 
   for (size_t k = 0; k < s.size(); k++) s[k].prd = cs.vs[k].label;
 }
-
-/*
- * $Log$
- */

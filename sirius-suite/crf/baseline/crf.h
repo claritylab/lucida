@@ -19,13 +19,8 @@
 #define USE_HASH_MAP  // if you encounter errors with hash, try commenting out
                       // this line. (the program will be a bit slower, though)
 #ifdef USE_HASH_MAP
-//#include <ext/hash_map>
 #include <tr1/unordered_map>
 #endif
-
-// use this option and change MAX_LABEL_TYPES below accordingly, if you want to
-// use more than 255 labels
-//#define USE_MANY_LABELS
 
 //
 // data format for each sample for training/testing
@@ -361,7 +356,6 @@ class CRF_Model {
     assert(x >= 0 && x < MAX_LABEL_TYPES);
     assert(y >= 0 && y < MAX_LABEL_TYPES);
     assert(z >= 0 && z < MAX_LABEL_TYPES);
-    //      std::cout << x << " " << y << " " << z << std::endl;
     return p_edge_feature_id2[x * MAX_LABEL_TYPES * MAX_LABEL_TYPES +
                               y * MAX_LABEL_TYPES + z];
   }
