@@ -19,15 +19,16 @@ def shcmd(cmd):
 if __name__ == '__main__':
     pwd = os.getcwd()
     db_name = sys.argv[1]
+    db_dir = sys.argv[2]
 
     # make protodb
-    cmd = './match --build %s' % db_name
+    cmd = './match --build %s' % db_dir
     print cmd
     shcmd(cmd)
 
     # make pickledb
     pickdb = pickledb.load(db_name+'.pickle', False)
-    imgs = os.listdir(db_name)
+    imgs = os.listdir(db_dir)
     for i in imgs:
         if i.endswith('.jpg'):
             # remove extension and tokenize
