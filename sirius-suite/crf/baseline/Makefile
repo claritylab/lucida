@@ -1,14 +1,12 @@
 CXX = g++
 CXX_FLAGS  = -O3
-LINK_FLAGS = ../libcrfpp.a
 
-CONTEXTS = 4
-MODEL    = ../input/model
-INPUT    = ../input/test.data
+MODEL    = ../input/model.la
+INPUT    = ../input/test-input.txt
 
 # File names
 EXEC = crf_tag
-SOURCES = main.cpp ../../utils/timer.cpp
+SOURCES = $(wildcard *.cpp) ../../utils/timer.o
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test
@@ -24,7 +22,7 @@ $(EXEC): $(OBJECTS) Makefile
 # test
 test: CXX_FLAGS += -DTESTING
 test: all
-	@./$(EXEC) $(CONTEXTS) $(MODEL) $(INPUT)
+	@./$(EXEC) $(MODEL) $(INPUT)
 
 # To remove generated files
 clean:
