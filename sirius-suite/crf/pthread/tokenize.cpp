@@ -8,19 +8,18 @@
 
 using namespace std;
 
-static void
-replace(string & s, const string & s1, const string & s2, const char skip = 0, bool left = true);
+static void replace(string& s, const string& s1, const string& s2,
+                    const char skip = 0, bool left = true);
 
-static void separate_commas(string & s)
-{
+static void separate_commas(string& s) {
   const int n = s.size();
 
   string t;
   for (int i = 0; i < n; i++) {
     if (s[i] == ',') {
-      if ( !(i > 0 && isdigit(s[i-1]) && i < n - 1 && isdigit(s[i+1]) ) ) {
-	t += " , ";
-	continue;
+      if (!(i > 0 && isdigit(s[i - 1]) && i < n - 1 && isdigit(s[i + 1]))) {
+        t += " , ";
+        continue;
       }
     }
     t += string(1, s[i]);
@@ -29,9 +28,7 @@ static void separate_commas(string & s)
   s = t;
 }
 
-void
-tokenize(const string & s1, vector<string> & lt)
-{
+void tokenize(const string& s1, vector<string>& lt) {
   if (s1.size() == 0) return;
 
   lt.clear();
@@ -54,7 +51,7 @@ tokenize(const string & s1, vector<string> & lt)
 
   replace(s, "...", " ... ");
 
-  //replace(s, ",", " , ");
+  // replace(s, ",", " , ");
   separate_commas(s);
   replace(s, ";", " ; ");
   replace(s, ":", " : ");
@@ -68,17 +65,18 @@ tokenize(const string & s1, vector<string> & lt)
   while (pos > 0 && s[pos] == ' ') pos--;
   while (pos > 0) {
     char c = s[pos];
-    if (c == '[' || c == ']' || c == ')' || c == '}' || c == '>' ||
-        c == '"' || c == '\'') {
-      pos--; continue;
+    if (c == '[' || c == ']' || c == ')' || c == '}' || c == '>' || c == '"' ||
+        c == '\'') {
+      pos--;
+      continue;
     }
     break;
   }
-  if (s[pos] == '.' && !(pos > 0 && s[pos-1] == '.')) s.replace(pos, 1, " .");
-  
+  if (s[pos] == '.' && !(pos > 0 && s[pos - 1] == '.')) s.replace(pos, 1, " .");
+
   replace(s, "?", " ? ");
   replace(s, "!", " ! ");
-    
+
   replace(s, "[", " [ ");
   replace(s, "]", " ] ");
   replace(s, "(", " ( ");
@@ -92,7 +90,7 @@ tokenize(const string & s1, vector<string> & lt)
 
   s.replace(string::size_type(0), 0, " ");
   s.replace(s.size(), 0, " ");
-  
+
   replace(s, "''", " '' ");
   replace(s, "\"", " '' ");
 
@@ -141,21 +139,19 @@ tokenize(const string & s1, vector<string> & lt)
   while (is >> t) {
     lt.push_back(t);
   }
-
 }
 
-static void
-replace(string & s, const string & s1, const string & s2, const char skip, bool left)
-{
+static void replace(string& s, const string& s1, const string& s2,
+                    const char skip, bool left) {
   string::size_type pos = 0;
   while (1) {
     string::size_type i = s.find(s1, pos);
     if (i == string::npos) break;
     if (skip) {
-      if (left && i > 0 && s[i-1] == skip) {
+      if (left && i > 0 && s[i - 1] == skip) {
         pos = i + 1;
         continue;
-      } else if (i < s.size() - 1 && s[i+1] == skip) {
+      } else if (i < s.size() - 1 && s[i + 1] == skip) {
         pos = i + 1;
         continue;
       }
@@ -163,12 +159,10 @@ replace(string & s, const string & s1, const string & s2, const char skip, bool 
     s.replace(i, s1.size(), s2);
     pos = i + s2.size();
   }
-
 }
 
-void
-tokenize(const string & s, vector<Token> & vt, const bool use_upenn_tokenizer)
-{
+void tokenize(const string& s, vector<Token>& vt,
+              const bool use_upenn_tokenizer) {
   vector<string> vs;
   if (use_upenn_tokenizer) {
     tokenize(s, vs);
@@ -186,11 +180,17 @@ tokenize(const string & s, vector<Token> & vt, const bool use_upenn_tokenizer)
     int strlen = i->size();
     if (*i == "''") {
       string::size_type y = s.find("\"", begin);
-      if (y != string::npos && (x == string::npos || y < x)) { x = y; strlen = 1; }
+      if (y != string::npos && (x == string::npos || y < x)) {
+        x = y;
+        strlen = 1;
+      }
     }
     if (*i == "``") {
       string::size_type y = s.find("\"", begin);
-      if (y != string::npos && (x == string::npos || y < x)) { x = y; strlen = 1; }
+      if (y != string::npos && (x == string::npos || y < x)) {
+        x = y;
+        strlen = 1;
+      }
     }
     if (x == string::npos) {
       cerr << "internal error: tokenization failed." << endl;
