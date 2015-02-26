@@ -1,0 +1,76 @@
+***********************************************************************
+*                    Lookahead POS Tagger                             *
+***********************************************************************
+
+Overview
+--------
+
+  This is a general-purpose part-of-speech (POS) tagger using
+  the lookahead tagging algorithm described in [1]. 
+  The main features of this tagger are:
+     - state-of-the-art accuracy (97.22% on the WSJ corpus)
+     - fast tagging (> 500 sentences/sec)
+     - trainable using your own tagged corpus
+     - quick training (5 minites with WSJ00-18)
+
+
+How to Build
+------------
+
+  1.  Type "make".
+
+
+How to Use
+----------
+
+  You can perform part-of-speech tagging using a model trained on
+  the Wall Street Journal corpus.
+
+    % ./lapos -m ./model_wsj02-21 < samples/test.txt > tmp
+
+  Note that by default the input must be one-sentence-per-line, and the 
+  words need to be already tokenized with white spaces.  If you want the 
+  tagger to perform tokenization, add -t option. 
+
+
+How to Train the Tagger
+-----------------------
+
+  You can build a tagging model using your own annotated corpus. 
+  Use the "lapos-learn" command:
+
+    % ./lapos-learn -m ./model samples/train.pos 
+
+  Once you have trained the model, you can use it by specifying the 
+  directory that contains the generated model file.
+
+    % ./lapos -m ./model < samples/test.txt > tmp
+
+
+How to Evaluate the Tagger
+--------------------------
+
+  You can evaluate tagging accuracy by the "lapos-eval" command.
+
+    % ./lapos-eval samples/test.pos tmp samples/train.pos
+
+
+References
+----------
+
+  [1] Yoshimasa Tsuruoka, Yusuke Miyao, and Jun'ichi Kazama,
+      Learning with Lookahead: Can History-based Models Rival Globally Optimized Models?
+      In Proceedings of the Fifteenth Conference on Computational Natural Language Learning (CoNLL), pp. 238-246, 2011.
+
+
+Change history
+--------------
+
+  o 12 August 2011 version 0.1.1
+    - switch to <tr1/unordered_map> from <ext/hash_map> (thx to X. Wang)
+
+  o 17 June 2011 version 0.1
+
+
+--------------------------------------------------------
+Yoshimasa Tsuruoka (tsuruoka@gmail.com)
