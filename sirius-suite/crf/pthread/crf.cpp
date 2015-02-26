@@ -97,28 +97,6 @@ double CRF_Model::FunctionGradientWrapper(const vector<double>& x,
 }
 
 int CRF_Model::perform_BFGS() {
-  /*
-  pointer_to_working_object = this;
-
-  const int dim = _fb.Size();
-  vector<double> x0(dim);
-
-  for (int i = 0; i < dim; i++) { x0[i] = _vl[i]; }
-
-  vector<double> x;
-  if (_inequality_width > 0) {
-    cerr << "performing OWL-QN" << endl;
-    x = perform_OWLQN(CRF_Model::FunctionGradientWrapper, x0,
-  _inequality_width);
-  } else {
-    cerr << "performing L-BFGS" << endl;
-    x = perform_LBFGS(CRF_Model::FunctionGradientWrapper, x0);
-  }
-
-  for (int i = 0; i < dim; i++) { _vl[i] = x[i]; }
-
-  return 0;
-  */
 }
 
 double CRF_Model::forward_prob(const int len) {
@@ -374,7 +352,6 @@ double CRF_Model::calc_loglikelihood(const Sequence& seq) {
 
 int CRF_Model::make_feature_bag(const int cutoff) {
 #ifdef USE_HASH_MAP
-  //  typedef __gnu_cxx::hash_map<mefeature_type, int> map_type;
   typedef std::tr1::unordered_map<mefeature_type, int> map_type;
 #else
   typedef std::map<mefeature_type, int> map_type;
@@ -420,13 +397,10 @@ double CRF_Model::heldout_likelihood() {
        i != _heldout.end(); i++) {
     total_len += i->vs.size();
     double fp = forward_backward(*i);
-    //    double p = calc_likelihood(*i, fp);
-    //    logl += log(p);
     logl += calc_loglikelihood(*i);
 
     for (size_t j = 0; j < i->vs.size(); j++) {
       const Sample& s = i->vs[j];
-      //      vector<double> wsum = calc_state_weight(*i, j);
       vector<double> wsum = calc_state_weight(j);
       if (s.label == max_element(wsum.begin(), wsum.end()) - wsum.begin())
         ncorrect++;
@@ -612,7 +586,6 @@ void CRF_Model::add_training_sample(const CRF_Sequence& seq) {
 int CRF_Model::train(const OptimizationMethod method, const int cutoff,
                      const double sigma, const double widthfactor) {
   if (sigma > 0 && widthfactor > 0) {
-    //  if (Nsigma2 > 0 && widthfactor > 0) {
     cerr << "error: Gausian prior and inequality modeling cannot be used "
             "together." << endl;
     return 0;
@@ -626,7 +599,6 @@ int CRF_Model::train(const OptimizationMethod method, const int cutoff,
          << endl;
     return 0;
   }
-  // if (_nheldout > 0) random_shuffle(_vs.begin(), _vs.end());
 
   _label_bag.Put(BOS_LABEL);
   _label_bag.Put(EOS_LABEL);
@@ -1218,6 +1190,3 @@ int CRF_Model::perform_StochasticGradientDescent() {
   return 0;
 }
 
-/*
- * $Log$
- */

@@ -23,10 +23,6 @@
 #include <tr1/unordered_map>
 #endif
 
-// use this option and change MAX_LABEL_TYPES below accordingly, if you want to
-// use more than 255 labels
-//#define USE_MANY_LABELS
-
 //
 // data format for each sample for training/testing
 //
@@ -402,7 +398,3 @@ class CRF_Model {
 };
 
 #endif
-
-/*
- * $Log$
- */
