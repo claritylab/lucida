@@ -51,7 +51,6 @@ void tokenize(const string& s1, vector<string>& lt) {
 
   replace(s, "...", " ... ");
 
-  // replace(s, ",", " , ");
   separate_commas(s);
   replace(s, ";", " ; ");
   replace(s, ":", " : ");
@@ -129,7 +128,6 @@ void tokenize(const string& s1, vector<string>& lt) {
   replace(s, "'Twas ", " 'T was ");
   replace(s, "'twas ", " 't was ");
   replace(s, " Wanna ", " Wan na ");
-  //  replace(s, " wanna ", " wanna ");
   replace(s, " wanna ", " wan na ");
 
   if (s[s.size() - 1] == '\'') s.replace(s.size() - 1, 1, " ' ");
