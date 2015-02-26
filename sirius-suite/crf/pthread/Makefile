@@ -1,14 +1,14 @@
 CXX = g++
-CXX_FLAGS = -O3
-LINK_FLAGS = ../libcrfpp.a -lpthread
+CXX_FLAGS  = -O3
+LINK_FLAGS = -lpthread
 
-THREADS = 4
-MODEL   = ../input/model
-INPUT   = ../input/test.data
+THREADS  = 4
+MODEL    = ../input/model.la
+INPUT    = ../input/test-input.txt
 
 # File names
 EXEC = crf_tag
-SOURCES = main.cpp ../../utils/timer.cpp
+SOURCES = $(wildcard *.cpp) ../../utils/timer.o
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test
