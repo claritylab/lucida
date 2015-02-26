@@ -25,10 +25,16 @@ imm=image-matching
 
 export MODELS_PATH="`pwd`/sphinx/models/"
 
+################
+# Sphinx
+################
 cd $asr_sphinx;
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:lib/sphinx4.jar Sphinx4Server.java
 echo "Sphinx4 server done."
 
+################
+# PocketSphinx
+################
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar PocketsphinxServer.java
 cd -;
 echo "Pocketsphinx server done."
@@ -37,11 +43,13 @@ cd $asr_ps
 ./compile.sh
 cd -;
 
+################
+# Kaldi
+################
 cd $asr_kaldi
-
 # Untar the src and tools tarball
 if [ ! -d tools ]; then
-  tar -xvzf tools.tar.gz
+  tar -xzf tools.tar.gz
   cd ./tools/
   make -j $THREADS 1>/dev/null
   cd ..
@@ -57,11 +65,20 @@ make -j $THREADS 1>/dev/null
 cd ../../../../
 echo "Kaldi server done."
 
+################
+# OpenEphyra
+################
+if [ ! -d question-answer ]; then
+  tar -xzf question-answer.tar.gz
+fi
 cd $qa;
 ant > /dev/null
 cd .. 
 echo "OpenEphyra server done."
 
+################
+# Image Matching
+################
 cd $imm
 make -j $THREADS 1>/dev/null
 echo "Image-matching server done."
