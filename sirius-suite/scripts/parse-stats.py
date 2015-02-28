@@ -44,28 +44,21 @@ def main( args ):
         mn[k] = min(v)
         mx[k] = max(v)
 
-    print 'kernel,mean,median,stddev,min,max'
+    print 'kernel,mean,median,stddev,min,max,speedup'
     for base in kernels:
-        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f" % (base, avg[base], median[base],
+        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (base, avg[base], median[base],
                                                stddev[base], mn[base],
-                                               mx[base])
-
-    for pth in kernels:
-        base = 'pthread_' + pth
-        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f" % (base, avg[base], median[base],
-                                               stddev[base], mn[base],
-                                               mx[base])
-
-    if shcom("which nvcc") == "":
-        return
-
-    for gpu in kernels:
-        base = 'gpu_' + gpu
-        if base == 'gpu_regex' or base == 'gpu_crf':
+                                               mx[base], float(avg[base]/avg[base]))
+        pth = 'pthread_' + base
+        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (pth, avg[pth], median[pth],
+                                               stddev[pth], mn[pth],
+                                               mx[pth],float(avg[base]/avg[pth]))
+        gpu = 'gpu_' + base
+        if gpu == 'gpu_regex' or gpu == 'gpu_crf':
             continue
-        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f" % (base, avg[base], median[base],
-                                               stddev[base], mn[base],
-                                               mx[base])
+        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (gpu, avg[gpu], median[gpu],
+                                               stddev[gpu], mn[gpu],
+                                               mx[gpu], float(avg[base]/avg[gpu]))
 
 if __name__=='__main__':
     sys.exit(main(sys.argv))
