@@ -3,4 +3,10 @@ language: cpp
 compiler:
   - g++
 
-script: cd sirius-suite/ && make
+before_script:
+    - sudo apt-get install libopenblas-dev
+    - wget http://web.eecs.umich.edu/~jahausw/download/sirius-caffe-1.0.tar.gz
+    - tar xzf sirius-caffe-1.0.tar.gz
+    - cd sirius-caffe
+    - sudo ./make-and-install.sh
+script: cd sirius-suite/ && make test
