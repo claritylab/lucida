@@ -1,6 +1,6 @@
 ## Sirius-web
 
-Included is a web-frontend for the sirius-application. 
+Included is a web-frontend for the [sirius-application](../sirius-application). 
 
 ### Prerequisites
 
