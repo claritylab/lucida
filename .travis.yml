@@ -9,7 +9,7 @@ env:
         - WITH_CUDA=false
 
 before_install:
-    -export NUM_THREADS=4
+    - export NUM_THREADS=4
 
 install:
     - sudo -E ./travis-scripts/suite_deps.sh
