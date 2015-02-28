@@ -14,7 +14,7 @@ apt-get install \
     libleveldb-dev libsnappy-dev libopencv-dev \
     libboost-dev libboost-system-dev libboost-python-dev libboost-thread-dev \
     libprotobuf-dev protobuf-compiler \
-    libopenblas-base-dev libopenblas-dev \
+    libopenblas-dev \
     libhdf5-serial-dev libgflags-dev libgoogle-glog-dev \
     bc
 
