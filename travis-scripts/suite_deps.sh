@@ -42,7 +42,7 @@ pushd .
 curl $LMDB_URL -o $LMDB_FILE
 tar -C /tmp -xzvf $LMDB_FILE
 cd /tmp/openldap*/libraries/liblmdb/
-$MAKE$MAKE install
+$MAKE install
 popd
 rm -f $LMDB_FILE
 
