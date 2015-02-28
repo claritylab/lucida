@@ -222,7 +222,7 @@ int main(int argc, char **argv) {
   }
 
   for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
-  PRINT_STAT_DOUBLE("crf", toc());
+  PRINT_STAT_DOUBLE("pthread_crf", toc());
 
 #ifdef TESTING
   FILE *f = fopen("../input/crf_tag.pthread", "w");
