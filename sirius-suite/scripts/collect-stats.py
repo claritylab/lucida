@@ -61,7 +61,7 @@ def main( args ):
     os.chdir(kdir)
 
     # how many times to run each kernel
-    LOOP = args[2]
+    LOOP = int(args[2])
 
     # remove GPU if no NVCC installed
     if shcom("which nvcc") == "":
@@ -79,10 +79,7 @@ def main( args ):
                 continue
             os.chdir(plat)
             for i in range(1, LOOP):
-                if k == 'crf':
-                    shcmd('./test-crf.sh')
-                else:
-                    shcmd('make test')
+                shcmd('make test')
             os.chdir(kroot)
         os.chdir(root)
 
