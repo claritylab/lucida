@@ -31,7 +31,6 @@ if [ ! -d pocketsphinx-master ]; then
 fi
 
 # tweaked file that includes timing
-cp continuous.c pocketsphinx-master/src/programs
 cd pocketsphinx-master;
 make -j $THREADS 1> /dev/null
 sudo make install 1> /dev/null

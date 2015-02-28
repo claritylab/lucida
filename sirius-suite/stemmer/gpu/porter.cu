@@ -846,7 +846,8 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  stem_list = (struct stemmer *)malloc(ARRAYSIZE * sizeof(struct stemmer));
+  cudaMallocHost((void **)&stem_list, ARRAYSIZE* sizeof(struct stemmer));
+
   int words = load_data(stem_list, f);
   PRINT_STAT_INT("words", words);
 
@@ -894,7 +895,7 @@ int main(int argc, char *argv[]) {
 
   fclose(f);
 #endif
-  free(stem_list);
+  cudaFreeHost(stem_list);
   cudaFree(gpu_stem_list);
 
   return 0;

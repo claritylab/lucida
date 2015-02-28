@@ -14,18 +14,4 @@ Each kernel is part of a specific service from Sirius:
 The `utils/` folder contains timing and printing functions used by the kernels.  
 The `scripts/` folder has python scripts to run the benchmarks multiple times and parse the resulting output.
 
-### Running the kernels:
-- Most dependencies can be installed using `get-<dependency>.sh` included in
-[sirius-application](../sirius-application). The full list of dependencies can be found on the [sirius-suite](http://sirius.clarity-lab.org/sirius-suite/) webpage.
-- Build all:  
-```bash
-$ make
-```
-- Or build and run the kernels on all supported platforms with the default configurations and inputs, and
-validate the output w.r.t the baseline implementation:
-```bash
-$ make clean
-$ make test
-```
-
-Download models and larger inputs at: http://sirius.clarity-lab.org/downloads
+To find out more about the suite, please visit [sirius-suite](http://sirius.clarity-lab.org/sirius-suite/) webpage.
