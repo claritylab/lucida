@@ -14,7 +14,7 @@ apt-get install \
     libleveldb-dev libsnappy-dev libopencv-dev \
     libboost-dev libboost-system-dev libboost-python-dev libboost-thread-dev \
     libprotobuf-dev protobuf-compiler \
-    libatlas-dev libatlas-base-dev libopenblas-dev \
+    libopenblas-base-dev libopenblas-dev \
     libhdf5-serial-dev libgflags-dev libgoogle-glog-dev \
     bc
 
@@ -42,8 +42,7 @@ pushd .
 curl $LMDB_URL -o $LMDB_FILE
 tar -C /tmp -xzvf $LMDB_FILE
 cd /tmp/openldap*/libraries/liblmdb/
-$MAKE
-$MAKE install
+$MAKE$MAKE install
 popd
 rm -f $LMDB_FILE
 
