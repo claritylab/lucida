@@ -19,7 +19,7 @@ apt-get install -qq \
     bc
 
 # hack
-sudo cp /usr/lib/openblas-dev/* /usr/lib
+sudo cp /usr/lib/openblas-base/* /usr/lib
 
 # Install CUDA, if needed
 if $WITH_CUDA; then
