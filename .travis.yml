@@ -11,13 +11,20 @@ env:
 before_install:
     - export NUM_THREADS=4
     - export VER=0.1
+    - git clone https://github.com/Itseez/opencv.git
+    - cd opencv
+    - git checkout 2.4.9
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make -j4
+    - sudo make -j4 install
 
 install:
-    - sudo -E ./travis-scripts/get-opencv.sh
     - sudo -E ./travis-scripts/suite_deps.sh
 
 before_script:
-    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/cuda/lib64:/usr/lib:/usr/lib/openblas-base
+    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/cuda/lib64:/usr/lib
     - export PATH=/home/travis/miniconda/bin:$PATH
 
 script: cd sirius-suite/ && make
