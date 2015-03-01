@@ -14,7 +14,7 @@ hash unzip 2>/dev/null || {
   exit 1
 }
 
-MAKE="make --jobs=$NUM_THREADS"
+MAKE="make --jobs=2"
 
 # Get correct opencv
 sudo apt-get install \
