@@ -27,15 +27,11 @@ open=opencv-
 ver=2.4.9
 base=${open}${ver}
 
-mkdir -p bits;
-cd bits;
-wget \
-  http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/$ver/$base.zip
-unzip $base;
-cd $base;
-
-# cmake -DWITH_CUDA=ON -DCUDA_ARCH_BIN="3.5"
-cmake .
+git clone https://github.com/Itseez/opencv.git
+cd opencv
+git checkout 2.4.9
+mkdir build && cd build
+cmake ..
 $MAKE 1 > /dev/null
 $MAKE install
 cd .. ;
