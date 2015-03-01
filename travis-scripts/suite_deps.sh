@@ -11,7 +11,7 @@ apt-get -y update
 apt-get install -qq \
     wget git curl \
     python-dev python-numpy \
-    libleveldb-dev libsnappy-dev libopencv-dev \
+    libleveldb-dev libsnappy-dev \
     libboost-dev libboost-system-dev libboost-python-dev libboost-thread-dev \
     libprotobuf-dev protobuf-compiler \
     libblas-dev libopenblas-dev \
