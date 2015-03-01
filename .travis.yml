@@ -10,8 +10,10 @@ env:
 
 before_install:
     - export NUM_THREADS=4
+    - export VER=0.1
 
 install:
+    - sudo -E ./travis-scripts/get-openblas.sh
     - sudo -E ./travis-scripts/suite_deps.sh
 
 before_script:
