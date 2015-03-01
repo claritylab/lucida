@@ -13,7 +13,7 @@ before_install:
     - export VER=0.1
 
 install:
-    - sudo -E ./travis-scripts/get-openblas.sh
+    # - sudo -E ./travis-scripts/get-openblas.sh
     - sudo -E ./travis-scripts/suite_deps.sh
 
 before_script:
