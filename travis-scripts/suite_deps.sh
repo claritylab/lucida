@@ -18,6 +18,9 @@ apt-get install -qq \
     libhdf5-serial-dev libgflags-dev libgoogle-glog-dev \
     bc
 
+# hack
+sudo cp /usr/lib/openblas-dev/* /usr/lib
+
 # Install CUDA, if needed
 if $WITH_CUDA; then
   CUDA_URL=http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1204/x86_64/cuda-repo-ubuntu1204_6.5-14_amd64.deb
