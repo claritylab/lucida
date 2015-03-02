@@ -41,8 +41,10 @@ before_script:
 
 script:
     - if $WITH_SUITE; then
-      cd sirius-suite && make -j4 && cd ..;
-      ./test-tars.sh
+      cd sirius-suite;
+      make -j4;
+      cd ..;
+      # ./test-tars.sh
       fi
     - if $WITH_APP; then
       cd sirius-application && ./compile-sirius-servers.sh && cd ..;
