@@ -18,7 +18,7 @@ sudo ./make-and-install.sh
 cd ..;
 
 cd sirius-suite;
-make test;
+$MAKE test;
 cd ..;
 
 cd sirius-application;
