@@ -44,6 +44,7 @@ script:
       cd sirius-suite;
       make -j4;
       cd ..;
+      ./travis-scripts/test-tars.sh
       fi
     - if $WITH_APP; then
       cd sirius-application && ./compile-sirius-servers.sh && cd ..;
