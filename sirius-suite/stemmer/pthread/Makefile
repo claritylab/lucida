@@ -2,7 +2,7 @@ CXX = g++
 LINK_FLAGS = -lrt -lpthread
 CXX_FLAGS  = -O3 -fpermissive -Wno-write-strings
 
-THREADS = 4
+THREADS = 8
 INPUT   = ../input/voc.txt
 
 # File names
