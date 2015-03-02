@@ -3,7 +3,7 @@ LINK_FLAGS = -lpthread -lrt -lm
 CXX_FLAGS = -O3
 
 INPUT = ../input/gmm_data.txt
-THREADS = 8
+THREADS = 4
 
 # File names
 EXEC = gmm_scoring
