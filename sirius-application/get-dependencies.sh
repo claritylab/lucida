@@ -11,4 +11,4 @@ sudo apt-get install \
 
 # Get ATLAS library for Kaldi
 sudo apt-get install \
-  libatlas3-base  
+  libatlas-dev
