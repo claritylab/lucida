@@ -3,7 +3,7 @@
 # Install (some) dependencies
 
 sudo apt-get install \
-  default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg
+  default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg swig
 
 # Get tessaract text recognition
 sudo apt-get install \
