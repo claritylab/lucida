@@ -6,16 +6,28 @@ cache: apt
 
 env:
     - WITH_CUDA=false
-    - WITH_OPENCV=false
     - WITH_SUITE=true
     - WITH_APP=true
 
 before_install:
     - export NUM_THREADS=4
     - export VER=0.1
+    - git clone https://github.com/Itseez/opencv.git;
+    - cd opencv;
+    - git checkout 2.4.9;
+    - mkdir build;
+    - cd build;
+    - cmake ..;
+    - make -j4;
+    - sudo make -j4 install;
+    - cd ../..;
 
 install:
     - if $WITH_SUITE; then sudo -E ./travis-scripts/suite_deps.sh; fi
+    - if $WITH_APP; then
+      sudo -E ./sirius-application/get-dependencies.sh;
+      ./sirius-application/get-kaldi.sh;
+      fi
 
 before_script:
     - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/cuda/lib64:/usr/lib
