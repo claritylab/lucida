@@ -5,9 +5,9 @@ compiler: gcc
 cache: apt
 
 env:
-    - WITH_CUDA=false
-    - WITH_SUITE=true
-    - WITH_APP=true
+    - WITH_SUITE=true WITH_APP=true WITH_CUDA=false
+    # - WITH_SUITE=true WITH_APP=false
+    # - WITH_SUITE=false WITH_APP=true
 
 before_install:
     - export NUM_THREADS=4
