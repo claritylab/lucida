@@ -1,6 +1,50 @@
 language: cpp
 
-compiler:
-  - gcc
+compiler: gcc
 
-script: cd sirius-suite/ && make test
+cache: apt
+
+env:
+    - WITH_SUITE=true WITH_CUDA=false WITH_APP=false
+    # - WITH_SUITE=true WITH_CUDA=true WITH_APP=false
+    # - WITH_SUITE=false WITH_CUDA=false WITH_APP=true
+
+before_install:
+    - export NUM_THREADS=4
+    - export VER=0.1
+    - if $WITH_SUITE; then
+      git clone https://github.com/Itseez/opencv.git;
+      cd opencv;
+      git checkout 2.4.9;
+      mkdir build;
+      cd build;
+      cmake ..;
+      make -j4;
+      sudo make -j4 install;
+      cd ../..;
+      fi
+
+install:
+    - if $WITH_SUITE; then
+      sudo -E ./travis-scripts/suite_deps.sh;
+      fi
+    - if $WITH_APP; then
+      cd sirius-application;
+      sudo -E ./get-dependencies.sh;
+      ./get-kaldi.sh;
+      cd ..;
+      fi
+
+before_script:
+    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/cuda/lib64:/usr/lib
+    - export PATH=/home/travis/miniconda/bin:$PATH
+
+script:
+    - if $WITH_SUITE; then
+      cd sirius-suite;
+      make -j4;
+      cd ..;
+      fi
+    - if $WITH_APP; then
+      cd sirius-application && ./compile-sirius-servers.sh && cd ..;
+      fi
