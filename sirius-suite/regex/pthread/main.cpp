@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
     exit(0);
   }
   /* Timing */
-  STATS_INIT("kernel", "regular_expression");
+  STATS_INIT("kernel", "pthread_regular_expression");
   PRINT_STAT_STRING("abrv", "pthread_regex");
 
   NTHREADS = atoi(argv[1]);
