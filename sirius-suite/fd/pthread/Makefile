@@ -7,7 +7,7 @@ LINK_FLAGS = -lpthread \
 			 -lopencv_nonfree \
 			 -lopencv_features2d
 
-THREADS = 4
+THREADS = 8
 OVERLAP = 15
 INPUT = ../input/2048x2048.jpg
 

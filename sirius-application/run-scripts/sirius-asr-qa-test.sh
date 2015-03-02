@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 
-ASR="http://localhost:8081/"
 QA="http://localhost:8080/"
-query=$1
+ASR="http://localhost:8081/"
+wavfile=$1
 
 echo "Your voice search (text) is:"
-echo "$query"
-
-filename=${query// /.}
-filename=`echo $filename | tr '[:upper:]' '[:lower:]'`
+echo "$wavfile"
 
 echo "Sending request to ASR server..."
-resp=`wget -q -U "Mozilla/5.0" --post-file ../inputs/questions/$filename.wav \
+resp=`wget -q -U "Mozilla/5.0" --post-file $wavfile \
     --header "Content-Type: audio/vnd.wave; rate=16000" \
     -O - "$ASR" `
 
