@@ -64,4 +64,11 @@ rm /home/travis/miniconda/lib/libm.*
 wget http://web.eecs.umich.edu/~jahausw/download/sirius-caffe-1.0.tar.gz
 tar xzf sirius-caffe-1.0.tar.gz
 cd sirius-caffe
+if $WITH_CUDA; then
+  echo "CPU_ONLY := 0" >> Makefile.config
+  # Only generate compute_50.
+  GENCODE="-gencode arch=compute_50,code=sm_50"
+  GENCODE="$GENCODE -gencode arch=compute_50,code=compute_50"
+  echo "CUDA_ARCH := $GENCODE" >> Makefile.config
+fi
 sudo ./make-and-install.sh

@@ -21,14 +21,19 @@ before_install:
       cmake ..;
       make -j4;
       sudo make -j4 install;
+      sudo ln /dev/null /dev/raw1394
       cd ../..;
       fi
 
 install:
-    - if $WITH_SUITE; then sudo -E ./travis-scripts/suite_deps.sh; fi
+    - if $WITH_SUITE; then
+      sudo -E ./travis-scripts/suite_deps.sh;
+      fi
     - if $WITH_APP; then
-      sudo -E ./sirius-application/get-dependencies.sh;
-      ./sirius-application/get-kaldi.sh;
+      cd sirius-application;
+      sudo -E ./get-dependencies.sh;
+      ./get-kaldi.sh;
+      cd ..;
       fi
 
 before_script:
@@ -36,6 +41,10 @@ before_script:
     - export PATH=/home/travis/miniconda/bin:$PATH
 
 script:
-    - if $WITH_SUITE; then cd sirius-suite && make && cd -; fi
-    - if $WITH_APP; then cd sirius-application && ./compile-sirius-servers.sh && cd -; fi
-    - ./travis-scripts/test-tars.sh
+    - if $WITH_SUITE; then
+      cd sirius-suite && $MAKE && cd ..;
+      ./test-tars.sh
+      fi
+    - if $WITH_APP; then
+      cd sirius-application && ./compile-sirius-servers.sh && cd ..;
+      fi
