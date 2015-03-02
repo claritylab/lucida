@@ -2,7 +2,7 @@ CXX = g++
 LINK_FLAGS = -lpthread -lrt -lm
 CXX_FLAGS = -O3 -fpermissive
 
-THREADS   = 8
+THREADS   = 4
 LIST      = ../input/list
 QUESTIONS = ../input/questions
 

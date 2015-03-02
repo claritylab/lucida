@@ -2,7 +2,7 @@ CXX = g++
 CXX_FLAGS  = -O3
 LINK_FLAGS = -lpthread
 
-THREADS  = 8
+THREADS  = 4
 MODEL    = ../input/model.la
 INPUT    = ../input/test-input.txt
 
