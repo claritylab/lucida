@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # Install (some) dependencies
+# run as sudo
 
-sudo apt-get install \
+apt-get install \
   default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg swig
 
 # Get tessaract text recognition
-sudo apt-get install \
+apt-get install \
   tesseract-ocr tesseract-ocr-eng libtesseract-dev libleptonica-dev
 
 # Get ATLAS library for Kaldi
-sudo apt-get install \
-  libatlas-dev
+apt-get install libatlas-dev

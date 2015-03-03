@@ -4,6 +4,8 @@
 # jahausw@umich.edu
 # 2014
 
+# run as sudo
+
 hash wget 2>/dev/null || {
   echo >&2 "$0: [ERROR] wget is not installed. Aborting."
   exit 1
@@ -18,7 +20,7 @@ NUM_THREADS=4
 ver=2.4.9
 
 # Get correct opencv
-sudo apt-get install \
+apt-get install \
   build-essential checkinstall git cmake libfaac-dev libjack-jackd2-dev \
   libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libsdl1.2-dev \
   libtheora-dev libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev \

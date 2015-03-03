@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt-get install python-pip python-pyaudio
-sudo pip install wtforms Flask requests pickledb
+# run as sudo
+
+apt-get install python-pip python-pyaudio
+pip install wtforms Flask requests pickledb
