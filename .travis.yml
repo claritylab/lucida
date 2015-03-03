@@ -12,6 +12,17 @@ env:
 before_install:
     - export NUM_THREADS=4
     - export VER=0.1
+    - if $WITH_SUITE; then
+      git clone https://github.com/Itseez/opencv.git;
+      cd opencv;
+      git checkout 2.4.9;
+      mkdir build;
+      cd build;
+      cmake ..;
+      make -j$NUM_THREADS;
+      sudo make -j$NUM_THREADS install;
+      cd ../..;
+      fi
 
 install:
     - if $WITH_SUITE; then
@@ -31,9 +42,8 @@ before_script:
 script:
     - if $WITH_SUITE; then
       cd sirius-suite;
-      make -j4;
+      make;
       cd ..;
-      ./travis-scripts/test-tars.sh
       fi
     - if $WITH_APP; then
       cd sirius-application && ./compile-sirius-servers.sh && cd ..;
