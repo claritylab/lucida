@@ -12,17 +12,6 @@ env:
 before_install:
     - export NUM_THREADS=4
     - export VER=0.1
-    - if $WITH_SUITE; then
-      git clone https://github.com/Itseez/opencv.git;
-      cd opencv;
-      git checkout 2.4.9;
-      mkdir build;
-      cd build;
-      cmake ..;
-      make -j4;
-      sudo make -j4 install;
-      cd ../..;
-      fi
 
 install:
     - if $WITH_SUITE; then
