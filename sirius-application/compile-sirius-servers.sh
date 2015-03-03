@@ -32,16 +32,21 @@ cd $asr_sphinx;
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:lib/sphinx4.jar Sphinx4Server.java
 echo "Sphinx4 server done."
 
-################
-# PocketSphinx
-################
+##################
+# Java PocketSphinx
+##################
 javac -cp .:./lib/servlet.jar:./lib/jetty.jar:./lib/pocketsphinx.jar PocketsphinxServer.java
-cd -;
-echo "Pocketsphinx server done."
+cd - > /dev/null
+echo "Java Pocketsphinx server done."
+
+##################
+# C++ PocketSphinx
+##################
 
 cd $asr_ps
 ./compile.sh
-cd -;
+cd - > /dev/null
+echo "C++ Pocketsphinx server done."
 
 ################
 # Kaldi
@@ -73,12 +78,12 @@ if [ ! -d question-answer ]; then
 fi
 cd $qa;
 ant > /dev/null
-cd .. 
+cd - > /dev/null
 echo "OpenEphyra server done."
 
 ################
 # Image Matching
 ################
 cd $imm
-make -j $THREADS 1>/dev/null
+make -j$THREADS 1>/dev/null
 echo "Image-matching server done."
