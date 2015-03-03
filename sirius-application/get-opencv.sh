@@ -14,6 +14,9 @@ hash unzip 2>/dev/null || {
   exit 1
 }
 
+NUM_THREADS=4
+ver=2.4.9
+
 # Get correct opencv
 sudo apt-get install \
   build-essential checkinstall git cmake libfaac-dev libjack-jackd2-dev \
@@ -21,22 +24,12 @@ sudo apt-get install \
   libtheora-dev libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev \
   libxvidcore-dev texi2html yasm zlib1g-dev
 
-open=opencv-
-ver=2.4.9
-base=${open}${ver}
-
-mkdir -p bits;
-cd bits;
-wget \
-  http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/$ver/$base.zip
-unzip $base;
-cd $base;
-
-# cmake -DWITH_CUDA=ON -DCUDA_ARCH_BIN="3.5"
-cmake .
-make && make install
-cd .. ;
-
-# (optionally) clean up
-# rm -rf $base ;
-# cd ../ ; rm -rf bits ;
+git clone https://github.com/Itseez/opencv.git;
+mv opencv opencv-$ver
+cd opencv-$ver;
+git checkout $ver;
+mkdir build;
+cd build;
+cmake ..;
+make -j$NUM_THREADS
+make -j$NUM_THREADS install
