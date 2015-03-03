@@ -9,7 +9,7 @@ import cgi
 from datetime import datetime
 
 dlog = '../input-log/'
-argfiles = ['-argfile ps-args-en.txt', '-argfile ps-args-vox.txt', '']
+argfiles = ['']
 
 def shcmd(cmd):
     subprocess.call(cmd, shell=True)
