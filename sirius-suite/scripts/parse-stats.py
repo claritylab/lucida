@@ -44,19 +44,19 @@ def main( args ):
         mn[k] = min(v)
         mx[k] = max(v)
 
-    print 'kernel,mean,median,stddev,min,max,speedup'
+    print 'kernel,platform,mean,median,stddev,min,max,speedup'
     for base in kernels:
-        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (base, avg[base], median[base],
+        print "%s,%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (base, 'baseline', avg[base], median[base],
                                                stddev[base], mn[base],
                                                mx[base], float(avg[base]/avg[base]))
         pth = 'pthread_' + base
-        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (pth, avg[pth], median[pth],
+        print "%s,%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (base, 'pthread', avg[pth], median[pth],
                                                stddev[pth], mn[pth],
                                                mx[pth],float(avg[base]/avg[pth]))
         gpu = 'gpu_' + base
         if gpu == 'gpu_regex' or gpu == 'gpu_crf':
             continue
-        print "%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (gpu, avg[gpu], median[gpu],
+        print "%s,%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f" % (base, 'gpu', avg[gpu], median[gpu],
                                                stddev[gpu], mn[gpu],
                                                mx[gpu], float(avg[base]/avg[gpu]))
 
