@@ -8,7 +8,7 @@ MAKE="make --jobs=$NUM_THREADS"
 # This ppa is for gflags and glog
 add-apt-repository -y ppa:tuleu/precise-backports
 apt-get -y update
-apt-get install \
+apt-get -y install \
     wget git curl \
     python-dev python-numpy \
     libleveldb-dev libsnappy-dev \
