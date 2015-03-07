@@ -10,7 +10,7 @@ env:
     # - WITH_SUITE=false WITH_CUDA=false WITH_APP=true
 
 before_install:
-    - export NUM_THREADS=4
+    - export NUM_THREADS=1
     - export VER=0.1
     - if $WITH_SUITE; then
       git clone https://github.com/Itseez/opencv.git;
@@ -19,18 +19,18 @@ before_install:
       mkdir build;
       cd build;
       cmake ..;
-      make -j2;
+      make -j$NUM_THREADS;
       sudo make -j$NUM_THREADS install;
       cd ../..;
       fi
 
 install:
     - if $WITH_SUITE; then
-      sudo -E ./travis-scripts/suite_deps.sh;
+      travis_wait sudo -E ./travis-scripts/suite_deps.sh;
       fi
     - if $WITH_APP; then
       cd sirius-application;
-      sudo -E ./get-dependencies.sh;
+      travis_wait sudo -E ./get-dependencies.sh;
       ./get-kaldi.sh;
       cd ..;
       fi
