@@ -8,7 +8,7 @@ MAKE="make --jobs=$NUM_THREADS"
 # This ppa is for gflags and glog
 add-apt-repository -y ppa:tuleu/precise-backports
 apt-get -y update
-apt-get install \
+apt-get -y install \
     wget git curl \
     python-dev python-numpy \
     libleveldb-dev libsnappy-dev \
@@ -61,9 +61,12 @@ conda install --yes numpy scipy matplotlib scikit-image pip
 pip install protobuf
 rm /home/travis/miniconda/lib/libm.*
 
-wget http://web.eecs.umich.edu/~jahausw/download/sirius-caffe-1.0.tar.gz
-tar xzf sirius-caffe-1.0.tar.gz
-cd sirius-caffe
+# FIXME:
+# Hey Johann, I don't want to put too much pressure on you, so I will
+# just put this comment here without telling you. (￢д￢)
+wget http://web.eecs.umich.edu/~jahausw/download/sirius-suite-1.0.tar.gz
+tar xzf sirius-suite-1.0.tar.gz
+cd sirius-suite/sirius-caffe/
 if $WITH_CUDA; then
   echo "CPU_ONLY := 0" >> Makefile.config
   # Only generate compute_50.
