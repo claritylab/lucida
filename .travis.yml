@@ -19,8 +19,8 @@ before_install:
       mkdir build;
       cd build;
       cmake ..;
-      make -j$NUM_THREADS;
-      sudo make -j$NUM_THREADS install;
+      travis_wait make -j$NUM_THREADS;
+      travis_wait sudo make -j$NUM_THREADS install;
       cd ../..;
       fi
 
