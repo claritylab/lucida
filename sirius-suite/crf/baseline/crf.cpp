@@ -351,12 +351,7 @@ double CRF_Model::calc_loglikelihood(const Sequence& seq) {
 }
 
 int CRF_Model::make_feature_bag(const int cutoff) {
-#ifdef USE_HASH_MAP
-  //  typedef __gnu_cxx::hash_map<mefeature_type, int> map_type;
-  typedef std::tr1::unordered_map<mefeature_type, int> map_type;
-#else
   typedef std::map<mefeature_type, int> map_type;
-#endif
 
   map_type count;
   if (cutoff > 0) {

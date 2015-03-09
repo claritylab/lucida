@@ -16,12 +16,6 @@
 #include <cstdio>
 #include "strdic.h"
 
-#define USE_HASH_MAP  // if you encounter errors with hash, try commenting out
-                      // this line. (the program will be a bit slower, though)
-#ifdef USE_HASH_MAP
-#include <tr1/unordered_map>
-#endif
-
 //
 // data format for each sample for training/testing
 //
@@ -131,11 +125,7 @@ class CRF_Model {
 #endif
 
   struct ME_FeatureBag {
-#ifdef USE_HASH_MAP
-    typedef std::tr1::unordered_map<mefeature_type, int> map_type;
-#else
     typedef std::map<mefeature_type, int> map_type;
-#endif
     map_type mef2id;
     std::vector<ME_Feature> id2mef;
     int Put(const ME_Feature &i) {
@@ -184,11 +174,7 @@ class CRF_Model {
   };
 
   struct MiniStringBag {
-#ifdef USE_HASH_MAP
-    typedef std::tr1::unordered_map<std::string, int, hashfun_str> map_type;
-#else
     typedef std::map<std::string, int> map_type;
-#endif
     int _size;
     map_type str2id;
     MiniStringBag() : _size(0) {}
