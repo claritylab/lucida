@@ -11,7 +11,7 @@ details.
 
 [sirius-application](sirius-application) contains the 3 backend components
 required to set up the end-to-end system.  
-See [Sirius-application](http://sirius.clarity-lab.org/sirius) for more information.
+See [Sirius-application](http://sirius.clarity-lab.org/sirius) for more information. The Wikipedia Database used for the Question-Answering service is included in the full package on the [website](http://sirius.clarity-lab.org/downloads/)
 
 ## Sirius-suite
 
