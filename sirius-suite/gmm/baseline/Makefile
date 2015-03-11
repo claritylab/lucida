@@ -1,6 +1,6 @@
 CXX = g++
 CXX_FLAGS += -O3
-LINK_FLAGS = -lrt -lm
+LINK_FLAGS =
 
 INPUT = ../input/gmm_data.txt
 

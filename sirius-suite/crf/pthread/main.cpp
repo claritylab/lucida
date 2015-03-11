@@ -140,6 +140,8 @@ void *crf_thread(void *tid) {
       sentences[s][k].prd = maxtag;
     }
   }
+
+  return NULL;
 }
 
 int main(int argc, char **argv) {
