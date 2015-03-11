@@ -70,6 +70,8 @@ void *feat_thread(void *tid) {
   end = start + iterations;
 
   for (int i = start; i < end; ++i) keys[i] = exec_feature(segs[i]);
+
+  return NULL;
 }
 
 void *desc_thread(void *tid) {
@@ -79,6 +81,8 @@ void *desc_thread(void *tid) {
   end = start + iterations;
 
   for (int i = start; i < end; ++i) descs[i] = exec_desc(segs[i], keys[i]);
+
+  return NULL;
 }
 
 vector<Mat> segment(const Mat &img) {

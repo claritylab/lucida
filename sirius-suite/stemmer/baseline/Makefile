@@ -1,5 +1,5 @@
 CXX = g++
-LINK_FLAGS = -lrt
+LINK_FLAGS =
 CXX_FLAGS  = -O3 -fpermissive -Wno-write-strings
 
 INPUT = ../input/voc.txt

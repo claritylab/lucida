@@ -1,5 +1,5 @@
 CXX = g++
-LINK_FLAGS = -lpthread -lrt -lm
+LINK_FLAGS = -lpthread
 CXX_FLAGS = -O3
 
 INPUT = ../input/gmm_data.txt
