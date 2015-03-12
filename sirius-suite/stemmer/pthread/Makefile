@@ -1,5 +1,5 @@
 CXX = g++
-LINK_FLAGS = -lrt -lpthread
+LINK_FLAGS = -lpthread
 CXX_FLAGS  = -O3 -fpermissive -Wno-write-strings
 
 THREADS = 4

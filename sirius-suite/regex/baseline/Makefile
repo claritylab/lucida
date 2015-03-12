@@ -1,5 +1,5 @@
 CXX = g++
-LINK_FLAGS = -lrt -lm
+LINK_FLAGS =
 CXX_FLAGS  = -O3
 
 LIST = ../input/list

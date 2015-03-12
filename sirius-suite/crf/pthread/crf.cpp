@@ -97,6 +97,7 @@ double CRF_Model::FunctionGradientWrapper(const vector<double>& x,
 }
 
 int CRF_Model::perform_BFGS() {
+  return 0;
 }
 
 double CRF_Model::forward_prob(const int len) {

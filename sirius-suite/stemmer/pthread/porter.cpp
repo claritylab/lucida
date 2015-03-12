@@ -693,7 +693,7 @@ static void step5(struct stemmer *z) {
   z->j = z->k;
   if (b[z->k] == 'e') {
     int a = m(z);
-    if (a > 1 || a == 1 && !cvc(z, z->k - 1)) z->k--;
+    if (a > 1 || (a == 1 && !cvc(z, z->k - 1))) z->k--;
   }
   if (b[z->k] == 'l' && doublec(z, z->k) && m(z) > 1) z->k--;
 }
