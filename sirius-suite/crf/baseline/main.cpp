@@ -221,6 +221,8 @@ int main(int argc, char **argv) {
     }
     fprintf(f, "\n");
   }
+
+  fclose(f);
 #endif
 
   STATS_END();

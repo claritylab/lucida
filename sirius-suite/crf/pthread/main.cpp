@@ -241,6 +241,8 @@ int main(int argc, char **argv) {
     }
     fprintf(f, "\n");
   }
+
+  fclose(f);
 #endif
 
   for (int i = 0; i < NTHREADS; ++i) {
