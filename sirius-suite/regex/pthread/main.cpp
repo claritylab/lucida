@@ -38,6 +38,8 @@ void *slre_thread(void *tid) {
       slre_match(slre[i], bufs[j], buf_len[j], caps[i * numQs + j]);
     }
   }
+
+  return NULL;
 }
 
 int fill(FILE *f, char **toFill, int *bufLen, int len) {

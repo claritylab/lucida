@@ -121,6 +121,8 @@ void *feat_thread(void *tid) {
   end = start + iterations;
 
   for (int i = start; i < end; ++i) keys[i] = exec_feature(segs[i]);
+
+  return NULL;
 }
 
 int main(int argc, char **argv) {
