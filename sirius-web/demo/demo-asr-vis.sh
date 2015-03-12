@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-QA="http://141.212.106.240:8080"
-ASR="http://141.212.106.240:8081"
-VIS="http://141.212.106.240:8082"
+QA="http://localhost:8080"
+ASR="http://localhost:8081"
+VIS="http://localhost:8082"
 
 echo "Sending Image to Sirius..."
 
