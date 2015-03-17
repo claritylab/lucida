@@ -8,6 +8,8 @@
 #include <cfloat>
 #include <set>
 
+#include "../../utils/memoryman.h"
+
 using namespace std;
 
 extern bool USE_EDGE_TRIGRAMS;
@@ -30,40 +32,40 @@ CRF_Model::CRF_Model() {
 
   if (USE_EDGE_TRIGRAMS) {
     p_edge_feature_id3 =
-        (int*)malloc(sizeof(int) * MAX_LABEL_TYPES * MAX_LABEL_TYPES *
+        (int*)sirius_malloc(sizeof(int) * MAX_LABEL_TYPES * MAX_LABEL_TYPES *
                      MAX_LABEL_TYPES * MAX_LABEL_TYPES);
     p_edge_weight3 =
-        (double*)malloc(sizeof(double) * MAX_LABEL_TYPES * MAX_LABEL_TYPES *
+        (double*)sirius_malloc(sizeof(double) * MAX_LABEL_TYPES * MAX_LABEL_TYPES *
                         MAX_LABEL_TYPES * MAX_LABEL_TYPES);
   }
-  p_edge_feature_id2 = (int*)malloc(sizeof(int) * MAX_LABEL_TYPES *
+  p_edge_feature_id2 = (int*)sirius_malloc(sizeof(int) * MAX_LABEL_TYPES *
                                     MAX_LABEL_TYPES * MAX_LABEL_TYPES);
   p_edge_feature_id =
-      (int*)malloc(sizeof(int) * MAX_LABEL_TYPES * MAX_LABEL_TYPES);
-  p_state_weight = (double*)malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
+      (int*)sirius_malloc(sizeof(int) * MAX_LABEL_TYPES * MAX_LABEL_TYPES);
+  p_state_weight = (double*)sirius_malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
   p_edge_weight =
-      (double*)malloc(sizeof(double) * MAX_LABEL_TYPES * MAX_LABEL_TYPES);
-  p_edge_weight2 = (double*)malloc(sizeof(double) * MAX_LABEL_TYPES *
+      (double*)sirius_malloc(sizeof(double) * MAX_LABEL_TYPES * MAX_LABEL_TYPES);
+  p_edge_weight2 = (double*)sirius_malloc(sizeof(double) * MAX_LABEL_TYPES *
                                    MAX_LABEL_TYPES * MAX_LABEL_TYPES);
-  p_forward_cache = (double*)malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
+  p_forward_cache = (double*)sirius_malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
   p_backward_cache =
-      (double*)malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
-  p_backward_pointer = (int*)malloc(sizeof(int) * MAX_LEN * MAX_LABEL_TYPES);
+      (double*)sirius_malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
+  p_backward_pointer = (int*)sirius_malloc(sizeof(int) * MAX_LEN * MAX_LABEL_TYPES);
 }
 
 CRF_Model::~CRF_Model() {
   if (USE_EDGE_TRIGRAMS) {
-    free(p_edge_feature_id3);
-    free(p_edge_weight3);
+    sirius_free(p_edge_feature_id3);
+    sirius_free(p_edge_weight3);
   }
-  free(p_edge_feature_id2);
-  free(p_edge_feature_id);
-  free(p_state_weight);
-  free(p_edge_weight2);
-  free(p_edge_weight);
-  free(p_forward_cache);
-  free(p_backward_cache);
-  free(p_backward_pointer);
+  sirius_free(p_edge_feature_id2);
+  sirius_free(p_edge_feature_id);
+  sirius_free(p_state_weight);
+  sirius_free(p_edge_weight2);
+  sirius_free(p_edge_weight);
+  sirius_free(p_forward_cache);
+  sirius_free(p_backward_cache);
+  sirius_free(p_backward_pointer);
 }
 
 double CRF_Model::FunctionGradient(const vector<double>& x,

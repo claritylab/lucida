@@ -6,7 +6,7 @@ INPUT = ../input/gmm_data.txt
 
 # File names
 EXEC = gmm_scoring
-SOURCES = gmm_scoring.cpp ../../utils/timer.cpp
+SOURCES = gmm_scoring.cpp ../../utils/timer.cpp ../../utils/memoryman.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test
@@ -26,4 +26,4 @@ test: all
 
 # To remove generated files
 clean:
-	$(RM) -f $(EXEC) *.o ../input/$(EXEC).baseline
+	$(RM) -f $(EXEC) $(OBJECTS) *.o ../input/$(EXEC).baseline

@@ -33,4 +33,4 @@ test: all
 
 # To remove generated files
 clean:
-	$(RM) $(EXEC) *.o ../input/$(EXEC).pthread.jpg
+	$(RM) $(EXEC) $(OBJECTS) *.o ../input/$(EXEC).pthread.jpg

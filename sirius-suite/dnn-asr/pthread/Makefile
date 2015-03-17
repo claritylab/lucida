@@ -8,7 +8,7 @@ WEIGHTS = ../model/asr.caffemodel
 INPUT   = ../input/features.in
 
 EXEC = dnn_asr
-SOURCES=dnn-asr.cpp ../../utils/timer.cpp
+SOURCES=dnn-asr.cpp ../../utils/timer.cpp ../../utils/memoryman.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 
 .PHONY: all test clean
@@ -27,4 +27,4 @@ test: all
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	rm -f $(EXEC) $(OBJECTS) *.o
