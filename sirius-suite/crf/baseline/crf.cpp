@@ -33,24 +33,27 @@ CRF_Model::CRF_Model() {
   if (USE_EDGE_TRIGRAMS) {
     p_edge_feature_id3 =
         (int*)sirius_malloc(sizeof(int) * MAX_LABEL_TYPES * MAX_LABEL_TYPES *
-                     MAX_LABEL_TYPES * MAX_LABEL_TYPES);
-    p_edge_weight3 =
-        (double*)sirius_malloc(sizeof(double) * MAX_LABEL_TYPES * MAX_LABEL_TYPES *
-                        MAX_LABEL_TYPES * MAX_LABEL_TYPES);
+                            MAX_LABEL_TYPES * MAX_LABEL_TYPES);
+    p_edge_weight3 = (double*)sirius_malloc(sizeof(double) * MAX_LABEL_TYPES *
+                                            MAX_LABEL_TYPES * MAX_LABEL_TYPES *
+                                            MAX_LABEL_TYPES);
   }
   p_edge_feature_id2 = (int*)sirius_malloc(sizeof(int) * MAX_LABEL_TYPES *
-                                    MAX_LABEL_TYPES * MAX_LABEL_TYPES);
+                                           MAX_LABEL_TYPES * MAX_LABEL_TYPES);
   p_edge_feature_id =
       (int*)sirius_malloc(sizeof(int) * MAX_LABEL_TYPES * MAX_LABEL_TYPES);
-  p_state_weight = (double*)sirius_malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
-  p_edge_weight =
-      (double*)sirius_malloc(sizeof(double) * MAX_LABEL_TYPES * MAX_LABEL_TYPES);
+  p_state_weight =
+      (double*)sirius_malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
+  p_edge_weight = (double*)sirius_malloc(sizeof(double) * MAX_LABEL_TYPES *
+                                         MAX_LABEL_TYPES);
   p_edge_weight2 = (double*)sirius_malloc(sizeof(double) * MAX_LABEL_TYPES *
-                                   MAX_LABEL_TYPES * MAX_LABEL_TYPES);
-  p_forward_cache = (double*)sirius_malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
+                                          MAX_LABEL_TYPES * MAX_LABEL_TYPES);
+  p_forward_cache =
+      (double*)sirius_malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
   p_backward_cache =
       (double*)sirius_malloc(sizeof(double) * MAX_LEN * MAX_LABEL_TYPES);
-  p_backward_pointer = (int*)sirius_malloc(sizeof(int) * MAX_LEN * MAX_LABEL_TYPES);
+  p_backward_pointer =
+      (int*)sirius_malloc(sizeof(int) * MAX_LEN * MAX_LABEL_TYPES);
 }
 
 CRF_Model::~CRF_Model() {
@@ -98,9 +101,7 @@ double CRF_Model::FunctionGradientWrapper(const vector<double>& x,
   return pointer_to_working_object->FunctionGradient(x, grad);
 }
 
-int CRF_Model::perform_BFGS() {
-  return 0;
-}
+int CRF_Model::perform_BFGS() { return 0; }
 
 double CRF_Model::forward_prob(const int len) {
   for (int x = 0; x < len; x++) {

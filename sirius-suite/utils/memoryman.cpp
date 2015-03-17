@@ -11,15 +11,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void* sirius_malloc(size_t size){
-    void* ret = malloc(size);
-    if (NULL == ret){
-        fprintf(stderr, "malloc(%lu) failed\n", size);
-        exit(1);
-    }
-    return ret;
+void* sirius_malloc(size_t size) {
+  void* ret = malloc(size);
+  if (NULL == ret) {
+    fprintf(stderr, "malloc(%lu) failed\n", size);
+    exit(1);
+  }
+  return ret;
 }
 
-void sirius_free(void* ptr){
-    free(ptr);
-}
+void sirius_free(void* ptr) { free(ptr); }

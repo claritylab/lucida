@@ -7,7 +7,7 @@ for more information and answers to questions. The project is released under [BS
 except certain submodules
 contain their own specific licensing information. We would love to have your
 help on improving Sirius, and see [CONTRIBUTING](CONTRIBUTING.md) for more
-details. 
+details.
 
 ## Sirius-application
 
