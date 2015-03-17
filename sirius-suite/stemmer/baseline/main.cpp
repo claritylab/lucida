@@ -77,7 +77,8 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  stem_list = (struct stemmer **)sirius_malloc(ARRAYSIZE * sizeof(struct stemmer *));
+  stem_list =
+      (struct stemmer **)sirius_malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
   fclose(f);
   PRINT_STAT_INT("words", words);
