@@ -8,6 +8,7 @@
 #include <string>
 
 #include "../../utils/timer.h"
+#include "../../utils/memoryman.h"
 
 int NTHREADS;
 int iterations;
@@ -156,12 +157,12 @@ int main(int argc, char *argv[]) {
   int means_array_size = senone_size * comp_size * comp_size;
   int comp_array_size = senone_size * comp_size;
 
-  means_vect = (float *)malloc(means_array_size * sizeof(float));
-  precs_vect = (float *)malloc(means_array_size * sizeof(float));
-  weight_vect = (float *)malloc(comp_array_size * sizeof(float));
-  factor_vect = (float *)malloc(comp_array_size * sizeof(float));
+  means_vect = (float *)sirius_malloc(means_array_size * sizeof(float));
+  precs_vect = (float *)sirius_malloc(means_array_size * sizeof(float));
+  weight_vect = (float *)sirius_malloc(comp_array_size * sizeof(float));
+  factor_vect = (float *)sirius_malloc(comp_array_size * sizeof(float));
 
-  score_vect = (float *)malloc(senone_size * sizeof(float));
+  score_vect = (float *)sirius_malloc(senone_size * sizeof(float));
 
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
@@ -245,13 +246,13 @@ int main(int argc, char *argv[]) {
 #endif
 
   /* Clean up and exit */
-  free(means_vect);
-  free(precs_vect);
+  sirius_free(means_vect);
+  sirius_free(precs_vect);
 
-  free(weight_vect);
-  free(factor_vect);
+  sirius_free(weight_vect);
+  sirius_free(factor_vect);
 
-  free(score_vect);
+  sirius_free(score_vect);
 
   pthread_attr_destroy(&attr);
   pthread_exit(NULL);

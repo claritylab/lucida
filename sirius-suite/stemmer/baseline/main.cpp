@@ -5,6 +5,7 @@
 #include <ctype.h>  /* for isupper, islower, tolower */
 
 #include "../../utils/timer.h"
+#include "../../utils/memoryman.h"
 #include "porter.h"
 
 static char *s; /* buffer for words to be stemmed */
@@ -25,7 +26,7 @@ int load_data(struct stemmer **stem_list, FILE *f) {
   while (a_size < ARRAYSIZE) {
     int ch = getc(f);
     if (ch == EOF) return a_size;
-    char *s = (char *)malloc(i_max + 1);
+    char *s = (char *)sirius_malloc(i_max + 1);
     if (LETTER(ch)) {
       int i = 0;
       while (TRUE) {
@@ -76,7 +77,7 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
+  stem_list = (struct stemmer **)sirius_malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
   fclose(f);
   PRINT_STAT_INT("words", words);
@@ -90,7 +91,7 @@ int main(int argc, char *argv[]) {
 
   STATS_END();
 
-  free(s);
+  sirius_free(s);
 
 #ifdef TESTING
   f = fopen("../input/stem_porter.baseline", "w");
@@ -102,8 +103,8 @@ int main(int argc, char *argv[]) {
 
   // free up allocated data
   for (int i = 0; i < words; i++) {
-    free(stem_list[i]->b);
-    free(stem_list[i]);
+    sirius_free(stem_list[i]->b);
+    sirius_free(stem_list[i]);
   }
 
   return 0;

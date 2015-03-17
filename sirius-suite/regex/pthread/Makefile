@@ -8,7 +8,7 @@ QUESTIONS = ../input/questions
 
 # File names
 EXEC = regex_slre
-SOURCES = main.cpp slre.cpp ../../utils/timer.cpp
+SOURCES = main.cpp slre.cpp ../../utils/timer.cpp ../../utils/memoryman.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test
@@ -29,4 +29,4 @@ test: all
 
 # To remove generated files
 clean:
-	$(RM) -f $(EXEC) *.o ../input/$(EXEC).pthread
+	$(RM) -f $(EXEC) $(OBJECTS) *.o ../input/$(EXEC).pthread
