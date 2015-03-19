@@ -104,7 +104,7 @@ static CRF_State crfstate(const vector<Token> &vt, int i) {
   }
   if (allupper) sample.add_feature("ALL_UPP");
 
-  if (WNdic.size() > 0) {
+  if (!WNdic.empty()) {
     const string n = normalize(str);
     for (map<string, string>::const_iterator i = WNdic.lower_bound(n);
          i != WNdic.upper_bound(n); i++) {
