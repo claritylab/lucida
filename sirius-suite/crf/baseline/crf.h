@@ -22,7 +22,7 @@
 struct CRF_State {
  public:
   CRF_State() : label(""){};
-  CRF_State(const std::string &l) : label(l){};
+  explicit CRF_State(const std::string &l) : label(l){};
   void set_label(const std::string &l) { label = l; }
 
   // to add a binary feature
