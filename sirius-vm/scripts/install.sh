@@ -1,18 +1,25 @@
 #!/usr/bin/env bash
 
-# bring the system up to date
-sudo apt-get update
-sudo apt-get -y upgrade
+# Add additional repositories (ffmpeg)
+add-apt-repository ppa:jon-severinsson/ffmpeg
 
-# install some useful basics
-sudo apt-get -y install vim git
+# Enable multiverse sources (libfaac-dev)
+sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
+# possible better option for newer ubuntu releases:
+#apt-add-repository multiverse
 
-# install Sirius (based on the sirius install instructions)
-# http://sirius.clarity-lab.org/sirius/
+# Update sources and install basics
+apt-get update
+apt-get -y install vim git zip unzip dos2unix
 
+# Change to the application directory
 cd /home/sirius/sirius-application
 
-sudo ./get-dependencies.sh 
-sudo ./get-kaldi.sh
-./get-opencv.sh
-sudo ./compile-sirius-servers.sh
+# Convert all possible bad line endings (CRLF) to unix line endings (LF)
+# Just to take sure... if someone commits (CRLF) endings...
+find . -iname '*.sh' -print0 | xargs -0 dos2unix
+
+sudo sh ./get-dependencies.sh 
+#sh ./get-kaldi.sh
+sudo sh ./get-opencv.sh
+#sudo sh ./compile-sirius-servers.sh
