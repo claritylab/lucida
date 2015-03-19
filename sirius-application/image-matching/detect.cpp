@@ -173,7 +173,7 @@ void exec_match(po::variables_map &vm) {
   unsigned int runtimesearch = 0;
   unsigned int totaltime = 0;
   struct timeval tot1, tot2;
-  int numimgs = 0;
+  // int numimgs = 0;
 
   gettimeofday(&tot1, NULL);
   // classes
