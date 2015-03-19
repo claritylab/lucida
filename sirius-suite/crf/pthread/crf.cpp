@@ -1129,7 +1129,7 @@ int CRF_Model::perform_StochasticGradientDescent() {
 
   _vee.assign(_vee.size(), 0);
 
-  int iter = 0, k = 0, m;
+  int iter = 0, k = 0;
   const double eta0 = 1.0;
   const double tau = 5.0 * _vs.size() / batch_size;
   for (int iter = 0; iter < 20; iter++) {
