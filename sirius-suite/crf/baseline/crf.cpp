@@ -175,9 +175,9 @@ void CRF_Model::initialize_state_weights(const Sequence& seq) {
     powv.assign(_num_classes, 0.0);
     const Sample& s = seq.vs[i];
     for (vector<int>::const_iterator j = s.positive_features.begin();
-         j != s.positive_features.end(); j++) {
+         j != s.positive_features.end(); ++j) {
       for (vector<int>::const_iterator k = _feature2mef[*j].begin();
-           k != _feature2mef[*j].end(); k++) {
+           k != _feature2mef[*j].end(); ++k) {
         const double w = _vl[*k];
         powv[_fb.Feature(*k).label()] += w;
       }
@@ -360,22 +360,22 @@ int CRF_Model::make_feature_bag(const int cutoff) {
   map_type count;
   if (cutoff > 0) {
     for (vector<Sequence>::const_iterator k = _vs.begin(); k != _vs.end();
-         k++) {
+         ++k) {
       for (vector<Sample>::const_iterator i = k->vs.begin(); i != k->vs.end();
-           i++) {
+           ++i) {
         for (vector<int>::const_iterator j = i->positive_features.begin();
-             j != i->positive_features.end(); j++) {
+             j != i->positive_features.end(); ++j) {
           count[ME_Feature(i->label, *j).body()]++;
         }
       }
     }
   }
 
-  for (vector<Sequence>::const_iterator k = _vs.begin(); k != _vs.end(); k++) {
+  for (vector<Sequence>::const_iterator k = _vs.begin(); k != _vs.end(); ++k) {
     for (vector<Sample>::const_iterator i = k->vs.begin(); i != k->vs.end();
-         i++) {
+         ++i) {
       for (vector<int>::const_iterator j = i->positive_features.begin();
-           j != i->positive_features.end(); j++) {
+           j != i->positive_features.end(); ++j) {
         const ME_Feature feature(i->label, *j);
         if (cutoff > 0 && count[feature.body()] <= cutoff) continue;
         _fb.Put(feature);
@@ -394,7 +394,7 @@ double CRF_Model::heldout_likelihood() {
 
   initialize_edge_weights();
   for (std::vector<Sequence>::const_iterator i = _heldout.begin();
-       i != _heldout.end(); i++) {
+       i != _heldout.end(); ++i) {
     total_len += i->vs.size();
     double fp = forward_backward(*i);
     logl += calc_loglikelihood(*i);
@@ -424,9 +424,9 @@ void CRF_Model::add_sample_empirical_expectation(const Sequence& seq,
                                                  vector<double>& vee) {
   for (size_t i = 0; i < seq.vs.size(); i++) {
     for (vector<int>::const_iterator j = seq.vs[i].positive_features.begin();
-         j != seq.vs[i].positive_features.end(); j++) {
+         j != seq.vs[i].positive_features.end(); ++j) {
       for (vector<int>::const_iterator k = _feature2mef[*j].begin();
-           k != _feature2mef[*j].end(); k++) {
+           k != _feature2mef[*j].end(); ++k) {
         if (_fb.Feature(*k).label() == seq.vs[i].label) {
           assert(*k >= 0 && *k < _vee.size());
           _vee[*k] += 1.0;
@@ -459,9 +459,9 @@ double CRF_Model::add_sample_model_expectation(const Sequence& seq,
 
     vector<double> wsum = calc_state_weight(i);
     for (vector<int>::const_iterator j = s.positive_features.begin();
-         j != s.positive_features.end(); j++) {
+         j != s.positive_features.end(); ++j) {
       for (vector<int>::const_iterator k = _feature2mef[*j].begin();
-           k != _feature2mef[*j].end(); k++) {
+           k != _feature2mef[*j].end(); ++k) {
         vme[*k] += wsum[_fb.Feature(*k).label()];
       }
     }
@@ -507,7 +507,7 @@ double CRF_Model::update_model_expectation() {
   for (int i = 0; i < _fb.Size(); i++) _vme[i] = 0;
 
   initialize_edge_weights();
-  for (vector<Sequence>::const_iterator n = _vs.begin(); n != _vs.end(); n++) {
+  for (vector<Sequence>::const_iterator n = _vs.begin(); n != _vs.end(); ++n) {
     const Sequence& seq = *n;
     total_len += seq.vs.size();
     logl += add_sample_model_expectation(seq, _vme, ncorrect);
@@ -551,7 +551,7 @@ void CRF_Model::add_training_sample(const CRF_Sequence& seq) {
 
   Sequence s1;
   for (vector<CRF_State>::const_iterator i = seq.vs.begin(); i != seq.vs.end();
-       i++) {
+       ++i) {
     if (i->label == BOS_LABEL || i->label == EOS_LABEL) {
       cerr << "error: the label name \"" << i->label
            << "\" is reserved. Use a different name.";
@@ -569,7 +569,7 @@ void CRF_Model::add_training_sample(const CRF_Sequence& seq) {
     }
     assert(s.label >= 0 && s.label < MAX_LABEL_TYPES);
     for (vector<string>::const_iterator j = i->features.begin();
-         j != i->features.end(); j++) {
+         j != i->features.end(); ++j) {
       if (contain_space(*j)) {
         cerr << "error: the name of a feature must not contain any space."
              << endl;
@@ -629,7 +629,7 @@ int CRF_Model::train(const OptimizationMethod method, const int cutoff,
 
   int count = 0;
   for (vector<Sequence>::const_iterator n = _vs.begin(); n != _vs.end();
-       n++, count++) {
+       ++n, count++) {
     add_sample_empirical_expectation(*n, _vee);
   }
 
@@ -840,10 +840,10 @@ void CRF_Model::decode_forward_backward(CRF_Sequence& s0,
   Sequence seq;
 
   for (vector<CRF_State>::const_iterator i = s0.vs.begin(); i != s0.vs.end();
-       i++) {
+       ++i) {
     Sample s;
     for (vector<string>::const_iterator j = i->features.begin();
-         j != i->features.end(); j++) {
+         j != i->features.end(); ++j) {
       const int id = _featurename_bag.Id(*j);
       if (id >= 0) s.positive_features.push_back(id);
     }
@@ -858,7 +858,7 @@ void CRF_Model::decode_forward_backward(CRF_Sequence& s0,
     if (OUTPUT_MARGINAL_PROB) {
       double sum = 0;
       for (vector<double>::const_iterator j = wsum.begin(); j != wsum.end();
-           j++)
+           ++j)
         sum += *j;
       s0.vs[i].label = "";
       assert(abs(sum - 1) < 0.01);
@@ -891,10 +891,10 @@ void CRF_Model::decode_viterbi(CRF_Sequence& s0) {
   Sequence seq;
 
   for (vector<CRF_State>::const_iterator i = s0.vs.begin(); i != s0.vs.end();
-       i++) {
+       ++i) {
     Sample s;
     for (vector<string>::const_iterator j = i->features.begin();
-         j != i->features.end(); j++) {
+         j != i->features.end(); ++j) {
       const int id = _featurename_bag.Id(*j);
       if (id >= 0) s.positive_features.push_back(id);
     }
@@ -919,10 +919,10 @@ void CRF_Model::decode_nbest(CRF_Sequence& s0,
   Sequence seq;
 
   for (vector<CRF_State>::const_iterator i = s0.vs.begin(); i != s0.vs.end();
-       i++) {
+       ++i) {
     Sample s;
     for (vector<string>::const_iterator j = i->features.begin();
-         j != i->features.end(); j++) {
+         j != i->features.end(); ++j) {
       const int id = _featurename_bag.Id(*j);
       if (id >= 0) s.positive_features.push_back(id);
     }
@@ -939,7 +939,7 @@ void CRF_Model::decode_nbest(CRF_Sequence& s0,
   for (size_t i = 0; i < seq.vs.size(); i++) {
     s0.vs[i].label = _label_bag.Str(nb[0].vs[i]);
   }
-  for (vector<Path>::const_iterator i = nb.begin(); i != nb.end(); i++) {
+  for (vector<Path>::const_iterator i = nb.begin(); i != nb.end(); ++i) {
     if (i->score < min_prob) break;
     vector<string> vstr(i->vs.size());
     for (size_t j = 0; j < vstr.size(); j++) {
@@ -965,7 +965,7 @@ int CRF_Model::perform_AveragedPerceptron() {
     int error_num = 0;
     int rest = _vs.size();
     for (vector<Sequence>::const_iterator n = _vs.begin(); n != _vs.end();
-         n++, rest--) {
+         ++n, rest--) {
       const Sequence& seq = *n;
       vector<int> vs(seq.vs.size());
       viterbi(seq, vs);
@@ -985,9 +985,9 @@ int CRF_Model::perform_AveragedPerceptron() {
         const Sample& s = seq.vs[i];
         if (s.label == vs[i]) continue;
         for (vector<int>::const_iterator j = s.positive_features.begin();
-             j != s.positive_features.end(); j++) {
+             j != s.positive_features.end(); ++j) {
           for (vector<int>::const_iterator k = _feature2mef[*j].begin();
-               k != _feature2mef[*j].end(); k++) {
+               k != _feature2mef[*j].end(); ++k) {
             const int label = _fb.Feature(*k).label();
             if (label == s.label) X[*k] += 1.0;
             if (label == vs[i]) X[*k] -= 1.0;
@@ -1004,7 +1004,7 @@ int CRF_Model::perform_AveragedPerceptron() {
       }
 
       double wX = 0, X2 = 0;
-      for (map<int, double>::const_iterator i = X.begin(); i != X.end(); i++) {
+      for (map<int, double>::const_iterator i = X.begin(); i != X.end(); ++i) {
         wX += _vl[i->first] * i->second;
         X2 += i->second * i->second;
       }
@@ -1016,9 +1016,9 @@ int CRF_Model::perform_AveragedPerceptron() {
         if (s.label == vs[i]) continue;
 
         for (vector<int>::const_iterator j = s.positive_features.begin();
-             j != s.positive_features.end(); j++) {
+             j != s.positive_features.end(); ++j) {
           for (vector<int>::const_iterator k = _feature2mef[*j].begin();
-               k != _feature2mef[*j].end(); k++) {
+               k != _feature2mef[*j].end(); ++k) {
             const int label = _fb.Feature(*k).label();
             if (label == s.label) {
               _vl[*k] += a;
