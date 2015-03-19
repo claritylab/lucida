@@ -159,7 +159,7 @@ int main(int argc, char **argv) {
   PRINT_STAT_DOUBLE("tiling", toc());
 
   tic();
-  int start, tids[NTHREADS];
+  int tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
   iterations = (segs.size() / NTHREADS);
@@ -183,7 +183,6 @@ int main(int argc, char **argv) {
   int i = 0, r, c;
   CvRect roi;
   Mat output(img.size().height, img.size().width, img.type(), Scalar(0));
-  vector<KeyPoint> key;
   // load color to write color keys
   Mat img2 = imread(argv[3]);
   int height_inc = img.size().height / NTHREADS;
@@ -191,7 +190,6 @@ int main(int argc, char **argv) {
 
   roi.width = width;
   roi.height = height;
-  int count = 0;
   for (r = 0; r < img.size().height; r += height_inc) {
     for (c = 0; c < img.size().width; c += width_inc) {
       Mat temp = segs[i].clone();
