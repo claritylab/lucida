@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # Download and prepare online decoding
 # Yiping Kang
@@ -8,16 +9,16 @@
 echo "[i] Dowload model and other related files"
 echo "[i] It could take a while for the server to respond..."
 if ( ! [ -f "nnet_a_gpu_online.tar.gz" ] || ( ! [ -z $1 ] &&  [ "$1" == "-f" ] ) ) ; then
-	wget http://kaldi-asr.org/downloads/build/5/trunk/egs/fisher_english/s5/exp/nnet2_online/nnet_a_gpu_online/archive.tar.gz -O nnet_a_gpu_online.tar.gz
+  wget http://kaldi-asr.org/downloads/build/5/trunk/egs/fisher_english/s5/exp/nnet2_online/nnet_a_gpu_online/archive.tar.gz -O nnet_a_gpu_online.tar.gz
 else
-	echo "[i] nnet_a_gpu_online.tar.gz already exists. Use -f to download it again."
-	rm -rf nnet_a_gpu_online
+  echo "[i] nnet_a_gpu_online.tar.gz already exists. Use -f to download it again."
+  rm -rf nnet_a_gpu_online
 fi
 if ( ! [ -f "graph.tar.gz" ] || ( ! [ -z $1 ] &&  [ "$1" == "-f" ] ) ) ; then
-	wget http://kaldi-asr.org/downloads/build/2/sandbox/online/egs/fisher_english/s5/exp/tri5a/graph/archive.tar.gz -O graph.tar.gz
-	rm -rf graph
+  wget http://kaldi-asr.org/downloads/build/2/sandbox/online/egs/fisher_english/s5/exp/tri5a/graph/archive.tar.gz -O graph.tar.gz
+  rm -rf graph
 else
-	echo "[i] graph.tar.gz already exists. Use -f to download it again."
+  echo "[i] graph.tar.gz already exists. Use -f to download it again."
 fi
 echo "[i] Extract files"
 mkdir -p nnet_a_gpu_online graph
@@ -35,9 +36,9 @@ done
 echo "[i] Download a single wav file for test purpose"
 # Download a single wav file to demo the decoding -> TODO: does not exist
 if ( ! [ -f "ENG_M.wav" ] || ( ! [ -z $1 ] &&  [ "$1" == "-f" ] ) ) ; then
-	wget -O ENG_M.wav http://www.signalogic.com/melp/EngSamples/Orig/ENG_M.wav
+  wget -O ENG_M.wav http://www.signalogic.com/melp/EngSamples/Orig/ENG_M.wav
 else
-	echo "[i] The file ENG_M.wav already exists. Use -f to download it again."
+  echo "[i] The file ENG_M.wav already exists. Use -f to download it again."
 fi
 
 echo "[i] Preparation done."
