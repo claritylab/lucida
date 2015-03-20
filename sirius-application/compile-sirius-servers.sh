@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+# check to make sure we're not being executed as root.
+if [ "$(id -u)" == "0" ]; then
+  echo >&2 "Do not run this script as root or with sudo."
+  exit 1
+fi
+
 # exit if any server fails
 set -e
 
