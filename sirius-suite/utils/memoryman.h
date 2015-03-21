@@ -8,8 +8,8 @@
  *
  */
 
-#ifndef _MEMORYMAN_H_
-#define _MEMORYMAN_H_
+#ifndef MEMORYMAN_H
+#define MEMORYMAN_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -25,4 +25,4 @@ inline void* sirius_malloc(size_t size) {
 
 inline void sirius_free(void* ptr) { free(ptr); }
 
-#endif /* _MEMORYMAN_H_ */
+#endif /* MEMORYMAN_H */
