@@ -16,7 +16,7 @@ class StrDic {
  public:
   enum { LOAD_FACTOR = 2 };
 
-  StrDic(const int n = 1) { Clear(n); }
+  explicit StrDic(const int n = 1) { Clear(n); }
   ~StrDic() {
     for (size_t i = 0; i < _v.size(); i++) free(_v[i]);
   }

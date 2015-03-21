@@ -173,7 +173,7 @@ void tokenize(const string& s, vector<Token>& vt,
   }
 
   int begin = 0;
-  for (vector<string>::const_iterator i = vs.begin(); i != vs.end(); i++) {
+  for (vector<string>::const_iterator i = vs.begin(); i != vs.end(); ++i) {
     string::size_type x = s.find(*i, begin);
     int strlen = i->size();
     if (*i == "''") {

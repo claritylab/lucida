@@ -138,7 +138,7 @@ int main(int argc, char **argv) {
 
     // convert parantheses
     vector<string> org_strs;
-    for (vector<Token>::iterator i = vt.begin(); i != vt.end(); i++) {
+    for (vector<Token>::iterator i = vt.begin(); i != vt.end(); ++i) {
       org_strs.push_back(i->str);
       i->str = paren_converter.Ptb2Pos(i->str);
       i->prd = "?";
@@ -157,7 +157,7 @@ int main(int argc, char **argv) {
       assert(0);
       exit(1);
     } else {
-      for (vector<Token>::const_iterator i = vt.begin(); i != vt.end(); i++) {
+      for (vector<Token>::const_iterator i = vt.begin(); i != vt.end(); ++i) {
         map<string, double> dummy;
         tagp1.push_back(dummy);
       }
@@ -172,13 +172,13 @@ int main(int argc, char **argv) {
 
       double sum = 0;
       for (map<string, double>::const_iterator j = crf.begin(); j != crf.end();
-           j++) {
+           ++j) {
         m.insert(pair<string, double>(j->first, j->second));
         sum += j->second;
       }
 
       for (map<string, double>::const_iterator j = ef.begin(); j != ef.end();
-           j++) {
+           ++j) {
         sum += j->second;
         if (m.find(j->first) == m.end()) {
           m.insert(pair<string, double>(j->first, j->second));
@@ -188,12 +188,12 @@ int main(int argc, char **argv) {
       }
 
       const double th = PROB_OUTPUT_THRESHOLD * sum;
-      for (map<string, double>::iterator j = m.begin(); j != m.end(); j++) {
+      for (map<string, double>::iterator j = m.begin(); j != m.end(); ++j) {
         if (j->second >= th) m2.insert(*j);
       }
       double maxp = -1;
       string maxtag;
-      for (map<string, double>::iterator j = m2.begin(); j != m2.end(); j++) {
+      for (map<string, double>::iterator j = m2.begin(); j != m2.end(); ++j) {
         const double p = j->second;
         if (p > maxp) {
           maxp = p;
