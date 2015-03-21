@@ -23,6 +23,8 @@
 #include <glog/logging.h>
 
 #include "caffe/caffe.hpp"
+
+#include "../../utils/memoryman.h"
 #include "../../utils/timer.h"
 
 #define FEATURE_VEC_SIZE 440  // Number of floats in one input feature vector

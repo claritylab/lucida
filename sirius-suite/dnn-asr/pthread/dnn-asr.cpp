@@ -23,8 +23,10 @@
 #include <glog/logging.h>
 
 #include "caffe/caffe.hpp"
-#include "../../utils/timer.h"
+
 #include "../../utils/memoryman.h"
+#include "../../utils/pthreadman.h"
+#include "../../utils/timer.h"
 
 #define FEATURE_VEC_SIZE 440
 #define PROB_VEC_SIZE 1706

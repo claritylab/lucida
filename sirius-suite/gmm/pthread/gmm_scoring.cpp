@@ -7,8 +7,9 @@
 #include <pthread.h>
 #include <string>
 
-#include "../../utils/timer.h"
 #include "../../utils/memoryman.h"
+#include "../../utils/pthreadman.h"
+#include "../../utils/timer.h"
 
 int NTHREADS;
 int iterations;
@@ -138,7 +139,7 @@ void *computeScore_thread(void *tid) {
     }
   }
 
-  pthread_exit(NULL);
+  sirius_pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[]) {
@@ -223,18 +224,15 @@ int main(int argc, char *argv[]) {
 
   tic();
   iterations = senone_size / NTHREADS;
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+  sirius_pthread_attr_init(&attr);
+  sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
   for (int i = 0; i < NTHREADS; ++i) {
     tids[i] = i;
-    if (pthread_create(&threads[i], &attr, computeScore_thread,
-                       (void *)&tids[i])) {
-      fprintf(stderr, "pthread_create() failed.\n");
-      exit(1);
-    }
+    sirius_pthread_create(&threads[i], &attr, computeScore_thread,
+                          (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; ++i) pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; ++i) sirius_pthread_join(threads[i], NULL);
 
   PRINT_STAT_DOUBLE("pthread_gmm", toc());
 
@@ -258,8 +256,8 @@ int main(int argc, char *argv[]) {
 
   sirius_free(score_vect);
 
-  pthread_attr_destroy(&attr);
-  pthread_exit(NULL);
+  sirius_pthread_attr_destroy(&attr);
+  sirius_pthread_exit(NULL);
 
   return 0;
 }
