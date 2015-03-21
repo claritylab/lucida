@@ -8,7 +8,7 @@ QUESTIONS = ../input/questions
 
 # File names
 EXEC = regex_slre
-SOURCES = main.cpp slre.cpp ../../utils/timer.cpp ../../utils/memoryman.cpp
+SOURCES = main.cpp slre.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test

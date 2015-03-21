@@ -11,6 +11,7 @@
 #include "crf.h"
 #include "common.h"
 
+#include "../../utils/pthreadman.h"
 #include "../../utils/timer.h"
 
 using namespace std;
@@ -215,18 +216,15 @@ int main(int argc, char **argv) {
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+  sirius_pthread_attr_init(&attr);
+  sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
   for (int i = 0; i < NTHREADS; i++) {
     tids[i] = i;
-    if (pthread_create(&threads[i], &attr, crf_thread, (void *)&tids[i])) {
-      fprintf(stderr, "pthread_create() failed.\n");
-      exit(1);
-    }
+    sirius_pthread_create(&threads[i], &attr, crf_thread, (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; i++) sirius_pthread_join(threads[i], NULL);
   PRINT_STAT_DOUBLE("pthread_crf", toc());
 
 #ifdef TESTING

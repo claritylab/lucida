@@ -7,7 +7,7 @@ THREADS = 4
 
 # File names
 EXEC = gmm_scoring
-SOURCES = gmm_scoring.cpp ../../utils/timer.cpp ../../utils/memoryman.cpp
+SOURCES = gmm_scoring.cpp ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test

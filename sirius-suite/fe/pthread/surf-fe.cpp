@@ -24,7 +24,9 @@
 #include <pthread.h>
 #include <time.h>
 
+#include "../../utils/pthreadman.h"
 #include "../../utils/timer.h"
+
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -164,19 +166,16 @@ int main(int argc, char **argv) {
   pthread_attr_t attr;
   iterations = (segs.size() / NTHREADS);
   keys.resize(segs.size());
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+  sirius_pthread_attr_init(&attr);
+  sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
   // Keys
   for (int i = 0; i < NTHREADS; i++) {
     tids[i] = i;
-    if (pthread_create(&threads[i], &attr, feat_thread, (void *)&tids[i])) {
-      fprintf(stderr, "pthread_create() failed.\n");
-      exit(1);
-    }
+    sirius_pthread_create(&threads[i], &attr, feat_thread, (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; i++) sirius_pthread_join(threads[i], NULL);
 
   PRINT_STAT_DOUBLE("pthread_fe", toc());
 

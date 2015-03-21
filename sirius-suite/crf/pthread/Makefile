@@ -8,7 +8,7 @@ INPUT    = ../input/test-input.txt
 
 # File names
 EXEC = crf_tag
-SOURCES = $(wildcard *.cpp) ../../utils/timer.cpp ../../utils/memoryman.cpp
+SOURCES = $(wildcard *.cpp) ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test
