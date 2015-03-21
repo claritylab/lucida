@@ -2,8 +2,8 @@
  * $Id$
  */
 
-#ifndef __POSTAGGER_COMMON_H_
-#define __POSTAGGER_COMMON_H_
+#ifndef POSTAGGER_COMMON_H
+#define POSTAGGER_COMMON_H
 
 #include <string>
 #include <vector>
