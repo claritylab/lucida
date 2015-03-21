@@ -91,12 +91,14 @@ int main(int argc, char *argv[]) {
   PRINT_STAT_DOUBLE("regex", toc());
 
 #ifdef TESTING
+  fclose(f);
   f = fopen("../input/regex_slre.baseline", "w");
 
   for (int i = 0; i < numExps * numQs; ++i) fprintf(f, "%s\n", caps[i]->ptr);
 
-  fclose(f);
 #endif
+  fclose(f);
+  fclose(f1);
 
   STATS_END();
 

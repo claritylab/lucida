@@ -183,7 +183,7 @@ int main(int argc, char **argv) {
   PRINT_STAT_DOUBLE("tiling", toc());
 
   tic();
-  int start, tids[NTHREADS];
+  int tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
   iterations = (segs.size() / NTHREADS);

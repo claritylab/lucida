@@ -25,4 +25,3 @@ See [Sirius-suite](http://sirius.clarity-lab.org/sirius-suite) for more informat
 
 [sirius-web](sirius-web) contains a web front-end server to make requests to
 Sirius.  
-See [Sirius-web](http://sirius.clarity-lab.org/sirius-web) for more information.
