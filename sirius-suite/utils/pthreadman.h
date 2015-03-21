@@ -8,8 +8,8 @@
  *
  */
 
-#ifndef _PTHREADMAN_H_
-#define _PTHREADMAN_H_
+#ifndef PTHREADMAN_H
+#define PTHREADMAN_H
 
 #include <pthread.h>
 #include <stdio.h>
@@ -63,4 +63,4 @@ inline void sirius_pthread_join(pthread_t thread, void** retval) {
 
 inline void sirius_pthread_exit(void* retval) { return pthread_exit(retval); }
 
-#endif /* _PTHREADMAN_H_ */
+#endif /* PTHREADMAN_H */
