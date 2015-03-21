@@ -17,6 +17,6 @@ and parse the resulting output.
 
 To find out more about the suite, please visit
 [sirius-suite](http://sirius.clarity-lab.org/sirius-suite/) webpage. The suite
-in the repo does not contain larger inputs sets and models.
+in the repo does not contain larger input sets and models.
 [Download](http://sirius.clarity-lab.org/downloads) the latest version which
 includes the inputs.
