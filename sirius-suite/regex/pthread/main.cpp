@@ -135,12 +135,14 @@ int main(int argc, char *argv[]) {
   PRINT_STAT_DOUBLE("pthread_regex", toc());
 
 #ifdef TESTING
+  fclose(f);
   f = fopen("../input/regex_slre.pthread", "w");
 
   for (int i = 0; i < numExps * numQs; ++i) fprintf(f, "%s\n", caps[i]->ptr);
 
-  fclose(f);
 #endif
+  fclose(f);
+  fclose(f1);
 
   sirius_free(caps);
 

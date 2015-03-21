@@ -25,9 +25,9 @@ void CRF_Model::lookahead_initialize_state_weights(const Sequence &seq) {
     powv.assign(_num_classes, 0.0);
     const Sample &s = seq.vs[i];
     for (vector<int>::const_iterator j = s.positive_features.begin();
-         j != s.positive_features.end(); j++) {
+         j != s.positive_features.end(); ++j) {
       for (vector<int>::const_iterator k = _feature2mef[*j].begin();
-           k != _feature2mef[*j].end(); k++) {
+           k != _feature2mef[*j].end(); ++k) {
         const double w = _vl[*k];
         powv[_fb.Feature(*k).label()] += w;
       }
@@ -140,9 +140,9 @@ void CRF_Model::calc_diff(const double val, const Sequence &seq,
   assert(start + depth < (int)seq.vs.size());
   const Sample &s = seq.vs[start + depth];
   for (vector<int>::const_iterator j = s.positive_features.begin();
-       j != s.positive_features.end(); j++) {
+       j != s.positive_features.end(); ++j) {
     for (vector<int>::const_iterator k = _feature2mef[*j].begin();
-         k != _feature2mef[*j].end(); k++) {
+         k != _feature2mef[*j].end(); ++k) {
       if (_fb.Feature(*k).label() == label) diff[*k] += val;
     }
   }
@@ -151,7 +151,7 @@ void CRF_Model::calc_diff(const double val, const Sequence &seq,
 }
 
 static void print_bestsq(const vector<int> &bestsq) {
-  for (vector<int>::const_iterator i = bestsq.begin(); i != bestsq.end(); i++) {
+  for (vector<int>::const_iterator i = bestsq.begin(); i != bestsq.end(); ++i) {
     cout << *i << " ";
   }
   cout << endl;
@@ -178,7 +178,7 @@ int CRF_Model::update_weights_sub2(const Sequence &seq, vector<int> &history,
   calc_diff(-1, seq, x, history, 0, LOOKAHEAD_DEPTH, vdiff);
 
   for (map<int, double>::const_iterator j = vdiff.begin(); j != vdiff.end();
-       j++) {
+       ++j) {
     diff[j->first] += j->second;
   }
 
@@ -200,7 +200,7 @@ int CRF_Model::lookaheadtrain_sentence(const Sequence &seq, int &t,
     history[HV_OFFSET + x] = seq.vs[x].label;
 
     for (map<int, double>::const_iterator i = diff.begin(); i != diff.end();
-         i++) {
+         ++i) {
       const double v = 1.0 * i->second;
       _vl[i->first] += v;
       wa[i->first] += t * v;
@@ -215,7 +215,7 @@ double CRF_Model::heldout_lookahead_error() {
   int nerrors = 0, total_len = 0;
 
   for (std::vector<Sequence>::const_iterator i = _heldout.begin();
-       i != _heldout.end(); i++) {
+       i != _heldout.end(); ++i) {
     total_len += i->vs.size();
 
     vector<int> vs(i->vs.size());
@@ -303,10 +303,10 @@ void CRF_Model::decode_lookahead(CRF_Sequence &s0) {
   Sequence seq;
 
   for (vector<CRF_State>::const_iterator i = s0.vs.begin(); i != s0.vs.end();
-       i++) {
+       ++i) {
     Sample s;
     for (vector<string>::const_iterator j = i->features.begin();
-         j != i->features.end(); j++) {
+         j != i->features.end(); ++j) {
       const int id = _featurename_bag.Id(*j);
       if (id >= 0) s.positive_features.push_back(id);
     }

@@ -118,10 +118,10 @@ static void print_character_set(FILE *fp, const unsigned char *p, int len) {
 }
 
 void slre_dump(const struct slre *r, FILE *fp) {
-  int i, j, ch, op, pc;
+  int i, j, ch, pc;
 
   for (pc = 0; pc < r->code_size; pc++) {
-    op = r->code[pc];
+    int op = r->code[pc];
     (void)fprintf(fp, "%3d %s ", pc, opcodes[op].name);
 
     for (i = 0; opcodes[op].flags[i] != '\0'; i++)
@@ -589,12 +589,12 @@ static int match(const struct slre *r, int pc, const char *s, int len, int *ofs,
 
 int slre_match(const struct slre *r, const char *buf, int len,
                struct cap *caps) {
-  int i, ofs = 0, res = 0;
+  int ofs = 0, res = 0;
 
   if (r->anchored) {
     res = match(r, 0, buf, len, &ofs, caps);
   } else {
-    for (i = 0; i < len && res == 0; i++) {
+    for (int i = 0; i < len && res == 0; i++) {
       ofs = i;
       res = match(r, 0, buf, len, &ofs, caps);
     }
