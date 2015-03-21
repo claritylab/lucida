@@ -227,7 +227,11 @@ int main(int argc, char *argv[]) {
   pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
   for (int i = 0; i < NTHREADS; ++i) {
     tids[i] = i;
-    pthread_create(&threads[i], &attr, computeScore_thread, (void *)&tids[i]);
+    if (pthread_create(&threads[i], &attr, computeScore_thread,
+                       (void *)&tids[i])) {
+      fprintf(stderr, "pthread_create() failed.\n");
+      exit(1);
+    }
   }
 
   for (int i = 0; i < NTHREADS; ++i) pthread_join(threads[i], NULL);
