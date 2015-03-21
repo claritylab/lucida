@@ -2,8 +2,8 @@
  * $Id$
  */
 
-#ifndef __CRF_H_
-#define __CRF_H_
+#ifndef CRF_H
+#define CRF_H
 
 #include <string>
 #include <vector>

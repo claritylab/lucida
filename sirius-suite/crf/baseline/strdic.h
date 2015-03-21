@@ -1,5 +1,5 @@
-#ifndef _STRDIC_H_
-#define _STRDIC_H_
+#ifndef STRDIC_H
+#define STRDIC_H
 
 #include <vector>
 #include <string>
