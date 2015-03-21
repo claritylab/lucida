@@ -6,6 +6,7 @@
 #include <stdlib.h> /* for malloc, free */
 #include <ctype.h>  /* for isupper, islower, tolower */
 #include <pthread.h>
+#include <errno.h>
 
 #include "../../utils/timer.h"
 #include "../../utils/memoryman.h"
@@ -53,7 +54,12 @@ int load_data(struct stemmer **stem_list, FILE *f) {
       while (TRUE) {
         if (i == i_max) {
           i_max += INC;
-          s = (char *)realloc(s, i_max + 1);
+          void *_realloc = NULL;
+          if ((_realloc = realloc(s, i_max + 1)) == NULL) {
+            fprintf(stderr, "realloc() failed!\n");
+            return -ENOMEM; 
+          }
+          s = (char*)_realloc;
         }
         ch = tolower(ch); /* forces lower case */
 
@@ -71,7 +77,12 @@ int load_data(struct stemmer **stem_list, FILE *f) {
       stem_list[a_size] = z;
       if (a_size == a_max) {
         a_max += A_INC;
-        stem_list = (struct stemmer **)realloc(stem_list, a_max);
+        void *_realloc = NULL;
+        if ((_realloc = realloc(stem_list, a_max)) == NULL) {
+            fprintf(stderr, "realloc() failed!\n");
+            return -ENOMEM; 
+        }
+        stem_list = (struct stemmer **)_realloc;
       }
       a_size += 1;
     }
@@ -102,6 +113,10 @@ int main(int argc, char *argv[]) {
       (struct stemmer **)sirius_malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
   fclose(f);
+ 
+ if (words < 0)
+    goto out;
+
   PRINT_STAT_INT("words", words);
 
   tic();
@@ -135,6 +150,7 @@ int main(int argc, char *argv[]) {
   fclose(f);
 #endif
 
+out:
   sirius_free(s);
 
   // free up allocated data

@@ -56,7 +56,7 @@ string make_pbdesc(string img_name) {
 }
 
 vector<KeyPoint> exec_feature_gpu(const Mat &img_in,
-                                  const string detector_str) {
+                                  const string &detector_str) {
   vector<KeyPoint> keypoints;
   gpu::GpuMat img;
   img.upload(img_in);  // Only 8B grayscale
@@ -117,7 +117,7 @@ void exec_text(po::variables_map &vm) {
   tess->End();
 }
 
-Mat exec_desc_gpu(const Mat &img_in, const string extractor_str,
+Mat exec_desc_gpu(const Mat &img_in, const string &extractor_str,
                   vector<KeyPoint> keypoints) {
   gpu::GpuMat img;
   img.upload(img_in);  // Only 8B grayscale
@@ -173,7 +173,7 @@ void exec_match(po::variables_map &vm) {
   unsigned int runtimesearch = 0;
   unsigned int totaltime = 0;
   struct timeval tot1, tot2;
-  int numimgs = 0;
+  // int numimgs = 0;
 
   gettimeofday(&tot1, NULL);
   // classes
