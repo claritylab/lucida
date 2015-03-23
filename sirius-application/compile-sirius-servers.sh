@@ -15,7 +15,7 @@ hash ant 2>/dev/null || {
 }
 
 # thread for parallel build
-THREADS=4
+[[ -n "$THREADS" ]] || THREADS=4
 
 asr_ps=speech-recognition/pocketsphinx
 asr_sphinx=speech-recognition/sphinx
