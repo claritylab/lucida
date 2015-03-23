@@ -104,10 +104,10 @@ static CRF_State crfstate(const vector<Token> &vt, int i) {
   }
   if (allupper) sample.add_feature("ALL_UPP");
 
-  if (WNdic.size() > 0) {
+  if (!WNdic.empty()) {
     const string n = normalize(str);
     for (map<string, string>::const_iterator i = WNdic.lower_bound(n);
-         i != WNdic.upper_bound(n); i++) {
+         i != WNdic.upper_bound(n); ++i) {
       sample.add_feature("WN_" + i->second);
     }
   }
@@ -123,7 +123,7 @@ int crftrain(const CRF_Model::OptimizationMethod method, CRF_Model &m,
     exit(1);
   }
 
-  for (vector<Sentence>::const_iterator i = vs.begin(); i != vs.end(); i++) {
+  for (vector<Sentence>::const_iterator i = vs.begin(); i != vs.end(); ++i) {
     const Sentence &s = *i;
     CRF_Sequence cs;
     for (size_t j = 0; j < s.size(); j++) cs.add_state(crfstate(s, j));

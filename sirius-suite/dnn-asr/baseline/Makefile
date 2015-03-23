@@ -28,4 +28,4 @@ test: all
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o
+	rm -f $(EXEC) $(OBJECTS) *.o

@@ -29,4 +29,4 @@ test: all
 
 # To remove generated files
 clean:
-	$(RM) -f $(EXEC) *.o ../input/$(EXEC).pthread
+	$(RM) -f $(EXEC) $(OBJECTS) *.o ../input/$(EXEC).pthread

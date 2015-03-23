@@ -42,6 +42,8 @@
 #include <stdlib.h> /* for malloc, free */
 #include <ctype.h>  /* for isupper, islower, tolower */
 
+#include "../../utils/memoryman.h"
+
 struct stemmer;
 
 extern struct stemmer *create_stemmer(void);
@@ -84,11 +86,10 @@ struct stemmer {
    */
 
 extern struct stemmer *create_stemmer(void) {
-  return (struct stemmer *)malloc(sizeof(struct stemmer));
-  /* assume malloc succeeds */
+  return (struct stemmer *)sirius_malloc(sizeof(struct stemmer));
 }
 
-extern void free_stemmer(struct stemmer *z) { free(z); }
+extern void free_stemmer(struct stemmer *z) { sirius_free(z); }
 
 /* cons(z, i) is TRUE <=> b[i] is a consonant. ('b' means 'z->b', but here
    and below we drop 'z->' in comments.

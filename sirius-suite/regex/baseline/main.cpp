@@ -7,6 +7,7 @@
 
 #include "slre.h"
 #include "../../utils/timer.h"
+#include "../../utils/memoryman.h"
 
 #define MAXCAPS 60000
 #define EXPRESSIONS 100
@@ -25,7 +26,7 @@ int fill(FILE *f, char **toFill, int *bufLen, int len) {
     int ch = getc(f);
     if (ch == EOF) return i;
     bufLen[i] = 0;
-    char *s = (char *)malloc(5000 + 1);
+    char *s = (char *)sirius_malloc(5000 + 1);
     while (1) {
       s[bufLen[i]] = ch;
       ++bufLen[i];
@@ -69,7 +70,7 @@ int main(int argc, char *argv[]) {
 
   tic();
   for (int i = 0; i < numExps; ++i) {
-    slre[i] = (struct slre *)malloc(sizeof(slre));
+    slre[i] = (struct slre *)sirius_malloc(sizeof(slre));
     if (!slre_compile(slre[i], exps[i])) {
       printf("error compiling\n");
     }
@@ -78,7 +79,7 @@ int main(int argc, char *argv[]) {
 
   struct cap *caps[numExps * numQs];
   for (int i = 0; i < numExps * numQs; ++i)
-    caps[i] = (struct cap *)malloc(sizeof(cap));
+    caps[i] = (struct cap *)sirius_malloc(sizeof(cap));
 
   tic();
   for (int i = 0; i < numExps; ++i) {
@@ -90,16 +91,18 @@ int main(int argc, char *argv[]) {
   PRINT_STAT_DOUBLE("regex", toc());
 
 #ifdef TESTING
+  fclose(f);
   f = fopen("../input/regex_slre.baseline", "w");
 
   for (int i = 0; i < numExps * numQs; ++i) fprintf(f, "%s\n", caps[i]->ptr);
 
-  fclose(f);
 #endif
+  fclose(f);
+  fclose(f1);
 
   STATS_END();
 
-  for (int i = 0; i < numExps; ++i) free(slre[i]);
+  for (int i = 0; i < numExps; ++i) sirius_free(slre[i]);
 
   return 0;
 }

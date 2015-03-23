@@ -23,7 +23,10 @@
 #include <glog/logging.h>
 
 #include "caffe/caffe.hpp"
+
+#include "../../utils/memoryman.h"
 #include "../../utils/timer.h"
+#include "../../utils/memoryman.h"
 
 #define FEATURE_VEC_SIZE 440  // Number of floats in one input feature vector
 #define PROB_VEC_SIZE 1706  // Number of floats in one output probability vector
@@ -70,7 +73,7 @@ int load_features(float** in, string feature_file, int vec_size) {
                  1;
 
   // Allocate memory for input feature array
-  *in = (float*)malloc(sizeof(float) * feat_cnt * vec_size);
+  *in = (float*)sirius_malloc(sizeof(float) * feat_cnt * vec_size);
 
   // Read the feature in
   int idx = 0;
@@ -126,7 +129,7 @@ int main(int argc, char** argv) {
   // Perform dnn forward pass
   int in_size = feat_cnt * FEATURE_VEC_SIZE;
   int out_size = feat_cnt * PROB_VEC_SIZE;
-  float* dnn_output = (float*)malloc(sizeof(float) * out_size);
+  float* dnn_output = (float*)sirius_malloc(sizeof(float) * out_size);
 
   tic();
   dnn_fwd(feature_input, in_size, dnn_output, out_size, dnn);

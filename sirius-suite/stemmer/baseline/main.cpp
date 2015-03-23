@@ -3,8 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h> /* for malloc, free */
 #include <ctype.h>  /* for isupper, islower, tolower */
+#include <errno.h>
 
 #include "../../utils/timer.h"
+#include "../../utils/memoryman.h"
 #include "porter.h"
 
 static char *s; /* buffer for words to be stemmed */
@@ -25,13 +27,18 @@ int load_data(struct stemmer **stem_list, FILE *f) {
   while (a_size < ARRAYSIZE) {
     int ch = getc(f);
     if (ch == EOF) return a_size;
-    char *s = (char *)malloc(i_max + 1);
+    char *s = (char *)sirius_malloc(i_max + 1);
     if (LETTER(ch)) {
       int i = 0;
       while (TRUE) {
         if (i == i_max) {
           i_max += INC;
-          s = (char *)realloc(s, i_max + 1);
+          void *_realloc = NULL;
+          if ((_realloc = realloc(s, i_max + 1)) == NULL) {
+            fprintf(stderr, "realloc() failed!\n");
+            return -ENOMEM; 
+          }
+          s = (char*)_realloc;
         }
         ch = tolower(ch); /* forces lower case */
 
@@ -51,7 +58,12 @@ int load_data(struct stemmer **stem_list, FILE *f) {
       // s[stem(z, s, i - 1) + 1] = 0;
       if (a_size == a_max) {
         a_max += A_INC;
-        stem_list = (struct stemmer **)realloc(stem_list, a_max);
+        void *_realloc = NULL;
+        if ((_realloc = realloc(stem_list, a_max)) == NULL) {
+            fprintf(stderr, "realloc() failed!\n");
+            return -ENOMEM; 
+	}
+        stem_list = (struct stemmer **)_realloc;
       }
       a_size += 1;
     }
@@ -76,8 +88,12 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
+  stem_list =
+      (struct stemmer **)sirius_malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
+  if (words < 0)
+    goto out;
+
   fclose(f);
   PRINT_STAT_INT("words", words);
 
@@ -90,8 +106,6 @@ int main(int argc, char *argv[]) {
 
   STATS_END();
 
-  free(s);
-
 #ifdef TESTING
   f = fopen("../input/stem_porter.baseline", "w");
 
@@ -100,10 +114,12 @@ int main(int argc, char *argv[]) {
   fclose(f);
 #endif
 
+out:
+  sirius_free(s);
   // free up allocated data
   for (int i = 0; i < words; i++) {
-    free(stem_list[i]->b);
-    free(stem_list[i]);
+    sirius_free(stem_list[i]->b);
+    sirius_free(stem_list[i]);
   }
 
   return 0;

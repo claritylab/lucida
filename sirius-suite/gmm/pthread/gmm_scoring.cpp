@@ -7,6 +7,8 @@
 #include <pthread.h>
 #include <string>
 
+#include "../../utils/memoryman.h"
+#include "../../utils/pthreadman.h"
 #include "../../utils/timer.h"
 
 int NTHREADS;
@@ -137,7 +139,7 @@ void *computeScore_thread(void *tid) {
     }
   }
 
-  pthread_exit(NULL);
+  sirius_pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[]) {
@@ -156,12 +158,12 @@ int main(int argc, char *argv[]) {
   int means_array_size = senone_size * comp_size * comp_size;
   int comp_array_size = senone_size * comp_size;
 
-  means_vect = (float *)malloc(means_array_size * sizeof(float));
-  precs_vect = (float *)malloc(means_array_size * sizeof(float));
-  weight_vect = (float *)malloc(comp_array_size * sizeof(float));
-  factor_vect = (float *)malloc(comp_array_size * sizeof(float));
+  means_vect = (float *)sirius_malloc(means_array_size * sizeof(float));
+  precs_vect = (float *)sirius_malloc(means_array_size * sizeof(float));
+  weight_vect = (float *)sirius_malloc(comp_array_size * sizeof(float));
+  factor_vect = (float *)sirius_malloc(comp_array_size * sizeof(float));
 
-  score_vect = (float *)malloc(senone_size * sizeof(float));
+  score_vect = (float *)sirius_malloc(senone_size * sizeof(float));
 
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
@@ -222,14 +224,15 @@ int main(int argc, char *argv[]) {
 
   tic();
   iterations = senone_size / NTHREADS;
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+  sirius_pthread_attr_init(&attr);
+  sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
   for (int i = 0; i < NTHREADS; ++i) {
     tids[i] = i;
-    pthread_create(&threads[i], &attr, computeScore_thread, (void *)&tids[i]);
+    sirius_pthread_create(&threads[i], &attr, computeScore_thread,
+                          (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; ++i) pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; ++i) sirius_pthread_join(threads[i], NULL);
 
   PRINT_STAT_DOUBLE("pthread_gmm", toc());
 
@@ -245,16 +248,16 @@ int main(int argc, char *argv[]) {
 #endif
 
   /* Clean up and exit */
-  free(means_vect);
-  free(precs_vect);
+  sirius_free(means_vect);
+  sirius_free(precs_vect);
 
-  free(weight_vect);
-  free(factor_vect);
+  sirius_free(weight_vect);
+  sirius_free(factor_vect);
 
-  free(score_vect);
+  sirius_free(score_vect);
 
-  pthread_attr_destroy(&attr);
-  pthread_exit(NULL);
+  sirius_pthread_attr_destroy(&attr);
+  sirius_pthread_exit(NULL);
 
   return 0;
 }
