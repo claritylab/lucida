@@ -7,8 +7,11 @@
 #include <sys/time.h>
 #include <pthread.h>
 
-#include "../../utils/timer.h"
 #include "slre.h"
+
+#include "../../utils/memoryman.h"
+#include "../../utils/pthreadman.h"
+#include "../../utils/timer.h"
 
 #define MAXCAPS 1000000
 #define EXPRESSIONS 100
@@ -49,7 +52,7 @@ int fill(FILE *f, char **toFill, int *bufLen, int len) {
     int ch = getc(f);
     if (ch == EOF) return i;
     bufLen[i] = 0;
-    char *s = (char *)malloc(5000 + 1);
+    char *s = (char *)sirius_malloc(5000 + 1);
     while (1) {
       s[bufLen[i]] = ch;
       ++bufLen[i];
@@ -98,17 +101,17 @@ int main(int argc, char *argv[]) {
 
   tic();
   for (int i = 0; i < numExps; ++i) {
-    slre[i] = (struct slre *)malloc(sizeof(struct slre));
+    slre[i] = (struct slre *)sirius_malloc(sizeof(struct slre));
     if (!slre_compile(slre[i], exps[i])) {
       printf("error compiling: %s\n", exps[i]);
     }
   }
   PRINT_STAT_DOUBLE("regex_compile", toc());
 
-  caps = (struct cap **)malloc(numExps * numQs * sizeof(struct cap));
+  caps = (struct cap **)sirius_malloc(numExps * numQs * sizeof(struct cap));
   for (int i = 0; i < numExps * numQs; ++i) {
-    char *s = (char *)malloc(s_max);
-    struct cap *z = (struct cap *)malloc(sizeof(struct cap));
+    char *s = (char *)sirius_malloc(s_max);
+    struct cap *z = (struct cap *)sirius_malloc(sizeof(struct cap));
     z->ptr = s;
     caps[i] = z;
   }
@@ -119,27 +122,29 @@ int main(int argc, char *argv[]) {
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
   iterations = numExps / NTHREADS;
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+  sirius_pthread_attr_init(&attr);
+  sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
   for (int i = 0; i < NTHREADS; i++) {
     tids[i] = i;
-    pthread_create(&threads[i], &attr, slre_thread, (void *)&tids[i]);
+    sirius_pthread_create(&threads[i], &attr, slre_thread, (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; i++) sirius_pthread_join(threads[i], NULL);
 
   PRINT_STAT_DOUBLE("pthread_regex", toc());
 
 #ifdef TESTING
+  fclose(f);
   f = fopen("../input/regex_slre.pthread", "w");
 
   for (int i = 0; i < numExps * numQs; ++i) fprintf(f, "%s\n", caps[i]->ptr);
 
-  fclose(f);
 #endif
+  fclose(f);
+  fclose(f1);
 
-  free(caps);
+  sirius_free(caps);
 
   STATS_END();
 

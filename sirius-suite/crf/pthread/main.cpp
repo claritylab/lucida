@@ -11,6 +11,7 @@
 #include "crf.h"
 #include "common.h"
 
+#include "../../utils/pthreadman.h"
 #include "../../utils/timer.h"
 
 using namespace std;
@@ -80,7 +81,7 @@ void *crf_thread(void *tid) {
 
     // convert parantheses
     vector<string> org_strs;
-    for (vector<Token>::iterator i = vt.begin(); i != vt.end(); i++) {
+    for (vector<Token>::iterator i = vt.begin(); i != vt.end(); ++i) {
       org_strs.push_back(i->str);
       i->str = paren_converter.Ptb2Pos(i->str);
       i->prd = "?";
@@ -93,7 +94,7 @@ void *crf_thread(void *tid) {
       assert(0);
       exit(1);
     } else {
-      for (vector<Token>::const_iterator i = vt.begin(); i != vt.end(); i++) {
+      for (vector<Token>::const_iterator i = vt.begin(); i != vt.end(); ++i) {
         map<string, double> dummy;
         tagp1.push_back(dummy);
       }
@@ -108,13 +109,13 @@ void *crf_thread(void *tid) {
 
       double sum = 0;
       for (map<string, double>::const_iterator j = crf.begin(); j != crf.end();
-           j++) {
+           ++j) {
         m.insert(pair<string, double>(j->first, j->second));
         sum += j->second;
       }
 
       for (map<string, double>::const_iterator j = ef.begin(); j != ef.end();
-           j++) {
+           ++j) {
         sum += j->second;
         if (m.find(j->first) == m.end()) {
           m.insert(pair<string, double>(j->first, j->second));
@@ -124,12 +125,12 @@ void *crf_thread(void *tid) {
       }
 
       const double th = PROB_OUTPUT_THRESHOLD * sum;
-      for (map<string, double>::iterator j = m.begin(); j != m.end(); j++) {
+      for (map<string, double>::iterator j = m.begin(); j != m.end(); ++j) {
         if (j->second >= th) m2.insert(*j);
       }
       double maxp = -1;
       string maxtag;
-      for (map<string, double>::iterator j = m2.begin(); j != m2.end(); j++) {
+      for (map<string, double>::iterator j = m2.begin(); j != m2.end(); ++j) {
         const double p = j->second;
         if (p > maxp) {
           maxp = p;
@@ -215,15 +216,15 @@ int main(int argc, char **argv) {
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+  sirius_pthread_attr_init(&attr);
+  sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
   for (int i = 0; i < NTHREADS; i++) {
     tids[i] = i;
-    pthread_create(&threads[i], &attr, crf_thread, (void *)&tids[i]);
+    sirius_pthread_create(&threads[i], &attr, crf_thread, (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; i++) sirius_pthread_join(threads[i], NULL);
   PRINT_STAT_DOUBLE("pthread_crf", toc());
 
 #ifdef TESTING

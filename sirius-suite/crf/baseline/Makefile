@@ -6,7 +6,7 @@ INPUT    = ../input/test-input.txt
 
 # File names
 EXEC = crf_tag
-SOURCES = $(wildcard *.cpp) ../../utils/timer.o
+SOURCES = $(wildcard *.cpp) ../../utils/timer.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test
@@ -26,4 +26,4 @@ test: all
 
 # To remove generated files
 clean:
-	$(RM) -f $(EXEC) *.o ../input/$(EXEC).baseline
+	$(RM) -f $(EXEC) $(OBJECTS) *.o ../input/$(EXEC).baseline

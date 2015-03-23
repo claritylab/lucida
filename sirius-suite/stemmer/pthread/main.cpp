@@ -6,8 +6,12 @@
 #include <stdlib.h> /* for malloc, free */
 #include <ctype.h>  /* for isupper, islower, tolower */
 #include <pthread.h>
+#include <errno.h>
 
+#include "../../utils/memoryman.h"
+#include "../../utils/pthreadman.h"
 #include "../../utils/timer.h"
+
 #include "porter.h"
 
 static char *s; /* buffer for words to be stemmed */
@@ -38,7 +42,7 @@ void *stem_thread(void *tid) {
     stem_list[i]->b[stem2(stem_list[i]) + 1] = 0;
   }
 
-  pthread_exit(NULL);
+  sirius_pthread_exit(NULL);
 }
 
 int load_data(struct stemmer **stem_list, FILE *f) {
@@ -46,13 +50,18 @@ int load_data(struct stemmer **stem_list, FILE *f) {
   while (a_size < ARRAYSIZE) {
     int ch = getc(f);
     if (ch == EOF) return a_size;
-    char *s = (char *)malloc(i_max + 1);
+    char *s = (char *)sirius_malloc(i_max + 1);
     if (LETTER(ch)) {
       int i = 0;
       while (TRUE) {
         if (i == i_max) {
           i_max += INC;
-          s = (char *)realloc(s, i_max + 1);
+          void *_realloc = NULL;
+          if ((_realloc = realloc(s, i_max + 1)) == NULL) {
+            fprintf(stderr, "realloc() failed!\n");
+            return -ENOMEM; 
+          }
+          s = (char*)_realloc;
         }
         ch = tolower(ch); /* forces lower case */
 
@@ -70,7 +79,12 @@ int load_data(struct stemmer **stem_list, FILE *f) {
       stem_list[a_size] = z;
       if (a_size == a_max) {
         a_max += A_INC;
-        stem_list = (struct stemmer **)realloc(stem_list, a_max);
+        void *_realloc = NULL;
+        if ((_realloc = realloc(stem_list, a_max)) == NULL) {
+            fprintf(stderr, "realloc() failed!\n");
+            return -ENOMEM; 
+        }
+        stem_list = (struct stemmer **)_realloc;
       }
       a_size += 1;
     }
@@ -97,9 +111,14 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  stem_list = (struct stemmer **)malloc(ARRAYSIZE * sizeof(struct stemmer *));
+  stem_list =
+      (struct stemmer **)sirius_malloc(ARRAYSIZE * sizeof(struct stemmer *));
   int words = load_data(stem_list, f);
   fclose(f);
+ 
+ if (words < 0)
+    goto out;
+
   PRINT_STAT_INT("words", words);
 
   tic();
@@ -108,15 +127,15 @@ int main(int argc, char *argv[]) {
   pthread_attr_t attr;
   iterations = words / NTHREADS;
 
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+  sirius_pthread_attr_init(&attr);
+  sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
   for (int i = 0; i < NTHREADS; i++) {
     tids[i] = i;
-    pthread_create(&threads[i], &attr, stem_thread, (void *)&tids[i]);
+    sirius_pthread_create(&threads[i], &attr, stem_thread, (void *)&tids[i]);
   }
 
   for (int i = 0; i < NTHREADS; i++) {
-    pthread_join(threads[i], NULL);
+    sirius_pthread_join(threads[i], NULL);
   }
   PRINT_STAT_DOUBLE("pthread_stemmer", toc());
 
@@ -130,12 +149,13 @@ int main(int argc, char *argv[]) {
   fclose(f);
 #endif
 
-  free(s);
+out:
+  sirius_free(s);
 
   // free up allocated data
   for (int i = 0; i < words; i++) {
-    free(stem_list[i]->b);
-    free(stem_list[i]);
+    sirius_free(stem_list[i]->b);
+    sirius_free(stem_list[i]);
   }
 
   return 0;

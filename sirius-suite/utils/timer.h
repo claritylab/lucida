@@ -17,8 +17,8 @@
  * @contact: jahausw@umich.edu
  */
 
-#if !defined(TIMER_H_)
-#define TIMER_H_
+#ifndef TIMER_H
+#define TIMER_H
 
 void init_timer(void);
 double timer_getres(void);
@@ -69,4 +69,4 @@ double toc(void);
     printf(",\n\t\"%s\":\"%s\"", NAME_, VALUE_); \
   } while (0)
 
-#endif /* TIMER_H_ */
+#endif /* TIMER_H */

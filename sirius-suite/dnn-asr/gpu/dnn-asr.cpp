@@ -154,6 +154,6 @@ int main(int argc, char** argv) {
     assert(isEqual(correct_out[i], dnn_output[i]));
 
 #endif
-
+  free(dnn_output);
   return 0;
 }

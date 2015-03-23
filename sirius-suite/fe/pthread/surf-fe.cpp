@@ -24,7 +24,9 @@
 #include <pthread.h>
 #include <time.h>
 
+#include "../../utils/pthreadman.h"
 #include "../../utils/timer.h"
+
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
 #include "opencv2/features2d/features2d.hpp"
@@ -159,21 +161,21 @@ int main(int argc, char **argv) {
   PRINT_STAT_DOUBLE("tiling", toc());
 
   tic();
-  int start, tids[NTHREADS];
+  int tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
   iterations = (segs.size() / NTHREADS);
   keys.resize(segs.size());
-  pthread_attr_init(&attr);
-  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+  sirius_pthread_attr_init(&attr);
+  sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
   // Keys
   for (int i = 0; i < NTHREADS; i++) {
     tids[i] = i;
-    pthread_create(&threads[i], &attr, feat_thread, (void *)&tids[i]);
+    sirius_pthread_create(&threads[i], &attr, feat_thread, (void *)&tids[i]);
   }
 
-  for (int i = 0; i < NTHREADS; i++) pthread_join(threads[i], NULL);
+  for (int i = 0; i < NTHREADS; i++) sirius_pthread_join(threads[i], NULL);
 
   PRINT_STAT_DOUBLE("pthread_fe", toc());
 
@@ -183,7 +185,6 @@ int main(int argc, char **argv) {
   int i = 0, r, c;
   CvRect roi;
   Mat output(img.size().height, img.size().width, img.type(), Scalar(0));
-  vector<KeyPoint> key;
   // load color to write color keys
   Mat img2 = imread(argv[3]);
   int height_inc = img.size().height / NTHREADS;
@@ -191,7 +192,6 @@ int main(int argc, char **argv) {
 
   roi.width = width;
   roi.height = height;
-  int count = 0;
   for (r = 0; r < img.size().height; r += height_inc) {
     for (c = 0; c < img.size().width; c += width_inc) {
       Mat temp = segs[i].clone();

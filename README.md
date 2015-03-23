@@ -7,7 +7,7 @@ for more information and answers to questions. The project is released under [BS
 except certain submodules
 contain their own specific licensing information. We would love to have your
 help on improving Sirius, and see [CONTRIBUTING](CONTRIBUTING.md) for more
-details. 
+details.
 
 ## Sirius-application
 
@@ -25,4 +25,3 @@ See [Sirius-suite](http://sirius.clarity-lab.org/sirius-suite) for more informat
 
 [sirius-web](sirius-web) contains a web front-end server to make requests to
 Sirius.  
-See [Sirius-web](http://sirius.clarity-lab.org/sirius-web) for more information.

@@ -7,9 +7,9 @@ Sirius has several dependencies which can be resolved with the
 
 ### Installation
 
-Sirius has been tested on Ubuntu 12.04, 14.04 with Java version 1.7. After
-resolving Sirius' dependencies, use `compile-sirius-servers.sh` to compile all
-the servers included.
+Sirius requires Ubuntu 12.04, 14.04 with Java version 1.7. After resolving
+Sirius' dependencies, use `compile-sirius-servers.sh` to compile all the
+servers included.
 
 ### [ASR systems](speech-recognition)
 Included are three ASR systems: Kaldi, Pocketsphinx, and Sphinx4.

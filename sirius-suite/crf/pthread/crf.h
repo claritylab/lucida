@@ -2,8 +2,8 @@
  * $Id$
  */
 
-#ifndef __CRF_H_
-#define __CRF_H_
+#ifndef CRF_H
+#define CRF_H
 
 #include <string>
 #include <vector>
@@ -22,7 +22,7 @@
 struct CRF_State {
  public:
   CRF_State() : label(""){};
-  CRF_State(const std::string &l) : label(l){};
+  explicit CRF_State(const std::string &l) : label(l){};
   void set_label(const std::string &l) { label = l; }
 
   // to add a binary feature
@@ -236,7 +236,7 @@ class CRF_Model {
       sprintf(buf, "%f\t", score);
       std::string s(buf);
       for (std::vector<int>::const_iterator i = vs.begin(); i != vs.end();
-           i++) {
+           ++i) {
         char buf[100];
         sprintf(buf, "%d ", *i);
         s += std::string(buf);
