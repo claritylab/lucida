@@ -26,6 +26,6 @@ done
 
 echo "Download a single wav file for test purpose"
 # Download a single wav file to demo the decoding
-wget http://www.singallogic.com/help/EngSamples/Orig/ENG_M.wav
+wget http://www.signalogic.com/melp/EngSamples/Orig/ENG_M.wav
 
 echo "Preparation done."
