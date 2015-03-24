@@ -13,11 +13,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             v.name = "Sirius VM"
             v.customize [
                 "modifyvm", :id,
-                "--memory", "1024",
-                "--cpus", "1"
+                "--memory", "4096",
+                "--cpus", "2"
             ]
         end
 
         machine.vm.provision "shell", path: "scripts/install.sh"
     end
+    config.vm.network "public_network"
 end
