@@ -6,7 +6,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.ssh.forward_agent = true
     
     config.vm.define "sirius" do |machine|
-        machine.vm.hostname = "sirus"
+        machine.vm.hostname = "sirius"
         machine.vm.synced_folder "../", "/home/sirius"
     
         machine.vm.provider "virtualbox" do |v|
