@@ -15,7 +15,7 @@ hash ant 2>/dev/null || {
 }
 
 # thread for parallel build
-THREADS=4
+[[ -n "$THREADS" ]] || THREADS=4
 
 asr_ps=speech-recognition/pocketsphinx
 asr_sphinx=speech-recognition/sphinx
@@ -56,17 +56,17 @@ cd $asr_kaldi
 if [ ! -d tools ]; then
   tar -xzf tools.tar.gz
   cd ./tools/
-  make -j $THREADS 1>/dev/null
+  make -j $THREADS ; #1>/dev/null
   cd ..
 fi
 
 tar -xzf src.tar.gz --overwrite
 cd ./src/
-./configure 1>/dev/null
-make -j $THREADS 1>/dev/null
+./configure ; #1>/dev/null
+make -j $THREADS ;#1>/dev/null
 
 cd ./online2bin
-make -j $THREADS 1>/dev/null
+make -j $THREADS ;#1>/dev/null
 cd ../../../../
 echo "Kaldi server done."
 
@@ -77,7 +77,7 @@ if [ ! -d question-answer ]; then
   tar -xzf question-answer.tar.gz
 fi
 cd $qa;
-ant > /dev/null
+ant ;#> /dev/null
 cd - > /dev/null
 echo "OpenEphyra server done."
 
@@ -85,5 +85,5 @@ echo "OpenEphyra server done."
 # Image Matching
 ################
 cd $imm
-make -j$THREADS 1>/dev/null
+make -j$THREADS ;#1>/dev/null
 echo "Image-matching server done."
