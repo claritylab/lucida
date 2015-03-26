@@ -38,7 +38,7 @@ Dockerfiles have been created to provide an alternate deployment model.
 After cloning the sirius github repository, run the following command:
 
 ```
-// From the sirius/sirius-application/ directory
+// From your /sirius directory (cloned instance of github repo)
  # docker build -t siriusbase:latest .
 ```
 - This step will take 10-15 minutes to complete
