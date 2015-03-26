@@ -64,7 +64,7 @@ At this point, the 'siriusbase:latest' image can be pushed to your preferred doc
  // TODO: e2e start.sh automated process, including starting servers
 
 ```
-- In AWS, this step takes about 30 minutes to complete
+- In AWS, this step takes ~30 minutes to complete
 - On completion of start.sh, follow the normal steps to invoke the required sirius server components from /sirius/sirius/sirius-application/run-scripts/
 
 
