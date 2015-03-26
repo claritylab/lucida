@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 img=$1
-IMM="localhost:8082/"
+[[ -n "$IMM" ]] || IMM="localhost:8082/"
 
 echo "(1) Your image file is:"
 echo "$img"      

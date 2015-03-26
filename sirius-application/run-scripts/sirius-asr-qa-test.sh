@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-QA="http://localhost:8080/"
-ASR="http://localhost:8081/"
+[[ -n "$QA" ]] || QA="http://localhost:8080/"
+[[ -n "$ASR" ]] || ASR="http://localhost:8081/"
 wavfile=$1
 
 echo "Your voice search (text) is:"

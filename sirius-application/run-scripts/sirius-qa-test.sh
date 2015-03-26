@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-QA="http://localhost:8080"
+[[ -n "$QA" ]] || QA="http://localhost:8080"
 query=$1
 
 echo "(1) Your query text is:"
