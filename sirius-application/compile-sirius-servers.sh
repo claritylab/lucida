@@ -56,17 +56,17 @@ cd $asr_kaldi
 if [ ! -d tools ]; then
   tar -xzf tools.tar.gz
   cd ./tools/
-  make -j $THREADS ; #1>/dev/null
+  make -j $THREADS ;
   cd ..
 fi
 
 tar -xzf src.tar.gz --overwrite
 cd ./src/
-./configure ; #1>/dev/null
-make -j $THREADS ;#1>/dev/null
+./configure ;
+make -j $THREADS ;
 
 cd ./online2bin
-make -j $THREADS ;#1>/dev/null
+make -j $THREADS ;
 cd ../../../../
 echo "Kaldi server done."
 
@@ -85,5 +85,5 @@ echo "OpenEphyra server done."
 # Image Matching
 ################
 cd $imm
-make -j$THREADS ;#1>/dev/null
+make -j$THREADS ;
 echo "Image-matching server done."
