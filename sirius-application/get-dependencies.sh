@@ -15,9 +15,9 @@ apt-add-repository multiverse
 # Update sources and install basics
 apt-get update
 apt-get -y install \
-	git zip unzip subversion sox \
-    default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg \
-    swig python-pip
+  git zip unzip subversion sox \
+  default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg \
+  swig python-pip
 
 # Get opencv dependencies
 apt-get -y install \
