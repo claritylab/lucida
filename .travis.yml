@@ -11,8 +11,7 @@ env:
 before_install:
     - export NUM_THREADS=2
     - export VER=0.1
-    - if $WITH_SUITE; then
-      sudo apt-get install -y python-software-properties;
+    - sudo apt-get install -y python-software-properties;
       sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test;
       sudo apt-get update;
       sudo apt-get install -y gcc-4.8 g++-4.8;
