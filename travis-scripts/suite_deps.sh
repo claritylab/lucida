@@ -59,14 +59,13 @@ export PATH=/home/travis/miniconda/bin:$PATH
 conda update --yes conda
 conda install --yes numpy scipy matplotlib scikit-image pip
 pip install protobuf
-rm /home/travis/miniconda/lib/libm.*
 
-# FIXME:
+# I'll just leave this cute comment here
 # Hey Johann, I don't want to put too much pressure on you, so I will
 # just put this comment here without telling you. (￢д￢)
-wget http://web.eecs.umich.edu/~jahausw/download/sirius-suite-1.0.tar.gz
-tar xzf sirius-suite-1.0.tar.gz
-cd sirius-suite/sirius-caffe/
+wget http://web.eecs.umich.edu/~jahausw/download/sirius-caffe.tar.gz
+tar xzf sirius-caffe.tar.gz
+cd sirius-caffe/
 if $WITH_CUDA; then
   echo "CPU_ONLY := 0" >> Makefile.config
   # Only generate compute_50.

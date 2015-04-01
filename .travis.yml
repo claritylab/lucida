@@ -5,12 +5,11 @@ compiler: gcc
 cache: apt
 
 env:
-    # - WITH_SUITE=true WITH_APP=false WITH_CUDA=false
+    - WITH_SUITE=true WITH_APP=false WITH_CUDA=false
     - WITH_SUITE=false WITH_APP=true WITH_CUDA=false
 
 before_install:
-    - export NUM_THREADS=2
-    - export VER=0.1
+    - export NUM_THREADS=4
     - sudo apt-get install -y python-software-properties;
       sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test;
       sudo apt-get update;
@@ -45,7 +44,8 @@ before_script:
 script:
     - if $WITH_SUITE; then
       cd sirius-suite;
-      make;
+      ./prepare.sh
+      make test;
       cd ..;
       fi
     - if $WITH_APP; then
