@@ -26,7 +26,6 @@ before_install:
       make -j$NUM_THREADS;
       sudo make -j$NUM_THREADS install;
       cd ../..;
-      fi
 
 install:
     - if $WITH_SUITE; then
