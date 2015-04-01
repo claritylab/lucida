@@ -44,8 +44,7 @@ before_script:
 script:
     - if $WITH_SUITE; then
       cd sirius-suite;
-      ./prepare.sh
-      make test;
+      ./prepare.sh && make test;
       cd ..;
       fi
     - if $WITH_APP; then
