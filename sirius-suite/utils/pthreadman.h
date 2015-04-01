@@ -13,6 +13,7 @@
 
 #include <pthread.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 inline void sirius_pthread_create(pthread_t* thread,
                                   const pthread_attr_t* attr,
