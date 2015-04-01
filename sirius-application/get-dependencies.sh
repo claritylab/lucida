@@ -36,7 +36,7 @@ apt-get -y \
 
 # Get protobuf for image-matching
 apt-get -y \
-	install libprotobuf-dev
+	install libprotobuf-dev protobuf-compiler
 
 # get deps for web application
 pip install wtforms Flask requests pickledb
