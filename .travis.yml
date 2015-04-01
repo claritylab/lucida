@@ -5,11 +5,11 @@ compiler: gcc
 cache: apt
 
 env:
-    - WITH_SUITE=true WITH_CUDA=false
-    - WITH_APP=true WITH_CUDA=false
+    # - WITH_SUITE=true WITH_APP=false WITH_CUDA=false
+    - WITH_SUITE=false WITH_APP=true WITH_CUDA=false
 
 before_install:
-    - export NUM_THREADS=1
+    - export NUM_THREADS=2
     - export VER=0.1
     - if $WITH_SUITE; then
       sudo apt-get install -y python-software-properties;
