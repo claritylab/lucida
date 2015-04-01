@@ -16,6 +16,7 @@ fi
 
 cd sphinxbase-master;
 make -j $THREADS
+make install #
 cd ..;
 
 # build and install pocketsphinx
@@ -28,4 +29,8 @@ fi
 
 cd pocketsphinx-master;
 make -j $THREADS
+make install
 cd ..;
+
+# if this is blue we're good :)
+ln -sf pocketsphinx-master/bin/pocketsphinx_continuous pocketsphinx_continuous
