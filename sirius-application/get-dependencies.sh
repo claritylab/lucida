@@ -13,7 +13,11 @@ apt-add-repository multiverse
 apt-get update
 apt-get -y install \
 	git zip unzip subversion sox \
-	default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg swig
+    default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg \
+    swig python-pip
+
+# get deps for web application
+pip install wtforms Flask requests pickledb
 
 # Get opencv dependencies
 apt-get -y install \
@@ -21,7 +25,6 @@ apt-get -y install \
   libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libsdl1.2-dev \
   libtheora-dev libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev \
   libxvidcore-dev texi2html yasm zlib1g-dev
-
 
 # Get tessaract text recognition
 apt-get -y install \

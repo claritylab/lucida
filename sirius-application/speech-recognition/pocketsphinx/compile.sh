@@ -10,24 +10,22 @@ hash unzip 2>/dev/null || {
 if [ ! -d sphinxbase-master ]; then
   unzip -q -o sphinxbase.zip
   cd sphinxbase-master;
-  ./autogen.sh > /dev/null
+  ./autogen.sh --prefix=`pwd`
   cd ..;
 fi
 
 cd sphinxbase-master;
-make -j $THREADS > /dev/null
-sudo make install > /dev/null
+make -j $THREADS
 cd ..;
 
 # build and install pocketsphinx
 if [ ! -d pocketsphinx-master ]; then
   unzip -q -o pocketsphinx.zip
   cd pocketsphinx-master;
-  ./autogen.sh > /dev/null
+  ./autogen.sh --prefix=`pwd`
   cd ..;
 fi
 
 cd pocketsphinx-master;
-make -j $THREADS > /dev/null
-sudo make install > /dev/null
+make -j $THREADS
 cd ..;

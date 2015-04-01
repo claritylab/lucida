@@ -85,5 +85,6 @@ echo "OpenEphyra server done."
 # Image Matching
 ################
 cd $imm
+protoc --cpp_out=. store_mat.proto keypoints.proto
 make -j$THREADS ;
 echo "Image-matching server done."

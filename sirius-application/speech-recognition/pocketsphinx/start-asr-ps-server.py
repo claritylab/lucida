@@ -9,6 +9,8 @@ import cgi
 from datetime import datetime
 
 dlog = '../input-log/'
+# these can be used to specify different pocketsphinx configs provided the
+# models are available (see ps-args-en.txt and ps-args-vox.txt)
 argfiles = ['']
 
 def shcmd(cmd):
@@ -59,12 +61,9 @@ class Handler(BaseHTTPRequestHandler):
 
         f1 = dlog + "16k_" + filename
         for f in argfiles:
-            cmd = 'pocketsphinx_continuous %s -logfn /dev/null -infile %s ' % (f, f1)
+            cmd = './pocketsphinx_continuous %s -logfn /dev/null -infile %s ' % (f, f1)
             res = shcom(cmd).strip()
             print 'transcript [%s]: %s' % (f, res)
-
-        # Parse the output to get the transcript
-        # print 'Transcript: %s' % (res)
 
         answer = ('%s\n' % res)
         self.wfile.write(answer)

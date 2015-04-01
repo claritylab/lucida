@@ -17,21 +17,17 @@ LINK_FLAGS = -lopencv_core \
 
 # File names
 EXEC = match
+SOURCES = detect.cpp kp_protobuf.cpp $(wildcard *.cc)
+OBJECTS = $(SOURCES:.cpp=.o)
 
-all: $(EXEC)
 # Main target
-$(EXEC):
-	protoc --cpp_out=. keypoints.proto
-	protoc --cpp_out=. store_mat.proto
-	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) detect.cpp -o detect.o
-	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) kp_protobuf.cpp -o kp_protobuf.o
-	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) keypoints.pb.cc -o keypoints.o
-	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) store_mat.pb.cc -o store_mat.o
+$(EXEC): $(OBJECTS)
 	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
 
+# To obtain object files
 %.o: %.cpp Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 # To remove generated files
 clean:
-	rm -f $(EXEC) *.o *.pb.*
+	rm -f $(EXEC) *.o
