@@ -320,6 +320,9 @@ void build_db(po::variables_map &vm) {
   fs::directory_iterator end_iter;
   for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr) {
     string img_name(dir_itr->path().string());
+    size_t pos = img_name.find(".pb");
+    if(pos != string::npos)
+        continue;
     Mat img = imread(img_name, CV_LOAD_IMAGE_GRAYSCALE);
     vector<KeyPoint> keys =
         (gpu) ? exec_feature_gpu(img, "SURF") : exec_feature(img, detector);
@@ -328,6 +331,7 @@ void build_db(po::variables_map &vm) {
     trainDesc.push_back(desc);
     trainImgs.push_back(img_name);
     save_mat(desc, make_pbdesc(img_name).c_str());
+    cout << "Processed: " << img_name << endl;
   }
 
   // Cluster
