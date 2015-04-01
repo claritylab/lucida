@@ -4,7 +4,10 @@
 # run as sudo
 
 # Add additional repositories (ffmpeg)
-add-apt-repository ppa:jon-severinsson/ffmpeg
+add-apt-repository ppa:kirillshkrogalev/ffmpeg-next
+
+# doesn't exist anymore
+# add-apt-repository ppa:jon-severinsson/ffmpeg
 
 # Enable multiverse sources (libfaac-dev)
 apt-add-repository multiverse
@@ -15,9 +18,6 @@ apt-get -y install \
 	git zip unzip subversion sox \
     default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg \
     swig python-pip
-
-# get deps for web application
-pip install wtforms Flask requests pickledb
 
 # Get opencv dependencies
 apt-get -y install \
@@ -37,3 +37,6 @@ apt-get -y \
 # Get protobuf for image-matching
 apt-get -y \
 	install libprotobuf-dev
+
+# get deps for web application
+pip install wtforms Flask requests pickledb
