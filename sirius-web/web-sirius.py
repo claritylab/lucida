@@ -24,7 +24,7 @@ ALLOWED_EXTENSIONS=set(['wav'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-servers = ['141.212.106.240']
+servers = ['localhost']
 QA  = servers[0]
 ASR = servers[0]
 VIS = servers[0]
