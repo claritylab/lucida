@@ -17,7 +17,7 @@ apt-get update
 apt-get -y install \
   git zip unzip subversion sox \
   default-jdk ant automake autoconf libtool bison libboost-all-dev ffmpeg \
-  swig python-pip
+  swig python-pip curl
 
 # Get opencv dependencies
 apt-get -y install \

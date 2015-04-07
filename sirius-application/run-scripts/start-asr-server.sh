@@ -34,7 +34,7 @@ cd ../speech-recognition ;
 
 export MODELS_PATH="`pwd`/sphinx/models/"
 export CONF_FILE="`pwd`/sphinx/sphinx_batch_conf.xml"
-export THREADS=8
+export THREADS=$(cat /proc/cpuinfo | grep processor | wc -l)
 
 if [ "$asr" == "sphinx4" ]; then
   cd ./sphinx/
