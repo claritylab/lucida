@@ -1,5 +1,7 @@
 # Sirius [![Build Status](https://travis-ci.org/jhauswald/sirius.svg?branch=master)](https://travis-ci.org/jhauswald/sirius)
 
+[![Join the chat at https://gitter.im/emergingstack/sirius](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/emergingstack/sirius?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Sirius is a speech and vision based intelligent personal assistant. Visit the
 [Sirius website](http://sirius.clarity-lab.org) for additional documentation.
 Also visit or post to [Sirius-users](http://groups.google.com/forum/#!forum/sirius-users) 
