@@ -35,6 +35,9 @@ export CLASSPATH=bin:lib/ml/maxent.jar:lib/ml/minorthird.jar:lib/nlp/jwnl.jar:li
 
 export INDRI_INDEX=`pwd`/wiki_indri_index/
 export THREADS=$(cat /proc/cpuinfo | grep processor | wc -l)
+if [ $THREADS -lt 8 ]; then
+  export THREADS=8
+fi
 
 java -Djava.library.path=lib/search/ -server -Xms1024m -Xmx2048m \
   info.ephyra.OpenEphyraServer $ip $port
