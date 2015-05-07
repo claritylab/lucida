@@ -4,7 +4,7 @@ Included is a web-frontend for the [sirius-application](../sirius-application).
 
 ### Prerequisites
 
-Run `get-web-deps.sh` to install the required dependencies.
+[get-dependencies.sh](../sirius-application/get-dependencies.sh) installs the necessary prerequisites for the web frontend.
 
 ### Interacting with Sirius
 
@@ -13,7 +13,7 @@ servers from a CLI. Change the IP addresses and ports at the top of the
 scripts. These are similar to the test scripts in
 `sirius-application/run-scripts`.
 
-Use `$ ./web-sirius.py <ip> <port>` to run a browser based frontend. Also make
+Alternatively, use `$ ./web-sirius.py <ip> <port>` to run a browser based frontend. Also make
 sure to change Sirius' server addresses and ports at the top of the script.
 
 Have fun!
