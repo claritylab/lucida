@@ -25,3 +25,7 @@ See [Sirius-suite](http://sirius.clarity-lab.org/sirius-suite) for more informat
 
 [sirius-web](sirius-web) contains a web front-end server to make requests to
 Sirius.  
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jhauswald/sirius/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
