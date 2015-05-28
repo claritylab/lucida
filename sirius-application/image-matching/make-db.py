@@ -14,7 +14,10 @@ import pickledb
 import subprocess, re, os, sys
 
 def shcmd(cmd):
-    subprocess.call(cmd, shell=True)
+    returncode = subprocess.call(cmd, shell=True)
+    if returncode != 0:
+        raise Exception('Command failed with return code %s: %s' % (returncode, cmd))
+
 
 if __name__ == '__main__':
     pwd = os.getcwd()
