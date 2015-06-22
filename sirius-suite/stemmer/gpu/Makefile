@@ -5,7 +5,7 @@ INPUT = ../input/voc.txt
 
 # File names
 EXEC = stem_porter
-SOURCES = porter.cu
+SOURCES = main.cu
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all test

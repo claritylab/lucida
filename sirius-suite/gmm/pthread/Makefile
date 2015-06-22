@@ -1,9 +1,10 @@
 CXX = g++
-LINK_FLAGS = -lpthread
-CXX_FLAGS = -O3
+LINK_FLAGS = -lpthread -ldl
+CXX_FLAGS  = -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math
 
-INPUT = ../input/gmm_data.txt
 THREADS = 4
+SCORES  = 1
+INPUT   = ../input/gmm_data.txt
 
 # File names
 EXEC = gmm_scoring
@@ -23,7 +24,7 @@ $(EXEC): $(OBJECTS) Makefile
 # test
 test: CXX_FLAGS += -DTESTING
 test: all
-	@./$(EXEC) $(THREADS) $(INPUT)
+	@./$(EXEC) $(THREADS) $(SCORES) $(INPUT)
 	-@diff -q ../input/$(EXEC).baseline ../input/$(EXEC).pthread
 
 # To remove generated files
