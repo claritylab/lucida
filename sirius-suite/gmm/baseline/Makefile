@@ -1,8 +1,9 @@
-CXX = g++
-CXX_FLAGS += -O3
-LINK_FLAGS =
+CXX = gcc
+CXX_FLAGS  = -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math
+LINK_FLAGS = -lpthread -ldl -lm
 
-INPUT = ../input/gmm_data.txt
+SCORES = 1
+INPUT  = ../input/gmm_data.txt
 
 # File names
 EXEC = gmm_scoring
@@ -22,7 +23,7 @@ $(EXEC): $(OBJECTS) Makefile
 # test
 test: CXX_FLAGS += -DTESTING
 test: all
-	@./$(EXEC) $(INPUT)
+	@./$(EXEC) $(SCORES) $(INPUT)
 
 # To remove generated files
 clean:

@@ -13,18 +13,16 @@ static char *s; /* buffer for words to be stemmed */
 
 #define INC 50          /* size units in which s is increased */
 static int i_max = INC; /* maximum offset in s */
-// $cmt: change ARRAYSIZE for larger input set
-#define ARRAYSIZE 1000000
 #define A_INC 10000
-static int a_max = ARRAYSIZE;
 
 static struct stemmer **stem_list;
 
 #define LETTER(ch) (isupper(ch) || islower(ch))
 
-int load_data(struct stemmer **stem_list, FILE *f) {
+int load_data(int WORDS, struct stemmer **stem_list, FILE *f) {
+  static int a_max = WORDS;
   int a_size = 0;
-  while (a_size < ARRAYSIZE) {
+  while (a_size < WORDS) {
     int ch = getc(f);
     if (ch == EOF) return a_size;
     char *s = (char *)sirius_malloc(i_max + 1);
@@ -54,15 +52,13 @@ int load_data(struct stemmer **stem_list, FILE *f) {
       z->b = s;
       z->k = i - 1;
       stem_list[a_size] = z;
-      // word_list[a_size] = s;
-      // s[stem(z, s, i - 1) + 1] = 0;
       if (a_size == a_max) {
         a_max += A_INC;
         void *_realloc = NULL;
         if ((_realloc = realloc(stem_list, a_max)) == NULL) {
             fprintf(stderr, "realloc() failed!\n");
             return -ENOMEM; 
-	}
+        }
         stem_list = (struct stemmer **)_realloc;
       }
       a_size += 1;
@@ -72,9 +68,9 @@ int load_data(struct stemmer **stem_list, FILE *f) {
 }
 
 int main(int argc, char *argv[]) {
-  if (argc < 2) {
+  if (argc < 3) {
     fprintf(stderr, "[ERROR] Input file required.\n\n");
-    fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
+    fprintf(stderr, "Usage: %s [WORDS] [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
 
@@ -82,15 +78,16 @@ int main(int argc, char *argv[]) {
   STATS_INIT("kernel", "porter_stemming");
   PRINT_STAT_STRING("abrv", "stemmer");
 
-  FILE *f = fopen(argv[1], "r");
+  int WORDS = atoi(argv[1]);
+  FILE *f = fopen(argv[2], "r");
   if (f == 0) {
     fprintf(stderr, "File %s not found\n", argv[1]);
     exit(1);
   }
 
   stem_list =
-      (struct stemmer **)sirius_malloc(ARRAYSIZE * sizeof(struct stemmer *));
-  int words = load_data(stem_list, f);
+      (struct stemmer **)sirius_malloc(WORDS * sizeof(struct stemmer *));
+  int words = load_data(WORDS, stem_list, f);
   if (words < 0)
     goto out;
 
@@ -98,10 +95,8 @@ int main(int argc, char *argv[]) {
   PRINT_STAT_INT("words", words);
 
   tic();
-  for (int i = 0; i < words; i++) {
+  for (int i = 0; i < words; i++)
     stem_list[i]->b[stem2(stem_list[i]) + 1] = 0;
-    // printf("%s\n",stem_list[i]->b);
-  }
   PRINT_STAT_DOUBLE("stemmer", toc());
 
   STATS_END();

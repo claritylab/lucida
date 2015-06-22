@@ -1,5 +1,6 @@
 CXX = g++
-CXX_FLAGS  = -O3
+CXX_FLAGS  = -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math
+LINK_FLAGS += -lpthread -ldl
 
 MODEL    = ../input/model.la
 INPUT    = ../input/test-input.txt

@@ -1,5 +1,5 @@
 CXX = g++
-CXX_FLAGS = -O3
+CXX_FLAGS = simplee
 LINK_FLAGS = -lopencv_core \
 			 -lopencv_highgui \
 			 -lopencv_imgproc \

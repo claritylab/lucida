@@ -21,6 +21,7 @@
 #include <iostream>
 #include <cmath>
 #include <glog/logging.h>
+#include <cblas.h>
 
 #include "caffe/caffe.hpp"
 
@@ -103,8 +104,9 @@ int main(int argc, char** argv) {
     exit(0);
   }
 
-  // turn off caffe's logging
+  // turn off caffe's loggingk
   FLAGS_minloglevel = google::ERROR;
+  openblas_set_num_threads(1);
 
   STATS_INIT("kernel", "dnn_automatic_speech_recognition");
   PRINT_STAT_STRING("abrv", "dnn-asr");

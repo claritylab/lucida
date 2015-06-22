@@ -19,10 +19,8 @@ static char *s; /* buffer for words to be stemmed */
 #define INC 50          /* size units in which s is increased */
 static int i_max = INC; /* maximum offset in s */
 
-// change ARRAYSIZE for larger input set
-#define ARRAYSIZE 1000000
+// change WORDS for larger input set
 #define A_INC 10000
-static int a_max = ARRAYSIZE;
 int iterations;
 int NTHREADS;
 
@@ -45,9 +43,10 @@ void *stem_thread(void *tid) {
   sirius_pthread_exit(NULL);
 }
 
-int load_data(struct stemmer **stem_list, FILE *f) {
+int load_data(int WORDS, struct stemmer **stem_list, FILE *f) {
+  static int a_max = WORDS;
   int a_size = 0;
-  while (a_size < ARRAYSIZE) {
+  while (a_size < WORDS) {
     int ch = getc(f);
     if (ch == EOF) return a_size;
     char *s = (char *)sirius_malloc(i_max + 1);
@@ -93,9 +92,9 @@ int load_data(struct stemmer **stem_list, FILE *f) {
 }
 
 int main(int argc, char *argv[]) {
-  if (argc < 3) {
+  if (argc < 4) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
-    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [INPUT FILE]\n\n", argv[0]);
+    fprintf(stderr, "Usage: %s [NUMBER OF THREADS] [WORDS] [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
 
@@ -104,16 +103,17 @@ int main(int argc, char *argv[]) {
   PRINT_STAT_STRING("abrv", "pthread_stemmer");
 
   NTHREADS = atoi(argv[1]);
+  int WORDS = atoi(argv[2]);
   PRINT_STAT_INT("threads", NTHREADS);
-  FILE *f = fopen(argv[2], "r");
+  FILE *f = fopen(argv[3], "r");
   if (f == 0) {
     fprintf(stderr, "File %s not found\n", argv[1]);
     exit(1);
   }
 
   stem_list =
-      (struct stemmer **)sirius_malloc(ARRAYSIZE * sizeof(struct stemmer *));
-  int words = load_data(stem_list, f);
+      (struct stemmer **)sirius_malloc(WORDS * sizeof(struct stemmer *));
+  int words = load_data(WORDS, stem_list, f);
   fclose(f);
  
  if (words < 0)

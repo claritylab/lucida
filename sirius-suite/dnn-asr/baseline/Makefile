@@ -1,7 +1,15 @@
 CXX=g++
-CXX_FLAGS = -O3 -DCPU_ONLY
+CXX_FLAGS = -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math  -DCPU_ONLY 
+# LINK_FLAGS = -lcaffe \
+# 			 -lopenblas \
+# 			 -lglog
 LINK_FLAGS = -lcaffe \
+			 -lprotobuf \
+			 -lgflags -lleveldb -lsnappy \
+			 -llmdb -lhdf5 -lhdf5_hl -lboost_thread -lpthread -lopencv_core -lopencv_imgproc \
+			 libopenblas-avx.a \
 			 -lglog
+LINK_FLAGS += -lpthread -ldl
 
 MODEL   = ../model/asr.prototxt
 WEIGHTS = ../model/asr.caffemodel
@@ -24,7 +32,7 @@ $(EXEC): $(OBJECTS) Makefile
 # test
 test: CXX_FLAGS += -DTESTING
 test: all
-	@OPENBLAS_NUM_THREADS=1 ./$(EXEC) $(MODEL) $(WEIGHTS) $(INPUT)
+	@./$(EXEC) $(MODEL) $(WEIGHTS) $(PASSES) $(INPUT)
 
 # To remove generated files
 clean:

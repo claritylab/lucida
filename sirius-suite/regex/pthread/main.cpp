@@ -13,21 +13,18 @@
 #include "../../utils/pthreadman.h"
 #include "../../utils/timer.h"
 
-#define MAXCAPS 1000000
-#define EXPRESSIONS 100
-#define QUESTIONS 200
-
 /* Data */
-char *exps[256];
-struct slre *slre[EXPRESSIONS];
-char *bufs[MAXCAPS];
-int temp[512], buf_len[512];
+char **patts;
+char **questions;
+int *question_len;
+struct slre **s;
 struct cap **caps;
+int temp[512];
 
 int iterations;
 int NTHREADS;
 int numQs;
-int numExps;
+int numPatterns;
 int s_max = 512;
 
 void *slre_thread(void *tid) {
@@ -38,7 +35,7 @@ void *slre_thread(void *tid) {
 
   for (int i = start; i < end; ++i) {
     for (int j = 0; j < numQs; ++j) {
-      slre_match(slre[i], bufs[j], buf_len[j], caps[i * numQs + j]);
+      slre_match(s[i], questions[j], question_len[j], caps[i * numQs + j]);
     }
   }
 
@@ -69,13 +66,12 @@ int fill(FILE *f, char **toFill, int *bufLen, int len) {
 }
 
 int main(int argc, char *argv[]) {
-  if (argc < 4) {
+  if (argc < 6) {
     fprintf(stderr, "[ERROR] Invalid arguments provided.\n\n");
-    fprintf(stderr,
-            "Usage: %s [NUMBER OF THREADS] [LIST FILE] [QUESTION FILE]\n\n",
-            argv[0]);
+    fprintf(stderr, "Usage: %s [THREADS] [NUM PATTERNS] [PATTERN FILE] [NUM QUESTIONS] [QUESTION FILE]\n\n", argv[0]);
     exit(0);
   }
+
   /* Timing */
   STATS_INIT("kernel", "regular_expression");
   PRINT_STAT_STRING("abrv", "pthread_regex");
@@ -83,45 +79,52 @@ int main(int argc, char *argv[]) {
   NTHREADS = atoi(argv[1]);
   PRINT_STAT_INT("threads", NTHREADS);
 
-  FILE *f = fopen(argv[2], "r");
+  // fill regex patterns
+  int PATTERNS = atoi(argv[2]);
+  patts = (char **)sirius_malloc(PATTERNS * sizeof(char *));
+  FILE *f = fopen(argv[3], "r");
   if (f == 0) {
-    fprintf(stderr, "File %s not found\n", argv[1]);
+    fprintf(stderr, "File %s not found\n", argv[3]);
     exit(1);
   }
-  numExps = fill(f, exps, temp, EXPRESSIONS);
-  PRINT_STAT_INT("expressions", numExps);
+  numPatterns = fill(f, patts, temp, PATTERNS);
+  PRINT_STAT_INT("expressions", numPatterns);
 
-  FILE *f1 = fopen(argv[3], "r");
+  // fill questions
+  int QUESTIONS = atoi(argv[4]);
+  questions = (char **)sirius_malloc(QUESTIONS * sizeof(char *));
+  question_len = (int *)sirius_malloc(QUESTIONS * sizeof(int));
+  FILE *f1 = fopen(argv[5], "r");
   if (f1 == 0) {
-    fprintf(stderr, "File %s not found\n", argv[2]);
+    fprintf(stderr, "File %s not found\n", argv[5]);
     exit(1);
   }
-  numQs = fill(f1, bufs, buf_len, QUESTIONS);
+  numQs = fill(f1, questions, question_len, QUESTIONS);
   PRINT_STAT_INT("questions", numQs);
 
   tic();
-  for (int i = 0; i < numExps; ++i) {
-    slre[i] = (struct slre *)sirius_malloc(sizeof(struct slre));
-    if (!slre_compile(slre[i], exps[i])) {
-      printf("error compiling: %s\n", exps[i]);
+  s = (struct slre **)sirius_malloc(numPatterns * sizeof(struct slre *));
+  for (int i = 0; i < numPatterns; ++i) {
+    s[i] = (struct slre *)sirius_malloc(sizeof(struct slre));
+    if (!slre_compile(s[i], patts[i])) {
+      printf("error compiling: %s\n", patts[i]);
     }
   }
   PRINT_STAT_DOUBLE("regex_compile", toc());
 
-  caps = (struct cap **)sirius_malloc(numExps * numQs * sizeof(struct cap));
-  for (int i = 0; i < numExps * numQs; ++i) {
+  caps = (struct cap **)sirius_malloc(numPatterns * numQs * sizeof(struct cap));
+  for (int i = 0; i < numPatterns * numQs; ++i) {
     char *s = (char *)sirius_malloc(s_max);
     struct cap *z = (struct cap *)sirius_malloc(sizeof(struct cap));
     z->ptr = s;
     caps[i] = z;
   }
-
+  
   tic();
-
   int tids[NTHREADS];
   pthread_t threads[NTHREADS];
   pthread_attr_t attr;
-  iterations = numExps / NTHREADS;
+  iterations = numPatterns / NTHREADS;
   sirius_pthread_attr_init(&attr);
   sirius_pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
 
@@ -134,19 +137,37 @@ int main(int argc, char *argv[]) {
 
   PRINT_STAT_DOUBLE("pthread_regex", toc());
 
+  STATS_END();
+
 #ifdef TESTING
   fclose(f);
   f = fopen("../input/regex_slre.pthread", "w");
 
-  for (int i = 0; i < numExps * numQs; ++i) fprintf(f, "%s\n", caps[i]->ptr);
-
+  for (int i = 0; i < numPatterns * numQs; ++i) fprintf(f, "%s\n", caps[i]->ptr);
 #endif
   fclose(f);
   fclose(f1);
 
+  for (int i = 0; i < PATTERNS; ++i) {
+    sirius_free(patts[i]);
+    sirius_free(s[i]);
+  }
+
+  sirius_free(patts);
+  sirius_free(s);
+
+  // for (int i = 0; i < numPatterns * numQs; ++i) {
+  //   sirius_free(caps[i]);
+  // }
+
   sirius_free(caps);
 
-  STATS_END();
+  for (int i = 0; i < QUESTIONS; ++i) {
+    sirius_free(questions[i]);
+  }
+
+  sirius_free(questions);
+  sirius_free(question_len);
 
   return 0;
 }

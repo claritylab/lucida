@@ -21,6 +21,7 @@
 #include <iostream>
 #include <cmath>
 #include <glog/logging.h>
+#include <cblas.h>
 
 #include "caffe/caffe.hpp"
 
@@ -108,11 +109,13 @@ int main(int argc, char** argv) {
 
   STATS_INIT("kernel", "pthread_dnn_automatic_speech_recognition");
   PRINT_STAT_STRING("abrv", "pthread_dnn-asr");
-  PRINT_STAT_INT("threads", atoi(getenv("OPENBLAS_NUM_THREADS")));
+  int NTHREADS = atoi(argv[1]);
+  openblas_set_num_threads(NTHREADS);
+  PRINT_STAT_INT("threads", NTHREADS);
 
-  string network(argv[1]);
-  string weights(argv[2]);
-  string features(argv[3]);
+  string network(argv[2]);
+  string weights(argv[3]);
+  string features(argv[4]);
 
   PRINT_STAT_STRING("model", network.c_str());
   PRINT_STAT_STRING("weights", weights.c_str());
