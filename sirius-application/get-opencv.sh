@@ -19,7 +19,7 @@ hash unzip 2>/dev/null || {
 NUM_THREADS=4
 ver=2.4.9
 
-git clone https://github.com/Itseez/opencv.git opencv-$ver
+git clone --depth 1 https://github.com/Itseez/opencv.git opencv-$ver
 cd opencv-$ver
 git checkout $ver
 mkdir build
