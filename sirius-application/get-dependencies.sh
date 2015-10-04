@@ -39,4 +39,4 @@ apt-get -y \
 	install libprotobuf-dev protobuf-compiler
 
 # get deps for web application
-pip install wtforms Flask requests pickledb
+pip install wtforms Flask requests pickledb simplejson
