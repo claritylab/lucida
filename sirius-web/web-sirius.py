@@ -28,7 +28,7 @@ servers = ['localhost']
 QA  = servers[0]
 ASR = servers[0]
 VIS = servers[0]
-ports = [8080, 8081, 8082]
+ports = [8081, 8082, 8083]
 
 # data folder
 log = 'input-log/'

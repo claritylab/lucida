@@ -21,10 +21,10 @@ apt-get -y install \
 
 # Get opencv dependencies
 apt-get -y install \
-  build-essential checkinstall git cmake libfaac-dev libjack-jackd2-dev \
+  build-essential checkinstall cmake libfaac-dev libjack-jackd2-dev \
   libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libsdl1.2-dev \
   libtheora-dev libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev \
-  libxvidcore-dev texi2html yasm zlib1g-dev
+  libxvidcore-dev texi2html yasm zlib1g-dev #git<--InAboveList
 
 # Get tessaract text recognition
 apt-get -y install \
@@ -38,5 +38,5 @@ apt-get -y \
 apt-get -y \
 	install libprotobuf-dev protobuf-compiler
 
-# get deps for web application
+# get deps for web application #This is installed by python-pip
 pip install wtforms Flask requests pickledb simplejson
