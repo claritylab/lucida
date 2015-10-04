@@ -1,31 +1,22 @@
 #!/usr/bin/env bash
 #WMAT01 - 10/03/2015
 
-# Set currect dir
-rsdir=$HOME/sirius/sirius-application/run-script/
+sirdir=$HOME/sirius
+rundir=$sirdir/sirius-application/run-scripts
 
-# Start... run as sudo
-echo "Starting All Sirius (ASR, IMM, QA)..." && \
-wait 5 && \
+cd $rundir
+echo "Starting QA Server...."
+./start-qa-server.sh localhost 8081 &
 
-#ASR
-echo "Starting ASR ..." 
-cd $rsdir
-./start-asr-server.h
+echo "Starting ASR Server..."
+./start-asr-server.sh pocketsphinx localhost 8082 &
 
-#IMM $rsdir
-echo "Starting IMM ..."
-./start-imm-server.h
-
-#ASR
-echo "Starting QA ..."
-cd $rsdir
-./start-qa-server.h
-
+echo "Starting IMM Server..."
+./start-imm-server.sh localhost 8083 &
 
 # Final Compile
-echo " " && \
-echo " " && \
-echo "All servers running..." && \
-echo " " && \
-echo " " && \
+echo " "
+echo " "
+echo "All IA Servers running..."
+echo " "
+echo " " 
