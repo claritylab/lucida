@@ -26,9 +26,13 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 servers = ['localhost']
 QA  = servers[0]
-ASR = servers[0]
+
+ASRP = servers[0]
+ASRS = servers[0] 
+ASRK = servers[0]
+
 VIS = servers[0]
-ports = [8081, 8082, 8083]
+ports = [8081, 8082, 8083, 8084, 8085]
 
 # data folder
 log = 'input-log/'
@@ -47,7 +51,7 @@ def req_vis(image, return_dict=None):
     start = time.time()
     cmd = 'wget -q  -U "Mozilla/5.0" --post-file ' + str(image)
     cmd += ' --header "Content-Type: image/jpeg"'
-    cmd += ' -O - '+ make_server(VIS, ports[2])
+    cmd += ' -O - '+ make_server(VIS, ports[4])
     result = shcom(cmd)
     if return_dict is not None:
         return_dict[image] = result
@@ -55,11 +59,11 @@ def req_vis(image, return_dict=None):
     print "VIS time: %f" % float(time.time() - start)
     return result
 
-def req_asr(speech, return_dict=None):
+def req_asr(speech, asrnum, return_dict=None):
     start = time.time()
     cmd = 'wget -q -U "Mozilla/5.0" --post-file ' + str(speech)
     cmd += ' --header "Content-Type: audio/vnd.wave; rate=16000" -O - '
-    cmd += make_server(ASR, ports[1])
+    cmd += make_server(ASR, ports[asrnum])
     result = shcom(cmd)
     if return_dict is not None:
         return_dict[speech] = result
@@ -148,8 +152,15 @@ def record():
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             filename = 'input-log/' + filename
-            question = req_asr(filename).strip()
-            answer = req_qa(question).strip()
+            question_p = req_asr(filename, 1).strip() #PocketSphinx
+            question_s = req_asr(filename, 2).strip() #Sphinx4
+            question_k = req_asr(filename, 3).strip() #Kaldi
+            
+            answer_p = req_qa(question_p).strip()
+			answer_s = req_qa(question_s).strip()
+			answer_k = req_qa(question_k).strip()
+
+			answer = "P: "+answer_p+"<br>S: "+answer_s+"<br>K: "+answer_k
 
             data = [question, answer];
             return render_template('record.html', form=form,
