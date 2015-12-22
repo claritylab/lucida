@@ -1,0 +1,10 @@
+QUESTION_TEMPLATE: How much does <TO> cost?
+ANSWER_TEMPLATE: Value: <PO>
+
+(what|how much) do <TO> cost
+(what|how much) do <TO> cost (at|in|on) <CO>
+(what|how much) do <TO> (at|from|in|on) <CO> cost
+what be .*(charge|cost|expense|fee|price|value) (of|for) <TO>
+what be .*(charge|cost|expense|fee|price|value) (of|for) <TO> in <CO>
+how much be (.*(charge|cost|expense|fee|price|value) (of|for) )?<TO>
+how much be (.*(charge|cost|expense|fee|price|value) (of|for) )?<TO> in <CO>
