@@ -1,0 +1,6929 @@
+#passages: 6228
+
+<TO> [^<]*?<PO_NElocation_NEperson>
+#correct: 106
+#incorrect: 141
+
+<PO_NEperson_NEacronym> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 103
+#incorrect: 401
+
+<TO> [^<]*?<PO_NEorganization_NEperson>
+#correct: 103
+#incorrect: 243
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEprofession> )?[^<]*?<PO_NEperson>
+#correct: 101
+#incorrect: 109
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEperson>
+#correct: 101
+#incorrect: 109
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEperson>
+#correct: 101
+#incorrect: 109
+
+<TO> (?:<NEprofession> )?(?:<NEperson> )?[^<]*?<PO_NEperson>
+#correct: 100
+#incorrect: 106
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NEperson>
+#correct: 100
+#incorrect: 108
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?<PO_NEperson>
+#correct: 99
+#incorrect: 109
+
+<TO> (?:<NEprofession> )?[^<]*?<PO_NEperson>
+#correct: 99
+#incorrect: 107
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NEperson>
+#correct: 98
+#incorrect: 105
+
+<TO> [^<]*?<PO_NEperson>
+#correct: 98
+#incorrect: 105
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEacronym_NEcountry> )?[^<]*?<PO_NEperson>
+#correct: 97
+#incorrect: 109
+
+<PO_NElocation_NEperson> [^<]*?<TO>
+#correct: 85
+#incorrect: 115
+
+<PO_NEorganization_NEperson> [^<]*?<TO>
+#correct: 79
+#incorrect: 210
+
+<PO_NEperson> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 72
+#incorrect: 77
+
+<PO_NEperson> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 70
+#incorrect: 79
+
+<PO_NEperson> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 66
+#incorrect: 74
+
+<PO_NEperson> [^<]*?(?:<NEnumber> )?<TO>
+#correct: 66
+#incorrect: 73
+
+# <PO> is [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 65
+#incorrect: 200
+
+# <PO> is [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 65
+#incorrect: 197
+
+<PO_NEperson> [^<]*?(?:<NEdisease> )?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 65
+#incorrect: 75
+
+<PO_NEperson> [^<]*?(?:<NEstate> )?<TO>
+#correct: 64
+#incorrect: 73
+
+<PO_NEperson> [^<]*?<TO>
+#correct: 63
+#incorrect: 73
+
+# <PO> is [^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?<TO>
+#correct: 62
+#incorrect: 195
+
+# <PO> is [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 62
+#incorrect: 197
+
+# <PO> is [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 61
+#incorrect: 193
+
+# <PO> is [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 59
+#incorrect: 193
+
+# <PO> is [^<]*?<TO>
+#correct: 58
+#incorrect: 190
+
+<TO> [^<]*?\( <PO> \)
+#correct: 54
+#incorrect: 127
+
+# <PO> <TO>
+#correct: 48
+#incorrect: 3172
+
+<PO_NEorganization_NEacronym> [^<]*?<TO>
+#correct: 42
+#incorrect: 340
+
+<PO_NElocation_NEorganization> [^<]*?<TO>
+#correct: 40
+#incorrect: 177
+
+<PO_NEacronym> [^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?<TO>
+#correct: 36
+#incorrect: 293
+
+<PO_NEacronym> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 36
+#incorrect: 299
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?, <PO> ,
+#correct: 35
+#incorrect: 365
+
+<PO_NEacronym> (?:<NEacronym> )?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 35
+#incorrect: 301
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?, <PO> ,
+#correct: 34
+#incorrect: 359
+
+# <PO> \( [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 34
+#incorrect: 316
+
+<PO_NEacronym> [^<]*?<TO>
+#correct: 33
+#incorrect: 250
+
+# <PO> \( [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 33
+#incorrect: 308
+
+<TO> , <PO_NEperson>
+#correct: 33
+#incorrect: 11
+
+<PO_NEacronym> (?:<NEperson> )?[^<]*?<TO>
+#correct: 33
+#incorrect: 251
+
+<TO> [^<]*?vaccine \( <PO> \)
+#correct: 32
+#incorrect: 9
+
+# <PO> \( [^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 32
+#incorrect: 261
+
+# <PO> \( [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 261
+
+# <PO> \( [^<]*?<TO>
+#correct: 30
+#incorrect: 256
+
+<TO> vaccine \( <PO> \)
+#correct: 29
+#incorrect: 8
+
+\( <PO> \) [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 29
+#incorrect: 169
+
+<TO> [^<]*?(?:<NEperson> )?, <PO> ,
+#correct: 29
+#incorrect: 348
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?, <PO> ,
+#correct: 29
+#incorrect: 352
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?, <PO> ,
+#correct: 29
+#incorrect: 343
+
+<PO_NElocation> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 28
+#incorrect: 45
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation> )?, <PO> ,
+#correct: 28
+#incorrect: 352
+
+<TO> [^<]*?, <PO> ,
+#correct: 28
+#incorrect: 339
+
+<TO> (?:<NEacronym> )?[^<]*?(?:<NEdisease> )?(?:<NEacronym> )?, <PO> ,
+#correct: 28
+#incorrect: 346
+
+\( <PO> \) [^<]*?<TO>
+#correct: 28
+#incorrect: 169
+
+<PO_NElocation> [^<]*?(?:<NEmonth> )?[^<]*?<TO>
+#correct: 27
+#incorrect: 42
+
+# <PO> , [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 27
+#incorrect: 542
+
+# <PO> , [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 26
+#incorrect: 517
+
+<PO_NElocation> [^<]*?<TO>
+#correct: 26
+#incorrect: 42
+
+# <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 26
+#incorrect: 508
+
+# <PO> , (?:<NEorganization> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 25
+#incorrect: 522
+
+# <PO> , [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 25
+#incorrect: 511
+
+# <PO> , (?:<NEorganization> )?[^<]*?<TO>
+#correct: 24
+#incorrect: 497
+
+# <PO> , [^<]*?(?:<NEcolor> )?[^<]*?<TO>
+#correct: 24
+#incorrect: 493
+
+# <PO> , [^<]*?<TO>
+#correct: 23
+#incorrect: 493
+
+# <PO> \( <TO>
+#correct: 22
+#incorrect: 143
+
+<TO> <PO> ,
+#correct: 22
+#incorrect: 834
+
+<TO> <PO> \.
+#correct: 22
+#incorrect: 969
+
+/ <PO> - [^<]*?<TO>
+#correct: 21
+#incorrect: 30
+
+/ <PO> - drug - <TO>
+#correct: 21
+#incorrect: 21
+
+<PO_NEorganization> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 20
+#incorrect: 139
+
+<TO> [^<]*?drug <PO> ,
+#correct: 19
+#incorrect: 46
+
+<TO> [^<]*?(?:<NEperson> )?, <PO> and
+#correct: 18
+#incorrect: 251
+
+<PO_NEorganization> [^<]*?<TO>
+#correct: 18
+#incorrect: 138
+
+<PO_NEorganization> [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 18
+#incorrect: 142
+
+<TO> (?:<NEprofession> )?(?:<NEperson> )?, <PO> ,
+#correct: 18
+#incorrect: 221
+
+<TO> [^<]*?(?:<NEcolor_NEchemicalElement_NEmetal_NEmineral> )?[^<]*?and <PO> ,
+#correct: 17
+#incorrect: 70
+
+of <PO> , [^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 17
+#incorrect: 72
+
+<TO> (?:<NEprofession> )?, <PO> ,
+#correct: 17
+#incorrect: 221
+
+# <PO> - [^<]*?(?:<NEacronym> )?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 500
+
+of <PO> , [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 73
+
+<TO> [^<]*?and <PO> ,
+#correct: 16
+#incorrect: 70
+
+<TO> drug <PO> ,
+#correct: 16
+#incorrect: 38
+
+of <PO> , [^<]*?(?:<NEnumber> )?<TO>
+#correct: 16
+#incorrect: 70
+
+# <PO> is a fairly new <TO>
+#correct: 15
+#incorrect: 1
+
+# <PO> - [^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 483
+
+\( <PO> \) produces persistent immunity against <TO>
+#correct: 15
+#incorrect: 0
+
+of <PO> , [^<]*?<TO>
+#correct: 15
+#incorrect: 70
+
+# <PO> - [^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 477
+
+\( <PO> \) [^<]*?against <TO>
+#correct: 15
+#incorrect: 4
+
+<TO> , <PO> ,
+#correct: 15
+#incorrect: 217
+
+of <PO> \( [^<]*?(?:<NEmonth> )?[^<]*?<TO>
+#correct: 14
+#incorrect: 41
+
+# <PO> - [^<]*?<TO>
+#correct: 14
+#incorrect: 476
+
+<TO> drugs viagra and <PO> ,
+#correct: 14
+#incorrect: 5
+
+s <PO> , [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?<TO>
+#correct: 13
+#incorrect: 302
+
+<TO> \( <PO> \)
+#correct: 13
+#incorrect: 64
+
+of <PO> \( [^<]*?<TO>
+#correct: 13
+#incorrect: 41
+
+, <PO> , [^<]*?(?:<NEstate> )?<TO>
+#correct: 12
+#incorrect: 246
+
+<TO> [^<]*?<PO_NElocation>
+#correct: 12
+#incorrect: 36
+
+<TO> drug <PO_NElocation_NEperson>
+#correct: 12
+#incorrect: 3
+
+, <PO> \( [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 59
+
+, <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 260
+
+<TO> drug users : <NEnumber> for viagra , four for <PO> and
+#correct: 11
+#incorrect: 0
+
+, <PO> , [^<]*?<TO>
+#correct: 11
+#incorrect: 245
+
+and <PO> <TO>
+#correct: 10
+#incorrect: 469
+
+and <PO> for [^<]*?<TO>
+#correct: 10
+#incorrect: 50
+
+<TO> [^<]*?<PO_NEacronym>
+#correct: 10
+#incorrect: 208
+
+<TO> , <PO> does
+#correct: 10
+#incorrect: 1
+
+# <PO> drug [^<]*?<TO>
+#correct: 10
+#incorrect: 75
+
+<TO> drug <PO_NEorganization_NEperson>
+#correct: 10
+#incorrect: 3
+
+<TO> drug <PO_NEperson>
+#correct: 10
+#incorrect: 3
+
+<TO> vaccine [^<]*?<PO_NEacronym>
+#correct: 9
+#incorrect: 11
+
+# <PO> drug <TO>
+#correct: 9
+#incorrect: 7
+
+, <PO> and [^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 167
+
+<TO> drugs <NEperson> , <PO> and
+#correct: 9
+#incorrect: 5
+
+, <PO> \( [^<]*?<TO>
+#correct: 9
+#incorrect: 57
+
+of <PO> for [^<]*?<TO>
+#correct: 9
+#incorrect: 54
+
+<TO> vaccine <PO> \.
+#correct: 9
+#incorrect: 17
+
+\) <PO> \( [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 39
+
+<TO> vaccine [^<]*?<PO_NEorganization_NEacronym>
+#correct: 9
+#incorrect: 24
+
+<TO> [^<]*?as <PO> and
+#correct: 9
+#incorrect: 27
+
+and <PO> \( [^<]*?<TO>
+#correct: 9
+#incorrect: 32
+
+and <PO> \( (?:<NEacronym> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 35
+
+# <PO> for [^<]*?<TO>
+#correct: 8
+#incorrect: 459
+
+<NEprofession> <PO> , [^<]*?(?:<NEnumber> )?<TO>
+#correct: 8
+#incorrect: 48
+
+<TO> drug , <PO> ,
+#correct: 8
+#incorrect: 3
+
+anti <PO> <TO>
+#correct: 8
+#incorrect: 403
+
+<TO> before taking <PO> \.
+#correct: 8
+#incorrect: 0
+
+<TO> drugs such as viagra and <PO> can
+#correct: 8
+#incorrect: 5
+
+, <PO> and [^<]*?<TO>
+#correct: 8
+#incorrect: 164
+
+of <PO> \( the <TO>
+#correct: 8
+#incorrect: 5
+
+<TO> [^<]*?taking <PO> \.
+#correct: 8
+#incorrect: 1
+
+<TO> [^<]*?and <PO> can
+#correct: 8
+#incorrect: 20
+
+and <PO> for <TO>
+#correct: 8
+#incorrect: 35
+
+<TO> [^<]*?<PO_NEorganization>
+#correct: 8
+#incorrect: 143
+
+<PO_NEacronym> recipients contract <TO>
+#correct: 7
+#incorrect: 0
+
+<TO> vaccine \( <PO_NEorganization_NEacronym>
+#correct: 7
+#incorrect: 0
+
+<TO> [^<]*?, <PO> \.
+#correct: 7
+#incorrect: 187
+
+<TO> drug <PO> \.
+#correct: 7
+#incorrect: 25
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?\( <PO> #
+#correct: 7
+#incorrect: 174
+
+as <PO> \) [^<]*?(?:<NElocation_NEacronym_NEcountry> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 24
+
+of <PO> recipients [^<]*?<TO>
+#correct: 7
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?as <PO> ,
+#correct: 7
+#incorrect: 27
+
+used <PO> and [^<]*?<TO>
+#correct: 7
+#incorrect: 12
+
+<TO> drug , <PO_NEperson>
+#correct: 7
+#incorrect: 3
+
+s <PO> , are <NEchemicalElement_NEmetal_NEmineral> <TO>
+#correct: 7
+#incorrect: 0
+
+used <PO> and other <TO>
+#correct: 7
+#incorrect: 10
+
+of <PO> recipients contract <TO>
+#correct: 7
+#incorrect: 0
+
+<TO> vaccine \( <PO_NEacronym>
+#correct: 7
+#incorrect: 0
+
+s <PO> \( [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 111
+
+<TO> drugs <PO> ,
+#correct: 7
+#incorrect: 46
+
+\) <PO> \( (?:<NEacronym> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 39
+
+<TO> [^<]*?(?:<NEnumber> )?for <PO> ,
+#correct: 6
+#incorrect: 39
+
+<TO> drugs such as <PO> and
+#correct: 6
+#incorrect: 13
+
+<TO> [^<]*?(?:<NEprofession> )?as <PO> ,
+#correct: 6
+#incorrect: 26
+
+and <PO> \( <TO>
+#correct: 6
+#incorrect: 14
+
+s <PO> , [^<]*?<TO>
+#correct: 6
+#incorrect: 302
+
+as <PO> \) [^<]*?<TO>
+#correct: 6
+#incorrect: 24
+
+<TO> drugs <PO_NEperson>
+#correct: 6
+#incorrect: 10
+
+and <PO> , [^<]*?(?:<NEmilitaryRank> )?<TO>
+#correct: 6
+#incorrect: 55
+
+<TO> drugs <PO> and
+#correct: 6
+#incorrect: 66
+
+<TO> [^<]*?, <PO> and
+#correct: 6
+#incorrect: 238
+
+<TO> [^<]*?\. <PO> \.
+#correct: 6
+#incorrect: 23
+
+of <PO> and [^<]*?<TO>
+#correct: 6
+#incorrect: 81
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?\( <PO> #
+#correct: 6
+#incorrect: 176
+
+<TO> drug <PO> and
+#correct: 6
+#incorrect: 26
+
+# <PO> and [^<]*?(?:<NEmilitaryRank> )?<TO>
+#correct: 6
+#incorrect: 338
+
+\) <PO> \( <TO>
+#correct: 6
+#incorrect: 22
+
+<TO> [^<]*?: <PO> ,
+#correct: 5
+#incorrect: 37
+
+<TO> [^<]*?including <PO> ,
+#correct: 5
+#incorrect: 21
+
+# <PO> and [^<]*?<TO>
+#correct: 5
+#incorrect: 336
+
+with <PO> for (?:<NEnumber> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 11
+
+<PO_NEperson> <TO>
+#correct: 5
+#incorrect: 2
+
+# <PO> , the first <TO>
+#correct: 5
+#incorrect: 0
+
+take <PO> and other <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?called <PO> ,
+#correct: 5
+#incorrect: 4
+
+take <PO> and [^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEusPresident> )?[^<]*?(?:<NEusPresident> )?[^<]*?(?:<NEduration> )?[^<]*?with <PO> \.
+#correct: 5
+#incorrect: 20
+
+# <PO> - (?:<NEorganization> )?<TO>
+#correct: 5
+#incorrect: 352
+
+<TO> [^<]*?, <PO> is
+#correct: 5
+#incorrect: 74
+
+of <PO> in [^<]*?<TO>
+#correct: 5
+#incorrect: 14
+
+<TO> [^<]*?besides <PO> !
+#correct: 5
+#incorrect: 0
+
+<PO_NElocation_NEorganization> and other <TO>
+#correct: 5
+#incorrect: 4
+
+<TO> [^<]*?as <PO> ,
+#correct: 5
+#incorrect: 26
+
+<TO> [^<]*?the <PO> vaccine
+#correct: 5
+#incorrect: 2
+
+<TO> \( besides <PO> !
+#correct: 5
+#incorrect: 0
+
+<TO> drug <PO> #
+#correct: 5
+#incorrect: 154
+
+# <PO> , the <TO>
+#correct: 5
+#incorrect: 7
+
+and <PO> , [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?<TO>
+#correct: 5
+#incorrect: 56
+
+<NEprofession> <PO> , [^<]*?<TO>
+#correct: 5
+#incorrect: 48
+
+<TO> drug users : <NEnumber> for <PO> ,
+#correct: 5
+#incorrect: 12
+
+, <PO> \( <TO>
+#correct: 4
+#incorrect: 42
+
+<TO> [^<]*?drug <PO> has
+#correct: 4
+#incorrect: 18
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?and <PO> -
+#correct: 4
+#incorrect: 43
+
+<TO> [^<]*?(?:<NEperson_NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?, <PO> injections
+#correct: 4
+#incorrect: 2
+
+<TO> - <NEnumber> \. <PO> online
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?vaccine \( <PO> <NEacronym>
+#correct: 4
+#incorrect: 2
+
+<NEprofession> <PO> , the <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?: <PO> \.
+#correct: 4
+#incorrect: 17
+
+# <PO> injection [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEdisease> )?vaccine [^<]*?\. <PO> \.
+#correct: 4
+#incorrect: 1
+
+# <PO> for <TO>
+#correct: 4
+#incorrect: 262
+
+# <PO> \. (?:<NEperson> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 117
+
+of <PO> or (?:<NEprofession> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 19
+
+<TO> [^<]*?with <PO> \.
+#correct: 4
+#incorrect: 20
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?or <PO> \)
+#correct: 4
+#incorrect: 24
+
+with <PO> , [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 13
+
+# <PO> is used to treat erectile dysfunction \( <TO>
+#correct: 4
+#incorrect: 4
+
+: <PO> <TO>
+#correct: 4
+#incorrect: 125
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?s <PO> has
+#correct: 4
+#incorrect: 1
+
+<PO_NEorganization_NEacronym> \( <TO>
+#correct: 4
+#incorrect: 9
+
+# <PO> : [^<]*?<TO>
+#correct: 4
+#incorrect: 117
+
+<TO> [^<]*?, <PO> injections
+#correct: 4
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEdisease> )?and <PO> \.
+#correct: 4
+#incorrect: 167
+
+<PO_NEacronym> (?:<NEacronym> )?<TO>
+#correct: 4
+#incorrect: 54
+
+<TO> [^<]*?\( <PO> ,
+#correct: 4
+#incorrect: 51
+
+\. <PO> \( [^<]*?<TO>
+#correct: 4
+#incorrect: 10
+
+# <PO> is used to treat <TO>
+#correct: 4
+#incorrect: 2
+
+<PO_NEorganization> and other <TO>
+#correct: 4
+#incorrect: 1
+
+and <PO> , [^<]*?<TO>
+#correct: 4
+#incorrect: 55
+
+<PO_NEacronym> [^<]*?(?:<NEduration> )?[^<]*?vaccine [^<]*?(?:<NEpercentage> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 4
+
+<PO_NEacronym> is used to treat erectile dysfunction , also known as <TO>
+#correct: 4
+#incorrect: 0
+
+a <PO> \( <TO>
+#correct: 4
+#incorrect: 33
+
+<TO> : <PO> ,
+#correct: 4
+#incorrect: 7
+
+s <PO> \( tadalafil \) joins <NEorganization> ' s levitra and the original anti - <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> vaccine <PO> ,
+#correct: 4
+#incorrect: 16
+
+<TO> is because when stung by a bee , the body produces <PO> to
+#correct: 4
+#incorrect: 0
+
+# <PO> is a new <TO>
+#correct: 4
+#incorrect: 1
+
+for <PO> and [^<]*?<TO>
+#correct: 4
+#incorrect: 33
+
+<TO> , <PO> \.
+#correct: 4
+#incorrect: 89
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?and <PO> \.
+#correct: 4
+#incorrect: 166
+
+# <PO> <NEperson> [^<]*?<TO>
+#correct: 4
+#incorrect: 113
+
+of <PO> for <TO>
+#correct: 4
+#incorrect: 32
+
+<TO> [^<]*?produces <PO> to
+#correct: 4
+#incorrect: 0
+
+<TO> vaccine [^<]*?\( <PO> <NEacronym>
+#correct: 4
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEnumber> )?\. <PO> online
+#correct: 4
+#incorrect: 0
+
+: <PO> \( [^<]*?<TO>
+#correct: 3
+#incorrect: 5
+
+<TO> [^<]*?taking <PO> #
+#correct: 3
+#incorrect: 18
+
+called <PO> can prevent <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization_NEperson> )?[^<]*?, <PO> \(
+#correct: 3
+#incorrect: 38
+
+are <PO> \( <TO>
+#correct: 3
+#incorrect: 1
+
+# <PO> : <TO>
+#correct: 3
+#incorrect: 42
+
+\. <PO> for <TO>
+#correct: 3
+#incorrect: 5
+
+have <PO> \( <TO>
+#correct: 3
+#incorrect: 5
+
+like <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 8
+
+with <PO> for <NEnumber> st step recovery from <TO>
+#correct: 3
+#incorrect: 0
+
+as <PO> \) in the treatment of <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?, <PO> facts
+#correct: 3
+#incorrect: 4
+
+of <PO> in the treatment of <TO>
+#correct: 3
+#incorrect: 1
+
+using <PO> injections for joint inflammation \( <TO>
+#correct: 3
+#incorrect: 0
+
+made <PO> a [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 2
+
+, <PO> \( sildenafil \) is used to treat <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> and thus <NEchemicalElement_NEmetal_NEmineral> to <PO> use
+#correct: 3
+#incorrect: 10
+
+as <PO> , [^<]*?<TO>
+#correct: 3
+#incorrect: 30
+
+<TO> [^<]*?: <PO> \(
+#correct: 3
+#incorrect: 6
+
+of <PO> or [^<]*?<TO>
+#correct: 3
+#incorrect: 18
+
+and <PO> \( anti - <TO>
+#correct: 3
+#incorrect: 0
+
+and <PO> \) in the battle against <TO>
+#correct: 3
+#incorrect: 3
+
+viagra <PO> and [^<]*?(?:<NEnumber> )?(?:<NEurl> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 13
+
+<TO> vaccination \( <PO> \)
+#correct: 3
+#incorrect: 0
+
+with <PO> , [^<]*?<TO>
+#correct: 3
+#incorrect: 12
+
+<PO_NEperson> , the no \. <NEnumber> <TO>
+#correct: 3
+#incorrect: 0
+
+called <PO> can [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+or <PO> for [^<]*?<TO>
+#correct: 3
+#incorrect: 31
+
+using <PO> injections [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+# <PO> for male <TO>
+#correct: 3
+#incorrect: 26
+
+<TO> , called <PO> ,
+#correct: 3
+#incorrect: 0
+
+<PO_NEperson> and other <TO>
+#correct: 3
+#incorrect: 0
+
+# <PO> injection - read <NEnumber> more <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> \) <PO> \.
+#correct: 3
+#incorrect: 39
+
+<TO> [^<]*?called <PO> from
+#correct: 3
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?of <PO> #
+#correct: 3
+#incorrect: 221
+
+use <PO> and [^<]*?<TO>
+#correct: 3
+#incorrect: 9
+
+and <PO> \) [^<]*?against <TO>
+#correct: 3
+#incorrect: 3
+
+natural <PO> , [^<]*?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 3
+
+or <PO> \( <TO>
+#correct: 3
+#incorrect: 18
+
+for <PO> , (?:<NEperson> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 3
+#incorrect: 56
+
+\. <PO> , [^<]*?<TO>
+#correct: 3
+#incorrect: 10
+
+or <PO> , [^<]*?<TO>
+#correct: 3
+#incorrect: 73
+
+of <PO> - [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 69
+
+<PO_NElocation> and other <TO>
+#correct: 3
+#incorrect: 4
+
+<TO> (?:<NEprofession> )?, <PO> has
+#correct: 3
+#incorrect: 11
+
+<TO> drug <PO> -
+#correct: 3
+#incorrect: 2
+
+# <PO> - [^<]*?(?:<NEduration> )?[^<]*?vaccine [^<]*?(?:<NEpercentage> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 22
+
+s <PO> and [^<]*?<TO>
+#correct: 3
+#incorrect: 239
+
+<TO> vaccine [^<]*?\( <PO> #
+#correct: 3
+#incorrect: 35
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?and <PO> \.
+#correct: 3
+#incorrect: 163
+
+<TO> drug <PO_NElocation>
+#correct: 3
+#incorrect: 0
+
+<PO_NEacronym> <TO>
+#correct: 3
+#incorrect: 35
+
+the <PO> or <TO>
+#correct: 3
+#incorrect: 6
+
+<PO_NEorganization_NEacronym> <TO>
+#correct: 3
+#incorrect: 44
+
+the <PO> \( [^<]*?<TO>
+#correct: 3
+#incorrect: 50
+
+of <PO> when [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+for <PO> and other <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> cure , <PO> facts
+#correct: 3
+#incorrect: 1
+
+new <PO> <TO>
+#correct: 3
+#incorrect: 66
+
+# <PO> was [^<]*?<TO>
+#correct: 3
+#incorrect: 16
+
+<PO_NEacronym> [^<]*?vaccine [^<]*?<TO>
+#correct: 3
+#incorrect: 4
+
+can <PO> <TO>
+#correct: 3
+#incorrect: 72
+
+# <PO> , <TO>
+#correct: 3
+#incorrect: 100
+
+<TO> [^<]*?(?:<NEperson> )?, <PO> \(
+#correct: 3
+#incorrect: 34
+
+<PO_NEperson> \( sildenafil \) is used to treat <TO>
+#correct: 3
+#incorrect: 0
+
+# <PO> , <NEperson> ' s entry in <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?: <PO> \.
+#correct: 3
+#incorrect: 17
+
+\. <PO> \( <TO>
+#correct: 3
+#incorrect: 7
+
+<TO> and <PO> -
+#correct: 3
+#incorrect: 28
+
+to <PO> shots [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+a <PO> , [^<]*?<TO>
+#correct: 3
+#incorrect: 78
+
+the <PO> vaccine [^<]*?<TO>
+#correct: 3
+#incorrect: 16
+
+<TO> remedy called <PO> from
+#correct: 3
+#incorrect: 0
+
+<NEprofession> <PO> , the no \. <NEnumber> <TO>
+#correct: 3
+#incorrect: 0
+
+, <PO> are (?:<NEacronym> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 19
+
+<TO> before taking <PO> #
+#correct: 3
+#incorrect: 8
+
+<TO> <PO> has
+#correct: 3
+#incorrect: 79
+
+# <PO> can [^<]*?<TO>
+#correct: 3
+#incorrect: 47
+
+# <PO> is the first oral pill to treat <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?on <PO> \.
+#correct: 3
+#incorrect: 6
+
+generic <PO> <TO>
+#correct: 3
+#incorrect: 12
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?to <PO> use
+#correct: 3
+#incorrect: 10
+
+, <PO> became the first oral <NEprofession> approved by the <NElocation_NEcountry> food <NEorganization> to treat male <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?drug <PO> in
+#correct: 2
+#incorrect: 31
+
+<TO> - <PO> injections
+#correct: 2
+#incorrect: 4
+
+buy <PO> zuprin [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEperson> , for use in treating <TO>
+#correct: 2
+#incorrect: 1
+
+buy <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+<TO> & <PO_NEperson>
+#correct: 2
+#incorrect: 0
+
+# <PO> helps [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+of <PO> - [^<]*?vaccine [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEpercentage> )?of <PO> mentions
+#correct: 2
+#incorrect: 0
+
+<TO> vaccine <PO> vaccination
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?when <PO> is
+#correct: 2
+#incorrect: 1
+
+<TO> , sexual dysfunction , erection , <NEperson> , <PO_NEperson>
+#correct: 2
+#incorrect: 0
+
+# <PO> , solumedrol , hydrocortisone \) to decrease inflammation and suppress the immune system \( used for <TO>
+#correct: 2
+#incorrect: 0
+
+and <PO> , a popular anti - <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> : <PO> \(
+#correct: 2
+#incorrect: 0
+
+combining <PO> with [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> - the varicella vaccine \( i \. e \. , <TO>
+#correct: 2
+#incorrect: 0
+
+\( <PO> \) can prevent <TO>
+#correct: 2
+#incorrect: 0
+
+that <PO> might make inroads <NEdisease> <NEacronym> treatments for <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEacronym> : looking for <TO>
+#correct: 2
+#incorrect: 0
+
+for <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 55
+
+<TO> drugs such as <PO_NEperson>
+#correct: 2
+#incorrect: 3
+
+how <PO> can [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+<TO> / <PO> \)
+#correct: 2
+#incorrect: 1
+
+<TO> vaccine \( <PO> #
+#correct: 2
+#incorrect: 32
+
+\) <PO> is [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+<TO> are restored sexual function when <PO_NEperson>
+#correct: 2
+#incorrect: 0
+
+<TO> drugs such as <PO> ,
+#correct: 2
+#incorrect: 3
+
+<TO> , including <PO_NEperson>
+#correct: 2
+#incorrect: 1
+
+<PO_NEperson> became the first oral <NEprofession> approved by the <NElocation_NEcountry> food <NEorganization> to treat male <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> - against <TO>
+#correct: 2
+#incorrect: 0
+
+generic <PO> \( [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+than <PO> , [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+# <PO> on the web : the easiest and most discreet way to end <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?to <PO> ,
+#correct: 2
+#incorrect: 29
+
+\) <PO> / varicella \( <TO>
+#correct: 2
+#incorrect: 0
+
+buy <PO> \( <TO>
+#correct: 2
+#incorrect: 2
+
+<TO> , <PO> \(
+#correct: 2
+#incorrect: 23
+
+<TO> treatment <PO> appears
+#correct: 2
+#incorrect: 0
+
+<TO> drugs like <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?like <PO> and
+#correct: 2
+#incorrect: 5
+
+<TO> vaccine , <PO> \.
+#correct: 2
+#incorrect: 4
+
+<TO> drug <PO> has
+#correct: 2
+#incorrect: 18
+
+# <PO> is an oral drug for male <TO>
+#correct: 2
+#incorrect: 0
+
+using <PO> and [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+with <PO> therapy [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> drug <PO> had
+#correct: 2
+#incorrect: 0
+
+<PO_NEperson> might make inroads <NEdisease> <NEacronym> treatments for <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> is used to treat erectile dysfunction , also known as <TO>
+#correct: 2
+#incorrect: 2
+
+# <PO> , are to be <NEprofession> this week at the <NEnumber> th annual meeting of the <NEorganization> and <TO>
+#correct: 2
+#incorrect: 0
+
+- <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 79
+
+<TO> such as <PO> and
+#correct: 2
+#incorrect: 1
+
+how <PO> can help male <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> vaccine , varicella \) url : www \. <PO> \.
+#correct: 2
+#incorrect: 0
+
+of <PO> when used with other treatment for <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?\. <PO> #
+#correct: 2
+#incorrect: 73
+
+if <PO> fails , there is no hope for resolving male <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?then <PO> can
+#correct: 2
+#incorrect: 0
+
+<TO> , sexual dysfunction , erection , <NEperson> , <PO> ,
+#correct: 2
+#incorrect: 0
+
+\. <PO> : [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+the <PO> \( <TO>
+#correct: 2
+#incorrect: 21
+
+<TO> [^<]*?of <PO> -
+#correct: 2
+#incorrect: 7
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?s <PO> \.
+#correct: 2
+#incorrect: 11
+
+: <PO> - [^<]*?<TO>
+#correct: 2
+#incorrect: 38
+
+with <PO> for [^<]*?<TO>
+#correct: 2
+#incorrect: 11
+
+<TO> treatment <PO> \.
+#correct: 2
+#incorrect: 14
+
+<TO> , such as <PO> ,
+#correct: 2
+#incorrect: 2
+
+taking <PO> to [^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+<PO_NElocation> for the treatment of <TO>
+#correct: 2
+#incorrect: 0
+
+drug <PO> \( [^<]*?<TO>
+#correct: 2
+#incorrect: 7
+
+as <PO> \) , the first oral pill to treat <TO>
+#correct: 2
+#incorrect: 1
+
+using <PO> and other <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> (?:<NEprofession> )?[^<]*?of <PO> <NEdisease>
+#correct: 2
+#incorrect: 4
+
+# <PO> is [^<]*?vaccine [^<]*?against <TO>
+#correct: 2
+#incorrect: 3
+
+: <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 18
+
+to <PO> in [^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+: <PO> : looking for <TO>
+#correct: 2
+#incorrect: 0
+
+natural <PO> , and <NEfirstName> wash out the harmful poisons that cause <TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> developed [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+use <PO> to [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+, <PO> \( or <NEprofession> ' s certificate of <TO>
+#correct: 2
+#incorrect: 2
+
+<TO> , <PO> has
+#correct: 2
+#incorrect: 11
+
+<TO> drug <PO> with
+#correct: 2
+#incorrect: 3
+
+<TO> vaccine " <PO> "
+#correct: 2
+#incorrect: 0
+
+# <PO> cailis viagra <TO>
+#correct: 2
+#incorrect: 0
+
+to <PO> shots for knee <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> drugs -- <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> : <PO> \.
+#correct: 2
+#incorrect: 4
+
+<TO> [^<]*?for <PO> to
+#correct: 2
+#incorrect: 16
+
+buy <PO> zuprin rings for <TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> for male <TO>
+#correct: 2
+#incorrect: 2
+
+# <PO> an [^<]*?<TO>
+#correct: 2
+#incorrect: 43
+
+<TO> \) did you know that the <PO> vaccine
+#correct: 2
+#incorrect: 0
+
+: <PO> , male <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?given <PO> ,
+#correct: 2
+#incorrect: 0
+
+with <PO> therapy in the study and treatment of <TO>
+#correct: 2
+#incorrect: 0
+
+with <PO> in [^<]*?(?:<NEcurrency> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+or <PO> is used to treat erectile dysfunction , also known as <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> problem , <PO_NEperson>
+#correct: 2
+#incorrect: 0
+
+of <PO> , the " <TO>
+#correct: 2
+#incorrect: 0
+
+if <PO> fails [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> - <PO> \.
+#correct: 2
+#incorrect: 27
+
+<TO> , <NEriver_NEwater> of whom were given <PO> ,
+#correct: 2
+#incorrect: 0
+
+of <PO> developed by <NEperson> to a patient with <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> " vaccine \( <PO> \)
+#correct: 2
+#incorrect: 0
+
+name <PO> , for use in treating <TO>
+#correct: 2
+#incorrect: 1
+
+# <PO> shots for hip <TO>
+#correct: 2
+#incorrect: 0
+
+, <PO> are [^<]*?<TO>
+#correct: 2
+#incorrect: 16
+
+approved <PO> for [^<]*?<TO>
+#correct: 2
+#incorrect: 26
+
+of <PO> in <TO>
+#correct: 2
+#incorrect: 3
+
+and <PO> , there is another <NEmilitaryRank> <TO>
+#correct: 2
+#incorrect: 0
+
+on <PO> , [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 98
+
+/ <PO> / testosterone - <TO>
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?like <PO> are
+#correct: 2
+#incorrect: 2
+
+<TO> \) is extremely low then <PO> can
+#correct: 2
+#incorrect: 0
+
+use <PO> to treat severe <TO>
+#correct: 2
+#incorrect: 0
+
+than <PO> , the <NEorganization_NEacronym> - approved <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> drugs such as <NEorganization> ' s <PO> has
+#correct: 2
+#incorrect: 0
+
+new <PO> alternatives [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+like <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 9
+
+<TO> [^<]*?through <PO> injections
+#correct: 2
+#incorrect: 0
+
+use <PO> and other <TO>
+#correct: 2
+#incorrect: 1
+
+about <PO> and [^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+<TO> drug <PO> can
+#correct: 2
+#incorrect: 5
+
+and <PO> for the treatment of <TO>
+#correct: 2
+#incorrect: 1
+
+# <PO> - [^<]*?vaccine [^<]*?<TO>
+#correct: 2
+#incorrect: 22
+
+<TO> \) <PO> \(
+#correct: 2
+#incorrect: 21
+
+had <PO> , [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+<TO> drugs " called <PO> and
+#correct: 2
+#incorrect: 0
+
+approved <PO> for the treatment of men who experience difficulty having and maintaining an erection \( <TO>
+#correct: 2
+#incorrect: 0
+
+, <PO> for <TO>
+#correct: 2
+#incorrect: 65
+
+# <PO> is a drug used to treat male erectile dysfunction \( <TO>
+#correct: 2
+#incorrect: 3
+
+<TO> [^<]*?, <PO> are
+#correct: 2
+#incorrect: 27
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEstate> )?[^<]*?and <PO> \.
+#correct: 2
+#incorrect: 169
+
+<TO> , \( <PO> ,
+#correct: 2
+#incorrect: 1
+
+<PO_NEperson> , an oral therapy for <TO>
+#correct: 2
+#incorrect: 0
+
+investigating <PO> and [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+<TO> vaccine [^<]*?\. <PO> \.
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?like <PO> \.
+#correct: 2
+#incorrect: 4
+
+of <PO> and two other <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEperson> fails , there is no hope for resolving male <TO>
+#correct: 2
+#incorrect: 0
+
+name <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+<TO> drugs such as <NEperson> , <PO_NEperson>
+#correct: 2
+#incorrect: 2
+
+<TO> / <PO> \.
+#correct: 2
+#incorrect: 11
+
+<TO> [^<]*?as <PO> use
+#correct: 2
+#incorrect: 1
+
+or <PO> is [^<]*?<TO>
+#correct: 2
+#incorrect: 9
+
+<PO_NEperson> , male <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> \) for <PO> to
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> when used with other treatment for <TO>
+#correct: 2
+#incorrect: 0
+
+new <PO> alternatives for <TO>
+#correct: 2
+#incorrect: 0
+
+, <PO> became [^<]*?(?:<NEprofession> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+remedy <PO> is [^<]*?medicine against <TO>
+#correct: 2
+#incorrect: 0
+
+_ <PO> \( <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> drug <PO> --
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?-- <PO> ,
+#correct: 2
+#incorrect: 1
+
+<TO> drug takes on <PO> \.
+#correct: 2
+#incorrect: 0
+
+of <PO> , widely prescribed for <NEdisease> , <TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> , how it works , erectile dysfunction , <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> plus cholesterol drug improves <TO>
+#correct: 2
+#incorrect: 1
+
+by <PO> , an oral therapy for <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> with <PO> \.
+#correct: 2
+#incorrect: 6
+
+s <PO> is [^<]*?<TO>
+#correct: 2
+#incorrect: 52
+
+<PO_NElocation_NEorganization> and two other <TO>
+#correct: 2
+#incorrect: 0
+
+with <PO> in the billion - <NEcurrency> - plus <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> \( also called <NEorganization_NEacronym> or <PO> \)
+#correct: 2
+#incorrect: 0
+
+taking <PO> to treat <TO>
+#correct: 2
+#incorrect: 0
+
+and <PO> are [^<]*?<TO>
+#correct: 2
+#incorrect: 9
+
+<TO> drugs like <PO> and
+#correct: 2
+#incorrect: 4
+
+<TO> drugs viagra and <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> is treated through <PO> injections
+#correct: 2
+#incorrect: 0
+
+used <PO> \( [^<]*?<TO>
+#correct: 2
+#incorrect: 19
+
+, <PO> are available for <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> an answer for <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> drugs like <PO_NEperson>
+#correct: 2
+#incorrect: 1
+
+<TO> , \( <PO_NEperson>
+#correct: 2
+#incorrect: 1
+
+remedy <PO> is a highly effective medicine against <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> & <PO> \[
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?of <PO> and
+#correct: 2
+#incorrect: 32
+
+<TO> [^<]*?taking <PO> as
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?, <PO> <NEfirstName>
+#correct: 2
+#incorrect: 21
+
+by <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 11
+
+<TO> drugs like <PO> are
+#correct: 2
+#incorrect: 1
+
+that <PO> might [^<]*?(?:<NEdisease> )?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , including <PO> ,
+#correct: 2
+#incorrect: 4
+
+<TO> varicella <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?for <PO> ,
+#correct: 2
+#incorrect: 26
+
+# <PO> is a pill used to treat erectile dysfunction \( <TO>
+#correct: 2
+#incorrect: 0
+
+- <PO> injections <TO>
+#correct: 2
+#incorrect: 4
+
+<TO> (?:<NEprofession> )?, <PO> \)
+#correct: 2
+#incorrect: 33
+
+<TO> drugs <NEfirstName> expand - but largely due to sales of <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> , <PO> is
+#correct: 2
+#incorrect: 51
+
+<TO> ; however , urologists <NEprofession> for only <NEpercentage> of <PO> mentions
+#correct: 2
+#incorrect: 0
+
+of <PO> -- [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+the <PO> for <TO>
+#correct: 2
+#incorrect: 69
+
+of <PO> for the treatment of <TO>
+#correct: 2
+#incorrect: 3
+
+# <PO> shots [^<]*?<TO>
+#correct: 2
+#incorrect: 7
+
+<TO> [^<]*?called <PO> and
+#correct: 2
+#incorrect: 3
+
+on <PO> - <TO>
+#correct: 2
+#incorrect: 47
+
+generic <PO> for (?:<NEorganization_NEacronym_NEfirstName> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+on <PO> \( [^<]*?<TO>
+#correct: 2
+#incorrect: 35
+
+# <PO> <NEmonth> [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+<TO> drug , <PO> are
+#correct: 2
+#incorrect: 0
+
+<TO> <PO> drug
+#correct: 2
+#incorrect: 91
+
+<TO> \( varicella vaccine or <PO> \)
+#correct: 2
+#incorrect: 0
+
+<TO> pill <PO> #
+#correct: 2
+#incorrect: 26
+
+# <PO> is the live - virus vaccine that produces persistent immunity against <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> and weakened , <PO> <NEfirstName>
+#correct: 2
+#incorrect: 0
+
+to <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 47
+
+# <PO> breakthrough <TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> and other <TO>
+#correct: 2
+#incorrect: 33
+
+that <PO> could be widely used to treat inflammatory <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> are restored sexual function when <PO> is
+#correct: 2
+#incorrect: 0
+
+# <PO> = <TO>
+#correct: 2
+#incorrect: 0
+
+/ <PO> / [^<]*?<TO>
+#correct: 2
+#incorrect: 30
+
+<TO> drugs -- <PO_NEperson>
+#correct: 2
+#incorrect: 0
+
+of <PO> , including various forms of <TO>
+#correct: 2
+#incorrect: 0
+
+treatment <PO> <TO>
+#correct: 2
+#incorrect: 159
+
+# <PO> plus [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+on <PO> , [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 96
+
+for <PO> for <TO>
+#correct: 2
+#incorrect: 15
+
+<TO> problem , <PO> is
+#correct: 2
+#incorrect: 0
+
+<TO> drug <PO> may
+#correct: 2
+#incorrect: 0
+
+<TO> <NEprofession> , <PO> ,
+#correct: 2
+#incorrect: 4
+
+of <PO> \( <TO>
+#correct: 2
+#incorrect: 28
+
+\. <PO> is [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<PO_NElocation> for <TO>
+#correct: 2
+#incorrect: 2
+
+natural <PO> alternative [^<]*?(?:<NEcapital> )?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> while taking <PO> as
+#correct: 2
+#incorrect: 0
+
+of <PO> -- a <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> on [^<]*?<TO>
+#correct: 2
+#incorrect: 105
+
+<TO> vaccine used in this country , <NEorganization> ' s <PO> ,
+#correct: 2
+#incorrect: 0
+
+# <PO> - <NEorganization> <TO>
+#correct: 2
+#incorrect: 1
+
+\) <PO> / [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+the <PO> immunization [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+buy <PO> <NEprofession> [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?vaccine or <PO> \)
+#correct: 2
+#incorrect: 0
+
+<PO_NEperson> , a popular anti - <TO>
+#correct: 2
+#incorrect: 0
+
+about <PO> , [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 7
+
+: <PO> : [^<]*?<TO>
+#correct: 2
+#incorrect: 11
+
+- <PO> - [^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 147
+
+<TO> drug <PO> is
+#correct: 2
+#incorrect: 9
+
+# <PO> \( for <TO>
+#correct: 2
+#incorrect: 0
+
+made <PO> a cultural touchstone , the <NEprofession> for <TO>
+#correct: 2
+#incorrect: 1
+
+had <PO> , had <NEnumber> - <NEnumber> spots when <NErelation> got <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , <PO> injections
+#correct: 2
+#incorrect: 1
+
+<TO> <NEprofession> treatments available such as levitra and <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?and <PO> \.
+#correct: 2
+#incorrect: 162
+
+<TO> , <PO> even
+#correct: 2
+#incorrect: 1
+
+<TO> vaccine [^<]*?(?:<NEorganization> )?[^<]*?s <PO> ,
+#correct: 2
+#incorrect: 0
+
+# <PO> cailis [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> drugs , mostly <NEorganization> ' s <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEprofession> )?like <PO> ,
+#correct: 2
+#incorrect: 2
+
+<TO> drug <PO> <NEfirstName>
+#correct: 2
+#incorrect: 3
+
+that <PO> could [^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+by <PO> testing , physical <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> shots for your joint pain \? : " how can <NEorganization> relieve <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> work
+#correct: 1
+#incorrect: 3
+
+<TO> almost mimic that of <PO> and
+#correct: 1
+#incorrect: 0
+
+<NEorganization_NEacronym> <PO> info [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+\) <PO> and other <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?; <PO> shots
+#correct: 1
+#incorrect: 0
+
+<TO> - drug users : <NEnumber> for viagra , four for <PO> and
+#correct: 1
+#incorrect: 0
+
+# <PO> is a live virus vaccination for <TO>
+#correct: 1
+#incorrect: 0
+
+first <PO> , [^<]*?medicine [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+\) <PO> \( tadalafil \) is an oral <NEprofession> to treat erectile dysfunction \( <NEacronym_NEfirstName> , or <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> versus
+#correct: 1
+#incorrect: 0
+
+, <PO> should [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+generic <PO> psychological <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , which is used in the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+is <PO> if [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?natural <PO> without
+#correct: 1
+#incorrect: 0
+
+<TO> problem <NEcountry> <PO> and
+#correct: 1
+#incorrect: 1
+
+<TO> \) i receive many inquiries about the <NEprofession> , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> and actually here are three treatments : viagra , <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> : <PO> #
+#correct: 1
+#incorrect: 33
+
+<PO_NElocation> , as a treatment > for <TO>
+#correct: 1
+#incorrect: 0
+
+because <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+drug <PO> \( sildenfil citrate \) , approved to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?, <PO> have
+#correct: 1
+#incorrect: 20
+
+<PO_NElocation> \( sildenafil citrate \) , the first oral pill to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> is a live virus vaccination for <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> act similarly , with an association between lowering blood pressure , heart disease , and male <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> could [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , levitra for male <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> clinic offering range of treatments for erectile dysfunction including testosterone , <PO_NEperson>
+#correct: 1
+#incorrect: 1
+
+with <PO> for <TO>
+#correct: 1
+#incorrect: 9
+
+<TO> causes and treatment option including <PO> ,
+#correct: 1
+#incorrect: 1
+
+bovine <PO> co [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> can help both physical and psychological causes of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> would
+#correct: 1
+#incorrect: 3
+
+\) <PO> shots [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \? [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+!!! <PO> \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?sildenafil <PO> and
+#correct: 1
+#incorrect: 0
+
+\) <PO> , the " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> of the elbow , <PO> injections
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> - at <NEduration> or older , this vaccine is nearly <NEpercentage> effective in preventing <TO>
+#correct: 1
+#incorrect: 0
+
+afford <PO> , but offering free <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> are : - <PO> or
+#correct: 1
+#incorrect: 0
+
+<TO> than <PO> #
+#correct: 1
+#incorrect: 0
+
+hail <PO> as [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+preferred <PO> " <NEorganization_NEacronym> approves <NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs may benefit <PO> because
+#correct: 1
+#incorrect: 0
+
+bait <PO> co drug <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 19
+
+<PO_NEorganization_NEacronym> immunization for <TO>
+#correct: 1
+#incorrect: 0
+
+- <PO> for <TO>
+#correct: 1
+#incorrect: 17
+
+<TO> [^<]*?the <PO> variety
+#correct: 1
+#incorrect: 0
+
+<TO> - tadalafil \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> , increased sex drive and <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> had swept the <NEprofession> , making <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> - the new male <TO>
+#correct: 1
+#incorrect: 0
+
+natural <PO> alternative and anti - inflammatory repairs bone and cartilage while relieving <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> \)
+#correct: 1
+#incorrect: 33
+
+<TO> , penis enlargement pills , penis enlargement , vigrx , generic cialis , generic <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEacronym> \. <NEcapital> proof of two doses of <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> is an <TO>
+#correct: 1
+#incorrect: 1
+
+\) <PO> shots for <NEorganization_NEacronym> in the knee \( feb <NEnumber> \) <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> today <TO>
+#correct: 1
+#incorrect: 0
+
+- <PO> erectile [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> - battling drug <PO_NElocation_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs such as <PO> causes
+#correct: 1
+#incorrect: 0
+
+<TO> cures as when <NEorganization> ' s pill , <PO> ,
+#correct: 1
+#incorrect: 0
+
+of <PO> acetate [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , used for treating <TO>
+#correct: 1
+#incorrect: 0
+
+hormone <PO> was good for treating <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> may include such <NEprofession> as <PO> ,
+#correct: 1
+#incorrect: 0
+
+discuss <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation_NEperson> , the world ' s first <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , solumedrol , and hydrocortisone , are used in varying doses to decrease inflammation of the joints caused by <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> disease for the <PO> vaccine
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?strength <PO> -
+#correct: 1
+#incorrect: 0
+
+of <PO> , as a treatment > for <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> to prevent <TO>
+#correct: 1
+#incorrect: 1
+
+developing <PO> \( <NElocation_NEacronym> <NEnumber> \) , a rival <TO>
+#correct: 1
+#incorrect: 0
+
+taken <PO> are perfectly happy with the <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> co drug <NEfirstName> <TO>
+#correct: 1
+#incorrect: 5
+
+___ <PO> \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and erectile dysfunction \( <NEacronym_NEfirstName> \) , <NEperson> \( <NEperson> , <NEperson> , <PO> \)
+#correct: 1
+#incorrect: 0
+
+with <PO> for rheuma - toid <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> is appropriate for men who suffer from total <TO>
+#correct: 1
+#incorrect: 0
+
+is <PO> the ideal solution for <TO>
+#correct: 1
+#incorrect: 0
+
+but <PO> is not the only treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , sex : disorders , vasectomy , <PO> #
+#correct: 1
+#incorrect: 0
+
+in <PO> , <TO>
+#correct: 1
+#incorrect: 13
+
+<PO_NEperson> \( search \) and other <TO>
+#correct: 1
+#incorrect: 1
+
+like <PO> have [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+liquid <PO> new <TO>
+#correct: 1
+#incorrect: 0
+
+with <PO> if [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+-- <PO> , a drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+purchase <PO> from [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?muse <PO> <NEacronym>
+#correct: 1
+#incorrect: 0
+
+produce <PO> , contributes to this type of <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> & [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , varicella - zoster , <NEdisease> vaccine \) url : www \. <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> and the use of <PO> to
+#correct: 1
+#incorrect: 0
+
+<TO> pill <PO> have
+#correct: 1
+#incorrect: 0
+
+of <PO> and <NEorganization_NEacronym> against <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> also has shifted <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> sufferers who have previously been treated with <PO> injections
+#correct: 1
+#incorrect: 0
+
+discuss <PO> , past <TO>
+#correct: 1
+#incorrect: 0
+
+including <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 19
+
+generic <PO> a breakthrough treatment for male erectile dysfunction or <NEacronym_NEfirstName> , often called <TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NEperson> & the <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> , the new miracle cure for male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ; <PO_NEperson>
+#correct: 1
+#incorrect: 2
+
+<TO> problems using <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> that
+#correct: 1
+#incorrect: 17
+
+\) <PO> is a tablet treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> treatments before <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs \( <NEperson> , <PO> and
+#correct: 1
+#incorrect: 0
+
+with <PO> - (?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 15
+
+<TO> is usually treated with local application of potent prescription - strength <PO> -
+#correct: 1
+#incorrect: 0
+
+the <PO> vaccine \( <TO>
+#correct: 1
+#incorrect: 2
+
+# <PO> \( tadalafil \) is a <NEorganization_NEacronym> approved oral <NEprofession> for the treatment of male <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> vaccine is for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEperson> and <PO> do
+#correct: 1
+#incorrect: 1
+
+<PO_NEperson> is used to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEorganization> )?[^<]*?than <PO> ,
+#correct: 1
+#incorrect: 2
+
+called <PO> that lessens the severity and / or prevents <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a prescription drug called <PO> \(
+#correct: 1
+#incorrect: 0
+
+, <PO> and levitra that works at subsequent levels of <TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation_NEperson> , <TO>
+#correct: 1
+#incorrect: 6
+
+afford <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> cures as when <NEorganization> ' s pill , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> - treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> as
+#correct: 1
+#incorrect: 6
+
+# <PO> does not cause erections directly unlike currently available prescription <NEprofession> for <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , the <NEprofession> used to treat men ' s <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> acetate [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> " drugs \) midwest <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug developed by <NEorganization> and <NEorganization> appears to last longer than <PO> ,
+#correct: 1
+#incorrect: 0
+
+and <PO> may [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEacronym_NEcountry> )?[^<]*?than <PO> ,
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?because <PO> and
+#correct: 1
+#incorrect: 0
+
+buy <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> " \( <PO> ,
+#correct: 1
+#incorrect: 1
+
+# <PO> helps men suffering from chronic <TO>
+#correct: 1
+#incorrect: 0
+
+preferred <PO> " (?:<NEorganization_NEacronym> )?[^<]*?(?:<NEnumber> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> should also boost immunity in older people whether they have had <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEacronym> virus vaccine \( which is basically the vaccine for <TO>
+#correct: 1
+#incorrect: 0
+
+as <PO> <NEfirstName> [^<]*?against [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+approved <PO> \( [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> [^<]*?and <PO> has
+#correct: 1
+#incorrect: 1
+
+<NEacronym> <PO> <NEacronym> <NEacronym> , <TO>
+#correct: 1
+#incorrect: 7
+
+that <PO> is appropriate for men who suffer from total <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> have proven to be very successful in treating <TO>
+#correct: 1
+#incorrect: 0
+
+generic <PO> - <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> , <TO>
+#correct: 1
+#incorrect: 9
+
+online <PO> and cialis from viagraguru \. com to treat <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> drug , but regulators remain convinced <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> must have a <PO> \(
+#correct: 1
+#incorrect: 0
+
+ticket <PO> drug <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pill <PO> as
+#correct: 1
+#incorrect: 0
+
+with <PO> , a new <TO>
+#correct: 1
+#incorrect: 0
+
+women <PO> <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , improves <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+that <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+for <PO> , <NEperson> , and the other mass - <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<NEnumber> <PO> \) : protects against <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( erectile dysfunction \. \) <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> surgery and other options ; <PO> shots
+#correct: 1
+#incorrect: 0
+
+oral <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+can <PO> actually <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> introduced post - <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> is approved for the treatment of men who experience difficulty having and maintaining an erection \( <TO>
+#correct: 1
+#incorrect: 0
+
+investigating <PO> and two other <TO>
+#correct: 1
+#incorrect: 0
+
+purchase <PO> from erectile dysfunction <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> alleviates [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \) if your adolescents did not receive a dose of <PO> prior
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?taking <PO> "
+#correct: 1
+#incorrect: 0
+
+of <PO> <NEdisease> the pharmaceutical <NEprofession> has revolutionized the scope of all " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> at which <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+daily <PO> to [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , and viagra for <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?either <PO> injections
+#correct: 1
+#incorrect: 0
+
+/ <PO> \( tadalafil \) / alprox - <NEacronym> \( alprostadil \) / zydena \( udenafil \) / <TO>
+#correct: 1
+#incorrect: 0
+
+is <PO> if smoking <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - <NEdisease> and <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> , get <NEusPresident> today and have the ability to stay <NEusPresident> for more than <NEduration> only with <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> pill \. ' the accompanying article described <PO_NEorganization_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs such as <NEperson> , <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> are <NEperson> , <NEperson> , and <PO> #
+#correct: 1
+#incorrect: 1
+
+that <PO> has on <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) produces persistent immunity <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> erectile [^<]*?<TO>
+#correct: 1
+#incorrect: 79
+
+# <PO> made [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?: <PO> shots
+#correct: 1
+#incorrect: 0
+
+# <PO> , <NEorganization> ' s new oral <NEprofession> for the treatment of male erectile dysfunction \( <TO>
+#correct: 1
+#incorrect: 0
+
+for <PO> _ the <NEstyle> way of life often decreases sexual performance and desire dramatically , and may even <NEchemicalElement_NEmetal_NEmineral> to <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> vaccine \( or proof of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation_NEperson> works to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> prior
+#correct: 1
+#incorrect: 0
+
+of <PO> for a single <TO>
+#correct: 1
+#incorrect: 0
+
+induced <PO> deficiency [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+compare <PO> with [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> most
+#correct: 1
+#incorrect: 31
+
+hip <PO> injection [^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?to <PO> \.
+#correct: 1
+#incorrect: 54
+
+brand <PO> \) is a pharmaceutical preparation used by men to treat erectile dysfunction \( <NEacronym_NEfirstName> \) , or commonly called <TO>
+#correct: 1
+#incorrect: 0
+
+by <PO> or cialis , popular <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?pill <PO> \.
+#correct: 1
+#incorrect: 5
+
+to <PO> as <TO>
+#correct: 1
+#incorrect: 9
+
+<TO> [^<]*?with <PO> shots
+#correct: 1
+#incorrect: 0
+
+<TO> \) is often addressed with <NEriver_NEwater> of the newer <NEprofession> like <NEperson> , <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> \) <NEnumber> \. immunized \( <PO> #
+#correct: 1
+#incorrect: 0
+
+s <PO> vaccine for <TO>
+#correct: 1
+#incorrect: 7
+
+its <PO> <TO>
+#correct: 1
+#incorrect: 28
+
+of <PO> , or glucocorticoids , are commonly used in horses for treatment of conditions such as <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> falls [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+generic <PO> \( tadalafil \) rx pharmaceutical <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> was [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> " \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+or <PO> online [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?buy <PO> ,
+#correct: 1
+#incorrect: 1
+
+online <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+# <PO> - safest <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , and others used to treat <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> or <NEprofession> ' s documentation of <TO>
+#correct: 1
+#incorrect: 1
+
+for <PO> and other drugs that treat <TO>
+#correct: 1
+#incorrect: 0
+
+for <PO> based [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine , <PO> by
+#correct: 1
+#incorrect: 6
+
+<TO> disease nor <PO> vaccine
+#correct: 1
+#incorrect: 0
+
+<TO> such as <NEperson> , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> - treatment drug <PO> ,
+#correct: 1
+#incorrect: 0
+
+by <PO> to [^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+to <PO> in reducing inflammation for <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> - [^<]*?vaccine [^<]*?against <TO>
+#correct: 1
+#incorrect: 16
+
+<TO> [^<]*?on <PO> #
+#correct: 1
+#incorrect: 34
+
+name <PO> \) [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> developed
+#correct: 1
+#incorrect: 1
+
+prescribed <PO> to his patients with <TO>
+#correct: 1
+#incorrect: 0
+
+by <PO> used [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> \( tadalafil \) is a similar <TO>
+#correct: 1
+#incorrect: 0
+
+besides <PO> ! \) options for treating <TO>
+#correct: 1
+#incorrect: 0
+
+is <PO> the [^<]*?<TO>
+#correct: 1
+#incorrect: 95
+
+of <PO> \( r \) this was a very common prescription for treating <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \) buy <PO> \(
+#correct: 1
+#incorrect: 1
+
+and <PO> vaccines [^<]*?(?:<NEdisease> )?[^<]*?(?:<NEdisease> )?[^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+the <PO> virus vaccine [^<]*?vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , a vaccine for <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> \( release date : mid - <NEmonth> \) as an <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> can be effective in the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?a <PO> shot
+#correct: 1
+#incorrect: 1
+
+, <PO> , and viagra we help men overcome <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> treatments under development , <PO> appears
+#correct: 1
+#incorrect: 0
+
+" <PO> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> or cialis , popular <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> include cialis and <PO_NEperson>
+#correct: 1
+#incorrect: 1
+
+<TO> \) , that is not related to <PO> #
+#correct: 1
+#incorrect: 0
+
+generic <PO> is a fairly new <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> also [^<]*?<TO>
+#correct: 1
+#incorrect: 45
+
+generic <PO> \( tadalafil \) medicine is a <NEduration> <TO>
+#correct: 1
+#incorrect: 0
+
+cheap <PO> co [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> treatment : <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+buy <PO> <NEprofession> online for <TO>
+#correct: 1
+#incorrect: 0
+
+named <PO> , to a young woman with <TO>
+#correct: 1
+#incorrect: 0
+
+or <PO> vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+<TO> drug \. <PO> #
+#correct: 1
+#incorrect: 2
+
+\) <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 22
+
+<TO> vaccine <PO_NEorganization_NEacronym>
+#correct: 1
+#incorrect: 1
+
+# <PO> is used to treat erectile dysfunction or <NEacronym_NEfirstName> also known as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs such as viagra and <PO> may
+#correct: 1
+#incorrect: 0
+
+hip <PO> injection for <NEdisease> - <TO>
+#correct: 1
+#incorrect: 0
+
+makes <PO> among [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?tried <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?called <PO> \.
+#correct: 1
+#incorrect: 5
+
+<TO> [^<]*?a <PO> injection
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> drove <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> to biologics : <NEduration> of <NEorganization> " <NEperson> , <NEacronym> , <NEprofession> of the <TO>
+#correct: 1
+#incorrect: 0
+
+makes <PO> among the chosen and priceless aid in overcoming the stigma of <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> alternative : the complete <NEprofession> to overcoming <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> etc [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> <PO> interscholastic
+#correct: 1
+#incorrect: 0
+
+# <PO> - varicella virus vaccine \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine \( called <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> became
+#correct: 1
+#incorrect: 1
+
+<TO> erection ejaculation testosterone muse <PO> <NEacronym>
+#correct: 1
+#incorrect: 0
+
+\) <PO> - <TO>
+#correct: 1
+#incorrect: 17
+
+<TO> treatments before <PO> ,
+#correct: 1
+#incorrect: 0
+
+<NEconflict> <PO> was [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> to solve their <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> , sildenafil \( trade name <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+and <PO> vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> drugs such as cialis or <PO> by
+#correct: 1
+#incorrect: 1
+
+<NEperson> <PO> was isolated and given to patients with <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> shots [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+four <PO> shots a year for the past several years for the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> is used for treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> disease <NElanguage> by parent or <NEacronym> , or <PO> on
+#correct: 1
+#incorrect: 0
+
+# <PO> - pill of the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , other <TO>
+#correct: 1
+#incorrect: 0
+
+- <PO> , prescription drug for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> documentation from the health care <NEcapital> that the child has received the <PO> vaccination
+#correct: 1
+#incorrect: 0
+
+<TO> drug since the introduction of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \( the <TO>
+#correct: 1
+#incorrect: 0
+
+used <PO> \( search \) and other <TO>
+#correct: 1
+#incorrect: 1
+
+, <PO> is [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 39
+
+for <PO> , <TO>
+#correct: 1
+#incorrect: 10
+
+approves <PO> as [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+like <PO> which are used <NEprofession> to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> treatments under development , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?name <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> warning <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+muscle <PO> <TO>
+#correct: 1
+#incorrect: 1
+
+# <PO> is a drug used to treat <TO>
+#correct: 1
+#incorrect: 0
+
+like <PO> which [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> inoculation [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+because <PO> and other similar <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> can help the painful symptoms of thumb - base <TO>
+#correct: 1
+#incorrect: 0
+
+since <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> was the first of the " miracle drugs " for the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> youth drug sildenafil <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> using <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> offers
+#correct: 1
+#incorrect: 0
+
+<TO> home page > <PO> injection
+#correct: 1
+#incorrect: 0
+
+<TO> for dogs was to give them aspirin or <PO> is
+#correct: 1
+#incorrect: 0
+
+<TO> > <NEperson> > - baldness treatment wellbutrin > - wellbutrin <NElocation> <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> include <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> can help treat <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> , [^<]*?vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+generic <PO> for [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?about <PO> \.
+#correct: 1
+#incorrect: 3
+
+<TO> drug <PO> \(
+#correct: 1
+#incorrect: 0
+
+how <PO> works [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> , treatment options \( click here for <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> \) with drugs \( like the <PO> variety
+#correct: 1
+#incorrect: 0
+
+<TO> viagra <PO> levitra
+#correct: 1
+#incorrect: 0
+
+a <PO> , cialis , levitra <TO>
+#correct: 1
+#incorrect: 1
+
+\) <PO> \( <NEacronym> - ti - sone \) treats inflammation , certain types of <TO>
+#correct: 1
+#incorrect: 0
+
+female <PO> featuring viacreme all natural herbal supplements for female sexual <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> \. <NEperson> , live <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> - first oral drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+receive <PO> injections [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> shots [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+i <PO> series \( <NEnumber> doses \) must be complete or documentation of immunity to <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - treating drug <PO> in
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> <NEacronym> <NEacronym> , <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<NEriver_NEwater> <PO> for my <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and are planning a pregnancy , ask about the new <PO> vaccine
+#correct: 1
+#incorrect: 0
+
+generic <PO> causes <TO>
+#correct: 1
+#incorrect: 0
+
+for <PO> aired [^<]*?(?:<NEsport> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+approves <PO> for <TO>
+#correct: 1
+#incorrect: 2
+
+daily <PO> to prevent <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> increases
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?but <PO> is
+#correct: 1
+#incorrect: 8
+
+<PO_NEperson> and other similar <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , \( <NEperson> , <PO> ,
+#correct: 1
+#incorrect: 2
+
+the <PO> <NEacronym> vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> drug , <PO> #
+#correct: 1
+#incorrect: 27
+
+<PO_NEacronym> is used to treat erectile dysfunction or <NEacronym_NEfirstName> also known as <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , levitra <TO>
+#correct: 1
+#incorrect: 1
+
+# <PO> is a prescription <TO>
+#correct: 1
+#incorrect: 0
+
+investigating <PO> and other anti - <TO>
+#correct: 1
+#incorrect: 0
+
+\. <PO> \( sildenafil \) and other drugs treat erectile dysfunction , commonly known as <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> " [^<]*?<TO>
+#correct: 1
+#incorrect: 20
+
+-- <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?of <PO> vaccine
+#correct: 1
+#incorrect: 3
+
+<PO_NEperson> , but offering free <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> treatment - and <PO> has
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?- <PO> or
+#correct: 1
+#incorrect: 8
+
+<TO> drug , get <PO> now
+#correct: 1
+#incorrect: 0
+
+on <PO> , other <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , sildenafil \( trade name <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> \) is <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEnumber> <PO> <NEnumber>
+#correct: 1
+#incorrect: 13
+
+latest <PO> information [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> & <PO> \.
+#correct: 1
+#incorrect: 7
+
+of <PO> , the cure for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug sales of around \$ <NEnumber> bn over the next eight years , split between <NElocation> , <PO> online
+#correct: 1
+#incorrect: 0
+
+<TO> , including <NEperson> , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> & <NEacronym_NEfirstName> \. buy <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> prevents
+#correct: 1
+#incorrect: 0
+
+approved <PO> \( sildenafil citrate \) , the first oral pill to treat <TO>
+#correct: 1
+#incorrect: 0
+
+generic <PO> a [^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+# <PO> ' s link to blindness a <NElanguage> of <NEorganization_NEacronym> ' s <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , [^<]*?names [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , true story of male <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , and levitra , the <NEstate> <TO>
+#correct: 1
+#incorrect: 0
+
+<NEacronym_NEcountry_NEriver_NEwater> <PO> prescriptions [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+-- <PO> and two other popular <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?prescription <PO> #
+#correct: 1
+#incorrect: 14
+
+<TO> vaccine , " <PO> \.
+#correct: 1
+#incorrect: 0
+
+\. <PO> , is now available and is about percent effective for preventing all cases of <TO>
+#correct: 1
+#incorrect: 0
+
+sells <PO> online plus other products for sufferers of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> <NEacronym> <TO>
+#correct: 1
+#incorrect: 19
+
+<NEnumber> <PO> \) [^<]*?against <TO>
+#correct: 1
+#incorrect: 0
+
+induced <PO> deficiency can be a factor in <NEriver_NEwater> forms of <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , cialis , levitra for male <TO>
+#correct: 1
+#incorrect: 1
+
+: <PO> plus [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+# <PO> \( more properly , corticosteroid \) injections <NEdisease> joints have been used to relieve <TO>
+#correct: 1
+#incorrect: 0
+
+\) <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 30
+
+female <PO> featuring [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , impotent , stamina , premature ejaculation , erectile dysfunction , men ' s sexual health , <PO> alternatives
+#correct: 1
+#incorrect: 0
+
+if <PO> does not work , \( or even if it does , see the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?about <PO> shots
+#correct: 1
+#incorrect: 0
+
+# <PO> showed [^<]*?against <TO>
+#correct: 1
+#incorrect: 0
+
+if <PO> does [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> drugs which are namely <PO> from
+#correct: 1
+#incorrect: 0
+
+\* <PO> vaccine \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , and how do <PO> ,
+#correct: 1
+#incorrect: 1
+
+# <PO> inoculation prevents lost work due to <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?for <PO> \.
+#correct: 1
+#incorrect: 41
+
+<NEacronym> <PO> <NEacronym> (?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 91
+
+generic <PO> \( sildenafil citrate \) has change the course of male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pain relief offered by the <NEprofession> professions usually comes in two traditional forms - <PO> derivatives
+#correct: 1
+#incorrect: 0
+
+with <PO> - <NEprofession> tries the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?- <PO> that
+#correct: 1
+#incorrect: 5
+
+<PO_NElocation_NEperson> , the anti - <TO>
+#correct: 1
+#incorrect: 0
+
+<NEfirstName> <PO> shots [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> \( <PO> #
+#correct: 1
+#incorrect: 66
+
+of <PO> , the no \. <NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?name <PO> \)
+#correct: 1
+#incorrect: 0
+
+made <PO> affordable for <TO>
+#correct: 1
+#incorrect: 0
+
+for <PO> _ [^<]*?(?:<NEstyle> )?[^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> drug for <TO>
+#correct: 1
+#incorrect: 14
+
+combining <PO> with the following : other <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> and male <TO>
+#correct: 1
+#incorrect: 2
+
+to <PO> to [^<]*?(?:<NEduration> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 26
+
+get <PO> for erectile dysfunction and male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> > a - z : <NEperson> > <PO> \(
+#correct: 1
+#incorrect: 0
+
+about <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> \) a live - virus vaccine \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine [^<]*?called <PO> \)
+#correct: 1
+#incorrect: 0
+
+" <PO> - like " <TO>
+#correct: 1
+#incorrect: 0
+
+administered <PO> for [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 37
+
+taken <PO> are [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+dysfunction <PO> effects alcohol and <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> should [^<]*?<TO>
+#correct: 1
+#incorrect: 9
+
+use <PO> for <TO>
+#correct: 1
+#incorrect: 9
+
+# <PO> _ is the newest <NEorganization_NEacronym> approved <NEprofession> for erectile dysfunction \( male <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , given immediately following exposure to a natural <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> have [^<]*?<TO>
+#correct: 1
+#incorrect: 15
+
+<TO> frequently improve with the injection of <PO> <NEdisease>
+#correct: 1
+#incorrect: 0
+
+# <PO> is the first oral drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+named <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?generic <PO> ,
+#correct: 1
+#incorrect: 1
+
+, <PO> , improves <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> treats <TO>
+#correct: 1
+#incorrect: 3
+
+besides <PO> ! [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?as <PO> causes
+#correct: 1
+#incorrect: 0
+
+<TO> may appear considerably better when they develop cushing ' s , due to the heavy doses of <PO> they
+#correct: 1
+#incorrect: 0
+
+the <PO> immunization for <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> , the <NEprofession> used to treat men ' s <TO>
+#correct: 1
+#incorrect: 0
+
+for <PO> to cure <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> , but often be <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> may
+#correct: 1
+#incorrect: 39
+
+# <PO> is a treatment for male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> " \( <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+, <PO> , the world ' s first <TO>
+#correct: 1
+#incorrect: 0
+
+before <PO> had swept the <NEprofession> , making <TO>
+#correct: 1
+#incorrect: 0
+
+receiving <PO> and other <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?and <PO> different
+#correct: 1
+#incorrect: 1
+
+<TO> \( <PO_NEacronym>
+#correct: 1
+#incorrect: 16
+
+by <PO> to solve <TO>
+#correct: 1
+#incorrect: 0
+
+by <PO> or [^<]*?<TO>
+#correct: 1
+#incorrect: 6
+
+, <PO> are <NEacronym> , but our natural ways to cure male <TO>
+#correct: 1
+#incorrect: 3
+
+# <PO> is the third of three very similar drugs for <TO>
+#correct: 1
+#incorrect: 0
+
+with <PO> , <TO>
+#correct: 1
+#incorrect: 1
+
+s <PO> and other <TO>
+#correct: 1
+#incorrect: 44
+
+# <PO> - at <NEduration> or older , this vaccine is nearly <NEpercentage> effective in preventing <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> think <PO> would
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEperson> information and news concerning the male <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEmonth> be more than <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , i \. e \. <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+# <PO> - sildenafil citrate , is a drug used to treat male erectile dysfunction \( <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> is more commonly used to treat allergic reactions , <NEriver_NEwater> skin conditions , severe <NEdisease> , and <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , and others used to treat <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> , but <PO> is
+#correct: 1
+#incorrect: 1
+
+receiving <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> elimination
+#correct: 1
+#incorrect: 0
+
+<TO> , childhood immunization \) url : www \. <PO> \.
+#correct: 1
+#incorrect: 0
+
+information <PO> co drug <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> shots , including shoulder bursitis , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine \( known as <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> immunization
+#correct: 1
+#incorrect: 1
+
+\* <PO> is [^<]*?(?:<NEmilitaryRank> )?(?:<NElocation_NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+<TO> <NEdisease> and <PO> \.
+#correct: 1
+#incorrect: 0
+
+sildenafil <PO> and ' andrologist ' <TO>
+#correct: 1
+#incorrect: 0
+
+<NEdisease> <PO> - <TO>
+#correct: 1
+#incorrect: 17
+
+the <PO> and <TO>
+#correct: 1
+#incorrect: 13
+
+generic <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> and actually here are three treatments : <PO> ,
+#correct: 1
+#incorrect: 1
+
+including <PO> - <TO>
+#correct: 1
+#incorrect: 6
+
+of <PO> and aspirin in the treatment of early cases of <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> we [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+for <PO> to [^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+dose <PO> / <TO>
+#correct: 1
+#incorrect: 0
+
+<NEriver_NEwater> <PO> for [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+\. <PO> : drug for <TO>
+#correct: 1
+#incorrect: 0
+
+natural <PO> alternative [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+-- <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+as <PO> , can be used to treat male <TO>
+#correct: 1
+#incorrect: 0
+
+compare <PO> with popular non - prescription <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> the <NEriver_NEwater> likely that a <PO> shot
+#correct: 1
+#incorrect: 0
+
+# <PO> falls \. \( potential challenges to <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> and how successful it is for the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> for male <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \? \) is a drug used to treat male erectile dysfunction \( <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> \( tadalafil \) is a new , longer duration treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pain with prolotherapy - by <NEperson> \( <NEdate_NEyear_NEnumber> \) - prolotherapy as a substitute for surgery , <PO> shots
+#correct: 1
+#incorrect: 0
+
+received <PO> or had <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> <NEdisease>
+#correct: 1
+#incorrect: 4
+
+# <PO> showed powerful and immediate effectiveness against <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> and cialis from viagraguru \. com to treat <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> vaccine \. \( <PO> #
+#correct: 1
+#incorrect: 0
+
+of <PO> or had the <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> injection - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs <PO> \.
+#correct: 1
+#incorrect: 20
+
+# <PO> helps <TO>
+#correct: 1
+#incorrect: 0
+
+drug <PO> for <TO>
+#correct: 1
+#incorrect: 2
+
+sildenafil <PO> is the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pills such as <NEperson> , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> drug therapy viagra , <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> co [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> [^<]*?get <PO> now
+#correct: 1
+#incorrect: 0
+
+of <PO> , the first effective oral <NEprofession> for the treatment of erectile dysfunction \( <TO>
+#correct: 1
+#incorrect: 0
+
+how <PO> works to treat <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> and levitra <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \) is often addressed with <NEriver_NEwater> of the newer <NEprofession> like <PO> ,
+#correct: 1
+#incorrect: 1
+
+generic <PO> for male <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> vaccine , called <PO> ,
+#correct: 1
+#incorrect: 0
+
+prescription <PO> drugs [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> can be very debilitating and conventional treatments require such undesirable drugs as <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> <NEperson> , <PO> ,
+#correct: 1
+#incorrect: 0
+
+natural <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+dysfunction <PO> effects [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> at which <PO> meets
+#correct: 1
+#incorrect: 0
+
+\* <PO> \( <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> clinic offering range of treatments for erectile dysfunction including testosterone , <PO> ,
+#correct: 1
+#incorrect: 1
+
+, <PO> , and joint replacement the only answers to <TO>
+#correct: 1
+#incorrect: 1
+
+oral <PO> is a with dmards new onset disease requires rapid diagnosis and therapy <TO>
+#correct: 1
+#incorrect: 0
+
+by <PO> used to treat acute flare - ups of inflammatory <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> vaccine that prevents children from getting varicella - zoster , the virus that causes <TO>
+#correct: 1
+#incorrect: 0
+
+inexplicable <PO> <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> is a new and better treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> is relatively new and brings new possibilites for affordable <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , the pharmacological treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<NEconflict> <PO> was discovered and gave great relief to <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEacronym> \) > cortone etc \. \( <PO> acetate
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> helps men suffering from chronic <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> have proven to be very successful in treating <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs such as <NEperson> , <PO> and
+#correct: 1
+#incorrect: 3
+
+<TO> drugs such as <PO> or
+#correct: 1
+#incorrect: 3
+
+<TO> drug <PO> allowed
+#correct: 1
+#incorrect: 0
+
+<TO> - treatment drug <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?\. <PO> :
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?low <PO> prices
+#correct: 1
+#incorrect: 0
+
+, <PO> \( the <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> alternative [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+\] <PO> - from <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> - [^<]*?<TO>
+#correct: 1
+#incorrect: 11
+
+<TO> [^<]*?of <PO> they
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?names [^<]*?<PO_NElocation_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> includes aspirin , other non - steroidal anti - inflammatory drugs , synthetic forms of <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?, <PO> appears
+#correct: 1
+#incorrect: 0
+
+<TO> drugs commonly prescribed today , including <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> , the " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?a <PO> \(
+#correct: 1
+#incorrect: 11
+
+<TO> [^<]*?benefit <PO> because
+#correct: 1
+#incorrect: 0
+
+s <PO> , the prescription drug for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?and <PO> during
+#correct: 1
+#incorrect: 0
+
+# <PO> price comparisons - compare costs - find out about the causes of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<NElocation> <PO> -
+#correct: 1
+#incorrect: 5
+
+buy <PO> the a male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?many <PO> injections
+#correct: 1
+#incorrect: 0
+
+<TO> \) \( condition info \) varicella vaccine \( <PO> <NEacronym>
+#correct: 1
+#incorrect: 0
+
+# <PO> is often used in advanced <TO>
+#correct: 1
+#incorrect: 0
+
+on <PO> , and <NEprofession> of the book " <TO>
+#correct: 1
+#incorrect: 0
+
+as <PO> that [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+\. <PO> is a newly launched , anti - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs such as <PO> may
+#correct: 1
+#incorrect: 1
+
+# <PO> injection [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> or erectile dysfunction , hair loss and <NEdisease> or overweight with prescription <NEprofession> such as <NEperson> , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?for <PO> and
+#correct: 1
+#incorrect: 31
+
+<TO> [^<]*?previous <PO> therapy
+#correct: 1
+#incorrect: 0
+
+<TO> drugs such as <NEperson> , <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> requires new <NEprofession> to be compared with a <NEnumber> - day <PO> treatment
+#correct: 1
+#incorrect: 0
+
+# <PO> was approved for <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> has dramatically expanded the number of men who buy drugs to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> , <NEperson> , and the other mass - <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> in the age of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> \( particularly the rapid emergence of <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?using <PO> and
+#correct: 1
+#incorrect: 1
+
+<TO> <NEmilitaryRank> discusses <PO> and
+#correct: 1
+#incorrect: 0
+
+and <PO> vaccine \( or proof of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pills such as <NEperson> , <PO> have
+#correct: 1
+#incorrect: 0
+
+<TO> , i \. e \. <PO> should
+#correct: 1
+#incorrect: 0
+
+<TO> or erectile dysfunction with ability to buy viagra , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?as <PO> \.
+#correct: 1
+#incorrect: 21
+
+<TO> > <PO> \.
+#correct: 1
+#incorrect: 3
+
+the <PO> vaccine for <TO>
+#correct: 1
+#incorrect: 4
+
+# <PO> is a new treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \) url : www \. <PO> \.
+#correct: 1
+#incorrect: 0
+
+<NEorganization_NEacronym> <PO> info , <NEorganization> on <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?new <PO> vaccine
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?> <PO> injection
+#correct: 1
+#incorrect: 0
+
+# <PO> and another <NEmilitaryRank> <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> should also boost immunity in older people whether they have had <TO>
+#correct: 1
+#incorrect: 0
+
+- <PO> erectile dysfunction sexual <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> immunization or by having the <TO>
+#correct: 1
+#incorrect: 0
+
+<NEorganization> <PO> is the second most - used <TO>
+#correct: 1
+#incorrect: 0
+
+generic <PO> \( [^<]*?medicine [^<]*?(?:<NEduration> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , and how do <NEperson> , <NEperson> , and <PO> help
+#correct: 1
+#incorrect: 1
+
+the <PO> used to treat <TO>
+#correct: 1
+#incorrect: 1
+
+# <PO> , originally meant for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , because <PO> and
+#correct: 1
+#incorrect: 0
+
+to <PO> ! (?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+on <PO> , a new <NEorganization_NEacronym> approved <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> virus and the new immunization <PO> \.
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) may help reverse <TO>
+#correct: 1
+#incorrect: 0
+
+known <PO> , [^<]*?against <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> is a brand new <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> is a newly launched , anti - <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> - the new male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> treatment <NEprofession> such as <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> \( sildenafil \) and other drugs treat erectile dysfunction , commonly known as <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEacronym> \( sildenafil \) <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> are <NEperson> , <NEperson> , and <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> with other <NEprofession> for treating <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> promises to cure not only <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> ! <NEnumber> st <TO>
+#correct: 1
+#incorrect: 0
+
+natural <PO> in reducing pain , swelling and joint stiffness in <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> > <PO> for
+#correct: 1
+#incorrect: 1
+
+concerning <PO> , a treatment approved for men who have difficulty having and maintaining an erection \( <TO>
+#correct: 1
+#incorrect: 0
+
+latest <PO> information and news concerning the male <TO>
+#correct: 1
+#incorrect: 0
+
+name <PO> , was approved in <NEmonth> <NEdate_NEyear_NEnumber> as an immunization against <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , and how do <PO_NEperson>
+#correct: 1
+#incorrect: 1
+
+# <PO> injections in the early stages of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO_NEperson>
+#correct: 1
+#incorrect: 1
+
+<TO> website - or refuse to use the affected limb children hip <PO> injection
+#correct: 1
+#incorrect: 0
+
+# <PO> immunization or proof of <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> and (?:<NEorganization_NEacronym> )?against <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) , a drug used for the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+think <PO> would [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> is effective in most men with erectile dysfunction , a <NEprofession> term for <TO>
+#correct: 1
+#incorrect: 0
+
+sildenafil <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+\( <PO> acetate \) work for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pain are divided <NEdisease> two groups : <NEorganization> - acting \( non - steroidal anti - <NEperson> and <PO> -
+#correct: 1
+#incorrect: 0
+
+like <PO> , <NEperson> , and levitra can assist men in overcoming their <TO>
+#correct: 1
+#incorrect: 0
+
+natural <PO> , you end up with pain in your joints called <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug since the introduction of <PO> \.
+#correct: 1
+#incorrect: 0
+
+# <PO> is used for treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> <NEdisease> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 17
+
+<TO> treatments levitra and <PO> different
+#correct: 1
+#incorrect: 0
+
+# <PO> : the pill for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> or erectile dysfunction , hair loss and <NEdisease> or overweight with prescription <NEprofession> such as <NEperson> , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEcapital> )?[^<]*?of <PO> ,
+#correct: 1
+#incorrect: 52
+
+<TO> pill <PO> penis
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine by <NEorganization> is <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> drug , <NEperson> , now available in the <NEacronym_NEcountry> and promising even better results than <PO> ,
+#correct: 1
+#incorrect: 1
+
+by <PO> testing [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?using <PO> vaccination
+#correct: 1
+#incorrect: 0
+
+<TO> is treated in these horses usually with either <PO> injections
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> webpage
+#correct: 1
+#incorrect: 2
+
+the <PO> used [^<]*?<TO>
+#correct: 1
+#incorrect: 10
+
+<TO> cream to take on <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> treatment , free <PO> shipping
+#correct: 1
+#incorrect: 0
+
+<TO> pill <PO> its
+#correct: 1
+#incorrect: 0
+
+# <PO> \. trade name of the first oral drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> may [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pill <PO_NElocation>
+#correct: 1
+#incorrect: 2
+
+free <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?or <PO> by
+#correct: 1
+#incorrect: 5
+
+: <PO> may cause headaches for health <NEprofession> - drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?is <PO> proving
+#correct: 1
+#incorrect: 0
+
+where <PO> co drug <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+i <PO> series [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?do <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?immunization <PO> \.
+#correct: 1
+#incorrect: 2
+
+<TO> (?:<NEmilitaryRank> )?discusses <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> cure & <NEorganization_NEperson> : viagra \( sildenafil \) , levitra \( nuviva vardenafil \) , <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> ; <PO> is
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , and levitra are the brand names of <NEriver_NEwater> commonly prescribed oral <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and few effective <NEprofession> , <NEstate> aspirin and <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> \( sildenfil citrate \) , approved to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?- <PO> ,
+#correct: 1
+#incorrect: 43
+
+<TO> prior to ordering <PO_NElocation_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> \(
+#correct: 1
+#incorrect: 4
+
+on <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 95
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NEacronym> )?- <PO> question
+#correct: 1
+#incorrect: 0
+
+<TO> , gout or <NEdisease> \) \* has weak thigh muscles \( quadriceps \) \* has had too many <PO> injections
+#correct: 1
+#incorrect: 0
+
+# <PO> blindness [^<]*?<TO>
+#correct: 1
+#incorrect: 9
+
+<PO_NEperson> is an exciting new drug that was introduced by pfizer to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> does not work , \( or even if it does , see the <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> and levitra , as well as a <NEdisease> drug revatio and other <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pill <PO> on
+#correct: 1
+#incorrect: 2
+
+<TO> \) , <PO> and
+#correct: 1
+#incorrect: 2
+
+of <PO> , the wildly successful <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> quadrupled
+#correct: 1
+#incorrect: 0
+
+<TO> home page > <PO> #
+#correct: 1
+#incorrect: 1
+
+<TO> , varicella , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , but if your child is given the <PO> vaccine
+#correct: 1
+#incorrect: 0
+
+, <PO> , and levitra are the brand names of <NEriver_NEwater> commonly prescribed oral <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEstyle> <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> can help treat <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> \.
+#correct: 1
+#incorrect: 63
+
+<TO> [^<]*?before <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> have
+#correct: 1
+#incorrect: 3
+
+buy <PO> online [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+, <PO> has dramatically expanded the number of men who buy drugs to treat <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> and levitra <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : buy <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> as
+#correct: 1
+#incorrect: 2
+
+<TO> / <NEorganization> is a liquid herbal remedy with natural compounds similar to <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \( r \) this was a very common prescription for treating <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pill \. ' the accompanying article described <PO> ,
+#correct: 1
+#incorrect: 0
+
+, <PO> , and levitra , the <NEstate> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> prices
+#correct: 1
+#incorrect: 5
+
+<TO> drugs such as <PO> use
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> in male <TO>
+#correct: 1
+#incorrect: 0
+
+as <PO> \) for many <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?ordering <PO> pills
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , the first oral <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> - containing <NEprofession> , lupus <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> - is the live - virus vaccine that produces persistent immunity against <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , [^<]*?vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?, <PO> \)
+#correct: 1
+#incorrect: 48
+
+<TO> <PO> involved
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEorganization_NEacronym> <PO> info
+#correct: 1
+#incorrect: 3
+
+<NEacronym_NEcountry_NEriver_NEwater> <PO> prescriptions - offers <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> , <PO> \)
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> in the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+information <PO> co [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) to prevent <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> price [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+using <PO> with other treatments for <TO>
+#correct: 1
+#incorrect: 0
+
+a <PO> injection [^<]*?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> , called <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> drug sales of around \$ <NEnumber> bn over the next eight years , split between <NElocation> , <PO> ,
+#correct: 1
+#incorrect: 1
+
+<PO_NEperson> today <TO>
+#correct: 1
+#incorrect: 0
+
+get <PO> for [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?of <PO> ,
+#correct: 1
+#incorrect: 48
+
+four <PO> shots [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> / <TO>
+#correct: 1
+#incorrect: 15
+
+<TO> symptoms can sometimes be achieved with methotrexate , <NEcolor_NEchemicalElement_NEmetal_NEmineral> salts , penicillamine , and <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?names [^<]*?to <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , the ability to order <PO> online
+#correct: 1
+#incorrect: 0
+
+- <PO> was developed to treat men with erectile dysfunction \( male <TO>
+#correct: 1
+#incorrect: 0
+
+or <PO> vaccine \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine [^<]*?(?:<NEnumber> )?[^<]*?of <PO> from
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEperson> , sildenafil citrate , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , \( <NEperson> , <PO_NEperson>
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?, <PO> \)
+#correct: 1
+#incorrect: 52
+
+<TO> symptoms include : acetaminophen , topical analgesics , <NEperson_NEacronym> and <NEacronym> - <NEnumber> inhibitors , <PO> injections
+#correct: 1
+#incorrect: 0
+
+with <PO> , has been able to forego the entire painful process just by using the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?giving <PO> within
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> sales
+#correct: 1
+#incorrect: 8
+
+approves <PO> as third pill for <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> is the first pill approved by the <NEorganization_NEacronym> for the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) if a <NEriver_NEwater> is suffering from <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> - another <NEacronym> <NEnumber> - inhibitor like <NEperson> and levitra - is the newest <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> is a new <NEprofession> for the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+produce <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+- <PO> was [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?and <PO> were
+#correct: 1
+#incorrect: 0
+
+# <PO> and other <TO>
+#correct: 1
+#incorrect: 35
+
+<TO> gel would rival <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> are so severe that people with these conditions need to be treated with <PO> -
+#correct: 1
+#incorrect: 0
+
+# <PO> , the <NEorganization_NEacronym> approved <TO>
+#correct: 1
+#incorrect: 0
+
+get <PO> prescription [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+\. <PO> = <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> withdrawal
+#correct: 1
+#incorrect: 0
+
+for <PO> , an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?nor <PO> vaccine
+#correct: 1
+#incorrect: 0
+
+<NEfirstName> <PO> shots cause the <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> does [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+and <PO> , if you have not had a <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> alleviates male <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> , the licensed vaccine for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> treatment : <PO> \.
+#correct: 1
+#incorrect: 0
+
+# <PO> , a drug for <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> drug users : <NEnumber> for viagra ; four for <PO> ;
+#correct: 1
+#incorrect: 0
+
+# <PO> , the little <NEcolor> pill that revolutionized the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?order <PO> online
+#correct: 1
+#incorrect: 1
+
+<TO> treatment , free <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+# <PO> acetate is a corticosteroid used to treat severe allergies , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccination \( <PO> #
+#correct: 1
+#incorrect: 3
+
+# <PO> injections [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+# <PO> and viagra are used to treat erectile dysfunction , more commonly known as <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> to include <NEprofession> , food supplements , <PO> shots
+#correct: 1
+#incorrect: 0
+
+<TO> warning <PO> patients
+#correct: 1
+#incorrect: 0
+
+# <PO> lifestyle - contains an overview of male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?hip <PO> injection
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?which <PO> meets
+#correct: 1
+#incorrect: 0
+
+as <PO> \) in the <NElocation_NEacronym_NEcountry> to prevent <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> debate [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> when used with other treatments for <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> promises [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+, <PO> etc have been brought to the <NEprofession> by different <NEprofession> for similar <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?or <PO> is
+#correct: 1
+#incorrect: 22
+
+<PO_NEperson> , surgery does not need to mean <TO>
+#correct: 1
+#incorrect: 0
+
+made <PO> affordable [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> is a miracle drug that treats <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , and most haven ' t tried <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , which is used in the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine [^<]*?called <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEdisease> , childhood immunization , <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine information \( <PO> <NEacronym>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?> <PO> #
+#correct: 1
+#incorrect: 22
+
+# <PO> \( the <TO>
+#correct: 1
+#incorrect: 10
+
+on <PO> \( sildenafil \) <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> are all approved by the <NEorganization> for the treatment of erectile dysfunction , or male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> meds : <PO> levitra
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> , other <TO>
+#correct: 1
+#incorrect: 0
+
+receive <PO> injections in their joints to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> pill <PO> ,
+#correct: 1
+#incorrect: 3
+
+prescription <PO> drugs for <TO>
+#correct: 1
+#incorrect: 0
+
+generic <PO> treats <TO>
+#correct: 1
+#incorrect: 1
+
+of <PO> \( sildenafil \) , the first oral drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> immunization [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> , according to chaney , can be treated non - surgically with <PO> shots
+#correct: 1
+#incorrect: 0
+
+received <PO> or [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+taking <PO> and cialis to solve their <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> prescription drug <PO> has
+#correct: 1
+#incorrect: 0
+
+name <PO> \) as an oral treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> includes resources to <NEorganization_NEacronym> <PO> info
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> is not the only treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , the first effective oral <NEprofession> for the treatment of erectile dysfunction \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine or <PO> has
+#correct: 1
+#incorrect: 0
+
+of <PO> with [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 26
+
+<TO> , giving <PO> within
+#correct: 1
+#incorrect: 0
+
+<TO> , those taking <PO> "
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?rival <PO> \.
+#correct: 1
+#incorrect: 1
+
+<TO> include <PO> ,
+#correct: 1
+#incorrect: 5
+
+<TO> , but <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+of <PO> acetate and pituitary <NEacronym> on <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?buy <PO> #
+#correct: 1
+#incorrect: 4
+
+before <PO> had [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine [^<]*?(?:<NEorganization> )?is <PO> \.
+#correct: 1
+#incorrect: 0
+
+\. <PO> vaccine [^<]*?vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+of <PO> , [^<]*?vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+- <PO> is a new <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is <PO> and
+#correct: 1
+#incorrect: 23
+
+<TO> [^<]*?namely <PO> from
+#correct: 1
+#incorrect: 0
+
+, <PO> \( cortizone \) injections , kenalog injections \) can be given systemically to help knock down <TO>
+#correct: 1
+#incorrect: 0
+
+bovine <PO> co drug <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> -
+#correct: 1
+#incorrect: 17
+
+natural <PO> alternative and anti - inflammatory repairs bone and connective tissue while <NEcapital> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> treatments <PO> ,
+#correct: 1
+#incorrect: 6
+
+of <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+, <PO> shots , tons of anti - inflammatories , and was left with traumatic shoulder <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?vaccinated with <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> treatment : <PO> \(
+#correct: 1
+#incorrect: 1
+
+<TO> drug <PO> taking
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> testing , physical <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> , are currently the <NEchemicalElement_NEmetal_NEmineral> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> gel to be rival for <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> new
+#correct: 1
+#incorrect: 28
+
+, <PO> can [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> gel to compete with <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> \) as an oral treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> is a prescription <NEprofession> that treats <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> \( tadalafil \) - offers clinical overview of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> : to order <PO> ,
+#correct: 1
+#incorrect: 0
+
+and <PO> to [^<]*?<TO>
+#correct: 1
+#incorrect: 46
+
+<TO> - non - prescription <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> in whom the responses to " aminopterin " and <PO> were
+#correct: 1
+#incorrect: 0
+
+for <PO> based drugs is declining as cephalosporins and new anti - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> include cialis and <PO> ,
+#correct: 1
+#incorrect: 1
+
+sells <PO> online [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+join <PO> in <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?of <PO> to
+#correct: 1
+#incorrect: 21
+
+buy <PO> the [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+# <PO> as [^<]*?<TO>
+#correct: 1
+#incorrect: 82
+
+\. <PO> : a blockbusting <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> could reverse the problem of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , the wildly successful <TO>
+#correct: 1
+#incorrect: 0
+
+- <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 13
+
+drug <PO> package insert strength of erection measurement with viagra and <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> are used to treat erectile dysfunction , more commonly known as <TO>
+#correct: 1
+#incorrect: 1
+
+called <PO> that [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> \( <TO>
+#correct: 1
+#incorrect: 7
+
+\( <PO> \) a drug used to treat male <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , used for treating <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine , <PO> ,
+#correct: 1
+#incorrect: 4
+
+to <PO> act [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine [^<]*?" <PO> \.
+#correct: 1
+#incorrect: 2
+
+<PO_NEacronym> is a treatment for men with erectile dysfunction , sometimes known as <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> - treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs , " such as <PO> and
+#correct: 1
+#incorrect: 0
+
+: <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+<TO> cream to take on <PO> #
+#correct: 1
+#incorrect: 1
+
+or <PO> online for treatment of <TO>
+#correct: 1
+#incorrect: 1
+
+/ <PO> \( [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> [^<]*?as <PO> may
+#correct: 1
+#incorrect: 2
+
+<TO> \) o if using <PO> vaccination
+#correct: 1
+#incorrect: 0
+
+of <PO> \( sildenafil citrate \) , the first oral pill to treat <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> clinic offering range of treatments for erectile dysfunction including testosterone , <NEperson> , and <PO> \.
+#correct: 1
+#incorrect: 1
+
+like <PO> , surgery does not need to mean <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?order <PO> ,
+#correct: 1
+#incorrect: 0
+
+: <PO> therapy [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+as <PO> that reduce the inflammation and consequent pain caused by conditions such as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug , but regulators remain convinced <PO> is
+#correct: 1
+#incorrect: 0
+
+# <PO> is one of the only male <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> in male <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> has [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+to <PO> which [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+" <PO> & the <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEmonth> be more than just an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs viagra and <PO> during
+#correct: 1
+#incorrect: 0
+
+<TO> , compare our low <PO> prices
+#correct: 1
+#incorrect: 0
+
+# <PO> lifestyle [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> \. [^<]*?name [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( varicella \) by encouraging susceptible patients to be vaccinated with <PO> ,
+#correct: 1
+#incorrect: 0
+
+taking <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> <PO> info
+#correct: 1
+#incorrect: 42
+
+<TO> pre - dated the discovery of <PO> ,
+#correct: 1
+#incorrect: 0
+
+the <PO> debate , <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) \( <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> for pox earlier today health <NElocation_NEcountry> approved a vaccine against <TO>
+#correct: 1
+#incorrect: 0
+
+hail <PO> as manna from heaven : <TO>
+#correct: 1
+#incorrect: 0
+
+child <PO> \( <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?- <PO> derivatives
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEacronym> [^<]*?vaccine [^<]*?vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> is used to treat <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NEdisease> )?[^<]*?(?:<NEdisease> )?\) <PO> for
+#correct: 1
+#incorrect: 21
+
+<TO> , because <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+# <PO> is a treatment for men with erectile dysfunction , sometimes known as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEnumber> )?[^<]*?day <PO> treatment
+#correct: 1
+#incorrect: 0
+
+<TO> \? \. <PO> :
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) varicella \( " <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> : drug for <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> is the only game in town when it comes to treating <TO>
+#correct: 1
+#incorrect: 0
+
+cheap <PO> co drug <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+combining <PO> with other <TO>
+#correct: 1
+#incorrect: 0
+
+for <PO> aired during the super <NEsport> as well as ones for levitra , another new drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> usually determines the usefulness of <PO> injections
+#correct: 1
+#incorrect: 0
+
+and <PO> may also be prescribed to reduce the inflammation and relieve the pain of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> [^<]*?names [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+drug <PO> package [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEdisease> )?and <PO> \.
+#correct: 1
+#incorrect: 72
+
+<TO> in the age of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+free <PO> and other <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs , said <NEperson> , <NElocation_NEcountry> brand team leader for <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> should be used for the persistent inability to attain or maintain an erection , also know as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> even after having received the <PO> \.
+#correct: 1
+#incorrect: 0
+
+with <PO> , according to a study <NEprofession> in the international journal of <TO>
+#correct: 1
+#incorrect: 0
+
+first <PO> , the new oral medicine for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , or have had the <PO> immunization
+#correct: 1
+#incorrect: 0
+
+drug <PO> \( sildenafil citrate \) as a treatment for male <TO>
+#correct: 1
+#incorrect: 0
+
+that <PO> and other <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?with <PO> injections
+#correct: 1
+#incorrect: 1
+
+<TO> include <PO> and
+#correct: 1
+#incorrect: 4
+
+of <PO> , the first oral <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> - \( <NEdisease> - <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> , the anti - <TO>
+#correct: 1
+#incorrect: 1
+
+or <PO> , popular <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> \( besides <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?as <PO> or
+#correct: 1
+#incorrect: 14
+
+<TO> picture pill <PO> \.
+#correct: 1
+#incorrect: 1
+
+and <PO> from viagraguru \. com to treat <TO>
+#correct: 1
+#incorrect: 1
+
+and <PO> are used to treat inflammation that is a common problem with the patients with <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> and related steroid hormones \) , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?for <PO> \)
+#correct: 1
+#incorrect: 2
+
+<TO> , <PO> -
+#correct: 1
+#incorrect: 45
+
+<TO> , sex : disorders , vasectomy , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+; <PO> ; [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+on <PO> and <TO>
+#correct: 1
+#incorrect: 38
+
+and <PO> , <TO>
+#correct: 1
+#incorrect: 11
+
+or <PO> for knee <TO>
+#correct: 1
+#incorrect: 0
+
+name <PO> , [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?against <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> - erection drugs to help men with <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) \[ <TO>
+#correct: 1
+#incorrect: 0
+
+administered <PO> for the first time to a patient with <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> was hailed as the miracle cure for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \) is <PO> proving
+#correct: 1
+#incorrect: 0
+
+lilly <PO> and it ' s use as a treatment for <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?against <TO>
+#correct: 1
+#incorrect: 3
+
+the <PO> <NEacronym> vaccine \( <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> drug <PO> struck
+#correct: 1
+#incorrect: 0
+
+like <PO> have literally changed the landscape of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug , <PO> \.
+#correct: 1
+#incorrect: 4
+
+buy <PO> online with confidence from prima med , the <NEchemicalElement_NEmetal_NEmineral> pharmacy for male <TO>
+#correct: 1
+#incorrect: 0
+
+buy <PO> , levitra or cialis online for treatment of <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?\) <PO> ,
+#correct: 1
+#incorrect: 35
+
+generic <PO> treatment [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+\* <PO> vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> or the <PO> vaccine
+#correct: 1
+#incorrect: 0
+
+<TO> elli were can ic <NEnumber> <PO> <NEnumber>
+#correct: 1
+#incorrect: 0
+
+about <PO> - [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+buy <PO> <NEprofession> online for the treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> promises to cure not only <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?buy <PO> \(
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?convinced <PO> is
+#correct: 1
+#incorrect: 0
+
+<TO> and with names similar to <PO> ,
+#correct: 1
+#incorrect: 0
+
+think <PO> would anxiety and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> disease with date <NEacronym> date of <PO> vaccine
+#correct: 1
+#incorrect: 0
+
+a <PO> injection can often <NEcapital> relief of symptoms , but does not cure the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> stays
+#correct: 1
+#incorrect: 0
+
+<TO> drug , <NEperson> , now available in the <NEacronym_NEcountry> and promising even better results than <PO_NEperson>
+#correct: 1
+#incorrect: 2
+
+drug <PO> drove <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> is relatively new and brings new possibilites for affordable <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> \( tadalafil \) offers clinical overview of the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> , the new miracle cure for male <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> _ [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+generic <PO> for <NEorganization_NEacronym_NEfirstName> erectile dysfunction and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - injections <NEdisease> the joint : <PO> shots
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine " <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \( release date : mid - <NEmonth> \) as an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> and occasionally an injection of <PO> <NEdisease>
+#correct: 1
+#incorrect: 0
+
+<TO> medicine , <PO> injections
+#correct: 1
+#incorrect: 0
+
+<TO> for a while now , and i was wondering what anyone could tell me about <PO> shots
+#correct: 1
+#incorrect: 0
+
+making <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> <NEacronym> <TO>
+#correct: 1
+#incorrect: 2
+
+: <PO> plus cholesterol drug improves <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?of <PO> injections
+#correct: 1
+#incorrect: 1
+
+# <PO> acetate [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+about <PO> : the <NEorganization_NEacronym> approved erectile dysfunction \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \) and the drug <PO> has
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEacronym> \) : <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine [^<]*?as <PO> ,
+#correct: 1
+#incorrect: 0
+
+, <PO> and levitra prescriptions online for the effective treatment of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> <NEperson> , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+concerning <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+viagra <PO> and levitra without prescription only through <NEnumber> <NEurl> to treat male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> -- a drug called sildenafil citrate \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \( sildenafil \) , the first oral drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug <PO> could
+#correct: 1
+#incorrect: 4
+
+natural <PO> in [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> and <PO_NEperson>
+#correct: 1
+#incorrect: 3
+
+<TO> generic <PO> ,
+#correct: 1
+#incorrect: 0
+
+since <PO> is to treat <TO>
+#correct: 1
+#incorrect: 0
+
+for <PO> \( <TO>
+#correct: 1
+#incorrect: 14
+
+sildenafil <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> vaccine [^<]*?as <PO> \)
+#correct: 1
+#incorrect: 0
+
+making <PO> is blocked to treat male <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> vaccine [^<]*?<TO>
+#correct: 1
+#incorrect: 74
+
+<TO> and <NEorganization> here , and get natural <PO> without
+#correct: 1
+#incorrect: 0
+
+; <PO> ; adrenal hormones ; renal excretion ; <TO>
+#correct: 1
+#incorrect: 0
+
+but <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+bait <PO> co [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> vaccine , <PO_NEacronym>
+#correct: 1
+#incorrect: 0
+
+free <PO> <TO>
+#correct: 1
+#incorrect: 25
+
+<PO_NEorganization_NEacronym> = <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> effects
+#correct: 1
+#incorrect: 0
+
+<TO> problems using <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> and the latest word from the <NEorganization_NEacronym> about <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> drug - <PO> that
+#correct: 1
+#incorrect: 0
+
+# <PO> , levitra , cialis are <NEacronym> , but our natural ways to cure male <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> treatment <PO> isn
+#correct: 1
+#incorrect: 0
+
+<TO> , the drug <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> is an <NEorganization_NEacronym> approved male <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> < / a > http : // <NEnumber> centsfreehost \. com / <PO> /
+#correct: 1
+#incorrect: 0
+
+generic <PO> anti <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> virus vaccine \( which is basically the vaccine for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> male pellets inserted as <PO> \.
+#correct: 1
+#incorrect: 0
+
+# <PO> for the treatment of men who experience difficulty having and maintaining an erection \( <TO>
+#correct: 1
+#incorrect: 3
+
+# <PO> \( tadalafil \) <NEnumber> - hour <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug called <PO> ,
+#correct: 1
+#incorrect: 0
+
+<NEperson> <PO> was [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+# <PO> is a new <NEorganization_NEacronym> - approved drug for the treatment of erectile dysfunction or male <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> and levitra , are helping men fight against <TO>
+#correct: 1
+#incorrect: 2
+
+generic <PO> treatment solution for male <TO>
+#correct: 1
+#incorrect: 0
+
+erections <PO> <TO>
+#correct: 1
+#incorrect: 2
+
+that <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEperson> )?and <PO> do
+#correct: 1
+#incorrect: 9
+
+<TO> \) is often addressed with <NEriver_NEwater> of the newer <NEprofession> like <PO_NEperson>
+#correct: 1
+#incorrect: 1
+
+known <PO> , two new drugs , cialis and levitra , are helping men fight against <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> "
+#correct: 1
+#incorrect: 0
+
+, <PO> and [^<]*?against <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?get <PO> injections
+#correct: 1
+#incorrect: 0
+
+" <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+pfizer <PO> <TO>
+#correct: 1
+#incorrect: 5
+
+<TO> [^<]*?free <PO> shipping
+#correct: 1
+#incorrect: 0
+
+and <PO> we help men overcome <TO>
+#correct: 1
+#incorrect: 1
+
+lilly <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> , the first pill to treat <TO>
+#correct: 1
+#incorrect: 0
+
+where <PO> co [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> , the licensed vaccine for <TO>
+#correct: 1
+#incorrect: 1
+
+# <PO> blindness buy <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?, <PO> shots
+#correct: 1
+#incorrect: 1
+
+can <PO> <NEorganization_NEacronym> [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<PO_NEperson> , was approved in <NEmonth> <NEdate_NEyear_NEnumber> as an immunization against <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( such as prednisone , <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> , <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+# <PO> , <NEorganization> ' s new miracle drug to treat male <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> \( sildenafil citrate \) <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEfirstName> <TO>
+#correct: 1
+#incorrect: 6
+
+<TO> and certain other <NEdisease> diseases \( especially <NEdisease> and certain types of <NEdisease> \) <PO> for
+#correct: 1
+#incorrect: 0
+
+<TO> \) is often addressed with <NEriver_NEwater> of the newer <NEprofession> like <NEperson> , <PO_NEperson>
+#correct: 1
+#incorrect: 1
+
+<PO_NEacronym> is a pill used to treat erectile dysfunction \( <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> vaccines for <NEdisease> , <NEdisease> , <NEdisease> , and <TO>
+#correct: 1
+#incorrect: 0
+
+using <PO> with [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> of the elbow , a <PO> injection
+#correct: 1
+#incorrect: 0
+
+# <PO> are [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 72
+
+children <PO> prevents <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , etc \. sildenafil \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+# <PO> for [^<]*?(?:<NElocation_NEcountry> )?[^<]*?vaccine against <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> erectile dysfunction & <TO>
+#correct: 1
+#incorrect: 0
+
+get <PO> prescription and have it delivered overnight , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?and <PO> may
+#correct: 1
+#incorrect: 3
+
+buy <PO> and cure <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> from [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> vaccine , and it was a scramble to get the <NEnumber> doses of <PO> from
+#correct: 1
+#incorrect: 0
+
+<PO_NEperson> may cause headaches for health <NEprofession> - drug for male <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> - <NEorganization> <TO>
+#correct: 1
+#incorrect: 0
+
+made <PO> a cultural touchstone and commercial blockbuster , the <NEprofession> for <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> vaccine , also known as <PO> ,
+#correct: 1
+#incorrect: 0
+
+that <PO> has [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> drug <PO> gets
+#correct: 1
+#incorrect: 0
+
+<TO> prior to ordering <PO> pills
+#correct: 1
+#incorrect: 0
+
+# <PO> is a <NEprofession> by <NEorganization> for the treatment of erectile dysfunction \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> free <PO> tadalafil
+#correct: 1
+#incorrect: 0
+
+developing <PO> \( (?:<NElocation_NEacronym> )?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> , a new <NEorganization_NEacronym> approved <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> made its debut in the <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> also respond to <PO> \.
+#correct: 1
+#incorrect: 0
+
+# <PO> as a tool to fight off <TO>
+#correct: 1
+#incorrect: 0
+
+about <PO> : [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<PO_NEperson> [^<]*?vaccination [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> > <NEdisease> or <NEacronym> - <PO> question
+#correct: 1
+#incorrect: 0
+
+as <PO> <NEfirstName> remain in everybody ' s mind a formidable weapon against the fear of <TO>
+#correct: 1
+#incorrect: 0
+
+\] <PO> - [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> which effectively sbstitutes the drug by targeting <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> , <PO> has
+#correct: 1
+#incorrect: 0
+
+<TO> pill <PO> stands
+#correct: 1
+#incorrect: 0
+
+brand <PO> \) [^<]*?(?:<NEacronym_NEfirstName> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?described <PO> ,
+#correct: 1
+#incorrect: 2
+
+<TO> treatments , including <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> is [^<]*?vaccination [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+with <PO> if they have not already had <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drugs of around \$ <NEnumber> bn over the next eight years , split between <NElocation> , <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> \( sildenafil \) - the new miracle pill for <TO>
+#correct: 1
+#incorrect: 0
+
+hormone <PO> was [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> <TO>
+#correct: 1
+#incorrect: 9
+
+<TO> and with names similar to <PO_NElocation_NEperson>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization_NEperson> , cialis and levitra that works at subsequent levels of <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> treatment \( <PO> ,
+#correct: 1
+#incorrect: 0
+
+prescribed <PO> to [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> , the new vaccine for <TO>
+#correct: 1
+#incorrect: 0
+
+\) <PO> is an exciting new drug that was introduced by pfizer to treat <TO>
+#correct: 1
+#incorrect: 0
+
+can <PO> <NEorganization_NEacronym> prevent <TO>
+#correct: 1
+#incorrect: 0
+
+including <PO> , male <TO>
+#correct: 1
+#incorrect: 3
+
+<NEorganization> <PO> is [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+, <PO> drug <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> , other <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and previous <PO> therapy
+#correct: 1
+#incorrect: 0
+
+<TO> - battling drug <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?: <PO> levitra
+#correct: 1
+#incorrect: 7
+
+<TO> [^<]*?<NEcountry> <PO> and
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?called <PO> \(
+#correct: 1
+#incorrect: 2
+
+<TO> for <NEduration> and use to have to get <PO> injections
+#correct: 1
+#incorrect: 0
+
+of <PO> with other <NEprofession> for treating <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> drug such as <PO> use
+#correct: 1
+#incorrect: 0
