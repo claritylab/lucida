@@ -1,0 +1,9 @@
+QUESTION_TEMPLATE: When did <TO> end?
+ANSWER_TEMPLATE: Ended: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) do <TO> end
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be the end of <TO>
+<TO> end .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+the end of <TO> be .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+what be the( expected)? completion (century|date|day|decade|hour|month|time|year) of <TO>
+what be <TO>'s( expected)? completion (century|date|day|decade|hour|month|time|year)

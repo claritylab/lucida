@@ -1,0 +1,953 @@
+#passages: 1298
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?(?:<NErelation> )?[^<]*?<PO_NEorganization>
+#correct: 53
+#incorrect: 35
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?<PO_NEorganization>
+#correct: 52
+#incorrect: 35
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?<PO_NEorganization>
+#correct: 42
+#incorrect: 30
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEorganization>
+#correct: 40
+#incorrect: 33
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?<PO_NEorganization>
+#correct: 39
+#incorrect: 30
+
+<TO> (?:<NEorganization> )?[^<]*?<PO_NEorganization>
+#correct: 38
+#incorrect: 30
+
+<TO> [^<]*?<PO_NEorganization>
+#correct: 38
+#incorrect: 30
+
+<PO_NEorganization> [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 22
+#incorrect: 36
+
+<PO_NEorganization_NEriver_NEwater> [^<]*?(?:<NErelation> )?[^<]*?(?:<NEmilitaryRank> )?[^<]*?<TO>
+#correct: 22
+#incorrect: 64
+
+<PO_NEorganization> [^<]*?(?:<NEplanet> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 33
+
+<PO_NEorganization> [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 33
+
+<PO_NEorganization> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 33
+
+<PO_NEorganization> (?:<NEmusicalInstrument> )?[^<]*?(?:<NEriver_NEfirstName_NEwater> )?(?:<NEscore> )?<TO>
+#correct: 18
+#incorrect: 34
+
+<PO_NEorganization> [^<]*?<TO>
+#correct: 18
+#incorrect: 33
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?the <PO> \.
+#correct: 14
+#incorrect: 32
+
+<TO> [^<]*?the <PO> \.
+#correct: 13
+#incorrect: 32
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?the <PO> \.
+#correct: 13
+#incorrect: 35
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?the <PO> a
+#correct: 10
+#incorrect: 66
+
+<TO> was born of the <PO_NEorganization>
+#correct: 10
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NEplanet> )?[^<]*?the <PO> ,
+#correct: 9
+#incorrect: 73
+
+<TO> [^<]*?(?:<NElanguage> )?[^<]*?(?:<NErelation> )?(?:<NEorganization> )?[^<]*?the <PO> ,
+#correct: 9
+#incorrect: 75
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?the <PO> ,
+#correct: 9
+#incorrect: 73
+
+the <PO> and [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 42
+
+the <PO> and [^<]*?(?:<NEplanet> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 36
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?the <PO> ,
+#correct: 8
+#incorrect: 79
+
+<TO> [^<]*?the <PO> ,
+#correct: 8
+#incorrect: 73
+
+<TO> [^<]*?the <PO> a
+#correct: 8
+#incorrect: 65
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?the <PO> by
+#correct: 8
+#incorrect: 17
+
+the <PO> and [^<]*?<TO>
+#correct: 7
+#incorrect: 36
+
+the <PO> , [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 59
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?the <PO> and
+#correct: 7
+#incorrect: 41
+
+the <PO> , (?:<NEperson> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 57
+
+<TO> [^<]*?the <PO> and
+#correct: 6
+#incorrect: 40
+
+<TO> , both fully <NEreligion> and fully divine , conceived of the holy spirit and the <PO> ,
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?the <PO> by
+#correct: 6
+#incorrect: 16
+
+<TO> [^<]*?(?:<NErelation> )?(?:<NEorganization> )?[^<]*?(?:<NErelation> )?[^<]*?the <PO> by
+#correct: 6
+#incorrect: 17
+
+<TO> , both fully <NEreligion> and fully divine , conceived of the holy spirit and the <PO> \(
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?the <PO> by
+#correct: 6
+#incorrect: 16
+
+the <PO> , [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 56
+
+<TO> , born of the <PO_NEorganization>
+#correct: 5
+#incorrect: 0
+
+<TO> was born of the <PO> ,
+#correct: 5
+#incorrect: 1
+
+the <PO> , [^<]*?<TO>
+#correct: 5
+#incorrect: 56
+
+<TO> , the <NErelation> of the <PO_NEorganization>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?the <PO> in
+#correct: 5
+#incorrect: 23
+
+the <PO> in [^<]*?<TO>
+#correct: 4
+#incorrect: 24
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> #
+#correct: 4
+#incorrect: 229
+
+<TO> [^<]*?of <PO> #
+#correct: 4
+#incorrect: 95
+
+<TO> was the <NErelation> of god , begotten of the <PO_NEorganization>
+#correct: 4
+#incorrect: 0
+
+<TO> was born of the <PO> and
+#correct: 4
+#incorrect: 0
+
+<TO> , the <NErelation> of the <PO> ,
+#correct: 4
+#incorrect: 0
+
+<TO> was the <NErelation> of god , begotten of the <PO> by
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?(?:<NErelation> )?[^<]*?the <PO> #
+#correct: 3
+#incorrect: 241
+
+<TO> , both fully <NEreligion> and fully divine , conceived of the holy spirit and the <PO> \.
+#correct: 3
+#incorrect: 0
+
+<TO> was born to the <PO_NEorganization>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?the <PO> #
+#correct: 3
+#incorrect: 226
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?(?:<NErelation> )?[^<]*?(?:<NEreligion> )?[^<]*?the <PO> #
+#correct: 3
+#incorrect: 260
+
+<TO> who was born of the <PO> \.
+#correct: 3
+#incorrect: 0
+
+<PO_NEorganization> conceived the child <TO>
+#correct: 3
+#incorrect: 0
+
+the <PO> \. (?:<NEnumber> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 2
+
+<PO_NEorganization> is called <TO>
+#correct: 3
+#incorrect: 0
+
+<PO_NEorganization> concerning the birth of <TO>
+#correct: 3
+#incorrect: 0
+
+the <PO> conceived [^<]*?<TO>
+#correct: 3
+#incorrect: 3
+
+the <PO> is called <TO>
+#correct: 3
+#incorrect: 3
+
+<TO> , born of the <PO> \.
+#correct: 3
+#incorrect: 0
+
+blessed <PO> conceived <TO>
+#correct: 3
+#incorrect: 0
+
+the <PO> conceived the child <TO>
+#correct: 3
+#incorrect: 0
+
+the <PO> , <TO>
+#correct: 3
+#incorrect: 34
+
+<TO> , both fully <NEreligion> and fully divine , conceived of the holy spirit and the <PO> ;
+#correct: 3
+#incorrect: 0
+
+the <PO> is [^<]*?<TO>
+#correct: 3
+#incorrect: 14
+
+<TO> was born of the <PO> in
+#correct: 3
+#incorrect: 0
+
+<NEacronym> <PO> <NEacronym> <TO>
+#correct: 2
+#incorrect: 23
+
+<PO_NEorganization> in zeffirelli ' s " <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?the <PO> \(
+#correct: 2
+#incorrect: 16
+
+<TO> to the <PO_NEorganization>
+#correct: 2
+#incorrect: 0
+
+of <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 38
+
+blessed <PO> \) [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> of the <PO_NEorganization>
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?the <PO> without
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?the <PO> when
+#correct: 2
+#incorrect: 1
+
+<TO> was born to the <PO> when
+#correct: 2
+#incorrect: 0
+
+the <PO> , begat <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> in the miniseries " <TO>
+#correct: 2
+#incorrect: 2
+
+of <PO> , [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 39
+
+<TO> was born of the <PO> by
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?the <PO> \(
+#correct: 2
+#incorrect: 9
+
+the <PO> and her <NErelation> , <TO>
+#correct: 2
+#incorrect: 2
+
+the <PO> in zeffirelli ' s " <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?the <PO> is
+#correct: 2
+#incorrect: 12
+
+<TO> , both fully <NEreligion> and fully divine , conceived of the holy spirit and the <PO_NEorganization>
+#correct: 2
+#incorrect: 0
+
+<PO_NEorganization> , <TO>
+#correct: 2
+#incorrect: 4
+
+<PO_NEorganization> in the miniseries " <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> to the <PO> \.
+#correct: 2
+#incorrect: 0
+
+blessed <PO> \) is the <NErelation> \( by god \) of <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> concerning [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+<PO_NEorganization> and her <NErelation> , <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> concerning the birth of <TO>
+#correct: 2
+#incorrect: 4
+
+the <PO> and become <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> \. <NEnumber> \. <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?the <PO> is
+#correct: 2
+#incorrect: 12
+
+<TO> christ was born of the <PO_NEorganization>
+#correct: 2
+#incorrect: 0
+
+<TO> who was born of the <PO_NEorganization>
+#correct: 2
+#incorrect: 0
+
+<TO> christ was born of the <PO> without
+#correct: 2
+#incorrect: 0
+
+<TO> was born of the <PO> #
+#correct: 2
+#incorrect: 9
+
+<TO> \( pbuh \) being born of the <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> , the only <NErelation> of god , true god , born of the <PO> according
+#correct: 1
+#incorrect: 0
+
+made <PO> pregnant [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> and the babe <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> ' birth was miraculously done without <NEreligion> seed and was announced to the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> , born of the <PO> \)
+#correct: 1
+#incorrect: 0
+
+the <PO> and was born in the person of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?sweet <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> out of a <PO> and
+#correct: 1
+#incorrect: 0
+
+visits <PO> concerning the birth of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> christ the <NErelation> of god , born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> and the <PO> are
+#correct: 1
+#incorrect: 0
+
+blessed <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> christ the <NErelation> of god , born of the <PO> \?
+#correct: 1
+#incorrect: 0
+
+<TO> was born of the <PO> after
+#correct: 1
+#incorrect: 0
+
+: <PO> , <NErelation> of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , born of the <PO> in
+#correct: 1
+#incorrect: 1
+
+<TO> ' birth from the <PO> isn
+#correct: 1
+#incorrect: 0
+
+<TO> being born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> and was born in the person of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the <NErelation> of the <PO> by
+#correct: 1
+#incorrect: 0
+
+the <PO> \. <NEnumber> calling upon myths of old , <TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NEorganization> \. <NEnumber> calling upon myths of old , <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> , who <NEprofession> the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , since god , the <NErelation> , generated in the womb of the <PO> a
+#correct: 1
+#incorrect: 0
+
+<TO> christ was born of the <PO> \(
+#correct: 1
+#incorrect: 0
+
+: <PO> , (?:<NErelation> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> of flesh and blood , born of the <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> \)
+#correct: 1
+#incorrect: 6
+
+, <PO> \( [^<]*?(?:<NEreligion_NEstyle> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+<TO> , born <NEdisease> this <NEplanet> by the <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> ' birth was miraculous without <NEreligion> intervention and was announced to the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> to the <PO> fulfilled
+#correct: 1
+#incorrect: 0
+
+<TO> of the <PO> \.
+#correct: 1
+#incorrect: 1
+
+<TO> by <NEperson> directed by <NEperson> <NEdate_NEyear_NEnumber> <NEacronym> movie <NEperson> as blessed <PO> micheal
+#correct: 1
+#incorrect: 0
+
+made <PO> pregnant to beget <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> and was called <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , that <NEperson> was born of the <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> was before he was born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> , the <PO> '
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?blessed <PO> that
+#correct: 1
+#incorrect: 0
+
+<TO> , the <NErelation> of the <PO> was
+#correct: 1
+#incorrect: 0
+
+the <PO> and the child <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> , was the <NErelation> of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NErelation> <PO> ,
+#correct: 1
+#incorrect: 23
+
+<TO> as the <NErelation> of the <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> - the <NErelation> of the <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> and the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> in the womb of <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> is the messiah foretold , born of the <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , the <PO_NEorganization>
+#correct: 1
+#incorrect: 4
+
+<PO_NEorganization> and lived on the <NEplanet> as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?[^<]*?a <PO> and
+#correct: 1
+#incorrect: 10
+
+<TO> , who is born of the <PO> by
+#correct: 1
+#incorrect: 0
+
+the <PO> never ate <NEplanet> food until after the birth of <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> and <TO>
+#correct: 1
+#incorrect: 12
+
+<TO> , incarnate <NErelation> of the <NErelation> born of the <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , who was born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+, <PO> \( charging god with <NEreligion_NEstyle> rape \) , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> '
+#correct: 1
+#incorrect: 13
+
+<TO> christ was born of the <PO> \.
+#correct: 1
+#incorrect: 0
+
+blessed <PO> , who gave <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> after
+#correct: 1
+#incorrect: 0
+
+<TO> was born to the <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?(?:<NEdate_NEyear_NEnumber> )?(?:<NEacronym> )?[^<]*?(?:<NEperson> )?[^<]*?blessed <PO> micheal
+#correct: 1
+#incorrect: 0
+
+<TO> , born of the <PO> ,
+#correct: 1
+#incorrect: 0
+
+the <PO> , <NEperson> became a <NEriver_NEwater> , fully god and fully <NEriver_NEwater> , the god - <NEriver_NEwater> , <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> was conceived by the holy spirit and born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEperson> <NEfirstName> , <NEperson> loving , <NEperson> sweet <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+a <PO> and a <NEorganization_NEacronym> of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , was born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> wanted to topple the funeral bier , on which lay the body of the most holy <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> by the blessed <PO> that
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> conceived
+#correct: 1
+#incorrect: 0
+
+the <PO> never [^<]*?(?:<NEplanet> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> of the <PO> by
+#correct: 1
+#incorrect: 0
+
+<TO> christ : " when the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?holy <PO> ,
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?the <PO> isn
+#correct: 1
+#incorrect: 0
+
+the <PO> , the <NErelation> of <TO>
+#correct: 1
+#incorrect: 2
+
+<PO_NEorganization> and the babe <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is the messiah foretold , born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> was before he was born of the <PO> :
+#correct: 1
+#incorrect: 0
+
+<TO> , born of the <PO> by
+#correct: 1
+#incorrect: 2
+
+<PO_NEorganization> and the child <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , born of the <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> was born of the <PO> \.
+#correct: 1
+#incorrect: 1
+
+<TO> , incarnate <NErelation> of the <NErelation> born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+blessed <PO> that <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is the incarnation of the only - begotten <NErelation> , and the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> was conceived of the holy spirit by the <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> , was born of the <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> , who was born , begotten of the holy spirit of the <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> are
+#correct: 1
+#incorrect: 0
+
+ever <PO> , had children other than <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> \) , <NErelation> of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> christ : " when the <PO> conceived
+#correct: 1
+#incorrect: 0
+
+<TO> review <NEfirstName> darnell portrays the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> to the <PO> in
+#correct: 1
+#incorrect: 0
+
+# <PO> and <TO>
+#correct: 1
+#incorrect: 14
+
+<TO> , <NEperson> <NEfirstName> , <NEperson> loving , <NEperson> sweet <PO> #
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> , the <NErelation> of <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> , usually with his <NErelation> , the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> \. <NEnumber> \. <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> , who <NEprofession> the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> review <NEfirstName> darnell portrays the <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> as the <NErelation> of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> fulfilled
+#correct: 1
+#incorrect: 1
+
+<TO> , and , despite his misogyny , the <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> - the <NErelation> of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> was the <NErelation> <NEorganization> \[ not " god the <NErelation> " \] , begotten of the <PO> by
+#correct: 1
+#incorrect: 0
+
+ever <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> is the incarnation of the only - begotten <NErelation> , and the <PO> is
+#correct: 1
+#incorrect: 0
+
+<TO> ' birth was miraculously done without <NEreligion> seed and was announced to the <PO> by
+#correct: 1
+#incorrect: 0
+
+<TO> ' birth from the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+the <PO> and lived on the <NEplanet> as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is the <NErelation> of god , born of the <PO> ,
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) , <NErelation> of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' birth was miraculous without <NEreligion> intervention and was announced to the <PO> by
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> '
+#correct: 1
+#incorrect: 6
+
+<TO> , who is born of the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> was conceived by the holy spirit and born of the <PO> as
+#correct: 1
+#incorrect: 0
+
+<TO> , both fully <NEreligion> and fully divine , conceived of the holy spirit by the <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> to the <PO> is
+#correct: 1
+#incorrect: 1
+
+<TO> being born of the <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> christ was born of the <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> , who was born of the <PO> by
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?the <PO> according
+#correct: 1
+#incorrect: 1
+
+visits <PO> concerning [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , usually with his <NErelation> , the <PO> ,
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 14
+
+<PO_NEorganization> never ate <NEplanet> food until after the birth of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> :
+#correct: 1
+#incorrect: 5
+
+a <PO> and [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 6
+
+<TO> in the womb of <PO> #
+#correct: 1
+#incorrect: 0
