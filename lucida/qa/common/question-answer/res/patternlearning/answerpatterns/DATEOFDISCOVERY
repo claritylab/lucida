@@ -1,0 +1,785 @@
+#passages: 2060
+
+<PO_NEdate_NEyear_NEnumber> (?:<NEperson> )?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 378
+#incorrect: 367
+
+<PO_NEdate_NEyear_NEnumber> [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 216
+#incorrect: 347
+
+<PO_NEdate_NEyear_NEnumber> [^<]*?<TO>
+#correct: 204
+#incorrect: 337
+
+<PO_NEdate_NEyear_NEnumber> [^<]*?(?:<NEplanet> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 204
+#incorrect: 345
+
+<PO_NEnumber> [^<]*?<TO>
+#correct: 204
+#incorrect: 337
+
+<PO_NEdate_NEyear_NEnumber> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 204
+#incorrect: 349
+
+<PO_NEdate_NEyear_NEnumber> [^<]*?(?:<NEnumber> )?<TO>
+#correct: 204
+#incorrect: 344
+
+of <PO> " \( <TO>
+#correct: 198
+#incorrect: 0
+
+<PO_NEdate_NEyear_NEnumber> " \( <TO>
+#correct: 198
+#incorrect: 18
+
+of <PO> " [^<]*?<TO>
+#correct: 198
+#incorrect: 0
+
+<PO_NEdate_NEyear_NEnumber> <NEperson> <NEnumber> , <TO>
+#correct: 156
+#incorrect: 0
+
+/ <PO> <NEperson> (?:<NEnumber> )?[^<]*?<TO>
+#correct: 156
+#incorrect: 27
+
+/ <PO> <NEperson> <NEnumber> , <TO>
+#correct: 156
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?(?:<NEorganization> )?[^<]*?<PO_NEdate_NEyear_NEnumber>
+#correct: 24
+#incorrect: 185
+
+<TO> [^<]*?<PO_NEdate_NEyear_NEnumber>
+#correct: 24
+#incorrect: 166
+
+<TO> [^<]*?(?:<NEperson_NEprofession> )?[^<]*?<PO_NEdate_NEyear_NEnumber>
+#correct: 24
+#incorrect: 200
+
+<TO> [^<]*?(?:<NEmonth> )?<PO_NEnumber>
+#correct: 24
+#incorrect: 281
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NEdate_NEyear_NEnumber>
+#correct: 24
+#incorrect: 182
+
+<TO> [^<]*?<PO_NEnumber>
+#correct: 24
+#incorrect: 166
+
+in <PO> , (?:<NEprofession> )?[^<]*?<TO>
+#correct: 22
+#incorrect: 16
+
+<NEnumber> <PO> by [^<]*?<TO>
+#correct: 20
+#incorrect: 47
+
+in <PO> , [^<]*?<TO>
+#correct: 19
+#incorrect: 16
+
+<NEnumber> <PO> by two independent observers , <TO>
+#correct: 19
+#incorrect: 28
+
+<NEperson> <PO> <NEperson> (?:<NEnumber> )?[^<]*?<TO>
+#correct: 18
+#incorrect: 9
+
+<TO> \( c / <PO> v
+#correct: 18
+#incorrect: 0
+
+<TO> [^<]*?in <PO> \.
+#correct: 18
+#incorrect: 31
+
+<TO> [^<]*?/ <PO> v
+#correct: 18
+#incorrect: 0
+
+<NEperson> <PO> <NEperson> <NEnumber> " \( <TO>
+#correct: 18
+#incorrect: 6
+
+<TO> \( c / <PO_NEdate_NEyear_NEnumber>
+#correct: 18
+#incorrect: 46
+
+<PO_NEdate_NEyear_NEnumber> <NEperson> <NEnumber> " \( <TO>
+#correct: 18
+#incorrect: 0
+
+<TO> [^<]*?discovered (?:<NEnumber> )?(?:<NEperson> )?[^<]*?in <PO> \.
+#correct: 17
+#incorrect: 4
+
+<TO> [^<]*?discovered [^<]*?(?:<NEnumber> )?(?:<NEacronym> )?in <PO> \.
+#correct: 16
+#incorrect: 4
+
+<TO> [^<]*?(?:<NElocation_NEstate> )?in <PO> ,
+#correct: 15
+#incorrect: 31
+
+<TO> [^<]*?discovered in <PO> \.
+#correct: 14
+#incorrect: 4
+
+<TO> [^<]*?in <PO> ,
+#correct: 14
+#incorrect: 31
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?discovered in <PO> ,
+#correct: 14
+#incorrect: 8
+
+<TO> [^<]*?discovered [^<]*?<NEnumber> <PO> at
+#correct: 13
+#incorrect: 1
+
+<TO> was discovered on <NEnumber> <PO> at
+#correct: 13
+#incorrect: 0
+
+in <PO> , the comet <TO>
+#correct: 13
+#incorrect: 8
+
+<TO> [^<]*?in <PO> by
+#correct: 13
+#incorrect: 5
+
+<TO> [^<]*?discovered [^<]*?in <PO> by
+#correct: 12
+#incorrect: 2
+
+in <PO> , [^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?(?:<NEprofession> )?discovered [^<]*?<TO>
+#correct: 12
+#incorrect: 0
+
+in <PO> , two amateur <NEnationality_NEethnicGroup_NEriver_NEwater> <NEprofession> discovered the <TO>
+#correct: 12
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEdate_NEyear_NEnumber> )?(?:<NEperson> )?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?<PO_NEdate_NEyear_NEnumber>
+#correct: 12
+#incorrect: 197
+
+<TO> [^<]*?(?:<NElocation_NEstate> )?[^<]*?in <PO> #
+#correct: 11
+#incorrect: 123
+
+<TO> [^<]*?(?:<NElocation_NEstate> )?in <PO> #
+#correct: 11
+#incorrect: 123
+
+in <PO> by [^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 11
+#incorrect: 1
+
+<TO> [^<]*?in <PO> #
+#correct: 11
+#incorrect: 122
+
+in <PO> by [^<]*?(?:<NEprofession> )?<TO>
+#correct: 10
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?discovered [^<]*?in <PO> ,
+#correct: 10
+#incorrect: 8
+
+<TO> [^<]*?discovered [^<]*?(?:<NEplanet> )?in <PO> ,
+#correct: 9
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEcapital> )?[^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?time [^<]*?discovery in <PO> by
+#correct: 9
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?(?:<NEprofession> )?in <PO> ,
+#correct: 9
+#incorrect: 8
+
+<TO> [^<]*?discovered [^<]*?in <PO> ,
+#correct: 8
+#incorrect: 8
+
+<TO> , the great comet of <NEdate_NEyear_NEnumber> - this comet was discovered in <PO> ,
+#correct: 8
+#incorrect: 0
+
+in <PO> by <TO>
+#correct: 8
+#incorrect: 1
+
+<TO> , discovered on <NEnumber> <PO> <NEacronym>
+#correct: 8
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?<NEnumber> <PO> <NEacronym>
+#correct: 8
+#incorrect: 0
+
+<TO> - bopp event <NEcapital> observers with a long <NEchemicalElement_NEmetal_NEmineral> time , thanks to the early discovery in <PO> by
+#correct: 8
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?in <PO> #
+#correct: 7
+#incorrect: 41
+
+<TO> was discovered independently in <PO> by
+#correct: 7
+#incorrect: 0
+
+<TO> [^<]*?<NEnumber> <PO> \.
+#correct: 7
+#incorrect: 18
+
+of <PO> - (?:<NEnumber> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 4
+
+<TO> <NEacronym> <PO> \(
+#correct: 6
+#incorrect: 0
+
+<TO> - <PO> \.
+#correct: 6
+#incorrect: 67
+
+<PO_NEdate_NEyear_NEnumber> v <NEnumber> or <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> in <PO> ,
+#correct: 6
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEdate_NEyear_NEnumber> )?(?:<NEperson> )?(?:<NEnumber> )?[^<]*?<NEperson> <PO> <NEperson>
+#correct: 6
+#incorrect: 15
+
+<TO> \) , the " c <NEperson> <NEdate_NEyear_NEnumber> <NEperson> <NEnumber> , " and the " c <NEperson> <PO> <NEperson>
+#correct: 6
+#incorrect: 0
+
+<TO> \) , the " c <NEperson> <NEdate_NEyear_NEnumber> <NEperson> <NEnumber> , " and the " c <NEperson> <PO_NEdate_NEyear_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> - <PO_NEdate_NEyear_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<PO_NEdate_NEyear_NEnumber> is sometimes referred to as <TO>
+#correct: 6
+#incorrect: 0
+
+of <PO> - <NEnumber> would today be known as <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?discovered in <PO> ,
+#correct: 6
+#incorrect: 8
+
+/ <PO> v <NEnumber> or <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> <PO> \.
+#correct: 6
+#incorrect: 365
+
+<PO_NEdate_NEyear_NEnumber> - <NEnumber> would today be known as <TO>
+#correct: 6
+#incorrect: 0
+
+of <PO> is sometimes referred to as <TO>
+#correct: 6
+#incorrect: 0
+
+/ <PO> v (?:<NEnumber> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 0
+
+<TO> <NEacronym> <PO_NEdate_NEyear_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?<PO_NEdate_NEyear_NEnumber>
+#correct: 6
+#incorrect: 1
+
+of <PO> is [^<]*?<TO>
+#correct: 6
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation_NEstate> )?[^<]*?<NEnumber> <PO> #
+#correct: 5
+#incorrect: 102
+
+<TO> - bopp - discovered in <PO> \.
+#correct: 5
+#incorrect: 1
+
+<TO> [^<]*?discovered in <PO> #
+#correct: 5
+#incorrect: 31
+
+<TO> [^<]*?discovered in <PO> by
+#correct: 5
+#incorrect: 2
+
+<TO> [^<]*?in <PO> when
+#correct: 5
+#incorrect: 1
+
+<TO> was discovered in <PO> ,
+#correct: 5
+#incorrect: 2
+
+<TO> [^<]*?<NEnumber> <PO> ,
+#correct: 4
+#incorrect: 42
+
+<TO> on <NEnumber> <PO> ,
+#correct: 4
+#incorrect: 0
+
+<TO> on <NEnumber> <PO> \.
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?<NEnumber> <PO> by
+#correct: 4
+#incorrect: 9
+
+<TO> [^<]*?discovery in <PO> had
+#correct: 4
+#incorrect: 0
+
+<NEnumber> <PO> <NEacronym> by <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> was discovered on <NEnumber> <PO> by
+#correct: 4
+#incorrect: 0
+
+<TO> following its discovery in <PO> had
+#correct: 4
+#incorrect: 0
+
+<NEnumber> <PO> <NEacronym> [^<]*?<TO>
+#correct: 4
+#incorrect: 2
+
+in <PO> , <NEprofession> sighted the comet <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> in <NElocation_NEstate> in <PO> #
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?(?:<NEnumber> )?(?:<NEacronym> )?[^<]*?(?:<NEorganization> )?in <PO> and
+#correct: 3
+#incorrect: 5
+
+in <PO> comet <TO>
+#correct: 3
+#incorrect: 29
+
+<TO> [^<]*?discovered [^<]*?<NEnumber> <PO> \.
+#correct: 3
+#incorrect: 3
+
+<TO> was discovered on <NEnumber> <PO> \.
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?<NEnumber> <PO> #
+#correct: 3
+#incorrect: 102
+
+<TO> [^<]*?discovered in <PO> but
+#correct: 3
+#incorrect: 0
+
+<TO> , on <NEnumber> <PO> #
+#correct: 3
+#incorrect: 0
+
+<TO> - bopp that was discovered in <PO> \.
+#correct: 3
+#incorrect: 0
+
+<TO> - bopp which was discovered in <PO> \.
+#correct: 3
+#incorrect: 0
+
+in <PO> that <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?discovered in <PO> and
+#correct: 2
+#incorrect: 5
+
+<TO> \) was discovered in <PO> at
+#correct: 2
+#incorrect: 0
+
+in <PO> by amateur <NEprofession> <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> was discovered <NEnumber> <NEperson> from the sun in <PO> \.
+#correct: 2
+#incorrect: 0
+
+in <PO> , comet <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> - bopp in <PO> #
+#correct: 2
+#incorrect: 8
+
+<TO> in <NElocation_NEstate> early on <NEnumber> <PO> #
+#correct: 2
+#incorrect: 0
+
+in <PO> , <TO>
+#correct: 2
+#incorrect: 3
+
+<TO> was discovered in <PO> by
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?discovered in <PO> at
+#correct: 2
+#incorrect: 0
+
+<TO> , which was discovered in <PO> by
+#correct: 1
+#incorrect: 0
+
+im <PO> from <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+since <PO> , [^<]*?(?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 1
+
+rd <PO> , two <NEnationality_NEethnicGroup_NEriver_NEwater> amateur <NEprofession> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> was discovered <PO> \.
+#correct: 1
+#incorrect: 7
+
+<TO> was another memorable sight but my best memories are seeing it from the driveway in <PO> when
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEacronym_NEcountry_NEriver_NEwater> \) at the end of <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?(?:<NEnumber> )?[^<]*?<NEnumber> <PO> ,
+#correct: 1
+#incorrect: 11
+
+<TO> discovered [^<]*?in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?(?:<NEtime> )?[^<]*?(?:<NEnumber> )?nd <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> who first saw the approaching comet in <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> \( discovered in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?<NEnumber> <PO> it
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?period <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> \) in <NElocation_NEstate> , in <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> \) was discovered exceptionnally active at <NEnumber> <NEacronym> from the <NEorganization> in <PO> and
+#correct: 1
+#incorrect: 0
+
+im <PO> from (?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> was discovered on the <NEtime> of <NEnumber> nd <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym_NEcountry_NEriver_NEwater> )?[^<]*?of <PO> \.
+#correct: 1
+#incorrect: 7
+
+<TO> - bopp has received intense public interest , partly because it was discovered in <PO> while
+#correct: 1
+#incorrect: 0
+
+<TO> \) was discovered in mid - <PO> while
+#correct: 1
+#incorrect: 0
+
+<TO> discovered the comet in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> - bopp was first discovered in <PO> and
+#correct: 1
+#incorrect: 0
+
+in <PO> and visible to the naked eye in <NEseason> of <NEdate_NEyear_NEnumber> , <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> , when <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , discovered by two backyard <NEprofession> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?discovered im <PO> from
+#correct: 1
+#incorrect: 0
+
+since <PO> , when professional <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?discovered [^<]*?- <PO> while
+#correct: 1
+#incorrect: 0
+
+<TO> \) has been under nearly constant observation since <PO> \.
+#correct: 1
+#incorrect: 0
+
+\) <PO> \( <NEnumber> images \) <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> \( again , by amateurs <NEfirstName> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> of <NElocation_NEstate> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> , had been made by two experienced observers , <TO>
+#correct: 1
+#incorrect: 0
+
+<NEnumber> <PO> two (?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 67
+
+<TO> in <PO> #
+#correct: 1
+#incorrect: 35
+
+<TO> - bopp event <NEcapital> observers with a long <NEchemicalElement_NEmetal_NEmineral> time , thanks to \. the early discovery in <PO> by
+#correct: 1
+#incorrect: 0
+
+in <PO> by two <NEnationality_NEethnicGroup_NEriver_NEwater> amateur <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> by <TO>
+#correct: 1
+#incorrect: 39
+
+<TO> independently discovered comet in <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> taken during the period <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?discovery in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?discovered <PO> \.
+#correct: 1
+#incorrect: 27
+
+\) <PO> \( (?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> was discovered im <PO> from
+#correct: 1
+#incorrect: 0
+
+in <PO> and [^<]*?(?:<NEseason> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 14
+
+rd <PO> , [^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> - bopp comet was discovered in <PO> but
+#correct: 1
+#incorrect: 0
+
+<TO> , discovered in <PO> by
+#correct: 1
+#incorrect: 0
+
+<TO> \) <PO> -
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?discovered in <PO> while
+#correct: 1
+#incorrect: 1
+
+<TO> - bopp : this comet was discovered in <PO> by
+#correct: 1
+#incorrect: 0
+
+<TO> in <PO> \.
+#correct: 1
+#incorrect: 9
+
+<TO> was discovered well beyond the orbit of <NEplanet> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> was discovered in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> was spotted " way out " in <PO> by
+#correct: 1
+#incorrect: 0
+
+<TO> who discovered it in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , named after the two <NEprofession> who discovered it in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> has raised great excitement worldwide since it ' s discovery in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> was discovered separately <NEnumber> / <NEnumber> <PO> ,
+#correct: 1
+#incorrect: 0
+
+in <PO> \( [^<]*?(?:<NEfirstName> )?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> , two amateur <NEprofession> who discovered it in <PO> ,
+#correct: 1
+#incorrect: 0
+
+in <PO> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<NEnumber> <PO> , by <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> - bopp when it was discovered in <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> - bopp since shortly after it was discovered in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> bopp in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?since <PO> \.
+#correct: 1
+#incorrect: 4
+
+<TO> was discovered in <PO> and
+#correct: 1
+#incorrect: 2
+
+<TO> was discovered at a heliocentric distance of <NEnumber> <NEacronym> in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> - bopp comet ever since it was discovered in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> , which had been discovered in <PO> but
+#correct: 1
+#incorrect: 0
+
+<TO> was discovered in <PO> #
+#correct: 1
+#incorrect: 8
+
+<TO> was discovered back in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> - bopp - discovered in <PO> #
+#correct: 1
+#incorrect: 6
+
+<TO> was discovered on <NEnumber> <PO> it
+#correct: 1
+#incorrect: 0
+
+<TO> - bopp images - <PO> this
+#correct: 1
+#incorrect: 0
