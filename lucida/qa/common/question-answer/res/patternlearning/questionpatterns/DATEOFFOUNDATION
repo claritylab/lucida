@@ -1,0 +1,8 @@
+QUESTION_TEMPLATE: When was <TO> founded?
+ANSWER_TEMPLATE: Founded: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO> (constitute|establish|form|found|launch|start)
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be the (constitution|establishment|formation|foundation|launch|start) of <TO>
+<TO> be (constitute|establish|form|found|launch|start) .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+the (constitution|establishment|formation|foundation|launch|start) of <TO> be .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be the first <TO> (hold|make|take place)
