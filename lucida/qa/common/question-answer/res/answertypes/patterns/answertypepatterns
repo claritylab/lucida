@@ -1,0 +1,145 @@
+NEaward							(what|which|name|give|tell) (.* )?(accolade|award|certification|decoration|honoring|honouring|medal|prize|reward)
+
+NEbird							(what|which|name|give|tell) (.* )?bird
+
+NEbirthstone					(what|which|name|give|tell) (.* )?birthstone
+
+NEcolor							(what|which|name|give|tell) (.* )?(color|colour)
+
+NEconflict						(what|which|name|give|tell) (.* )?(battle|conflict|conquest|crisis|crusade|liberation|massacre|rebellion|revolt|revolution|uprising|war)
+
+NEdate							when
+NEdate							(when|what|which|name|give|tell) (.* )?(birthday|date|day)
+NEdate->NEcentury				(when|what|which|name|give|tell) (.* )?century
+NEdate->NEdecade				(when|what|which|name|give|tell) (.* )?decade
+NEdate->NEmonth					(when|what|which|name|give|tell) (.* )?month
+NEdate->NEseason				(when|what|which|name|give|tell) (.* )?(season|time of (the )?year)
+NEdate->NEweekday				(when|what|which|name|give|tell) (.* )?(day of (the )?week|weekday)
+NEdate->NEyear					(when|what|which|name|give|tell) (.* )?year
+
+NEdisease						(what|which|name|give|tell) (.* )?(abnormity|affliction|ailment|allergy|anomaly|cancer|complaint|defect|deficiency|deformity|disability|disease|disorder|dysfunction|fear|handicap|illness|infection|leukemia|malady|malformation|medical condition|pain|phobia|retardation|sickness|suffering|syndrome|tumor|woes)
+
+NEduration						how (long|old|short|young)
+NEduration						how much (sleep|time)
+NEduration						how many (earth )?(century|day|decade|hour|minute|month|.*second|week|year)
+NEduration						(what|which|name|give|tell) (.* )?(age|duration|life( )?(expectancy|span)|period|(losing|winning) streak|waiting time)
+
+NEeducationalInstitution		(what|which|name|give|tell) (.* )?(college|elementary|school|university)
+
+NEethnicGroup					(what|which|name|give|tell) (.* )?(ethnic (background|group)|race|tribe)
+
+NEfood->NEfruit					(what|which|name|give|tell) (.* )?(apple|berry|cherry|fruit|grape|lemon|lime|melon|orange|peach|plum)
+
+NEfrequency						how often
+NEfrequency						how many (hertz|time)
+NEfrequency						(what|which|name|give|tell) (.* )?(frequency|rate)
+
+NElanguage						(what|which|name|give|tell) (.* )?(dialect|language|tongue)
+
+NElegalSentence					(what|which|name|give|tell) (.* )?(adjudgement|adjudication|judgement|judgment|outcome .* (case|litigation|process|(law)?suit|trial)|sentence|verdict)
+
+NElocation						where
+NElocation						(what|which|name|give|tell) (.* )?(destination|lieu|location|origin|place|point|position|site|spot|tip|venue)
+NElocation->NEcity				(what|which|name|give|tell) (.* )?(city|metropolis|town|village)
+NElocation->NEcity->NEcapital	(what|which|name|give|tell) (.* )?capital
+NElocation->NEcontinent			(what|which|name|give|tell) (.* )?continent
+NElocation->NEcountry			(what|which|name|give|tell) (.* )?(colony|country|government|nation)
+NElocation->NEcounty			(what|which|name|give|tell) (.* )?county
+NElocation->NEhemisphere		(what|which|name|give|tell) (.* )?hemisphere
+NElocation->NEisland			(what|which|name|give|tell) (.* )?island
+NElocation->NEmountain			(what|which|name|give|tell) (.* )?mountain
+NElocation->NEmountainRange		(what|which|name|give|tell) (.* )?(mountain (chain|range)|mountainous ridge)
+NElocation->NEnationalPark		(what|which|name|give|tell) (.* )?national park
+NElocation->NEpeninsula			(what|which|name|give|tell) (.* )?peninsula
+NElocation->NEplanet			(what|which|name|give|tell) (.* )?planet
+NElocation->NEprovince			(what|which|name|give|tell) (.* )?province
+NElocation->NEreef				(what|which|name|give|tell) (.* )?reef
+NElocation->NEstate				(what|which|name|give|tell) (.* )?state
+NElocation->NEstreet			(what|which|name|give|tell) (.* )?(alley|ave|avenue|beltway|boulevard|drive|freeway|highway|interstate|lane|parkway|road|route|street)
+NElocation->NEwater				(what|which|name|give|tell) (.* )?water
+NElocation->NEwater->NElake		(what|which|name|give|tell) (.* )?(lake|loch)
+NElocation->NEwater->NEriver	(what|which|name|give|tell) (.* )?(canal|river)
+NElocation->NEwater->NEsea		(what|which|name|give|tell) (.* )?(ocean|sea)
+
+NEmaterial->NEchemicalElement	(what|which|name|give|tell) (.* )?element
+NEmaterial->NEmetal				(what|which|name|give|tell) (.* )?(aluminium|bronze|chrome|copper|gold|lead|magnesium|metal|iron|silver|steel|tin)
+NEmaterial->NEmineral			(what|which|name|give|tell) (.* )?mineral
+NEmaterial->NEstone				(what|which|name|give|tell) (.* )?stone
+
+NEmilitaryRank					(what|which|name|give|tell) (.* )?rank
+
+NEmoney							how (poor|rich)
+NEmoney							how much money
+NEmoney							how much be
+NEmoney							(how many|(how much|what) in) (.* )?(dollar|euro|yen)
+NEmoney							(how much|what|which|name|give|tell) (.* )?(cost|earn|earning|fee|GDP|income|price|revenue|salary|sale|spend|toll|value|worth)
+
+NEmusicalInstrument				(what|which|name|give|tell) (.* )?(accordion|cello|clarinet|contrabass|drum|flute|guitar|harp|horn|instrument|oboe|piano|saxophone|trumpet|tuba|viola|violin)
+
+NEnationality					(what|which|name|give|tell) (.* )?(citizenship|nationality)
+
+NEnumber						how many
+NEnumber						(what|which|name|give|tell) (.* )?(amount|attendance|capacity|death toll|number|population)
+
+NEorganization					(what|which|name|give|tell) (.* )?(airline|administration|agency|alliance|association|authority|band|bank|board|brand|brewery|brotherhood|bureau|casino|center|centre|channel|church|clinic|club|coalition|college|commission|committee|community|company|corporation|council|cruise line|department|directorate|division|employer|enterprise|factory|federation|foundation|fund|group|guild|hospital|hotel|institute|institution|lab|laboratory|maker|manufacturer|ministry|museum|network|office|organization|party|producer|provider|school|society|sponsor|squadron|store|syndicate|team|university|union|vineyard)
+
+NEpercentage					how many percent
+NEpercentage					how much of
+NEpercentage					(what|which|name|give|tell) (.* )?(fraction|gravity|percent|percentage|portion|rate|tax)
+
+NEperson						who(m|se)?
+NEperson						(what|which|name|give|tell) (.* )?(name at birth|nickname|(full|original|real) name)
+NEperson						(what|which|name|give|tell) (.* )?(abolitionist|actor|actress|adventurer|apostle|architect|artist|assassin|astronaut|aunt|author|(arch)?bishop|boxer|boy|brother|builder|candidate|captain|CEO|chairman|champion|chancellor|character|chief executive|chief justice|child|choreographer|coach|comedian|commander|commodore|competitor|composer|congressman|contestant|cosmonaut|COO|creator|dancer|daughter|defender|defensor|designer|detective|developer|dictator|director|disciple|discoverer|doctor|emperor|employee|enemy|engineer|entertainer|explorer|father|feminist|founder|friend|general|gentleman|girl|god|golfer|governor|graduate|grandfather|grandmother|guy|head|hero|heroine|hostage|husband|imam|individual|infielder|inventor|judge|killer|lady|lawyer|leader|legionnaire|loser|man|manager|mate|mayor|member|minister|moderator|monarch|mother|murderer|musician|nephew|niece|official|opponent|owner|painter|partner|pastor|performer|person|personnel|philosopher|physicist|(co-)?pilot|pitcher|player|pleader|poet|politician|pope|professor|prosecutor|psychologist|puppet|ranger|recipient|rector|referent|representative|researcher|ruler|scientist|secretary|sender|singer|sister|slayer|son|star|student|teacher|tenor|terrorist|trainer|uncle|vice-president|victim|wife|winner|(eye)?witness|woman|writer)
+NEperson->NEfirstName			(what|which|name|give|tell) (.* )?(first|fore|given|middle|pre|baptismal|Christian)( )?name
+NEperson->NElastName			(what|which|name|give|tell) (.* )?(family|last|sur)( )?name
+NEperson->NEusPresident			(what|which|name|give|tell) (.* )?president
+
+NEplant->NEflower				(what|which|name|give|tell) (.* )?(blossom|flower)
+
+NEprofession					(what|which|name|give|tell) (.* )?(job|occupation|profession)
+
+NErank							(how|where|what|which|name|give|tell) (.* )?(place|position|rank)
+
+NErelation						(what|which|name|give|tell) (.* )?(affinity|cousinhood|cousinship|kin|kindredship|kinfolk|kinsfolk|kinship|propinquity|relatedness|relation|relationship)
+
+NEreligion						(what|which|name|give|tell) (.* )?(belief|faith|religion|religious affiliation)
+
+NEscore							how many (goal|point)
+NEscore							(what|which|name|give|tell) (.* )?(final result|outcome|score)
+
+NEsize							how (big|large|small)
+NEsize							(how much|what|which|name|give|tell) (.* )?size
+NEsize->NEarea					(how large in|how many) (acre|square (foot|inch|.*meter|mile|yard))
+NEsize->NEarea					(how much|what|which|name|give|tell) (.* )?area
+NEsize->NElength				how (close|deep|far|high|long|narrow|short|tall|wide)
+NEsize->NElength				(how large in|how many) (foot|inch|light year|.*meter|mile|yard)
+NEsize->NElength				(how much|what|which|name|give|tell) (.* )?(altitude|depth|diameter|distance|elevation|height|length|radius|width)
+NEsize->NEvolume				(how large in|how many) (cubic (foot|inch|.*meter|mile|yard)|gallon|liter|litre|ounce)
+NEsize->NEvolume				(how much|what|which|name|give|tell) (.* )?volume
+
+NEspeed							how (fast|slow)
+NEspeed							how many ((foot|inch|.*meter|mile|yard) per (day|hour|minute|month|.*second|week|year)|km/h|mph)
+NEspeed							(what|which|name|give|tell) (.* )?speed
+
+NEsport							(what|which|name|give|tell) (.* )?(game|olympic discipline|sport)
+
+NEstyle							(what|which|name|give|tell) (.* )?(style|(form|kind|type) of (architecture|art|artist|ballad|dance|dancer|dancing|drawing|literature|movie|music|musical|opera|painter|painting|performance|play|sculpture|show|singer|singing|song|symphony|theater|writer|writing))
+
+NEtemperature					how (cold|hot|warm)
+NEtemperature					how many (degree|kelvin)
+NEtemperature					(what|which|name|give|tell) (.* )?((boiling|melting) point|temperature)
+
+NEunit->NEcurrency				(what|which|name|give|tell) (.* )?(currency|money)
+
+NEurl							(what|which|name|give|tell) (.* )?(domain|home( )?page|URL|(internet|web) (address|site))
+
+NEtime							when
+NEtime							how (early|late)
+NEtime							(what|which|name|give|tell) (.* )?time
+NEtime->NEhour					(what|which|name|give|tell) (.* )?hour
+
+NEweight						how (heavy|light)
+NEweight						how many (.*gram|ounce|pound|(metric )?ton)
+NEweight						(how much|what|which|name|give|tell) (.* )?(weigh|weight)
+
+NEzodiacSign					(what|which|name|give|tell) (.* )?zodiac sign

@@ -1,0 +1,4101 @@
+#passages: 10231
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson_NEfirstName> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 479
+#incorrect: 512
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 478
+#incorrect: 507
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 470
+#incorrect: 503
+
+<TO> [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEfirstName> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 470
+#incorrect: 492
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 468
+#incorrect: 488
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 468
+#incorrect: 497
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEacronym> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 463
+#incorrect: 496
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 463
+#incorrect: 473
+
+<TO> (?:<NEprofession> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 462
+#incorrect: 477
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 460
+#incorrect: 483
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEprofession> )?<PO_NElocation_NEcapital>
+#correct: 459
+#incorrect: 487
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 459
+#incorrect: 494
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEdisease> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 459
+#incorrect: 485
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEprofession> )?<PO_NElocation_NEcapital>
+#correct: 459
+#incorrect: 483
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 457
+#incorrect: 483
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 457
+#incorrect: 487
+
+<TO> [^<]*?<PO_NElocation_NEperson_NEcapital>
+#correct: 457
+#incorrect: 750
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 455
+#incorrect: 477
+
+<TO> (?:<NEfrequency> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 453
+#incorrect: 477
+
+<TO> (?:<NEdisease> )?[^<]*?<PO_NElocation_NEcapital>
+#correct: 453
+#incorrect: 477
+
+<TO> [^<]*?<PO_NElocation_NEcapital>
+#correct: 452
+#incorrect: 477
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEacronym> )?<PO_NElocation_NEacronym_NEcapital>
+#correct: 451
+#incorrect: 834
+
+<TO> [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 392
+#incorrect: 494
+
+<TO> [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 390
+#incorrect: 492
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 389
+#incorrect: 491
+
+<TO> [^<]*?(?:<NEprofession> )?(?:<NEperson_NEusPresident> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation_NEorganization_NEstate>
+#correct: 387
+#incorrect: 790
+
+<TO> [^<]*?(?:<NElocation_NEcountry_NEethnicGroup> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 384
+#incorrect: 498
+
+<TO> [^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 382
+#incorrect: 523
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 381
+#incorrect: 522
+
+<TO> [^<]*?(?:<NEnationality_NEethnicGroup> )?[^<]*?<PO_NElocation>
+#correct: 381
+#incorrect: 481
+
+<TO> [^<]*?(?:<NEorganization_NEethnicGroup> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 381
+#incorrect: 543
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?<PO_NElocation>
+#correct: 381
+#incorrect: 481
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEcountry_NEethnicGroup> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 380
+#incorrect: 502
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry_NEethnicGroup> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 378
+#incorrect: 504
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?(?:<NEcountry_NEethnicGroup> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 377
+#incorrect: 509
+
+<TO> [^<]*?(?:<NEcountry_NEethnicGroup> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 373
+#incorrect: 510
+
+<TO> [^<]*?(?:<NEcountry_NEethnicGroup> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 370
+#incorrect: 513
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEfirstName> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 370
+#incorrect: 508
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEduration> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 368
+#incorrect: 562
+
+<TO> [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 367
+#incorrect: 493
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEnationality_NEethnicGroup> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 367
+#incorrect: 536
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 367
+#incorrect: 493
+
+<TO> [^<]*?(?:<NEfirstName> )?(?:<NEprofession> )?[^<]*?<PO_NElocation>
+#correct: 367
+#incorrect: 493
+
+<TO> [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?(?:<NErelation> )?[^<]*?(?:<NEstate> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 362
+#incorrect: 553
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEorganization> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 362
+#incorrect: 507
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 361
+#incorrect: 487
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 359
+#incorrect: 486
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEacronym> )?(?:<NEacronym> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 359
+#incorrect: 517
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 359
+#incorrect: 502
+
+<TO> [^<]*?(?:<NEperson_NElanguage> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 358
+#incorrect: 522
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 357
+#incorrect: 498
+
+<TO> (?:<NEorganization> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEperson> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 357
+#incorrect: 497
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 357
+#incorrect: 498
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 356
+#incorrect: 510
+
+<TO> (?:<NEprofession> )?[^<]*?<PO_NElocation>
+#correct: 355
+#incorrect: 470
+
+<TO> [^<]*?(?:<NElocation_NEperson> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 354
+#incorrect: 494
+
+<TO> [^<]*?(?:<NEmineral> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 353
+#incorrect: 482
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 353
+#incorrect: 482
+
+<TO> (?:<NEfirstName> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 353
+#incorrect: 485
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?<PO_NElocation_NEstate>
+#correct: 353
+#incorrect: 486
+
+<TO> [^<]*?(?:<NElocation_NEriver_NEwater> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 353
+#incorrect: 486
+
+<TO> [^<]*?(?:<NEdisease> )?<PO_NElocation_NEstate>
+#correct: 353
+#incorrect: 480
+
+<TO> [^<]*?<PO_NElocation_NEorganization_NEstate>
+#correct: 353
+#incorrect: 713
+
+<TO> [^<]*?<PO_NElocation_NEstate>
+#correct: 352
+#incorrect: 480
+
+<TO> (?:<NEethnicGroup> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 351
+#incorrect: 487
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 350
+#incorrect: 487
+
+<TO> [^<]*?<PO_NElocation_NEperson>
+#correct: 350
+#incorrect: 743
+
+<TO> (?:<NEfirstName> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 350
+#incorrect: 488
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?<PO_NElocation>
+#correct: 350
+#incorrect: 476
+
+<TO> (?:<NEsport> )?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 350
+#incorrect: 494
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<PO_NElocation>
+#correct: 349
+#incorrect: 507
+
+<TO> [^<]*?(?:<NElocation_NEacronym> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 349
+#incorrect: 495
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 349
+#incorrect: 489
+
+<TO> [^<]*?(?:<NElocation_NEstate> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 348
+#incorrect: 484
+
+<TO> (?:<NEfrequency> )?(?:<NEfirstName> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 348
+#incorrect: 519
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 347
+#incorrect: 485
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?<PO_NElocation>
+#correct: 347
+#incorrect: 480
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?<PO_NElocation>
+#correct: 347
+#incorrect: 491
+
+<TO> (?:<NEnationality_NEethnicGroup> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 346
+#incorrect: 519
+
+<TO> (?:<NEfirstName> )?[^<]*?<PO_NElocation>
+#correct: 346
+#incorrect: 475
+
+<TO> [^<]*?(?:<NEstyle> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 346
+#incorrect: 518
+
+<TO> (?:<NEacronym> )?[^<]*?<PO_NElocation>
+#correct: 346
+#incorrect: 470
+
+<TO> [^<]*?<PO_NElocation>
+#correct: 345
+#incorrect: 470
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NElocation> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation>
+#correct: 345
+#incorrect: 492
+
+<TO> [^<]*?<PO_NElocation_NEcountry>
+#correct: 345
+#incorrect: 514
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEcountry> )?[^<]*?(?:<NEcountry> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 344
+#incorrect: 543
+
+<TO> (?:<NEnationality_NEethnicGroup> )?[^<]*?(?:<NElocation_NEperson> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 343
+#incorrect: 538
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 342
+#incorrect: 496
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 342
+#incorrect: 490
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation>
+#correct: 340
+#incorrect: 475
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NElanguage> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 337
+#incorrect: 551
+
+<TO> [^<]*?(?:<NEcountry> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 336
+#incorrect: 502
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 333
+#incorrect: 526
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 332
+#incorrect: 528
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 332
+#incorrect: 527
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 332
+#incorrect: 527
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 325
+#incorrect: 534
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 325
+#incorrect: 534
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 324
+#incorrect: 539
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 323
+#incorrect: 536
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<PO_NEcapital>
+#correct: 224
+#incorrect: 12
+
+<TO> (?:<NEorganization> )?[^<]*?<PO_NEacronym_NEcapital>
+#correct: 217
+#incorrect: 367
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEacronym_NEcountry_NEriver_NEwater> )?[^<]*?(?:<NEacronym> )?<TO>
+#correct: 216
+#incorrect: 248
+
+<TO> [^<]*?<PO_NEacronym_NEcapital>
+#correct: 216
+#incorrect: 365
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEorganization_NEprofession> )?[^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 216
+#incorrect: 233
+
+<TO> (?:<NEsport> )?[^<]*?(?:<NEacronym> )?(?:<NEnumber> )?[^<]*?<PO_NEcapital>
+#correct: 215
+#incorrect: 11
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEacronym_NEcountry> )?[^<]*?(?:<NEperson> )?<TO>
+#correct: 214
+#incorrect: 248
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 214
+#incorrect: 239
+
+<PO_NElocation_NEperson_NEcapital> [^<]*?(?:<NElocation_NEstate_NEriver_NEwater> )?[^<]*?<TO>
+#correct: 214
+#incorrect: 486
+
+<PO_NElocation_NEacronym_NEcapital> (?:<NEacronym_NEcountry_NEriver_NEwater> )?[^<]*?(?:<NEacronym> )?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 214
+#incorrect: 736
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEacronym_NEcountry> )?[^<]*?<TO>
+#correct: 213
+#incorrect: 247
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 212
+#incorrect: 234
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 212
+#incorrect: 225
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?<PO_NEcapital>
+#correct: 211
+#incorrect: 12
+
+<TO> [^<]*?(?:<NElanguage> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEcapital>
+#correct: 211
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEurl> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEcapital>
+#correct: 211
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?<PO_NEcapital>
+#correct: 211
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NEcapital>
+#correct: 210
+#incorrect: 11
+
+<TO> (?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEcapital>
+#correct: 210
+#incorrect: 13
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEdisease> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 208
+#incorrect: 229
+
+<TO> [^<]*?(?:<NEstate> )?[^<]*?<PO_NEcapital>
+#correct: 208
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEprofession> )?<PO_NEcapital>
+#correct: 208
+#incorrect: 11
+
+<TO> [^<]*?<PO_NEcapital>
+#correct: 207
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?<PO_NEacronym_NEcapital>
+#correct: 207
+#incorrect: 373
+
+<PO_NElocation_NEcapital> (?:<NEnumber> )?[^<]*?(?:<NEtemperature> )?(?:<NEnumber> )?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 206
+#incorrect: 227
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 206
+#incorrect: 216
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEacronym> )?<PO_NEacronym_NEcapital>
+#correct: 206
+#incorrect: 375
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NElanguage> )?[^<]*?<TO>
+#correct: 206
+#incorrect: 216
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 205
+#incorrect: 233
+
+<TO> [^<]*?(?:<NEacronym> )?<PO_NEacronym_NEcapital>
+#correct: 204
+#incorrect: 377
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEreligion> )?[^<]*?<TO>
+#correct: 204
+#incorrect: 215
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 204
+#incorrect: 220
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEmilitaryRank> )?[^<]*?<TO>
+#correct: 203
+#incorrect: 215
+
+<PO_NElocation_NEcapital> [^<]*?(?:<NEprofession> )?<TO>
+#correct: 203
+#incorrect: 216
+
+<PO_NElocation_NEcapital> (?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 203
+#incorrect: 227
+
+<PO_NElocation_NEperson_NEcapital> [^<]*?<TO>
+#correct: 203
+#incorrect: 404
+
+<PO_NElocation_NEcapital> [^<]*?<TO>
+#correct: 202
+#incorrect: 214
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NElocation_NEcontinent_NEcountry> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEethnicGroup> )?<TO>
+#correct: 202
+#incorrect: 296
+
+<PO_NElocation_NEstate> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry_NEethnicGroup> )?[^<]*?(?:<NEriver_NEwater> )?(?:<NElength_NEsize> )?[^<]*?<TO>
+#correct: 194
+#incorrect: 297
+
+<PO_NElocation_NEstate> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdisease> )?(?:<NEcountry_NEethnicGroup> )?[^<]*?<TO>
+#correct: 193
+#incorrect: 292
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEcountry_NEethnicGroup> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 193
+#incorrect: 296
+
+<PO_NElocation_NEstate> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEcountry_NEethnicGroup> )?[^<]*?<TO>
+#correct: 192
+#incorrect: 291
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEorganization_NEdisease_NEzodiacSign> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 192
+#incorrect: 230
+
+<PO_NElocation> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 191
+#incorrect: 287
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 188
+#incorrect: 319
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 188
+#incorrect: 222
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 186
+#incorrect: 312
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 186
+#incorrect: 315
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEcountry> )?[^<]*?<TO>
+#correct: 186
+#incorrect: 311
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?(?:<NEstyle> )?<TO>
+#correct: 184
+#incorrect: 307
+
+<PO_NElocation_NEstate> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?<TO>
+#correct: 183
+#incorrect: 279
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 183
+#incorrect: 259
+
+<PO_NElocation_NEstate> [^<]*?(?:<NElocation_NEstate> )?[^<]*?<TO>
+#correct: 183
+#incorrect: 279
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 182
+#incorrect: 305
+
+<TO> [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?<PO_NEstate>
+#correct: 182
+#incorrect: 56
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 182
+#incorrect: 237
+
+<PO_NElocation_NEstate> [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?(?:<NEethnicGroup> )?[^<]*?(?:<NElanguage> )?[^<]*?(?:<NElanguage> )?[^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?<TO>
+#correct: 182
+#incorrect: 222
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 181
+#incorrect: 241
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?<TO>
+#correct: 181
+#incorrect: 236
+
+<PO_NElocation_NEstate> [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?<TO>
+#correct: 180
+#incorrect: 222
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEnumber> )?(?:<NEethnicGroup> )?[^<]*?(?:<NEnationality_NEethnicGroup> )?[^<]*?<TO>
+#correct: 180
+#incorrect: 235
+
+<PO_NElocation_NEstate> (?:<NEnationality_NEethnicGroup> )?[^<]*?(?:<NEperson_NEethnicGroup> )?[^<]*?<TO>
+#correct: 180
+#incorrect: 226
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 180
+#incorrect: 303
+
+<PO_NElocation> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 179
+#incorrect: 209
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 178
+#incorrect: 224
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 177
+#incorrect: 218
+
+<TO> [^<]*?(?:<NEcountry> )?[^<]*?<PO_NEstate>
+#correct: 177
+#incorrect: 56
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEmineral> )?[^<]*?(?:<NEreligion> )?[^<]*?<TO>
+#correct: 177
+#incorrect: 212
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 177
+#incorrect: 213
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NEcapital> )?[^<]*?(?:<NEethnicGroup> )?[^<]*?<TO>
+#correct: 177
+#incorrect: 241
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEprofession> )?(?:<NEriver_NEwater> )?<TO>
+#correct: 177
+#incorrect: 212
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEstyle> )?[^<]*?<TO>
+#correct: 176
+#incorrect: 214
+
+<PO_NElocation_NEstate> (?:<NEprofession> )?[^<]*?<TO>
+#correct: 176
+#incorrect: 211
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEacronym> )?<TO>
+#correct: 176
+#incorrect: 210
+
+<PO_NElocation_NEeducationalInstitution> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 176
+#incorrect: 229
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEriver_NEwater> )?<TO>
+#correct: 175
+#incorrect: 210
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 175
+#incorrect: 214
+
+<PO_NElocation_NEstate> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NErelation> )?[^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 175
+#incorrect: 224
+
+<PO_NElocation> [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 175
+#incorrect: 218
+
+<PO_NElocation_NEorganization_NEstate> [^<]*?<TO>
+#correct: 174
+#incorrect: 363
+
+<PO_NElocation_NEstate> [^<]*?<TO>
+#correct: 174
+#incorrect: 210
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 174
+#incorrect: 246
+
+<PO_NElocation_NEcountry> [^<]*?(?:<NEethnicGroup> )?[^<]*?<TO>
+#correct: 173
+#incorrect: 239
+
+<PO_NElocation_NEcountry> [^<]*?<TO>
+#correct: 171
+#incorrect: 228
+
+<PO_NElocation> [^<]*?(?:<NEweight> )?(?:<NEsport> )?[^<]*?<TO>
+#correct: 170
+#incorrect: 200
+
+<PO_NElocation_NEpeninsula> [^<]*?<TO>
+#correct: 169
+#incorrect: 198
+
+<PO_NElocation> (?:<NElanguage_NEethnicGroup> )?[^<]*?<TO>
+#correct: 169
+#incorrect: 199
+
+<PO_NElocation> [^<]*?<TO>
+#correct: 169
+#incorrect: 198
+
+<TO> [^<]*?(?:<NEusPresident> )?[^<]*?<PO_NEstate>
+#correct: 162
+#incorrect: 56
+
+<TO> [^<]*?(?:<NEcontinent> )?[^<]*?<PO_NEstate>
+#correct: 161
+#incorrect: 56
+
+<TO> [^<]*?<PO_NEorganization_NEstate>
+#correct: 161
+#incorrect: 289
+
+<TO> [^<]*?<PO_NEstate>
+#correct: 160
+#incorrect: 56
+
+<TO> <PO> <NEacronym_NEsport>
+#correct: 151
+#incorrect: 592
+
+<TO> <PO> <NEsport>
+#correct: 134
+#incorrect: 158
+
+<PO_NEcapital> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 105
+#incorrect: 18
+
+<PO_NEacronym_NEcapital> (?:<NEacronym> )?[^<]*?(?:<NEorganization_NEacronym> )?<TO>
+#correct: 104
+#incorrect: 497
+
+<PO_NEcapital> (?:<NEacronym> )?[^<]*?<TO>
+#correct: 101
+#incorrect: 18
+
+<PO_NEcapital> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 100
+#incorrect: 18
+
+<PO_NEcapital> (?:<NEeducationalInstitution> )?[^<]*?(?:<NEnumber> )?<TO>
+#correct: 98
+#incorrect: 18
+
+<PO_NEcapital> [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 98
+#incorrect: 21
+
+<PO_NEcapital> [^<]*?<TO>
+#correct: 97
+#incorrect: 18
+
+<PO_NEacronym_NEstate> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 92
+#incorrect: 577
+
+<PO_NEorganization_NEstate> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 90
+#incorrect: 234
+
+<PO_NEorganization_NEstate> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 87
+#incorrect: 217
+
+<PO_NEorganization_NEstate> (?:<NEprofession> )?[^<]*?(?:<NErelation> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 82
+#incorrect: 223
+
+<PO_NEstate> [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 80
+#incorrect: 46
+
+<PO_NEstate> (?:<NEprofession> )?[^<]*?<TO>
+#correct: 79
+#incorrect: 41
+
+<PO_NEstate> (?:<NEnationality_NEethnicGroup> )?[^<]*?<TO>
+#correct: 78
+#incorrect: 40
+
+<PO_NEstate> [^<]*?(?:<NEstyle> )?<TO>
+#correct: 78
+#incorrect: 40
+
+<PO_NEstate> [^<]*?<TO>
+#correct: 77
+#incorrect: 40
+
+<PO_NEstate> [^<]*?(?:<NEnumber> )?<TO>
+#correct: 77
+#incorrect: 40
+
+a <PO> , [^<]*?(?:<NEduration> )?[^<]*?<TO>
+#correct: 54
+#incorrect: 83
+
+a <PO> , monastery <NEduration> ago by <TO>
+#correct: 54
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEperson> )?in <PO> \.
+#correct: 43
+#incorrect: 127
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?in <PO> \.
+#correct: 41
+#incorrect: 128
+
+<TO> [^<]*?(?:<NEacronym> )?in <PO> \.
+#correct: 41
+#incorrect: 127
+
+<TO> <PO> city
+#correct: 40
+#incorrect: 13
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?in <PO> \.
+#correct: 40
+#incorrect: 129
+
+<TO> [^<]*?(?:<NEperson> )?in <PO> \.
+#correct: 40
+#incorrect: 126
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?in <PO> \.
+#correct: 40
+#incorrect: 133
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?in <PO> \.
+#correct: 40
+#incorrect: 125
+
+<TO> [^<]*?(?:<NElocation> )?in <PO> \.
+#correct: 40
+#incorrect: 126
+
+<TO> [^<]*?in <PO> \.
+#correct: 39
+#incorrect: 125
+
+<TO> [^<]*?(?:<NEorganization_NEethnicGroup> )?[^<]*?southern <PO> and
+#correct: 38
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?southern <PO> and
+#correct: 38
+#incorrect: 3
+
+<TO> of <PO_NElocation>
+#correct: 37
+#incorrect: 26
+
+<TO> of <PO_NElocation_NEcountry>
+#correct: 37
+#incorrect: 29
+
+<TO> of <PO_NElocation_NEstate>
+#correct: 37
+#incorrect: 27
+
+<TO> of <PO_NElocation_NEcapital>
+#correct: 37
+#incorrect: 26
+
+<TO> [^<]*?his <PO> a
+#correct: 37
+#incorrect: 31
+
+<TO> [^<]*?: <PO> <NEsport>
+#correct: 32
+#incorrect: 32
+
+<TO> ' <PO_NEcapital>
+#correct: 32
+#incorrect: 0
+
+<TO> ' <PO_NElocation_NEcapital>
+#correct: 32
+#incorrect: 0
+
+<TO> ' <PO_NEacronym_NEcapital>
+#correct: 32
+#incorrect: 1
+
+<TO> <PO_NEacronym_NEcapital>
+#correct: 32
+#incorrect: 87
+
+<TO> [^<]*?s <PO> on
+#correct: 32
+#incorrect: 24
+
+<TO> ' s <PO> on
+#correct: 31
+#incorrect: 20
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation> )?in <PO> ,
+#correct: 31
+#incorrect: 172
+
+<TO> [^<]*?s <PO> \.
+#correct: 31
+#incorrect: 87
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?in <PO> ,
+#correct: 31
+#incorrect: 183
+
+<TO> [^<]*?in <PO> ,
+#correct: 31
+#incorrect: 169
+
+<TO> [^<]*?(?:<NEfirstName> )?(?:<NEprofession> )?[^<]*?in <PO> ,
+#correct: 31
+#incorrect: 179
+
+<TO> [^<]*?s <PO> ,
+#correct: 31
+#incorrect: 132
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?in <PO> ,
+#correct: 31
+#incorrect: 178
+
+<TO> ' s <PO> \.
+#correct: 31
+#incorrect: 74
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEnationality_NEethnicGroup> )?in <PO> ,
+#correct: 31
+#incorrect: 172
+
+<TO> ' s <PO> ,
+#correct: 30
+#incorrect: 124
+
+<TO> in <PO_NElocation_NEcountry>
+#correct: 29
+#incorrect: 52
+
+<TO> in <PO_NElocation_NEcapital>
+#correct: 29
+#incorrect: 46
+
+<TO> in <PO_NElocation>
+#correct: 29
+#incorrect: 46
+
+<TO> in <PO_NElocation_NEstate>
+#correct: 29
+#incorrect: 46
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?of <PO> \.
+#correct: 28
+#incorrect: 125
+
+<TO> : <PO> <NEsport>
+#correct: 28
+#incorrect: 32
+
+<TO> [^<]*?s <PO> a
+#correct: 28
+#incorrect: 140
+
+<TO> [^<]*?(?:<NEdisease_NEzodiacSign> )?[^<]*?(?:<NEprofession> )?[^<]*?s <PO> #
+#correct: 27
+#incorrect: 359
+
+<TO> <PO_NElocation_NEcapital>
+#correct: 27
+#incorrect: 1
+
+<TO> (?:<NEacronym> )?[^<]*?of <PO> \.
+#correct: 26
+#incorrect: 121
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?s <PO> #
+#correct: 26
+#incorrect: 368
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?of <PO> \.
+#correct: 26
+#incorrect: 128
+
+<TO> (?:<NEfrequency> )?[^<]*?of <PO> \.
+#correct: 26
+#incorrect: 121
+
+<TO> ' s <PO> a
+#correct: 26
+#incorrect: 128
+
+<TO> of <PO_NEstate>
+#correct: 26
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NElocation_NEperson_NEcountry> )?[^<]*?s <PO> #
+#correct: 26
+#incorrect: 379
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?, <PO> ,
+#correct: 26
+#incorrect: 603
+
+<PO_NEacronym_NEcountry> [^<]*?<TO>
+#correct: 26
+#incorrect: 468
+
+<PO_NEcountry> [^<]*?<TO>
+#correct: 25
+#incorrect: 60
+
+<TO> [^<]*?of <PO> \.
+#correct: 25
+#incorrect: 121
+
+<TO> [^<]*?s <PO> #
+#correct: 25
+#incorrect: 354
+
+<TO> [^<]*?southern <PO> and
+#correct: 25
+#incorrect: 3
+
+<TO> ' s <PO> #
+#correct: 25
+#incorrect: 304
+
+in <PO> , [^<]*?(?:<NEperson> )?<TO>
+#correct: 24
+#incorrect: 120
+
+in <PO> , [^<]*?(?:<NEstyle> )?[^<]*?<TO>
+#correct: 24
+#incorrect: 120
+
+in <PO> , [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 24
+#incorrect: 124
+
+in <PO> , [^<]*?(?:<NEorganization_NEprofession> )?[^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 24
+#incorrect: 125
+
+in <PO> , [^<]*?<TO>
+#correct: 23
+#incorrect: 120
+
+<TO> [^<]*?his <PO> and
+#correct: 23
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?his <PO> and
+#correct: 23
+#incorrect: 11
+
+<TO> <PO_NEcapital>
+#correct: 23
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEperson_NEriver_NEwater> )?[^<]*?(?:<NElocation> )?, <PO> ,
+#correct: 22
+#incorrect: 615
+
+<TO> [^<]*?(?:<NElocation> )?, <PO> ,
+#correct: 22
+#incorrect: 594
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NElanguage> )?[^<]*?(?:<NElocation> )?, <PO> ,
+#correct: 22
+#incorrect: 611
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?, <PO> ,
+#correct: 22
+#incorrect: 598
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?of <PO> ,
+#correct: 22
+#incorrect: 151
+
+<TO> <PO> <NEacronym_NEcountry_NEriver_NEwater>
+#correct: 22
+#incorrect: 921
+
+<TO> [^<]*?(?:<NElocation_NEriver_NEwater> )?, <PO> ,
+#correct: 22
+#incorrect: 595
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation> )?, <PO> ,
+#correct: 22
+#incorrect: 595
+
+<TO> <PO> <NEacronym>
+#correct: 21
+#incorrect: 481
+
+<TO> has closed the house on his <PO> and
+#correct: 21
+#incorrect: 0
+
+<TO> <PO> <NEacronym_NEseason>
+#correct: 21
+#incorrect: 490
+
+of <PO> , (?:<NEacronym_NEcountry> )?[^<]*?(?:<NEperson> )?<TO>
+#correct: 21
+#incorrect: 168
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?s <PO> in
+#correct: 21
+#incorrect: 104
+
+of <PO> , (?:<NEacronym_NEcountry_NEriver_NEwater> )?[^<]*?(?:<NEacronym> )?<TO>
+#correct: 21
+#incorrect: 166
+
+<TO> [^<]*?s <PO> in
+#correct: 20
+#incorrect: 103
+
+of <PO> , [^<]*?(?:<NEstyle> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 167
+
+of <PO> , (?:<NEweight> )?(?:<NEsport> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 164
+
+of <PO> , [^<]*?(?:<NEreligion> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 165
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEstyle> )?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?home [^<]*?(?:<NEfirstName> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 20
+#incorrect: 7
+
+of <PO> , [^<]*?(?:<NEethnicGroup> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 167
+
+of <PO> , [^<]*?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 167
+
+of <PO> , (?:<NEacronym_NEcountry> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 167
+
+<TO> [^<]*?home [^<]*?<PO_NElocation_NEstate>
+#correct: 20
+#incorrect: 7
+
+of <PO> , [^<]*?(?:<NEperson> )?[^<]*?(?:<NEdisease> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 164
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEorganization_NEacronym> )?[^<]*?of <PO> ,
+#correct: 19
+#incorrect: 154
+
+of <PO> , [^<]*?<TO>
+#correct: 19
+#incorrect: 165
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?of <PO> ,
+#correct: 19
+#incorrect: 149
+
+<TO> [^<]*?of <PO> ,
+#correct: 19
+#incorrect: 147
+
+<TO> [^<]*?of <PO> and
+#correct: 19
+#incorrect: 106
+
+<TO> ' s <PO> in
+#correct: 19
+#incorrect: 97
+
+<TO> [^<]*?in <PO> <NEacronym_NEcountry_NEriver_NEwater>
+#correct: 17
+#incorrect: 104
+
+<TO> [^<]*?s <PO> <NEweekday>
+#correct: 17
+#incorrect: 49
+
+<TO> : virtual <PO_NEcapital>
+#correct: 17
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?in <PO> \(
+#correct: 17
+#incorrect: 23
+
+<TO> ' s <PO> <NEweekday>
+#correct: 17
+#incorrect: 48
+
+<TO> <PO> \.
+#correct: 16
+#incorrect: 1434
+
+<TO> [^<]*?(?:<NEacronym> )?in <PO> \(
+#correct: 16
+#incorrect: 23
+
+of <PO> , [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdisease> )?(?:<NEcountry_NEethnicGroup> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 177
+
+<TO> [^<]*?in <PO> and
+#correct: 15
+#incorrect: 85
+
+<TO> (?:<NEfirstName> )?[^<]*?in <PO> and
+#correct: 15
+#incorrect: 86
+
+<TO> [^<]*?(?:<NEcountry> )?, <PO> ,
+#correct: 15
+#incorrect: 534
+
+or <PO> , [^<]*?<TO>
+#correct: 14
+#incorrect: 58
+
+<TO> : <PO_NEcapital>
+#correct: 14
+#incorrect: 0
+
+or <PO> , where the <TO>
+#correct: 14
+#incorrect: 0
+
+<TO> of <PO> and
+#correct: 14
+#incorrect: 28
+
+<TO> [^<]*?live [^<]*?<PO_NElocation_NEstate>
+#correct: 14
+#incorrect: 9
+
+<TO> [^<]*?live [^<]*?<PO_NElocation_NEcapital>
+#correct: 14
+#incorrect: 9
+
+<PO_NElocation_NEstate> , where the <TO>
+#correct: 14
+#incorrect: 0
+
+<TO> [^<]*?in <PO> \(
+#correct: 14
+#incorrect: 23
+
+<TO> [^<]*?live [^<]*?<PO_NElocation_NEcountry>
+#correct: 14
+#incorrect: 11
+
+<TO> [^<]*?<PO_NEacronym>
+#correct: 14
+#incorrect: 354
+
+<TO> : <PO_NElocation_NEcapital>
+#correct: 14
+#incorrect: 4
+
+<TO> ' <PO> #
+#correct: 13
+#incorrect: 419
+
+<TO> are people of southern <PO_NElocation_NEcountry>
+#correct: 13
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEduration> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?of <PO> #
+#correct: 13
+#incorrect: 629
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?<PO_NEorganization_NEperson>
+#correct: 13
+#incorrect: 522
+
+<TO> [^<]*?in <PO> <NEacronym>
+#correct: 12
+#incorrect: 38
+
+<TO> (?:<NEfirstName> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?in <PO> #
+#correct: 12
+#incorrect: 591
+
+<TO> ' <PO> \?
+#correct: 12
+#incorrect: 9
+
+<TO> ' s home in <PO_NElocation_NEstate>
+#correct: 12
+#incorrect: 5
+
+, <PO> , (?:<NEorganization_NEdisease_NEzodiacSign> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 674
+
+to <PO> , [^<]*?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 130
+
+to <PO> , (?:<NEacronym> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 132
+
+<TO> [^<]*?live [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 12
+#incorrect: 11
+
+, <PO> , [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 674
+
+<TO> (?:<NEethnicGroup> )?[^<]*?(?:<NElocation> )?, <PO> \.
+#correct: 11
+#incorrect: 268
+
+<TO> [^<]*?(?:<NEprofession> )?in <PO> #
+#correct: 11
+#incorrect: 570
+
+<TO> are people of southern <PO> and
+#correct: 11
+#incorrect: 0
+
+<TO> (?:<NEnationality_NEethnicGroup> )?[^<]*?(?:<NElocation_NEperson> )?, <PO> \.
+#correct: 11
+#incorrect: 274
+
+<TO> [^<]*?his <PO> for
+#correct: 11
+#incorrect: 10
+
+to <PO> , [^<]*?<TO>
+#correct: 11
+#incorrect: 130
+
+<TO> ' s <PO_NElocation>
+#correct: 11
+#incorrect: 0
+
+<TO> [^<]*?live [^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 11
+#incorrect: 14
+
+<TO> [^<]*?in <PO> #
+#correct: 11
+#incorrect: 568
+
+<TO> [^<]*?s <PO> was
+#correct: 11
+#incorrect: 16
+
+<TO> ' s <PO_NElocation_NEstate>
+#correct: 11
+#incorrect: 0
+
+<TO> of <PO> ,
+#correct: 10
+#incorrect: 45
+
+<TO> [^<]*?home in <PO> ,
+#correct: 10
+#incorrect: 3
+
+<TO> , the natives who are called <NEethnicGroup> in neighboring <PO_NElocation_NEstate>
+#correct: 10
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElocation> )?, <PO> \.
+#correct: 10
+#incorrect: 267
+
+<TO> ' s <PO> was
+#correct: 10
+#incorrect: 15
+
+<TO> <NEprofession> to <PO_NElocation_NEcapital>
+#correct: 10
+#incorrect: 0
+
+<TO> <PO_NEacronym>
+#correct: 10
+#incorrect: 87
+
+<TO> [^<]*?(?:<NEacronym> )?, <PO> ,
+#correct: 10
+#incorrect: 522
+
+<TO> [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?(?:<NErelation> )?[^<]*?(?:<NEstate> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?of <PO> #
+#correct: 10
+#incorrect: 607
+
+of <PO> and (?:<NEorganization> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 90
+
+of <PO> and (?:<NElocation> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 89
+
+<TO> , and the interactive world of <PO_NElocation_NEcapital>
+#correct: 10
+#incorrect: 0
+
+<TO> <NEprofession> to <PO_NElocation>
+#correct: 10
+#incorrect: 0
+
+<TO> ' s home in <PO> ,
+#correct: 9
+#incorrect: 3
+
+<TO> (?:<NEorganization> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEperson> )?, <PO> \.
+#correct: 9
+#incorrect: 276
+
+<TO> , <PO_NElocation_NEperson>
+#correct: 9
+#incorrect: 86
+
+<TO> are a people of southern <PO> and
+#correct: 9
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEstyle> )?[^<]*?of <PO> #
+#correct: 9
+#incorrect: 572
+
+of <PO> and [^<]*?<TO>
+#correct: 9
+#incorrect: 89
+
+, <PO> , [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NErelation> )?[^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 675
+
+<TO> [^<]*?(?:<NEweekday> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEdisease_NEzodiacSign> )?[^<]*?his <PO> ,
+#correct: 9
+#incorrect: 21
+
+<TO> [^<]*?of <PO> #
+#correct: 9
+#incorrect: 568
+
+, <PO> , [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 695
+
+<TO> are a people of southern <PO_NElocation_NEcountry>
+#correct: 9
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmineral> )?[^<]*?of <PO> #
+#correct: 9
+#incorrect: 570
+
+<TO> , <PO_NElocation_NEcapital>
+#correct: 8
+#incorrect: 18
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?, <PO> \.
+#correct: 8
+#incorrect: 269
+
+<TO> ' s <PO> has
+#correct: 8
+#incorrect: 9
+
+<TO> : <PO_NElocation>
+#correct: 8
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEperson_NElanguage> )?[^<]*?, <PO> ,
+#correct: 8
+#incorrect: 530
+
+<TO> [^<]*?(?:<NElocation> )?, <PO> and
+#correct: 8
+#incorrect: 386
+
+<PO_NElocation_NEperson_NEcapital> , <TO>
+#correct: 8
+#incorrect: 30
+
+<TO> [^<]*?(?:<NElocation_NEacronym> )?, <PO> \.
+#correct: 8
+#incorrect: 267
+
+<TO> [^<]*?, <PO> ,
+#correct: 8
+#incorrect: 520
+
+<TO> <NEorganization> was raised in both <NElocation> and <NElocation_NEperson> , <PO_NElocation_NEstate>
+#correct: 8
+#incorrect: 0
+
+, <PO> , [^<]*?<TO>
+#correct: 8
+#incorrect: 664
+
+<TO> [^<]*?(?:<NElocation_NEperson> )?, <PO> \.
+#correct: 8
+#incorrect: 272
+
+<TO> [^<]*?the <PO> <NEsport>
+#correct: 8
+#incorrect: 20
+
+<TO> [^<]*?s <PO> testified
+#correct: 8
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?(?:<NEcountry_NEethnicGroup> )?[^<]*?(?:<NElocation_NEcountry> )?, <PO> and
+#correct: 8
+#incorrect: 396
+
+<TO> [^<]*?s <PO> has
+#correct: 8
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEcountry_NEethnicGroup> )?[^<]*?(?:<NElocation_NEcountry> )?, <PO> and
+#correct: 8
+#incorrect: 395
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?, <PO> and
+#correct: 8
+#incorrect: 399
+
+<TO> : <PO_NElocation_NEperson>
+#correct: 8
+#incorrect: 26
+
+<TO> [^<]*?(?:<NElocation_NEstate> )?, <PO> and
+#correct: 8
+#incorrect: 386
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation> )?, <PO> \.
+#correct: 8
+#incorrect: 271
+
+<TO> ' s <PO> testified
+#correct: 8
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEperson> )?, <PO> ,
+#correct: 8
+#incorrect: 530
+
+<PO_NElocation_NEstate> , <TO>
+#correct: 8
+#incorrect: 8
+
+<TO> [^<]*?(?:<NElocation> )?, <PO> \.
+#correct: 8
+#incorrect: 266
+
+<TO> , <PO_NElocation_NEcountry>
+#correct: 8
+#incorrect: 18
+
+<TO> , <PO_NElocation_NEstate>
+#correct: 8
+#incorrect: 18
+
+to <PO> to [^<]*?<TO>
+#correct: 8
+#incorrect: 24
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?, <PO> and
+#correct: 8
+#incorrect: 390
+
+<TO> ' s <PO> again
+#correct: 7
+#incorrect: 5
+
+# <PO> \( (?:<NEacronym> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 109
+
+<TO> in <PO> and
+#correct: 7
+#incorrect: 26
+
+<TO> [^<]*?in <PO> is
+#correct: 7
+#incorrect: 19
+
+<TO> are a <NEethnicGroup> people of southern <PO> and
+#correct: 7
+#incorrect: 0
+
+<TO> ' s <PO> is
+#correct: 7
+#incorrect: 19
+
+<TO> <NEorganization> was raised in both <NElocation> and <NElocation_NEperson> , <PO> #
+#correct: 7
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEorganization> )?<PO_NEorganization>
+#correct: 7
+#incorrect: 233
+
+<TO> [^<]*?(?:<NElocation_NEperson_NEriver_NEwater> )?[^<]*?(?:<NElocation> )?[^<]*?<PO_NEorganization>
+#correct: 7
+#incorrect: 258
+
+<TO> [^<]*?" <PO> "
+#correct: 7
+#incorrect: 121
+
+<TO> are a <NEethnicGroup> people of southern <PO_NElocation_NEcountry>
+#correct: 7
+#incorrect: 0
+
+<TO> : burgertime in <PO> \.
+#correct: 7
+#incorrect: 2
+
+<TO> returned to his <PO> a
+#correct: 7
+#incorrect: 2
+
+<TO> [^<]*?s <PO> is
+#correct: 7
+#incorrect: 19
+
+<TO> [^<]*?s <PO> again
+#correct: 7
+#incorrect: 5
+
+<TO> [^<]*?<PO_NEorganization>
+#correct: 7
+#incorrect: 233
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?<PO_NEorganization>
+#correct: 7
+#incorrect: 236
+
+<TO> - <PO_NElocation_NEcapital>
+#correct: 6
+#incorrect: 25
+
+<PO_NElocation_NEcountry> , the <TO>
+#correct: 6
+#incorrect: 5
+
+in <PO> \( [^<]*?<TO>
+#correct: 6
+#incorrect: 6
+
+<TO> ' s motorcade leaves <PO> in
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?his <PO> \.
+#correct: 6
+#incorrect: 14
+
+<TO> [^<]*?(?:<NEdisease_NEzodiacSign> )?[^<]*?his <PO> ,
+#correct: 6
+#incorrect: 21
+
+<TO> [^<]*?(?:<NEweekday> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?his <PO> \.
+#correct: 6
+#incorrect: 14
+
+<TO> : <PO> n
+#correct: 6
+#incorrect: 18
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?neighboring <PO> #
+#correct: 6
+#incorrect: 4
+
+in <PO> , by <TO>
+#correct: 6
+#incorrect: 0
+
+of <PO> , <TO>
+#correct: 6
+#incorrect: 66
+
+<TO> [^<]*?lived [^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEstate>
+#correct: 6
+#incorrect: 13
+
+<TO> [^<]*?leaves <PO> in
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEcolor> )?[^<]*?(?:<NEnumber> )?[^<]*?his <PO> in
+#correct: 6
+#incorrect: 11
+
+<TO> [^<]*?lived (?:<NEduration> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 6
+#incorrect: 15
+
+<TO> [^<]*?(?:<NEacronym> )?<NEacronym> <PO> <NEacronym>
+#correct: 6
+#incorrect: 65
+
+<TO> , the natives who are called <NEethnicGroup> in neighboring <PO> #
+#correct: 6
+#incorrect: 4
+
+<TO> ' s headquarters in <PO> #
+#correct: 6
+#incorrect: 0
+
+<TO> , and the interactive world of <PO> #
+#correct: 6
+#incorrect: 4
+
+# <PO> \( [^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmilitaryRank_NEprofession> )?<TO>
+#correct: 6
+#incorrect: 79
+
+<TO> [^<]*?s <PO> and
+#correct: 6
+#incorrect: 56
+
+<PO_NElocation_NEcapital> , the <TO>
+#correct: 6
+#incorrect: 3
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?his <PO> \.
+#correct: 6
+#incorrect: 15
+
+<TO> <PO_NElocation_NEstate>
+#correct: 6
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?<PO_NEorganization_NEeducationalInstitution>
+#correct: 6
+#incorrect: 247
+
+<TO> [^<]*?<PO_NEperson>
+#correct: 6
+#incorrect: 280
+
+to <PO> , to <TO>
+#correct: 6
+#incorrect: 0
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 117
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?(?:<NElanguage> )?(?:<NEprofession> )?[^<]*?living [^<]*?<PO_NElocation_NEcountry>
+#correct: 6
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEweekday> )?[^<]*?(?:<NEmoney> )?[^<]*?(?:<NEmoney> )?[^<]*?(?:<NEnumber> )?[^<]*?his <PO> \.
+#correct: 6
+#incorrect: 14
+
+<TO> of <NElocation_NEcountry> , <PO_NElocation_NEstate>
+#correct: 6
+#incorrect: 2
+
+<TO> [^<]*?s <PO> home
+#correct: 6
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?(?:<NElanguage> )?(?:<NEprofession> )?[^<]*?living in <PO> ,
+#correct: 6
+#incorrect: 0
+
+<TO> of <PO> \.
+#correct: 6
+#incorrect: 18
+
+<TO> [^<]*?virtual <PO> \.
+#correct: 6
+#incorrect: 3
+
+<TO> [^<]*?his <PO> to
+#correct: 6
+#incorrect: 25
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NErelation> )?[^<]*?his <PO> in
+#correct: 6
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEacronym> )?in <PO> cheats
+#correct: 6
+#incorrect: 8
+
+<TO> of <NElocation> , <PO_NElocation_NEcountry>
+#correct: 6
+#incorrect: 2
+
+<TO> ' s <PO> yesterday
+#correct: 6
+#incorrect: 5
+
+<TO> [^<]*?s <PO> yesterday
+#correct: 6
+#incorrect: 5
+
+<PO_NEorganization_NEperson> [^<]*?<TO>
+#correct: 5
+#incorrect: 343
+
+<TO> world of <PO_NElocation_NEcapital>
+#correct: 5
+#incorrect: 8
+
+southern <PO> and [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?(?:<NEstyle> )?<TO>
+#correct: 5
+#incorrect: 2
+
+of <PO> the [^<]*?<TO>
+#correct: 5
+#incorrect: 241
+
+leaving <PO> : the <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?s <PO> to
+#correct: 5
+#incorrect: 46
+
+on <PO> , and <TO>
+#correct: 5
+#incorrect: 1
+
+on <PO> , [^<]*?<TO>
+#correct: 5
+#incorrect: 130
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?his <PO> ,
+#correct: 5
+#incorrect: 23
+
+<PO_NElocation_NEcapital> [^<]*?home [^<]*?(?:<NElocation> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEacronym> )?: <PO> \.
+#correct: 5
+#incorrect: 116
+
+<TO> [^<]*?lived [^<]*?<PO_NElocation_NEcountry>
+#correct: 5
+#incorrect: 13
+
+<TO> [^<]*?his <PO> ,
+#correct: 5
+#incorrect: 21
+
+<TO> <PO> <NEeducationalInstitution>
+#correct: 5
+#incorrect: 9
+
+<TO> [^<]*?s <PO> <NEfirstName>
+#correct: 5
+#incorrect: 14
+
+<TO> ' s <PO> and
+#correct: 5
+#incorrect: 48
+
+round <PO> - <TO>
+#correct: 5
+#incorrect: 0
+
+<PO_NElocation_NEcapital> : the <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> : big trouble in <PO> \.
+#correct: 5
+#incorrect: 1
+
+<TO> lived (?:<NEstate> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 5
+#incorrect: 3
+
+<TO> <PO_NElocation_NEcountry>
+#correct: 5
+#incorrect: 3
+
+his <PO> , <TO>
+#correct: 5
+#incorrect: 17
+
+<TO> (?:<NEfrequency> )?(?:<NEfirstName> )?[^<]*?southern <PO> ,
+#correct: 5
+#incorrect: 14
+
+<PO_NElocation_NEcapital> , and <TO>
+#correct: 5
+#incorrect: 1
+
+<TO> live [^<]*?<PO_NElocation_NEstate>
+#correct: 5
+#incorrect: 5
+
+<TO> [^<]*?in <PO> <NEnumber>
+#correct: 5
+#incorrect: 43
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?his <PO> in
+#correct: 5
+#incorrect: 11
+
+<TO> - <PO_NEacronym_NEcapital>
+#correct: 5
+#incorrect: 8
+
+<TO> live [^<]*?<PO_NElocation>
+#correct: 5
+#incorrect: 5
+
+<TO> world of <PO_NEcapital>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?: <PO> \.
+#correct: 5
+#incorrect: 111
+
+<TO> live [^<]*?<PO_NElocation_NEcapital>
+#correct: 5
+#incorrect: 5
+
+of <PO> " [^<]*?<TO>
+#correct: 5
+#incorrect: 44
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEreligion> )?[^<]*?his <PO> ,
+#correct: 5
+#incorrect: 23
+
+leaving <PO> : [^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+<TO> - <PO_NEcapital>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?southern <PO> ,
+#correct: 5
+#incorrect: 14
+
+<PO_NElocation_NEcapital> [^<]*?home [^<]*?(?:<NEreligion> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?at <PO> ,
+#correct: 5
+#incorrect: 63
+
+in <PO> \) [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 15
+
+in <PO> , close to <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?southern <PO> #
+#correct: 5
+#incorrect: 35
+
+<TO> [^<]*?in <PO> cheat
+#correct: 5
+#incorrect: 9
+
+# <PO> \( [^<]*?<TO>
+#correct: 5
+#incorrect: 76
+
+<TO> ' s <PO> <NEfirstName>
+#correct: 5
+#incorrect: 12
+
+<TO> ' s <PO> office
+#correct: 5
+#incorrect: 2
+
+<PO_NElocation_NEstate> , close to <TO>
+#correct: 5
+#incorrect: 0
+
+to <PO> - (?:<NElanguage> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 12
+
+<TO> : <PO> '
+#correct: 5
+#incorrect: 13
+
+<TO> , <PO> ,
+#correct: 5
+#incorrect: 325
+
+<TO> [^<]*?lived [^<]*?<PO_NElocation_NEstate>
+#correct: 5
+#incorrect: 14
+
+<PO_NEcapital> - <TO>
+#correct: 5
+#incorrect: 1
+
+<TO> [^<]*?s <PO> office
+#correct: 5
+#incorrect: 2
+
+<TO> [^<]*?s <PO> shut
+#correct: 4
+#incorrect: 7
+
+<TO> live in <PO_NElocation_NEcapital>
+#correct: 4
+#incorrect: 2
+
+from <PO> , (?:<NEcountry_NEethnicGroup> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 23
+
+# <PO> <NEorganization> of real <TO>
+#correct: 4
+#incorrect: 0
+
+through <PO> in the " best <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> of <NElocation_NEcountry> , <PO> ,
+#correct: 4
+#incorrect: 9
+
+<TO> [^<]*?in <PO> cheats
+#correct: 4
+#incorrect: 6
+
+<TO> ' s <PO> shut
+#correct: 4
+#incorrect: 7
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 4
+#incorrect: 364
+
+<TO> : songs in the key of <PO_NEcapital>
+#correct: 4
+#incorrect: 0
+
+<TO> in <NElocation_NEriver_NEwater> , <PO_NElocation_NEstate>
+#correct: 4
+#incorrect: 2
+
+in <PO> , <TO>
+#correct: 4
+#incorrect: 48
+
+<TO> - <PO> <NEacronym>
+#correct: 4
+#incorrect: 23
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?of <PO> \(
+#correct: 4
+#incorrect: 31
+
+<TO> and <NEperson> , recent graduates of the <NEorganization> , have just landed jobs at the local <NEstyle> quarry in <PO> #
+#correct: 4
+#incorrect: 0
+
+<TO> , and the interactive world of <PO> \.
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?neighboring <PO> \.
+#correct: 4
+#incorrect: 0
+
+<TO> ' s <PO> home
+#correct: 4
+#incorrect: 5
+
+<PO_NEcapital> <TO>
+#correct: 4
+#incorrect: 2
+
+<TO> - <PO> <NEacronym_NEcountry_NEriver_NEwater>
+#correct: 4
+#incorrect: 29
+
+<TO> : <PO> <NEacronym>
+#correct: 4
+#incorrect: 38
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?city [^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 4
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?from <PO> ,
+#correct: 4
+#incorrect: 21
+
+<TO> <PO> bedlam
+#correct: 4
+#incorrect: 0
+
+<PO_NElocation_NEcapital> [^<]*?home [^<]*?<TO>
+#correct: 4
+#incorrect: 1
+
+through <PO> in [^<]*?<TO>
+#correct: 4
+#incorrect: 1
+
+<PO_NElocation_NEcountry> [^<]*?home [^<]*?<TO>
+#correct: 4
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEacronym> )?in <PO> trailers
+#correct: 4
+#incorrect: 5
+
+<TO> , the natives who are called <NEethnicGroup> in neighboring <PO> \.
+#correct: 4
+#incorrect: 0
+
+# <PO> \( the <TO>
+#correct: 4
+#incorrect: 7
+
+<TO> [^<]*?in <PO> to
+#correct: 4
+#incorrect: 55
+
+<TO> [^<]*?s <PO> for
+#correct: 4
+#incorrect: 16
+
+<TO> \( people \) , group of related <NEethnicGroup> peoples of the <NElanguage> <NEprofession> stock , living in <PO> ,
+#correct: 4
+#incorrect: 0
+
+<TO> ' s <PO> for
+#correct: 4
+#incorrect: 14
+
+<PO_NElocation> [^<]*?home [^<]*?<TO>
+#correct: 4
+#incorrect: 1
+
+<TO> [^<]*?home in <PO> \.
+#correct: 4
+#incorrect: 1
+
+<PO_NElocation_NEcapital> in the " best <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> : songs in the key of <PO_NElocation_NEcapital>
+#correct: 4
+#incorrect: 0
+
+<TO> : <PO> connection
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?of <PO> -
+#correct: 4
+#incorrect: 20
+
+<TO> the <PO> <NEsport>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEstyle> )?(?:<NEriver_NEwater> )?[^<]*?town of <PO> they
+#correct: 4
+#incorrect: 0
+
+<TO> : virtual <PO> \.
+#correct: 4
+#incorrect: 3
+
+<TO> [^<]*?- <PO> <NEsport>
+#correct: 4
+#incorrect: 6
+
+<TO> ' " <PO_NEcapital>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?to <PO> ,
+#correct: 4
+#incorrect: 83
+
+<TO> total about <NEnumber> people in <NElocation_NEcountry> , <PO_NElocation_NEstate>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?his <PO> after
+#correct: 4
+#incorrect: 14
+
+<TO> : big trouble in <PO> \(
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?in <PO> the
+#correct: 4
+#incorrect: 90
+
+<TO> [^<]*?southern <PO> ,
+#correct: 4
+#incorrect: 14
+
+<TO> : <PO> \.
+#correct: 4
+#incorrect: 90
+
+# <PO> <NEorganization> [^<]*?<TO>
+#correct: 4
+#incorrect: 116
+
+<TO> \( people \) , group of related <NEethnicGroup> peoples of the <NElanguage> <NEprofession> stock , living in <PO_NElocation_NEcountry>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?s <PO> raided
+#correct: 4
+#incorrect: 1
+
+<TO> in <NElocation_NEcountry> , <PO_NElocation_NEstate>
+#correct: 4
+#incorrect: 4
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?town [^<]*?<PO_NElocation_NEcapital>
+#correct: 4
+#incorrect: 0
+
+<TO> , the : <PO> <NEsport>
+#correct: 4
+#incorrect: 0
+
+of <PO> collects [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<TO> ' s <PO> raided
+#correct: 4
+#incorrect: 1
+
+<TO> : <PO> <NEacronym_NEcountry_NEriver_NEwater>
+#correct: 4
+#incorrect: 42
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?landed [^<]*?(?:<NEstyle> )?[^<]*?in <PO> #
+#correct: 4
+#incorrect: 0
+
+<TO> in <NElocation_NEcountry> , <PO_NElocation_NEcountry>
+#correct: 4
+#incorrect: 4
+
+<TO> [^<]*?(?:<NErelation> )?[^<]*?in <PO> for
+#correct: 4
+#incorrect: 22
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?his <PO> in
+#correct: 4
+#incorrect: 11
+
+<TO> [^<]*?at <PO> ,
+#correct: 4
+#incorrect: 61
+
+<TO> lived [^<]*?(?:<NEstyle> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 4
+#incorrect: 3
+
+<TO> live in <PO_NElocation>
+#correct: 4
+#incorrect: 2
+
+<TO> total about <NEnumber> people in <NElocation_NEcountry> , <PO> ,
+#correct: 4
+#incorrect: 0
+
+<TO> live in <PO_NElocation_NEstate>
+#correct: 4
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?to <PO> \.
+#correct: 4
+#incorrect: 82
+
+<TO> in <NElocation> , <PO_NElocation_NEcountry>
+#correct: 4
+#incorrect: 2
+
+<TO> in <PO> \.
+#correct: 4
+#incorrect: 28
+
+in <PO> \) [^<]*?<TO>
+#correct: 4
+#incorrect: 14
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?his <PO> in
+#correct: 4
+#incorrect: 13
+
+<TO> ' " <PO> "
+#correct: 4
+#incorrect: 2
+
+from <PO> and (?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 21
+
+<TO> world of <PO_NElocation>
+#correct: 3
+#incorrect: 8
+
+<PO_NEperson> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?(?:<NEprofession> )?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 213
+
+<TO> in <NElocation_NEcontinent> and <PO_NElocation_NEcountry>
+#correct: 3
+#incorrect: 2
+
+<TO> : burgertime in <PO> cheat
+#correct: 3
+#incorrect: 2
+
+<TO> [^<]*?s <PO> as
+#correct: 3
+#incorrect: 7
+
+<TO> <NEethnicGroup> from point <NElocation> , <PO_NElocation_NEstate>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?southern <PO> \.
+#correct: 3
+#incorrect: 3
+
+<TO> the - <PO> <NEsport>
+#correct: 3
+#incorrect: 0
+
+<TO> / world of <PO> playset
+#correct: 3
+#incorrect: 0
+
+<TO> : big trouble in <PO> trailers
+#correct: 3
+#incorrect: 1
+
+<TO> - <PO> '
+#correct: 3
+#incorrect: 8
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?southern <PO> \.
+#correct: 3
+#incorrect: 3
+
+<TO> [^<]*?live in <PO> ,
+#correct: 3
+#incorrect: 5
+
+<TO> in <PO> ,
+#correct: 3
+#incorrect: 62
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?the <PO> files
+#correct: 3
+#incorrect: 1
+
+<TO> [^<]*?in <PO> for
+#correct: 3
+#incorrect: 22
+
+to <PO> where [^<]*?<TO>
+#correct: 3
+#incorrect: 8
+
+<PO_NElocation_NEstate> , and portrayed <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?live in <PO> \.
+#correct: 3
+#incorrect: 5
+
+<TO> [^<]*?from <PO> -
+#correct: 3
+#incorrect: 6
+
+<TO> (?:<NEprofession> )?to <PO> \.
+#correct: 3
+#incorrect: 15
+
+<TO> [^<]*?s <PO> "
+#correct: 3
+#incorrect: 17
+
+<TO> [^<]*?of <PO> playset
+#correct: 3
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?his <PO> on
+#correct: 3
+#incorrect: 9
+
+<PO_NElocation_NEcapital> - <NElanguage> for your favourite <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> - babe in <PO> \(
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?and <PO> \.
+#correct: 3
+#incorrect: 155
+
+<TO> has not left his <PO> for
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEweekday> )?[^<]*?(?:<NEdisease_NEzodiacSign> )?[^<]*?his <PO> #
+#correct: 3
+#incorrect: 104
+
+<TO> [^<]*?a <PO> limited
+#correct: 3
+#incorrect: 0
+
+to <PO> - [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 12
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NEorganization> )?[^<]*?his <PO> #
+#correct: 3
+#incorrect: 106
+
+<TO> from <PO_NElocation>
+#correct: 3
+#incorrect: 8
+
+of <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 21
+
+<TO> [^<]*?his <PO> in
+#correct: 3
+#incorrect: 11
+
+<TO> [^<]*?in <PO> on
+#correct: 3
+#incorrect: 26
+
+<PO_NElocation_NEcapital> collects music and dialogue from the <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> has secretly sold his <PO> for
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?to <PO> \.
+#correct: 3
+#incorrect: 80
+
+<TO> : music from <PO> -
+#correct: 3
+#incorrect: 0
+
+<TO> from <NElocation_NEcountry> , <PO> ,
+#correct: 3
+#incorrect: 2
+
+to <PO> , home [^<]*?(?:<NElocation> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?<NEprofession> <PO> #
+#correct: 3
+#incorrect: 223
+
+<TO> ' <PO> to
+#correct: 3
+#incorrect: 52
+
+<TO> - a <NEethnicGroup> people of southern <PO_NElocation_NEcountry>
+#correct: 3
+#incorrect: 0
+
+<PO_NElocation_NEcapital> , and the signature humor of the <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?from <PO> ,
+#correct: 3
+#incorrect: 19
+
+<TO> lived [^<]*?(?:<NEnumber> )?(?:<NEacronym> )?[^<]*?(?:<NEcountry> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 3
+#incorrect: 5
+
+in <PO> and (?:<NEorganization> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 27
+
+<TO> ' s <PO> studio
+#correct: 3
+#incorrect: 0
+
+from <PO> , and portrayed <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?and <PO> \.
+#correct: 3
+#incorrect: 155
+
+<TO> : pebbles , <NEperson> in <PO> \(
+#correct: 3
+#incorrect: 0
+
+<TO> ' s <PO> as
+#correct: 3
+#incorrect: 7
+
+: <PO> investigators [^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+southern <PO> and northern <NElocation_NEcontinent> \. the <NEstyle> <TO>
+#correct: 3
+#incorrect: 0
+
+southern <PO> , [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+called <PO> \( the <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> - a <NEethnicGroup> people of southern <PO> and
+#correct: 3
+#incorrect: 0
+
+<TO> ' <PO> \.
+#correct: 3
+#incorrect: 130
+
+<TO> : world of <PO_NElocation_NEcapital>
+#correct: 3
+#incorrect: 2
+
+<TO> in <PO> '
+#correct: 3
+#incorrect: 3
+
+<TO> [^<]*?of <PO> <NEacronym>
+#correct: 3
+#incorrect: 21
+
+<TO> who lived <NEduration> ago in the rain <NEprofession> of <NElocation_NEcountry> , <NElocation_NEcountry> , <PO_NElocation_NEcountry>
+#correct: 3
+#incorrect: 0
+
+<TO> songs in the key of <PO_NElocation_NEcapital>
+#correct: 3
+#incorrect: 0
+
+<TO> from <PO_NElocation_NEcountry>
+#correct: 3
+#incorrect: 8
+
+<TO> ' <PO> is
+#correct: 3
+#incorrect: 25
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?town of <PO> \.
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEcountry> )?[^<]*?(?:<NEcountry> )?[^<]*?and <PO> \.
+#correct: 3
+#incorrect: 157
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?of <PO> in
+#correct: 3
+#incorrect: 67
+
+<TO> from <NElocation_NEriver_NEwater> , <PO_NElocation_NEstate>
+#correct: 3
+#incorrect: 1
+
+of <PO> , and the signature humor of the <TO>
+#correct: 3
+#incorrect: 0
+
+in <PO> and [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 27
+
+<TO> from <PO_NElocation_NEstate>
+#correct: 3
+#incorrect: 8
+
+called <PO> \( [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<TO> nearly \$ <NEnumber> and ordered employees at the pop star ' s <PO> to
+#correct: 3
+#incorrect: 0
+
+<TO> <PO> edition
+#correct: 3
+#incorrect: 8
+
+<TO> [^<]*?of <PO> \(
+#correct: 3
+#incorrect: 31
+
+to <PO> - <NElanguage> for your favourite <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?on <PO> \.
+#correct: 3
+#incorrect: 53
+
+<TO> [^<]*?s <PO> after
+#correct: 3
+#incorrect: 7
+
+<TO> in <NElocation_NEcountry> , <PO> and
+#correct: 3
+#incorrect: 5
+
+<TO> <NEethnicGroup> from point <NElocation> , <PO> \.
+#correct: 3
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?[^<]*?of <PO> \)
+#correct: 3
+#incorrect: 13
+
+<TO> of northern <NElocation_NEcontinent> and southern <PO_NElocation_NEcountry>
+#correct: 3
+#incorrect: 0
+
+<TO> : <PO> bedlam
+#correct: 3
+#incorrect: 0
+
+<TO> ' s <PO> "
+#correct: 3
+#incorrect: 16
+
+<TO> from <NElocation_NEriver_NEwater> , <PO> ,
+#correct: 3
+#incorrect: 2
+
+<TO> on <NEweekday> of molesting a <NEnumber> - year - old <NEdisease_NEzodiacSign> survivor at his <PO> ,
+#correct: 3
+#incorrect: 0
+
+<TO> sites in <PO_NElocation_NEcountry>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEacronym> )?<NEacronym> <PO> <NEacronym>
+#correct: 3
+#incorrect: 68
+
+<PO_NElocation_NEstate> the <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> (?:<NEfirstName> )?[^<]*?his <PO> in
+#correct: 3
+#incorrect: 13
+
+<TO> [^<]*?southern <PO> #
+#correct: 3
+#incorrect: 30
+
+from <PO> , [^<]*?<TO>
+#correct: 3
+#incorrect: 22
+
+<TO> [^<]*?(?:<NElanguage_NEethnicGroup> )?of <PO> are
+#correct: 3
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?city [^<]*?(?:<NElocation> )?, <PO> \.
+#correct: 3
+#incorrect: 3
+
+<TO> in <NElocation> , <PO> and
+#correct: 3
+#incorrect: 3
+
+<TO> [^<]*?her <PO> home
+#correct: 3
+#incorrect: 6
+
+<TO> ' hometown of <PO_NElocation_NEcapital>
+#correct: 3
+#incorrect: 0
+
+<TO> : round <PO_NEcapital>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?to <PO> and
+#correct: 3
+#incorrect: 51
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry_NEethnicGroup> )?and <PO> \.
+#correct: 3
+#incorrect: 167
+
+<TO> [^<]*?s <PO> studio
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?town [^<]*?<PO_NElocation>
+#correct: 3
+#incorrect: 0
+
+<TO> lived [^<]*?<PO_NElocation_NEcountry>
+#correct: 3
+#incorrect: 3
+
+<TO> : world of <PO_NElocation>
+#correct: 3
+#incorrect: 2
+
+<TO> <NEprofession> <PO> hop
+#correct: 3
+#incorrect: 0
+
+of <PO> collects music and dialogue from the <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> <PO> <NEorganization>
+#correct: 3
+#incorrect: 290
+
+<PO_NElocation> the <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> in <NElocation_NEcountry> and <PO_NElocation_NEstate>
+#correct: 3
+#incorrect: 2
+
+<TO> from <NElocation_NEcountry> , <PO_NElocation_NEstate>
+#correct: 3
+#incorrect: 1
+
+<PO_NElocation_NEcountry> and northern <NElocation_NEcontinent> \. the <NEstyle> <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> is set in the fictional <NElocation_NEcountry> town of <PO_NElocation_NEcapital>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?in <PO> trailers
+#correct: 3
+#incorrect: 4
+
+<PO_NEperson> [^<]*?<TO>
+#correct: 3
+#incorrect: 195
+
+# <PO> collectibles [^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+<TO> ' s <PO> after
+#correct: 3
+#incorrect: 7
+
+<TO> has shut down his <PO> for
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?from <PO> \.
+#correct: 3
+#incorrect: 37
+
+<TO> <NEprofession> to <PO> \.
+#correct: 3
+#incorrect: 2
+
+<TO> who lived <NEduration> ago in the rain <NEprofession> of <NElocation_NEcountry> , <NElocation_NEcountry> , <PO> ,
+#correct: 3
+#incorrect: 0
+
+<TO> / world of <PO_NElocation_NEcapital>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?state [^<]*?<PO_NElocation>
+#correct: 2
+#incorrect: 2
+
+<TO> , the : big trouble in <PO> \(
+#correct: 2
+#incorrect: 0
+
+<TO> lived (?:<NEstate> )?[^<]*?of <PO> and
+#correct: 2
+#incorrect: 1
+
+<TO> : burgertime in <PO> cheats
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?about <PO> ,
+#correct: 2
+#incorrect: 11
+
+<TO> ' <PO> <NEsport>
+#correct: 2
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?city [^<]*?<PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 11
+
+<TO> [^<]*?(?:<NElocation> )?, <PO> \)
+#correct: 2
+#incorrect: 22
+
+<TO> <PO> <NEstyle>
+#correct: 2
+#incorrect: 96
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEperson> )?[^<]*?of <PO> '
+#correct: 2
+#incorrect: 29
+
+# <PO> video [^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+<TO> (?:<NEprofession> )?to <PO> is
+#correct: 2
+#incorrect: 2
+
+<PO_NElocation_NEstate> federal prison where <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?of <PO> is
+#correct: 2
+#incorrect: 17
+
+<TO> [^<]*?(?:<NEweekday> )?[^<]*?(?:<NEnumber> )?[^<]*?from <PO> #
+#correct: 2
+#incorrect: 107
+
+<PO_NEcapital> \( where <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> lived <NEstate> in parts of <PO_NElocation_NEcountry>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?round <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?, <PO> weddings
+#correct: 2
+#incorrect: 0
+
+<TO> : burgertime in <PO> on
+#correct: 2
+#incorrect: 0
+
+<TO> family limited partnership , a <PO> limited
+#correct: 2
+#incorrect: 0
+
+<TO> big trouble in <PO> gba
+#correct: 2
+#incorrect: 0
+
+<TO> : <NEacronym> <NEacronym> <PO_NEacronym_NEcapital>
+#correct: 2
+#incorrect: 2
+
+<TO> ' s <PO> looks
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?when <PO> <NEreligion>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation_NEstate> , not far from one of <TO>
+#correct: 2
+#incorrect: 0
+
+, <PO> -- [^<]*?<TO>
+#correct: 2
+#incorrect: 14
+
+, <PO> \( [^<]*?<TO>
+#correct: 2
+#incorrect: 28
+
+and <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 156
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson_NEfirstName> )?[^<]*?all <PO> characters
+#correct: 2
+#incorrect: 4
+
+<TO> wallpaper featuring famed <PO_NEperson>
+#correct: 2
+#incorrect: 0
+
+of <PO> where [^<]*?<TO>
+#correct: 2
+#incorrect: 6
+
+of <PO> and the wider <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> story line <NEfirstName> focus on what happens when <PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> and " go simpsonic with the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> <PO> speedway
+#correct: 2
+#incorrect: 0
+
+<TO> ' s minions would be advised to skip this one , but anyone who thinks the <PO> #
+#correct: 2
+#incorrect: 0
+
+, <PO> to [^<]*?<TO>
+#correct: 2
+#incorrect: 97
+
+<TO> > <PO_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> : virtual <PO> for
+#correct: 2
+#incorrect: 1
+
+to <PO> <NEnumber> [^<]*?(?:<NEtemperature> )?(?:<NEnumber> )?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 18
+
+<TO> has closed down the house on his <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> : <PO> hillbillies
+#correct: 2
+#incorrect: 0
+
+<TO> in siberia , <NElocation_NEcountry> and <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+, <PO> , last year , she talked about her <NEprofession> to the magazine , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEweekday> )?[^<]*?his <PO> #
+#correct: 2
+#incorrect: 103
+
+like <PO> ' s <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , <NElanguage_NEethnicGroup> , and <NElanguage_NEethnicGroup> peoples native to <PO> and
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation_NEcapital> - the <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEorganization> [^<]*?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 159
+
+<PO_NElocation_NEcapital> , and the <TO>
+#correct: 2
+#incorrect: 3
+
+<TO> was picked up at her home in <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> > <PO> #
+#correct: 2
+#incorrect: 7
+
+<PO_NElocation_NEstate> \( the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> character \) and drive their car around <PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> , songs in the key of <PO_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?to <PO> ,
+#correct: 2
+#incorrect: 83
+
+<TO> still live in <PO_NElocation_NEcountry>
+#correct: 2
+#incorrect: 0
+
+<TO> : <NEacronym> <NEacronym> <PO> <NEacronym>
+#correct: 2
+#incorrect: 1
+
+<TO> : <NEacronym> in <PO> \(
+#correct: 2
+#incorrect: 0
+
+<TO> : world of <PO> environment
+#correct: 2
+#incorrect: 0
+
+<TO> ' s <NEdate_NEyear_NEnumber> farmhouse in <NElocation> , <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> , <NElanguage_NEethnicGroup> , and <NElanguage_NEethnicGroup> peoples native to <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> people of <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+in <PO> , the <TO>
+#correct: 2
+#incorrect: 18
+
+<TO> is expected to serve her sentence at a facility in either danbury , <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?in <PO> resource
+#correct: 2
+#incorrect: 1
+
+<TO> s <PO> home
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?of <PO> series
+#correct: 2
+#incorrect: 6
+
+<TO> [^<]*?in <PO> gba
+#correct: 2
+#incorrect: 0
+
+: <PO> investigators discover real corpse of <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> - <NEnumber> short films about <PO> ,
+#correct: 2
+#incorrect: 0
+
+<PO_NEcapital> the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> tribes in <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?in <PO> opening
+#correct: 2
+#incorrect: 0
+
+<TO> , songs in the key of <PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> lived around <NEnumber> <NEacronym> in what is now <NEcountry> and the yucatan in <PO_NElocation_NEcountry>
+#correct: 2
+#incorrect: 0
+
+<TO> lived <NEstate> in parts of <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> is a fancy - pants part - time resident of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> <PO> lanes
+#correct: 2
+#incorrect: 0
+
+, <PO> , <NEacronym_NEsport> <TO>
+#correct: 2
+#incorrect: 3
+
+<TO> [^<]*?to <PO> !
+#correct: 2
+#incorrect: 4
+
+in <PO> ' [^<]*?<TO>
+#correct: 2
+#incorrect: 21
+
+<TO> - <NEacronym> , <PO_NEacronym_NEcapital>
+#correct: 2
+#incorrect: 0
+
+western <PO> the <TO>
+#correct: 2
+#incorrect: 2
+
+<TO> when you come to <PO> !
+#correct: 2
+#incorrect: 0
+
+<TO> in the <NElocation> area of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> they ' re a <NEstyle> <NEriver_NEwater> age family from the town of <PO> they
+#correct: 2
+#incorrect: 0
+
+<TO> in <NEcountry_NEethnicGroup> , <NElocation_NEcountry> , <NElocation_NEcountry> and <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> <PO_NEstate>
+#correct: 2
+#incorrect: 5
+
+<TO> city [^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation_NEcountry>
+#correct: 2
+#incorrect: 1
+
+<TO> ' s <PO> with
+#correct: 2
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEperson> )?from <PO> \(
+#correct: 2
+#incorrect: 2
+
+<TO> is set in the fictional <NElocation_NEcountry> town of <PO> #
+#correct: 2
+#incorrect: 1
+
+<TO> : <NEacronym> in <PO> \.
+#correct: 2
+#incorrect: 1
+
+<TO> and the <NElanguage_NEethnicGroup> of <PO> are
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation_NEstate> , last year , she talked about her <NEprofession> to the magazine , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?\( <PO> \)
+#correct: 2
+#incorrect: 198
+
+<TO> of <NElocation> until about the end of the <NEorganization> century , <NEduration> after the <NElanguage_NEnationality_NEethnicGroup> conquest of <PO_NElocation_NEcountry>
+#correct: 2
+#incorrect: 0
+
+of <PO> has (?:<NEcapital> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 6
+
+<TO> family limited partnership , a <PO_NElocation_NEorganization_NEstate>
+#correct: 2
+#incorrect: 0
+
+term <PO> natives " includes <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> of <NEcountry_NEethnicGroup> , northern <NElocation_NEcountry> , <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> " my own people " , but if <NEusPresident> decided to gas them in <PO> one
+#correct: 2
+#incorrect: 0
+
+<TO> <NEsport> <NEorganization_NEacronym> viewers through <NElocation> , her <PO> estate
+#correct: 2
+#incorrect: 0
+
+<TO> , that <NEriver_NEwater> age family from the town of <PO> \.
+#correct: 2
+#incorrect: 0
+
+from <PO> : [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+<PO_NElocation_NEcapital> with this <TO>
+#correct: 2
+#incorrect: 0
+
+that <PO> \( [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+: <PO> <NEacronym> the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> - <NEnumber> short films about <PO_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?the <PO> olympics
+#correct: 2
+#incorrect: 0
+
+<TO> in the <NElocation> area of <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?the <PO> files
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?from <PO> and
+#correct: 2
+#incorrect: 20
+
+<TO> : <NEacronym> in <PO> cheats
+#correct: 2
+#incorrect: 2
+
+<TO> \. " leaving <PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> , <NElocation_NEperson> , <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 2
+
+, <PO> : [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 33
+
+<TO> (?:<NEfirstName> )?[^<]*?(?:<NEreligion> )?[^<]*?(?:<NEreligion> )?[^<]*?his <PO> #
+#correct: 2
+#incorrect: 112
+
+<TO> in <NElocation_NEriver_NEwater> , <PO> ,
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?live in <PO> today
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?home in <PO> amid
+#correct: 2
+#incorrect: 0
+
+on <PO> ' s <NElocation> coast , get a closer look at today ' s <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?(?:<NEperson_NEusPresident> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?the <PO> democratic
+#correct: 2
+#incorrect: 0
+
+the <PO> church [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?sell <PO> home
+#correct: 2
+#incorrect: 1
+
+<PO_NEcapital> \( medley \) : the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?s <PO> with
+#correct: 2
+#incorrect: 13
+
+<TO> sexually abused boy at <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> , the pickin ' patch in <NElocation_NEriver_NEwater> , <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?from <PO> \.
+#correct: 2
+#incorrect: 35
+
+<TO> from an offending oil slick while you ' re in <PO> opening
+#correct: 2
+#incorrect: 0
+
+in <PO> \) \* the <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?and <PO> \)
+#correct: 2
+#incorrect: 10
+
+<TO> is a fancy - pants part - time resident of <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> from <NElocation_NEcountry_NEethnicGroup> and <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 1
+
+of <PO> with this <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation_NEstate> where <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?to <PO> from
+#correct: 2
+#incorrect: 5
+
+<TO> was picked up at her home in <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> in <PO> are
+#correct: 2
+#incorrect: 10
+
+<PO_NElocation_NEcapital> : it ' s ' the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> lived around <NEnumber> <NEacronym> in what is now <NEcountry> and the yucatan in <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> sites in <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> - <PO_NElocation>
+#correct: 2
+#incorrect: 25
+
+in <PO> , not far from one of <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> story line <NEfirstName> focus on what happens when <PO> <NEreligion>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation_NEorganization_NEstate> \( " employee " \) , and the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?of <PO> environment
+#correct: 2
+#incorrect: 6
+
+<TO> of <NEcountry_NEethnicGroup> , northern <NElocation_NEcountry> , <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> <PO> snow
+#correct: 2
+#incorrect: 9
+
+<TO> christmas in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> cultures of southern <PO_NElocation_NEcountry>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?his <PO> #
+#correct: 2
+#incorrect: 103
+
+<PO_NElocation_NEcapital> and the wider <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> in a case involving a <NEdisease_NEzodiacSign> - stricken boy invited to the <NEprofession> ' s <PO> #
+#correct: 2
+#incorrect: 0
+
+- <PO> - <TO>
+#correct: 2
+#incorrect: 22
+
+<TO> [^<]*?famed <PO> buddies
+#correct: 2
+#incorrect: 0
+
+<TO> say when he got back to <PO> from
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEusPresident> )?[^<]*?in <PO> one
+#correct: 2
+#incorrect: 3
+
+<TO> went so far as to invite <NEprofession> <NEperson_NEusPresident> to a <NEmonth> <NEdate_NEyear_NEnumber> luncheon to benefit the <PO_NElocation_NEorganization_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> is expected to serve her sentence at a facility in either danbury , <PO> #
+#correct: 2
+#incorrect: 0
+
+to <PO> , home of the <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> ' s <NEdate_NEyear_NEnumber> farmhouse in <NElocation> , <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?his <PO> with
+#correct: 2
+#incorrect: 3
+
+, <PO> federal [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> - songs in the key of <PO> \(
+#correct: 2
+#incorrect: 0
+
+in <PO> and [^<]*?<TO>
+#correct: 2
+#incorrect: 27
+
+# <PO> video arcade , through a doorway hidden behind a jukebox is a secret wine cellar where <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> city [^<]*?(?:<NElocation> )?, <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> win the <PO> olympics
+#correct: 2
+#incorrect: 0
+
+<TO> " <PO_NEcapital>
+#correct: 2
+#incorrect: 1
+
+of <PO> , the <TO>
+#correct: 2
+#incorrect: 17
+
+<TO> [^<]*?of <PO> action
+#correct: 2
+#incorrect: 3
+
+<TO> [^<]*?at <PO> \.
+#correct: 2
+#incorrect: 38
+
+of <PO> was [^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+<TO> bendables <PO> <NEeducationalInstitution>
+#correct: 2
+#incorrect: 0
+
+a <PO> limited (?:<NEacronym> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> weddings , <PO> weddings
+#correct: 2
+#incorrect: 0
+
+<TO> , doesn ' t have idle hands at her home in <PO> amid
+#correct: 2
+#incorrect: 0
+
+<TO> in siberia , <NElocation_NEcountry> and <PO> \)
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEfirstName> )?[^<]*?from <PO> !
+#correct: 2
+#incorrect: 0
+
+<TO> \( <PO> \)
+#correct: 2
+#incorrect: 137
+
+to <PO> - [^<]*?<TO>
+#correct: 2
+#incorrect: 12
+
+<TO> , that <NEriver_NEwater> age family from the town of <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+# <PO> \. [^<]*?<TO>
+#correct: 2
+#incorrect: 131
+
+<TO> closes house on <PO> \.
+#correct: 2
+#incorrect: 0
+
+the <PO> church , the <TO>
+#correct: 2
+#incorrect: 0
+
+that <PO> \( where <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> , <NEcountry> , salvador and <NElocation_NEcountry> searching for the most traditional <TO>
+#correct: 2
+#incorrect: 0
+
+southern <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> " were based in " <PO> "
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?virtual <PO> is
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?sprawling <PO> #
+#correct: 2
+#incorrect: 2
+
+<TO> <NEprofession> to <PO> is
+#correct: 2
+#incorrect: 0
+
+<TO> ' s home in <PO> \.
+#correct: 2
+#incorrect: 1
+
+<TO> - songs in the key of <PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> from an offending oil slick while you ' re in <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation_NEcountry> , <NEcountry> , salvador and <NElocation_NEcountry> searching for the most traditional <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?town of <PO> \.
+#correct: 2
+#incorrect: 0
+
+, <PO> federal prison where <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEcountry_NEethnicGroup> )?and <PO> ,
+#correct: 2
+#incorrect: 128
+
+<TO> \. " leaving <PO> :
+#correct: 2
+#incorrect: 0
+
+<TO> ' s sprawling <PO> #
+#correct: 2
+#incorrect: 1
+
+<TO> in <NEcountry_NEethnicGroup> , <NElocation_NEcountry> , <NElocation_NEcountry> and <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> world of <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEprofession> )?[^<]*?his <PO> estate
+#correct: 2
+#incorrect: 1
+
+features <PO> ' [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEcapital> <NEacronym> the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> and other <PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> ' <PO> in
+#correct: 2
+#incorrect: 125
+
+<TO> " my own people " , but if <NEusPresident> decided to gas them in <PO_NEstate>
+#correct: 2
+#incorrect: 0
+
+in <PO> with [^<]*?(?:<NEscore_NEtime> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 12
+
+<TO> : burgertime in <PO> ,
+#correct: 2
+#incorrect: 1
+
+# <PO> collectibles : collecting all things flintstone , " a featurette with <NEprofession> <NEperson> showing off his <TO>
+#correct: 2
+#incorrect: 0
+
+like <PO> ' [^<]*?<TO>
+#correct: 2
+#incorrect: 6
+
+<PO_NElocation_NEcountry> ' s <NElocation> coast , get a closer look at today ' s <TO>
+#correct: 2
+#incorrect: 0
+
+discovering <PO> : [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> ' s <PO> admitted
+#correct: 2
+#incorrect: 0
+
+<TO> > <PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 0
+
+<TO> : big trouble in <PO> for
+#correct: 2
+#incorrect: 1
+
+<TO> , the pickin ' patch in <NElocation_NEriver_NEwater> , <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> peoples of <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> \( world of <PO> \)
+#correct: 2
+#incorrect: 0
+
+<TO> of <NElocation> until about the end of the <NEorganization> century , <NEduration> after the <NElanguage_NEnationality_NEethnicGroup> conquest of <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> ' s minions would be advised to skip this one , but anyone who thinks the <PO_NEorganization_NEstate>
+#correct: 2
+#incorrect: 0
+
+to <PO> , home [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> in <NElocation_NEcountry> , <PO> ,
+#correct: 2
+#incorrect: 4
+
+of <PO> \( " employee " \) , and the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , <PO> \.
+#correct: 2
+#incorrect: 141
+
+<TO> [^<]*?his <PO> are
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?leaving <PO> :
+#correct: 2
+#incorrect: 0
+
+to <PO> and [^<]*?<TO>
+#correct: 2
+#incorrect: 46
+
+on <PO> ' [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 25
+
+<TO> [^<]*?his <PO> on
+#correct: 2
+#incorrect: 9
+
+<TO> <NEsport> <NEorganization_NEacronym> viewers through <NElocation> , her <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEnationality_NEethnicGroup> )?from <PO> and
+#correct: 2
+#incorrect: 5
+
+term <PO> natives [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> and " go simpsonic with the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> has kept at his <PO> are
+#correct: 2
+#incorrect: 0
+
+<TO> of northern <NElocation_NEcontinent> and southern <PO> #
+#correct: 2
+#incorrect: 1
+
+: <PO> <NEsport> [^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?location [^<]*?(?:<NEperson> )?[^<]*?<PO_NEcapital>
+#correct: 2
+#incorrect: 0
+
+ancient <PO> the <TO>
+#correct: 2
+#incorrect: 6
+
+<TO> : <NEacronym> <NEacronym> <PO_NEacronym>
+#correct: 2
+#incorrect: 2
+
+<TO> - <PO> \.
+#correct: 2
+#incorrect: 55
+
+from <PO> : it ' s ' the <TO>
+#correct: 2
+#incorrect: 0
+
+\. <PO> medley [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> , doesn ' t have idle hands at her home in <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+like <PO> the <TO>
+#correct: 2
+#incorrect: 5
+
+<TO> (?:<NEsport> )?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NElocation> )?[^<]*?her <PO> estate
+#correct: 2
+#incorrect: 2
+
+<TO> went so far as to invite <NEprofession> <NEperson_NEusPresident> to a <NEmonth> <NEdate_NEyear_NEnumber> luncheon to benefit the <PO> democratic
+#correct: 2
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> \( world of <PO_NElocation_NEcapital>
+#correct: 2
+#incorrect: 0
+
+to <PO> <NEacronym_NEcountry_NEriver_NEwater> [^<]*?(?:<NEacronym> )?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 35
+
+<TO> : <PO> is
+#correct: 2
+#incorrect: 12
+
+<TO> [^<]*?live in <PO> because
+#correct: 2
+#incorrect: 0
+
+: <PO> <NEacronym> [^<]*?<TO>
+#correct: 2
+#incorrect: 16
+
+<TO> cultures of southern <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?around <PO> like
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?town of <PO> #
+#correct: 2
+#incorrect: 3
+
+a <PO> limited [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEcapital> church , the <TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> with [^<]*?<TO>
+#correct: 2
+#incorrect: 17
+
+<TO> of northern <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 4
+
+<PO_NEorganization> [^<]*?<TO>
+#correct: 2
+#incorrect: 154
+
+<TO> [^<]*?(?:<NEcountry> )?[^<]*?to <PO> and
+#correct: 2
+#incorrect: 52
+
+<TO> and other <PO> citizens
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?other <PO> citizens
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEcontinent> )?\( <PO> ,
+#correct: 2
+#incorrect: 96
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation> )?, <PO> on
+#correct: 2
+#incorrect: 84
+
+<TO> wallpaper featuring famed <PO> buddies
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?at <PO> city
+#correct: 2
+#incorrect: 1
+
+<TO> ' s " <PO> "
+#correct: 2
+#incorrect: 2
+
+southern <PO> , (?:<NElocation_NEcountry> )?[^<]*?(?:<NEcountry> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEethnicGroup> )?[^<]*?northern <PO> \.
+#correct: 2
+#incorrect: 3
+
+<PO_NEstate> natives " includes <TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> \( [^<]*?<TO>
+#correct: 2
+#incorrect: 21
+
+<TO> - <NEacronym> , <PO> ,
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation_NEstate> ' s <TO>
+#correct: 2
+#incorrect: 5
+
+the <PO> where <TO>
+#correct: 2
+#incorrect: 6
+
+<TO> people of <PO_NElocation_NEcountry>
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEorganization> )?' <PO> ,
+#correct: 2
+#incorrect: 188
+
+<TO> [^<]*?virtual <PO> for
+#correct: 2
+#incorrect: 1
+
+<TO> christmas in <PO> \(
+#correct: 2
+#incorrect: 1
+
+<TO> , <NElocation_NEperson> , <PO> \.
+#correct: 2
+#incorrect: 5
+
+<TO> would like to invite his fans and supporters to his <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> - <PO_NElocation_NEcountry>
+#correct: 2
+#incorrect: 25
+
+<TO> : round <PO> \.
+#correct: 2
+#incorrect: 0
+
+in <PO> \) the <TO>
+#correct: 2
+#incorrect: 4
+
+<TO> world of <PO> series
+#correct: 2
+#incorrect: 0
+
+<TO> character \) and drive their car around <PO> like
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?s <PO> looks
+#correct: 2
+#incorrect: 0
+
+<TO> weddings , <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> bendables <PO_NEcapital>
+#correct: 2
+#incorrect: 0
+
+features <PO> ' s beloved <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> \( <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 1
+
+<TO> (?:<NEdisease> )?[^<]*?virtual <PO> and
+#correct: 2
+#incorrect: 3
+
+the <PO> is [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 27
+
+<TO> [^<]*?on <PO> \.
+#correct: 2
+#incorrect: 51
+
+<TO> and the <NElanguage_NEethnicGroup> of <PO_NElocation_NEstate>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?s <PO> admitted
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?to <PO> and
+#correct: 2
+#incorrect: 53
+
+<TO> are people of southern <PO> #
+#correct: 2
+#incorrect: 10
+
+<TO> : virtual <PO> is
+#correct: 2
+#incorrect: 0
