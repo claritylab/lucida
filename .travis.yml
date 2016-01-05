@@ -4,6 +4,10 @@ compiler: gcc
 
 cache: apt
 
+sudo: true
+
+dist: trusty
+
 env:
     - thrift=~/thrift-0.9.2
     # - WITH_SUITE=true WITH_APP=false WITH_CUDA=false
@@ -17,15 +21,15 @@ before_install:
       sudo apt-get install -y gcc-4.8 g++-4.8;
       sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50;
       sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50;
-      # git clone https://github.com/Itseez/opencv.git;
-      # cd opencv;
-      # git checkout 2.4.9;
-      # mkdir build;
-      # cd build;
-      # cmake ..;
-      # make -j$NUM_THREADS;
-      # sudo make -j$NUM_THREADS install;
-      # cd ../..;
+      git clone https://github.com/Itseez/opencv.git;
+      cd opencv;
+      git checkout 2.4.9;
+      mkdir build;
+      cd build;
+      cmake ..;
+      make -j$NUM_THREADS;
+      sudo make -j$NUM_THREADS install;
+      cd ../..;
 
 install:
       travis_wait sudo -E ./travis-scripts/suite_deps.sh;

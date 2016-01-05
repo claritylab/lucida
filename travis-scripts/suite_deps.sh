@@ -12,7 +12,7 @@ apt-get -y install \
     wget git curl \
     python-dev python-numpy \
     libleveldb-dev libsnappy-dev \
-    libboost-all-dev ,w\
+    libboost-all-dev \
     libprotobuf-dev protobuf-compiler \
     libblas-dev libopenblas-dev \
     libhdf5-serial-dev libgflags-dev libgoogle-glog-dev \
