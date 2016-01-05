@@ -4,9 +4,14 @@ compiler: gcc
 
 cache: apt
 
+sudo: true
+
+dist: trusty
+
 env:
-    - WITH_SUITE=true WITH_APP=false WITH_CUDA=false
-    - WITH_SUITE=false WITH_APP=true WITH_CUDA=false
+    - thrift=~/thrift-0.9.2
+    # - WITH_SUITE=true WITH_APP=false WITH_CUDA=false
+    # - WITH_SUITE=false WITH_APP=true WITH_CUDA=false
 
 before_install:
     - export NUM_THREADS=4
@@ -27,25 +32,13 @@ before_install:
       cd ../..;
 
 install:
-    - if $WITH_SUITE; then
       travis_wait sudo -E ./travis-scripts/suite_deps.sh;
-      fi
-    - if $WITH_APP; then
-      cd sirius-application;
-      travis_wait sudo -E ./get-dependencies.sh;
-      ./get-kaldi.sh;
-      cd ..;
-      fi
+      travis_wait sudo -E ./travis-scripts/get-thrift.sh;
 
 before_script:
     - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/local/cuda/lib64:/usr/lib
     - export PATH=/home/travis/miniconda/bin:$PATH
 
 script:
-    - if $WITH_SUITE; then
-      cd sirius-suite;
-      ./prepare.sh && make && cd ..;
-      fi
-    - if $WITH_APP; then
-      cd sirius-application && ./compile-sirius-servers.sh && cd ..;
-      fi
+      cd lucida/asr/common/scripts && sudo -E ./prepare.sh && ./compile-kaldi.sh && cd -;
+      cd lucida/qa/lucida && ./compile-qa.sh && cd -;
