@@ -27,6 +27,9 @@ Lucida depends on the following packages and their dependencies (many of which c
 - Build the [command center](command-center)
 - Build each micro-service following each provided README
 
+## Learn
+Use the learning service to teach Lucida new knowledge from a range of different sources. Check out the provided [Readme](learn).
+
 ## Queries
 - Start the command center first following the instructions in the command
   center's README
