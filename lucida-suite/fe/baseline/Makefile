@@ -1,16 +1,10 @@
 CXX = g++
-CXX_FLAGS  = -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math
-CXX_FLAGS += -I/home/jahausw/opencv-multi/sse/install/include
-# LINK_FLAGS = -lopencv_core \
-# 			 -lopencv_highgui \
-# 			 -lopencv_imgproc \
-# 			 -lopencv_nonfree \
-# 			 -lopencv_features2d
-LINK_FLAGS = /home/jahausw/opencv-multi/sse/install/lib/libopencv_core.so \
-			 /home/jahausw/opencv-multi/sse/install/lib/libopencv_highgui.so \
-			 /home/jahausw/opencv-multi/sse/install/lib/libopencv_imgproc.so \
-			 /home/jahausw/opencv-multi/sse/install/lib/libopencv_imgcodecs.so \
-			 /home/jahausw/opencv-multi/sse/install/lib/libopencv_xfeatures2d.so
+CXX_FLAGS  = -O2 -march=native
+LINK_FLAGS = -lopencv_core \
+			 -lopencv_highgui \
+			 -lopencv_imgproc \
+			 -lopencv_nonfree \
+			 -lopencv_features2d
 LINK_FLAGS += -lpthread -ldl
 
 INPUT = ../input/2048x2048.jpg
