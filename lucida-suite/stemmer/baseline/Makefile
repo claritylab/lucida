@@ -1,5 +1,5 @@
 CXX = g++
-CXX_FLAGS  =  -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math -fpermissive -Wno-write-strings
+CXX_FLAGS  = -O2 -march=native -fpermissive -Wno-write-strings
 LINK_FLAGS = -lpthread -ldl
 
 WORDS = 1000000

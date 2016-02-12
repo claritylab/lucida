@@ -1,6 +1,6 @@
 CXX = g++
+CXX_FLAGS  = -O2 -march=native
 LINK_FLAGS = -lpthread -ldl
-CXX_FLAGS  = -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math
 
 THREADS = 4
 SCORES  = 1
