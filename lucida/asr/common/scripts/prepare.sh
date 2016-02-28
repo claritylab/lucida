@@ -43,7 +43,7 @@ sudo apt-add-repository multiverse
 # Update sources and install basics
 sudo apt-get update
 sudo apt-get -y install \
-  git zip unzip subversion sox \
+  git zip unzip subversion sox libsox-dev \
   default-jdk ant automake autoconf libtool bison \
   swig python-pip curl
 
