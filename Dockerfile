@@ -1,0 +1,89 @@
+####
+# Description:
+# Steps:
+
+FROM ubuntu:14.04
+
+#### environment variables
+ENV OPENCV_VERSION 2.4.9
+ENV THRIFT_VERSION 0.9.2
+ENV JAVA_VERSION 8
+ENV THRIFT_ROOT /usr/src/thrift-$THRIFT_VERSION
+ENV THREADS 4
+
+#### common package installations
+RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
+RUN apt-add-repository multiverse
+RUN apt-get update
+RUN apt-get install -y software-properties-common 
+RUN apt-get install -y gfortran
+RUN apt-get install -y make
+RUN apt-get install -y ant
+RUN apt-get install -y gcc
+RUN apt-get install -y g++
+RUN apt-get install -y wget
+RUN apt-get install -y automake
+RUN apt-get install -y git
+RUN apt-get install -y curl
+RUN apt-get install -y libboost-all-dev
+RUN apt-get install -y libevent-dev
+RUN apt-get install -y libtool
+RUN apt-get install -y pkg-config
+RUN apt-get install -y libtesseract-dev
+RUN apt-get install -y libopenblas-dev
+RUN apt-get install -y libblas-dev
+RUN apt-get install -y libatlas-dev
+RUN apt-get install -y libatlas-base-dev
+RUN apt-get install -y liblapack-dev
+RUN apt-get install -y cmake
+RUN apt-get install -y zip
+RUN apt-get install -y unzip
+RUN apt-get install -y sox
+RUN apt-get install -y libsox-dev
+RUN apt-get install -y autoconf
+RUN apt-get install -y bison
+RUN apt-get install -y swig
+RUN apt-get install -y python-pip
+RUN apt-get install -y subversion
+
+# #### package specific routines
+# #### Java
+# RUN add-apt-repository ppa:webupd8team/java -y
+# RUN apt-get update
+# RUN echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | \
+#   /usr/bin/debconf-set-selections
+# RUN apt-get install -y oracle-java$JAVA_VERSION-installer
+#
+#
+# RUN apt-get install -y libssl-dev
+# #### Thrift
+# RUN cd /usr/src \
+#  && wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" \
+#  && tar xf thrift-$THRIFT_VERSION.tar.gz \
+#  && cd thrift-$THRIFT_VERSION \
+#  && ./configure \
+#  && make -j $THREADS\
+#  && make -j $THREADS install \
+#  && cd lib/py/ \
+#  && python setup.py install \
+#  && cd ../../lib/java/ \
+#  && ant \
+#  && cd ../../..
+
+#### OpenCV
+RUN mkdir -p /usr/src/opencv
+RUN cd /usr/src/opencv \
+  && git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
+  && cd opencv-$OPENCV_VERSION \
+  && git checkout $OPENCV_VERSION \
+  && mkdir build \
+  && cd build \
+  && cmake .. \
+  && make -j$THREADS \
+  && make -j$THREADS install
+
+## install the bankcoach
+RUN mkdir -p /usr/local/lucida
+WORKDIR /usr/local/lucida
+ADD . /usr/local/lucida
+RUN /usr/bin/make all
