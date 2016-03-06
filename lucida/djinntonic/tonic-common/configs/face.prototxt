@@ -1,0 +1,102 @@
+name: "face"
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 152
+input_dim: 152
+layers {
+  name: "conv1"
+  type: CONVOLUTION
+  bottom: "data"
+  top: "conv1"
+  convolution_param {
+    num_output: 32
+    kernel_size: 11
+    stride: 1
+  }
+}
+layers {
+  name: "pool2"
+  type: POOLING
+  bottom: "conv1"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layers {
+  name: "conv3"
+  type: CONVOLUTION
+  bottom: "pool2"
+  top: "conv3"
+  convolution_param {
+    num_output: 16
+    kernel_size: 9
+    stride: 1
+  }
+}
+layers {
+  name: "local4"
+  type: LOCAL
+  bottom: "conv3"
+  top: "local4"
+  local_param {
+    num_output: 16
+    kernel_size: 9
+    stride: 1
+  }
+}
+layers {
+  name: "local5"
+  type: LOCAL
+  bottom: "local4"
+  top: "local5"
+  local_param {
+    num_output: 16
+    kernel_size: 7
+    stride: 2
+  }
+}
+layers {
+  name: "local6"
+  type: LOCAL
+  bottom: "local5"
+  top: "local6"
+  local_param {
+    num_output: 16
+    kernel_size: 5
+    stride: 1
+  }
+}
+layers {
+  name: "fc7"
+  type: INNER_PRODUCT
+  bottom: "local6"
+  top: "fc7"
+  inner_product_param {
+    num_output: 4096
+  }
+}
+layers {
+  name: "fc8"
+  type: INNER_PRODUCT
+  bottom: "fc7"
+  top: "fc8"
+  inner_product_param {
+    num_output: 83
+  }
+}
+layers {
+  name: "prob"
+  type: SOFTMAX
+  bottom: "fc8"
+  top: "prob"
+}
+layers {
+  name: "argmax"
+  type: ARGMAX
+  bottom: "prob"
+  top: "argmax"
+}
