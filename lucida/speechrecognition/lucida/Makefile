@@ -1,7 +1,7 @@
-CC_DIR=$(CCROOT)
+CC_DIR=$(LUCIDAROOT)/commandcenter/gen-cpp
 # Makefile for generating the kaldi-thrift service
 CXX = g++
-FLAGS = -g --std=c++11
+FLAGS = --std=c++11 -O2
 TARGET_SERVER = asr_server
 LINK_FLAGS = -lthrift -lsox
 

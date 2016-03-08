@@ -1,2 +1,2 @@
-SUBDIRS=common lucida template
+SUBDIRS=lucida common 
 include ../../Makefile.common
