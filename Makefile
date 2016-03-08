@@ -1,4 +1,4 @@
-SUBDIRS=lucida
+SUBDIRS=lucida-suite
 DOCKER_CONTAINER=lucida
 
 include ./Makefile.common
