@@ -111,6 +111,8 @@ RUN cd /usr/src \
   && make distribute
 
 RUN apt-get install -y supervisor
+RUN apt-get install -y flac
+RUN apt-get install -y gawk
 
 ## install lucida
 # fixes some weird OE compiliation issue

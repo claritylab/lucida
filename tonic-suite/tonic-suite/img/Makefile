@@ -37,6 +37,8 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 all: $(EXEC)
 
+test: test-here
+
 # Main target
 $(EXEC): $(OBJECTS) Makefile
 	./get-flandmark.sh
@@ -45,6 +47,11 @@ $(EXEC): $(OBJECTS) Makefile
 # To obtain object files
 %.o: %.cpp Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
+
+test-here::
+	./tonic-img --task imc --network imc.prototxt --weight imc.caffemodel --input imc-list.txt --djinn 0
+	./tonic-img --task dig --network dig.prototxt --weight dig.caffemodel --input dig-list.txt --djinn 0
+	./tonic-img --task face --network face.prototxt --weight face.caffemodel --input face-list.txt --djinn 0
 
 # To remove generated files
 clean:

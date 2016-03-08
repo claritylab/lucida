@@ -30,6 +30,7 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 $(TARGET): $(OBJECTS) Makefile
 	ar rcs $(TARGET) $(OBJECTS)
+	cd weights && ./dl_djinn_weights.sh
 
 # To obtain object files
 %.o: %.cpp Makefile
