@@ -1,6 +1,6 @@
-SUBDIRS=lucida lucida-suite
+SUBDIRS=tonic-suite lucida lucida-suite
 DOCKER_CONTAINER=claritylab/lucida
-VERSION=latest
+VERSION=tutorial
 
 include ./Makefile.common
 

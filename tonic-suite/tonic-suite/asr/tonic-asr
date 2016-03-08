@@ -1,0 +1,112 @@
+#/bin/bash
+# vim:ft=sh
+
+# cd into voxforge dir
+PWD=`pwd`
+
+cd ./egs/voxforge/s5/
+
+source ./cmd.sh
+
+source ./path.sh
+
+root_dataset=data_set
+data_fmllr=exp/data-fmllr-tri3b # Root directory of fmllr features
+mfccdir=data/mfcc
+data_dir=$data_fmllr/local # Target directory to be decoded
+graph_dir=exp/tri3b/
+dnn_dir=exp/djinn_decode/
+target_dir=$dnn_dir/decode_local
+spk=DeepBlue-20121003-jmk
+
+# arguments to pass in
+djinn=0 # Use DjiNN service ?
+hostname=localhost # server hostname
+portno=8080 # server port
+common=../../../../../common/
+network=asr.prototxt
+weight=asr.caffemodel
+input=asr-list.txt
+gpu=0 # Use GPU for local inference ?
+
+. parse_options.sh || exit 1;
+# Prepare data
+# move the input into the folder
+# NOTE: remove the input file already in there
+#rm ${root_dataset}/selected/${spk}/wav/*
+
+input=../../../${input}
+
+while read line;do
+  cp ../../../${line} ${root_dataset}/selected/${spk}/wav/
+done < ${input}
+
+local/voxforge_data_prep.sh ${root_dataset}/selected
+
+# Make mfcc features
+steps/make_mfcc.sh --cmd "$train_cmd" --nj 1 \
+  data/local exp/make_mfcc/local $mfccdir;
+
+if [ $? != 0 ];
+then
+  echo "ERROR LOG FOLLOWING:"
+  cat exp/make_mfcc/local/make_mfcc_local.1.log
+  exit 1
+fi
+
+# Compute CMVN stats for the features
+steps/compute_cmvn_stats.sh data/local exp/make_mfcc/local $mfccdir || exit 1;
+
+if [ $? != 0 ];
+then
+  echo "ERROR LOG FOLLOWING:"
+  cat exp/make_mfcc/local/cmvn_local.log
+  exit 1
+fi
+
+# Make fMLLR features
+steps/nnet/make_fmllr_feats.sh --nj 1 --cmd "$train_cmd" \
+        --transform-dir $graph_dir/decode \
+        $data_dir data/local $graph_dir $data_dir/log $data_dir/data || exit 1;
+
+if [ $? != 0 ];
+then
+  echo "ERROR LOG FOLLOWING:"
+  cat exp/data-fmllr-tri3b/local/log/make_fmllr_feats.1.log
+  exit 1
+fi
+
+# Running decode
+steps/nnet/decode.sh --djinn $djinn --hostname $hostname --portno $portno --gpu $gpu \
+                    --nj 1 --cmd "$decode_cmd" --config conf/decode_dnn.config \
+                    --acwt 0.1 \
+                    --common $common --network $network --weight $weight \
+                    $graph_dir/graph/ $data_dir $target_dir;
+
+if [ $? != 0 ];
+then
+  echo "ERROR LOG FOLLOWING:"
+  cat exp/djinn_decode/decode_local/log/decode.1.log
+  exit 1
+fi
+
+# grabbing output from log
+logfile=${target_dir}/log/decode.1.log
+
+while read wav;do
+  # split string to get only the wav file name
+  wavarr=(${wav//// })
+  wav=${wavarr[1]}
+  wavarr=(${wav//./ })
+  wav=${wavarr[0]}
+  utt=${spk}-${wav}
+
+  resultline=`cat $logfile | grep "^${utt}"`
+
+  IFS=' ' read -r id result <<< "$resultline"
+  
+  echo "Input: ${wav} Transcript: ${result}"
+
+done < ${input}
+
+cd $PWD

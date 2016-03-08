@@ -1,0 +1,84 @@
+// doc/install.dox
+
+// Copyright 2009-2011 Microsoft Corporation
+//           2013-2014 Johns Hopkins University (author: Daniel Povey)
+
+// See ../../COPYING for clarification regarding multiple authors
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+//  http://www.apache.org/licenses/LICENSE-2.0
+
+// THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+// WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+// MERCHANTABLITY OR NON-INFRINGEMENT.
+// See the Apache 2 License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ \page install Downloading and installing Kaldi
+
+
+  \section install_warning Warning on recent Sourceforge update
+
+   This is a warning to all those who originally downloaded Kaldi before March 20, 2013.
+   The svn location where Kaldi's repository resides has changed.  In order to get the
+  latest updates you need to update your repository.  Go to the root of the directory where
+  you previously checked it out, and type:
+ \verbatim
+   svn switch --relocate  https://kaldi.svn.sourceforge.net/svnroot/kaldi svn://svn.code.sf.net/p/kaldi/code
+ \endverbatim
+  You can verify that it worked by typing "svn info".  You should see the new location.
+
+ \section install_download  Dowloading Kaldi
+
+  You first need to install Subversion (SVN).  The most current version of Kaldi,
+  possibly including unfinished and experimental features, can
+   be downloaded by typing into a shell:
+  \verbatim
+    svn co https://svn.code.sf.net/p/kaldi/code/trunk kaldi-trunk
+  \endverbatim
+ We used to maintain a "stable" branch of Kaldi, but found that this
+ was too much additional work; currently, we always recommend people to use
+ the latest version of trunk, and we do our best to make sure that it always works.
+ If you want to get updates and bug fixes you can go to some checked-out
+ directory, and type
+  \verbatim
+    svn update
+  \endverbatim
+ If "svn update" prints out scary looking messages about conflicts (caused by
+ you changing parts of files that were later modified centrally),
+ you may have to resolve the conflicts; for that, we recommend that you
+ read about how svn works.
+
+
+  \section install_install Installing Kaldi
+   
+  The top-level installation instructions are in the file INSTALL. 
+  For Windows, there are separate instructions (unfortunately, not actively maintained and woefully out of date)
+   in windows/INSTALL.
+  See also \ref build_setup which explains how the build process
+  works internally.
+
+  The example scripts are in egs/
+
+  \section install_switch For contributors: switching repositories
+
+ Just for reference: if you have downloaded a copy of Kaldi in the normal "read-only" way without
+ using your Sourceforge account and you want to contribute to the project, then you need
+ to create a username on Sourceforge and give it to one of the administrators (typically Dan Povey, dpovey@gmail.com).
+ After discussing what it is you want to contribute and the best way to proceed, we may add your username to the project, and
+ you should switch your repository over to an SSH-based link which
+ will allow you to commit changes:
+\verbatim
+svn switch --relocate svn://svn.code.sf.net/p/kaldi/code svn+ssh://USERNAME@svn.code.sf.net/p/kaldi/code
+\endverbatim
+ where USERNAME is replaced by your Sourceforge username.  Do this while
+ you are in the top level of your copy of the repository (e.g. in trunk/).  To avoid entering passwords
+ every time you update, use ssh keys: see https://sourceforge.net/account/ssh.
+  
+  
+*/
