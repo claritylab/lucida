@@ -33,6 +33,8 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 all: $(EXEC)
 
+test: test-here
+
 # Main target
 $(EXEC): $(OBJECTS) Makefile
 	$(CXX) $(OBJECTS) -o $(EXEC) $(LINK_FLAGS)
@@ -40,6 +42,11 @@ $(EXEC): $(OBJECTS) Makefile
 # To obtain object files
 %.o: %.cpp Makefile
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
+
+test-here::
+	./tonic-nlp --task pos --network pos.prototxt --weight pos.caffemodel --input input/small-input.txt --djinn 0
+	./tonic-nlp --task ner --network ner.prototxt --weight ner.caffemodel --input input/small-input.txt --djinn 0
+	./tonic-nlp --task chk --network chk.prototxt --weight chk.caffemodel --input input/small-input.txt --djinn 0
 
 # To remove generated files
 clean:
