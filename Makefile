@@ -1,5 +1,6 @@
 SUBDIRS=lucida lucida-suite
-DOCKER_CONTAINER=lucida
+DOCKER_CONTAINER=claritylab/lucida
+VERSION=latest
 
 include ./Makefile.common
 
@@ -7,7 +8,7 @@ include ./Makefile.common
 
 ## bulid docker environment
 docker:
-	docker build -t $(DOCKER_CONTAINER) .
+	docker build -t $(DOCKER_CONTAINER):$(VERSION) .
 
 ## run `make test' in docker environment
 docker-test: docker

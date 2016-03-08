@@ -9,12 +9,12 @@
 export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:`pwd`:`pwd`/gen-java
 
 # Add command center to class path
-cd ../../command-center
+cd $LUCIDAROOT/commandcenter
 	export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:`pwd`/gen-java
 
 # Rather than forking a subshell, execute all commands
 # in java-config.sh in the current shell.
-cd ../qa/common
+cd $LUCIDAROOT/questionanswering/common
 	source ./qa-runtime-config.inc
 # NOTE: this script starts in ../common/question-answer
 

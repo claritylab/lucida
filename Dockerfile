@@ -7,8 +7,6 @@ FROM ubuntu:14.04
 #### environment variables
 ENV OPENCV_VERSION 2.4.9
 ENV THRIFT_VERSION 0.9.2
-ENV JAVA_VERSION 8
-ENV THRIFT_ROOT /usr/src/thrift-$THRIFT_VERSION
 ENV THREADS 4
 ENV PROTOBUF_VERSION 2.5.0
 ENV LD_LIBRARY_PATH /usr/local/lib
@@ -50,12 +48,14 @@ RUN apt-get install -y libssl-dev
 RUN apt-get install -y libprotoc-dev
 
 #### package specific routines
-#### Java
-RUN add-apt-repository ppa:webupd8team/java -y
-RUN apt-get update
-RUN echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | \
-  /usr/bin/debconf-set-selections
-RUN apt-get install -y oracle-java$JAVA_VERSION-installer
+ENV JAVA_VERSION 7
+RUN \
+  echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+  add-apt-repository -y ppa:webupd8team/java && \
+  apt-get update && \
+  apt-get install -y oracle-java$JAVA_VERSION-installer && \
+  rm -rf /var/lib/apt/lists/* && \
+  rm -rf /var/cache/oracle-jdk$JAVA_VERSION-installer
 
 #### Thrift
 RUN cd /usr/src \
@@ -94,7 +94,8 @@ RUN cd /usr/src/protobuf \
   && make install
 
 #### Caffe for djinn
-#
+RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
+RUN apt-get update
 RUN apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
 RUN apt-get install -y libleveldb-dev libsnappy-dev libhdf5-serial-dev
 RUN apt-get install -y bc
@@ -109,7 +110,12 @@ RUN cd /usr/src \
   && make -j$THREADS \
   && make distribute
 
+RUN apt-get install -y supervisor
+
 ## install lucida
+# fixes some weird OE compiliation issue
+ENV JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 
+ENV THRIFT_ROOT /usr/src/thrift-$THRIFT_VERSION
 ENV CAFFE /usr/src/caffe/distribute
 ENV LUCIDAROOT /usr/local/lucida/lucida
 RUN mkdir -p /usr/local/lucida
