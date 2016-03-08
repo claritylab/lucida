@@ -51,7 +51,7 @@ $(EXEC): $(OBJECTS) Makefile
 test-here::
 	./tonic-img --task imc --network imc.prototxt --weight imc.caffemodel --input imc-list.txt --djinn 0
 	./tonic-img --task dig --network dig.prototxt --weight dig.caffemodel --input dig-list.txt --djinn 0
-	./tonic-img --task face --network face.prototxt --weight face.caffemodel --input face-list.txt --djinn 0
+	./tonic-img --task face --network face.prototxt --weight face.caffemodel --input face-list.txt --djinn 0 --align 0
 
 # To remove generated files
 clean:

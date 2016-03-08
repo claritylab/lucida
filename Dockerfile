@@ -113,6 +113,7 @@ RUN cd /usr/src \
 RUN apt-get install -y supervisor
 RUN apt-get install -y flac
 RUN apt-get install -y gawk
+RUN apt-get install -y imagemagick
 
 ## install lucida
 # fixes some weird OE compiliation issue

@@ -6,7 +6,7 @@ all-here::
 	cd egs/voxforge/s5/exp/ && tar -xvzf tri3b.tar.gz
 
 test-here::
-	./tonic-asr --network asr.prototxt --weight asr.caffemodel --input asr-list.txt --djinn 0
+	bash -c "./tonic-asr --network asr.prototxt --weight asr.caffemodel --input asr-list.txt --djinn 0"
 
 clean-here::
 	cd src && make clean && cd -
