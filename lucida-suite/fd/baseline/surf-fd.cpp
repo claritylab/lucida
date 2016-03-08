@@ -25,24 +25,28 @@
 #include <time.h>
 
 #include "../../utils/timer.h"
+
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
-#include "opencv2/xfeatures2d/nonfree.hpp"
+#include "opencv2/features2d/features2d.hpp"
+#include "opencv2/nonfree/features2d.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/nonfree/gpu.hpp"
 #include "opencv2/objdetect/objdetect.hpp"
+#include "opencv2/stitching/stitcher.hpp"
 
 using namespace cv;
 using namespace std;
 
-vector<KeyPoint> keys;
-int minHessian = 400;
-Ptr<xfeatures2d::SURF> surf = xfeatures2d::SURF::create(minHessian);
+vector<Mat> segs;
+vector<vector<KeyPoint> > keys;
+FeatureDetector *detector = new SurfFeatureDetector();
+DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 int iterations;
 
 vector<KeyPoint> exec_feature(const Mat &img) {
   vector<KeyPoint> keypoints;
-  surf->detect(img, keypoints, Mat());
+  detector->detect(img, keypoints);
 
   return keypoints;
 }
@@ -50,7 +54,9 @@ vector<KeyPoint> exec_feature(const Mat &img) {
 Mat exec_desc(const Mat &img, vector<KeyPoint> keypoints) {
   Mat descriptors;
 
-  surf->detectAndCompute(img, Mat(), keypoints, descriptors, true);
+  extractor->compute(img, keypoints, descriptors);
+
+  descriptors.convertTo(descriptors, CV_32F);
 
   return descriptors;
 }
@@ -61,8 +67,6 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-
-  cvUseOptimized(1);
 
   // Generate test keys
   Mat img = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
@@ -78,11 +82,11 @@ int main(int argc, char **argv) {
   PRINT_STAT_INT("columns", img.cols);
 
   tic();
-  keys = exec_feature(img);
+  vector<KeyPoint> key = exec_feature(img);
   PRINT_STAT_DOUBLE("fe", toc());
 
   tic();
-  Mat testDesc = exec_desc(img, keys);
+  Mat testDesc = exec_desc(img, key);
   PRINT_STAT_DOUBLE("fd", toc());
 
   STATS_END();
@@ -94,6 +98,10 @@ int main(int argc, char **argv) {
 
   fclose(f);
 #endif
+
+  // Clean up
+  delete detector;
+  delete extractor;
 
   return 0;
 }
