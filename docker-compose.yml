@@ -9,7 +9,7 @@ command_center:
     - image_matching:image_matching
   environment:
     - DOCKER_COMMAND_CENTER=8080
-  command: cd lucida/command-center && "./cmd_server $DOCKER_COMMAND_CENTER"
+  command: cd lucida/commandcenter && "./cmd_server $DOCKER_COMMAND_CENTER"
   ports:
     - "8080:8080"
 
@@ -18,7 +18,7 @@ question_answering:
   environment:
     - DOCKER_QUESTION_ANSWER=8090
     - DOCKER_COMMAND_CENTER=8080
-  command: cd lucida/qa/lucida && \
+  command: cd lucida/questionanswer/lucida && \
     ./start-qa.sh $DOCKER_QUESTION_ANSWER $DOCKER_COMMAND_CENTER
 
 speech_recognition:
@@ -26,7 +26,7 @@ speech_recognition:
   environment:
     - DOCKER_SPEECH_RECOGNITION=8091
     - DOCKER_COMMAND_CENTER=8080
-  command: cd lucida/asr/lucida && \
+  command: cd lucida/speechrecognition/lucida && \
     ./asr_server $DOCKER_SPEECH_RECOGNITION $DOCKER_COMMAND_CENTER
 
 image_matching:
@@ -34,5 +34,5 @@ image_matching:
   environment:
     - DOCKER_IMAGE_MATCHING=8092
     - DOCKER_COMMAND_CENTER=8080
-  command: cd lucida/imm/lucida && \
+  command: cd lucida/imagematching/lucida && \
     ./imm_server $DOCKER_IMAGE_MATCHING $DOCKER_COMMAND_CENTER
