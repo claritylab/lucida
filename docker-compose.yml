@@ -4,12 +4,17 @@
 lucida_services:
   image: claritylab/lucida:tutorial
   ports:
-    - "8090:8090"
-    - "8081:8081"
-  command: bash -c "supervisord"
+    - "8081:8081" # learn server
+    - "8090:8090" # cc
+  command: bash -c "supervisord -c supervisord.conf"
 
-# lucida_asr:
-#   image: claritylab/lucida-asr
-#   ports:
-#     - "8888:8888"
-#   command: bash -c "supervisord"
+lucida_asr:
+  image: claritylab/lucida-asr:tutorial
+  command: bash -c "sleep 5; cd /opt/kaldi-gstreamer-server/ && ./start.sh -y sample_english_nnet2.yaml && cd lucida-demos/ && python -m SimpleHTTPServer 8089"
+  links:
+    - lucida_services:lucida_services
+  environment:
+    - LUCIDA_SERVICE=lucida_services:8090
+  ports:
+    - "8888:8888" # asr WS
+    - "8089:8089" # asr FE
