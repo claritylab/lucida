@@ -34,7 +34,7 @@ public class QAServiceHandler implements QAService.Iface {
     MsgPrinter.enableErrorMsgs(true);
 
     oe = new OpenEphyra(dir);
-    defaultAnswer = "Sorry. I'm not at liberty to disclose this information.";
+    defaultAnswer = "Factoid not found in knowledge base.";
   }
 
   /** Forwards the client's question to the OpenEphyra object's askFactoid
