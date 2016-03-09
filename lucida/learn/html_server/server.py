@@ -19,19 +19,36 @@ import SocketServer
 import logging
 import cgi
 
-import sys
+import sys, os
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
 
+# service specifics
+sys.path.append(os.environ.get('LUCIDAROOT')+'/learn/gen-py')
+from parser_service import ParserService
+from parser_service.ttypes import *
 
-if len(sys.argv) > 2:
-    PORT = int(sys.argv[2])
-    I = sys.argv[1]
-elif len(sys.argv) > 1:
-    PORT = int(sys.argv[1])
-    I = ""
-else:
-    PORT = 8000
-    I = ""
+INDRI_PATH=os.getenv('INDRI_INDEX', '/opt/indri_db')
+LEARN_PORT=int(os.getenv('DOCKER_LEARN', 8083))
+LEARN_SERVER=int(os.getenv('DOCKER_LEARN_SERVER', 8080))
 
+def create_learn(addr='localhost', port=LEARN_PORT):
+  learn = {}
+  # Make socket
+  socket = TSocket.TSocket(addr, port)
+
+  # Buffering is critical. Raw sockets are very slow
+  learn['transport'] = TTransport.TFramedTransport(socket)
+  learn['transport'].open()
+
+  # Wrap in a protocol
+  protocol = TBinaryProtocol.TBinaryProtocol(learn['transport'])
+
+  # Create a client to use the protocol encoder
+  learn['client'] = ParserService.Client(protocol)
+
+  return learn
 
 class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
@@ -54,9 +71,11 @@ class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             logging.warning(item)
             # If it is the form we want
             if item.name == "facts":
+                learn = create_learn()
                 with open("fact.txt", "w") as fp:
                   fp.write(item.value)
-                # TODO: make the thrift call
+                cur_dir=os.environ.get('LUCIDAROOT')+'/learn/html_server/'
+                learn['client'].parseThrift(INDRI_PATH, [], [cur_dir+'fact.txt'])
                 self.send_response(301)
                 self.send_header('Location','success.html')
                 self.end_headers()
@@ -65,8 +84,6 @@ class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 Handler = ServerHandler
 
-httpd = SocketServer.TCPServer(("", PORT), Handler)
+httpd = SocketServer.TCPServer(("", LEARN_SERVER), Handler)
 
-print "@rochacbruno Python http server version 0.1 (for testing purposes only)"
-print "Serving at: http://%(interface)s:%(port)s" % dict(interface=I or "localhost", port=PORT)
 httpd.serve_forever()

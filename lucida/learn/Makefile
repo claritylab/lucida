@@ -1,4 +1,3 @@
-SUBDIRS=
 include ../../Makefile.common
 
 all-here::
