@@ -1,5 +1,5 @@
 CXX = g++
-CXX_FLAGS =  -O2 -march=native
+CXX_FLAGS =  -O2
 LINK_FLAGS += -ldl -lpthread
 
 THREADS       = 4

@@ -1,4 +1,4 @@
-CXX_FLAGS = -O2 -march=native -DCPU_ONLY -I$(CAFFE)/include
+CXX_FLAGS = -O2 -DCPU_ONLY -I$(CAFFE)/include
 LINK_FLAGS = $(CAFFE)/lib/libcaffe.so \
 						 -lprotobuf \
 						 -lgflags -lleveldb -lsnappy \
