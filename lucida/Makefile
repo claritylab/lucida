@@ -1,2 +1,2 @@
-SUBDIRS=commandcenter imagematching learn questionanswering
+SUBDIRS=commandcenter imagematching learn questionanswering djinntonic speechrecognition
 include ../Makefile.common

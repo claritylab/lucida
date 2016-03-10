@@ -1,15 +1,20 @@
 ####
-# Description:
-# Steps:
-
+# Builds the lucida base image
 FROM ubuntu:14.04
 
 #### environment variables
+ENV LUCIDAROOT /usr/local/lucida/lucida
+ENV THRIFT_ROOT /usr/src/thrift-$THRIFT_VERSION
+ENV LD_LIBRARY_PATH /usr/local/lib
+ENV CAFFE /usr/src/caffe/distribute
+ENV CPU_ONLY 1 # for caffe
+
 ENV OPENCV_VERSION 2.4.9
 ENV THRIFT_VERSION 0.9.2
 ENV THREADS 4
 ENV PROTOBUF_VERSION 2.5.0
-ENV LD_LIBRARY_PATH /usr/local/lib
+ENV JAVA_VERSION 7
+ENV JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 
 
 #### common package installations
 RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
@@ -46,9 +51,16 @@ RUN apt-get install -y python-pip
 RUN apt-get install -y subversion
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y libprotoc-dev
+RUN apt-get install -y supervisor
+RUN apt-get install -y flac
+RUN apt-get install -y gawk
+RUN apt-get install -y imagemagick
+RUN apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
+RUN apt-get install -y libleveldb-dev libsnappy-dev libhdf5-serial-dev
+RUN apt-get install -y bc
+RUN apt-get install -y python-numpy
 
 #### package specific routines
-ENV JAVA_VERSION 7
 RUN \
   echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   add-apt-repository -y ppa:webupd8team/java && \
@@ -94,14 +106,6 @@ RUN cd /usr/src/protobuf \
   && make install
 
 #### Caffe for djinn
-RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
-RUN apt-get install -y libleveldb-dev libsnappy-dev libhdf5-serial-dev
-RUN apt-get install -y bc
-RUN apt-get install -y python-numpy
-ENV CPU_ONLY 1
-
 RUN cd /usr/src \
   && git clone https://github.com/jhauswald/caffe.git \
   && cd caffe \
@@ -110,17 +114,8 @@ RUN cd /usr/src \
   && make -j$THREADS \
   && make distribute
 
-RUN apt-get install -y supervisor
-RUN apt-get install -y flac
-RUN apt-get install -y gawk
-RUN apt-get install -y imagemagick
-
 ## install lucida
 # fixes some weird OE compiliation issue
-ENV JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 
-ENV THRIFT_ROOT /usr/src/thrift-$THRIFT_VERSION
-ENV CAFFE /usr/src/caffe/distribute
-ENV LUCIDAROOT /usr/local/lucida/lucida
 RUN mkdir -p /usr/local/lucida
 WORKDIR /usr/local/lucida
 ADD . /usr/local/lucida

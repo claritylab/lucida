@@ -2,14 +2,14 @@
 ## $ docker-compose up
 
 lucida_services:
-  image: claritylab/lucida:tutorial
+  image: claritylab/lucida:latest
   ports:
     - "8081:8081" # learn server
     - "8090:8090" # cc
   command: bash -c "supervisord -c supervisord.conf"
 
 lucida_asr:
-  image: claritylab/lucida-asr:tutorial
+  image: claritylab/lucida-asr:latest
   command: bash -c "sleep 10; cd /opt/kaldi-gstreamer-server/ && ./start.sh -y sample_english_nnet2.yaml && cd lucida-demos/ && python -m SimpleHTTPServer 8089"
   links:
     - lucida_services:lucida_services
