@@ -1,2 +1,2 @@
-SUBDIRS=commandcenter imagematching learn questionanswering djinntonic
+SUBDIRS=commandcenter imagematching learn questionanswering
 include ../Makefile.common
