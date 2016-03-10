@@ -1,5 +1,5 @@
 CXX = gcc
-CXX_FLAGS  = -O2 -march=native
+CXX_FLAGS  = -O2
 LINK_FLAGS = -lpthread -ldl -lm
 
 SCORES = 1
