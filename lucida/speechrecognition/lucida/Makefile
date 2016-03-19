@@ -1,4 +1,4 @@
-CC_DIR=../../command-center/gen-cpp
+CC_DIR=$(CCROOT)
 # Makefile for generating the kaldi-thrift service
 CXX = g++
 FLAGS = -g --std=c++11

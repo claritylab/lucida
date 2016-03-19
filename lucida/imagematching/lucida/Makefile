@@ -1,4 +1,4 @@
-CC_DIR=../../command-center/gen-cpp
+CC_DIR=$(LUCIDAROOT)/commandcenter/gen-cpp
 CXX = g++
 PROTO = protoc
 # Needed for linking
