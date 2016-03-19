@@ -78,11 +78,8 @@ class ImageMatchingServiceHandler : public ImageMatchingServiceIf {
 
 int main(int argc, char **argv){
 	//Register with the command center 
-	int port = 9082;
-  cout << "IMM port: " << port << endl;
-
-	int ccport = 8081;
-  cout << "CC port: " << ccport << endl;
+  int port = atoi(argv[1]);
+  int ccport = atoi(argv[2]);
 
 	// initialize the transport factory
 	boost::shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());

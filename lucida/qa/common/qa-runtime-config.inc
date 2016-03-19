@@ -1,9 +1,8 @@
 # Rather than forking a subshell, execute all commands
 # in the current shell.
-source ../../config.inc
 
 # Add thrift libraries to class path
-export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:$thrift/lib/java/build/libthrift-0.9.2.jar:$thrift/lib/java/build/lib/slf4j-api-1.5.8.jar:$thrift/lib/java/build/lib/slf4j-log4j12-1.5.8.jar:$thrift/lib/java/build/lib/log4j-1.2.14.jar
+export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:$THRIFT_ROOT/lib/java/build/libthrift-0.9.2.jar:$THRIFT_ROOT/lib/java/build/lib/slf4j-api-1.5.8.jar:$THRIFT_ROOT/lib/java/build/lib/slf4j-log4j12-1.5.8.jar:$THRIFT_ROOT/lib/java/build/lib/log4j-1.2.14.jar
 
 # Add OpenEphyra libraries to class path; start from top directory (question-answer)
 cd question-answer

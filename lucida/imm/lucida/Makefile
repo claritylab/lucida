@@ -24,7 +24,7 @@ LINK_FLAGS = -lopencv_core \
 						 -ltesseract \
 						 -lthrift
  
-TARGET_SERVER = imserver
+TARGET_SERVER = imm_server
 
 CMDOBJECT_SERVER = $(CC_DIR)/CommandCenter.o \
                   $(CC_DIR)/commandcenter_types.o

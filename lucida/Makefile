@@ -1,2 +1,2 @@
-SUBDIRS=asr command-center imm learn qa
+SUBDIRS=command-center imm learn qa asr
 include ../Makefile.common

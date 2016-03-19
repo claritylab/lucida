@@ -10,10 +10,11 @@ ENV THRIFT_VERSION 0.9.2
 ENV JAVA_VERSION 8
 ENV THRIFT_ROOT /usr/src/thrift-$THRIFT_VERSION
 ENV THREADS 4
+ENV PROTOBUF_VERSION 2.5.0
+ENV LD_LIBRARY_PATH /usr/local/lib
 
 #### common package installations
 RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
-RUN apt-add-repository multiverse
 RUN apt-get update
 RUN apt-get install -y software-properties-common 
 RUN apt-get install -y gfortran
@@ -45,30 +46,30 @@ RUN apt-get install -y bison
 RUN apt-get install -y swig
 RUN apt-get install -y python-pip
 RUN apt-get install -y subversion
+RUN apt-get install -y libssl-dev
+RUN apt-get install -y libprotoc-dev
 
-# #### package specific routines
-# #### Java
-# RUN add-apt-repository ppa:webupd8team/java -y
-# RUN apt-get update
-# RUN echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | \
-#   /usr/bin/debconf-set-selections
-# RUN apt-get install -y oracle-java$JAVA_VERSION-installer
-#
-#
-# RUN apt-get install -y libssl-dev
-# #### Thrift
-# RUN cd /usr/src \
-#  && wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" \
-#  && tar xf thrift-$THRIFT_VERSION.tar.gz \
-#  && cd thrift-$THRIFT_VERSION \
-#  && ./configure \
-#  && make -j $THREADS\
-#  && make -j $THREADS install \
-#  && cd lib/py/ \
-#  && python setup.py install \
-#  && cd ../../lib/java/ \
-#  && ant \
-#  && cd ../../..
+#### package specific routines
+#### Java
+RUN add-apt-repository ppa:webupd8team/java -y
+RUN apt-get update
+RUN echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | \
+  /usr/bin/debconf-set-selections
+RUN apt-get install -y oracle-java$JAVA_VERSION-installer
+
+#### Thrift
+RUN cd /usr/src \
+ && wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" \
+ && tar xf thrift-$THRIFT_VERSION.tar.gz \
+ && cd thrift-$THRIFT_VERSION \
+ && ./configure \
+ && make -j $THREADS\
+ && make -j $THREADS install \
+ && cd lib/py/ \
+ && python setup.py install \
+ && cd ../../lib/java/ \
+ && ant \
+ && cd ../../..
 
 #### OpenCV
 RUN mkdir -p /usr/src/opencv
@@ -82,8 +83,19 @@ RUN cd /usr/src/opencv \
   && make -j$THREADS \
   && make -j$THREADS install
 
-## install the bankcoach
+#### Protobuf
+RUN mkdir -p /usr/src/protobuf
+RUN cd /usr/src/protobuf \
+  && wget "https://github.com/google/protobuf/releases/download/v$PROTOBUF_VERSION/protobuf-$PROTOBUF_VERSION.tar.gz" \
+  && tar xf protobuf-$PROTOBUF_VERSION.tar.gz \
+  && cd protobuf-$PROTOBUF_VERSION \
+  && ./configure \
+  && make -j$THREADS \
+  && make install
+
+## install lucida
 RUN mkdir -p /usr/local/lucida
 WORKDIR /usr/local/lucida
 ADD . /usr/local/lucida
+RUN cd lucida/ && ./thrift-gen.sh
 RUN /usr/bin/make all
