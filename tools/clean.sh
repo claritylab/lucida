@@ -7,5 +7,7 @@ rm -rf thrift-*
 
 for tar in *.tar.gz;
 do
-  rm $tar
+  if [ -f $tar ]; then
+    rm $tar
+  fi
 done

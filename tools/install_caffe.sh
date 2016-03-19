@@ -5,6 +5,11 @@ if [ -z "$THREADS" ]; then
   THREADS=4
 fi
 
+if [ -d caffe ]; then
+  echo "Caffe already installed, skipping"
+  exit
+fi
+
 git clone https://github.com/jhauswald/caffe.git \
   && cd caffe \
   && git checkout ipa \

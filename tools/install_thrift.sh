@@ -4,14 +4,19 @@ if [ -z "$THREADS" ]; then
   THREADS=4
 fi
 
+if [ -d thrift-$THRIFT_VERSION ]; then
+  echo "Thrift already installed, skipping"
+  exit
+fi
+
 wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" \
   && tar xf thrift-$THRIFT_VERSION.tar.gz \
   && cd thrift-$THRIFT_VERSION \
-  && ./configure \
+  && ./configure --with-lua=no --with-ruby=no \
   && make -j $THREADS\
-  && make -j $THREADS install \
+  && sudo make -j $THREADS install \
   && cd lib/py/ \
-  && python setup.py install \
+  && sudo python setup.py install \
   && cd ../../lib/java/ \
   && ant \
   && cd ../../..

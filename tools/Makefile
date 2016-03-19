@@ -1,10 +1,12 @@
 include ../Makefile.common
 
 all-here::
-	for i in $(wildcard install_*) ; do \
-		echo $$i ; \
-		./$$i ; \
-	done
+	sudo ./apt_deps.sh
+	sudo ./install_java7.sh
+	./install_protobuf.sh
+	./install_opencv.sh
+	./install_caffe.sh
+	./install_thrift.sh
 
 clean-here::
 	./clean.sh

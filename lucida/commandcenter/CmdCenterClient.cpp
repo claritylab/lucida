@@ -114,100 +114,100 @@ int main(int argc, char **argv) {
 }
 
 void printHelpMsg() {
-	cout << "Usage: ./ccclient [--qa=(QUESTION)|--asr=(AUDIO_FILE)|--imm=(IMG_FILE)] (PORT)" << endl
-		<< "The following tests can be run: asr, qa, asr-imm" << endl
-		<< "Any other combination of tests is not supported." << endl;
+  cout << "Usage: ./ccclient [--qa=(QUESTION)|--asr=(AUDIO_FILE)|--imm=(IMG_FILE)] (PORT)" << endl
+    << "The following tests can be run: asr, qa, asr-imm" << endl
+    << "Any other combination of tests is not supported." << endl;
 }
 
 void runQaTest(int port, string question) {
-	string answer;
-	// Initialize thrift RPC objects
-	boost::shared_ptr<TTransport> socket(new TSocket("localhost", port));
-	boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
-	boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
-	CommandCenterClient client(protocol);
+  string answer;
+  // Initialize thrift RPC objects
+  boost::shared_ptr<TTransport> socket(new TSocket("localhost", port));
+  boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
+  boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
+  CommandCenterClient client(protocol);
 
-	try {
-		QueryData query;
-		query.audioData = "";
-		query.textData = question;
-		query.imgData = "";
+  try {
+    QueryData query;
+    query.audioData = "";
+    query.textData = question;
+    query.imgData = "";
 
-		// Talk to Sirius
-		transport->open();
-		cout << "///// QA /////" << endl;
-		client.handleRequest(answer, query);
-		cout << "Your answer is: " << answer << endl;
-		transport->close();
-	} catch (TException &tx) {
-		//NOTE: execution resumes AFTER try-catch block
-                cout << "CLIENT ERROR: " << tx.what() << endl;
-	}
+    // Talk to Sirius
+    transport->open();
+    cout << "///// QA /////" << endl;
+    client.handleRequest(answer, query);
+    cout << "Your answer is: " << answer << endl;
+    transport->close();
+  } catch (TException &tx) {
+    //NOTE: execution resumes AFTER try-catch block
+    cout << "CLIENT ERROR: " << tx.what() << endl;
+  }
 }
 
 void runAsrQaTest(int port, string audioFile) {
-	string answer;
-	// Initialize thrift RPC objects
-	boost::shared_ptr<TTransport> socket(new TSocket("localhost", port));
-	boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
-	boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
-	CommandCenterClient client(protocol);
+  string answer;
+  // Initialize thrift RPC objects
+  boost::shared_ptr<TTransport> socket(new TSocket("localhost", port));
+  boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
+  boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
+  CommandCenterClient client(protocol);
 
-	try {
-		//Audio File
-		ifstream fin_audio(audioFile.c_str(), ios::binary);
-		ostringstream ostrm_audio;
-		ostrm_audio << fin_audio.rdbuf();
-		string audioData(ostrm_audio.str());
+  try {
+    //Audio File
+    ifstream fin_audio(audioFile.c_str(), ios::binary);
+    ostringstream ostrm_audio;
+    ostrm_audio << fin_audio.rdbuf();
+    string audioData(ostrm_audio.str());
 
-		QueryData query;
-		query.audioData = audioData;
-		query.textData = "";
-		query.imgData = "";
+    QueryData query;
+    query.audioData = audioData;
+    query.textData = "";
+    query.imgData = "";
 
-		// Talk to Sirius
-		transport->open();
-		cout << "///// ASR-QA /////" << endl;
-		client.handleRequest(answer, query);
-		cout << "Your answer is: " << answer << endl;
-		transport->close();
-	} catch (TException &tx) {
-                cout << "CLIENT ERROR: " << tx.what() << endl;
-	}
+    // Talk to Sirius
+    transport->open();
+    cout << "///// ASR-QA /////" << endl;
+    client.handleRequest(answer, query);
+    cout << "Your answer is: " << answer << endl;
+    transport->close();
+  } catch (TException &tx) {
+    cout << "CLIENT ERROR: " << tx.what() << endl;
+  }
 }
 
 void runImmAsrQaTest(int port, string audioFile, string imgFile) {
-	string answer;
-	// Initialize thrift RPC objects
-	boost::shared_ptr<TTransport> socket(new TSocket("localhost", port));
-	boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
-	boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
-	CommandCenterClient client(protocol);
-	try {
-		// Audio File
-		ifstream fin_audio(audioFile.c_str(), ios::binary);
-		ostringstream ostrm_audio;
-		ostrm_audio << fin_audio.rdbuf();
-		string audioData(ostrm_audio.str());	
-	
-		//Image File
-		ifstream fin_image(imgFile.c_str(), ios::binary);
-		ostringstream ostrm_image;
-		ostrm_image << fin_image.rdbuf();
-		string imgData(ostrm_image.str());
+  string answer;
+  // Initialize thrift RPC objects
+  boost::shared_ptr<TTransport> socket(new TSocket("localhost", port));
+  boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
+  boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
+  CommandCenterClient client(protocol);
+  try {
+    // Audio File
+    ifstream fin_audio(audioFile.c_str(), ios::binary);
+    ostringstream ostrm_audio;
+    ostrm_audio << fin_audio.rdbuf();
+    string audioData(ostrm_audio.str());	
 
-		QueryData query;
-		query.audioData = audioData;
-		query.textData = "";
-		query.imgData = imgData;
+    //Image File
+    ifstream fin_image(imgFile.c_str(), ios::binary);
+    ostringstream ostrm_image;
+    ostrm_image << fin_image.rdbuf();
+    string imgData(ostrm_image.str());
 
-		// Talk to Sirius
-		transport->open();
-		cout << "\n///// ASR-QA-IMM /////" << endl;
-		client.handleRequest(answer, query);
-		cout << "Your answer is: " << answer << endl;
-		transport->close();
-	} catch (TException &tx) {
-                cout << "CLIENT ERROR: " << tx.what() << endl;
-	}
+    QueryData query;
+    query.audioData = audioData;
+    query.textData = "";
+    query.imgData = imgData;
+
+    // Talk to Sirius
+    transport->open();
+    cout << "\n///// ASR-QA-IMM /////" << endl;
+    client.handleRequest(answer, query);
+    cout << "Your answer is: " << answer << endl;
+    transport->close();
+  } catch (TException &tx) {
+    cout << "CLIENT ERROR: " << tx.what() << endl;
+  }
 }
