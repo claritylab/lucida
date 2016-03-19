@@ -4,11 +4,16 @@ if [ -z "$THREADS" ]; then
   THREADS=4
 fi
 
+if [ -d opencv-$OPENCV_VERSION ]; then
+  echo "OpenCV already installed, skipping"
+  exit
+fi
+
 git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
   && cd opencv-$OPENCV_VERSION \
   && git checkout $OPENCV_VERSION \
   && mkdir build \
   && cd build \
-  && cmake .. -DCMAKE_INSTALL_PREFIX=../install \
+  && cmake ..  \
   && make -j$THREADS \
-  && make -j$THREADS install
+  && sudo make -j$THREADS install

@@ -10,6 +10,42 @@ license](LICENSE), except certain submodules contain their own specific
 licensing information. We would love to have your help on improving Lucida, and
 see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 
+## Lucida Local Development
+
+- From this directory, type: `make local`. This will run scripts in `tools/` to
+  install all the required depedencies. Note: if you would like to install the
+packages locally, each install script must be modified accordingly. This will
+also build `lucida-suite` and `lucida`.
+- Similar to what is set in the Makefile, you must set a few environment
+  variables. From the top directory:
+```
+export THRIFT_ROOT=`pwd`/tools/thrift-0.9.2
+export CAFFE=`pwd`/tools/caffe/distribute
+export LUCIDAROOT=`pwd`/lucida
+```
+- Start all the services using supervisord:
+```
+cd tools
+supervisord -c lucida.conf
+```
+- To test, in another terminal navigate to `lucida/commandcenter` and use the
+  following commands (replacing (PORT) with 8090 as defined in `lucida.conf`):
+```
+# Test image matching, speech recognition, and question-answering
+./ccclient --asr <AUDIO_FILE> --imm <IMAGE_FILE> (PORT)
+# Test speech recognition, and question-answering
+./ccclient --asr <AUDIO_FILE> (PORT)
+# Test question-answering
+./ccclient --qa <QUESTION> (PORT)
+```
+- The above example uses a small test database for the QA system. To use all of
+  Wikipedia:
+```
+cd tools;
+./download_wiki_index.sh # make sure to set INDRI_INDEX as recommended
+```
+Then restart all the services.
+
 ## Lucida Docker Deployment
 
 - Install Docker: refer to

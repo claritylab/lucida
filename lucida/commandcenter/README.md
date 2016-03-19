@@ -9,20 +9,12 @@ with the command center. These services (asr, qa, imm) are in each service's
 `lucida/` subdirectory. The command center must be compiled before you can compile
 the lucida versions of these services.
 
-## Building and starting the command center:
-1) Compile the thrift files
-```
-make thrift
-```
-2) Compile the command center
-```
-make
-```
-3) Start the command center
+## Starting the command center:
+- Start the command center
 ```
 ./ccserver <port>
 ```
-4) Run the tests. Sample test files can be found in inputs/.
+- Run the tests. Sample test files can be found in inputs/.
 ```
 # Test image matching, speech recognition, and question-answering
 ./ccclient --asr <AUDIO_FILE> --imm <IMAGE_FILE> (PORT)
@@ -33,9 +25,10 @@ make
 ```
 
 ## Running with LucidaMobile v0.1
-The current implementation of the mobile application requires a node.js server
-as an intermediary between the mobile app and the command center. To run this
-node server, you must have node installed on your machine as well as npm.
+(DEPRECATED) The current implementation of the mobile application requires a
+node.js server as an intermediary between the mobile app and the command center.
+To run this node server, you must have node installed on your machine as well as
+npm.
 1) Download the thrift node packages in the command-center/ folder using
 ```
 sudo npm install thrift
