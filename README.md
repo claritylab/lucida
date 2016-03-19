@@ -16,13 +16,13 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
   [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
 - Install Docker Compose: use `pip install docker-compose` or refer to
   [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
-- Pull the Lucida image. There are several available:
+- Pull the Lucida image. There are several available:  
 `docker pull claritylab/lucida:latest # add your own facts`
-`docker pull claritylab/lucida:wikipedia # using Wikipedia`
 - Pull the speech recognition image (based on
-  [kaldi-gstreamer-server](https://github.com/alumae/kaldi-gstreamer-server)):
+  [kaldi-gstreamer-server](https://github.com/alumae/kaldi-gstreamer-server)):  
 `docker pull claritylab/lucida-asr`
-- From the top directory of Lucida: `docker-compose up`
+- From the top directory of Lucida:  
+`docker-compose up`
 - In Chrome, navigate to `localhost:8081`
 
 Note: Instructions to download and build Sirius can be found at
