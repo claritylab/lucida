@@ -6,7 +6,7 @@ lucida_services:
   ports:
     - "8081:8081" # learn server
     - "8090:8090" # cc
-  command: bash -c "supervisord -c supervisord.conf"
+  command: bash -c "cd tools && supervisord -c supervisord.conf"
 
 lucida_asr:
   image: claritylab/lucida-asr:latest
