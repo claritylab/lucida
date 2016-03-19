@@ -12,9 +12,9 @@ LINK_FLAGS = -L$(BOOST_LIB) \
 TARGET_SERVER = cmd_server
 TARGET_CLIENT = ccclient
 
-QA_DEPENDENCY = ../qa/lucida
-ASR_DEPENDENCY = ../asr/lucida
-IMM_DEPENDENCY = ../imm/lucida
+QA_DEPENDENCY  = $(LUCIDAROOT)/questionanswering/lucida
+ASR_DEPENDENCY = $(LUCIDAROOT)/speechrecognition/lucida
+IMM_DEPENDENCY = $(LUCIDAROOT)/imagematching/lucida
 
 OBJECTS_SERVER = gen-cpp/QAService.o gen-cpp/KaldiService.o gen-cpp/ImageMatchingService.o \
 		gen-cpp/CommandCenter.o gen-cpp/commandcenter_types.o CmdCenterDaemon.o base64.o
@@ -36,6 +36,3 @@ gen-cpp/%.o : gen-cpp/%.cpp
 
 clean:
 	rm -rf $(TARGET_SERVER) ccclient ccserver *.o gen-*
-
-.PHONY:	thr
-# DO NOT DELETE

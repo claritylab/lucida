@@ -93,7 +93,25 @@ RUN cd /usr/src/protobuf \
   && make -j$THREADS \
   && make install
 
+#### Caffe for djinn
+#
+RUN apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
+RUN apt-get install -y libleveldb-dev libsnappy-dev libhdf5-serial-dev
+RUN apt-get install -y bc
+RUN apt-get install -y python-numpy
+ENV CPU_ONLY 1
+
+RUN cd /usr/src \
+  && git clone https://github.com/jhauswald/caffe.git \
+  && cd caffe \
+  && git checkout ipa \
+  && cp Makefile.config.example Makefile.config \
+  && make -j$THREADS \
+  && make distribute
+
 ## install lucida
+ENV CAFFE /usr/src/caffe/distribute
+ENV LUCIDAROOT /usr/local/lucida/lucida
 RUN mkdir -p /usr/local/lucida
 WORKDIR /usr/local/lucida
 ADD . /usr/local/lucida

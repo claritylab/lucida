@@ -13,7 +13,7 @@ cd ../common
 cd -
 
 # Add command center to class path
-export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:../../command-center/gen-java
+export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:$LUCIDAROOT/commandcenter/gen-java
 
 # Use cp flag to avoid cluttering up the CLASSPATH environment variable
 echo -e "javac -cp $JAVA_CLASS_PATH QADaemon.java QAServiceHandler.java gen-java/qastubs/QAService.java\n\n"

@@ -27,12 +27,12 @@ struct QueryData
 
 service CommandCenter
 {
-	# service <--> command center API
-	void registerService(1:string serviceType, 2:MachineData mDataObj),
+  # service <--> command center API
+  void registerService(1:string serviceType, 2:MachineData mDataObj)
 
-	# command center <--> client API
-	string handleRequest(1:QueryData data),
+  # command center <--> client API
+  string handleRequest(1:QueryData data)
 
-	# simple function to test connections
-	void ping()
+  # simple function to test connections
+  void ping()
 }
