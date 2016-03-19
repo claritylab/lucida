@@ -17,7 +17,10 @@ LINK_FLAGS = -lopencv_core \
                          -ltesseract \
 			 -lthrift
 
-all: gen-cpp/QAService.o 
+all: gen-cpp/QAService.o java.deps
+
+java.deps:
+	./compile-qa.sh
 
 gen-cpp/QAService.o: gen-cpp/QAService.cpp
 	$(CXX) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@

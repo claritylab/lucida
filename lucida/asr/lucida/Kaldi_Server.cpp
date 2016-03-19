@@ -169,22 +169,9 @@ int main(int argc, char **argv) {
     "\"scp:echo utterance-id1 null|\"",
     "ark:/dev/null",(char*)NULL};
 
+  int port = atoi(argv[1]);
+  int cmdcenterport = atoi(argv[2]);
 
-  int port = 9090;
-  int cmdcenterport = 8081;
-
-  if (argc==2) {
-    port = atoi(argv[1]);
-  }    
-  else if (argc==3) {
-    port =atoi(argv[1]);
-    cmdcenterport = atoi(argv[2]);
-  }
-  else{
-    std::cout << "Using default port for asr..." << std::endl;
-    std::cout << "Using default port for cc..." << std::endl;
-  }
-    
   //Register with the command center 
   boost::shared_ptr<TTransport> cmdsocket(new TSocket("localhost", cmdcenterport));
   boost::shared_ptr<TTransport> cmdtransport(new TBufferedTransport(cmdsocket));

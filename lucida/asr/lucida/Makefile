@@ -2,7 +2,7 @@ CC_DIR=../../command-center/gen-cpp
 # Makefile for generating the kaldi-thrift service
 CXX = g++
 FLAGS = -g --std=c++11
-TARGET_SERVER = server
+TARGET_SERVER = asr_server
 LINK_FLAGS = -lthrift -lsox
 
 # Needed for finding header files during preprocessing

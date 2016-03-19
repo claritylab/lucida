@@ -4,24 +4,23 @@ CXX = g++
 PROTO = protoc
 
 CXX_FLAGS = -O2
-LINK_FLAGS = -L$(BOOST_LIB) \
-					-lopencv_core \
-					-lopencv_highgui \
-					-lopencv_imgproc \
-					-lopencv_nonfree \
-					-lopencv_flann \
-					-lopencv_objdetect \
-					-lopencv_features2d \
-					-lopencv_gpu \
-					-lrt \
-					-lboost_program_options \
-					-lboost_filesystem \
-					-lboost_system \
-					-lboost_thread \
-					-lboost_regex \
-					-lprotobuf \
-					-ltesseract \
-					-lthrift
+LINK_FLAGS = -lopencv_core \
+						 -lopencv_highgui \
+						 -lopencv_imgproc \
+						 -lopencv_nonfree \
+						 -lopencv_flann \
+						 -lopencv_objdetect \
+						 -lopencv_features2d \
+						 -lopencv_gpu \
+						 -lrt \
+						 -lboost_program_options \
+						 -lboost_filesystem \
+						 -lboost_system \
+						 -lboost_thread \
+						 -lboost_regex \
+						 -lprotobuf \
+						 -ltesseract \
+						 -lthrift
  
 TARGET_CLIENT = imclient 
 TARGET_SERVER = imserver
