@@ -8,7 +8,11 @@ SUBCLEAN = $(addsuffix .clean, $(KERNELS))
 SUBTEST = $(addsuffix .test, $(KERNELS))
 .PHONY: test $(SUBTEST)
 
-all: $(KERNELS)
+all: $(KERNELS) prepare
+
+prepare:
+	./prepare.sh
+
 $(KERNELS):
 	$(MAKE) -C $@
 

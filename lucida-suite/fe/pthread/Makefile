@@ -1,11 +1,11 @@
 CXX = g++
-CXX_FLAGS  = -O2 -march=native
+CXX_FLAGS = -O3
 LINK_FLAGS = -lopencv_core \
 			 -lopencv_highgui \
 			 -lopencv_imgproc \
 			 -lopencv_nonfree \
-			 -lopencv_features2d
-LINK_FLAGS += -lpthread -ldl
+			 -lopencv_features2d \
+			 -lpthread
 
 THREADS = 4
 OVERLAP = 50
