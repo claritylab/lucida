@@ -1,11 +1,10 @@
 CXX=g++
-CXX_FLAGS = -O2 -march=native -DCPU_ONLY
-LINK_FLAGS = -lcaffe \
-			 -lprotobuf \
-			 -lgflags -lleveldb -lsnappy \
-			 -llmdb -lhdf5 -lhdf5_hl -lboost_thread -lpthread -lopencv_core -lopencv_imgproc \
-			 libopenblas-avx.a \
-			 -lglog
+CXX_FLAGS = -O2 -DCPU_ONLY -I$(CAFFE)/include
+LINK_FLAGS = $(CAFFE)/lib/libcaffe.so \
+						 -lprotobuf \
+						 -lgflags -lleveldb -lsnappy \
+						 -llmdb -lhdf5 -lhdf5_hl -lboost_thread -lpthread -lopencv_core -lopencv_imgproc \
+						 -lglog
 LINK_FLAGS += -lpthread -ldl
 
 MODEL   = ../model/asr.prototxt

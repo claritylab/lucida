@@ -1,0 +1,180 @@
+name: "superfake"
+layers {
+  name: "data"
+  type: DATA
+  top: "data"
+  top: "label"
+  data_param {
+    source: "training/data/train_lmdb"
+    backend: LMDB
+    batch_size: 16
+  }
+  include: { phase: TRAIN }
+}
+layers {
+  name: "data"
+  type: DATA
+  top: "data"
+  top: "label"
+  data_param {
+    source: "training/data/val_lmdb"
+    backend: LMDB
+    batch_size: 4
+  }
+  include: { phase: TEST }
+}
+layers {
+  name: "conv1"
+  type: CONVOLUTION
+  bottom: "data"
+  top: "conv1"
+  convolution_param {
+    num_output: 32
+    kernel_size: 11
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.5
+    }
+  }
+}
+layers {
+  name: "pool2"
+  type: POOLING
+  bottom: "conv1"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layers {
+  name: "conv3"
+  type: CONVOLUTION
+  bottom: "pool2"
+  top: "conv3"
+  convolution_param {
+    num_output: 16
+    kernel_size: 9
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.5
+    }
+  }
+}
+layers {
+  name: "local4"
+  type: LOCAL
+  bottom: "conv3"
+  top: "local4"
+  local_param {
+    num_output: 16
+    kernel_size: 9
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.5
+    }
+  }
+}
+layers {
+  name: "local5"
+  type: LOCAL
+  bottom: "local4"
+  top: "local5"
+  local_param {
+    num_output: 16
+    kernel_size: 7
+    stride: 2
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.5
+    }
+  }
+}
+layers {
+  name: "local6"
+  type: LOCAL
+  bottom: "local5"
+  top: "local6"
+  local_param {
+    num_output: 16
+    kernel_size: 5
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.5
+    }
+  }
+}
+layers {
+  name: "fc7"
+  type: INNER_PRODUCT
+  bottom: "local6"
+  top: "fc7"
+  inner_product_param {
+    num_output: 4096
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.5
+    }
+  }
+}
+layers {
+  name: "fc8"
+  type: INNER_PRODUCT
+  bottom: "fc7"
+  top: "fc8"
+  inner_product_param {
+    num_output: 2
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.5
+    }
+  }
+}
+layers {
+  name: "prob"
+  type: SOFTMAX_LOSS
+  bottom: "fc8"
+  bottom: "label"
+  top: "loss"
+}
+layers {
+  name: "accuracy"
+  type: ACCURACY
+  bottom: "fc8"
+  bottom: "label"
+  top: "accuracy"
+  include: { phase: TEST }
+}

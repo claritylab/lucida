@@ -1,5 +1,5 @@
 CXX = g++
-CXX_FLAGS  = -O2 -march=native
+CXX_FLAGS  = -O2
 LINK_FLAGS = -lpthread
 LINK_FLAGS += -lpthread -ldl
 
@@ -26,7 +26,6 @@ $(EXEC): $(OBJECTS) Makefile
 test: CXX_FLAGS += -DTESTING
 test: all
 	@./$(EXEC) $(THREADS) $(MODEL) $(INPUT)
-	-@diff -q ../input/$(EXEC).baseline ../input/$(EXEC).pthread
 
 # To remove generated files
 clean:
