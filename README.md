@@ -25,6 +25,11 @@ export LUCIDAROOT=`pwd`/lucida
 ```
 - Start all the services using supervisord:
 ```
+cd tools
+supervisord -c lucida.conf
+```
+- Alternatively, you can start all the services using a simple script:
+```
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 cd tools
 chmod +x start_all_services.sh
