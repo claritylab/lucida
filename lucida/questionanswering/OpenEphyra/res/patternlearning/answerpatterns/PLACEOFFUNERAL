@@ -1,0 +1,65 @@
+#passages: 940
+
+<PO_NElocation> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 32
+#incorrect: 84
+
+# <PO> in (?:<NElocation> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 32
+#incorrect: 46
+
+# <PO> in <NElocation> , <NElocation_NEstate> , in a crypt <NEprofession> <NEperson> \( next to fellow film star <TO>
+#correct: 27
+#incorrect: 0
+
+<PO_NElocation> in <NElocation> , <NElocation_NEstate> , in a crypt <NEprofession> <NEperson> \( next to fellow film star <TO>
+#correct: 27
+#incorrect: 0
+
+# <PO> in (?:<NElocation> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 46
+
+<PO_NElocation> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 30
+
+# <PO> in <NElocation> , <NElocation_NEstate> , in a crypt emblazoned with the name <NEperson> \( next to fellow film star <TO>
+#correct: 5
+#incorrect: 0
+
+<PO_NElocation> in <NElocation> , <NElocation_NEstate> , in a crypt emblazoned with the name <NEperson> \( next to fellow film star <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEstate> )?[^<]*?<PO_NElocation>
+#correct: 2
+#incorrect: 47
+
+<TO> were layed to rest in peace : <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> were layed to rest in peace : <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?: <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , in the <NEstate> mausoleum at <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEstate> )?[^<]*?at <PO> in
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?<PO_NElocation>
+#correct: 1
+#incorrect: 47
+
+<TO> , in the <NEstate> mausoleum at <PO_NElocation>
+#correct: 1
+#incorrect: 0

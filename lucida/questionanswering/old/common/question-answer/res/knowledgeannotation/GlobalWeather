@@ -1,0 +1,8 @@
+KnowledgeAnnotator:
+GlobalWeather
+
+QuestionPatterns:
+(?i).* (location|pressure|sky|temperature|humidity|visibility|wind) (.* )?(of|in) (the )?(.*?)(\?|\.|!)?
+[1]#[5]
+(?i)(.* )?where is (.*?)( located)?(\?|\.|!)?
+location#[2]
