@@ -1,0 +1,105 @@
+#passages: 576
+
+<TO> [^<]*?(?:<NElocation_NEperson> )?on <PO> \.
+#correct: 36
+#incorrect: 18
+
+on <PO> to [^<]*?marriage [^<]*?<TO>
+#correct: 30
+#incorrect: 0
+
+<TO> [^<]*?married on <PO> \.
+#correct: 30
+#incorrect: 0
+
+on <PO> to commemorate the marriage of <TO>
+#correct: 30
+#incorrect: 0
+
+<TO> were married on <PO> \.
+#correct: 30
+#incorrect: 0
+
+<TO> [^<]*?married <PO> at
+#correct: 12
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?wedding [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NElocation_NEcapital> )?on <PO> \.
+#correct: 12
+#incorrect: 0
+
+<TO> were married <PO> at
+#correct: 12
+#incorrect: 0
+
+on <PO> <TO>
+#correct: 6
+#incorrect: 66
+
+<TO> <PO> plate
+#correct: 6
+#incorrect: 0
+
+<TO> at their royal wedding <NEstyle> <NElocation_NEperson> , <NElocation_NEcapital> , <PO> \.
+#correct: 6
+#incorrect: 0
+
+<TO> on the balcony of <NElocation_NEperson> on <PO> \.
+#correct: 6
+#incorrect: 0
+
+on <PO> <NElocation_NEcountry> ' s prince <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> at their royal wedding <NEstyle> <NElocation_NEperson> , <NElocation_NEcapital> , <PO> #
+#correct: 6
+#incorrect: 6
+
+on <PO> <NElocation_NEcountry> [^<]*?<TO>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?married on <PO> ,
+#correct: 6
+#incorrect: 0
+
+<TO> on <PO> #
+#correct: 6
+#incorrect: 18
+
+<TO> [^<]*?hours of <PO> ,
+#correct: 6
+#incorrect: 0
+
+<TO> were married on <PO> ,
+#correct: 6
+#incorrect: 0
+
+<TO> on <PO> \.
+#correct: 6
+#incorrect: 6
+
+on <PO> price <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> waved from their carriage on their wedding day in <NElocation_NEcapital> on <PO> \.
+#correct: 6
+#incorrect: 0
+
+<TO> , broadcast in the early hours of <PO> ,
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?wedding day [^<]*?(?:<NElocation_NEcapital> )?on <PO> \.
+#correct: 6
+#incorrect: 0
+
+<TO> <PO> \.
+#correct: 6
+#incorrect: 180
+
+<TO> pose on the <NElocation> balcony after their royal wedding at st \. <NEfirstName> ' s cathedral in <NElocation_NEcapital> on <PO> \.
+#correct: 6
+#incorrect: 0

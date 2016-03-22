@@ -1,0 +1,2837 @@
+#passages: 2717
+
+<PO_NEnumber> [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 367
+#incorrect: 537
+
+<PO_NEnumber> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 364
+#incorrect: 535
+
+<PO_NEnumber> [^<]*?(?:<NEnationality> )?[^<]*?<TO>
+#correct: 353
+#incorrect: 318
+
+<PO_NEnumber> [^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 353
+#incorrect: 324
+
+<PO_NEnumber> [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 350
+#incorrect: 317
+
+<PO_NEnumber> [^<]*?<TO>
+#correct: 349
+#incorrect: 317
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 294
+#incorrect: 398
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?<PO_NEnumber>
+#correct: 278
+#incorrect: 344
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NEnumber>
+#correct: 277
+#incorrect: 343
+
+<TO> [^<]*?(?:<NEorganization> )?(?:<NEnumber> )?(?:<NEmilitaryRank> )?[^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NEnumber>
+#correct: 274
+#incorrect: 371
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 272
+#incorrect: 350
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 241
+#incorrect: 251
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NEnumber>
+#correct: 231
+#incorrect: 174
+
+<TO> [^<]*?<PO_NEnumber>
+#correct: 230
+#incorrect: 174
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 226
+#incorrect: 178
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 225
+#incorrect: 179
+
+<PO_NEnumber> - <TO>
+#correct: 202
+#incorrect: 14
+
+\) <PO> - <TO>
+#correct: 165
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?killed [^<]*?<PO_NEnumber>
+#correct: 121
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?killed [^<]*?<PO_NEnumber>
+#correct: 120
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?killed [^<]*?<PO_NEnumber>
+#correct: 120
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killed [^<]*?<PO_NEnumber>
+#correct: 119
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killed [^<]*?<PO_NEnumber>
+#correct: 115
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?killed [^<]*?<PO_NEnumber>
+#correct: 109
+#incorrect: 0
+
+<TO> [^<]*?killed [^<]*?<PO_NEnumber>
+#correct: 108
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NElanguage> )?[^<]*?killed <PO_NEnumber>
+#correct: 98
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killed <PO_NEnumber>
+#correct: 98
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killed <PO_NEnumber>
+#correct: 93
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 93
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 92
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killed <PO_NEnumber>
+#correct: 91
+#incorrect: 0
+
+<TO> (?:<NEmilitaryRank> )?[^<]*?killed <PO_NEnumber>
+#correct: 89
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?killed <PO_NEnumber>
+#correct: 89
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killed <PO> people
+#correct: 89
+#incorrect: 19
+
+<TO> [^<]*?(?:<NElocation_NElanguage> )?[^<]*?killed <PO> people
+#correct: 89
+#incorrect: 19
+
+<TO> [^<]*?killed <PO_NEnumber>
+#correct: 88
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NEnumber> )?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 86
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killed <PO> people
+#correct: 85
+#incorrect: 19
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killed <PO> people
+#correct: 84
+#incorrect: 18
+
+<TO> (?:<NEmilitaryRank> )?[^<]*?killed <PO> people
+#correct: 82
+#incorrect: 18
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 82
+#incorrect: 0
+
+<TO> [^<]*?killed <PO> people
+#correct: 81
+#incorrect: 18
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 67
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 65
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdate> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 64
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 64
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 63
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 59
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation_NEcountry> )?killing [^<]*?<PO_NEnumber>
+#correct: 58
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 58
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnationality> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 58
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 58
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?killing [^<]*?<PO_NEnumber>
+#correct: 58
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 57
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 57
+#incorrect: 0
+
+<TO> (?:<NEdisease> )?[^<]*?(?:<NElocation_NElanguage> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElocation> )?[^<]*?killing <PO_NEnumber>
+#correct: 46
+#incorrect: 0
+
+of <PO> people [^<]*?<TO>
+#correct: 45
+#incorrect: 31
+
+<TO> [^<]*?(?:<NEmonth_NEfirstName> )?(?:<NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 41
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 41
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 41
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing <PO_NEnumber>
+#correct: 38
+#incorrect: 0
+
+# <PO> - <TO>
+#correct: 37
+#incorrect: 27
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing <PO_NEnumber>
+#correct: 37
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEnationality_NEethnicGroup> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing <PO_NEnumber>
+#correct: 37
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing <PO_NEnumber>
+#correct: 37
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEnationality_NEethnicGroup> )?[^<]*?killing <PO_NEnumber>
+#correct: 36
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NElanguage> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing <PO_NEnumber>
+#correct: 35
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?killing <PO_NEnumber>
+#correct: 35
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?killed [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 33
+#incorrect: 1
+
+<PO_NEnumber> [^<]*?killed [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 33
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?(?:<NEdisease> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 32
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 32
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?killing <PO_NEnumber>
+#correct: 31
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?killed [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing <PO_NEnumber>
+#correct: 31
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?killed [^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 30
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?killing [^<]*?<PO_NEnumber>
+#correct: 29
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?killed [^<]*?<TO>
+#correct: 28
+#incorrect: 0
+
+<TO> (?:<NEnumber> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 27
+#incorrect: 0
+
+<TO> (?:<NEriver_NEwater> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 27
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEtime> )?[^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 27
+#incorrect: 0
+
+<TO> , which killed <PO_NEnumber>
+#correct: 27
+#incorrect: 0
+
+<TO> , which killed <PO> people
+#correct: 27
+#incorrect: 0
+
+<TO> [^<]*?killing [^<]*?<PO_NEnumber>
+#correct: 26
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing <PO> people
+#correct: 25
+#incorrect: 24
+
+<TO> [^<]*?(?:<NElocation_NEnationality_NEethnicGroup> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing <PO> people
+#correct: 25
+#incorrect: 24
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NEnumber> )?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing all <PO> people
+#correct: 25
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing <PO> people
+#correct: 25
+#incorrect: 24
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?which <PO> people
+#correct: 24
+#incorrect: 48
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?which <PO> people
+#correct: 24
+#incorrect: 47
+
+the <PO> people [^<]*?<TO>
+#correct: 24
+#incorrect: 46
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEnationality_NEethnicGroup> )?[^<]*?killing <PO> people
+#correct: 24
+#incorrect: 22
+
+<TO> [^<]*?(?:<NElocation_NElanguage> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing <PO> people
+#correct: 23
+#incorrect: 14
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?killing <PO> people
+#correct: 23
+#incorrect: 14
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?killed all <PO> people
+#correct: 23
+#incorrect: 0
+
+<TO> [^<]*?which <PO> people
+#correct: 23
+#incorrect: 47
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?killed all <PO> people
+#correct: 22
+#incorrect: 0
+
+<TO> [^<]*?all <PO> people
+#correct: 22
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing <PO_NEnumber>
+#correct: 21
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEorganization_NEsea_NEwater> )?killing <PO_NEnumber>
+#correct: 21
+#incorrect: 0
+
+<TO> [^<]*?left <PO> people
+#correct: 21
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing <PO_NEnumber>
+#correct: 20
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?killing <PO> people
+#correct: 19
+#incorrect: 14
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing <PO> people
+#correct: 19
+#incorrect: 14
+
+<TO> [^<]*?killing <PO_NEnumber>
+#correct: 19
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?killed all <PO> people
+#correct: 19
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killed all <PO> people
+#correct: 18
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killed all <PO> people
+#correct: 18
+#incorrect: 0
+
+the <PO> people [^<]*?killed [^<]*?<TO>
+#correct: 17
+#incorrect: 4
+
+<TO> [^<]*?killed all <PO> people
+#correct: 17
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> people
+#correct: 17
+#incorrect: 0
+
+<TO> that killed <PO_NEnumber>
+#correct: 17
+#incorrect: 0
+
+of <PO> people killed [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 1
+
+killed <PO> people [^<]*?(?:<NEnationality> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 4
+
+of <PO> people killed [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 1
+
+of <PO> people who perished when <TO>
+#correct: 15
+#incorrect: 0
+
+<PO_NEnumber> people who perished when <TO>
+#correct: 15
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> people
+#correct: 15
+#incorrect: 0
+
+<TO> in which <PO_NEnumber>
+#correct: 15
+#incorrect: 12
+
+<TO> in which <PO> people
+#correct: 15
+#incorrect: 6
+
+the <PO> people killed [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 14
+#incorrect: 2
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?killing all <PO> people
+#correct: 14
+#incorrect: 0
+
+<TO> that killed <PO> people
+#correct: 14
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?killing all <PO> people
+#correct: 14
+#incorrect: 0
+
+killed <PO> people [^<]*?<TO>
+#correct: 14
+#incorrect: 4
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> people
+#correct: 14
+#incorrect: 0
+
+the <PO> people killed [^<]*?<TO>
+#correct: 13
+#incorrect: 2
+
+of <PO> people killed [^<]*?<TO>
+#correct: 13
+#incorrect: 1
+
+<TO> flight that killed all <PO_NEnumber>
+#correct: 12
+#incorrect: 0
+
+<TO> that left <PO_NEnumber>
+#correct: 12
+#incorrect: 0
+
+<TO> flight that killed all <PO> people
+#correct: 12
+#incorrect: 0
+
+<TO> that left <PO> people
+#correct: 12
+#incorrect: 0
+
+<TO> , killing <PO_NEnumber>
+#correct: 12
+#incorrect: 0
+
+the <PO> victims [^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 11
+#incorrect: 7
+
+all <PO> people [^<]*?<TO>
+#correct: 11
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing <PO> people
+#correct: 11
+#incorrect: 10
+
+<TO> [^<]*?(?:<NElocation_NEorganization_NEsea_NEwater> )?killing <PO> people
+#correct: 11
+#incorrect: 3
+
+the <PO> victims [^<]*?<TO>
+#correct: 10
+#incorrect: 6
+
+<TO> killed [^<]*?<PO_NEnumber>
+#correct: 10
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing all <PO> people
+#correct: 10
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing <PO> people
+#correct: 10
+#incorrect: 6
+
+<TO> [^<]*?killing <PO> persons
+#correct: 9
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?murder [^<]*?deaths [^<]*?<TO>
+#correct: 9
+#incorrect: 0
+
+<TO> off the coast of <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 9
+#incorrect: 0
+
+with <PO> counts of first - degree murder in the deaths of the people on board <TO>
+#correct: 9
+#incorrect: 0
+
+<PO_NEnumber> counts of first - degree murder in the deaths of the people on board <TO>
+#correct: 9
+#incorrect: 0
+
+with <PO> counts [^<]*?murder [^<]*?deaths [^<]*?<TO>
+#correct: 9
+#incorrect: 0
+
+<PO_NEnumber> people on <TO>
+#correct: 9
+#incorrect: 0
+
+<TO> , killing <PO> persons
+#correct: 9
+#incorrect: 0
+
+<TO> [^<]*?killing <PO> people
+#correct: 9
+#incorrect: 2
+
+<TO> bombing that killed <PO_NEnumber>
+#correct: 9
+#incorrect: 0
+
+<TO> bombing that killed <PO> people
+#correct: 9
+#incorrect: 0
+
+<TO> was roughly <PO_NEnumber>
+#correct: 8
+#incorrect: 0
+
+<TO> [^<]*?roughly <PO> people
+#correct: 8
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?(?:<NEnumber> )?(?:<NEnationality> )?[^<]*?died [^<]*?<TO>
+#correct: 8
+#incorrect: 5
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing all <PO> passengers
+#correct: 8
+#incorrect: 1
+
+<PO_NEnumber> people killed when <TO>
+#correct: 8
+#incorrect: 0
+
+<TO> was roughly <PO> people
+#correct: 8
+#incorrect: 0
+
+<PO_NEnumber> people aboard <TO>
+#correct: 7
+#incorrect: 0
+
+<PO_NEnumber> <TO>
+#correct: 7
+#incorrect: 80
+
+<PO_NEnumber> [^<]*?died [^<]*?<TO>
+#correct: 7
+#incorrect: 4
+
+\* <PO> - <TO>
+#correct: 7
+#incorrect: 0
+
+killing <PO> people [^<]*?<TO>
+#correct: 7
+#incorrect: 2
+
+<TO> off the coast of <NElocation_NEcountry> , killing all <PO> people
+#correct: 7
+#incorrect: 0
+
+<TO> , which ended bloodily when <NElanguage_NEnationality_NEethnicGroup> special forces released poisonous sleeping gas <NEdisease> the auditorium , killing over <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> , which ended bloodily when <NElanguage_NEnationality_NEethnicGroup> special forces released poisonous sleeping gas <NEdisease> the auditorium , killing over <PO> #
+#correct: 6
+#incorrect: 0
+
+with <PO> <TO>
+#correct: 6
+#incorrect: 35
+
+left <PO> people dead , a <NEdate_NEyear_NEnumber> suicide attack in the <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> theatre in which <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> theater that left <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> theatre where more than <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdate> )?[^<]*?killing all <PO> passengers
+#correct: 6
+#incorrect: 1
+
+<TO> , killing all <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing all <PO> people
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?saw <PO> killed
+#correct: 6
+#incorrect: 0
+
+<TO> theatre where more than <PO> people
+#correct: 6
+#incorrect: 0
+
+<TO> which saw <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+of <PO> people killed when <TO>
+#correct: 6
+#incorrect: 0
+
+the <PO> people killed on <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?(?:<NEdisease> )?[^<]*?killing over <PO> #
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?than <PO> people
+#correct: 6
+#incorrect: 0
+
+left <PO> people [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?of <PO> people
+#correct: 6
+#incorrect: 32
+
+<TO> which saw <PO> killed
+#correct: 6
+#incorrect: 0
+
+<TO> theater that left <PO> people
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?which <PO> #
+#correct: 6
+#incorrect: 109
+
+<TO> theatre in which <PO> #
+#correct: 6
+#incorrect: 0
+
+<PO_NEnumber> people killed on <TO>
+#correct: 6
+#incorrect: 0
+
+<PO_NEnumber> people dead , a <NEdate_NEyear_NEnumber> suicide attack in the <TO>
+#correct: 6
+#incorrect: 0
+
+of <PO> passengers [^<]*?<TO>
+#correct: 5
+#incorrect: 2
+
+<PO_NEnumber> victims of <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?took <PO> lives
+#correct: 5
+#incorrect: 1
+
+<TO> plane that killed <PO> people
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation_NEcountry> )?killing all <PO> passengers
+#correct: 5
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?killing all <PO> passengers
+#correct: 5
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEnumber> )?[^<]*?killing all <PO> passengers
+#correct: 5
+#incorrect: 1
+
+<TO> plane that killed <PO_NEnumber>
+#correct: 5
+#incorrect: 0
+
+<TO> , in which <PO_NEnumber>
+#correct: 5
+#incorrect: 6
+
+<PO_NEnumber> people aboard an <TO>
+#correct: 5
+#incorrect: 0
+
+the <PO> victims of <TO>
+#correct: 5
+#incorrect: 3
+
+murdering <PO> people [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+killed <PO> people on <TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?with <PO> people
+#correct: 5
+#incorrect: 0
+
+<TO> killed <PO_NEnumber>
+#correct: 5
+#incorrect: 0
+
+<TO> killed all <PO_NEnumber>
+#correct: 4
+#incorrect: 0
+
+<PO_NEnumber> people who were killed in the terrorist bombing of <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> flight in <NEdate_NEyear_NEnumber> , killing all <PO_NEnumber>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?killing all <PO> on
+#correct: 4
+#incorrect: 7
+
+<TO> jetliner that killed <PO_NEnumber>
+#correct: 4
+#incorrect: 0
+
+<PO_NEnumber> deaths [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+the <PO> people who were killed in the terrorist bombing of <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killed <PO> persons
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?killing all <PO> passengers
+#correct: 4
+#incorrect: 1
+
+<PO_NEnumber> people onboard <TO>
+#correct: 4
+#incorrect: 0
+
+of <PO> people as well as a variety of other charges connected with the bomb that blew up <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> flight in <NEdate_NEyear_NEnumber> , killing all <PO> people
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?all <PO> aboard
+#correct: 4
+#incorrect: 8
+
+<TO> , in which <PO> people
+#correct: 4
+#incorrect: 0
+
+<PO_NEnumber> people on board <TO>
+#correct: 4
+#incorrect: 0
+
+all <PO> people on board <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> , blown up by a bomb with <PO_NEnumber>
+#correct: 4
+#incorrect: 0
+
+<PO_NEnumber> people as well as a variety of other charges connected with the bomb that blew up <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth_NEfirstName> )?(?:<NEnumber> )?[^<]*?killing all <PO> on
+#correct: 4
+#incorrect: 10
+
+<TO> was destroyed on <NEmonth> <NEnumber> , killing all <PO_NEnumber>
+#correct: 4
+#incorrect: 0
+
+<TO> , blown up by a bomb with <PO> people
+#correct: 4
+#incorrect: 0
+
+<TO> was destroyed on <NEmonth> <NEnumber> , killing all <PO> people
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?which <PO> peoples
+#correct: 3
+#incorrect: 0
+
+the <PO> victims of flight <TO>
+#correct: 3
+#incorrect: 3
+
+<TO> terror bombing that killed <PO> people
+#correct: 3
+#incorrect: 0
+
+<TO> jet that killed <PO> people
+#correct: 3
+#incorrect: 0
+
+<PO_NEnumber> people in an <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?killed <PO> persons
+#correct: 3
+#incorrect: 0
+
+<TO> in which <PO> peoples
+#correct: 3
+#incorrect: 0
+
+<TO> over <NElocation_NEcountry> that killed <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> jumbo jet in <NEdate_NEyear_NEnumber> resulting in the deaths of <PO> people
+#correct: 3
+#incorrect: 0
+
+murdering <PO> people [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<PO_NEnumber> people died when <TO>
+#correct: 3
+#incorrect: 0
+
+of <PO> people [^<]*?died [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+of <PO> people aboard <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> aboard
+#correct: 3
+#incorrect: 7
+
+<PO_NEnumber> people aboard flight <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?murder [^<]*?<PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> off the coast of <NElocation_NEcountry> , killing <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> jet that killed <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing all <PO> #
+#correct: 3
+#incorrect: 45
+
+<TO> over <NElocation_NEcountry> that killed <PO> people
+#correct: 3
+#incorrect: 0
+
+<TO> off the coast of <NElocation_NEcountry> , killing <PO> people
+#correct: 3
+#incorrect: 7
+
+of <PO> people on <TO>
+#correct: 3
+#incorrect: 3
+
+<TO> was destroyed on <NEmonth> <NEnumber> , off the <NElocation_NEnationality_NEethnicGroup> coast , killing <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+killed <PO> people aboard an <TO>
+#correct: 3
+#incorrect: 0
+
+the <PO> people killed on flight <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> , which left <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+, <PO> people [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 7
+
+<TO> was destroyed on <NEmonth> <NEnumber> , off the <NElocation_NEnationality_NEethnicGroup> coast , killing <PO> people
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?killing all <PO> passengers
+#correct: 3
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?deaths [^<]*?<PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<PO_NEnumber> people killed on flight <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?of <PO> people
+#correct: 3
+#incorrect: 26
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?of <PO> people
+#correct: 3
+#incorrect: 28
+
+<TO> terror bombing that killed <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> killed all <PO> people
+#correct: 3
+#incorrect: 0
+
+<TO> killed <PO> people
+#correct: 3
+#incorrect: 3
+
+the <PO> people killed when <TO>
+#correct: 3
+#incorrect: 1
+
+<TO> exploded in the sky on <NEmonth_NEfirstName> <NEnumber> , killing all <PO> on
+#correct: 3
+#incorrect: 0
+
+# <PO> people [^<]*?<TO>
+#correct: 3
+#incorrect: 102
+
+<TO> explodes near <NElocation_NEcountry> , killing <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?killing all <PO> on
+#correct: 3
+#incorrect: 7
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?killing all <PO> people
+#correct: 3
+#incorrect: 0
+
+<TO> exploded in the sky on <NEmonth_NEfirstName> <NEnumber> , killing all <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+murdering <PO> people in an <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> jumbo jet in <NEdate_NEyear_NEnumber> resulting in the deaths of <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+all <PO> people aboard flight <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> explodes near <NElocation_NEcountry> , killing <PO> people
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?deaths of <PO> people
+#correct: 3
+#incorrect: 0
+
+<PO_NEnumber> victims of flight <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> by a terrorist bomb that took <PO> lives
+#correct: 3
+#incorrect: 0
+
+<TO> by a terrorist bomb that took <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+killed <PO> people onboard <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> went down off the coast of <NElocation_NEcountry> on <NEdate> , killing all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+the <PO> passengers killed in the <NEdate_NEyear_NEnumber> <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> innocents on <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> off the coast of <NElocation_NEcountry> killed all <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> and the murder of all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> from <NElocation> to <NElocation_NEcapital> exploded off <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+of <PO> innocents on <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?<PO_NEnumber>
+#correct: 2
+#incorrect: 4
+
+<TO> , killing all <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> bombing , which killed <PO> people
+#correct: 2
+#incorrect: 0
+
+the <PO> people on <TO>
+#correct: 2
+#incorrect: 4
+
+<TO> , killing <PO> people
+#correct: 2
+#incorrect: 2
+
+<TO> from <NElocation> to <NElocation_NEcapital> exploded off <NElocation_NEcountry> , killing all <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> near the coast of <NElocation_NEcountry> , killing <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> off the <NElocation_NElanguage> coast of <NElocation_NEcountry> , killing <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?left <PO> dead
+#correct: 2
+#incorrect: 21
+
+<TO> jetliner that killed <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> in which all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> bombing that took <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> deaths on <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> bombings , in which <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> , which left <PO> dead
+#correct: 2
+#incorrect: 1
+
+all <PO> people aboard <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> killed [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> from <NElocation> bound for <NElocation_NEcapital> is bombed by sikh nationalists , killing <PO> people
+#correct: 2
+#incorrect: 0
+
+after <PO> people died [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> near the coast of <NElocation_NEcountry> , killing <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> people who lost their lives following an explosion on <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> bombing , which killed <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnationality> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> #
+#correct: 2
+#incorrect: 25
+
+<TO> crashed off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing all the <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> , off the coast of <NElocation_NEcountry> killed all <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> bombing which killed <PO> people
+#correct: 2
+#incorrect: 0
+
+of <PO> lives [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+the <PO> dead [^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+<TO> from <NElocation> to <NElocation_NEcapital> went down off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+massacring <PO> people [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> passengers and crew aboard <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> people [^<]*?lost [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , killing all <PO> passengers
+#correct: 2
+#incorrect: 1
+
+the <PO> deaths [^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+<PO_NEnumber> [^<]*?lost [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> in which all <PO> persons
+#correct: 2
+#incorrect: 0
+
+<TO> exploded off the coast of <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> and killing <PO> people
+#correct: 2
+#incorrect: 0
+
+the <PO> passengers killed [^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 2
+#incorrect: 0
+
+, <PO> deaths [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> went down off the coast of <NElocation_NEcountry> on <NEdate> , killing all <PO> passengers
+#correct: 2
+#incorrect: 0
+
+all <PO> persons [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+killing <PO> people when <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?killing all <PO> people
+#correct: 2
+#incorrect: 0
+
+the <PO> people who lost their lives following an explosion on <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing <PO> #
+#correct: 2
+#incorrect: 45
+
+<PO_NEnumber> persons aboard <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> dead of <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> on <NEmonth> <NEnumber> , off the coast of <NElocation_NEcountry> killed all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> bombing that took <PO> lives
+#correct: 2
+#incorrect: 0
+
+the <PO> deaths that resulted from the bombing of <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?murder [^<]*?all <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?all <PO> persons
+#correct: 2
+#incorrect: 0
+
+, <PO> deaths on <TO>
+#correct: 2
+#incorrect: 0
+
+killed <PO> passengers [^<]*?(?:<NEnationality> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> airliner off the coast of <NElocation_NEcountry> , which killed <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> passengers and crew , mostly <NEnationality> , as it tore through <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> off the coast of <NElocation_NEcountry> killed all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+of <PO> innocents [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> from <NElocation> bound for <NElocation_NEcapital> is bombed by sikh nationalists , killing <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> from <NElocation> to <NElocation_NEcapital> went down off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing all <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> in <NElocation_NEcountry> which killed <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+of <PO> people who died when <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , a <NEdate_NEyear_NEnumber> attack that killed <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> in <NElocation_NEcountry> which killed <PO> people
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> passengers killed in the <NEdate_NEyear_NEnumber> <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEdisease> )?[^<]*?(?:<NElocation_NElanguage> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElocation> )?[^<]*?killing <PO> ,
+#correct: 2
+#incorrect: 27
+
+<TO> bombings , in which <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> bombing which killed <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> #
+#correct: 2
+#incorrect: 30
+
+<TO> <NEdisease> the <NElocation_NElanguage> in <NEmonth> <NEdate_NEyear_NEnumber> after departing <NElocation> , killing <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> that killed <PO> persons
+#correct: 2
+#incorrect: 0
+
+the <PO> people aboard an <TO>
+#correct: 2
+#incorrect: 3
+
+of <PO> passengers and crew aboard <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> killing [^<]*?<PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+all <PO> persons aboard <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> flight , which killed <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing all <PO> aboard
+#correct: 2
+#incorrect: 1
+
+<TO> went down off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing all <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> exploded over the <NElocation_NEorganization_NEsea_NEwater> killing <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+after <PO> people died when <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , a <NEdate_NEyear_NEnumber> attack that killed <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing [^<]*?the <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> and the murder of all <PO> people
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> dead of <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> killed <PO> as
+#correct: 2
+#incorrect: 0
+
+<TO> flight , which killed <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> and killing <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> crashed off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing all the <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> off the <NElocation_NElanguage> coast of <NElocation_NEcountry> , killing <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> people when <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?killing all <PO> #
+#correct: 2
+#incorrect: 46
+
+<PO_NEnumber> people who died when <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> went down off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing all <PO> passengers
+#correct: 2
+#incorrect: 0
+
+killed <PO> passengers and crew , mostly <NEnationality> , as it tore through <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> <NEdisease> the <NElocation_NElanguage> in <NEmonth> <NEdate_NEyear_NEnumber> after departing <NElocation> , killing <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> deaths that resulted from the bombing of <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> exploded over the <NElocation_NEorganization_NEsea_NEwater> killing <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> airliner off the coast of <NElocation_NEcountry> , which killed <PO> people
+#correct: 2
+#incorrect: 0
+
+included <PO> people who were on board <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which went down off the coast of <NElocation_NEcountry> en route from <NElocation> to <NElocation_NEcapital> , killed all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+since <PO> people were killed when <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> crashed <NEdisease> the ocean off the coast of <NElocation_NEcountry> , killing all <PO> people
+#correct: 1
+#incorrect: 0
+
+of <PO> people killed on <NEmonth> <NEnumber> , in a mid - air explosion aboard air - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> jetliner that killed <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> jet with the loss of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> was blown up near <NElocation_NEcountry> and <PO> innocent
+#correct: 1
+#incorrect: 0
+
+of <PO> people killed in the <NEmonth> <NEdate_NEyear_NEnumber> - bombing of an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> exploded off the coast of <NElocation_NEcountry> , claiming the lives of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , killing <PO> passengers
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?(?:<NElocation> )?killed <PO> individuals
+#correct: 1
+#incorrect: 0
+
+<TO> flight in <NEdate_NEyear_NEnumber> , which killed <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> flight killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+# <PO> people on board of <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> people died when <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> killed all the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> #
+#correct: 1
+#incorrect: 25
+
+<TO> went down off the coast of <NElocation_NEcountry> on jun \. <NEnumber> , killing all <PO> passengers
+#correct: 1
+#incorrect: 0
+
+<TO> as it flew near the coast of <NElocation_NEcountry> , and killed all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> jumbo jet and killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEtime> )?[^<]*?killing all <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> jumbo jet bombing that killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> , killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> victims of the <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> lives aboard <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> twenty years ago and killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> off the coast of <NElocation_NEcountry> , killing all <PO> onboard
+#correct: 1
+#incorrect: 0
+
+<TO> killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> off the west coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?killed [^<]*?of <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> blew up over the <NElocation_NEsea_NEwater> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+of <PO> lives [^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> and sent <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , which exploded off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , claiming the lives of <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?murder of <PO> <NEnationality>
+#correct: 1
+#incorrect: 0
+
+<TO> blew up off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?(?:<NEnumber> )?(?:<NEmilitaryRank> )?[^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?all <PO> #
+#correct: 1
+#incorrect: 40
+
+that <PO> people were killed on <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> went down off the coast of <NElocation_NEcountry> on jun \. <NEnumber> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?<NEacronym> <PO> #
+#correct: 1
+#incorrect: 6
+
+<TO> plunged from the sky families of the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> persons in the <NEdate_NEyear_NEnumber> bombing of an <TO>
+#correct: 1
+#incorrect: 0
+
+since <PO> people [^<]*?killed [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> which killed <PO> people
+#correct: 1
+#incorrect: 0
+
+the <PO> victims from <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which exploded off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> killing all <PO> passengers
+#correct: 1
+#incorrect: 0
+
+<TO> and the resulting murder of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> on <NEnumber> <NEmonth> <NEdate_NEyear_NEnumber> , off the coast of <NElocation_NEcountry> killed all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+than <PO> people aboard <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> twenty years ago and killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people were killed on <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> passengers [^<]*?<TO>
+#correct: 1
+#incorrect: 6
+
+<TO> which killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> over <NElocation_NEcountry> in <NEdate_NEyear_NEnumber> that claimed <PO> lives
+#correct: 1
+#incorrect: 0
+
+<TO> over the <NElocation_NElanguage> that killed <PO> people
+#correct: 1
+#incorrect: 0
+
+# <PO> killed [^<]*?<TO>
+#correct: 1
+#incorrect: 27
+
+<TO> attack that left <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> disaster that killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+the <PO> people [^<]*?died [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+# <PO> killed on flight <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> blew up over the <NElocation_NEsea_NEwater> , killing all <PO> passengers
+#correct: 1
+#incorrect: 0
+
+included <PO> people [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> originating in <NElocation> , at <NElength_NEsize> off the coast of <NElocation_NEcountry> killing all <PO> passengers
+#correct: 1
+#incorrect: 0
+
+<TO> that killed all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEmonth> <NEdate_NEyear_NEnumber> , killing all <PO> aboard
+#correct: 1
+#incorrect: 0
+
+<TO> off the coast of <NElocation_NEcountry> , killing all <PO> aboard
+#correct: 1
+#incorrect: 5
+
+<TO> blew up over the <NElocation_NEsea_NEwater> off the coast of <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?and <PO> innocent
+#correct: 1
+#incorrect: 0
+
+the <PO> killed aboard <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> onboard
+#correct: 1
+#incorrect: 2
+
+<TO> flight that killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> : <NEorganization> , <NEacronym> -- \( <NEacronym> - <NEmonth> <NEnumber> \) - family members of many of the <PO> #
+#correct: 1
+#incorrect: 0
+
+killed <PO> people , most of them <NEnationality> , on <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> was blown up near <NElocation_NEcountry> and <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> flight , allegedly by sikh militants , that killed all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> as it flew near the coast of <NElocation_NEcountry> , and killed all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> originating in <NElocation> , at <NElength_NEsize> off the coast of <NElocation_NEcountry> killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+the <PO> people killed in a <NEdate_NEyear_NEnumber> air <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> above the <NElocation_NEsea_NEwater> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> exploded over the <NElocation_NEsea_NEwater> on <NEnumber> <NEmonth> <NEdate_NEyear_NEnumber> , killing all <PO> people
+#correct: 1
+#incorrect: 0
+
+killed <PO> people aboard <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> blew up off the coast of <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+murdering <PO> persons [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and killed every single one of <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> exploded off the coast of <NElocation_NEcountry> , claiming the lives of <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> , which originated in this west coast <NEnationality> city , vanished from the air near <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+killing <PO> people onboard <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> , which killed all <PO> people
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> individuals on flight <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> over <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , which left <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> exploded over the <NElocation_NEsea_NEwater> on <NEmonth> <NEnumber> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , in which <PO> passengers
+#correct: 1
+#incorrect: 0
+
+the <PO> people killed on the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people killed after a bomb exploded aboard an <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> lives in <NEmonth> <NEdate_NEyear_NEnumber> , in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> bombing , and still expect additional arrests for the attack that killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> : <NEorganization> , <NEacronym> -- \( <NEacronym> - <NEmonth> <NEnumber> \) - family members of many of the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> jet with the loss of <PO> lives
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people aboard air - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?killing all <PO> ,
+#correct: 1
+#incorrect: 4
+
+<TO> out of the sky killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> <NEmilitaryRank> kanishka , which killed <PO> people
+#correct: 1
+#incorrect: 0
+
+massacring <PO> people [^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> exploded over the <NElocation_NEsea_NEwater> on <NEnumber> <NEmonth> <NEdate_NEyear_NEnumber> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+of <PO> passengers and crew on <TO>
+#correct: 1
+#incorrect: 0
+
+all <PO> passengers and crew members , including <TO>
+#correct: 1
+#incorrect: 0
+
+honoring <PO> people killed [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+massacring <PO> people in a <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> killed all <PO> on
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> lives aboard <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> victims of the <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> jet departing <NElocation> killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s kanishka flight with <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?which <PO> passengers
+#correct: 1
+#incorrect: 1
+
+<TO> exploded off the coast of <NElocation_NEcountry> , killing all <PO> aboard
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people killed on the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which blew up off the coast of <NElocation_NEcountry> killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people , most of them <NEnationality> , on <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEriver_NEwater> than an hour later , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> flight killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> : <PO_NEnumber>
+#correct: 1
+#incorrect: 1
+
+<TO> , killing all <PO> on
+#correct: 1
+#incorrect: 1
+
+killed <PO> people killed when <TO>
+#correct: 1
+#incorrect: 0
+
+murdering <PO> persons in the <NEdate_NEyear_NEnumber> bombing of an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> plane which left <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> victims from <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> above the <NElocation_NEsea_NEwater> , killing all <PO> on
+#correct: 1
+#incorrect: 0
+
+all <PO> people on board air - <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people killed in a <NEdate_NEyear_NEnumber> air <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> passengers and crew of flight <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the worst in <NEprofession> history , in which <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEnumber> , killing all <PO> aboard
+#correct: 1
+#incorrect: 0
+
+<TO> : <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> snuffed out the lives of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> snuffed out the lives of <PO> people
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people died aboard air - <TO>
+#correct: 1
+#incorrect: 0
+
+than <PO> people [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> plane which left <PO> people
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people who were on board <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> victims , including <NEnumber> <NEnationality> , who died when <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> disaster that killed <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> killed all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> innocent passengers onboard <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> people who died when flight <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> passengers and crew on <TO>
+#correct: 1
+#incorrect: 0
+
+killed <PO> people killed [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> victims , including <NEnumber> <NEnationality> , who died when <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> jet which killed <PO> people
+#correct: 1
+#incorrect: 0
+
+killing <PO> people on <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> <PO_NEnumber>
+#correct: 1
+#incorrect: 3
+
+<TO> two decades ago that killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people in a <NEdate_NEyear_NEnumber> air <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> flight in <NEdate_NEyear_NEnumber> , which killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> off the <NElocation_NEnationality_NEethnicGroup> coast on <NEmonth> <NEnumber> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> exploded over the <NElocation_NEsea_NEwater> on <NEmonth> <NEnumber> , killing <PO> people
+#correct: 1
+#incorrect: 0
+
+# <PO> people perished when <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> , en route from <NElocation> to <NElocation_NEcapital> , exploded over the <NElocation_NEsea_NEwater> south of <NElocation_NEcountry> , killing all <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> that killed all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people perished when <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> that killed <PO> passengers
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?of <PO> lives
+#correct: 1
+#incorrect: 3
+
+, <PO> people [^<]*?killed [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> , which was on its way from <NElocation> to <NElocation_NEcapital> , off the coast of <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> by sihk extremists in which <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> <NEnumber> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people in a <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and sent <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> killed all the <PO> passengers
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?killing <PO> ,
+#correct: 1
+#incorrect: 26
+
+<TO> , on which <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> which went down off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , with the loss of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> hikings up off the coast of <NElocation_NEcountry> defeating all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , on which <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> off the coast of <NElocation_NEcountry> that left <PO> passengers
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?\) <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> , which blew up off the coast of <NElocation_NEcountry> killing all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> killing all <PO> passengers
+#correct: 1
+#incorrect: 0
+
+, <PO> people headed from <NElocation> to <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> people died when <TO>
+#correct: 1
+#incorrect: 3
+
+killed <PO> people , and an attempt to destroy another <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> blew up off the coast of <NElocation_NEcountry> , killing all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> over <NElocation_NEcountry> in <NEdate_NEyear_NEnumber> that claimed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> plunged <NEdisease> the <NElocation> on <NEmonth> <NEnumber> , killing <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> and killed every single one of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> over the <NElocation_NEsea_NEwater> , killing all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> two decades ago that killed <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> by sihk extremists in which <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+of <PO> individuals [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> exploded off the coast of <NElocation_NEcountry> , killing all <PO> #
+#correct: 1
+#incorrect: 1
+
+<TO> plunged <NEdisease> the <NElocation> on <NEmonth> <NEnumber> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , took the lives of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> blows up off the coast of <NElocation_NEcountry> , killing all <PO> aboard
+#correct: 1
+#incorrect: 0
+
+<TO> , which exploded over the <NElocation> , killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?killing all <PO> on
+#correct: 1
+#incorrect: 1
+
+<TO> over <NElocation_NEsea_NEwater> : <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , the worst in <NEprofession> history , in which <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> crashed <NEdisease> the <NElocation_NEsea_NEwater> off the coast of <NElocation_NEcountry> in <NEmonth> <NEdate_NEyear_NEnumber> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+massacring <PO> people in a <NEdate_NEyear_NEnumber> air <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?killed all <PO> on
+#correct: 1
+#incorrect: 16
+
+<PO_NEnumber> people killed in the <NEmonth> <NEdate_NEyear_NEnumber> - bombing of an <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people in the <NEdate_NEyear_NEnumber> bombing of <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> lives in <NEmonth> <NEdate_NEyear_NEnumber> , in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> off the coast of <NElocation_NEcountry> that left <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> jet departing <NElocation> killed <PO> individuals
+#correct: 1
+#incorrect: 0
+
+when <PO> people died [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people , and an attempt to destroy another <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?killing all <PO> crew
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?left <PO> passengers
+#correct: 1
+#incorrect: 0
+
+<TO> jetliner that killed <PO> persons
+#correct: 1
+#incorrect: 0
+
+<TO> blew up over the <NElocation_NEsea_NEwater> off the coast of <NElocation_NEcountry> , killing all <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> explodes in mid - air off the <NElocation> , killing all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> , which exploded off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> and tore up the <NEtime> sky , killing all <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> , which originated in this west coast <NEnationality> city , vanished from the air near <NElocation_NEcountry> , killing all <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?claimed <PO> lives
+#correct: 1
+#incorrect: 0
+
+<TO> flight off the coast <NElocation_NEcountry> that killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people , mostly <NEnationality> , as it tore through <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> off the west coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> over <NElocation_NEsea_NEwater> : <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , which went down off the coast of <NElocation_NEcountry> en route from <NElocation> to <NElocation_NEcapital> , killed all <PO> people
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people killed on <NEmonth> <NEnumber> , in a mid - air explosion aboard air - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?killed <PO> passengers
+#correct: 1
+#incorrect: 1
+
+<TO> was a <NEorganization> <NEnumber> that exploded on <NEmonth> <NEnumber> above the <NElocation_NEsea_NEwater> , south of <NElocation_NEcountry> ; all <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?: <PO> #
+#correct: 1
+#incorrect: 8
+
+killed <PO> people , mostly <NEnationality> , as it tore through <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which was on its way from <NElocation> to <NElocation_NEcapital> , off the coast of <NElocation_NEcountry> , killing all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> blew up off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> flight , allegedly by sikh militants , that killed all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> was a <NEorganization> <NEnumber> that exploded on <NEmonth> <NEnumber> above the <NElocation_NEsea_NEwater> , south of <NElocation_NEcountry> ; all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+\? <PO> - <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people in the <NEdate_NEyear_NEnumber> bombing of an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEnumber> )?[^<]*?killing all <PO> aboard
+#correct: 1
+#incorrect: 1
+
+of <PO> passengers of <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> ' s kanishka flight with <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> killed [^<]*?the <PO> passengers
+#correct: 1
+#incorrect: 0
+
+all <PO> passengers [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> killed aboard <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , killing all <PO> crew
+#correct: 1
+#incorrect: 2
+
+<TO> <NEmilitaryRank> kanishka , which killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> explodes in mid - air off the <NElocation> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> , which killed all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEmonth> <NEdate_NEyear_NEnumber> , killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> , which exploded over the <NElocation> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people headed from <NElocation> to <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people were killed when an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> out of the skies on <NEmonth> <NEnumber> , and killed <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> on <NEnumber> <NEmonth> <NEdate_NEyear_NEnumber> , off the coast of <NElocation_NEcountry> killed all <PO> people
+#correct: 1
+#incorrect: 0
+
+, <PO> people were killed when an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+the <PO> victims of the bombing of <TO>
+#correct: 1
+#incorrect: 0
+
+killing <PO> people aboard air - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> , which killed <PO> persons
+#correct: 1
+#incorrect: 0
+
+<TO> flight in which <PO> people
+#correct: 1
+#incorrect: 0
+
+of <PO> innocent passengers onboard <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> bombing , in which all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> killed all <PO> innocent
+#correct: 1
+#incorrect: 0
+
+<TO> on <NEmonth> <NEnumber> , which killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+the <PO> victims [^<]*?(?:<NEnumber> )?(?:<NEnationality> )?[^<]*?died [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> plane , which killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> killed on flight <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people who died when flight <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> plane , which killed <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> jumbo jet bombing that killed <PO> people
+#correct: 1
+#incorrect: 0
+
+all <PO> people on board and a second bomb , intended for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> jumbo jet and killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+that <PO> people [^<]*?killed [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> <NEacronym> <NEacronym> <NEacronym> <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> and the resulting murder of <PO> <NEnationality>
+#correct: 1
+#incorrect: 0
+
+murdering <PO> people in the <NEdate_NEyear_NEnumber> bombing of an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> jet which killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+when <PO> people died aboard air - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> attack that left <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people were killed when <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s kanishka flight that killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> bombing , and still expect additional arrests for the attack that killed <PO> people
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people on board of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> plunged from the sky families of the <PO> who
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <NEacronym> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people on board and a second bomb , intended for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> hikings up off the coast of <NElocation_NEcountry> defeating all <PO> aboard
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEmonth> <NEdate_NEyear_NEnumber> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> bombing , in which all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , en route from <NElocation> to <NElocation_NEcapital> , exploded over the <NElocation_NEsea_NEwater> south of <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> crashed <NEdisease> the <NElocation_NEsea_NEwater> off the coast of <NElocation_NEcountry> in <NEmonth> <NEdate_NEyear_NEnumber> , killing all <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEmonth> <NEdate_NEyear_NEnumber> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?sent <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> <NEriver_NEwater> than an hour later , killing all <PO> aboard
+#correct: 1
+#incorrect: 0
+
+# <PO> people died [^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+<PO_NEnumber> passengers and crew members , including <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> over the <NElocation_NEsea_NEwater> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> blows up off the coast of <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> which went down off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , with the loss of <PO> lives
+#correct: 1
+#incorrect: 0
+
+<TO> exploded off the coast of <NElocation_NEcountry> , killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> and tore up the <NEtime> sky , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> over <NElocation_NEcountry> , killing all <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> over the <NElocation_NElanguage> that killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> flight in which <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> out of the sky killing <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> victims of the bombing of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> exploded off the coast of <NElocation_NEcountry> , killing <PO> people
+#correct: 1
+#incorrect: 0
+
+of <PO> innocent [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+murdering <PO> people in the <NEdate_NEyear_NEnumber> bombing of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s kanishka flight that killed <PO> people
+#correct: 1
+#incorrect: 0
+
+honoring <PO> people killed when <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> passengers of <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> people killed after a bomb exploded aboard an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> off the <NElocation_NEnationality_NEethnicGroup> coast on <NEmonth> <NEnumber> , killing <PO> people
+#correct: 1
+#incorrect: 0
+
+<TO> flight that killed <PO> people
+#correct: 1
+#incorrect: 12
+
+<TO> out of the skies on <NEmonth> <NEnumber> , and killed <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?killed <PO> ,
+#correct: 1
+#incorrect: 27
+
+<TO> crashed <NEdisease> the ocean off the coast of <NElocation_NEcountry> , killing all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , which exploded off the coast of <NElocation_NEcountry> on <NEmonth> <NEnumber> , claiming the lives of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEriver_NEwater> )?[^<]*?killing all <PO> aboard
+#correct: 1
+#incorrect: 1
+
+of <PO> individuals on flight <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> people on board air - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , took the lives of <PO> people
+#correct: 1
+#incorrect: 0
+
+the <PO> killed [^<]*?<TO>
+#correct: 1
+#incorrect: 21
+
+<PO_NEnumber> passengers and crew of flight <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> people died [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> lives
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?killing <PO> passengers
+#correct: 1
+#incorrect: 4

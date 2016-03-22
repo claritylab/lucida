@@ -1,0 +1,16 @@
+QUESTION_TEMPLATE: When was <TO>?
+ANSWER_TEMPLATE: Date: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be( know as)? <TO>
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be( know as)? <TO> (in|of|to) <CO>
+((what|which) (century|date|day|decade|hour|month|time|year)|when) (be|do) <TO> (celebrate|occur|take place)
+((what|which) (century|date|day|decade|hour|month|time|year)|when) (be|do) <TO> (in|of|to) <CO> (celebrate|occur|take place)
+(what|which) be( know as)? the (century|date|day|decade|hour|month|time|year) of <TO>
+(what|which) be( know as)? the (century|date|day|decade|hour|month|time|year) of <TO> (in|of|to) <CO>
+<TO> (be( celebrate)?|occur|take place) .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+<TO> (in|of|to) <CO> (be( celebrate)?|occur|take place) .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+(what|which) be the( scheduled)? date of <TO>
+(what|which) be <TO>'s( scheduled)? date
+((what|which) (century|date|day|decade|hour|month|time|year)|when) do <TO> make <CO>
+(name|list) date of <TO>
+((what|which) (century|date|day|decade|hour|month|time|year)|when) do <TO>( become part of|( first)? join) <CO>
