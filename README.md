@@ -25,8 +25,10 @@ export LUCIDAROOT=`pwd`/lucida
 ```
 - Start all the services using supervisord:
 ```
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 cd tools
-supervisord -c lucida.conf
+chmod +x start_all_services.sh
+./start_all_services.sh
 ```
 - To test, in another terminal navigate to `lucida/commandcenter` and use the
   following commands (replacing (PORT) with 8090 as defined in `lucida.conf`):
