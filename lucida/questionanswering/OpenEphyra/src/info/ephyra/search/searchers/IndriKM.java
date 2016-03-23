@@ -62,16 +62,18 @@ public class IndriKM extends KnowledgeMiner {
 	
 	/**
 	 * Gets a list of all Indri index directories that have been specified with
-	 * environment variables 'INDRI_INDEX', 'INDRI_INDEX2', 'INDRI_INDEX3' etc.
+	 * system property 'INDRI_INDEX', 'INDRI_INDEX2', 'INDRI_INDEX3' etc.
 	 * One environment variable can specify multiple indices which are queried
 	 * with the same knowledge miner.
+	 * Note: The system property "INDRI_INDEX" is set in lucida.handler.QAServiceHandler.
 	 * 
 	 * @return Indri index directories grouped by knowledge miners
 	 */
 	public static String[][] getIndriIndices() {
 		ArrayList<String[]> indices = new ArrayList<String[]>();
 		
-		String index = System.getenv("INDRI_INDEX");
+		String index = System.getProperty("INDRI_INDEX");
+		// String index = System.getenv("INDRI_INDEX");
              //   System.out.println("Index: " + index);
 		if (index != null && index.length() > 0)
 			indices.add(index.split(";"));

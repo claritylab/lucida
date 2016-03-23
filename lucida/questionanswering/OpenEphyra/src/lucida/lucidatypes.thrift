@@ -16,7 +16,3 @@ struct QuerySpec {
     1: optional string name;
     2: list<QueryInput> content;
 }
-
-exception RuntimeException {
-    1: string message;
-}
