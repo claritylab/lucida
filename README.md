@@ -45,7 +45,7 @@ chmod +x start_all_services.sh
 # Test question-answering
 ./ccclient --qa <QUESTION> (PORT)
 ```
-For example,
+- For example,
 ```
 ./ccclient --asr inputs/how.tall.is.this.wav --imm inputs/query.jpg 8090
 ```
