@@ -3,14 +3,14 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. -->
-<project basedir="." default="build" name="OpenEphyra">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="OpenEphyra">
     <property environment="env"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.6"/>
-    <property name="source" value="1.6"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
     <path id="OpenEphyra.classpath">
         <pathelement location="bin"/>
+        <pathelement location="lib/learn/jsoup-1.8.3.jar"/>
         <pathelement location="lib/ml/maxent.jar"/>
         <pathelement location="lib/ml/minorthird.jar"/>
         <pathelement location="lib/nlp/jwnl.jar"/>
@@ -26,21 +26,22 @@
         <pathelement location="lib/search/googleapi.jar"/>
         <pathelement location="lib/search/indri.jar"/>
         <pathelement location="lib/search/yahoosearch.jar"/>
+        <pathelement location="lib/thrift/libthrift-0.9.2.jar"/>
+        <pathelement location="lib/thrift/log4j-1.2.14.jar"/>
+        <pathelement location="lib/thrift/slf4j-api-1.5.8.jar"/>
+        <pathelement location="lib/thrift/slf4j-log4j12-1.5.8.jar"/>
         <pathelement location="lib/util/commons-logging.jar"/>
         <pathelement location="lib/util/gson.jar"/>
         <pathelement location="lib/util/htmlparser.jar"/>
-        <pathelement location="lib/util/log4j.jar"/>
-        <pathelement location="lib/util/trove.jar"/>
-
-        <pathelement location="lib/util/servlet-api.jar"/>
         <pathelement location="lib/util/jetty-all.jar"/>
-
+        <pathelement location="lib/util/log4j.jar"/>
+        <pathelement location="lib/util/servlet-api.jar"/>
+        <pathelement location="lib/util/trove.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
-                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -53,10 +54,35 @@
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="OpenEphyra.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="lucida.main.QADaemon">
+        <java classname="lucida.main.QADaemon" failonerror="true" fork="yes">
+            <env key="LUCIDAROOT" value="/home/yba/Documents/lucida/lucida"/>
+            <jvmarg line="-Djava.library.path=lib/search/"/>
+            <classpath refid="OpenEphyra.classpath"/>
+        </java>
+    </target>
+    <target name="QAClient">
+        <java classname="lucida.test.QAClient" failonerror="true" fork="yes">
+            <classpath refid="OpenEphyra.classpath"/>
+        </java>
+    </target>
 </project>

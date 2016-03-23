@@ -65,8 +65,8 @@ public class QAClient {
 			transport.open();
 			System.out.println("///// Connecting to OpenEphyra... /////");
 			// Call the three functions.
-			//client.create(LUCID, spec);
-			//client.learn(LUCID, knowledge);
+			client.create(LUCID, spec);
+			client.learn(LUCID, knowledge);
 			String answer = client.infer(LUCID, query);
 			// Print the answer.
 			System.out.println("///// Answer: /////");
