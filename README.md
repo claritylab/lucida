@@ -45,6 +45,10 @@ chmod +x start_all_services.sh
 # Test question-answering
 ./ccclient --qa <QUESTION> (PORT)
 ```
+For example,
+```
+./ccclient --asr inputs/how.tall.is.this.wav --imm inputs/query.jpg 8090
+```
 - The above example uses a small test database for the QA system. To use all of
   Wikipedia:
 ```

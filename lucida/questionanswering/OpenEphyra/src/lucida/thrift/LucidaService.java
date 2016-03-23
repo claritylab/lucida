@@ -39,11 +39,11 @@ public class LucidaService {
 
   public interface Iface {
 
-    public void create(String LUCID, QuerySpec spec) throws RuntimeException, org.apache.thrift.TException;
+    public void create(String LUCID, QuerySpec spec) throws org.apache.thrift.TException;
 
-    public void learn(String LUCID, QuerySpec knowledge) throws RuntimeException, org.apache.thrift.TException;
+    public void learn(String LUCID, QuerySpec knowledge) throws org.apache.thrift.TException;
 
-    public String infer(String LUCID, QuerySpec query) throws RuntimeException, org.apache.thrift.TException;
+    public String infer(String LUCID, QuerySpec query) throws org.apache.thrift.TException;
 
     public void ping() throws org.apache.thrift.TException;
 
@@ -81,7 +81,7 @@ public class LucidaService {
       super(iprot, oprot);
     }
 
-    public void create(String LUCID, QuerySpec spec) throws RuntimeException, org.apache.thrift.TException
+    public void create(String LUCID, QuerySpec spec) throws org.apache.thrift.TException
     {
       send_create(LUCID, spec);
       recv_create();
@@ -95,17 +95,14 @@ public class LucidaService {
       sendBase("create", args);
     }
 
-    public void recv_create() throws RuntimeException, org.apache.thrift.TException
+    public void recv_create() throws org.apache.thrift.TException
     {
       create_result result = new create_result();
       receiveBase(result, "create");
-      if (result.e != null) {
-        throw result.e;
-      }
       return;
     }
 
-    public void learn(String LUCID, QuerySpec knowledge) throws RuntimeException, org.apache.thrift.TException
+    public void learn(String LUCID, QuerySpec knowledge) throws org.apache.thrift.TException
     {
       send_learn(LUCID, knowledge);
       recv_learn();
@@ -119,17 +116,14 @@ public class LucidaService {
       sendBase("learn", args);
     }
 
-    public void recv_learn() throws RuntimeException, org.apache.thrift.TException
+    public void recv_learn() throws org.apache.thrift.TException
     {
       learn_result result = new learn_result();
       receiveBase(result, "learn");
-      if (result.e != null) {
-        throw result.e;
-      }
       return;
     }
 
-    public String infer(String LUCID, QuerySpec query) throws RuntimeException, org.apache.thrift.TException
+    public String infer(String LUCID, QuerySpec query) throws org.apache.thrift.TException
     {
       send_infer(LUCID, query);
       return recv_infer();
@@ -143,15 +137,12 @@ public class LucidaService {
       sendBase("infer", args);
     }
 
-    public String recv_infer() throws RuntimeException, org.apache.thrift.TException
+    public String recv_infer() throws org.apache.thrift.TException
     {
       infer_result result = new infer_result();
       receiveBase(result, "infer");
       if (result.isSetSuccess()) {
         return result.success;
-      }
-      if (result.e != null) {
-        throw result.e;
       }
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "infer failed: unknown result");
     }
@@ -218,7 +209,7 @@ public class LucidaService {
         prot.writeMessageEnd();
       }
 
-      public void getResult() throws RuntimeException, org.apache.thrift.TException {
+      public void getResult() throws org.apache.thrift.TException {
         if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
@@ -253,7 +244,7 @@ public class LucidaService {
         prot.writeMessageEnd();
       }
 
-      public void getResult() throws RuntimeException, org.apache.thrift.TException {
+      public void getResult() throws org.apache.thrift.TException {
         if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
@@ -288,7 +279,7 @@ public class LucidaService {
         prot.writeMessageEnd();
       }
 
-      public String getResult() throws RuntimeException, org.apache.thrift.TException {
+      public String getResult() throws org.apache.thrift.TException {
         if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
           throw new IllegalStateException("Method call not finished!");
         }
@@ -362,11 +353,7 @@ public class LucidaService {
 
       public create_result getResult(I iface, create_args args) throws org.apache.thrift.TException {
         create_result result = new create_result();
-        try {
-          iface.create(args.LUCID, args.spec);
-        } catch (RuntimeException e) {
-          result.e = e;
-        }
+        iface.create(args.LUCID, args.spec);
         return result;
       }
     }
@@ -386,11 +373,7 @@ public class LucidaService {
 
       public learn_result getResult(I iface, learn_args args) throws org.apache.thrift.TException {
         learn_result result = new learn_result();
-        try {
-          iface.learn(args.LUCID, args.knowledge);
-        } catch (RuntimeException e) {
-          result.e = e;
-        }
+        iface.learn(args.LUCID, args.knowledge);
         return result;
       }
     }
@@ -410,11 +393,7 @@ public class LucidaService {
 
       public infer_result getResult(I iface, infer_args args) throws org.apache.thrift.TException {
         infer_result result = new infer_result();
-        try {
-          result.success = iface.infer(args.LUCID, args.query);
-        } catch (RuntimeException e) {
-          result.e = e;
-        }
+        result.success = iface.infer(args.LUCID, args.query);
         return result;
       }
     }
@@ -485,12 +464,6 @@ public class LucidaService {
             byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
             org.apache.thrift.TBase msg;
             create_result result = new create_result();
-            if (e instanceof RuntimeException) {
-                        result.e = (RuntimeException) e;
-                        result.setEIsSet(true);
-                        msg = result;
-            }
-             else 
             {
               msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
               msg = (org.apache.thrift.TBase)new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
@@ -541,12 +514,6 @@ public class LucidaService {
             byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
             org.apache.thrift.TBase msg;
             learn_result result = new learn_result();
-            if (e instanceof RuntimeException) {
-                        result.e = (RuntimeException) e;
-                        result.setEIsSet(true);
-                        msg = result;
-            }
-             else 
             {
               msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
               msg = (org.apache.thrift.TBase)new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
@@ -598,12 +565,6 @@ public class LucidaService {
             byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
             org.apache.thrift.TBase msg;
             infer_result result = new infer_result();
-            if (e instanceof RuntimeException) {
-                        result.e = (RuntimeException) e;
-                        result.setEIsSet(true);
-                        msg = result;
-            }
-             else 
             {
               msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
               msg = (org.apache.thrift.TBase)new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
@@ -1154,7 +1115,6 @@ public class LucidaService {
   public static class create_result implements org.apache.thrift.TBase<create_result, create_result._Fields>, java.io.Serializable, Cloneable, Comparable<create_result>   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("create_result");
 
-    private static final org.apache.thrift.protocol.TField E_FIELD_DESC = new org.apache.thrift.protocol.TField("e", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -1162,11 +1122,10 @@ public class LucidaService {
       schemes.put(TupleScheme.class, new create_resultTupleSchemeFactory());
     }
 
-    public RuntimeException e; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-      E((short)1, "e");
+;
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -1181,8 +1140,6 @@ public class LucidaService {
        */
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
-          case 1: // E
-            return E;
           default:
             return null;
         }
@@ -1221,13 +1178,9 @@ public class LucidaService {
         return _fieldName;
       }
     }
-
-    // isset id assignments
     public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.E, new org.apache.thrift.meta_data.FieldMetaData("e", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(create_result.class, metaDataMap);
     }
@@ -1235,20 +1188,10 @@ public class LucidaService {
     public create_result() {
     }
 
-    public create_result(
-      RuntimeException e)
-    {
-      this();
-      this.e = e;
-    }
-
     /**
      * Performs a deep copy on <i>other</i>.
      */
     public create_result(create_result other) {
-      if (other.isSetE()) {
-        this.e = new RuntimeException(other.e);
-      }
     }
 
     public create_result deepCopy() {
@@ -1257,51 +1200,15 @@ public class LucidaService {
 
     @Override
     public void clear() {
-      this.e = null;
-    }
-
-    public RuntimeException getE() {
-      return this.e;
-    }
-
-    public create_result setE(RuntimeException e) {
-      this.e = e;
-      return this;
-    }
-
-    public void unsetE() {
-      this.e = null;
-    }
-
-    /** Returns true if field e is set (has been assigned a value) and false otherwise */
-    public boolean isSetE() {
-      return this.e != null;
-    }
-
-    public void setEIsSet(boolean value) {
-      if (!value) {
-        this.e = null;
-      }
     }
 
     public void setFieldValue(_Fields field, Object value) {
       switch (field) {
-      case E:
-        if (value == null) {
-          unsetE();
-        } else {
-          setE((RuntimeException)value);
-        }
-        break;
-
       }
     }
 
     public Object getFieldValue(_Fields field) {
       switch (field) {
-      case E:
-        return getE();
-
       }
       throw new IllegalStateException();
     }
@@ -1313,8 +1220,6 @@ public class LucidaService {
       }
 
       switch (field) {
-      case E:
-        return isSetE();
       }
       throw new IllegalStateException();
     }
@@ -1332,26 +1237,12 @@ public class LucidaService {
       if (that == null)
         return false;
 
-      boolean this_present_e = true && this.isSetE();
-      boolean that_present_e = true && that.isSetE();
-      if (this_present_e || that_present_e) {
-        if (!(this_present_e && that_present_e))
-          return false;
-        if (!this.e.equals(that.e))
-          return false;
-      }
-
       return true;
     }
 
     @Override
     public int hashCode() {
       List<Object> list = new ArrayList<Object>();
-
-      boolean present_e = true && (isSetE());
-      list.add(present_e);
-      if (present_e)
-        list.add(e);
 
       return list.hashCode();
     }
@@ -1364,16 +1255,6 @@ public class LucidaService {
 
       int lastComparison = 0;
 
-      lastComparison = Boolean.valueOf(isSetE()).compareTo(other.isSetE());
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-      if (isSetE()) {
-        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.e, other.e);
-        if (lastComparison != 0) {
-          return lastComparison;
-        }
-      }
       return 0;
     }
 
@@ -1394,13 +1275,6 @@ public class LucidaService {
       StringBuilder sb = new StringBuilder("create_result(");
       boolean first = true;
 
-      sb.append("e:");
-      if (this.e == null) {
-        sb.append("null");
-      } else {
-        sb.append(this.e);
-      }
-      first = false;
       sb.append(")");
       return sb.toString();
     }
@@ -1444,15 +1318,6 @@ public class LucidaService {
             break;
           }
           switch (schemeField.id) {
-            case 1: // E
-              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-                struct.e = new RuntimeException();
-                struct.e.read(iprot);
-                struct.setEIsSet(true);
-              } else { 
-                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-              }
-              break;
             default:
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
@@ -1468,11 +1333,6 @@ public class LucidaService {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
-        if (struct.e != null) {
-          oprot.writeFieldBegin(E_FIELD_DESC);
-          struct.e.write(oprot);
-          oprot.writeFieldEnd();
-        }
         oprot.writeFieldStop();
         oprot.writeStructEnd();
       }
@@ -1490,25 +1350,11 @@ public class LucidaService {
       @Override
       public void write(org.apache.thrift.protocol.TProtocol prot, create_result struct) throws org.apache.thrift.TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
-        BitSet optionals = new BitSet();
-        if (struct.isSetE()) {
-          optionals.set(0);
-        }
-        oprot.writeBitSet(optionals, 1);
-        if (struct.isSetE()) {
-          struct.e.write(oprot);
-        }
       }
 
       @Override
       public void read(org.apache.thrift.protocol.TProtocol prot, create_result struct) throws org.apache.thrift.TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
-        BitSet incoming = iprot.readBitSet(1);
-        if (incoming.get(0)) {
-          struct.e = new RuntimeException();
-          struct.e.read(iprot);
-          struct.setEIsSet(true);
-        }
       }
     }
 
@@ -1988,7 +1834,6 @@ public class LucidaService {
   public static class learn_result implements org.apache.thrift.TBase<learn_result, learn_result._Fields>, java.io.Serializable, Cloneable, Comparable<learn_result>   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("learn_result");
 
-    private static final org.apache.thrift.protocol.TField E_FIELD_DESC = new org.apache.thrift.protocol.TField("e", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -1996,11 +1841,10 @@ public class LucidaService {
       schemes.put(TupleScheme.class, new learn_resultTupleSchemeFactory());
     }
 
-    public RuntimeException e; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-      E((short)1, "e");
+;
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -2015,8 +1859,6 @@ public class LucidaService {
        */
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
-          case 1: // E
-            return E;
           default:
             return null;
         }
@@ -2055,13 +1897,9 @@ public class LucidaService {
         return _fieldName;
       }
     }
-
-    // isset id assignments
     public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.E, new org.apache.thrift.meta_data.FieldMetaData("e", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(learn_result.class, metaDataMap);
     }
@@ -2069,20 +1907,10 @@ public class LucidaService {
     public learn_result() {
     }
 
-    public learn_result(
-      RuntimeException e)
-    {
-      this();
-      this.e = e;
-    }
-
     /**
      * Performs a deep copy on <i>other</i>.
      */
     public learn_result(learn_result other) {
-      if (other.isSetE()) {
-        this.e = new RuntimeException(other.e);
-      }
     }
 
     public learn_result deepCopy() {
@@ -2091,51 +1919,15 @@ public class LucidaService {
 
     @Override
     public void clear() {
-      this.e = null;
-    }
-
-    public RuntimeException getE() {
-      return this.e;
-    }
-
-    public learn_result setE(RuntimeException e) {
-      this.e = e;
-      return this;
-    }
-
-    public void unsetE() {
-      this.e = null;
-    }
-
-    /** Returns true if field e is set (has been assigned a value) and false otherwise */
-    public boolean isSetE() {
-      return this.e != null;
-    }
-
-    public void setEIsSet(boolean value) {
-      if (!value) {
-        this.e = null;
-      }
     }
 
     public void setFieldValue(_Fields field, Object value) {
       switch (field) {
-      case E:
-        if (value == null) {
-          unsetE();
-        } else {
-          setE((RuntimeException)value);
-        }
-        break;
-
       }
     }
 
     public Object getFieldValue(_Fields field) {
       switch (field) {
-      case E:
-        return getE();
-
       }
       throw new IllegalStateException();
     }
@@ -2147,8 +1939,6 @@ public class LucidaService {
       }
 
       switch (field) {
-      case E:
-        return isSetE();
       }
       throw new IllegalStateException();
     }
@@ -2166,26 +1956,12 @@ public class LucidaService {
       if (that == null)
         return false;
 
-      boolean this_present_e = true && this.isSetE();
-      boolean that_present_e = true && that.isSetE();
-      if (this_present_e || that_present_e) {
-        if (!(this_present_e && that_present_e))
-          return false;
-        if (!this.e.equals(that.e))
-          return false;
-      }
-
       return true;
     }
 
     @Override
     public int hashCode() {
       List<Object> list = new ArrayList<Object>();
-
-      boolean present_e = true && (isSetE());
-      list.add(present_e);
-      if (present_e)
-        list.add(e);
 
       return list.hashCode();
     }
@@ -2198,16 +1974,6 @@ public class LucidaService {
 
       int lastComparison = 0;
 
-      lastComparison = Boolean.valueOf(isSetE()).compareTo(other.isSetE());
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-      if (isSetE()) {
-        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.e, other.e);
-        if (lastComparison != 0) {
-          return lastComparison;
-        }
-      }
       return 0;
     }
 
@@ -2228,13 +1994,6 @@ public class LucidaService {
       StringBuilder sb = new StringBuilder("learn_result(");
       boolean first = true;
 
-      sb.append("e:");
-      if (this.e == null) {
-        sb.append("null");
-      } else {
-        sb.append(this.e);
-      }
-      first = false;
       sb.append(")");
       return sb.toString();
     }
@@ -2278,15 +2037,6 @@ public class LucidaService {
             break;
           }
           switch (schemeField.id) {
-            case 1: // E
-              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-                struct.e = new RuntimeException();
-                struct.e.read(iprot);
-                struct.setEIsSet(true);
-              } else { 
-                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-              }
-              break;
             default:
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
@@ -2302,11 +2052,6 @@ public class LucidaService {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
-        if (struct.e != null) {
-          oprot.writeFieldBegin(E_FIELD_DESC);
-          struct.e.write(oprot);
-          oprot.writeFieldEnd();
-        }
         oprot.writeFieldStop();
         oprot.writeStructEnd();
       }
@@ -2324,25 +2069,11 @@ public class LucidaService {
       @Override
       public void write(org.apache.thrift.protocol.TProtocol prot, learn_result struct) throws org.apache.thrift.TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
-        BitSet optionals = new BitSet();
-        if (struct.isSetE()) {
-          optionals.set(0);
-        }
-        oprot.writeBitSet(optionals, 1);
-        if (struct.isSetE()) {
-          struct.e.write(oprot);
-        }
       }
 
       @Override
       public void read(org.apache.thrift.protocol.TProtocol prot, learn_result struct) throws org.apache.thrift.TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
-        BitSet incoming = iprot.readBitSet(1);
-        if (incoming.get(0)) {
-          struct.e = new RuntimeException();
-          struct.e.read(iprot);
-          struct.setEIsSet(true);
-        }
       }
     }
 
@@ -2823,7 +2554,6 @@ public class LucidaService {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("infer_result");
 
     private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.STRING, (short)0);
-    private static final org.apache.thrift.protocol.TField E_FIELD_DESC = new org.apache.thrift.protocol.TField("e", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -2832,12 +2562,10 @@ public class LucidaService {
     }
 
     public String success; // required
-    public RuntimeException e; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-      SUCCESS((short)0, "success"),
-      E((short)1, "e");
+      SUCCESS((short)0, "success");
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -2854,8 +2582,6 @@ public class LucidaService {
         switch(fieldId) {
           case 0: // SUCCESS
             return SUCCESS;
-          case 1: // E
-            return E;
           default:
             return null;
         }
@@ -2901,8 +2627,6 @@ public class LucidaService {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
       tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-      tmpMap.put(_Fields.E, new org.apache.thrift.meta_data.FieldMetaData("e", org.apache.thrift.TFieldRequirementType.DEFAULT, 
-          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(infer_result.class, metaDataMap);
     }
@@ -2911,12 +2635,10 @@ public class LucidaService {
     }
 
     public infer_result(
-      String success,
-      RuntimeException e)
+      String success)
     {
       this();
       this.success = success;
-      this.e = e;
     }
 
     /**
@@ -2925,9 +2647,6 @@ public class LucidaService {
     public infer_result(infer_result other) {
       if (other.isSetSuccess()) {
         this.success = other.success;
-      }
-      if (other.isSetE()) {
-        this.e = new RuntimeException(other.e);
       }
     }
 
@@ -2938,7 +2657,6 @@ public class LucidaService {
     @Override
     public void clear() {
       this.success = null;
-      this.e = null;
     }
 
     public String getSuccess() {
@@ -2965,30 +2683,6 @@ public class LucidaService {
       }
     }
 
-    public RuntimeException getE() {
-      return this.e;
-    }
-
-    public infer_result setE(RuntimeException e) {
-      this.e = e;
-      return this;
-    }
-
-    public void unsetE() {
-      this.e = null;
-    }
-
-    /** Returns true if field e is set (has been assigned a value) and false otherwise */
-    public boolean isSetE() {
-      return this.e != null;
-    }
-
-    public void setEIsSet(boolean value) {
-      if (!value) {
-        this.e = null;
-      }
-    }
-
     public void setFieldValue(_Fields field, Object value) {
       switch (field) {
       case SUCCESS:
@@ -2999,14 +2693,6 @@ public class LucidaService {
         }
         break;
 
-      case E:
-        if (value == null) {
-          unsetE();
-        } else {
-          setE((RuntimeException)value);
-        }
-        break;
-
       }
     }
 
@@ -3014,9 +2700,6 @@ public class LucidaService {
       switch (field) {
       case SUCCESS:
         return getSuccess();
-
-      case E:
-        return getE();
 
       }
       throw new IllegalStateException();
@@ -3031,8 +2714,6 @@ public class LucidaService {
       switch (field) {
       case SUCCESS:
         return isSetSuccess();
-      case E:
-        return isSetE();
       }
       throw new IllegalStateException();
     }
@@ -3059,15 +2740,6 @@ public class LucidaService {
           return false;
       }
 
-      boolean this_present_e = true && this.isSetE();
-      boolean that_present_e = true && that.isSetE();
-      if (this_present_e || that_present_e) {
-        if (!(this_present_e && that_present_e))
-          return false;
-        if (!this.e.equals(that.e))
-          return false;
-      }
-
       return true;
     }
 
@@ -3079,11 +2751,6 @@ public class LucidaService {
       list.add(present_success);
       if (present_success)
         list.add(success);
-
-      boolean present_e = true && (isSetE());
-      list.add(present_e);
-      if (present_e)
-        list.add(e);
 
       return list.hashCode();
     }
@@ -3102,16 +2769,6 @@ public class LucidaService {
       }
       if (isSetSuccess()) {
         lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
-        if (lastComparison != 0) {
-          return lastComparison;
-        }
-      }
-      lastComparison = Boolean.valueOf(isSetE()).compareTo(other.isSetE());
-      if (lastComparison != 0) {
-        return lastComparison;
-      }
-      if (isSetE()) {
-        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.e, other.e);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -3141,14 +2798,6 @@ public class LucidaService {
         sb.append("null");
       } else {
         sb.append(this.success);
-      }
-      first = false;
-      if (!first) sb.append(", ");
-      sb.append("e:");
-      if (this.e == null) {
-        sb.append("null");
-      } else {
-        sb.append(this.e);
       }
       first = false;
       sb.append(")");
@@ -3202,15 +2851,6 @@ public class LucidaService {
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
               break;
-            case 1: // E
-              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-                struct.e = new RuntimeException();
-                struct.e.read(iprot);
-                struct.setEIsSet(true);
-              } else { 
-                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-              }
-              break;
             default:
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
           }
@@ -3229,11 +2869,6 @@ public class LucidaService {
         if (struct.success != null) {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           oprot.writeString(struct.success);
-          oprot.writeFieldEnd();
-        }
-        if (struct.e != null) {
-          oprot.writeFieldBegin(E_FIELD_DESC);
-          struct.e.write(oprot);
           oprot.writeFieldEnd();
         }
         oprot.writeFieldStop();
@@ -3257,30 +2892,19 @@ public class LucidaService {
         if (struct.isSetSuccess()) {
           optionals.set(0);
         }
-        if (struct.isSetE()) {
-          optionals.set(1);
-        }
-        oprot.writeBitSet(optionals, 2);
+        oprot.writeBitSet(optionals, 1);
         if (struct.isSetSuccess()) {
           oprot.writeString(struct.success);
-        }
-        if (struct.isSetE()) {
-          struct.e.write(oprot);
         }
       }
 
       @Override
       public void read(org.apache.thrift.protocol.TProtocol prot, infer_result struct) throws org.apache.thrift.TException {
         TTupleProtocol iprot = (TTupleProtocol) prot;
-        BitSet incoming = iprot.readBitSet(2);
+        BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           struct.success = iprot.readString();
           struct.setSuccessIsSet(true);
-        }
-        if (incoming.get(1)) {
-          struct.e = new RuntimeException();
-          struct.e.read(iprot);
-          struct.setEIsSet(true);
         }
       }
     }
