@@ -1,0 +1,2338 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE trec2004qa [
+
+<!-- ======================================================================
+      TREC 2004 QA track data definition
+
+      Written 2004-05-11 by Jochen L. Leidner <leidner@acm.org>.
+      Modified 2004-05-21 by Ellen Voorhees <ellen.voorhees@nist.gov>
+     ====================================================================== -->
+
+    <!ELEMENT trecqa  (target+)           >
+    <!ELEMENT target   (qa+)              >
+    <!ELEMENT qa      (q, as)             >
+    <!ELEMENT q       (CDATA)    > <!-- don't want text of question parsed -->
+    <!ELEMENT as      (a*, nugget*)      >
+
+    <!ATTLIST trecqa
+                      year  CDATA #REQUIRED
+                      task CDATA #REQUIRED>
+
+    <!ATTLIST target  id    ID    #REQUIRED
+                      text  CDATA #REQUIRED>
+
+    <!ATTLIST q       id    ID    #REQUIRED
+                      type  (FACTOID|LIST|OTHER) #REQUIRED>
+
+    <!ATTLIST a       src   CDATA #REQUIRED
+                      regex CDATA #IMPLIED >
+
+    <!ATTLIST nugget  id     ID   #REQUIRED
+                      type   (VITAL|OKAY)        #REQUIRED>
+<!-- ====================================================================== -->
+]>
+
+<trecqa year="2004" track="main">
+<target id = "1" text = "Crips">
+    <qa>
+	<q id = "1.1" type="FACTOID">
+	    When was the first Crip gang started?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "1.2" type="FACTOID">
+	    What does the name mean or come from?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "1.3" type="LIST">
+	    Which cities have Crip gangs?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "1.4" type="FACTOID">
+	    What ethnic group/race are Crip members?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "1.5" type="FACTOID">
+	    What is their gang color?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "1.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "2" text = "Fred Durst">
+    <qa>
+	<q id = "2.1" type="FACTOID">
+	    What is the name of Durst's group?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "2.2" type="FACTOID">
+	    What record company is he with?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "2.3" type="LIST">
+	    What are titles of the group's releases?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "2.4" type="FACTOID">
+	    Where was Durst born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "2.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "3" text = "Hale Bopp comet">
+    <qa>
+	<q id = "3.1" type="FACTOID">
+	    When was the comet discovered?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "3.2" type="FACTOID">
+	    How often does it approach the earth?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "3.3" type="LIST">
+	    In what countries was the comet visible on its last return?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "3.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "4" text = "James Dean">
+    <qa>
+	<q id = "4.1" type="FACTOID">
+	    When was James Dean born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "4.2" type="FACTOID">
+	    When did James Dean die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "4.3" type="FACTOID">
+	    How did he die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "4.4" type="LIST">
+	    What movies did he appear in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "4.5" type="FACTOID">
+	    Which was the first movie that he was in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "4.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "5" text = "AARP">
+    <qa>
+	<q id = "5.1" type="FACTOID">
+	    What does AARP stand for?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "5.2" type="FACTOID">
+	    When was the organization started?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "5.3" type="FACTOID">
+	    Where is its headquarters?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "5.4" type="FACTOID">
+	    Who is its top official or CEO?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "5.5" type="LIST">
+	    What companies has AARP endorsed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "5.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "6" text = "Rhodes scholars">
+    <qa>
+	<q id = "6.1" type="FACTOID">
+	    How long does one study as a Rhodes scholar?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "6.2" type="FACTOID">
+	    Where do Rhodes scholars study?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "6.3" type="LIST">
+	    Name famous people who have been Rhodes scholars.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "6.4" type="LIST">
+	    What countries have Rhodes scholars come from?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "6.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "7" text = "agouti">
+    <qa>
+	<q id = "7.1" type="FACTOID">
+	    What kind of animal is an agouti?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "7.2" type="FACTOID">
+	    What is their average life span?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "7.3" type="LIST">
+	    In what countries are they found?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "7.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "8" text = "Black Panthers">
+    <qa>
+	<q id = "8.1" type="FACTOID">
+	    Who founded the Black Panthers organization?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "8.2" type="FACTOID">
+	    When was it founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "8.3" type="FACTOID">
+	    Where was it founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "8.4" type="LIST">
+	    Who have been members of the organization?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "8.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "9" text = "Insane Clown Posse">
+    <qa>
+	<q id = "9.1" type="LIST">
+	    Who are the members of this group?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "9.2" type="LIST">
+	    What albums have they made?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "9.3" type="FACTOID">
+	    What is their style of music?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "9.4" type="FACTOID">
+	    What is their biggest hit?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "9.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "10" text = "prions">
+    <qa>
+	<q id = "10.1" type="FACTOID">
+	    What are prions made of?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "10.2" type="FACTOID">
+	    Who discovered prions?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "10.3" type="LIST">
+	    What diseases are prions associated with?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "10.4" type="LIST">
+	    What researchers have worked with prions?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "10.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "11" text = "the band Nirvana">
+    <qa>
+	<q id = "11.1" type="FACTOID">
+	    Who is the lead singer/musician in Nirvana?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "11.2" type="LIST">
+	    Who are the band members?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "11.3" type="FACTOID">
+	    When was the band formed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "11.4" type="FACTOID">
+	    What is their biggest hit?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "11.5" type="LIST">
+	    What are their albums?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "11.6" type="FACTOID">
+	    What style of music do they play?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "11.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "12" text = "Rohm and Haas">
+    <qa>
+	<q id = "12.1" type="FACTOID">
+	    What industry is Rohm and Haas in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "12.2" type="FACTOID">
+	    Where is the company located?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "12.3" type="FACTOID">
+	    What is their annual revenue?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "12.4" type="FACTOID">
+	    How many employees does it have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "12.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "13" text = "Jar Jar Binks">
+    <qa>
+	<q id = "13.1" type="FACTOID">
+	    What film introduced Jar Jar Binks?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "13.2" type="FACTOID">
+	    What actor is used as his voice?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "13.3" type="FACTOID">
+	    To what alien race does he belong?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "13.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "14" text = "Horus">
+    <qa>
+	<q id = "14.1" type="FACTOID">
+	    Horus is the god of what?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "14.2" type="FACTOID">
+	    What country is he associated with?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "14.3" type="FACTOID">
+	    Who was his mother?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "14.4" type="FACTOID">
+	    Who was his father?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "14.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "15" text = "Rat Pack">
+    <qa>
+	<q id = "15.1" type="LIST">
+	    Who are the members of the Rat Pack?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "15.2" type="FACTOID">
+	    Who coined the name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "15.3" type="FACTOID">
+	    What Las Vegas hotel was made famous by the Rat Pack?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "15.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "16" text = "cataract">
+    <qa>
+	<q id = "16.1" type="FACTOID">
+	    What is the primary symptom of a cataract?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "16.2" type="FACTOID">
+	    How are they treated?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "16.3" type="LIST">
+	    Who are doctors that have performed cataract surgery?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "16.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "17" text = "International Criminal Court">
+    <qa>
+	<q id = "17.1" type="FACTOID">
+	    When was the court established?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "17.2" type="FACTOID">
+	    What kind of cases does it try?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "17.3" type="FACTOID">
+	    Who is the sponsor of the court?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "17.4" type="FACTOID">
+	    How many justices are members of the court?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "17.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "18" text = "boxer Floyd Patterson">
+    <qa>
+	<q id = "18.1" type="FACTOID">
+	    What division (weight) did he win?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "18.2" type="FACTOID">
+	    When did he win the title?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "18.3" type="FACTOID">
+	    How old was he when he won the title?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "18.4" type="FACTOID">
+	    Who did he beat to win the title?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "18.5" type="FACTOID">
+	    Who beat him to take the title away?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "18.6" type="LIST">
+	    List the names of boxers he fought.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "18.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "19" text = "Kibbutz">
+    <qa>
+	<q id = "19.1" type="FACTOID">
+	    What kind of a community is a Kibbutz?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "19.2" type="FACTOID">
+	    With what country are they associated?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "19.3" type="FACTOID">
+	    When was the first Kibbutz founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "19.4" type="FACTOID">
+	    Where was the first Kibbutz founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "19.5" type="FACTOID">
+	    How many are there now?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "19.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "20" text = "Concorde">
+    <qa>
+	<q id = "20.1" type="FACTOID">
+	    In what year did the first Concorde passenger flight take place?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "20.2" type="LIST">
+	    What airlines have Concordes in their fleets?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "20.3" type="FACTOID">
+	    How many seats are in the cabin of a Concorde?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "20.4" type="FACTOID">
+	    How fast does the Concorde fly?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "20.5" type="FACTOID">
+	    What year was the first Concorde crash?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "20.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "21" text = "Club Med">
+    <qa>
+	<q id = "21.1" type="FACTOID">
+	    How many Club Med vacation spots are there worldwide?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "21.2" type="LIST">
+	    List the spots in the United States.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "21.3" type="FACTOID">
+	    Where is an adults-only Club Med?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "21.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "22" text = "Franz Kafka">
+    <qa>
+	<q id = "22.1" type="FACTOID">
+	    Where was Franz Kafka born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "22.2" type="FACTOID">
+	    When was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "22.3" type="FACTOID">
+	    What is his ethnic background?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "22.4" type="LIST">
+	    What books did he author?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "22.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "23" text = "Gordon Gekko">
+    <qa>
+	<q id = "23.1" type="FACTOID">
+	    In what film is Gordon Gekko the main character?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "23.2" type="FACTOID">
+	    Who plays the role?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "23.3" type="FACTOID">
+	    What year was the movie released?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "23.4" type="FACTOID">
+	    What was Gekko's profession?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "23.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "24" text = "architect Frank Gehry">
+    <qa>
+	<q id = "24.1" type="FACTOID">
+	    When was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "24.2" type="FACTOID">
+	    What nationality is he?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "24.3" type="FACTOID">
+	    Where did he study architecture?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "24.4" type="LIST">
+	    What prizes or awards has he won?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "24.5" type="LIST">
+	    What buildings has he designed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "24.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "25" text = "Harlem Globe Trotters">
+    <qa>
+	<q id = "25.1" type="FACTOID">
+	    What sport do they play?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "25.2" type="FACTOID">
+	    When were they founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "25.3" type="FACTOID">
+	    By whom were they founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "25.4" type="LIST">
+	    What countries have they played in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "25.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "26" text = "Ice-T">
+    <qa>
+	<q id = "26.1" type="FACTOID">
+	    What kind of singer is Ice-T?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "26.2" type="FACTOID">
+	    What was his original name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "26.3" type="FACTOID">
+	    When was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "26.4" type="FACTOID">
+	    Where was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "26.5" type="LIST">
+	    What are names of his albums?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "26.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "27" text = "Jennifer Capriati">
+    <qa>
+	<q id = "27.1" type="FACTOID">
+	    What sport does Jennifer Capriati play?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "27.2" type="FACTOID">
+	    Who is her coach?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "27.3" type="FACTOID">
+	    Where does she live?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "27.4" type="FACTOID">
+	    When was she born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "27.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "28" text = "Abercrombie and Fitch">
+    <qa>
+	<q id = "28.1" type="FACTOID">
+	    What kind of business is Abercrombie and Fitch?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "28.2" type="FACTOID">
+	    When was it established?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "28.3" type="FACTOID">
+	    Where was it established?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "28.4" type="FACTOID">
+	    How many stores are there?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "28.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "29" text = "'Tale of Genji'">
+    <qa>
+	<q id = "29.1" type="FACTOID">
+	    Why is the 'Tale of Genji' famous?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "29.2" type="FACTOID">
+	    Who wrote it?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "29.3" type="FACTOID">
+	    When was it written?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "29.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "30" text = "minstrel Al Jolson">
+    <qa>
+	<q id = "30.1" type="FACTOID">
+	    What is Al Jolson's real name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "30.2" type="FACTOID">
+	    What is his nationality?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "30.3" type="FACTOID">
+	    Where was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "30.4" type="FACTOID">
+	    Who did he marry?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "30.5" type="LIST">
+	    What songs did he sing?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "30.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "31" text = "Jean Harlow">
+    <qa>
+	<q id = "31.1" type="FACTOID">
+	    What was Jean Harlow's real name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "31.2" type="FACTOID">
+	    Where was she born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "31.3" type="FACTOID">
+	    When did she die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "31.4" type="FACTOID">
+	    How old was she when she died?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "31.5" type="FACTOID">
+	    What did she die of?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "31.6" type="FACTOID">
+	    Where is she buried?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "31.7" type="LIST">
+	    What movies did she appear in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "31.8" type="LIST">
+	    What leading men did she star opposite of?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "31.9" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "32" text = "Wicca">
+    <qa>
+	<q id = "32.1" type="FACTOID">
+	    What do practitioners of Wicca worship?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "32.2" type="FACTOID">
+	    How many followers does it have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "32.3" type="FACTOID">
+	    Who is its leader?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "32.4" type="LIST">
+	    What festivals does it have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "32.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "33" text = "Florence Nightingale">
+    <qa>
+	<q id = "33.1" type="FACTOID">
+	    What is Florence Nightingale famous for?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "33.2" type="FACTOID">
+	    When was she born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "33.3" type="FACTOID">
+	    Where was she born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "33.4" type="FACTOID">
+	    When did she die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "33.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "34" text = "Amtrak">
+    <qa>
+	<q id = "34.1" type="FACTOID">
+	    When did Amtrak begin operations?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "34.2" type="FACTOID">
+	    How many passengers does it serve annually?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "34.3" type="FACTOID">
+	    How many employees does it have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "34.4" type="FACTOID">
+	    Who is the president or chief executive of Amtrak?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "34.5" type="LIST">
+	    Name cities that have an Amtrak terminal.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "34.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "35" text = "Jack Welch">
+    <qa>
+	<q id = "35.1" type="FACTOID">
+	    When did Jack Welch become chairman of General Electric?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "35.2" type="FACTOID">
+	    How many years was he with GE?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "35.3" type="FACTOID">
+	    When did he retire from GE? 
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "35.4" type="FACTOID">
+	    How many people did he fire from GE?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "35.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "36" text = "Khmer Rouge">
+    <qa>
+	<q id = "36.1" type="FACTOID">
+	    In what country did this movement take place?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "36.2" type="FACTOID">
+	    When did the Khmer Rouge come into power?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "36.3" type="FACTOID">
+	    Who was its first leader?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "36.4" type="LIST">
+	    Who were leaders of the Khmer Rouge?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "36.5" type="FACTOID">
+	    When was the Khmer Rouge removed from power?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "36.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "37" text = "Wiggles">
+    <qa>
+	<q id = "37.1" type="FACTOID">
+	    How many members are there in the singing group the Wiggles?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "37.2" type="LIST">
+	    Who are the members' names?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "37.3" type="FACTOID">
+	    Where is the group from?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "37.4" type="LIST">
+	    List the Wiggles' songs.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "37.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "38" text = "quarks">
+    <qa>
+	<q id = "38.1" type="FACTOID">
+	    What kind of a particle is a quark?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "38.2" type="FACTOID">
+	    Who discovered quarks?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "38.3" type="FACTOID">
+	    When were they discovered?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "38.4" type="LIST">
+	    What are the different types of quarks?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "38.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "39" text = "The Clash">
+    <qa>
+	<q id = "39.1" type="FACTOID">
+	    What kind of music does the band play?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "39.2" type="FACTOID">
+	    In what year was their first major album recorded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "39.3" type="LIST">
+	    Name their songs.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "39.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "40" text = "Chester Nimitz">
+    <qa>
+	<q id = "40.1" type="FACTOID">
+	    When was Nimitz born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "40.2" type="FACTOID">
+	    What town was he native of?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "40.3" type="FACTOID">
+	    What branch of the military did he serve in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "40.4" type="FACTOID">
+	    During what war did he serve?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "40.5" type="FACTOID">
+	    What rank did he reach?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "40.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "41" text = "Teapot Dome scandal">
+    <qa>
+	<q id = "41.1" type="FACTOID">
+	    What year did the Teapot Dome scandal take place?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "41.2" type="FACTOID">
+	    Who was President of the United States at the time?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "41.3" type="FACTOID">
+	    What was the main focus of the scandal?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "41.4" type="LIST">
+	    Who were the major players involved in the scandal?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "41.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "42" text = "USS Constitution">
+    <qa>
+	<q id = "42.1" type="FACTOID">
+	    When was the USS Constitution commissioned?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "42.2" type="FACTOID">
+	    What conflict did she distinguish herself in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "42.3" type="FACTOID">
+	    How many battles did she win?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "42.4" type="FACTOID">
+	    What is her nickname?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "42.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "43" text = "Nobel prize">
+    <qa>
+	<q id = "43.1" type="FACTOID">
+	    Who established the awards?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "43.2" type="LIST">
+	    What are the different categories of Nobel prizes?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "43.3" type="FACTOID">
+	    When were the awards first given?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "43.4" type="FACTOID">
+	    What is the monetary value of the prize?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "43.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "44" text = "Sacajawea">
+    <qa>
+	<q id = "44.1" type="FACTOID">
+	    What tribe did Sacajawea belong to?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "44.2" type="FACTOID">
+	    What years did she accompany Lewis and Clark on their expedition?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "44.3" type="FACTOID">
+	    When was she born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "44.4" type="FACTOID">
+	    When did she die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "44.5" type="FACTOID">
+	    Where is she buried?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "44.6" type="FACTOID">
+	    How much is the Sacajawea coin worth?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "44.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "45" text = "International Finance Corporation (IFC)">
+    <qa>
+	<q id = "45.1" type="FACTOID">
+	    When was the IFC established?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "45.2" type="FACTOID">
+	    What is its mission?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "45.3" type="LIST">
+	    What countries has the IFC financed projects in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "45.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "46" text = "Heaven's Gate">
+    <qa>
+	<q id = "46.1" type="FACTOID">
+	    Who was the leader of the cult?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "46.2" type="FACTOID">
+	    How many of its members committed suicide?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "46.3" type="FACTOID">
+	    When did the mass suicide occur?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "46.4" type="FACTOID">
+	    Where did it occur?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "46.5" type="FACTOID">
+	    How did they commit suicide?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "46.6" type="FACTOID">
+	    Why did they commit suicide?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "46.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "47" text = "Bashar Assad">
+    <qa>
+	<q id = "47.1" type="FACTOID">
+	    On what date was Bashar Assad inaugurated as the Syrian president?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "47.2" type="FACTOID">
+	    What is his party affiliation?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "47.3" type="FACTOID">
+	    What was his profession prior to assuming the Presidency?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "47.4" type="FACTOID">
+	    How long are Syrian presidential terms?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "47.5" type="LIST">
+	    What schools did he attend?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "47.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "48" text = "Abu Nidal">
+    <qa>
+	<q id = "48.1" type="FACTOID">
+	    When was Abu Nidal born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "48.2" type="FACTOID">
+	    What was his name at birth?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "48.3" type="FACTOID">
+	    How many followers does he have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "48.4" type="LIST">
+	    In what countries has he operated from?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "48.5" type="FACTOID">
+	    In what year did the PLO condemn him to death?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "48.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "49" text = "Carlos the Jackal">
+    <qa>
+	<q id = "49.1" type="FACTOID">
+	    What is Carlos' real name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "49.2" type="FACTOID">
+	    Where was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "49.3" type="FACTOID">
+	    Whom did he marry?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "49.4" type="FACTOID">
+	    When was he captured?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "49.5" type="FACTOID">
+	    Where was he captured?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "49.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "50" text = "Cassini space probe">
+    <qa>
+	<q id = "50.1" type="FACTOID">
+	    When was Cassini launched?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "50.2" type="FACTOID">
+	    How much did it cost to build?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "50.3" type="FACTOID">
+	    What is its destination?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "50.4" type="LIST">
+	    What planets will it pass?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "50.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "51" text = "Kurds">
+    <qa>
+	<q id = "51.1" type="FACTOID">
+	    What is the religious affiliation of the Kurds?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "51.2" type="FACTOID">
+	    How many Kurds live in Turkey?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "51.3" type="LIST">
+	    What other countries do Kurds live in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "51.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "52" text = "Burger King">
+    <qa>
+	<q id = "52.1" type="FACTOID">
+	    When was the first Burger King restaurant opened?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "52.2" type="FACTOID">
+	    Where was the first restaurant opened?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "52.3" type="FACTOID">
+	    Who founded it?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "52.4" type="FACTOID">
+	    What are Burger King's gross sales today?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "52.5" type="LIST">
+	    What countries is Burger King located in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "52.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "53" text = "Conde Nast">
+    <qa>
+	<q id = "53.1" type="FACTOID">
+	    Who is the CEO of the publishing company Conde Nast?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "53.2" type="FACTOID">
+	    Where are the company's headquarters?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "53.3" type="FACTOID">
+	    When was the company founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "53.4" type="LIST">
+	    What magazines does Conde Nast publish?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "53.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "54" text = "Eileen Marie Collins">
+    <qa>
+	<q id = "54.1" type="FACTOID">
+	    Where was she born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.2" type="FACTOID">
+	    How many siblings does she have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.3" type="FACTOID">
+	    Whom did she marry?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.4" type="FACTOID">
+	    How many children does she have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.5" type="FACTOID">
+	    Where does she live?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.6" type="LIST">
+	    What schools did she attend?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.7" type="FACTOID">
+	    What is her occupation?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.8" type="FACTOID">
+	    What branch of the service did she serve in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.9" type="FACTOID">
+	    What rank did she reach?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "54.10" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "55" text = "Walter Mosley">
+    <qa>
+	<q id = "55.1" type="FACTOID">
+	    Where was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "55.2" type="FACTOID">
+	    When was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "55.3" type="FACTOID">
+	    How old was he when he began writing?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "55.4" type="LIST">
+	    What books has he written?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "55.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "56" text = "Good Friday Agreement">
+    <qa>
+	<q id = "56.1" type="FACTOID">
+	    When was the agreement made?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "56.2" type="FACTOID">
+	    What is the purpose of the agreement?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "56.3" type="LIST">
+	    What groups are affected by it?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "56.4" type="LIST">
+	    Who were the key players in negotiating the agreement?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "56.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "57" text = "Liberty Bell 7">
+    <qa>
+	<q id = "57.1" type="FACTOID">
+	    What kind of ship is the Liberty Bell 7?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "57.2" type="FACTOID">
+	    Who developed it?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "57.3" type="FACTOID">
+	    What is it made of?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "57.4" type="FACTOID">
+	    What happened to it?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "57.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "58" text = "philanthropist Alberto Vilar">
+    <qa>
+	<q id = "58.1" type="FACTOID">
+	    What is Vilar's nationality?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "58.2" type="LIST">
+	    What organizations has he donated money to?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "58.3" type="FACTOID">
+	    What is the name of the company he founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "58.4" type="LIST">
+	    What companies has he invested in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "58.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "59" text = "Public Citizen">
+    <qa>
+	<q id = "59.1" type="FACTOID">
+	    Who founded Public Citizen?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "59.2" type="FACTOID">
+	    When was it formed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "59.3" type="FACTOID">
+	    What is its purpose?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "59.4" type="FACTOID">
+	    How many members does it have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "59.5" type="FACTOID">
+	    Who is its current head?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "59.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "60" text = "senator Jim Inhofe">
+    <qa>
+	<q id = "60.1" type="FACTOID">
+	    What state does he represent?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "60.2" type="FACTOID">
+	    When was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "60.3" type="FACTOID">
+	    When was he first elected to the senate?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "60.4" type="FACTOID">
+	    What branch of the service did he serve in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "60.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "61" text = "Muslim Brotherhood">
+    <qa>
+	<q id = "61.1" type="FACTOID">
+	    Who founded the Muslim Brotherhood?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "61.2" type="FACTOID">
+	    When was it formed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "61.3" type="FACTOID">
+	    What is its goal?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "61.4" type="LIST">
+	    What countries does it operate in?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "61.5" type="LIST">
+	    Name members of the group.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "61.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "62" text = "Berkman Center for Internet and Society">
+    <qa>
+	<q id = "62.1" type="FACTOID">
+	    Where is the center located?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "62.2" type="FACTOID">
+	    When was the center formed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "62.3" type="FACTOID">
+	    What is its mission?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "62.4" type="LIST">
+	    Name members of the center.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "62.5" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "63" text = "boll weevil">
+    <qa>
+	<q id = "63.1" type="FACTOID">
+	    What kind of insect is a boll weevil?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "63.2" type="FACTOID">
+	    What type of plant does it damage?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "63.3" type="LIST">
+	    What states have had problems with boll weevils?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "63.4" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "64" text = "Johnny Appleseed">
+    <qa>
+	<q id = "64.1" type="FACTOID">
+	    What was Johnny Appleseed's real name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "64.2" type="FACTOID">
+	    Where was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "64.3" type="FACTOID">
+	    When did he die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "64.4" type="FACTOID">
+	    What did he wear as a hat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "64.5" type="LIST">
+	    In what states did he plant trees?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "64.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "65" text = "space shuttles">
+    <qa>
+	<q id = "65.1" type="LIST">
+	    What are the names of the space shuttles?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "65.2" type="FACTOID">
+	    Which was the first shuttle?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "65.3" type="FACTOID">
+	    When was the first flight?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "65.4" type="FACTOID">
+	    When was the Challenger space shuttle disaster?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "65.5" type="FACTOID">
+	    How many members were in the crew of the Challenger?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "65.6" type="FACTOID">
+	    How long did the Challenger flight last before it exploded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "65.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+
+</trecqa>

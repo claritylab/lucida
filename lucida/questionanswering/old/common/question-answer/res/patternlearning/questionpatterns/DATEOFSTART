@@ -1,0 +1,7 @@
+QUESTION_TEMPLATE: When did <TO> start?
+ANSWER_TEMPLATE: Started: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) do <TO> (begin|start)
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be the (beginning|start) of <TO>
+<TO> (begin|start) .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+the (beginning|start) of <TO> be .*((what|which) (century|date|day|decade|hour|month|time|year)|when)

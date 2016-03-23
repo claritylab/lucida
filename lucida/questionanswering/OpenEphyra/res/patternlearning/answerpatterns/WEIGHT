@@ -1,0 +1,141 @@
+#passages: 1192
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?<PO_NEweight>
+#correct: 9
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?<PO_NEweight>
+#correct: 8
+#incorrect: 1
+
+<TO> [^<]*?<PO_NEweight>
+#correct: 7
+#incorrect: 1
+
+<PO_NEweight> (?:<NEfirstName> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?at <PO> <NEfirstName>
+#correct: 5
+#incorrect: 0
+
+at <PO> <NEfirstName> [^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+at <PO> <NEfirstName> a dead foreigner out of the brush with an <TO>
+#correct: 5
+#incorrect: 0
+
+<PO_NEweight> [^<]*?(?:<NEplanet> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+<TO> \) weighing in at <PO_NEweight>
+#correct: 5
+#incorrect: 0
+
+<TO> \) weighing in at <PO> <NEfirstName>
+#correct: 5
+#incorrect: 0
+
+<PO_NEweight> [^<]*?(?:<NElocation_NEplanet> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+<PO_NEweight> <NEfirstName> a dead foreigner out of the brush with an <TO>
+#correct: 5
+#incorrect: 0
+
+weigh <PO> on (?:<NEplanet> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+weigh <PO> on (?:<NElocation_NEplanet> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+weigh <PO> on <NEplanet> - as much as an <TO>
+#correct: 3
+#incorrect: 0
+
+<PO_NEweight> on <NElocation_NEplanet> - as much as an <TO>
+#correct: 3
+#incorrect: 0
+
+weigh <PO> on <NElocation_NEplanet> - as much as an <TO>
+#correct: 3
+#incorrect: 0
+
+<PO_NEweight> on <NEplanet> - as much as an <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> \( loxodonta africanus \) , which can be <NElength_NEsize> tall at the shoulder and weigh <PO_NEweight>
+#correct: 2
+#incorrect: 0
+
+<TO> \( loxodonta africanus \) , which can be <NElength_NEsize> tall at the shoulder and weigh <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?weigh <PO> #
+#correct: 2
+#incorrect: 0
+
+<PO_NEweight> for asian <TO>
+#correct: 1
+#incorrect: 0
+
+weigh <PO> on <NElocation_NEplanet> \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( <PO> \)
+#correct: 1
+#incorrect: 10
+
+: <PO> for asian <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> weighs about <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NEweight> on <NElocation_NEplanet> \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> weighs about <PO_NEweight>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?about <PO> ,
+#correct: 1
+#incorrect: 0
+
+: <PO> for [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEweight> [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the largest <NEreligion> on land , weighs about <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?about <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> , the largest <NEreligion> on land , weighs about <PO_NEweight>
+#correct: 1
+#incorrect: 0
+
+<TO> \( <PO_NEweight>
+#correct: 1
+#incorrect: 0
