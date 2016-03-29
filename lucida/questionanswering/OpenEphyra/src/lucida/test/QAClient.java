@@ -29,14 +29,19 @@ public class QAClient {
 		}
 		
 		// User.
-		String LUCID = "Johann";
+		String LUCID = "qll";
 		QuerySpec spec = new QuerySpec();
 		
 		// Knowledge.
 		final QueryInput knowledge_text = new QueryInput("text", new ArrayList<String>() {{
-		    add("The capital of Italy is Rome.");
+		    add("Today China’s population is over 1007 million, the largest of any country in the world.");
 		    add("Today is March 22, 2016.");
 		    add("I love XXX.");
+		    add("China is 2003.");
+		    add("China is 2003.");
+		    add("China is 2003.");
+		    add("China is 2003.");
+		    add("China is 2003.");
 		}});
 		final QueryInput knowledge_url = new QueryInput("URL", new ArrayList<String>() {{
 		    add("https://en.wikipedia.org/wiki/Aloe");
@@ -49,7 +54,7 @@ public class QAClient {
 		
 		// Query.
 		final QueryInput query_input = new QueryInput("query", new ArrayList<String>() {{
-		    add("What is today's date?");
+		    add("What is the Chinese population?");
 		}});
 		QuerySpec query = new QuerySpec(new ArrayList<QueryInput>() {{
 		    add(query_input);

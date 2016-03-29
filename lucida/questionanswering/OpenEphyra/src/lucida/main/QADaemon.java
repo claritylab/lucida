@@ -11,7 +11,7 @@ import org.apache.thrift.protocol.TBinaryProtocol;
 
 // Generated code
 import lucida.thrift.*;
-import lucida.thrift.cmdcenterstubs.*;
+//import lucida.thrift.cmdcenterstubs.*;
 
 // The service handler
 import lucida.handler.*;
