@@ -5,7 +5,7 @@ PROTO = protoc
 GEN_DIR = ./gen-cpp
 COMMON_DIR = ../common
 
-CXX_FLAGS = -O2 -g -std=c++11
+CXX_FLAGS = -O3 -std=c++11
 LINK_FLAGS = -lopencv_core \
 						 -lopencv_highgui \
 						 -lopencv_imgproc \
@@ -57,6 +57,6 @@ common:
 	$(CXX) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 clean:
-	rm -rf $(TARGET_SERVER) *.o
+	rm -rf $(TARGET_SERVER) *.o gen-cpp
 
 .PHONY:	all

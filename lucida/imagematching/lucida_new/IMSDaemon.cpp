@@ -1,10 +1,8 @@
 /*
- *
- *
- *
+ * Implementation for the Image Matching service daemon.
  */
 
-// import the thrift headers
+// Import the thrift headers.
 #include <thrift/concurrency/ThreadManager.h>
 #include <thrift/concurrency/PosixThreadFactory.h>
 #include <thrift/protocol/TBinaryProtocol.h>
@@ -16,27 +14,25 @@
 #include <thrift/TToString.h>
 #include <thrift/transport/TSocket.h>
 
-// import common utility headers
+// Import common utility headers.
 #include <iostream>
 #include <stdexcept>
 #include <sstream>
 #include <string>
 #include <fstream>
 #include <sys/time.h>
-#include <cstdlib> // 06-12-15 for taking cmd line args
+#include <cstdlib>
 #include <stdexcept>
+#include <stdio.h>
+#include <thread>
 
-//boost threading libraries
-#include <boost/thread.hpp>
-#include <boost/bind.hpp>
-
-// import the service headers
+// Import the service headers.
 #include "gen-cpp/LucidaService.h"
 #include "../common/detect.h"
 //#include "CommandCenter.h"
 //#include "commandcenter_types.h"
 
-// define the namespace
+// Define the namespaces.
 using namespace std;
 using namespace apache::thrift;
 using namespace apache::thrift::concurrency;
@@ -50,6 +46,11 @@ using namespace apache::thrift::server;
 
 class LucidaServiceHandler : public LucidaServiceIf {
 private:
+	/*
+	 * Extracts the image data from query.
+	 * Throws runtime_error if query content is empty,
+	 * or query content's type is not "image".
+	 */
 	void extractImageFromQuery(const ::QuerySpec& query, string &image) {
 		if (query.content.empty()) {
 			throw runtime_error("Empty query is not allowed.");
@@ -62,38 +63,58 @@ private:
 	}
 
 public:
-	// put the model training here so that it only needs to
-	// be trained once
+	/*
+	 * Constructor.
+	 * Trains the model.
+	 */
 	LucidaServiceHandler(){
 		this->matcher = new FlannBasedMatcher();
 		cout << "Building the image matching model..." << endl;
 		build_model(this->matcher, &(this->trainImgs));
 	}
 
+	/*
+	 * Creates a new service instance.
+	 * TODO
+	 */
 	void create(const string& LUCID, const ::QuerySpec& spec) {
 		cout << "Create" << endl;
 	}
 
+	/*
+	 * Learns new knowledge.
+	 * TODO
+	 */
 	void learn(const string& LUCID, const ::QuerySpec& knowledge) {
 		cout << "Learn" << endl;
 	}
 
+	/*
+	 * Infers from query by matching the image using opencv2.
+	 */
 	void infer(string& _return, const string& LUCID, const ::QuerySpec& query) {
+		// Extract image data from query.
 		string image;
 		try {
 			extractImageFromQuery(query, image);
 		} catch (exception &e) {
 			cout << e.what() << "\n";
-			_return = "Error! " + e.what();
+			_return = "Error! " + string(e.what());
 			return;
 		}
+		// Write the image to the current working directory.
 		gettimeofday(&tp, NULL);
 		long int timestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
 		string image_path = "input-" + to_string(timestamp) + ".jpg";
 		ofstream imagefile(image_path.c_str(), ios::binary);
 		imagefile.write(image.c_str(), image.size());
 		imagefile.close();
+		// Let opencv match the image.
 		_return = exec_match(image_path, this->matcher, &(this->trainImgs));
+		// Delete the image from disk.
+		if (remove(image_path.c_str()) == -1) {
+			cout << image_path << " can't be deleted from disk." << endl;
+		}
 	}
 
 private:
@@ -103,25 +124,28 @@ private:
 };
 
 int main(int argc, char **argv){
-	//Register with the command center
+	// Register with the command center. TODO
 	int port = 8081;
+	if (argc >= 2) {
+		port = atoi(argv[1]);
+	}
 	// int ccport = atoi(argv[2]);
 
-	// initialize the transport factory
+	// Initialize the transport factory.
 	boost::shared_ptr<TTransportFactory> transportFactory(
 			new TBufferedTransportFactory());
 	boost::shared_ptr<TServerTransport> serverTransport(
 			new TServerSocket(port));
-	// initialize the protocal factory
+	// Initialize the protocal factory.
 	boost::shared_ptr<TProtocolFactory> protocolFactory(
 			new TBinaryProtocolFactory());
-	// initialize the request handler
+	// Initialize the request handler.
 	boost::shared_ptr<LucidaServiceHandler> handler(
 			new LucidaServiceHandler());
-	// initialize the processor
+	// Initialize the processor.
 	boost::shared_ptr<TProcessor> processor(
 			new LucidaServiceProcessor(handler));
-	// initialize the thread manager and factory
+	// Initialize the thread manager and factory.
 	boost::shared_ptr<ThreadManager> threadManager =
 			ThreadManager::newSimpleThreadManager(THREAD_WORKS);
 	boost::shared_ptr<PosixThreadFactory> threadFactory =
@@ -129,15 +153,14 @@ int main(int argc, char **argv){
 	threadManager->threadFactory(threadFactory);
 	threadManager->start();
 
-	// initialize the image matching server
+	// Initialize the image matching server.
 	TThreadPoolServer server(
 			processor, serverTransport, transportFactory,
 			protocolFactory, threadManager);
 
-	boost::thread *serverThread =
-			new boost::thread(boost::bind(&TThreadPoolServer::serve, &server));
+	thread serverThread(&TThreadPoolServer::serve, &server);
 
-	//register with command center
+	// Register with command center. TODO
 	//  boost::shared_ptr<TTransport> cmdsocket(new TSocket("localhost", ccport));
 	//  boost::shared_ptr<TTransport> cmdtransport(new TBufferedTransport(cmdsocket));
 	//  boost::shared_ptr<TProtocol> cmdprotocol(new TBinaryProtocol(cmdtransport));
@@ -150,7 +173,8 @@ int main(int argc, char **argv){
 	//  cmdclient.registerService("IMM", mDataObj);
 	//  cmdtransport->close();
 
-	serverThread->join();
+	cout << "Start listening to requests." << endl;
+	serverThread.join();
 
 	return 0;
 }

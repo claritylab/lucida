@@ -3,7 +3,7 @@
 CXX = g++
 PROTO = protoc
 
-CXX_FLAGS = -O2
+CXX_FLAGS = -O3
 LINK_FLAGS = -lopencv_core \
 						 -lopencv_highgui \
 						 -lopencv_imgproc \
@@ -53,6 +53,6 @@ common:
 	$(CXX) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 clean:
-	rm -rf $(TARGET_CLIENT) *.o
+	rm -rf $(TARGET_CLIENT) *.o gen-cpp
 
 .PHONY:	all
