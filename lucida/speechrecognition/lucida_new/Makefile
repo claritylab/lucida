@@ -25,6 +25,6 @@ thrift:
 	$(CXX) -g $(FLAGS) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 clean:
-	rm -rf $(TARGET_CLIENT) $(TARGET_SERVER) gen-cpp *.o *~
+	rm -rf $(TARGET_CLIENT) $(TARGET_SERVER) gen-cpp *.o *~ *.wav
 
 .PHONY:	all

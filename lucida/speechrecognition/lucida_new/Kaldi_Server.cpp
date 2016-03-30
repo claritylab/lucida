@@ -1,7 +1,6 @@
 /*
- * Kaldi Server Using Apache Thrift
+ * Implementation for the Automatic Speech Recognition daemon.
  */
-
 
 // Import common utility headers.
 #include <sys/types.h>
@@ -43,95 +42,125 @@ using namespace apache::thrift::protocol;
 using namespace apache::thrift::transport;
 using namespace apache::thrift::server;
 // using boost::shared_ptr;
-//using namespace cmdcenterstubs;
+// using namespace cmdcenterstubs;
 
 // define the constant
 #define THREAD_WORKS 16
 
-
 class LucidaServiceHandler : virtual public LucidaServiceIf {
 public:
-	//Variables
 	cmd_subproc kaldi;
-	std::string answer;
+	string answer;
 
-	//----Constructors-----//
-
-	//default
+	/*
+	 * Default constructor.
+	 */
 	LucidaServiceHandler();
 
-	//executes a binary in a form of an array
+	/*
+	 * Custom constructor.
+	 * Executes a binary in a form of an array.
+	 */
 	LucidaServiceHandler(const char* const argv[]);
 
-	//-----Member Functions-------//
-
-	void sox();
-
+	/*
+	 * Creates a new service instance.
+	 * TODO
+	 */
 	void create(const string& LUCID, const ::QuerySpec& spec);
 
+
+	/*
+	 * Learns new knowledge.
+	 * TODO
+	 */
 	void learn(const string& LUCID, const ::QuerySpec& knowledge);
 
+	/*
+	 * Infers from query by matching the image using opencv2.
+	 */
 	void infer(string& _return, const string& LUCID, const ::QuerySpec& query);
 
 
 private:
-	std::string  kaldi_asr(const std::string& audio_file);
+	/*
+	 * Runs the sox() library to convert audio files to  8000Hz and normalize.
+	 */
+	void sox();
 
+	/*
+	 * Extracts the audio data from query.
+	 * Throws runtime_error if query content is empty,
+	 * or query content's type is not "audio".
+	 */
+	void extractAudioFromQuery(const ::QuerySpec& query, string &audio);
 };
 
-//Default Constructor
 LucidaServiceHandler::LucidaServiceHandler() {};
 
-//Constructor to execute binary
 LucidaServiceHandler::LucidaServiceHandler(const char* const argv[]) {
 	kaldi.cmd_exe(argv,false);			
 }
 
-//Member Functions
-
-void LucidaServiceHandler::create(const string& LUCID, const ::QuerySpec& spec) {
-	// needs implemented
-	std::cout << "asr create ..." << std::endl;
+void LucidaServiceHandler::create(
+		const string& LUCID, const ::QuerySpec& spec) {
+	cout << "Create" << endl;
 }
 
-void LucidaServiceHandler::learn(const string& LUCID, const ::QuerySpec& knowledge) {
-	// needs implemented
-	std::cout << "asr learn ..." << std::endl;
+void LucidaServiceHandler::learn(
+		const string& LUCID, const ::QuerySpec& knowledge) {
+	cout << "Learn" << endl;
 }
 
-void LucidaServiceHandler::infer(string& _return, const string& LUCID, const ::QuerySpec& query) {
+void LucidaServiceHandler::infer(
+		string& _return, const string& LUCID, const ::QuerySpec& query) {
+	// Extract audio data from query.
+	string audio;
+	try {
+		extractAudioFromQuery(query, audio);
+	} catch (exception &e) {
+		cout << e.what() << "\n";
+		_return = "Error! " + string(e.what());
+		return;
+	}
 
-	std::string audio_file = query.content[0].data[0]; 
-
-	_return = kaldi_asr(audio_file);
-}
-
-//An Input is the  file in a form of a string
-//processes the file and return the answer in the form of 
-//text
-string LucidaServiceHandler::kaldi_asr(const string& audio_file) {
-
-	//Reconstructing the audio file
-	std::string audio_path = "inputserver.wav";
-	std::ofstream audiofile(audio_path.c_str(), std::ios::binary);
-	audiofile.write(audio_file.c_str(),audio_file.size());
+	// Reconstruct the audio file.
+	string audio_path = "inputserver.wav";
+	ofstream audiofile(audio_path.c_str(), ios::binary);
+	audiofile.write(audio.c_str(),audio.size());
 	audiofile.close();
-	std::cout << "Audio File Recieved..."<< std::endl;
+	cout << "Audio File Recieved..."<< endl;
 
-	std::cout << "Converting audio file...." << std::endl;
-	sox();//Running SOX
-	std::cout << "Converting audio file complete..." << std::endl;
+	cout << "Converting audio file...." << endl;
+	sox(); // running SOX
+	cout << "Converting audio file complete..." << endl;
 
-	std::cout << "Running Kaldi Algorithm..."<< std::endl;
-	kaldi.stdin << "inputserver1.wav"  << std::endl;//Giving the audio file via stdin (pipes)
-	getline(kaldi.stdout, answer);//Grabbing the answer	
-	std::cout << "Finished Running Kaldi Algorithm..."<< std::endl;	
-	std::cout << "Now Returing Answer: "<<answer<< std::endl;
-	return answer;
+	cout << "Running Kaldi Algorithm..."<< endl;
+	kaldi.stdin << "inputserver1.wav"  << endl; // giving the audio file via stdin (pipes)
+	getline(kaldi.stdout, answer);// grabbing the answer
+	cout << "Finished Running Kaldi Algorithm..."<< endl;
+	cout << "Now Returing Answer: "<< answer << endl;
+
+	_return = answer;
+
+	// Delete the image from disk.
+	if (remove(audio_path.c_str()) == -1) {
+		cout << audio_path << " can't be deleted from disk." << endl;
+	}
 }
 
-//Run the sox() library to conver audio files to
-//8000Hz and normalize
+void LucidaServiceHandler::extractAudioFromQuery(
+		const ::QuerySpec& query, string &audio) {
+	if (query.content.empty()) {
+		throw runtime_error("Empty query is not allowed.");
+	}
+	if (query.content.front().type != "audio") {
+		throw runtime_error(query.content[0].type + " type is not allowed. "
+				+ "Type must be \"audio\".");
+	}
+	audio = query.content.front().data.front(); // the rest is ignored
+}
+
 void LucidaServiceHandler::sox(){
 	static sox_format_t * in, * out; /* input and output files */
 	sox_effects_chain_t * chain;
@@ -149,7 +178,8 @@ void LucidaServiceHandler::sox(){
 
 	assert(sox_init() == SOX_SUCCESS);
 	assert(in = sox_open_read("inputserver.wav", NULL, NULL, NULL));
-	assert(out = sox_open_write("inputserver1.wav", &out_signal, NULL, NULL, NULL, NULL));
+	assert(out = sox_open_write(
+			"inputserver1.wav", &out_signal, NULL, NULL, NULL, NULL));
 	chain = sox_create_effects_chain(&in->encoding, &out->encoding);
 
 	interm_signal = in->signal; /* NB: deep copy */
@@ -162,31 +192,36 @@ void LucidaServiceHandler::sox(){
 	if (in->signal.rate != out->signal.rate) {
 		e = sox_create_effect(sox_find_effect("rate"));
 		assert(sox_effect_options(e, 0, NULL) == SOX_SUCCESS);
-		assert(sox_add_effect(chain, e, &interm_signal, &out->signal) == SOX_SUCCESS);
+		assert(sox_add_effect(chain, e, &interm_signal, &out->signal)
+				== SOX_SUCCESS);
 		free(e);
 	}
 
 	if (in->signal.channels != out->signal.channels) {
 		e = sox_create_effect(sox_find_effect("channels"));
 		assert(sox_effect_options(e, 0, NULL) == SOX_SUCCESS);
-		assert(sox_add_effect(chain, e, &interm_signal, &out->signal) == SOX_SUCCESS);
+		assert(sox_add_effect(chain, e, &interm_signal, &out->signal)
+				== SOX_SUCCESS);
 		free(e);
 	}
 
-	/* Create the `flanger' effect, and initialise it with default parameters: */
+	// Create the `flanger' effect, and initialize it with default parameters.
 	e = sox_create_effect(sox_find_effect("norm"));
 	assert(sox_effect_options(e, 0, NULL) == SOX_SUCCESS);
-	/* Add the effect to the end of the effects processing chain: */
-	assert(sox_add_effect(chain, e, &interm_signal, &out->signal) == SOX_SUCCESS);
+	// Add the effect to the end of the effects processing chain.
+	assert(sox_add_effect(chain, e, &interm_signal, &out->signal)
+			== SOX_SUCCESS);
 	free(e);
 
 	e = sox_create_effect(sox_find_effect("output"));
-	args[0] = (char *)out, assert(sox_effect_options(e, 1, args) == SOX_SUCCESS);
-	assert(sox_add_effect(chain, e, &interm_signal, &out->signal) == SOX_SUCCESS);
+	args[0] = (char *)out, assert(sox_effect_options(e, 1, args)
+			== SOX_SUCCESS);
+	assert(sox_add_effect(chain, e, &interm_signal, &out->signal)
+			== SOX_SUCCESS);
 	free(e);
 
 	sox_flow_effects(chain, NULL, NULL);
-	//Cleaning up
+	// Clean up.
 	sox_delete_effects_chain(chain);
 	sox_close(out);
 	sox_close(in);
@@ -219,65 +254,49 @@ int main(int argc, char **argv) {
 	// int ccport = atoi(argv[2]);
 
 	//Register with the command center 
-//	boost::shared_ptr<TTransport> cmdsocket(new TSocket("localhost", cmdcenterport));
-//	boost::shared_ptr<TTransport> cmdtransport(new TBufferedTransport(cmdsocket));
-//	boost::shared_ptr<TProtocol> cmdprotocol(new TBinaryProtocol(cmdtransport));
-//	CommandCenterClient cmdclient(cmdprotocol);
-//	cmdtransport->open();
-//	std::cout << "Registering automatic speech recognition server with command center..." << std::endl;
-//	MachineData mDataObj;
-//	mDataObj.name="localhost";
-//	mDataObj.port=port;
-//	cmdclient.registerService("ASR", mDataObj);
-//	cmdtransport->close();
+	//	boost::shared_ptr<TTransport> cmdsocket(new TSocket("localhost", cmdcenterport));
+	//	boost::shared_ptr<TTransport> cmdtransport(new TBufferedTransport(cmdsocket));
+	//	boost::shared_ptr<TProtocol> cmdprotocol(new TBinaryProtocol(cmdtransport));
+	//	CommandCenterClient cmdclient(cmdprotocol);
+	//	cmdtransport->open();
+	//	std::cout << "Registering automatic speech recognition server with command center..." << std::endl;
+	//	MachineData mDataObj;
+	//	mDataObj.name="localhost";
+	//	mDataObj.port=port;
+	//	cmdclient.registerService("ASR", mDataObj);
+	//	cmdtransport->close();
 
+	// Initialize the transport factory.
+	boost::shared_ptr<TTransportFactory> transportFactory(
+			new TBufferedTransportFactory());
+	boost::shared_ptr<TServerTransport> serverTransport(
+			new TServerSocket(port));
+	// Initialize the protocal factory.
+	boost::shared_ptr<TProtocolFactory> protocolFactory(
+			new TBinaryProtocolFactory());
+	// Initialize the request handler.
+	boost::shared_ptr<LucidaServiceHandler> handler(
+			new LucidaServiceHandler(argvc));
+	// Initialize the processor.
+	boost::shared_ptr<TProcessor> processor(
+			new LucidaServiceProcessor(handler));
+	// Initialize the thread manager and factory.
+	boost::shared_ptr<ThreadManager> threadManager =
+			ThreadManager::newSimpleThreadManager(THREAD_WORKS);
+	boost::shared_ptr<PosixThreadFactory> threadFactory =
+			boost::shared_ptr<PosixThreadFactory>(new PosixThreadFactory());
+	threadManager->threadFactory(threadFactory);
+	threadManager->start();
 
+	// Initialize the image matching server.
+	TThreadPoolServer server(
+			processor, serverTransport, transportFactory,
+			protocolFactory, threadManager);
 
-//	// Initialize the transport factory.
-//	boost::shared_ptr<TTransportFactory> transportFactory(
-//			new TBufferedTransportFactory());
-//	boost::shared_ptr<TServerTransport> serverTransport(
-//			new TServerSocket(port));
-//	// Initialize the protocal factory.
-//	boost::shared_ptr<TProtocolFactory> protocolFactory(
-//			new TBinaryProtocolFactory());
-//	// Initialize the request handler.
-//	boost::shared_ptr<LucidaServiceHandler> handler(
-//			new LucidaServiceHandler());
-//	// Initialize the processor.
-//	boost::shared_ptr<TProcessor> processor(
-//			new LucidaServiceProcessor(handler));
-//	// Initialize the thread manager and factory.
-//	boost::shared_ptr<ThreadManager> threadManager =
-//			ThreadManager::newSimpleThreadManager(THREAD_WORKS);
-//	boost::shared_ptr<PosixThreadFactory> threadFactory =
-//			boost::shared_ptr<PosixThreadFactory>(new PosixThreadFactory());
-//	threadManager->threadFactory(threadFactory);
-//	threadManager->start();
-//
-//	// Initialize the image matching server.
-//	TThreadPoolServer server(
-//			processor, serverTransport, transportFactory,
-//			protocolFactory, threadManager);
-//
-//	thread serverThread(&TThreadPoolServer::serve, &server);
-//
-//	cout << "Start listening to requests." << endl;
-//	serverThread.join();
-//
-//	return 0;
+	thread serverThread(&TThreadPoolServer::serve, &server);
 
-	  boost::shared_ptr<LucidaServiceHandler> handler(new LucidaServiceHandler(argvc));
-	  boost::shared_ptr<TProcessor> processor(new LucidaServiceProcessor(handler));
-	  boost::shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
-	  boost::shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
-	  boost::shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
-
-	  TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
-
-	  std::cout << "Starting the automatic speech recognition server on port " << port << "..." << std::endl;
-	  server.serve();
-	  return 0;
-
+	cout << "Start listening to requests." << endl;
+	serverThread.join();
+	return 0;
 }
 
