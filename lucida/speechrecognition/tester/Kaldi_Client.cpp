@@ -1,3 +1,7 @@
+/*
+ * Implementation for the Automatic Speech Recognition service testing client.
+ */
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -15,8 +19,6 @@ using namespace std;
 using namespace apache::thrift;
 using namespace apache::thrift::protocol;
 using namespace apache::thrift::transport;
-
-
 
 int main(int argc, char ** argv){
 	//Audio file from command line
@@ -39,34 +41,26 @@ int main(int argc, char ** argv){
 
 	struct timeval tv1, tv2;
 	try {
-		string answer;
-
+		// Open the audio.
 		ifstream fin(audio_file.c_str(), ios::binary);
 		if (!fin) cerr << "Could not open the file!" << endl;
-
 		ostringstream ostrm;
 		ostrm << fin.rdbuf();
 		string audio_file_to_send(ostrm.str());
+		// Prepare to interact with the ASR server.
 		transport->open();
-
+		string answer;
 		// Create a QueryInput and a QuerySpec.
 		QueryInput query_input;
-		query_input.type = "image";
+		query_input.type = "audio";
 		query_input.data.push_back(audio_file_to_send);
 		QuerySpec query_spec;
 		query_spec.content.push_back(query_input);
-		string LUCID = "Johann";
+		string LUCID = "QLL";
 		// Invoke the infer service.
-		gettimeofday(&tv1, NULL);
 		client.infer(answer, LUCID, query_spec);
-		gettimeofday(&tv2, NULL);
-		unsigned int query_latency = (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
-
-
-		cout << answer;
-		// cout << "answer replied within " << fixed << setprecision(2) << (double)query_latency / 1000 << " ms" << endl;
-		cout << fixed << setprecision(2) << (double)query_latency / 1000 << endl;
-
+		cout << answer << endl;
+		// Close the connection.
 		transport->close();
 	} catch (TException &tx){
 		cout << "ERROR: " << tx.what() << endl;
