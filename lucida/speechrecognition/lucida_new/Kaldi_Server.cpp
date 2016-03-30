@@ -233,38 +233,51 @@ int main(int argc, char **argv) {
 
 
 
-	// Initialize the transport factory.
-	boost::shared_ptr<TTransportFactory> transportFactory(
-			new TBufferedTransportFactory());
-	boost::shared_ptr<TServerTransport> serverTransport(
-			new TServerSocket(port));
-	// Initialize the protocal factory.
-	boost::shared_ptr<TProtocolFactory> protocolFactory(
-			new TBinaryProtocolFactory());
-	// Initialize the request handler.
-	boost::shared_ptr<LucidaServiceHandler> handler(
-			new LucidaServiceHandler());
-	// Initialize the processor.
-	boost::shared_ptr<TProcessor> processor(
-			new LucidaServiceProcessor(handler));
-	// Initialize the thread manager and factory.
-	boost::shared_ptr<ThreadManager> threadManager =
-			ThreadManager::newSimpleThreadManager(THREAD_WORKS);
-	boost::shared_ptr<PosixThreadFactory> threadFactory =
-			boost::shared_ptr<PosixThreadFactory>(new PosixThreadFactory());
-	threadManager->threadFactory(threadFactory);
-	threadManager->start();
+//	// Initialize the transport factory.
+//	boost::shared_ptr<TTransportFactory> transportFactory(
+//			new TBufferedTransportFactory());
+//	boost::shared_ptr<TServerTransport> serverTransport(
+//			new TServerSocket(port));
+//	// Initialize the protocal factory.
+//	boost::shared_ptr<TProtocolFactory> protocolFactory(
+//			new TBinaryProtocolFactory());
+//	// Initialize the request handler.
+//	boost::shared_ptr<LucidaServiceHandler> handler(
+//			new LucidaServiceHandler());
+//	// Initialize the processor.
+//	boost::shared_ptr<TProcessor> processor(
+//			new LucidaServiceProcessor(handler));
+//	// Initialize the thread manager and factory.
+//	boost::shared_ptr<ThreadManager> threadManager =
+//			ThreadManager::newSimpleThreadManager(THREAD_WORKS);
+//	boost::shared_ptr<PosixThreadFactory> threadFactory =
+//			boost::shared_ptr<PosixThreadFactory>(new PosixThreadFactory());
+//	threadManager->threadFactory(threadFactory);
+//	threadManager->start();
+//
+//	// Initialize the image matching server.
+//	TThreadPoolServer server(
+//			processor, serverTransport, transportFactory,
+//			protocolFactory, threadManager);
+//
+//	thread serverThread(&TThreadPoolServer::serve, &server);
+//
+//	cout << "Start listening to requests." << endl;
+//	serverThread.join();
+//
+//	return 0;
 
-	// Initialize the image matching server.
-	TThreadPoolServer server(
-			processor, serverTransport, transportFactory,
-			protocolFactory, threadManager);
+	  boost::shared_ptr<LucidaServiceHandler> handler(new LucidaServiceHandler(argvc));
+	  boost::shared_ptr<TProcessor> processor(new LucidaServiceProcessor(handler));
+	  boost::shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
+	  boost::shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
+	  boost::shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
 
-	thread serverThread(&TThreadPoolServer::serve, &server);
+	  TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
 
-	cout << "Start listening to requests." << endl;
-	serverThread.join();
+	  std::cout << "Starting the automatic speech recognition server on port " << port << "..." << std::endl;
+	  server.serve();
+	  return 0;
 
-	return 0;
 }
 
