@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'Calendar.CalendarDaemon'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+version = '1.0'
+
+run {
+    if( project.hasProperty('args')) {
+        args project.args.split('\\s')
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.api-client:google-api-client:1.20.0'
+    compile 'com.google.oauth-client:google-oauth-client-jetty:1.20.0'
+    compile 'com.google.apis:google-api-services-calendar:v3-rev125-1.20.0'
+    compile 'org.apache.thrift:libthrift:0.9.3'
+    
+}
