@@ -10,5 +10,5 @@ Testing:
 - make sure the djinn service is running:
   - ./DjinnService`
 - run the tonic-img service:
-  - `./IMGService --svip localhost --port 8080 --djinnip localhost --djinnport 5000`
+  - `./IMGService --svip localhost --port 8080 --djinnip localhost --djinnp 5000`
 - make an inference request: `./testClient`. Returns inference for 3 IMC images.
