@@ -13,3 +13,5 @@ Functions included:
 Testing:
 - `./DjinnTestClient` sends a list of training images (superfake-face-db.txt)
   to DjiNN to train a facial recognition network.
+- Note: Before you test ./DjinnTestClient, make sure you run ./dl_djinn_weights.sh
+  under "../tonic-common/weights"
