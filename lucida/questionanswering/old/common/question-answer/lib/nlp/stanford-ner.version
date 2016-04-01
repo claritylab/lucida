@@ -1,0 +1,22 @@
+Stanford Named Entity Recognizer 1.0 2007-11-05
+
+Changes to original distribution:
+
+edu.stanford.nlp.process.PTBLexer, line 5603:
+"Untokenizable" error message disabled because it interferes with Ephyra's user
+interface.
+
+edu.stanford.nlp.ie.AbstractSequenceClassifier, line 606:
+"Getting data from" error message disabled because it interferes with Ephyra's
+user interface.
+
+edu.stanford.nlp.ie.AbstractSequenceClassifier, line 878:
+"Loading classifier" error message disabled because it interferes with Ephyra's
+user interface.
+
+edu.stanford.nlp.ie.AbstractSequenceClassifier, line 887:
+"done" error message disabled because it interferes with Ephyra's user
+interface.
+
+'classifiers' folder removed from jar file since Ephyra stores classifiers
+separately in its 'res' folder.

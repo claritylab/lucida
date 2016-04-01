@@ -1,0 +1,545 @@
+#passages: 577
+
+<TO> (?:<NEacronym> )?[^<]*?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 57
+#incorrect: 80
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 57
+#incorrect: 80
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 51
+#incorrect: 38
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym_NEfrequency> )?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 50
+#incorrect: 39
+
+<TO> (?:<NEacronym_NElanguage> )?(?:<NEacronym> )?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 49
+#incorrect: 40
+
+<TO> (?:<NEacronym_NElanguage> )?(?:<NEacronym> )?<NEacronym> <PO> -
+#correct: 49
+#incorrect: 3
+
+<TO> (?:<NEacronym> )?[^<]*?<NEacronym> <PO> -
+#correct: 44
+#incorrect: 13
+
+<TO> <NEacronym> <NEacronym> <PO> -
+#correct: 40
+#incorrect: 9
+
+<TO> (?:<NEacronym> )?<NEacronym> <PO> -
+#correct: 40
+#incorrect: 12
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 40
+#incorrect: 49
+
+<TO> <NEacronym> <NEacronym> <PO_NEacronym>
+#correct: 40
+#incorrect: 37
+
+<TO> [^<]*?knocked <PO> out
+#correct: 34
+#incorrect: 0
+
+<TO> came back and knocked <PO> out
+#correct: 25
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?<PO_NEacronym>
+#correct: 16
+#incorrect: 121
+
+<TO> v <PO_NEacronym>
+#correct: 11
+#incorrect: 11
+
+<TO> v <PO> \(
+#correct: 11
+#incorrect: 0
+
+<TO> [^<]*?<PO_NEacronym>
+#correct: 11
+#incorrect: 126
+
+<TO> [^<]*?<PO_NElocation>
+#correct: 10
+#incorrect: 12
+
+<TO> <NEacronym_NElanguage> <NEacronym> <NEacronym> <PO> -
+#correct: 9
+#incorrect: 0
+
+<TO> knocked <PO> out
+#correct: 9
+#incorrect: 0
+
+<TO> knocked <PO_NElocation>
+#correct: 9
+#incorrect: 0
+
+<TO> [^<]*?ingemar <PO> <NEnumber>
+#correct: 9
+#incorrect: 6
+
+<TO> <NEacronym_NElanguage> <NEacronym> <NEacronym> <PO_NEacronym>
+#correct: 9
+#incorrect: 6
+
+<TO> vs \. ingemar <PO> <NEnumber>
+#correct: 5
+#incorrect: 1
+
+<TO> had beat <PO> in
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?beat <PO> in
+#correct: 4
+#incorrect: 0
+
+<TO> ingemar <PO> <NEnumber>
+#correct: 4
+#incorrect: 0
+
+<TO> and ingemar <PO> \.
+#correct: 4
+#incorrect: 0
+
+# <PO> had [^<]*?took [^<]*?beating [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<TO> <PO> <NEacronym>
+#correct: 4
+#incorrect: 146
+
+<TO> [^<]*?ingemar <PO> \.
+#correct: 4
+#incorrect: 2
+
+<TO> [^<]*?<NEacronym> <PO> -
+#correct: 3
+#incorrect: 54
+
+<TO> [^<]*?ingemar <PO> ,
+#correct: 3
+#incorrect: 9
+
+<TO> / <NEacronym> <PO> -
+#correct: 3
+#incorrect: 0
+
+<TO> was decked <NEfrequency> and <PO> <NEfrequency>
+#correct: 3
+#incorrect: 0
+
+<TO> / <NEacronym> <PO_NEacronym>
+#correct: 3
+#incorrect: 0
+
+<PO_NEacronym> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 23
+
+<TO> [^<]*?(?:<NEfrequency> )?and <PO> <NEfrequency>
+#correct: 3
+#incorrect: 2
+
+<TO> [^<]*?ingemar <PO> in
+#correct: 2
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEfrequency> )?and <PO> ,
+#correct: 2
+#incorrect: 6
+
+<PO_NEacronym> [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 25
+
+<TO> , who did it by knocking out swede ingemar <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?ingemar <PO> #
+#correct: 2
+#incorrect: 21
+
+<TO> was heavily favoured , but <PO> landed
+#correct: 2
+#incorrect: 0
+
+ingemar <PO> of (?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+and <PO> fought (?:<NEfrequency> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<NEacronym> <PO> \( [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+ingemar <PO> of <NElocation_NEcountry> knocked out <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> was decked <NEfrequency> and <PO> ,
+#correct: 2
+#incorrect: 0
+
+<PO_NEacronym> \( b \. <NEdate_NEyear_NEnumber> \) and <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> and <PO> fought
+#correct: 2
+#incorrect: 0
+
+<TO> heavyweight champions , <NEacronym> <PO> \(
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEperson>
+#correct: 2
+#incorrect: 27
+
+<TO> was the first heavyweight <NEsport> champion to regain the title - he knocked out <NElocation_NEcountry> ' s ingemar <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> ' s fights with <NEperson> , <PO> &
+#correct: 2
+#incorrect: 0
+
+<TO> regained the crown from <PO> a
+#correct: 2
+#incorrect: 0
+
+<TO> regaining his title over ingemar <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> heavyweight champions , <NEacronym> <PO_NEacronym>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?<NEacronym> <PO> \(
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?<PO_NEperson>
+#correct: 2
+#incorrect: 25
+
+and <PO> fought <NEfrequency> more with <TO>
+#correct: 2
+#incorrect: 0
+
+<NEacronym> <PO> \( b \. <NEdate_NEyear_NEnumber> \) and <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?but <PO> landed
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEperson> )?, <PO> &
+#correct: 2
+#incorrect: 0
+
+ingemar <PO> and <TO>
+#correct: 2
+#incorrect: 9
+
+<TO> [^<]*?from <PO> a
+#correct: 2
+#incorrect: 3
+
+<TO> knocks out ingemar <PO> to
+#correct: 1
+#incorrect: 0
+
+<TO> and of <PO> \.
+#correct: 1
+#incorrect: 0
+
+; <PO> , <NEacronym> ; <TO>
+#correct: 1
+#incorrect: 3
+
+<TO> <NEacronym> ' s <NEacronym> <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?ingemar <PO> to
+#correct: 1
+#incorrect: 0
+
+ingmar <PO> used [^<]*?(?:<NEsport> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> retains heavyweight crown against <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym_NEfrequency> )?<NEacronym> <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?ingemar <PO> were
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> , who knocked <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> with punching bag , color ; and <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO_NEperson>
+#correct: 1
+#incorrect: 4
+
+<TO> v <PO> :
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> , <NEacronym> ; <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> faced [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEsport> )?[^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> floored <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <NEacronym_NEfrequency> <NEacronym> <PO_NEacronym>
+#correct: 1
+#incorrect: 5
+
+<TO> / <PO> bouts
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <PO_NEacronym>
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?against <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?ingemar <PO> meet
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?ingemar <PO> said
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?and <PO> in
+#correct: 1
+#incorrect: 30
+
+# <PO> / <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> ' s <NEacronym> <PO_NEacronym>
+#correct: 1
+#incorrect: 0
+
+# <PO> would knock <TO>
+#correct: 1
+#incorrect: 0
+
+marvin <PO> - sullivan - - ingemar <NEfirstName> - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> v <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <PO> i
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 6
+
+<PO_NElocation> vs \. <TO>
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> , who knocked <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> [^<]*?<TO>
+#correct: 1
+#incorrect: 22
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?<NEacronym> <PO> i
+#correct: 1
+#incorrect: 0
+
+marvin <PO> - [^<]*?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?ingemar <PO> on
+#correct: 1
+#incorrect: 0
+
+; <PO> , (?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> was a bigger heavyweight , i think that he would have defeated both <NEperson> and ingemar <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> and ingemar <PO> were
+#correct: 1
+#incorrect: 0
+
+ingemmar <PO> and former champ <TO>
+#correct: 1
+#incorrect: 0
+
+ingemar <PO> stands over badly battered <TO>
+#correct: 1
+#incorrect: 0
+
+ingmar <PO> used hypnosis training before wresting the heavyweight <NEsport> title from <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> fights
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation_NEperson> [^<]*?<TO>
+#correct: 1
+#incorrect: 26
+
+and <PO> faced off before a crowd of <NEnumber> at the <NEsport> grounds in upper <NElocation> : <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <NEacronym_NEfrequency> <NEacronym> <PO> ,
+#correct: 1
+#incorrect: 0
+
+ingemar <PO> when <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - ingemar <PO> fight
+#correct: 1
+#incorrect: 0
+
+<TO> and ingemar <PO> meet
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> faced
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> [^<]*?of <PO> \.
+#correct: 1
+#incorrect: 5
+
+<NEacronym> <PO> & <TO>
+#correct: 1
+#incorrect: 4
+
+ingemar <PO> vs \. <TO>
+#correct: 1
+#incorrect: 0
+
+ingemar <PO> fooled (?:<NEcountry> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+ingemar <PO> vs [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+ingemar <PO> beat <TO>
+#correct: 1
+#incorrect: 0
+
+ingemar <PO> & <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> would [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+ingemar <PO> fooled <NEcountry> by knocking out <TO>
+#correct: 1
+#incorrect: 0
+
+ingemar <PO> stands [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> retains heavyweight crown against <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> ' s matches with sonny liston and ingemar <PO> on
+#correct: 1
+#incorrect: 0
+
+<TO> had stopped him and ingemar <PO> said
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?against <PO_NEperson>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?ingemar <PO> fight
+#correct: 1
+#incorrect: 11
+
+and <PO> caught <TO>
+#correct: 1
+#incorrect: 0
+
+ingemmar <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?defeated [^<]*?(?:<NEperson> )?[^<]*?ingemar <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> in his second bout with ingemar <PO> ,
+#correct: 1
+#incorrect: 0

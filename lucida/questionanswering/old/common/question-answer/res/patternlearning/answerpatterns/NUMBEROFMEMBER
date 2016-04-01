@@ -1,0 +1,1801 @@
+#passages: 1335
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEmonth> )?<PO_NEnumber>
+#correct: 160
+#incorrect: 116
+
+<TO> [^<]*?(?:<NEacronym_NEcapital> )?[^<]*?(?:<NEmonth> )?<PO_NEnumber>
+#correct: 159
+#incorrect: 112
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?[^<]*?<PO_NEnumber>
+#correct: 159
+#incorrect: 114
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NEnumber>
+#correct: 158
+#incorrect: 106
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth_NEfirstName> )?<PO_NEnumber>
+#correct: 158
+#incorrect: 113
+
+<TO> [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEnumber>
+#correct: 157
+#incorrect: 109
+
+<TO> [^<]*?(?:<NEcountry_NEpeninsula> )?[^<]*?(?:<NEmonth> )?<PO_NEnumber>
+#correct: 157
+#incorrect: 111
+
+<TO> [^<]*?(?:<NEmonth> )?[^<]*?(?:<NEmonth> )?<PO_NEnumber>
+#correct: 156
+#incorrect: 112
+
+<TO> [^<]*?(?:<NEmonth> )?<PO_NEnumber>
+#correct: 156
+#incorrect: 109
+
+<TO> (?:<NEprofession> )?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEnumber>
+#correct: 156
+#incorrect: 104
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEnumber>
+#correct: 155
+#incorrect: 102
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NEnumber>
+#correct: 154
+#incorrect: 101
+
+<TO> [^<]*?(?:<NEweekday> )?[^<]*?(?:<NEfirstName> )?[^<]*?<PO_NEnumber>
+#correct: 154
+#incorrect: 113
+
+<TO> [^<]*?(?:<NEcountry> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEnumber>
+#correct: 154
+#incorrect: 102
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?<PO_NEnumber>
+#correct: 152
+#incorrect: 109
+
+<TO> (?:<NEprofession> )?(?:<NEperson> )?[^<]*?(?:<NElocation> )?(?:<NEweekday> )?[^<]*?<PO_NEnumber>
+#correct: 152
+#incorrect: 106
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?<PO_NEnumber>
+#correct: 151
+#incorrect: 101
+
+<TO> [^<]*?(?:<NElocation_NEcapital> )?[^<]*?<PO_NEnumber>
+#correct: 151
+#incorrect: 104
+
+<TO> (?:<NEfirstName> )?[^<]*?<PO_NEnumber>
+#correct: 151
+#incorrect: 104
+
+<TO> (?:<NEorganization> )?[^<]*?(?:<NEnumber> )?<PO_NEnumber>
+#correct: 150
+#incorrect: 102
+
+<TO> [^<]*?(?:<NEcountry> )?[^<]*?(?:<NEorganization> )?[^<]*?<PO_NEnumber>
+#correct: 150
+#incorrect: 104
+
+<TO> [^<]*?<PO_NEnumber>
+#correct: 150
+#incorrect: 101
+
+<TO> (?:<NEcountry> )?[^<]*?(?:<NElocation> )?(?:<NEnumber> )?(?:<NEnumber> )?<PO_NEnumber>
+#correct: 149
+#incorrect: 103
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 132
+#incorrect: 134
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEmonth> )?<PO_NEnumber>
+#correct: 126
+#incorrect: 139
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEscore> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 123
+#incorrect: 132
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 121
+#incorrect: 130
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEacronym> )?(?:<NEnumber> )?<PO_NEnumber>
+#correct: 121
+#incorrect: 131
+
+<TO> ' s <PO_NEnumber>
+#correct: 91
+#incorrect: 1
+
+<PO_NEnumber> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEtime> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 82
+#incorrect: 101
+
+<PO_NEnumber> [^<]*?(?:<NEscore> )?(?:<NEacronym> )?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 81
+#incorrect: 88
+
+<TO> [^<]*?s <PO> member
+#correct: 80
+#incorrect: 3
+
+<PO_NEnumber> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 79
+#incorrect: 86
+
+<TO> ' s <PO> member
+#correct: 79
+#incorrect: 3
+
+<PO_NEnumber> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 79
+#incorrect: 85
+
+<PO_NEnumber> [^<]*?(?:<NEacronym_NEcountry_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 78
+#incorrect: 88
+
+<PO_NEnumber> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEacronym_NEcountry> )?[^<]*?<TO>
+#correct: 78
+#incorrect: 84
+
+<PO_NEnumber> [^<]*?(?:<NEperson_NEusPresident> )?[^<]*?<TO>
+#correct: 77
+#incorrect: 75
+
+<PO_NEnumber> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 76
+#incorrect: 99
+
+<PO_NEnumber> [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 75
+#incorrect: 77
+
+<PO_NEnumber> [^<]*?(?:<NEmonth> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 75
+#incorrect: 96
+
+<PO_NEnumber> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEweekday> )?[^<]*?<TO>
+#correct: 74
+#incorrect: 97
+
+<PO_NEnumber> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 74
+#incorrect: 79
+
+<PO_NEnumber> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 74
+#incorrect: 81
+
+<PO_NEnumber> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEpercentage> )?[^<]*?<TO>
+#correct: 73
+#incorrect: 97
+
+<PO_NEnumber> [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 73
+#incorrect: 79
+
+<PO_NEnumber> [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 73
+#incorrect: 80
+
+<PO_NEnumber> [^<]*?(?:<NEcountry> )?[^<]*?<TO>
+#correct: 73
+#incorrect: 76
+
+<PO_NEnumber> [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 73
+#incorrect: 93
+
+<PO_NEnumber> (?:<NEscore_NEtime> )?[^<]*?<TO>
+#correct: 72
+#incorrect: 75
+
+<PO_NEnumber> (?:<NEprofession> )?[^<]*?<TO>
+#correct: 72
+#incorrect: 75
+
+<PO_NEnumber> (?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 72
+#incorrect: 80
+
+<PO_NEnumber> [^<]*?(?:<NEseason> )?[^<]*?<TO>
+#correct: 72
+#incorrect: 75
+
+<PO_NEnumber> [^<]*?<TO>
+#correct: 71
+#incorrect: 75
+
+<PO_NEnumber> (?:<NEnumber> )?[^<]*?<TO>
+#correct: 71
+#incorrect: 79
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?s <PO> members
+#correct: 57
+#incorrect: 3
+
+<TO> [^<]*?s <PO> members
+#correct: 53
+#incorrect: 3
+
+<TO> ' s <PO> members
+#correct: 52
+#incorrect: 3
+
+<PO_NEnumber> <TO>
+#correct: 32
+#incorrect: 5
+
+the <PO> <TO>
+#correct: 19
+#incorrect: 213
+
+<TO> - <PO_NEnumber>
+#correct: 16
+#incorrect: 6
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?<PO_NEnumber>
+#correct: 10
+#incorrect: 7
+
+<TO> [^<]*?s <PO> #
+#correct: 9
+#incorrect: 64
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?<PO_NEnumber>
+#correct: 9
+#incorrect: 7
+
+<TO> ' s <PO> #
+#correct: 9
+#incorrect: 57
+
+<TO> <PO_NEnumber>
+#correct: 8
+#incorrect: 7
+
+<TO> [^<]*?(?:<NEacronym> )?consists [^<]*?<PO_NEnumber>
+#correct: 8
+#incorrect: 0
+
+# <PO> <TO>
+#correct: 8
+#incorrect: 709
+
+<TO> [^<]*?(?:<NEprofession> )?of <PO> oil
+#correct: 7
+#incorrect: 12
+
+<PO_NEnumber> [^<]*?members (?:<NEperson> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 2
+
+<PO_NEnumber> members [^<]*?(?:<NEmonth> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEmonth> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 2
+
+<PO_NEnumber> [^<]*?member [^<]*?<TO>
+#correct: 7
+#incorrect: 1
+
+<PO_NEnumber> members [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 2
+
+<TO> [^<]*?consists [^<]*?<PO_NEnumber>
+#correct: 7
+#incorrect: 0
+
+<PO_NEnumber> members [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEmonth> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEmonth_NEfirstName> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 2
+
+<TO> ' s <PO> -
+#correct: 6
+#incorrect: 9
+
+<PO_NEnumber> [^<]*?(?:<NEriver_NEwater> )?members [^<]*?<TO>
+#correct: 6
+#incorrect: 2
+
+<PO_NEnumber> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEorganization_NEprofession> )?[^<]*?countries [^<]*?<TO>
+#correct: 6
+#incorrect: 0
+
+<PO_NEnumber> members [^<]*?<TO>
+#correct: 6
+#incorrect: 2
+
+<TO> [^<]*?s <PO> -
+#correct: 6
+#incorrect: 9
+
+<TO> <PO> \.
+#correct: 5
+#incorrect: 187
+
+the <PO> - [^<]*?(?:<NEcountry> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 20
+
+<TO> consists of <PO_NEnumber>
+#correct: 5
+#incorrect: 0
+
+of <PO> <TO>
+#correct: 5
+#incorrect: 126
+
+<TO> consists [^<]*?<PO_NEnumber>
+#correct: 5
+#incorrect: 0
+
+\. <PO> and [^<]*?(?:<NEperson_NEusPresident> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?consists of <PO> nations
+#correct: 5
+#incorrect: 1
+
+<TO> is a cartel <NEprofession> of <PO_NEnumber>
+#correct: 5
+#incorrect: 0
+
+<TO> is a cartel <NEprofession> of <PO> oil
+#correct: 5
+#incorrect: 0
+
+<TO> spokesman <NEperson> said the group ' s <PO_NEnumber>
+#correct: 4
+#incorrect: 0
+
+<TO> - <PO> #
+#correct: 4
+#incorrect: 20
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?<NEmonth> <PO> in
+#correct: 4
+#incorrect: 5
+
+<TO> spokesman <NEperson> said the group ' s <PO> members
+#correct: 4
+#incorrect: 0
+
+<PO_NEnumber> member [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<NEmonth> <PO> <TO>
+#correct: 4
+#incorrect: 42
+
+<TO> has <PO_NEnumber>
+#correct: 4
+#incorrect: 0
+
+# <PO> members [^<]*?<TO>
+#correct: 4
+#incorrect: 7
+
+<PO_NEnumber> members of <TO>
+#correct: 4
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEprofession> )?of <PO> member
+#correct: 4
+#incorrect: 1
+
+<TO> [^<]*?consists of <PO> nations
+#correct: 4
+#incorrect: 1
+
+the <PO> - [^<]*?<TO>
+#correct: 4
+#incorrect: 20
+
+<PO_NEnumber> [^<]*?(?:<NEorganization_NEprofession> )?[^<]*?countries [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+the <PO> members [^<]*?<TO>
+#correct: 3
+#incorrect: 3
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEmonth> )?[^<]*?the <PO> -
+#correct: 3
+#incorrect: 6
+
+\. <PO> and the <NEperson_NEusPresident> administation ' s " war on terrror " - a war hotly opposed by almost all <TO>
+#correct: 3
+#incorrect: 0
+
+<PO_NEnumber> \. <TO>
+#correct: 3
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?the <PO> -
+#correct: 3
+#incorrect: 6
+
+the <PO> members of <TO>
+#correct: 3
+#incorrect: 2
+
+<TO> (?:<NEprofession> )?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?the <PO> -
+#correct: 3
+#incorrect: 6
+
+<PO_NEnumber> and the <NEperson_NEusPresident> administation ' s " war on terrror " - a war hotly opposed by almost all <TO>
+#correct: 3
+#incorrect: 0
+
+the <PO> - member [^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+<PO_NEnumber> [^<]*?(?:<NEprofession> )?[^<]*?countries [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?of <PO> member
+#correct: 3
+#incorrect: 1
+
+<TO> consists of <PO> nations
+#correct: 3
+#incorrect: 1
+
+all <PO> <TO>
+#correct: 3
+#incorrect: 15
+
+<TO> - <PO> \.
+#correct: 3
+#incorrect: 6
+
+<PO_NEnumber> non - <TO>
+#correct: 3
+#incorrect: 0
+
+to <PO> \. <TO>
+#correct: 3
+#incorrect: 0
+
+<NEmonth> <PO> / (?:<NEacronym> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 2
+
+<TO> \) is an <PO> -
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?the <PO> -
+#correct: 2
+#incorrect: 6
+
+<NEmonth> <PO> to avoid a price collapse , <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?member <TO>
+#correct: 2
+#incorrect: 1
+
+s <PO> member nations participate in the <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> member nations participate in the <TO>
+#correct: 2
+#incorrect: 0
+
+\. <PO> - <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> \( reuters \) - a dispute with <TO>
+#correct: 2
+#incorrect: 0
+
+<NEmonth> <PO> coupsters wanted to take <NElocation_NEcountry> out of the <NEorganization_NEprofession> of petroleum exporting countries \( <TO>
+#correct: 2
+#incorrect: 0
+
+\. <PO> and the <NEperson_NEusPresident> administation ' s " war on terrror " -- a war hotly opposed by almost all <TO>
+#correct: 2
+#incorrect: 0
+
+<NEmonth_NEfirstName> <PO> / (?:<NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 1
+
+dec <PO> \( [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> meeting <NEfirstName> be on <NEmonth> <PO> in
+#correct: 2
+#incorrect: 0
+
+the <PO> - member <TO>
+#correct: 2
+#incorrect: 1
+
+<PO_NEnumber> coupsters wanted to take <NElocation_NEcountry> out of the <NEorganization_NEprofession> of petroleum exporting countries \( <TO>
+#correct: 2
+#incorrect: 0
+
+- <PO> \) <NEscore> <NEacronym> <NElocation_NEcapital> , <NElocation_NEcountry> -- <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?of <PO> crudes
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?the <PO> -
+#correct: 2
+#incorrect: 6
+
+<TO> <PO> \(
+#correct: 2
+#incorrect: 23
+
+<NEmonth> <PO> to [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> production of about <PO> billion
+#correct: 2
+#incorrect: 0
+
+<TO> is an <NEprofession> of <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+- <PO> \) (?:<NEscore> )?(?:<NEacronym> )?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> has <PO> countries
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?<NEmonth> <PO> meeting
+#correct: 2
+#incorrect: 0
+
+with <PO> non [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEweekday> )?[^<]*?(?:<NEfirstName> )?[^<]*?of <PO> crude
+#correct: 2
+#incorrect: 6
+
+<TO> meeting <NEfirstName> be on <NEmonth> <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?an <PO> -
+#correct: 2
+#incorrect: 0
+
+with <PO> non - <TO>
+#correct: 2
+#incorrect: 4
+
+<NEmonth> <PO> coupsters [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEorganization_NEprofession> )?[^<]*?countries [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+dec <PO> \( reuters \) - a dispute with <TO>
+#correct: 2
+#incorrect: 0
+
+/ <PO> / (?:<NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 7
+
+<PO_NEnumber> - <TO>
+#correct: 2
+#incorrect: 2
+
+<TO> \) is an <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?about <PO> billion
+#correct: 2
+#incorrect: 0
+
+<TO> <PO> is
+#correct: 2
+#incorrect: 49
+
+<TO> production of about <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> and the <NEperson_NEusPresident> administation ' s " war on terrror " -- a war hotly opposed by almost all <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?member (?:<NEorganization> )?[^<]*?countries [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> consists of <PO> member
+#correct: 2
+#incorrect: 0
+
+<NEmonth> <PO> attacks [^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?<NEmonth> <PO> in
+#correct: 2
+#incorrect: 4
+
+s <PO> member [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+<PO_NEnumber> - member <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> - <PO> production
+#correct: 2
+#incorrect: 4
+
+<PO_NEnumber> \) <NEscore> <NEacronym> <NElocation_NEcapital> , <NElocation_NEcountry> -- <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> has <PO> member
+#correct: 2
+#incorrect: 2
+
+<TO> - <PO> cumulative
+#correct: 2
+#incorrect: 0
+
+<PO_NEnumber> to avoid a price collapse , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?by <PO> million
+#correct: 2
+#incorrect: 6
+
+of <PO> million bpd , implying support for an <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> members [^<]*?(?:<NEdisease> )?[^<]*?all <PO> members
+#correct: 1
+#incorrect: 0
+
+the <PO> nations that make up the <NEorganization_NEprofession> of petroleum exporting countries \( <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> and their military aftermath , as well as repeated calls by the <NEprofession> of petroleum exporting countries \( <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> member countries of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> has grown to <PO> countries
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> <NEmonth> <NEdate_NEyear_NEnumber> \) <TO>
+#correct: 1
+#incorrect: 0
+
+all <PO> members of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s squeeze - <NEprofession> : <NEorganization> - poster size : <NEnumber> x <PO> n
+#correct: 1
+#incorrect: 0
+
+<NEmonth> <PO> , maintaining significant non - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> spare
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> loadings
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - member <NEorganization> of petroleum exporting countries \( <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> nations of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> / <NEnumber> - oil cartel <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - dallas / <NElocation> ' s source for breaking news , weather , and sports : <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> basket <NEfirstName> include <PO> crudes
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEmonth> <PO> slump
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?s <PO> nations
+#correct: 1
+#incorrect: 7
+
+/ <PO> / <NEacronym> / bc \. energy \. <TO>
+#correct: 1
+#incorrect: 3
+
+<NEmonth> <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 12
+
+<TO> (?:<NEacronym> )?<NEacronym> <PO> <NEacronym>
+#correct: 1
+#incorrect: 14
+
+<NEmonth> <PO> <NEscore_NEtime> [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NEnumber> attacks and the weak economy , there could be excessive inventories coming out of <NEseason> if <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> / <NEacronym> / bc \. energy \. <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEcountry_NEpeninsula> )?[^<]*?<NEmonth> <PO> to
+#correct: 1
+#incorrect: 5
+
+<TO> ministerial conference held in <NElocation_NEcapital> on <PO> <NEmonth>
+#correct: 1
+#incorrect: 0
+
+, <PO> / <NEnumber> - oil cartel <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> members seek to expand the committee meeting <NEdisease> an early gathering of all <PO> members
+#correct: 1
+#incorrect: 0
+
+<TO> is to take place on <NEmonth> <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> to keep output ceiling <NEacronym_NEcapital> , <NEmonth> <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> <NEorganization> \| <NEnumber> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<NEnumber> <PO> <NEnumber> [^<]*?<TO>
+#correct: 1
+#incorrect: 30
+
+all <PO> member states of <TO>
+#correct: 1
+#incorrect: 0
+
+/ <PO> attacks [^<]*?(?:<NEacronym_NEcountry_NEriver_NEwater> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> attacks [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEacronym_NEcountry> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> - <PO> are
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - nation cartel differed over when <NEcountry> was expected to resume oil exports , and when the <TO>
+#correct: 1
+#incorrect: 0
+
+hit <PO> - [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEweekday> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> approves cutting oil production \( updated <NEacronym> <NEscore> \) <NEdate_NEyear_NEnumber> / <NEnumber> / <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> \) basket of <PO> crudes
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?s <PO> oil
+#correct: 1
+#incorrect: 10
+
+among <PO> of <TO>
+#correct: 1
+#incorrect: 0
+
+/ <PO> / 01 : learn to speak <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> continues pumping at current levels despite dramatic drop in oil prices since sept <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+/ <PO> <TO>
+#correct: 1
+#incorrect: 32
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?<NEacronym> <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> \| oil soars again , <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> non [^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+<TO> , the <PO_NEnumber>
+#correct: 1
+#incorrect: 1
+
+# <PO> / <NEnumber> / 01 <NEtime> \. <NEorganization> \( <NEacronym> \) -- <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> meeting in <NElocation_NEcountry> in <NEmonth> to discuss ways to strengthen the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> \) basket of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+the <PO> - nation cartel differed over when <NEcountry> was expected to resume oil exports , and when the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is to take place on <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> currently consists of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> producers , fell to <NEnumber> mn bpd for the four weeks ending <NEmonth> <PO> from
+#correct: 1
+#incorrect: 0
+
+<TO> \) consists of <PO> of
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> - dallas / <NElocation> ' s source for breaking news , weather , and sports : <TO>
+#correct: 1
+#incorrect: 0
+
+<NEnumber> <PO> / (?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+<TO> ' s six - year policy is in disarray today , as the cartel ' s <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> said <NEweekday> it had <NEfirstName> the value of its reference basket of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+, <PO> feb (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> headquarters in <NEacronym> consists of <PO> nations
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> feb <NEdate_NEyear_NEnumber> \( <NEacronym> \) - the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> can be expected to agree to slash production at a ministerial meeting in <NEcountry_NEpeninsula> on <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> is made up of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+# <PO> attacks and the weak economy , there could be excessive inventories coming out of <NEseason> if <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> <NEmonth> <NEdate_NEyear_NEnumber> \) <TO>
+#correct: 1
+#incorrect: 1
+
+/ <PO> attacks , interests of energy safety make the <NEacronym_NEcountry_NEriver_NEwater> come closer to <NElocation_NEcountry> and keep away from <TO>
+#correct: 1
+#incorrect: 0
+
+\. <PO> \( <NEorganization> \) -- <NElocation_NEcountry> supports maintaining <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - nation cartel , <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> attacks on the <NElocation_NEcountry> , had told non - <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> - members <NEperson> was hosting experts from non - <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> members in <NEmonth> averaged <NEnumber> million barrels a day , up <NEnumber> barrels a day from <NEmonth> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is comprised of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+sept <PO> \( [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> , maintaining significant non - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> said last <NEweekday> it <NEfirstName> the value of its reference basket of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> oil cartel , <NEperson_NEfirstName> bin <NEperson> , said that the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+hits <PO> - [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?consists of <PO> of
+#correct: 1
+#incorrect: 0
+
+sept <PO> \( reuters \) - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ministerial conference held in <NElocation_NEcapital> on <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> plans to review its decision when it meets again <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> is made up of <PO> member
+#correct: 1
+#incorrect: 0
+
+<TO> reluctant to cut output again in the aftermath of the sept \. <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?of <PO> countries
+#correct: 1
+#incorrect: 29
+
+<PO_NEnumber> decline of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?(?:<NEperson> )?[^<]*?(?:<NElocation> )?(?:<NEweekday> )?[^<]*?\. <PO> #
+#correct: 1
+#incorrect: 10
+
+<TO> ' s current <PO> members
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> attacks , interests of energy safety make the <NEacronym_NEcountry_NEriver_NEwater> come closer to <NElocation_NEcountry> and keep away from <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> ,
+#correct: 1
+#incorrect: 18
+
+<TO> said <NEweekday> it had <NEfirstName> the value of its reference basket of <PO> crude
+#correct: 1
+#incorrect: 0
+
+/ <PO> \| oil soars again , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEmonth> <PO> as
+#correct: 1
+#incorrect: 0
+
+# <PO> / (?:<NEnumber> )?[^<]*?(?:<NEtime> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 11
+
+<TO> <NEorganization> \| <NEnumber> <PO> /
+#correct: 1
+#incorrect: 0
+
+<TO> oil exporters to haul prices out of a steep post - <NEmonth> <PO> slump
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> / 01 : learn to speak <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEnumber> )?x <PO> n
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> members \( <TO>
+#correct: 1
+#incorrect: 0
+
+<NEmonth> <PO> / (?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+/ <PO> / [^<]*?<TO>
+#correct: 1
+#incorrect: 8
+
+<TO> - <PO> \(
+#correct: 1
+#incorrect: 3
+
+<TO> [^<]*?s <PO> full
+#correct: 1
+#incorrect: 0
+
+<TO> exporter , promised the cartel to attend its next meeting on <NEmonth> <PO> as
+#correct: 1
+#incorrect: 0
+
+<TO> \) is comprised of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> million bpd : " <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> member countries of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> producers , fell to <NEnumber> mn bpd for the four weeks ending <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> to keep output ceiling <NEacronym_NEcapital> , <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<NEmonth> <PO> / <NEacronym> / -- higher volumes from <NElocation_NEcountry> and <NElocation_NEcountry> pushed total <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> - member oil cartel <TO>
+#correct: 1
+#incorrect: 0
+
+hits <PO> - week high as <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> attacks , <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> member states of <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> attacks , <NElocation_NEcountry> promised the <NElocation_NEacronym_NEcountry> that they would use their substantial influence as the largest producer in <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> <NEperson> after his arrival at <NElocation> <NEweekday> , dec \. <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , the organisation of petroleum exporting countries , has <PO> member
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEfirstName> )?include <PO> crudes
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> member countries [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> / (?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+all <PO> member [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?current <PO> members
+#correct: 1
+#incorrect: 0
+
+<NEmonth> <PO> <NEscore_NEtime> p \. m \. <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> by <PO> million
+#correct: 1
+#incorrect: 0
+
+<TO> reluctant to cut output again in the aftermath of the sept \. <PO> attacks
+#correct: 1
+#incorrect: 0
+
+current <PO> members [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> basket of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+# <PO> attacks [^<]*?(?:<NEseason> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<NEprofession> <PO> <TO>
+#correct: 1
+#incorrect: 99
+
+<TO> <NEfirstName> increase the crude production capacity of the <PO> countries
+#correct: 1
+#incorrect: 0
+
+<TO> by <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEfirstName> increase the crude production capacity of the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> reached <PO> members
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> <NEprofession> from the powerful <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> <NEmonth> (?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NEnumber> \( <NEorganization> \) -- <NElocation_NEcountry> supports maintaining <TO>
+#correct: 1
+#incorrect: 0
+
+by <PO> million [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - week highs above \$ <NEnumber> a barrel <NEweekday> as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <PO> full
+#correct: 1
+#incorrect: 0
+
+<TO> and the dynamics of the <NEorganization> , by <NEperson> , <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> countries [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEnumber> )?[^<]*?the <PO> non
+#correct: 1
+#incorrect: 0
+
+<TO> countries [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?of <PO> developing
+#correct: 1
+#incorrect: 1
+
+<TO> plans to review its decision when it meets again <NEmonth> <PO> in
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - members <NEperson> was hosting experts from non - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is comprised of <PO> developing
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> million bpd , implying support for an <TO>
+#correct: 1
+#incorrect: 0
+
+took <PO> <NEprofession> [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+hit <PO> - week highs above \$ <NEnumber> a barrel <NEweekday> as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> may raise its output at its <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> meeting in <NElocation_NEcountry> in <NEmonth> to discuss ways to strengthen the <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> basket <NEfirstName> include <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+# <PO> and [^<]*?(?:<NEprofession> )?[^<]*?countries [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+all <PO> members [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> : <TO>
+#correct: 1
+#incorrect: 6
+
+the <PO> nations [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> \( reuters \) - <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> / <NEnumber> / 01 <NEtime> \. <NEorganization> \( <NEacronym> \) -- <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> - (?:<NEmonth> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 89
+
+the <PO> non - <TO>
+#correct: 1
+#incorrect: 8
+
+<TO> currently consists of <PO> nations
+#correct: 1
+#incorrect: 0
+
+<TO> officials have talked about cutting official quota levels at the <NEmonth> <PO> meeting
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> nations that make up the <NEorganization_NEprofession> of petroleum exporting countries \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> output
+#correct: 1
+#incorrect: 80
+
+<TO> in the early <NEduration> , resulting in the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+# <PO> and their military aftermath , as well as repeated calls by the <NEprofession> of petroleum exporting countries \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> has <PO> members
+#correct: 1
+#incorrect: 3
+
+<TO> \( the <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> continues pumping at current levels despite dramatic drop in oil prices since sept <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> in the early <NEduration> , resulting in the <PO> -
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> <NEscore_NEtime> p \. m \. <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - member oil cartel <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> nations [^<]*?(?:<NEorganization_NEprofession> )?[^<]*?countries [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+jan <PO> \( (?:<NEorganization> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+took <PO> <NEprofession> from the powerful <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> production by <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> - <NEmonth> - <NEdate_NEyear_NEnumber> \. <TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NEnumber> members , and one non - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> oil exporters to haul prices out of a steep post - <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+of <PO> million [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> officials have talked about cutting official quota levels at the <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> <NEperson_NEfirstName> bin <NEperson> said the <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> <NEperson_NEfirstName> bin <NEperson> said the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , which now groups <PO> oil
+#correct: 1
+#incorrect: 0
+
+currently <PO> <TO>
+#correct: 1
+#incorrect: 2
+
+the <PO> member countries [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> - <NEmonth> - <NEdate_NEyear_NEnumber> \. <TO>
+#correct: 1
+#incorrect: 1
+
+the <PO> - nation cartel , <TO>
+#correct: 1
+#incorrect: 0
+
+<NEnumber> <PO> / <NEnumber> \| <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?countries [^<]*?<PO_NEnumber>
+#correct: 1
+#incorrect: 1
+
+<NEmonth> <PO> attacks , <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> - member (?:<NEorganization> )?[^<]*?countries [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> countries , the competitive <NEprofession> could not be rejected for <NEnumber> of the <PO> non
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> - [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 33
+
+, <PO> feb <NEdate_NEyear_NEnumber> \( <NEacronym> \) - the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> approves cutting oil production \( updated <NEacronym> <NEscore> \) <NEdate_NEyear_NEnumber> / <NEnumber> / <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> nations of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> headquarters in <NEacronym> consists of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> oil cartel , <NEperson_NEfirstName> bin <NEperson> , said that the <PO> -
+#correct: 1
+#incorrect: 0
+
+the <PO> current <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> members meet formally on <NEmonth> <NEnumber> in <NElocation_NEcapital> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> has grown to <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> attacks , <NElocation_NEcountry> promised the <NElocation_NEacronym_NEcountry> that they would use their substantial influence as the largest producer in <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> members [^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> relations \. <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> ' s six - year policy is in disarray today , as the cartel ' s <PO> members
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?groups <PO> oil
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?\. <PO> \.
+#correct: 1
+#incorrect: 1
+
+kidnapped <PO> <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> \( <NEorganization> \) - <TO>
+#correct: 1
+#incorrect: 1
+
+/ <PO> \| [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> \) consists of <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> , which now groups <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> said last <NEweekday> it <NEfirstName> the value of its reference basket of <PO> crude
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcapital> )?on <PO> <NEmonth>
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?sept <PO> #
+#correct: 1
+#incorrect: 2
+
+<TO> relations \. <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> is an <NEprofession> of <PO> member
+#correct: 1
+#incorrect: 0
+
+by <PO> million bpd : " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> exporter , promised the cartel to attend its next meeting on <NEmonth> <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> reached <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<NEmonth> <PO> attacks on the <NElocation_NEcountry> , had told non - <TO>
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> : <TO>
+#correct: 1
+#incorrect: 4
+
+<TO> ' s <PO> oil
+#correct: 1
+#incorrect: 10
+
+the <PO> - member <NEorganization> of petroleum exporting countries \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> may raise its output at its <NEmonth> <PO> meeting
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> oil
+#correct: 1
+#incorrect: 11
+
+# <PO> members , and one non - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> members seek to expand the committee meeting <NEdisease> an early gathering of all <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> members meet formally on <NEmonth> <NEnumber> in <NElocation_NEcapital> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> / <NEacronym> / -- higher volumes from <NElocation_NEcountry> and <NElocation_NEcountry> pushed total <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> members [^<]*?(?:<NEmonth> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEmonth> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<NEmonth> <PO> attacks [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> - members (?:<NEperson> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> basket of <PO> crudes
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?\. <PO> attacks
+#correct: 1
+#incorrect: 0
+
+relations <PO> decline [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?to <PO> countries
+#correct: 1
+#incorrect: 3
+
+<TO> \) is comprised of <PO> oil
+#correct: 1
+#incorrect: 0
+
+\. <PO> \( (?:<NEorganization> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NEnumber> current <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> - <PO> \)
+#correct: 1
+#incorrect: 2
+
+<TO> , the organisation of petroleum exporting countries , has <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> members [^<]*?(?:<NEdisease> )?[^<]*?<PO_NEnumber>
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?countries [^<]*?has <PO> member
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> / <NEacronym> - <NEacronym> / -- <TO>
+#correct: 1
+#incorrect: 1
+
+current <PO> members \( <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym_NEcapital> )?[^<]*?<NEmonth> <PO> \(
+#correct: 1
+#incorrect: 0
+
+<NEmonth> <PO> \( (?:<NEorganization> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+relations <PO> decline of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> countries , the competitive <NEprofession> could not be rejected for <NEnumber> of the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+jan <PO> \( <NEorganization> \) - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <PO> <NEacronym>
+#correct: 1
+#incorrect: 5
+
+<TO> - <PO> ,
+#correct: 1
+#incorrect: 3
+
+<TO> ' s current <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEorganization> )?[^<]*?<NEnumber> <PO> /
+#correct: 1
+#incorrect: 7
+
+<TO> is an <NEprofession> of <PO> oil
+#correct: 1
+#incorrect: 0
+
+by <PO> <TO>
+#correct: 1
+#incorrect: 29
+
+<PO_NEnumber> - week high as <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> <NEperson> after his arrival at <NElocation> <NEweekday> , dec \. <PO> #
+#correct: 1
+#incorrect: 0
+
+<PO_NEnumber> / <NEnumber> \| <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s <PO> nations
+#correct: 1
+#incorrect: 7
+
+<TO> ' s squeeze - <NEprofession> : <NEorganization> - poster size : <NEnumber> x <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> can be expected to agree to slash production at a ministerial meeting in <NEcountry_NEpeninsula> on <NEmonth> <PO> to
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<NEmonth> <PO> from
+#correct: 1
+#incorrect: 1
+
+<TO> , today said that the <PO> -
+#correct: 1
+#incorrect: 0
+
+s <PO> members in <NEmonth> averaged <NEnumber> million barrels a day , up <NEnumber> barrels a day from <NEmonth> , <TO>
+#correct: 1
+#incorrect: 0
+
+<NEmonth_NEfirstName> <PO> / <NEacronym> - <NEacronym> / -- <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> and the dynamics of the <NEorganization> , by <NEperson> , <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> , today said that the <PO_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> production by <PO> million
+#correct: 1
+#incorrect: 0

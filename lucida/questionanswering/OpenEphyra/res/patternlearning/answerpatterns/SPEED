@@ -1,0 +1,1489 @@
+#passages: 3461
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?<PO_NEspeed>
+#correct: 31
+#incorrect: 27
+
+<TO> [^<]*?(?:<NEorganization> )?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEorganization> )?[^<]*?<PO_NEspeed>
+#correct: 30
+#incorrect: 37
+
+<TO> (?:<NEacronym> )?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?(?:<NEacronym> )?[^<]*?<PO_NEspeed>
+#correct: 30
+#incorrect: 41
+
+<TO> (?:<NEfirstName> )?[^<]*?<PO_NEspeed>
+#correct: 30
+#incorrect: 27
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NEacronym> )?[^<]*?<PO_NEspeed>
+#correct: 30
+#incorrect: 34
+
+<TO> [^<]*?(?:<NEsport> )?(?:<NEnumber> )?[^<]*?<PO_NEspeed>
+#correct: 29
+#incorrect: 36
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?<PO_NEspeed>
+#correct: 29
+#incorrect: 28
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NEspeed>
+#correct: 29
+#incorrect: 34
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEspeed>
+#correct: 29
+#incorrect: 41
+
+<TO> (?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEspeed>
+#correct: 29
+#incorrect: 38
+
+<TO> (?:<NEprofession> )?[^<]*?<PO_NEspeed>
+#correct: 27
+#incorrect: 27
+
+<TO> (?:<NEnumber> )?(?:<NEorganization> )?[^<]*?<PO_NEspeed>
+#correct: 26
+#incorrect: 29
+
+<TO> [^<]*?<PO_NEspeed>
+#correct: 26
+#incorrect: 27
+
+<TO> [^<]*?(?:<NEfrequency> )?[^<]*?(?:<NEmilitaryRank> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NEspeed>
+#correct: 26
+#incorrect: 27
+
+<TO> (?:<NEnumber> )?[^<]*?<PO_NEspeed>
+#correct: 26
+#incorrect: 28
+
+<TO> [^<]*?(?:<NElocation_NElanguage> )?at <PO> ,
+#correct: 12
+#incorrect: 23
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?at <PO> ,
+#correct: 12
+#incorrect: 23
+
+<PO_NEspeed> [^<]*?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 7
+
+<PO_NEspeed> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEnumber> )?<TO>
+#correct: 11
+#incorrect: 8
+
+<TO> [^<]*?at <PO> ,
+#correct: 11
+#incorrect: 23
+
+project <PO> <TO>
+#correct: 11
+#incorrect: 2
+
+<PO_NEspeed> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 11
+#incorrect: 8
+
+<PO_NEspeed> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 11
+#incorrect: 8
+
+<TO> [^<]*?(?:<NElocation_NEsea_NEwater> )?at <PO> \.
+#correct: 10
+#incorrect: 22
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?at <PO> \.
+#correct: 10
+#incorrect: 21
+
+<PO_NEspeed> [^<]*?(?:<NEorganization_NEdate_NEyear_NEnumber> )?<TO>
+#correct: 10
+#incorrect: 8
+
+<PO_NEspeed> [^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 10
+#incorrect: 8
+
+<PO_NEspeed> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEnumber> )?<TO>
+#correct: 10
+#incorrect: 11
+
+<PO_NEspeed> [^<]*?<TO>
+#correct: 9
+#incorrect: 7
+
+<PO_NEspeed> [^<]*?(?:<NElength_NEsize> )?<TO>
+#correct: 9
+#incorrect: 8
+
+<TO> [^<]*?at <PO> \.
+#correct: 9
+#incorrect: 21
+
+<TO> [^<]*?of <PO> ,
+#correct: 7
+#incorrect: 21
+
+at <PO> <TO>
+#correct: 7
+#incorrect: 173
+
+<TO> (?:<NEprofession> )?[^<]*?(?:<NEorganization_NEacronym> )?(?:<NEprofession> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?speed [^<]*?<PO_NEspeed>
+#correct: 7
+#incorrect: 2
+
+to <PO> while <TO>
+#correct: 7
+#incorrect: 0
+
+at <PO> \. (?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 1
+
+<TO> [^<]*?\( <PO> =
+#correct: 6
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?speed of <PO> ,
+#correct: 6
+#incorrect: 7
+
+<TO> flew at <PO> -
+#correct: 6
+#incorrect: 0
+
+at <PO> , [^<]*?<TO>
+#correct: 6
+#incorrect: 9
+
+<TO> (?:<NEfirstName> )?[^<]*?than <PO> ,
+#correct: 6
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?speed [^<]*?<PO_NEspeed>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?speed [^<]*?<PO_NEspeed>
+#correct: 6
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NEprofession> )?[^<]*?(?:<NEnumber> )?[^<]*?speed of <PO> ,
+#correct: 6
+#incorrect: 7
+
+at <PO> \. [^<]*?(?:<NEorganization_NEacronym> )?<TO>
+#correct: 6
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEacronym_NEmineral> )?[^<]*?(?:<NElocation_NEcontinent> )?travel [^<]*?speeds [^<]*?<PO_NEspeed>
+#correct: 5
+#incorrect: 0
+
+<TO> trains \( <PO> =
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?speed [^<]*?over <PO> ,
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym_NEmineral> )?[^<]*?(?:<NElocation_NEcontinent> )?travel [^<]*?speeds [^<]*?to <PO> ,
+#correct: 5
+#incorrect: 0
+
+at <PO> \. [^<]*?<TO>
+#correct: 5
+#incorrect: 1
+
+<TO> trains \( <PO_NEspeed>
+#correct: 5
+#incorrect: 0
+
+<TO> trains \( <NEacronym_NEmineral> \) in <NElocation_NEcontinent> travel at speeds of up to <PO> ,
+#correct: 5
+#incorrect: 0
+
+<TO> (?:<NEnumber> )?(?:<NEorganization> )?[^<]*?at <PO> and
+#correct: 5
+#incorrect: 6
+
+<TO> trains \( <NEacronym_NEmineral> \) in <NElocation_NEcontinent> travel at speeds of up to <PO_NEspeed>
+#correct: 5
+#incorrect: 0
+
+than <PO> , making it the fastest <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> reached <PO> and
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?speed [^<]*?<PO_NEspeed>
+#correct: 4
+#incorrect: 0
+
+at <PO> in [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEnumber> )?<TO>
+#correct: 4
+#incorrect: 10
+
+<TO> , optimized for economical cruising speed of just over <PO> ,
+#correct: 4
+#incorrect: 0
+
+<TO> (?:<NEacronym> )?(?:<NEnumber> )?[^<]*?speed [^<]*?<PO_NEspeed>
+#correct: 4
+#incorrect: 2
+
+<TO> <NEfirstName> go more than <PO_NEspeed>
+#correct: 4
+#incorrect: 0
+
+<TO> <NEfirstName> go more than <PO> ,
+#correct: 4
+#incorrect: 0
+
+than <PO> , [^<]*?<TO>
+#correct: 4
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEprofession> )?speeds [^<]*?<PO_NEspeed>
+#correct: 4
+#incorrect: 2
+
+<TO> (?:<NEdisease> )?[^<]*?at <PO> !
+#correct: 4
+#incorrect: 1
+
+<TO> [^<]*?at <PO> !
+#correct: 4
+#incorrect: 1
+
+<TO> [^<]*?speed of <PO> ,
+#correct: 4
+#incorrect: 6
+
+<TO> [^<]*?of <PO> \.
+#correct: 4
+#incorrect: 12
+
+<PO_NEspeed> , making it the fastest <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> hit <PO> ,
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?flying <PO> at
+#correct: 3
+#incorrect: 0
+
+<TO> with an approximate maximum speed of <PO_NEspeed>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?speeds [^<]*?<PO_NEspeed>
+#correct: 3
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?than <PO> ,
+#correct: 3
+#incorrect: 3
+
+<TO> with an approximate maximum speed of <PO> ,
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?speed of <PO> \.
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEspeed> )?[^<]*?(?:<NEnumber> )?[^<]*?or <PO> \)
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?at <PO> from
+#correct: 3
+#incorrect: 2
+
+<TO> [^<]*?speed of <PO> #
+#correct: 3
+#incorrect: 15
+
+<TO> cruises at <NEspeed> \( <NEnumber> kph , or <PO> \)
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEcountry> )?(?:<NEorganization> )?[^<]*?at <PO> at
+#correct: 3
+#incorrect: 6
+
+<TO> at <PO> \.
+#correct: 3
+#incorrect: 2
+
+at <PO> , <TO>
+#correct: 3
+#incorrect: 2
+
+<TO> could cruise at <PO> ,
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?flying [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?speed of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?speed [^<]*?over <PO> #
+#correct: 2
+#incorrect: 4
+
+<TO> [^<]*?doing <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> at speeds of up to <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?speed [^<]*?at <PO> on
+#correct: 2
+#incorrect: 0
+
+<TO> experiences while travelling at <PO> actually
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?through <PO> for
+#correct: 2
+#incorrect: 0
+
+<TO> at <PO> high
+#correct: 2
+#incorrect: 0
+
+<TO> to <PO_NEspeed>
+#correct: 2
+#incorrect: 0
+
+<TO> traveled upwards of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> , which travels at <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?travels at <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?than <PO> \.
+#correct: 2
+#incorrect: 2
+
+<TO> <NEfirstName> travel <PO> --
+#correct: 2
+#incorrect: 0
+
+the <PO> valiant is no worse than an airfix / heller <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> video at <PO> !
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEfirstName> )?(?:<NEnumber> )?[^<]*?at <PO> in
+#correct: 2
+#incorrect: 7
+
+<TO> [^<]*?over <PO> #
+#correct: 2
+#incorrect: 31
+
+<TO> [^<]*?over <PO> and
+#correct: 2
+#incorrect: 1
+
+<TO> , which flies faster than <PO> ,
+#correct: 2
+#incorrect: 0
+
+# <PO> \. [^<]*?(?:<NEcapital> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 39
+
+<TO> ever built , but with top speeds beyond <PO> it
+#correct: 2
+#incorrect: 0
+
+<TO> at <PO_NEspeed>
+#correct: 2
+#incorrect: 0
+
+<TO> video at <PO_NEspeed>
+#correct: 2
+#incorrect: 0
+
+<TO> cruising speed : around the world at <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> became at its cruise speed of <PO> \.
+#correct: 2
+#incorrect: 0
+
+<PO_NEspeed> \. " road <NEcapital> actually could have been <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> , and has a top speed of <PO_NEspeed>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?flies [^<]*?(?:<NElocation_NElanguage> )?at <PO> ,
+#correct: 2
+#incorrect: 1
+
+<TO> to <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?travelling at <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> instrument panel - doing <PO> \.
+#correct: 2
+#incorrect: 0
+
+projet <PO> <TO>
+#correct: 2
+#incorrect: 0
+
+at <PO> \. ' this superb and evocative image features <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> made supersonic history , bringing <PO> international
+#correct: 2
+#incorrect: 0
+
+<TO> approaches <PO> <NEfrequency>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?speed [^<]*?over <PO> #
+#correct: 2
+#incorrect: 4
+
+<TO> [^<]*?travelling at <PO> actually
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?flies [^<]*?than <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?-- <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> was capable of travelling at <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> <PO_NEspeed>
+#correct: 2
+#incorrect: 1
+
+# <PO> \. " road <NEcapital> actually could have been <TO>
+#correct: 2
+#incorrect: 0
+
+at <PO> on - board <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> valiant [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> jet is capable of traveling from <NElocation_NEcapital> to <NElocation_NEstate> in three hours , <NEduration> at a cruising speed of <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> , which stopped flying in <NEdate_NEyear_NEnumber> over safety concerns , had a top speed of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> used afterburner to get off the ground and up to <NEprofession> speed and altitude , and then cruised at <PO> on
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?reaches <PO> \.
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?speeds beyond <PO> it
+#correct: 2
+#incorrect: 0
+
+<PO_NEspeed> <TO>
+#correct: 2
+#incorrect: 2
+
+<TO> 001 makes its first flight at <PO> from
+#correct: 2
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> , and has a top speed of <PO> !
+#correct: 2
+#incorrect: 0
+
+<TO> , together with its complement of celebrity passengers through <PO> for
+#correct: 2
+#incorrect: 0
+
+as <PO> <TO>
+#correct: 2
+#incorrect: 65
+
+<TO> [^<]*?flying at <PO> ,
+#correct: 2
+#incorrect: 0
+
+at <PO> on [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+<TO> [^<]*?speed [^<]*?at <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?flying <PO> at
+#correct: 2
+#incorrect: 0
+
+<TO> at <PO> ,
+#correct: 2
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?speed of <PO> !
+#correct: 2
+#incorrect: 0
+
+<TO> flies at <PO> \(
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?speeds [^<]*?to <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?traveling [^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?hours [^<]*?(?:<NEduration> )?[^<]*?speed of <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> , flying <PO> at
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NElanguage> )?[^<]*?(?:<NEmilitaryRank> )?flies at <PO> ,
+#correct: 2
+#incorrect: 1
+
+<TO> (?:<NEfirstName> )?travel <PO> --
+#correct: 2
+#incorrect: 0
+
+<TO> , in comparison , had a maximum speed of <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> traveled [^<]*?of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> was <NEprofession> to achieve -- <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> ever built , but with top speeds beyond <PO_NEspeed>
+#correct: 2
+#incorrect: 0
+
+<TO> cruises at <PO> ,
+#correct: 2
+#incorrect: 4
+
+<TO> [^<]*?bringing <PO> international
+#correct: 2
+#incorrect: 0
+
+<TO> at <PO> there
+#correct: 1
+#incorrect: 0
+
+at <PO> \. <NEorganization_NEacronym> ' s <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> flight - <PO> at
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?speeds [^<]*?to <PO> \(
+#correct: 1
+#incorrect: 0
+
+not <PO> \. [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> zoomed from mach <NEnumber> \( the speed of sound \) toward <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NEspeed> although <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> have been able to mix this <NEmusicalInstrument> at more than <PO> ,
+#correct: 1
+#incorrect: 0
+
+around <PO> \. [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> \+ <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> could relatively easily and safely hit <NEnumber> - <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> had a maximum speed of <PO> #
+#correct: 1
+#incorrect: 0
+
+exceeded <PO> \. in <NEdate_NEyear_NEnumber> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?for <PO> at
+#correct: 1
+#incorrect: 3
+
+<TO> through the sky at <PO> \.\.
+#correct: 1
+#incorrect: 0
+
+<TO> travels [^<]*?(?:<NEspeed> )?[^<]*?speed [^<]*?as <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> flies [^<]*?over <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> also travels in the <PO> area
+#correct: 1
+#incorrect: 0
+
+<TO> ' <NEcountry> <NEorganization> plans to launch an arrow - shaped airplane at <PO> at
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?fly at <PO> !
+#correct: 1
+#incorrect: 0
+
+over <PO> and (?:<NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?only <PO> \.
+#correct: 1
+#incorrect: 4
+
+at <PO> although <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEfrequency> )?[^<]*?(?:<NEmilitaryRank> )?[^<]*?(?:<NEperson> )?[^<]*?at <PO> #
+#correct: 1
+#incorrect: 99
+
+<TO> - travel at <PO> !
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?flying at <PO> as
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?speeds [^<]*?of <PO> around
+#correct: 1
+#incorrect: 0
+
+at <PO> behind a supersonic <NEdisease> wave - in much the same way that a <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?reached <PO> #
+#correct: 1
+#incorrect: 5
+
+<TO> [^<]*?at <PO> #
+#correct: 1
+#incorrect: 95
+
+<TO> \( <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> experience capturing the unique view across the delta wing , <NElength_NEsize> up at <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEfirstName> )?go <PO> and
+#correct: 1
+#incorrect: 0
+
+of <PO> \? <NEorganization> and <NEorganization> , the one ' s flying the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s delta wing made the plane ' s sustained cruising speed of <PO> possible
+#correct: 1
+#incorrect: 0
+
+<TO> , the corvettes are still quicker , with a topspeed of somewhere around <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> goes supersonic she travels at <PO> -
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> <NEacronym> (?:<NEacronym> )?<TO>
+#correct: 1
+#incorrect: 16
+
+<TO> offers <PO> \+
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?[^<]*?flying at <PO> was
+#correct: 1
+#incorrect: 0
+
+<PO_NEspeed> and <NEnumber> horsepower , the <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> z 06 in <NEriver_NEwater> areas , i touched <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> at <PO> sometime
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEorganization> <NEorganization_NEacronym> - <NEnumber> , <NEorganization> , a wildly exotic , <PO> <NEdate_NEyear_NEnumber>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> drive at <PO> \?
+#correct: 1
+#incorrect: 0
+
+at <PO> in <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> - powerd <NEorganization_NEacronym> <NEprofession> which has a weight of approximately <NEdate_NEyear_NEnumber> pounds with a top speed of <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?claimed <PO> top
+#correct: 1
+#incorrect: 0
+
+around <PO> \. the resulting <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> cruising speed : around the world at <PO> '
+#correct: 1
+#incorrect: 0
+
+<TO> capable of <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?[^<]*?at <PO> \?
+#correct: 1
+#incorrect: 0
+
+at <PO> \) were known before <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( <PO> =
+#correct: 1
+#incorrect: 0
+
+true <PO> \+ <TO>
+#correct: 1
+#incorrect: 0
+
+than <PO> \) [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+at <PO> in his potts camp , <NEacronym> - based ' <NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?fly at <PO> looking
+#correct: 1
+#incorrect: 0
+
+<TO> to shuttle passengers across the <NElocation_NEsea_NEwater> at <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> - <NEnumber> <NEacronym> , <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> ' is situated in the <NErelation> hotel <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> averaged a touch over <PO> and
+#correct: 1
+#incorrect: 0
+
+your <PO> <TO>
+#correct: 1
+#incorrect: 2
+
+the <PO> truck [^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?- <PO> at
+#correct: 1
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEmilitaryRank> )?[^<]*?(?:<NEprofession> )?[^<]*?speeds [^<]*?of <PO> #
+#correct: 1
+#incorrect: 3
+
+<TO> , the corvettes are still quicker , with a topspeed of somewhere around <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> \) at <NEorganization_NEacronym> - cruises at greater than <PO> \.
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> : [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 11
+
+<TO> as a plane which is happiest at it ' s <NEprofession> speed \( <PO> \+
+#correct: 1
+#incorrect: 0
+
+or <PO> \. [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+" <PO> travel feels no different \. " a passenger commented on an early <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> travels at <PO> ,
+#correct: 1
+#incorrect: 1
+
+exceeded <PO> \. [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> system , which <NEfirstName> increase <NEprofession> speeds up to <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> has <NEriver_NEwater> hefty top end good for a claimed <PO> top
+#correct: 1
+#incorrect: 0
+
+of <PO> \? (?:<NEorganization> )?[^<]*?(?:<NEorganization> )?[^<]*?flying [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is / was <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> 002 \( g - <NEacronym> \) reached <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> is flying at <PO> it
+#correct: 1
+#incorrect: 0
+
+<TO> was built , and several of them <NEprofession> even today , flying <PO> at
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?achieves <PO> and
+#correct: 1
+#incorrect: 0
+
+- <PO> exceeded for first time by <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> wings are <NEprofession> for travel and performance at <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> at <PO> #
+#correct: 1
+#incorrect: 20
+
+<TO> cruises at an altitude of <NElength_NEsize> and at speeds equal to <PO> \(
+#correct: 1
+#incorrect: 0
+
+than <PO> \) ; incredible brakes ; gut - wrenching grip ; that unmistakable <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> flies at only just over <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> flies at <PO> \.
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?speed of <PO> possible
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEfrequency> )?[^<]*?speed [^<]*?\( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> isn ' t optimized for <PO> at
+#correct: 1
+#incorrect: 0
+
+a <PO> rat (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 1
+#incorrect: 0
+
+at <PO> \+ , a feature which would be used later in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> - powerd <NEorganization_NEacronym> <NEprofession> which has a weight of approximately <NEdate_NEyear_NEnumber> pounds with a top speed of <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?was <PO> and
+#correct: 1
+#incorrect: 22
+
+<TO> [^<]*?(?:<NElocation_NEcapital> )?[^<]*?goes <PO> just
+#correct: 1
+#incorrect: 0
+
+at <PO> behind [^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> travels at more than <NEspeed> -- a speed known as <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> \) first shot through the world ' s upper atmosphere at <NEfrequency> the speed of sound -- <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NEspeed> in his potts camp , <NEacronym> - based ' <NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?scraped <PO> \(
+#correct: 1
+#incorrect: 0
+
+<PO_NEspeed> \) ; incredible brakes ; gut - wrenching grip ; that unmistakable <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?at <PO> #
+#correct: 1
+#incorrect: 97
+
+at <PO> \. so if we were talking about something like , say , the <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEfrequency> )?[^<]*?speed [^<]*?-- <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?speeds [^<]*?than <PO> \.
+#correct: 1
+#incorrect: 0
+
+<PO_NEspeed> rat <NEperson> : <NEperson> ' hot stuffed <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , viper , saleen and ferrari , reaching speeds in excess of <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> targa with a manual transmission <NEfirstName> go <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?- <PO> if
+#correct: 1
+#incorrect: 0
+
+<TO> routes to <NElocation_NEcapital> or <NElocation_NEcapital> taking the " <NEcolor> <NEbird> " to <PO> and
+#correct: 1
+#incorrect: 0
+
+- <PO> exceeded [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s supersonic speed of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> was <NEprofession> for low level flight , how the <NElanguage_NEnationality_NEethnicGroup> and <NElanguage_NEethnicGroup> built a <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?touched <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> , she made flying at <PO> as
+#correct: 1
+#incorrect: 0
+
+<TO> averaged a touch over <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> never having had the opportunity to fly at <PO> looking
+#correct: 1
+#incorrect: 0
+
+<TO> in flight , watch the mach meter hit <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> has <NEriver_NEwater> hefty top end good for a claimed <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+to <PO> with [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?speed [^<]*?toward <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?meter hit <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> feels more solid at this speed and has power up and over <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> flies at <PO> ,
+#correct: 1
+#incorrect: 1
+
+or <PO> \. this velocity causes the <NEchemicalElement_NEmetal_NEmineral> - alloy frame to heat up and expand , making <TO>
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> <NEacronym> <NEacronym> <TO>
+#correct: 1
+#incorrect: 8
+
+<TO> [^<]*?speed [^<]*?over <PO> !
+#correct: 1
+#incorrect: 0
+
+<TO> z 06 in <NEriver_NEwater> areas , i touched <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+of <PO> \( (?:<NEspeed> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> flight ever departs <NElocation_NEcapital> heathrow , goes <PO> just
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NErelation> )?hotel <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> went <PO> #
+#correct: 1
+#incorrect: 1
+
+<TO> targa with a manual transmission <NEfirstName> go <PO> and
+#correct: 1
+#incorrect: 0
+
+\( <PO> \+ \) the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> feels more solid at this speed and has power up and over <PO> !
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NEacronym> )?, <PO> \.
+#correct: 1
+#incorrect: 47
+
+<TO> (?:<NEprofession> )?[^<]*?(?:<NEorganization_NEacronym> )?(?:<NEprofession> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?speed of <PO> and
+#correct: 1
+#incorrect: 2
+
+<TO> 001 prototype attained its <NEprofession> cruising speed of <PO> for
+#correct: 1
+#incorrect: 0
+
+to <PO> with out any real problems and depending on what version you buy there is a <NEacronym> about <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> at <PO> at
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?travels at <PO> -
+#correct: 1
+#incorrect: 1
+
+at <PO> \. here is a superb first person article on <NEorganization_NEacronym> <TO>
+#correct: 1
+#incorrect: 0
+
+speed <PO> \+ and if we are talking bout fixing up then dont mess with the linger felter <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , optimized for economical cruising speed of over <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEprofession> )?speeds [^<]*?to <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?(?:<NElanguage_NEethnicGroup> )?[^<]*?a <PO> ,
+#correct: 1
+#incorrect: 17
+
+<TO> is a car that can go <PO> #
+#correct: 1
+#incorrect: 0
+
+<PO_NEspeed> \+ and if we are talking bout fixing up then dont mess with the linger felter <TO>
+#correct: 1
+#incorrect: 0
+
+speed <PO> \( (?:<NEfrequency> )?speed [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+over <PO> and <NEnumber> horsepower , the <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEspeed> truck town - sponsored <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?flown [^<]*?(?:<NEnumber> )?[^<]*?travelling at <PO> ,
+#correct: 1
+#incorrect: 0
+
+, <PO> plus [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+at <PO> \. the <TO>
+#correct: 1
+#incorrect: 0
+
+at <PO> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> has a tested top end in excess of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?speed \( <PO> \+
+#correct: 1
+#incorrect: 0
+
+<TO> ' s cruising speed of over <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEsport> )?at <PO> #
+#correct: 1
+#incorrect: 97
+
+<TO> approaches <PO> -
+#correct: 1
+#incorrect: 0
+
+<TO> , flying at <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?flying at <PO> it
+#correct: 1
+#incorrect: 0
+
+<TO> , and the missile can reach <NEfrequency> the speed of sound \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?go <PO> #
+#correct: 1
+#incorrect: 6
+
+" <PO> travel [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> 001 achieves <PO> and
+#correct: 1
+#incorrect: 0
+
+the <PO> truck town - sponsored <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> system , which <NEfirstName> increase <NEprofession> speeds up to <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> reaches only <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?travel [^<]*?at <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> was <NEprofession> and built to <NEfirstName> <NEnumber> passengers at <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> is a car that can go <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+project <PO> - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> z 06 in <NEriver_NEwater> areas , i scraped <PO> \(
+#correct: 1
+#incorrect: 0
+
+at <PO> \) [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> fleet has flown over <NEnumber> million passenger journeys travelling at <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> drive at <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> supersonic jetliner \( in service since <NEdate_NEyear_NEnumber> \) has a cruising speed of <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?speed [^<]*?at <PO> '
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> : i had a ride across the " pond " on one of <NEorganization> ' s last <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> has a tested top end in excess of <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> is the most advanced airliner in the world - able to fly at <PO> !
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?a <PO> cruise
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?speed of <PO> for
+#correct: 1
+#incorrect: 0
+
+<TO> - <NEnumber> <NEacronym> , <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> capable of <PO> \.
+#correct: 1
+#incorrect: 0
+
+speed <PO> \( <NEfrequency> speed of sound \) four powerful <NEprofession> of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> is also the fastest civil <NEmilitaryRank> in <NEprofession> history - miraculously achieving speeds in excess of <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> z 06 in <NEriver_NEwater> areas , i scraped <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+a <PO> rat <NEperson> : <NEperson> ' hot stuffed <NEdate_NEyear_NEnumber> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> supersonic flight was above the <NElocation_NElanguage> where the <NEmilitaryRank> flies at <PO> ,
+#correct: 1
+#incorrect: 0
+
+, <PO> plus , <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?speed of <PO> \(
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?around <PO> ,
+#correct: 1
+#incorrect: 0
+
+speed <PO> \+ [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , viper , saleen and ferrari , reaching speeds in excess of <PO> around
+#correct: 1
+#incorrect: 0
+
+at <PO> , the service is the thing that really separates the <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \+ [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> needed a delta wing to achieve its high , sustained cruising speed of <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> , only reaches <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NEcolor> )?(?:<NEbird> )?[^<]*?to <PO> and
+#correct: 1
+#incorrect: 6
+
+<TO> [^<]*?at <PO> \.\.
+#correct: 1
+#incorrect: 0
+
+<TO> gets over <PO> and
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?travel at <PO> !
+#correct: 1
+#incorrect: 0
+
+at <PO> \+ [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> could relatively easily and safely hit <NEnumber> - <PO> if
+#correct: 1
+#incorrect: 0
+
+not <PO> \. <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> has been wisking jetsetters at speeds faster than <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?travels [^<]*?the <PO> area
+#correct: 1
+#incorrect: 0
+
+of <PO> \( <NEspeed> \) , the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , which flies across the <NElocation_NElanguage> at <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEorganization> <NEorganization_NEacronym> - <NEnumber> , <NEorganization> , a wildly exotic , <PO_NEspeed>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> \. `` to be able to serve a glass of champagne while flying at <PO> was
+#correct: 1
+#incorrect: 0
