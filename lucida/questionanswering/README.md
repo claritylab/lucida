@@ -10,15 +10,17 @@ installed thrift.  For more information, take a look at
 [this](https://thrift.apache.org/lib/java).  This version has been tested with
 thrift-0.9.2.
 
-common/ -- Contains the actual OpenEphyra package, with some modifications.
+OpenEphyra/src/info/ -- Contains the actual OpenEphyra package, with some modifications.
  You shouldn't need to modify this directory.
 
-lucida/ -- Contains an OpenEphyra wrapper to communicates with Lucida.
-
-template/ -- Contains a stand-alone OpenEphyra wrapper for use in any application.
+OpenEphyra/src/lucida/ -- Contains an OpenEphyra wrapper to communicates with Lucida, and a testing client.
 
 ## Building and starting the QA service
-Navigate to `lucida` or `template` and follow the README
-To change the Database used, edit `common/qa-runtime-config.inc`
 
-Last Modified: 07/01/15
+Navigate to `OpenEphyra`, `./compile-OpenEphyra.sh`.
+
+To start the server, `./start-OpenEphyra-server.sh`.
+
+To start the testing client, `./start-OpenEphyra-tester.sh`.
+
+To change the Database used from the testing client, modify `OpenEphyra/src/lucida/test/QAClient.java`, re-compile, and re-start.
