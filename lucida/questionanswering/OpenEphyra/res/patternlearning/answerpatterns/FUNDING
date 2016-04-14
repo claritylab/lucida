@@ -1,0 +1,857 @@
+#passages: 2723
+
+<PO_NEorganization> [^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEperson_NEcountry> )?[^<]*?<TO>
+#correct: 103
+#incorrect: 76
+
+<PO_NEorganization> [^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 99
+#incorrect: 62
+
+<PO_NEorganization> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 97
+#incorrect: 66
+
+<PO_NEorganization_NEstyle> [^<]*?(?:<NEprofession> )?<TO>
+#correct: 93
+#incorrect: 82
+
+<PO_NEorganization> [^<]*?(?:<NEprofession> )?<TO>
+#correct: 93
+#incorrect: 62
+
+<PO_NEorganization> [^<]*?(?:<NEorganization_NEacronym_NEcountry> )?[^<]*?<TO>
+#correct: 42
+#incorrect: 46
+
+<PO_NEorganization> (?:<NEprofession> )?[^<]*?<TO>
+#correct: 36
+#incorrect: 48
+
+<PO_NEorganization> [^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NElanguage> )?[^<]*?<TO>
+#correct: 36
+#incorrect: 45
+
+<PO_NEorganization> [^<]*?(?:<NElocation_NEstate> )?[^<]*?<TO>
+#correct: 35
+#incorrect: 45
+
+s <PO> has [^<]*?(?:<NEprofession> )?<TO>
+#correct: 34
+#incorrect: 18
+
+<PO_NEorganization> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 33
+#incorrect: 54
+
+<PO_NEorganization> [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 33
+#incorrect: 45
+
+s <PO> has declared troubled <NEprofession> <TO>
+#correct: 32
+#incorrect: 0
+
+<PO_NEorganization> [^<]*?(?:<NErelation> )?<TO>
+#correct: 32
+#incorrect: 46
+
+<PO_NEorganization> has declared troubled <NEprofession> <TO>
+#correct: 32
+#incorrect: 8
+
+<PO_NEorganization> [^<]*?<TO>
+#correct: 32
+#incorrect: 45
+
+<PO_NEorganization> (?:<NEperson> )?(?:<NEdate_NEyear_NEnumber> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 32
+#incorrect: 46
+
+<PO_NEorganization_NEstyle> [^<]*?<TO>
+#correct: 32
+#incorrect: 64
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?<PO_NEorganization>
+#correct: 28
+#incorrect: 42
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NEorganization>
+#correct: 27
+#incorrect: 53
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?<PO_NEorganization>
+#correct: 24
+#incorrect: 38
+
+<PO_NEorganization> [^<]*?(?:<NEweekday> )?[^<]*?name [^<]*?(?:<NEprofession> )?<TO>
+#correct: 24
+#incorrect: 9
+
+<PO_NEorganization> [^<]*?(?:<NEperson> )?name [^<]*?(?:<NEprofession> )?<TO>
+#correct: 23
+#incorrect: 9
+
+<TO> [^<]*?<PO_NEorganization>
+#correct: 23
+#incorrect: 38
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NEorganization>
+#correct: 23
+#incorrect: 46
+
+<TO> [^<]*?money [^<]*?the <PO> has
+#correct: 23
+#incorrect: 1
+
+<PO_NEorganization> [^<]*?name [^<]*?(?:<NEprofession> )?<TO>
+#correct: 23
+#incorrect: 9
+
+<TO> to pay money he pledged to the <PO> has
+#correct: 23
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?<PO_NEorganization>
+#correct: 20
+#incorrect: 41
+
+s <PO> said (?:<NEweekday> )?[^<]*?name [^<]*?(?:<NEprofession> )?<TO>
+#correct: 18
+#incorrect: 0
+
+s <PO> said it has removed the name of troubled <NEprofession> <TO>
+#correct: 17
+#incorrect: 0
+
+<PO_NEorganization> said it has removed the name of troubled <NEprofession> <TO>
+#correct: 17
+#incorrect: 0
+
+s <PO> said [^<]*?name [^<]*?(?:<NEprofession> )?<TO>
+#correct: 17
+#incorrect: 0
+
+# <PO> has [^<]*?(?:<NEprofession> )?<TO>
+#correct: 14
+#incorrect: 63
+
+<NEperson> <PO> has [^<]*?(?:<NEprofession> )?<TO>
+#correct: 14
+#incorrect: 0
+
+<PO_NEorganization> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEperson> )?name [^<]*?<TO>
+#correct: 13
+#incorrect: 9
+
+<TO> <PO> \.
+#correct: 12
+#incorrect: 88
+
+<TO> <PO> camp
+#correct: 11
+#incorrect: 18
+
+<TO> [^<]*?(?:<NElocation_NEstate> )?money (?:<NEprofession> )?[^<]*?<PO_NEorganization>
+#correct: 11
+#incorrect: 2
+
+the <PO> said <TO>
+#correct: 10
+#incorrect: 0
+
+<TO> <PO> ,
+#correct: 10
+#incorrect: 132
+
+<PO_NEorganization> said <TO>
+#correct: 10
+#incorrect: 0
+
+<TO> [^<]*?money (?:<NEprofession> )?[^<]*?<PO_NEorganization>
+#correct: 10
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?money (?:<NEdisease> )?[^<]*?<PO_NEorganization>
+#correct: 9
+#incorrect: 0
+
+s <PO> strips <TO>
+#correct: 9
+#incorrect: 0
+
+<NEperson> <PO> \( (?:<NEorganization_NEacronym> )?[^<]*?(?:<NEperson> )?name [^<]*?<TO>
+#correct: 9
+#incorrect: 0
+
+<PO_NEorganization> strips <TO>
+#correct: 9
+#incorrect: 0
+
+<PO_NEorganization> has informed <NEprofession> <TO>
+#correct: 8
+#incorrect: 0
+
+<NEperson> <PO> has informed <NEprofession> <TO>
+#correct: 8
+#incorrect: 0
+
+<TO> [^<]*?money (?:<NEdisease> )?[^<]*?<PO_NEorganization>
+#correct: 8
+#incorrect: 0
+
+<TO> <PO> camps
+#correct: 8
+#incorrect: 13
+
+<TO> to pay money he pledged to the <PO_NEorganization>
+#correct: 7
+#incorrect: 0
+
+<TO> [^<]*?money [^<]*?<PO_NEorganization>
+#correct: 7
+#incorrect: 0
+
+<TO> [^<]*?the <PO> just
+#correct: 6
+#incorrect: 1
+
+<PO_NEorganization> , which <NEsport> a training program for young <NEprofession> that was funded by fund <NEprofession> <TO>
+#correct: 6
+#incorrect: 0
+
+<PO_NEorganization> [^<]*?(?:<NEsport> )?[^<]*?program [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 6
+#incorrect: 1
+
+<TO> , feted at the <PO> just
+#correct: 6
+#incorrect: 0
+
+<TO> , feted at the <PO_NEorganization>
+#correct: 6
+#incorrect: 0
+
+<TO> <PO> <NEprofession>
+#correct: 6
+#incorrect: 119
+
+# <PO> , [^<]*?(?:<NEsport> )?[^<]*?program [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 6
+#incorrect: 0
+
+# <PO> , which <NEsport> a training program for young <NEprofession> that was funded by fund <NEprofession> <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> <PO> program
+#correct: 5
+#incorrect: 21
+
+<NEperson> <PO> has [^<]*?(?:<NEorganization_NEacronym_NEcountry> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+<NEperson> <PO> has [^<]*?(?:<NEperson> )?name [^<]*?(?:<NEprofession> )?<TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?the <PO> in
+#correct: 5
+#incorrect: 31
+
+<TO> (?:<NEacronym> )?(?:<NEacronym> )?[^<]*?<NEacronym_NEcountry> <PO> ,
+#correct: 5
+#incorrect: 6
+
+<TO> <NEacronym> <NEacronym> l <NEacronym_NEcountry> <PO> ,
+#correct: 4
+#incorrect: 0
+
+<NEperson> <PO> has [^<]*?(?:<NEperson> )?name [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<TO> has been dropped <PO> from
+#correct: 4
+#incorrect: 0
+
+<PO_NEorganization> <NEprofession> \( <TO>
+#correct: 4
+#incorrect: 0
+
+the <PO> <NEprofession> [^<]*?<TO>
+#correct: 4
+#incorrect: 53
+
+# <PO> covent <NEprofession> : name <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> , felon , <NEprofession> , nyc , rich , <PO> ,
+#correct: 4
+#incorrect: 0
+
+<TO> <PO> <NEdate_NEyear_NEnumber>
+#correct: 4
+#incorrect: 121
+
+# <PO> covent (?:<NEprofession> )?[^<]*?name <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?dropped <PO> from
+#correct: 4
+#incorrect: 0
+
+the <PO> <NEprofession> \( <TO>
+#correct: 4
+#incorrect: 0
+
+<PO_NEorganization> [^<]*?(?:<NEperson> )?name [^<]*?<TO>
+#correct: 4
+#incorrect: 9
+
+<TO> , a hotshot millionaire money <NEprofession> and the <PO> '
+#correct: 3
+#incorrect: 0
+
+the <PO> , [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 33
+
+<TO> has not funded the <PO> s
+#correct: 3
+#incorrect: 0
+
+<NEacronym> <PO> ' s biggest benefactor , <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?the <PO> s
+#correct: 3
+#incorrect: 47
+
+<TO> has not funded the <PO_NEorganization>
+#correct: 3
+#incorrect: 0
+
+<PO_NEorganization> of <NElocation_NEstate> , making good the shortfall left by its indicted benefactor <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> , a hotshot millionaire money <NEprofession> and the <PO_NEorganization>
+#correct: 3
+#incorrect: 0
+
+the <PO> of <NElocation_NEstate> , making good the shortfall left by its indicted benefactor <TO>
+#correct: 3
+#incorrect: 0
+
+<PO_NEorganization> ' s biggest benefactor , <TO>
+#correct: 3
+#incorrect: 0
+
+the <PO> of (?:<NElocation_NEstate> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 91
+
+<TO> [^<]*?money (?:<NEprofession> )?[^<]*?the <PO> '
+#correct: 3
+#incorrect: 0
+
+<NEacronym> <PO> ' [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<PO_NEorganization> and the <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?the <PO> to
+#correct: 2
+#incorrect: 20
+
+<PO_NEorganization> , but <TO>
+#correct: 2
+#incorrect: 0
+
+# <PO> in <NElocation_NEstate> recently created a bad - debt reserve to cover a \$ <NEnumber> million pledge from <NEprofession> <TO>
+#correct: 2
+#incorrect: 0
+
+the <PO> , but <TO>
+#correct: 2
+#incorrect: 2
+
+the <PO> and [^<]*?<TO>
+#correct: 2
+#incorrect: 22
+
+the <PO> and [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 26
+
+<TO> , who has also left the <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?the <PO> development
+#correct: 2
+#incorrect: 1
+
+the <PO> and the <TO>
+#correct: 2
+#incorrect: 3
+
+<TO> has not funded the <PO> '
+#correct: 2
+#incorrect: 0
+
+<TO> at face value , so , too , was the <PO_NEorganization>
+#correct: 2
+#incorrect: 0
+
+the <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 33
+
+<PO_NEorganization> in <NElocation_NEstate> recently created a bad - debt reserve to cover a \$ <NEnumber> million pledge from <NEprofession> <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?the <PO> '
+#correct: 2
+#incorrect: 29
+
+<TO> , who has also left the <PO_NEorganization>
+#correct: 2
+#incorrect: 0
+
+# <PO> in (?:<NElocation_NEstate> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 2
+#incorrect: 35
+
+<TO> at face value , so , too , was the <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> , the arts <NEprofession> who has poured money <NEdisease> the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?money [^<]*?the <PO> home
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEacronym> )?<NEnumber> <PO> program
+#correct: 1
+#incorrect: 0
+
+<TO> was everywhere , pouring money <NEdisease> the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> , der <NEfirstName> mzen der <PO> zum
+#correct: 1
+#incorrect: 0
+
+week <PO> program sponsored by <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' s trajectory : <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> and <PO> programs
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> said <NEweekday> it has removed the name of troubled <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the arts <NEprofession> who has poured money <NEdisease> the <PO> \.
+#correct: 1
+#incorrect: 0
+
+# <PO> , <NEnumber> , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> \[
+#correct: 1
+#incorrect: 0
+
+<TO> was everywhere , pouring money <NEdisease> the <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> to <NElocation_NEcountry> \( <NEseason> <NEdate_NEyear_NEnumber> \) <NEpercentage> <NEperson> <NEprofession> \( <NEnumber> \) <NEperson> from <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> in (?:<NElocation_NEstate> )?[^<]*?(?:<NElanguage> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> ' s trajectory : <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> , der <NEfirstName> mzen der <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<NEorganization_NEacronym> <PO> program [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> has declared <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> ' s experience with <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?district <PO> <NEprofession>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?[^<]*?money (?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?, <PO> ,
+#correct: 1
+#incorrect: 81
+
+<TO> inter - district <PO> <NEprofession>
+#correct: 1
+#incorrect: 0
+
+online <PO> and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?and <PO> <NEprofession>
+#correct: 1
+#incorrect: 4
+
+s <PO> has dropped the name of its most prominent benefactor , <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , [^<]*?(?:<NEsport> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?[^<]*?money (?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?: <PO> \(
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> has given troubled <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<NEperson> <PO> has declared <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> in <NElocation_NEstate> has removed a <NElanguage> saying " vilar grand tier " because <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> , which <NEsport> a training <NEprofession> for young <NEprofession> that was funded by money <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , spending freely on the <PO> as
+#correct: 1
+#incorrect: 0
+
+week <PO> program sponsored [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?and <PO> #
+#correct: 1
+#incorrect: 67
+
+<PO_NEorganization> [^<]*?(?:<NEperson> )?[^<]*?money (?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<NEperson> <PO> has confirmed that <NEorganization_NEacronym_NEcountry> - based multimillionaire <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> has given troubled <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<NEorganization_NEacronym> <PO> program - for many young people , participating in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> youth programs - <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> to pay money he pledged to the <PO> home
+#correct: 1
+#incorrect: 0
+
+the <PO> in (?:<NElocation_NEcapital> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEperson_NEcountry> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?money (?:<NEdisease> )?the <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , spending freely on the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> , to the district a - <NEnumber> cabinet on youth outreach , which includes <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , lions - quest ' \( <NEorganization> \) , <NEperson> , and <PO> '
+#correct: 1
+#incorrect: 0
+
+lnternational <PO> chairman [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> reaffirms his support for the <NEorganization> at the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> , lions - quest \( drug awareness \) , diabetes awareness , and <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> as
+#correct: 1
+#incorrect: 5
+
+# <PO> , which <NEsport> a training <NEprofession> for young <NEprofession> that was funded by money <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> has [^<]*?name [^<]*?(?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 18
+
+<TO> reaffirms his support for the <NEorganization> at the <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> of multiple district <NEnumber> administers the <NEacronym> <NEnumber> <PO> program
+#correct: 1
+#incorrect: 0
+
+the <PO> , <NEperson> , on disgraced money <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> web
+#correct: 1
+#incorrect: 1
+
+# <PO> & <NEperson> : page \.\. <NEnumber> \.\. <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEnumber> )?<NEorganization> <PO> and
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> , mr \. <NEperson> was criticized for renaming floral hall the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> telling him that he has been chosen for the <PO> <NEprofession>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> ' s experience with <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> wants <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> - <TO>
+#correct: 1
+#incorrect: 21
+
+the <PO> ' [^<]*?<TO>
+#correct: 1
+#incorrect: 12
+
+<PO_NEorganization> , <NEnumber> , <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> & (?:<NEperson> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+the <PO> , mr \. <NEperson> was criticized for renaming floral hall the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> youth camps and <PO> <NEprofession>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEnumber> <NEorganization> <PO> and
+#correct: 1
+#incorrect: 0
+
+# <PO> or <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?and <PO> '
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?the <PO> and
+#correct: 1
+#incorrect: 27
+
+<TO> , <NEacronym> , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<NEperson> <PO> wants <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> at the <PO> \[
+#correct: 1
+#incorrect: 0
+
+lnternational <PO> chairman , <TO>
+#correct: 1
+#incorrect: 0
+
+s <PO> said <NEweekday> it has removed the name of troubled <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , the <NEprofession> who ' s fallen back on a few payments to places like the <PO> and
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> [^<]*?given [^<]*?(?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> and [^<]*?programs [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> , <NEperson> , on disgraced money <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+, <PO> , <TO>
+#correct: 1
+#incorrect: 19
+
+<TO> at the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO> ,
+#correct: 1
+#incorrect: 59
+
+<PO_NEorganization> has confirmed that <NEorganization_NEacronym_NEcountry> - based multimillionaire <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> , (?:<NEperson> )?[^<]*?money (?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a <NElocation_NEstate> money <NEprofession> and benefactor to that city ' s <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<TO> for <NEorganization> , budget , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> <NEseason>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> <NEprofession>
+#correct: 1
+#incorrect: 23
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?includes <PO> #
+#correct: 1
+#incorrect: 1
+
+<TO> , the <NEprofession> who ' s fallen back on a few payments to places like the <PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+the <PO> in <NElocation_NEcapital> ' s covent <NEprofession> , and la scala in <NElocation> , <NElocation_NEperson_NEcountry> , <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?, <PO> ,
+#correct: 1
+#incorrect: 81
+
+<PO_NEorganization> has dropped the name of its most prominent benefactor , <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?money (?:<NEdisease> )?the <PO> \.
+#correct: 1
+#incorrect: 0
+
+s <PO> has given [^<]*?(?:<NEprofession> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a <NElocation_NEstate> money <NEprofession> and benefactor to that city ' s <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?, <PO> ,
+#correct: 1
+#incorrect: 90
+
+<TO> [^<]*?(?:<NElocation_NEstate> )?money (?:<NEprofession> )?[^<]*?s <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> in <NElocation_NEcapital> ' s covent <NEprofession> , and la scala in <NElocation> , <NElocation_NEperson_NEcountry> , <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?programs - <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?investment [^<]*?(?:<NEacronym> )?companies [^<]*?gave [^<]*?(?:<NElength_NEsize> )?[^<]*?<PO_NEorganization>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> in <NElocation_NEstate> has removed a <NElanguage> saying " vilar grand tier " because <TO>
+#correct: 1
+#incorrect: 0
