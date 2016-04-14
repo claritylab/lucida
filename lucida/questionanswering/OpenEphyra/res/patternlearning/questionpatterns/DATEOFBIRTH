@@ -1,0 +1,7 @@
+QUESTION_TEMPLATE: When was <TO> born?
+ANSWER_TEMPLATE: Birthday: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO> bear
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO>'s .*(birthday|birth)
+<TO> be bear .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+<TO>'s .*(birthday|birth) be .*((what|which) (century|date|day|decade|hour|month|time|year)|when)

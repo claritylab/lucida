@@ -1,0 +1,2317 @@
+#passages: 1256
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 111
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 106
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEmonth> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 100
+#incorrect: 69
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 99
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 99
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEorganization_NEeducationalInstitution> )?[^<]*?<PO_NElocation>
+#correct: 91
+#incorrect: 69
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEprofession> )?[^<]*?(?:<NEconflict> )?[^<]*?<PO_NElocation>
+#correct: 88
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEorganization> )?[^<]*?<PO_NElocation>
+#correct: 85
+#incorrect: 67
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?<PO_NElocation>
+#correct: 84
+#incorrect: 67
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?(?:<NEprofession> )?[^<]*?<PO_NElocation>
+#correct: 84
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NElocation>
+#correct: 83
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?<PO_NElocation>
+#correct: 83
+#incorrect: 67
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NElocation>
+#correct: 82
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?<PO_NElocation>
+#correct: 81
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NElocation>
+#correct: 81
+#incorrect: 68
+
+<TO> [^<]*?(?:<NEcapital> )?[^<]*?<PO_NElocation>
+#correct: 81
+#incorrect: 67
+
+<TO> [^<]*?(?:<NEcolor> )?[^<]*?<PO_NElocation>
+#correct: 80
+#incorrect: 67
+
+<TO> (?:<NEprofession> )?[^<]*?<PO_NElocation>
+#correct: 80
+#incorrect: 67
+
+<TO> [^<]*?(?:<NEorganization> )?<PO_NElocation>
+#correct: 80
+#incorrect: 67
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?<PO_NElocation>
+#correct: 80
+#incorrect: 67
+
+<TO> (?:<NEfirstName> )?[^<]*?<PO_NElocation>
+#correct: 80
+#incorrect: 67
+
+<TO> (?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 80
+#incorrect: 68
+
+<TO> (?:<NEreligion> )?[^<]*?<PO_NElocation>
+#correct: 80
+#incorrect: 67
+
+<TO> [^<]*?<PO_NElocation>
+#correct: 79
+#incorrect: 67
+
+<TO> (?:<NEfrequency> )?[^<]*?<PO_NElocation>
+#correct: 79
+#incorrect: 68
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 76
+#incorrect: 91
+
+<TO> [^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEdate> )?[^<]*?(?:<NElocation_NEperson> )?[^<]*?<PO_NElocation>
+#correct: 62
+#incorrect: 108
+
+<PO_NElocation> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 61
+#incorrect: 63
+
+<PO_NElocation> [^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 60
+#incorrect: 72
+
+<PO_NElocation> [^<]*?(?:<NElocation_NEstate> )?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 59
+#incorrect: 63
+
+<PO_NElocation> [^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 59
+#incorrect: 67
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEperson> )?[^<]*?<PO_NElocation>
+#correct: 57
+#incorrect: 90
+
+<PO_NElocation> [^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?(?:<NEprofession> )?<TO>
+#correct: 57
+#incorrect: 66
+
+<PO_NElocation> [^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NEcountry> )?[^<]*?<TO>
+#correct: 57
+#incorrect: 63
+
+<PO_NElocation> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 57
+#incorrect: 66
+
+<PO_NElocation> [^<]*?(?:<NElocation_NEperson_NEstate> )?[^<]*?<TO>
+#correct: 57
+#incorrect: 66
+
+<PO_NElocation> [^<]*?(?:<NElocation_NEstate> )?[^<]*?<TO>
+#correct: 56
+#incorrect: 61
+
+<PO_NElocation> [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 56
+#incorrect: 61
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?<PO_NElocation>
+#correct: 55
+#incorrect: 91
+
+<PO_NElocation> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 49
+#incorrect: 65
+
+<PO_NElocation> (?:<NEprofession> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 46
+#incorrect: 64
+
+<PO_NElocation> [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 44
+#incorrect: 58
+
+<PO_NElocation> [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 44
+#incorrect: 58
+
+<PO_NElocation> [^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?<TO>
+#correct: 44
+#incorrect: 58
+
+<PO_NElocation> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 44
+#incorrect: 61
+
+<PO_NElocation> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 43
+#incorrect: 58
+
+<PO_NElocation> [^<]*?(?:<NElocation_NEstate> )?<TO>
+#correct: 43
+#incorrect: 56
+
+<PO_NElocation> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 43
+#incorrect: 61
+
+<PO_NElocation> [^<]*?(?:<NEriver_NEwater> )?<TO>
+#correct: 42
+#incorrect: 56
+
+<PO_NElocation> [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?[^<]*?<TO>
+#correct: 42
+#incorrect: 56
+
+<PO_NElocation> (?:<NEprofession> )?[^<]*?<TO>
+#correct: 42
+#incorrect: 57
+
+<PO_NElocation> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEacronym> )?<TO>
+#correct: 41
+#incorrect: 61
+
+<PO_NElocation> [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 41
+#incorrect: 58
+
+<PO_NElocation> [^<]*?<TO>
+#correct: 41
+#incorrect: 56
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?in <PO> ,
+#correct: 35
+#incorrect: 40
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEorganization_NEeducationalInstitution> )?in <PO> ,
+#correct: 32
+#incorrect: 41
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?in <PO> ,
+#correct: 30
+#incorrect: 33
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?in <PO> ,
+#correct: 29
+#incorrect: 33
+
+<TO> [^<]*?(?:<NEorganization> )?in <PO> ,
+#correct: 28
+#incorrect: 36
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?[^<]*?(?:<NEprofession> )?[^<]*?in <PO> ,
+#correct: 28
+#incorrect: 37
+
+<TO> [^<]*?(?:<NEcapital> )?[^<]*?in <PO> ,
+#correct: 27
+#incorrect: 33
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?in <PO> ,
+#correct: 27
+#incorrect: 34
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?in <PO> ,
+#correct: 27
+#incorrect: 37
+
+<TO> [^<]*?(?:<NEperson> )?in <PO> ,
+#correct: 26
+#incorrect: 33
+
+<TO> (?:<NEfrequency> )?[^<]*?in <PO> ,
+#correct: 25
+#incorrect: 34
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?in <PO> ,
+#correct: 25
+#incorrect: 33
+
+<TO> [^<]*?(?:<NEduration> )?in <PO> ,
+#correct: 25
+#incorrect: 33
+
+<TO> [^<]*?in <PO> ,
+#correct: 25
+#incorrect: 33
+
+<TO> in <PO_NElocation>
+#correct: 23
+#incorrect: 5
+
+<TO> [^<]*?(?:<NElocation_NEacronym_NEcountry> )?(?:<NEethnicGroup> )?[^<]*?founded [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 21
+#incorrect: 2
+
+in <PO> , (?:<NElocation_NEstate> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 17
+#incorrect: 27
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?founded [^<]*?(?:<NEmonth> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 16
+#incorrect: 2
+
+in <PO> , (?:<NElocation_NEstate> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?(?:<NEprofession> )?<TO>
+#correct: 15
+#incorrect: 28
+
+<TO> [^<]*?(?:<NElocation_NEacronym_NEcountry> )?(?:<NEethnicGroup> )?[^<]*?founded [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?in <PO> ,
+#correct: 15
+#incorrect: 8
+
+in <PO> , (?:<NElocation_NEstate> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 28
+
+in <PO> , (?:<NElocation_NEstate> )?[^<]*?(?:<NEcountry> )?[^<]*?<TO>
+#correct: 14
+#incorrect: 26
+
+<TO> (?:<NEprofession> )?[^<]*?founded [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 14
+#incorrect: 2
+
+in <PO> , (?:<NElocation_NEstate> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 14
+#incorrect: 27
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?founded [^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 14
+#incorrect: 2
+
+in <PO> , (?:<NElocation_NEperson_NEstate> )?[^<]*?<TO>
+#correct: 13
+#incorrect: 27
+
+in <PO> , (?:<NElocation> )?[^<]*?<TO>
+#correct: 13
+#incorrect: 27
+
+<TO> [^<]*?(?:<NEduration> )?[^<]*?in <PO> \.
+#correct: 13
+#incorrect: 27
+
+in <PO> , (?:<NElocation_NEstate> )?[^<]*?<TO>
+#correct: 13
+#incorrect: 27
+
+<TO> [^<]*?in <PO> \.
+#correct: 12
+#incorrect: 27
+
+<TO> [^<]*?founded [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 12
+#incorrect: 2
+
+<TO> (?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?in <PO> ,
+#correct: 11
+#incorrect: 8
+
+<TO> (?:<NEprofession> )?in <PO> ,
+#correct: 11
+#incorrect: 8
+
+<TO> in <PO> ,
+#correct: 10
+#incorrect: 8
+
+the <PO> - [^<]*?<TO>
+#correct: 9
+#incorrect: 11
+
+# <PO> , [^<]*?(?:<NElocation> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 157
+
+# <PO> , (?:<NElocation> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 152
+
+# <PO> , (?:<NElocation> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 152
+
+in <PO> , (?:<NEacronym> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 27
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?founded [^<]*?(?:<NEmonth> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?in <PO> ,
+#correct: 7
+#incorrect: 10
+
+<PO_NEacronym> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 51
+
+# <PO> , (?:<NElocation> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 151
+
+<TO> [^<]*?founded [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?in <PO> ,
+#correct: 6
+#incorrect: 8
+
+# <PO> , (?:<NElocation_NEstate> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 151
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?founded [^<]*?<PO_NElocation>
+#correct: 6
+#incorrect: 2
+
+<PO_NEacronym> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 47
+
+the <PO> <TO>
+#correct: 5
+#incorrect: 267
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?founded [^<]*?(?:<NEperson> )?[^<]*?<PO_NElocation>
+#correct: 5
+#incorrect: 3
+
+<TO> militant party , founded \( <NEdate_NEyear_NEnumber> \) in <PO_NElocation>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?founded [^<]*?<PO_NElocation>
+#correct: 5
+#incorrect: 2
+
+<TO> militant party , founded \( <NEdate_NEyear_NEnumber> \) in <PO> ,
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?founded [^<]*?<PO_NElocation>
+#correct: 5
+#incorrect: 3
+
+<TO> , <NElocation_NEacronym_NEcountry> <NEethnicGroup> militant party , founded \( <NEdate_NEyear_NEnumber> \) in <PO_NElocation>
+#correct: 5
+#incorrect: 0
+
+<TO> , <NElocation_NEacronym_NEcountry> <NEethnicGroup> militant party , founded \( <NEdate_NEyear_NEnumber> \) in <PO> ,
+#correct: 5
+#incorrect: 0
+
+in <PO> , [^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 30
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEorganization> )?[^<]*?in <PO> #
+#correct: 4
+#incorrect: 135
+
+<TO> [^<]*?founded [^<]*?<PO_NElocation>
+#correct: 4
+#incorrect: 2
+
+<TO> , formed in <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEmonth> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?in <PO> #
+#correct: 4
+#incorrect: 134
+
+<TO> [^<]*?(?:<NEprofession> )?of <PO> \.
+#correct: 4
+#incorrect: 12
+
+<PO_NElocation> , the <TO>
+#correct: 4
+#incorrect: 7
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?in <PO> #
+#correct: 4
+#incorrect: 147
+
+<TO> [^<]*?from <PO> ,
+#correct: 4
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEprofession> )?[^<]*?(?:<NEconflict> )?[^<]*?in <PO> #
+#correct: 4
+#incorrect: 133
+
+<TO> in <PO> \.
+#correct: 4
+#incorrect: 8
+
+<PO_NEacronym> [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 45
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?in <PO> #
+#correct: 4
+#incorrect: 132
+
+in <PO> , [^<]*?<TO>
+#correct: 4
+#incorrect: 28
+
+the <PO> - based <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> voters in the <NElocation> and <PO_NElocation>
+#correct: 3
+#incorrect: 0
+
+<PO_NElocation> - born <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?and <PO> districts
+#correct: 3
+#incorrect: 0
+
+<TO> and police in <PO> \.
+#correct: 3
+#incorrect: 0
+
+original <PO> - formed <TO>
+#correct: 3
+#incorrect: 1
+
+original <PO> - [^<]*?<TO>
+#correct: 3
+#incorrect: 1
+
+<PO_NElocation> - based <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> for self - <NEorganization> in <NEmonth> <NEdate_NEyear_NEnumber> , in <PO_NElocation>
+#correct: 3
+#incorrect: 0
+
+<TO> voters in the <NElocation> and <PO> districts
+#correct: 3
+#incorrect: 0
+
+<TO> and police in <PO_NElocation>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?founded [^<]*?(?:<NEperson> )?[^<]*?in <PO> in
+#correct: 3
+#incorrect: 5
+
+<TO> [^<]*?of <PO> \.
+#correct: 3
+#incorrect: 10
+
+<TO> , formed in <NEdate_NEyear_NEnumber> in <PO> by
+#correct: 3
+#incorrect: 0
+
+# <PO> , <NElocation> - former <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> for self - <NEorganization> in <PO_NElocation>
+#correct: 3
+#incorrect: 0
+
+<TO> for self - <NEorganization> in <PO> ,
+#correct: 3
+#incorrect: 3
+
+<TO> in <PO> were
+#correct: 3
+#incorrect: 0
+
+the <PO> - born <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?founded in <PO> in
+#correct: 3
+#incorrect: 4
+
+to <PO> , (?:<NElocation> )?[^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 9
+
+<TO> [^<]*?in <PO> #
+#correct: 3
+#incorrect: 122
+
+<PO_NElocation> - formed <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> in <PO> \(
+#correct: 3
+#incorrect: 0
+
+<TO> from <NElocation> and <PO> #
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> <TO>
+#correct: 2
+#incorrect: 7
+
+<TO> [^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?city [^<]*?<PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> \( <NEacronym> \) in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> panther history in <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> revolutionary party founded in <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> for self - <NEorganization> in <NEmonth> <NEdate_NEyear_NEnumber> , in <PO> #
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?an <PO> ,
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?founded [^<]*?(?:<NElocation> )?[^<]*?(?:<NEperson> )?[^<]*?in <PO> ,
+#correct: 2
+#incorrect: 9
+
+<TO> from <NElocation> and <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> \] <NElocation_NEacronym_NEcountry> <NEethnicGroup> militant party , founded \( <NEdate_NEyear_NEnumber> \) in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+\. <PO> library [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> in <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> <NEprofession> was founded in <NEdate_NEyear_NEnumber> in <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> \( <NEacronym> \) in <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?in <PO> ;
+#correct: 2
+#incorrect: 1
+
+<TO> revolutionary party founded in <NEdate_NEyear_NEnumber> in <PO> ,
+#correct: 2
+#incorrect: 0
+
+to <PO> where [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+of <PO> that saw the rise of the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , formed in <NEdate_NEyear_NEnumber> in <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation> )?and <PO> #
+#correct: 2
+#incorrect: 104
+
+<TO> panther tours <NEcapital> a historical bus tour of sites in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<PO_NEacronym> [^<]*?<TO>
+#correct: 2
+#incorrect: 45
+
+<PO_NElocation> , <NElocation_NEstate> , the <TO>
+#correct: 2
+#incorrect: 0
+
+to <PO> where the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEcolor> )?[^<]*?of <PO> ,
+#correct: 2
+#incorrect: 7
+
+<PO_NEacronym> , <NElocation> - former <TO>
+#correct: 2
+#incorrect: 0
+
+in <PO> , the <TO>
+#correct: 2
+#incorrect: 12
+
+<TO> panther movement in and around <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?around <PO> ,
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> , headquartered in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+in <PO> , <NEacronym> \. which were significant to the <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> where the <TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> , <NElocation> , at <NEriver_NEwater> point to meet with members of the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> \] <NElocation_NEacronym_NEcountry> <NEethnicGroup> militant party , founded \( <NEdate_NEyear_NEnumber> \) in <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> communities in <PO> #
+#correct: 2
+#incorrect: 0
+
+\. <PO> library to celebrate young <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> communities in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+to <PO> , <NElocation> , at <NEriver_NEwater> point to meet with members of the <TO>
+#correct: 2
+#incorrect: 0
+
+gender <PO> sexuality [^<]*?(?:<NEconflict> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<PO_NElocation> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEperson> )?founded [^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+<TO> , founded in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> panther tours <NEcapital> a historical bus tour of sites in <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> first targeted the police of <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?, <PO> ,
+#correct: 2
+#incorrect: 69
+
+<TO> first targeted the police of <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> <NEprofession> was founded in <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?founded [^<]*?(?:<NEperson> )?[^<]*?west <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+of <PO> that [^<]*?<TO>
+#correct: 2
+#incorrect: 6
+
+<TO> panther movement in and around <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+in <PO> , <NElocation_NEstate> , the <TO>
+#correct: 2
+#incorrect: 1
+
+<PO_NElocation> , <NEacronym> \. which were significant to the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> panther history in <PO_NElocation>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?founded in <PO> ,
+#correct: 2
+#incorrect: 8
+
+<PO_NElocation> that saw the rise of the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> was founded by <NEperson> and seale , two young men from west <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> , founded in <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> , headquartered in <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEfirstName> )?[^<]*?of <PO> ,
+#correct: 2
+#incorrect: 7
+
+<PO_NEacronym> , calif <NElocation> \( <NEacronym> \) - former <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> sponsored the <NEorganization> for a <NEorganization> which was held in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> for self - <NEorganization> which was established in <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> panther <NEmusicalInstrument> \) , <NEprofession> tours to panther landmarks in <PO> ,
+#correct: 1
+#incorrect: 0
+
+\( <PO> was [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+\. <PO> , (?:<NElocation_NEstate> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> that came to a crisis in <NEdate_NEyear_NEnumber> and led to the arkestra ' s departure from <PO> #
+#correct: 1
+#incorrect: 0
+
+in <PO> was [^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+# <PO> community [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?city [^<]*?brand <PO> as
+#correct: 1
+#incorrect: 0
+
+" <PO> is a place where both <NEperson> and the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> <NEprofession> who battled antiwar demonstrators and <TO>
+#correct: 1
+#incorrect: 0
+
+\. <PO> , <NElocation_NEstate> trial of militant <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEperson_NEstate> , open fire on a car of <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> in <PO> have
+#correct: 1
+#incorrect: 0
+
+<TO> , armed with rifles , patrolling the streets of <PO> or
+#correct: 1
+#incorrect: 0
+
+<TO> community in , in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> group after they returned from <PO> ,
+#correct: 1
+#incorrect: 0
+
+an <PO> policeman , <NEchemicalElement_NEmetal_NEmineral> to the rapid expansion of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> history , inc <NEorganization> <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+gender <PO> sexuality new orleans race <NEconflict> redemption <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> prior to the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> were founded in <PO_NElocation>
+#correct: 1
+#incorrect: 1
+
+in <PO> , <NElocation_NEstate> to create revolutionary political power for <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> came up from the streets of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation> by a former member of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , founded by <NElocation> and <NEperson> , was started in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> offers the community initially , that of patrolling the police in <PO> ,
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NEacronym> , the <TO>
+#correct: 1
+#incorrect: 1
+
+an <PO> , <NElocation> , group is seeking to trademark the infamous <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> headquarters in <PO> ,
+#correct: 1
+#incorrect: 0
+
+representing <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> centered <NEprofession> of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> for self - <NEorganization> was formed in <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , a largely <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> from patrolling the streets of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> copied the same program for african <NEnationality_NEethnicGroup_NEriver_NEwater> in the city of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEorganization> installation celebrating ethnic diversity several years ago was a tribute to the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( an <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> policeman , <NEchemicalElement_NEmetal_NEmineral> to the rapid expansion of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and the garvey movement \( <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> panther party from it ' s beginnings in <NEdate_NEyear_NEnumber> ' s <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , in <PO> ,
+#correct: 1
+#incorrect: 2
+
+the <PO> - based co - founder of the revolutionary <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> <NEacronym>
+#correct: 1
+#incorrect: 1
+
+<TO> , was shot to death in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+from <PO> to the <TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> community after another , including congressman <NEperson> , <NEperson> , and <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NEacronym> \( huey newton and <NEperson> \) , <NEprofession> the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> militants from <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> chapter of the <TO>
+#correct: 1
+#incorrect: 1
+
+of <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 23
+
+<TO> , a militant <NEprofession> , was founded in <PO> by
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , from the turbulent rise and fall of the <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> eating cereal at the free breakfasts hosted by the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> began as an armed patrol of only <NEnumber> people dedicated to the defense of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> \( more open , <NEriver_NEwater> expensive , <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NEacronym> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> (?:<NEorganization> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 18
+
+on <PO> , <NElocation_NEstate> <TO>
+#correct: 1
+#incorrect: 0
+
+retired <PO> <NEprofession> [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> community and the <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+of <PO> , the <TO>
+#correct: 1
+#incorrect: 8
+
+<TO> which were set up by <NEperson> and <NEperson> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+in <PO> with [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> panther ' s history in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEdate_NEyear_NEnumber> \) , shot in <PO> ;
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> which were significant to the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> by , of all people , <NEperson> and the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> were founded in <PO> in
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?founded [^<]*?in <PO> ,
+#correct: 1
+#incorrect: 8
+
+<TO> of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation> , formed the radical <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation_NEstate> the birthplace of the <TO>
+#correct: 1
+#incorrect: 0
+
+on <PO> , (?:<NElocation_NEstate> )?<TO>
+#correct: 1
+#incorrect: 1
+
+in <PO> , <NElocation_NEstate> by huey newton and <NEperson> , this <TO>
+#correct: 1
+#incorrect: 1
+
+but <PO> has been getting <NEriver_NEwater> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> was being charged for murdering an <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> , armed with rifles , patrolling the streets of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> [^<]*?(?:<NEeducationalInstitution> )?[^<]*?established [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+former <PO> <NEprofession> and peralta ' s <NEprofession> and <NEperson> , one of the founders of the <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , calif <NElocation> \( <NEacronym> \) - former <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> activists in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> panther <NEmusicalInstrument> \) , <NEprofession> tours to panther landmarks in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+partnered <PO> ' s first <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 22
+
+in <PO> from the brotherhood of sleeping car porters to the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?city of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> in a drug - ridden section of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> panther party from it ' s beginnings in <NEdate_NEyear_NEnumber> ' s <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> , formed by huey newton and <NEperson> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> meetings in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> originated in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?an <PO> original
+#correct: 1
+#incorrect: 0
+
+<TO> from its early beginnings in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> for self - <NEorganization> which was established in <NEdate_NEyear_NEnumber> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> panther ' s history in <PO> \.
+#correct: 1
+#incorrect: 0
+
+former <PO> <NEprofession> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+an <PO> policeman [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> - bawd <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , dead end of the westward course of empire , and home of the <TO>
+#correct: 1
+#incorrect: 0
+
+between <PO> police and <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> , located in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?founded in <PO> ,
+#correct: 1
+#incorrect: 10
+
+<TO> community and the <PO> police
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?when <PO> was
+#correct: 1
+#incorrect: 0
+
+<TO> men from <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , especially the <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , a militant <NEprofession> , was founded in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?location : <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEdate_NEyear_NEnumber> \) , shot in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> ' immersion <NEdisease> the political world of <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> , formed by huey newton and <NEperson> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+from <PO> to [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> for self - <NEorganization> was founded in <NEmonth> <NEdate_NEyear_NEnumber> in <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> , who polarized the city and helped brand <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> offers the community initially , that of patrolling the police in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> berets , the panthers started in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , who polarized the city and helped brand <PO> as
+#correct: 1
+#incorrect: 0
+
+to <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 9
+
+<TO> underworld for <NEprofession> of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?the <PO> ,
+#correct: 1
+#incorrect: 24
+
+<TO> [^<]*?located [^<]*?<PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> history , inc <NEorganization> <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , including a shootout with <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+from <PO> , (?:<NEacronym> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> originated in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> , in <NEdate_NEyear_NEnumber> , became the most prominent <NEprofession> <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> community in <PO_NElocation>
+#correct: 1
+#incorrect: 1
+
+# <PO> -- much has changed in the <NEduration> since the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , " and also " we ' re coming from <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> by huey newton and <NEperson> , this <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> of the <NEduration> were a grass - roots social movement that began in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> member , <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> housing a wealth of information about african <NEnationality_NEethnicGroup_NEriver_NEwater> ' s from this community including the <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation_NEstate> which were significant to the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> of <PO> ;
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation_NEstate> , in <NEdate_NEyear_NEnumber> to patrol <TO>
+#correct: 1
+#incorrect: 0
+
+is <PO> , and we ' re talking about the <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> came up from the streets of <PO> <NEduration>
+#correct: 1
+#incorrect: 0
+
+# <PO> -- [^<]*?(?:<NEduration> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> and <NEcolor> communities of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> neighborhood in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> in <NEdate_NEyear_NEnumber> by huey newton and <NEperson> , the <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> , a largely <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> that came to a crisis in <NEdate_NEyear_NEnumber> and led to the arkestra ' s departure from <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> about oct <NEnumber> , in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?from <PO> #
+#correct: 1
+#incorrect: 20
+
+<TO> started in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> for self - <NEorganization> , it was founded in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> <NEreligion> , " panther " portrays the <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?located in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> panther leader <NElocation> ' s <NEdate_NEyear_NEnumber> arrest for the murder of an <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+the <PO> centered <NEprofession> of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' first action was to follow <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+# <PO> , <NEorganization> , <NEdate_NEyear_NEnumber> : <NEperson> during trial of <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEorganization> <NEorganization> installation celebrating ethnic diversity several years ago was a tribute to the <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> , <NElocation_NEstate> <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?the <PO> police
+#correct: 1
+#incorrect: 2
+
+the <PO> chapter of the <TO>
+#correct: 1
+#incorrect: 2
+
+in <PO> was one of " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> copied the same program for african <NEnationality_NEethnicGroup_NEriver_NEwater> in the city of <PO> ,
+#correct: 1
+#incorrect: 0
+
+# <PO> <NEorganization> [^<]*?<TO>
+#correct: 1
+#incorrect: 10
+
+to <PO> by , of all people , <NEperson> and the <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> community after another , including congressman <NEperson> , <NEperson> , and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> sponsored the <NEorganization> for a <NEorganization> which was held in <PO> #
+#correct: 1
+#incorrect: 0
+
+original <PO> , (?:<NElocation> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 3
+
+<TO> from its early beginnings in <PO> ,
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation_NEstate> , in <NEdate_NEyear_NEnumber> , became the most prominent <NEprofession> <NEprofession> <TO>
+#correct: 1
+#incorrect: 0
+
+other <PO> negro [^<]*?founded [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a <NEreligion> sect founded by <NEperson> and seale in response to police brutality in <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> in a drug - ridden section of <PO> <NEacronym>
+#correct: 1
+#incorrect: 0
+
+gender <PO> sexuality new orleans race <NEconflict> <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> getting international publicity since the <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> - bawd <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> with the battle between the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> - based co - founder of the revolutionary <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> encourage <PO> '
+#correct: 1
+#incorrect: 0
+
+retired <PO> <NEprofession> who battled anti - war demonstrators and <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> <NEprofession> who battled anti - war demonstrators and <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> was founded in <NEdate_NEyear_NEnumber> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> neighborhoods in <PO> #
+#correct: 1
+#incorrect: 0
+
+to <PO> by [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<TO> began as an armed patrol of only <NEnumber> people dedicated to the defense of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEprofession> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> panther party \( <NEacronym> \) was founded in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> was back in the ' <NEduration> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> , home , as he reminds <NEcountry> , of both the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , " and also " we ' re coming from <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+of <PO> housing a wealth of information about african <NEnationality_NEethnicGroup_NEriver_NEwater> ' s from this community including the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation> - former <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> since the <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> was the home of the <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> and the birth of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , revolutionary , <NEnumber> ' s , counter culture , <PO> #
+#correct: 1
+#incorrect: 0
+
+\[ <PO> , (?:<NElocation> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , <NElocation> - the sleek <NEprofession> jacket , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEfirstName> as they patrolled the streets of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> in <NEdate_NEyear_NEnumber> here in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> , located in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> to the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEreligion> )?[^<]*?the <PO> <NEreligion>
+#correct: 1
+#incorrect: 1
+
+representing <PO> , home of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> member , <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?established [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> was founded in <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+in <PO> , (?:<NElocation> )?[^<]*?(?:<NEperson> )?founded [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> was being charged for murdering an <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> meeting in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+in <PO> eating [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> getting [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> and [^<]*?<TO>
+#correct: 1
+#incorrect: 9
+
+<TO> panther leader <NElocation> ' s <NEdate_NEyear_NEnumber> arrest for the murder of an <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> of the <NEduration> were a grass - roots social movement that began in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> started armed patrols in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> rights political <NEprofession> created in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?of <PO> ,
+#correct: 1
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> raiders
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?city [^<]*?<PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> community in <PO> ,
+#correct: 1
+#incorrect: 1
+
+<TO> <NEprofession> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> ,
+#correct: 1
+#incorrect: 7
+
+# <PO> , <NElocation_NEstate> , to form the <TO>
+#correct: 1
+#incorrect: 0
+
+" <PO> is [^<]*?place [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> , calif <NElocation> \( <NEacronym> \) -- former <TO>
+#correct: 1
+#incorrect: 0
+
+: <PO> : <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEperson> , the <PO> raiders
+#correct: 1
+#incorrect: 0
+
+<TO> , a documentary shot in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> the birthplace of the <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation_NEstate> in <NEdate_NEyear_NEnumber> by huey newton and <NEperson> , the <TO>
+#correct: 1
+#incorrect: 0
+
+of <PO> getting international publicity since the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEfirstName> as they patrolled the streets of <PO> ,
+#correct: 1
+#incorrect: 0
+
+of <PO> since [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> , and we ' re talking about the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEacronym> \) was founded in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , and ex - <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> neighborhoods in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> was back in the ' <NEduration> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> panther party \( <NEacronym> \) was founded in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> for self <NEorganization> was founded in <NEmonth> , <NEdate_NEyear_NEnumber> , in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> <NEmonth> <NEdate_NEyear_NEnumber> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> ' immersion <NEdisease> the political world of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+is <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> in <NEdate_NEyear_NEnumber> here in <PO> ,
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation> by a former member of the <TO>
+#correct: 1
+#incorrect: 1
+
+of <PO> \( [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ; location : <PO> ,
+#correct: 1
+#incorrect: 0
+
+retired <PO> , <NElocation_NEstate> <NEprofession> who battled antiwar demonstrators and <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ' first action was to follow <PO> police
+#correct: 1
+#incorrect: 0
+
+<TO> for self - <NEorganization> was founded in <NEmonth> <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> <NEprofession> and peralta ' s <NEprofession> and <NEperson> , one of the founders of the <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> - based co - founder of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <NEreligion> , " panther " portrays the <PO> <NEreligion>
+#correct: 1
+#incorrect: 0
+
+<TO> for self - <NEorganization> in <NEmonth> <NEdate_NEyear_NEnumber> , in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> had been founded two years earlier in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> \( <NEacronym> \) was founded in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+between <PO> police [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> [^<]*?location [^<]*?<PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEperson> , the <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> , which was born in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> meetings in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> activists in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> police and <TO>
+#correct: 1
+#incorrect: 2
+
+<TO> -- who were <NEacronym> <NEprofession> " to seemingly start another <NEconflict> , " but to police the police in <PO> #
+#correct: 1
+#incorrect: 0
+
+<TO> community in , in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> were created by huey newton and <NEperson> , who were <NEprofession> activists at <NEorganization_NEeducationalInstitution> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> , which was born in <PO> during
+#correct: 1
+#incorrect: 0
+
+<TO> headquarters in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> , was shot to death in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> from patrolling the streets of <PO> \.
+#correct: 1
+#incorrect: 0
+
+of <PO> housing [^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <PO_NElocation>
+#correct: 1
+#incorrect: 10
+
+<TO> [^<]*?follow <PO> police
+#correct: 1
+#incorrect: 0
+
+<TO> started armed patrols in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> ' s <NEeducationalInstitution> , established the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and the garvey movement \( <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> for self - <NEorganization> was formed in <NEdate_NEyear_NEnumber> in <PO> by
+#correct: 1
+#incorrect: 0
+
+and <PO> , from the turbulent rise and fall of the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> with the battle between the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> ; location : <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation> and <NEperson> founded the <TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> , <NElocation> , - formed <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?[^<]*?founded [^<]*?(?:<NEdate_NEyear_NEnumber> )?in <PO> ,
+#correct: 1
+#incorrect: 10
+
+\[ <PO> , <NElocation> , etc \. \] <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> in <PO> in
+#correct: 1
+#incorrect: 7
+
+of <PO> ' s <NEeducationalInstitution> , established the <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> neighborhood of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> , a <NEreligion> sect founded by <NEperson> and seale in response to police brutality in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation_NEstate> , home , as he reminds <NEcountry> , of both the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?of <PO> \)
+#correct: 1
+#incorrect: 1
+
+<TO> [^<]*?with <PO> police
+#correct: 1
+#incorrect: 1
+
+<TO> -- who were <NEacronym> <NEprofession> " to seemingly start another <NEconflict> , " but to police the police in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+# <PO> , <NElocation> in <NEdate_NEyear_NEnumber> and <NEdate_NEyear_NEnumber> as a member of the <TO>
+#correct: 1
+#incorrect: 0
+
+from <PO> , <NEacronym> \( huey newton and <NEperson> \) , <NEprofession> the <TO>
+#correct: 1
+#incorrect: 0
+
+to <PO> , dead end of the westward course of empire , and home of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , a documentary shot in <PO> ;
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> from the brotherhood of sleeping car porters to the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> \( an <PO> original
+#correct: 1
+#incorrect: 0
+
+<TO> <NEmonth> <NEdate_NEyear_NEnumber> in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation> and <NEperson> founded the <TO>
+#correct: 1
+#incorrect: 2
+
+<PO_NElocation> has been getting <NEriver_NEwater> <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation> , group is seeking to trademark the infamous <TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> , and ex - <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> negro , founded the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> : <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> had been founded two years earlier in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+of <PO> \( more open , <NEriver_NEwater> expensive , <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEorganization> <PO> ,
+#correct: 1
+#incorrect: 11
+
+the <PO> centered (?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> <NEduration>
+#correct: 1
+#incorrect: 5
+
+<TO> [^<]*?founded [^<]*?(?:<NEdate_NEyear_NEnumber> )?in <PO> ,
+#correct: 1
+#incorrect: 8
+
+<TO> about oct <NEnumber> , in <PO> #
+#correct: 1
+#incorrect: 0
+
+the <PO> , (?:<NElocation_NEstate> )?<TO>
+#correct: 1
+#incorrect: 7
+
+<TO> for self - <NEorganization> was founded in <NEmonth> , <NEdate_NEyear_NEnumber> , in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<NEdisease> <PO> , [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> prior to the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> meeting in <PO> at
+#correct: 1
+#incorrect: 0
+
+in <PO> , <NElocation_NEstate> the <TO>
+#correct: 1
+#incorrect: 1
+
+<NEdisease> <PO> , the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> which were set up by <NEperson> and <NEperson> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> or
+#correct: 1
+#incorrect: 0
+
+original <PO> , <NElocation> , - formed <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NEacronym> , <NElocation> - the sleek <NEprofession> jacket , <TO>
+#correct: 1
+#incorrect: 0
+
+partnered <PO> ' [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+an <PO> , (?:<NElocation> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 4
+
+<TO> [^<]*?in <PO> ;
+#correct: 1
+#incorrect: 1
+
+in <PO> , <NElocation> , formed the radical <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> was one of " <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> group after they returned from <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> ' s first <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> and the birth of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?in <PO> at
+#correct: 1
+#incorrect: 3
+
+<TO> for self - <NEorganization> , it was founded in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> - based co - founder of the <TO>
+#correct: 1
+#incorrect: 0
+
+retired <PO> , (?:<NElocation_NEstate> )?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+in <PO> prior [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> men from <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+other <PO> negro , founded the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , including a shootout with <PO> police
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> , <NElocation_NEstate> to create revolutionary political power for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> neighborhood of <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> neighborhood in <PO> \.
+#correct: 1
+#incorrect: 0
+
+<TO> in <PO> <NEprofession>
+#correct: 1
+#incorrect: 1
+
+<PO_NEacronym> , calif <NElocation> \( <NEacronym> \) -- former <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> for self - <NEorganization> was founded in <NEmonth> , <NEdate_NEyear_NEnumber> , in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?an <PO> ,
+#correct: 1
+#incorrect: 1
+
+# <PO> , <NElocation_NEstate> , to , among other things , gain for <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?\( <PO> ,
+#correct: 1
+#incorrect: 15
+
+<TO> , <PO> ,
+#correct: 1
+#incorrect: 50
+
+<TO> militants from <PO> ,
+#correct: 1
+#incorrect: 0
+
+but <PO> has [^<]*?(?:<NEriver_NEwater> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> headquarters sat a few blocks from the dragon ' s clubhouse back in the days when <PO> was
+#correct: 1
+#incorrect: 0
+
+in <PO> from [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> eating cereal at the free breakfasts hosted by the <TO>
+#correct: 1
+#incorrect: 0
+
+the <PO> chapter [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<TO> rights political <NEprofession> created in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> for self <NEorganization> was founded in <NEmonth> , <NEdate_NEyear_NEnumber> , in <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+<TO> underworld for <NEprofession> of <PO> \.
+#correct: 1
+#incorrect: 0
+
+of <PO> ' [^<]*?(?:<NEeducationalInstitution> )?[^<]*?established [^<]*?<TO>
+#correct: 1
+#incorrect: 1
+
+<PO_NElocation> , <NElocation> in <NEdate_NEyear_NEnumber> and <NEdate_NEyear_NEnumber> as a member of the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> and <NEcolor> communities of <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> were created by huey newton and <NEperson> , who were <NEprofession> activists at <NEorganization_NEeducationalInstitution> in <PO> ,
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?founded in <PO> by
+#correct: 1
+#incorrect: 10
+
+<TO> [^<]*?in <PO> during
+#correct: 1
+#incorrect: 0
+
+of <PO> since the <TO>
+#correct: 1
+#incorrect: 1
+
+in <PO> , <NElocation_NEperson_NEstate> , open fire on a car of <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> , especially the <PO_NElocation>
+#correct: 1
+#incorrect: 0
+
+gender <PO> sexuality [^<]*?(?:<NEconflict> )?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElocation> [^<]*?founded [^<]*?<TO>
+#correct: 1
+#incorrect: 2
+
+<PO_NElocation> , <NElocation> , etc \. \] <TO>
+#correct: 1
+#incorrect: 0

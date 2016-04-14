@@ -1,0 +1,7 @@
+QUESTION_TEMPLATE: When was <TO> created?
+ANSWER_TEMPLATE: Created: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO> (authorize|build|complete|construct|create|erect|make|manufacture|open|organize|produce|release|sign|write)
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO> in <CO> (authorize|build|complete|construct|create|erect|make|manufacture|open|organize|produce|release|sign|write)
+<TO> be (authorize|build|complete|construct|create|erect|make|manufacture|open|organize|produce|release|sign|write) .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+<TO> in <CO> be (authorize|build|complete|construct|create|erect|make|manufacture|open|organize|produce|release|sign|write) .*((what|which) (century|date|day|decade|hour|month|time|year)|when)

@@ -1,0 +1,1649 @@
+#passages: 12759
+
+<TO> [^<]*?(?:<NEmilitaryRank_NEprofession> )?(?:<NEperson> )?[^<]*?" <PO> "
+#correct: 76
+#incorrect: 141
+
+<TO> [^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?" <PO> "
+#correct: 76
+#incorrect: 141
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NElanguage> )?" <PO> "
+#correct: 74
+#incorrect: 133
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?" <PO> "
+#correct: 74
+#incorrect: 133
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?" <PO> "
+#correct: 73
+#incorrect: 136
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?" <PO> "
+#correct: 73
+#incorrect: 136
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?" <PO> "
+#correct: 73
+#incorrect: 136
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?" <PO> "
+#correct: 72
+#incorrect: 136
+
+" <PO> " [^<]*?(?:<NEperson_NEmilitaryRank_NEprofession> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 72
+#incorrect: 102
+
+<TO> [^<]*?" <PO> "
+#correct: 72
+#incorrect: 132
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?" <PO> "
+#correct: 72
+#incorrect: 132
+
+<TO> (?:<NEsport> )?[^<]*?" <PO> "
+#correct: 72
+#incorrect: 132
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?" <PO> "
+#correct: 72
+#incorrect: 135
+
+<TO> (?:<NEfirstName> )?(?:<NEperson> )?[^<]*?" <PO> "
+#correct: 72
+#incorrect: 133
+
+" <PO> " [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 69
+#incorrect: 96
+
+" <PO> " [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 68
+#incorrect: 104
+
+" <PO> " [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 68
+#incorrect: 102
+
+" <PO> " [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 68
+#incorrect: 92
+
+" <PO> " [^<]*?(?:<NElocation> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 65
+#incorrect: 98
+
+" <PO> " [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 65
+#incorrect: 97
+
+" <PO> " [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 62
+#incorrect: 91
+
+" <PO> " [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 62
+#incorrect: 91
+
+" <PO> " (?:<NEsport> )?[^<]*?<TO>
+#correct: 62
+#incorrect: 88
+
+" <PO> " [^<]*?<TO>
+#correct: 61
+#incorrect: 87
+
+" <PO> " [^<]*?(?:<NElanguage> )?[^<]*?<TO>
+#correct: 61
+#incorrect: 87
+
+" <PO> " [^<]*?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 61
+#incorrect: 89
+
+" <PO> " (?:<NEperson> )?[^<]*?<TO>
+#correct: 61
+#incorrect: 90
+
+" <PO> " (?:<NEusPresident> )?[^<]*?<TO>
+#correct: 61
+#incorrect: 87
+
+# <PO> star <TO>
+#correct: 50
+#incorrect: 104
+
+" <PO> " (?:<NEprofession> )?(?:<NEperson> )?[^<]*?star [^<]*?<TO>
+#correct: 33
+#incorrect: 4
+
+" <PO> " [^<]*?(?:<NEsport> )?[^<]*?(?:<NEseason> )?[^<]*?star [^<]*?<TO>
+#correct: 33
+#incorrect: 4
+
+# <PO> \( (?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 30
+#incorrect: 816
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 30
+#incorrect: 833
+
+# <PO> - [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?<TO>
+#correct: 29
+#incorrect: 260
+
+" <PO> " star [^<]*?<TO>
+#correct: 28
+#incorrect: 4
+
+" <PO> star <TO>
+#correct: 28
+#incorrect: 14
+
+" <PO> " star <TO>
+#correct: 28
+#incorrect: 4
+
+" <PO> " (?:<NEfirstName> )?star <TO>
+#correct: 28
+#incorrect: 4
+
+# <PO> : [^<]*?(?:<NEcolor> )?(?:<NElocation_NEbirthstone> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEsport> )?[^<]*?<TO>
+#correct: 28
+#incorrect: 770
+
+# <PO> - [^<]*?<TO>
+#correct: 27
+#incorrect: 256
+
+' <PO> ' [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 27
+#incorrect: 36
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEsport> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 26
+#incorrect: 811
+
+# <PO> \( [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 26
+#incorrect: 810
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEacronym> )?(?:<NElocation> )?[^<]*?<TO>
+#correct: 26
+#incorrect: 803
+
+# <PO> : [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEsport> )?[^<]*?<TO>
+#correct: 25
+#incorrect: 752
+
+# <PO> \( (?:<NEorganization_NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?(?:<NEorganization> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 24
+#incorrect: 805
+
+' <PO> ' [^<]*?<TO>
+#correct: 24
+#incorrect: 34
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 24
+#incorrect: 796
+
+' <PO> ' (?:<NEsport> )?[^<]*?<TO>
+#correct: 24
+#incorrect: 35
+
+# <PO> : [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 23
+#incorrect: 872
+
+# <PO> \( (?:<NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 23
+#incorrect: 791
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?" <PO> :
+#correct: 22
+#incorrect: 23
+
+# <PO> <NEnumber> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEsport> )?[^<]*?<TO>
+#correct: 22
+#incorrect: 234
+
+# <PO> " [^<]*?(?:<NElocation> )?[^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?<TO>
+#correct: 22
+#incorrect: 185
+
+# <PO> - <TO>
+#correct: 22
+#incorrect: 92
+
+# <PO> " [^<]*?(?:<NEbird> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 22
+#incorrect: 183
+
+# <PO> \( (?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 22
+#incorrect: 782
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 22
+#incorrect: 796
+
+<TO> [^<]*?(?:<NElocation_NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?in <PO> :
+#correct: 22
+#incorrect: 40
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NElocation> )?[^<]*?in <PO> :
+#correct: 22
+#incorrect: 40
+
+<TO> [^<]*?(?:<NElocation_NEperson> )?[^<]*?in <PO> :
+#correct: 22
+#incorrect: 40
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEfirstName> )?[^<]*?" <PO> :
+#correct: 22
+#incorrect: 23
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> "
+#correct: 21
+#incorrect: 129
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?the <PO> "
+#correct: 21
+#incorrect: 126
+
+<TO> [^<]*?(?:<NEperson_NEaward_NEfirstName> )?[^<]*?the <PO> "
+#correct: 21
+#incorrect: 133
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?the <PO> "
+#correct: 21
+#incorrect: 130
+
+<TO> [^<]*?the <PO> "
+#correct: 21
+#incorrect: 126
+
+<TO> [^<]*?(?:<NEstate> )?[^<]*?the <PO> "
+#correct: 21
+#incorrect: 126
+
+<TO> [^<]*?(?:<NElocation_NEcapital> )?(?:<NEprofession> )?[^<]*?" <PO> :
+#correct: 21
+#incorrect: 23
+
+<TO> (?:<NEfirstName> )?[^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?star [^<]*?" <PO> "
+#correct: 20
+#incorrect: 5
+
+# <PO> , (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 1477
+
+# <PO> , [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEstyle> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEbird> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 1506
+
+# <PO> <NEnumber> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?<TO>
+#correct: 20
+#incorrect: 227
+
+# <PO> \( [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 775
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?" <PO> :
+#correct: 19
+#incorrect: 23
+
+# <PO> \( [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 782
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 773
+
+the <PO> : [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 151
+
+<TO> [^<]*?star [^<]*?the <PO> "
+#correct: 19
+#incorrect: 3
+
+# <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 1437
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEzodiacSign> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 765
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 765
+
+<TO> [^<]*?<PO_NEorganization_NEacronym>
+#correct: 19
+#incorrect: 487
+
+<TO> [^<]*?" <PO> :
+#correct: 19
+#incorrect: 23
+
+# <PO> \( [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 775
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?\( <PO> \)
+#correct: 18
+#incorrect: 272
+
+# <PO> " [^<]*?(?:<NEbird> )?[^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 18
+#incorrect: 158
+
+# <PO> <NEnumber> [^<]*?<TO>
+#correct: 18
+#incorrect: 222
+
+<TO> <PO> \)
+#correct: 17
+#incorrect: 353
+
+# <PO> : (?:<NEacronym> )?(?:<NEacronym_NEriver_NEwater> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 17
+#incorrect: 751
+
+<TO> [^<]*?(?:<NEperson> )?in <PO> \.
+#correct: 17
+#incorrect: 118
+
+# <PO> " (?:<NEfirstName> )?[^<]*?<TO>
+#correct: 17
+#incorrect: 151
+
+# <PO> , (?:<NEacronym> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 1358
+
+<TO> \( <PO> \)
+#correct: 16
+#incorrect: 196
+
+# <PO> , [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 1364
+
+# <PO> , [^<]*?<TO>
+#correct: 16
+#incorrect: 1351
+
+# <PO> , [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEstyle> )?[^<]*?(?:<NEsport_NEstyle> )?[^<]*?(?:<NEstyle> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 1359
+
+# <PO> : [^<]*?(?:<NEsport> )?[^<]*?<TO>
+#correct: 16
+#incorrect: 743
+
+<TO> [^<]*?in <PO> \.
+#correct: 16
+#incorrect: 116
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?\( <PO> \)
+#correct: 16
+#incorrect: 244
+
+<TO> [^<]*?(?:<NEperson_NEmilitaryRank_NEprofession> )?(?:<NEperson> )?in <PO> :
+#correct: 16
+#incorrect: 41
+
+in <PO> , [^<]*?(?:<NEperson> )?[^<]*?(?:<NEmonth> )?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 145
+
+# <PO> : [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 744
+
+# <PO> : [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 740
+
+# <PO> : [^<]*?<TO>
+#correct: 15
+#incorrect: 740
+
+# <PO> : [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 754
+
+# <PO> : [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?<TO>
+#correct: 15
+#incorrect: 751
+
+the <PO> : [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 14
+#incorrect: 133
+
+<TO> [^<]*?(?:<NElocation_NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?' <PO> '
+#correct: 14
+#incorrect: 70
+
+# <PO> " [^<]*?star [^<]*?<TO>
+#correct: 14
+#incorrect: 17
+
+<TO> [^<]*?" <PO> ,
+#correct: 13
+#incorrect: 69
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?' <PO> '
+#correct: 13
+#incorrect: 69
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?in <PO> #
+#correct: 13
+#incorrect: 540
+
+in <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 13
+#incorrect: 141
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?" <PO> ,
+#correct: 13
+#incorrect: 70
+
+in <PO> , [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEbird> )?[^<]*?<TO>
+#correct: 13
+#incorrect: 144
+
+in <PO> , [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 13
+#incorrect: 139
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEorganization> )?[^<]*?, <PO> ,
+#correct: 13
+#incorrect: 1190
+
+<TO> [^<]*?(?:<NEcontinent_NEcountry> )?[^<]*?' <PO> '
+#correct: 13
+#incorrect: 65
+
+<TO> (?:<NEsport> )?[^<]*?" <PO> ,
+#correct: 13
+#incorrect: 69
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?" <PO> ,
+#correct: 13
+#incorrect: 71
+
+<TO> [^<]*?(?:<NEperson> )?in <PO> #
+#correct: 13
+#incorrect: 523
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?" <PO> ,
+#correct: 13
+#incorrect: 71
+
+in <PO> , (?:<NEperson> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 13
+#incorrect: 144
+
+in <PO> , [^<]*?<TO>
+#correct: 13
+#incorrect: 136
+
+the <PO> , [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 674
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?[^<]*?' <PO> '
+#correct: 12
+#incorrect: 65
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?' <PO> '
+#correct: 12
+#incorrect: 65
+
+movie <PO> , [^<]*?<TO>
+#correct: 12
+#incorrect: 31
+
+the <PO> , (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson_NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 700
+
+the <PO> , (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 682
+
+<TO> [^<]*?' <PO> '
+#correct: 12
+#incorrect: 65
+
+the <PO> , [^<]*?(?:<NEweekday> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 675
+
+<TO> [^<]*?(?:<NEprofession> )?in <PO> #
+#correct: 12
+#incorrect: 518
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?<PO_NEorganization>
+#correct: 12
+#incorrect: 217
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEbird> )?in <PO> #
+#correct: 12
+#incorrect: 537
+
+the <PO> , (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 699
+
+<TO> [^<]*?in <PO> #
+#correct: 12
+#incorrect: 510
+
+the <PO> , [^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 12
+#incorrect: 694
+
+<TO> [^<]*?(?:<NEacronym> )?in <PO> ,
+#correct: 11
+#incorrect: 153
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NErelation> )?[^<]*?(?:<NEfirstName> )?[^<]*?<PO_NEorganization>
+#correct: 11
+#incorrect: 231
+
+of <PO> , [^<]*?(?:<NEreligion_NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 285
+
+" <PO> , [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 94
+
+" <PO> , [^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 101
+
+<TO> [^<]*?(?:<NErelation> )?in <PO> ,
+#correct: 11
+#incorrect: 153
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?in <PO> ,
+#correct: 11
+#incorrect: 162
+
+the <PO> : (?:<NEorganization> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 117
+
+<TO> (?:<NEacronym> )?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEacronym> )?<PO_NEacronym_NEnationality>
+#correct: 11
+#incorrect: 344
+
+# <PO> : [^<]*?(?:<NEcolor> )?(?:<NElocation_NEbirthstone> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?starring [^<]*?<TO>
+#correct: 11
+#incorrect: 30
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?in <PO> ,
+#correct: 11
+#incorrect: 153
+
+<TO> [^<]*?in <PO> ,
+#correct: 11
+#incorrect: 153
+
+in <PO> <TO>
+#correct: 11
+#incorrect: 302
+
+the <PO> , [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation> )?(?:<NEsport> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 602
+
+, <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 941
+
+<TO> [^<]*?<PO_NEacronym_NEriver_NEwater>
+#correct: 10
+#incorrect: 378
+
+the <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 651
+
+<TO> (?:<NEacronym> )?[^<]*?<PO_NEacronym>
+#correct: 10
+#incorrect: 296
+
+<TO> [^<]*?(?:<NEacronym_NEcountry> )?[^<]*?<PO_NEorganization>
+#correct: 10
+#incorrect: 224
+
+<PO_NEorganization_NEacronym> [^<]*?(?:<NEsport> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 444
+
+<PO_NEacronym_NEnationality> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 456
+
+the <PO> , [^<]*?<TO>
+#correct: 10
+#incorrect: 597
+
+, <PO> , (?:<NEacronym> )?(?:<NEnumber> )?[^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 896
+
+# <PO> is [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 129
+
+the <PO> , [^<]*?(?:<NElocation> )?[^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 620
+
+<TO> [^<]*?(?:<NEorganization_NEdate_NEyear_NEnumber> )?<PO_NEorganization>
+#correct: 10
+#incorrect: 218
+
+# <PO> is [^<]*?(?:<NEmilitaryRank_NEprofession> )?(?:<NEperson> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 136
+
+# <PO> is [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 127
+
+, <PO> , [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 898
+
+<TO> [^<]*?<PO_NEacronym>
+#correct: 10
+#incorrect: 296
+
+# <PO> \. [^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 153
+
+the <PO> , [^<]*?(?:<NEstate> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 597
+
+, <PO> , [^<]*?<TO>
+#correct: 10
+#incorrect: 893
+
+<TO> [^<]*?<PO_NEorganization>
+#correct: 10
+#incorrect: 217
+
+# <PO> : [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?starring [^<]*?<TO>
+#correct: 9
+#incorrect: 27
+
+<TO> [^<]*?in <PO> and
+#correct: 9
+#incorrect: 56
+
+the <PO> " [^<]*?(?:<NEprofession> )?<TO>
+#correct: 9
+#incorrect: 115
+
+of <PO> , [^<]*?<TO>
+#correct: 9
+#incorrect: 248
+
+the <PO> " [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 112
+
+the <PO> " [^<]*?(?:<NEdisease> )?[^<]*?(?:<NEperson_NEfirstName> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 125
+
+" <PO> , [^<]*?(?:<NElocation_NEprofession> )?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 98
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?s <PO> :
+#correct: 9
+#incorrect: 7
+
+<TO> <PO> -
+#correct: 9
+#incorrect: 394
+
+in <PO> , <TO>
+#correct: 9
+#incorrect: 80
+
+the <PO> " [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 125
+
+the <PO> " [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 112
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEacronym> )?<PO_NEacronym_NEnationality>
+#correct: 9
+#incorrect: 338
+
+" <PO> , [^<]*?<TO>
+#correct: 9
+#incorrect: 90
+
+" <PO> , [^<]*?(?:<NElanguage> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 90
+
+the <PO> " [^<]*?(?:<NEperson_NEfirstName> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 125
+
+the <PO> " [^<]*?<TO>
+#correct: 9
+#incorrect: 110
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?(?:<NElocation_NEmilitaryRank_NEprofession> )?(?:<NEperson> )?in <PO> and
+#correct: 9
+#incorrect: 60
+
+the <PO> " [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 125
+
+of <PO> , [^<]*?(?:<NEseason> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 248
+
+# <PO> \( [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 742
+
+<PO_NEacronym_NEnationality> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 377
+
+# <PO> starring <TO>
+#correct: 8
+#incorrect: 70
+
+<PO_NEacronym_NEnationality> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 391
+
+<PO_NEacronym_NEnationality> [^<]*?<TO>
+#correct: 8
+#incorrect: 351
+
+<PO_NEacronym> [^<]*?<TO>
+#correct: 8
+#incorrect: 312
+
+<PO_NEacronym_NEnationality> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 380
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?starring [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 23
+
+# <PO> \. [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 156
+
+# <PO> starring [^<]*?<TO>
+#correct: 8
+#incorrect: 98
+
+# <PO> \( (?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 747
+
+<PO_NEacronym_NEnationality> (?:<NEacronym> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 434
+
+<TO> [^<]*?(?:<NEmilitaryRank_NEprofession> )?(?:<NEperson> )?[^<]*?' <PO> :
+#correct: 8
+#incorrect: 14
+
+<TO> [^<]*?(?:<NElocation_NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?" <PO> #
+#correct: 8
+#incorrect: 249
+
+# <PO> \( (?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEfirstName> )?[^<]*?starring [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 22
+
+# <PO> starring (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 153
+
+# <PO> starring (?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 141
+
+# <PO> \( [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 749
+
+" <PO> : [^<]*?(?:<NEriver_NEwater> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 17
+
+movie <PO> starring (?:<NEperson> )?[^<]*?<TO>
+#correct: 8
+#incorrect: 22
+
+<TO> [^<]*?(?:<NEaward_NEfirstName> )?[^<]*?" <PO> #
+#correct: 7
+#incorrect: 218
+
+# <PO> : [^<]*?(?:<NEperson> )?[^<]*?starring <TO>
+#correct: 7
+#incorrect: 21
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?the <PO> <
+#correct: 7
+#incorrect: 541
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?" <PO> #
+#correct: 7
+#incorrect: 212
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?" <PO> #
+#correct: 7
+#incorrect: 234
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?" <PO> #
+#correct: 7
+#incorrect: 246
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?" <PO> #
+#correct: 7
+#incorrect: 224
+
+# <PO> \. (?:<NEperson> )?<TO>
+#correct: 7
+#incorrect: 84
+
+<TO> [^<]*?the <PO> :
+#correct: 7
+#incorrect: 47
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEsport> )?[^<]*?the <PO> ,
+#correct: 7
+#incorrect: 338
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?the <PO> ,
+#correct: 7
+#incorrect: 336
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?starring [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 7
+#incorrect: 20
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEaward_NEfirstName> )?[^<]*?" <PO> #
+#correct: 7
+#incorrect: 229
+
+<TO> ' s " <PO> "
+#correct: 7
+#incorrect: 2
+
+<TO> [^<]*?" <PO> #
+#correct: 7
+#incorrect: 210
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> movies
+#correct: 7
+#incorrect: 21
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?(?:<NEbird> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?[^<]*?" <PO> #
+#correct: 7
+#incorrect: 221
+
+the <PO> , <TO>
+#correct: 7
+#incorrect: 277
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?the <PO> ,
+#correct: 6
+#incorrect: 317
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation> )?[^<]*?s <PO> -
+#correct: 6
+#incorrect: 31
+
+# <PO> is [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 120
+
+# <PO> : [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?starring [^<]*?<TO>
+#correct: 6
+#incorrect: 24
+
+# <PO> stars (?:<NElocation_NEperson> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 35
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> ,
+#correct: 6
+#incorrect: 335
+
+<TO> [^<]*?- <PO> -
+#correct: 6
+#incorrect: 51
+
+<TO> \( <PO> ,
+#correct: 6
+#incorrect: 103
+
+# <PO> <NEperson> , <TO>
+#correct: 6
+#incorrect: 387
+
+<TO> (?:<NEfrequency> )?[^<]*?the <PO> ,
+#correct: 6
+#incorrect: 310
+
+<TO> [^<]*?the <PO> ,
+#correct: 6
+#incorrect: 310
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEriver_NEfirstName_NEwater> )?[^<]*?the <PO> ,
+#correct: 6
+#incorrect: 345
+
+# <PO> : [^<]*?(?:<NEcolor> )?(?:<NElocation_NEbirthstone> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?starring <TO>
+#correct: 6
+#incorrect: 25
+
+# <PO> is [^<]*?<TO>
+#correct: 6
+#incorrect: 112
+
+# <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?starring [^<]*?<TO>
+#correct: 6
+#incorrect: 14
+
+<TO> [^<]*?(?:<NEcountry> )?[^<]*?the <PO> ,
+#correct: 6
+#incorrect: 311
+
+# <PO> <NEfirstName> (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 140
+
+# <PO> <NEnumber> [^<]*?starring [^<]*?<TO>
+#correct: 6
+#incorrect: 28
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?the <PO> ,
+#correct: 6
+#incorrect: 310
+
+# <PO> stars <TO>
+#correct: 6
+#incorrect: 20
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEprofession> )?[^<]*?of <PO> :
+#correct: 6
+#incorrect: 46
+
+<TO> [^<]*?star [^<]*?" <PO> :
+#correct: 6
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?<PO_NEacronym>
+#correct: 6
+#incorrect: 300
+
+# <PO> stars (?:<NEperson> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 35
+
+<TO> [^<]*?\( <PO> ,
+#correct: 6
+#incorrect: 117
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEorganization> )?[^<]*?the <PO> ,
+#correct: 6
+#incorrect: 312
+
+# <PO> : [^<]*?(?:<NEriver_NEwater> )?[^<]*?starring <TO>
+#correct: 6
+#incorrect: 20
+
+<TO> [^<]*?, <PO> \)
+#correct: 5
+#incorrect: 100
+
+<TO> in " <PO> "
+#correct: 5
+#incorrect: 7
+
+# <PO> , [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?starring [^<]*?<TO>
+#correct: 5
+#incorrect: 35
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NElocation> )?and <PO> \.
+#correct: 5
+#incorrect: 193
+
+# <PO> , starring (?:<NEperson> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 43
+
+movie <PO> , starring (?:<NEperson> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 5
+
+<TO> in <PO> and
+#correct: 5
+#incorrect: 6
+
+# <PO> , starring <TO>
+#correct: 5
+#incorrect: 23
+
+<TO> [^<]*?, <PO> \.
+#correct: 5
+#incorrect: 349
+
+" <PO> " (?:<NEacronym> )?<TO>
+#correct: 5
+#incorrect: 36
+
+# <PO> , starring [^<]*?<TO>
+#correct: 5
+#incorrect: 25
+
+<TO> [^<]*?(?:<NEseason> )?[^<]*?, <PO> and
+#correct: 5
+#incorrect: 403
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?film <PO> ,
+#correct: 5
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEorganization> )?, <PO> \.
+#correct: 5
+#incorrect: 356
+
+# <PO> , [^<]*?(?:<NEperson> )?[^<]*?starring <TO>
+#correct: 5
+#incorrect: 33
+
+# <PO> <NEacronym> [^<]*?(?:<NEprofession> )?<TO>
+#correct: 5
+#incorrect: 207
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?, <PO> \.
+#correct: 5
+#incorrect: 398
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEusPresident> )?, <PO> and
+#correct: 5
+#incorrect: 416
+
+<TO> [^<]*?(?:<NEmusicalInstrument> )?, <PO> \)
+#correct: 5
+#incorrect: 100
+
+" <PO> " <TO>
+#correct: 5
+#incorrect: 36
+
+<TO> [^<]*?, <PO> and
+#correct: 5
+#incorrect: 403
+
+" <PO> " (?:<NEchemicalElement_NEmetal_NEmineral> )?<TO>
+#correct: 5
+#incorrect: 36
+
+<TO> [^<]*?(?:<NElocation> )?film [^<]*?" <PO> "
+#correct: 4
+#incorrect: 2
+
+<NEacronym> <PO> star <TO>
+#correct: 4
+#incorrect: 42
+
+movie <PO> starring <NEperson> and <TO>
+#correct: 4
+#incorrect: 3
+
+movie <PO> starring <TO>
+#correct: 4
+#incorrect: 16
+
+" <PO> : [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?starring <TO>
+#correct: 4
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?' <PO> :
+#correct: 4
+#incorrect: 18
+
+<TO> in <PO> ,
+#correct: 4
+#incorrect: 19
+
+<TO> in <PO> #
+#correct: 4
+#incorrect: 112
+
+<TO> [^<]*?" <PO> \.
+#correct: 4
+#incorrect: 38
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?movie <PO> :
+#correct: 4
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?[^<]*?" <PO> \.
+#correct: 4
+#incorrect: 38
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?" <PO> \.
+#correct: 4
+#incorrect: 39
+
+<TO> [^<]*?of <PO> '
+#correct: 4
+#incorrect: 42
+
+<TO> - <PO> \.
+#correct: 4
+#incorrect: 65
+
+movie <PO> , [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?starring <TO>
+#correct: 4
+#incorrect: 4
+
+# <PO> \( <NEdate_NEyear_NEnumber> \) <TO>
+#correct: 4
+#incorrect: 15
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?(?:<NEacronym> )?[^<]*?' <PO> :
+#correct: 4
+#incorrect: 14
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?" <PO> \.
+#correct: 4
+#incorrect: 39
+
+<TO> in <PO> \.
+#correct: 4
+#incorrect: 28
+
+# <PO> \( <NEdate_NEyear_NEnumber> \) starring : <TO>
+#correct: 4
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEperson> )?in <PO> movie
+#correct: 4
+#incorrect: 51
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?" <PO> \.
+#correct: 4
+#incorrect: 39
+
+<TO> [^<]*?' <PO> :
+#correct: 4
+#incorrect: 14
+
+<TO> [^<]*?the <PO> \.
+#correct: 3
+#incorrect: 221
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> \.
+#correct: 3
+#incorrect: 239
+
+<TO> [^<]*?(?:<NEmilitaryRank> )?[^<]*?" <PO> <NEnumber>
+#correct: 3
+#incorrect: 31
+
+<PO_NEacronym_NEnationality> (?:<NEacronym> )?<TO>
+#correct: 3
+#incorrect: 64
+
+<TO> in <PO> :
+#correct: 3
+#incorrect: 7
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?of <PO> \.
+#correct: 3
+#incorrect: 83
+
+# <PO> , <NEperson> , <TO>
+#correct: 3
+#incorrect: 185
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?the <PO> '
+#correct: 3
+#incorrect: 94
+
+<TO> [^<]*?(?:<NEsport> )?of <PO> ,
+#correct: 3
+#incorrect: 108
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?the <PO> \.
+#correct: 3
+#incorrect: 221
+
+# <PO> - starring <TO>
+#correct: 3
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> '
+#correct: 3
+#incorrect: 94
+
+" <PO> " [^<]*?starring <TO>
+#correct: 3
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEperson> )?: <PO> \.
+#correct: 3
+#incorrect: 48
+
+<TO> [^<]*?the <PO> '
+#correct: 3
+#incorrect: 90
+
+<TO> [^<]*?film " <PO> "
+#correct: 3
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEprofession> )?in <PO> \(
+#correct: 3
+#incorrect: 33
+
+<TO> [^<]*?(?:<NEaward_NEfirstName> )?[^<]*?(?:<NEnumber> )?[^<]*?' <PO> #
+#correct: 3
+#incorrect: 262
+
+the <PO> ' [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 71
+
+<TO> (?:<NEfirstName> )?[^<]*?the <PO> sequel
+#correct: 3
+#incorrect: 4
+
+<PO_NEacronym> <TO>
+#correct: 3
+#incorrect: 41
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?s <PO> --
+#correct: 3
+#incorrect: 1
+
+" <PO> " [^<]*?(?:<NEperson> )?[^<]*?starring <TO>
+#correct: 3
+#incorrect: 5
+
+, <PO> : [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson_NEprofession> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 44
+
+<TO> [^<]*?" <PO> -
+#correct: 3
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?of <PO> \.
+#correct: 3
+#incorrect: 86
+
+<TO> [^<]*?" <PO> <NEnumber>
+#correct: 3
+#incorrect: 31
+
+movie <PO> , starring <TO>
+#correct: 3
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?the <PO> \.
+#correct: 3
+#incorrect: 224
+
+<PO_NEorganization> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 152
+
+<TO> (?:<NElanguage> )?[^<]*?(?:<NEstyle> )?[^<]*?of <PO> \.
+#correct: 3
+#incorrect: 83
+
+<TO> [^<]*?(?:<NElocation_NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?, <PO> :
+#correct: 3
+#incorrect: 53
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> <NEnumber>
+#correct: 3
+#incorrect: 78
+
+<TO> and <PO> \.
+#correct: 3
+#incorrect: 42
+
+<TO> in " <PO> :
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?s <PO> #
+#correct: 2
+#incorrect: 139
+
+" <PO> " , <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?(?:<NElanguage> )?[^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?[^<]*?(?:<NEorganization> )?[^<]*?s <PO> \.
+#correct: 2
+#incorrect: 45
+
+# <PO> - the curse of the <NEcolor> <NEbirthstone> \( <TO>
+#correct: 2
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?s <PO> \.
+#correct: 2
+#incorrect: 47
+
+" <PO> " with <TO>
+#correct: 2
+#incorrect: 1
+
+in <PO> with (?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 16
+
+<TO> [^<]*?<NEperson> <PO> \)
+#correct: 2
+#incorrect: 79
+
+movie <PO> , starring <NEperson> and <TO>
+#correct: 2
+#incorrect: 1
+
+reviews <PO> starring (?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?in <PO> \?
+#correct: 2
+#incorrect: 3
+
+<TO> ' s <PO> co
+#correct: 2
+#incorrect: 12
+
+<TO> [^<]*?in <PO> -
+#correct: 2
+#incorrect: 62
+
+' <PO> ' <TO>
+#correct: 2
+#incorrect: 13
+
+<NEacronym> <PO> \( (?:<NEorganization_NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 55
+
+, <PO> star (?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 39
+
+<NEacronym> <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 69
+
+<TO> [^<]*?s <PO> co
+#correct: 2
+#incorrect: 13
+
+<TO> , <PO> :
+#correct: 2
+#incorrect: 33
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?of <PO> and
+#correct: 2
+#incorrect: 48
+
+<TO> (?:<NEacronym> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?s <PO> ,
+#correct: 2
+#incorrect: 44
+
+film <PO> , [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 26
+
+" <PO> " starring <TO>
+#correct: 2
+#incorrect: 3
+
+in <PO> : [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 24
+
+<PO_NEorganization> [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 181
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?in <PO> \?
+#correct: 2
+#incorrect: 3
+
+the <PO> ' <TO>
+#correct: 2
+#incorrect: 12
+
+the <PO> " (?:<NEperson> )?<TO>
+#correct: 2
+#incorrect: 38
+
+<TO> [^<]*?movie <PO> #
+#correct: 2
+#incorrect: 69
+
+<TO> : <PO> \.
+#correct: 2
+#incorrect: 28
+
+the <PO> star <TO>
+#correct: 2
+#incorrect: 43
+
+<TO> [^<]*?'' <PO> ''
+#correct: 2
+#incorrect: 3
+
+<NEacronym> <PO> \( <TO>
+#correct: 2
+#incorrect: 39
+
+" <PO> , [^<]*?starring (?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+<TO> \( " <PO> "
+#correct: 2
+#incorrect: 6
+
+# <PO> \. <NEperson> <TO>
+#correct: 2
+#incorrect: 0
+
+<NEacronym> <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?<TO>
+#correct: 2
+#incorrect: 69
+
+<TO> [^<]*?his <PO> co
+#correct: 2
+#incorrect: 6
+
+<TO> of <PO> \.
+#correct: 2
+#incorrect: 0
+
+the <PO> and (?:<NEperson> )?(?:<NEfirstName> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 140
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEfirstName> )?[^<]*?movies [^<]*?like <PO> ,
+#correct: 2
+#incorrect: 1
+
+of <PO> , <TO>
+#correct: 2
+#incorrect: 141
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?s <PO> #
+#correct: 2
+#incorrect: 146
+
+<TO> in " <PO> #
+#correct: 2
+#incorrect: 10
+
+" <PO> " starring [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+<PO_NElocation_NEseason> [^<]*?<TO>
+#correct: 2
+#incorrect: 167
+
+in <PO> <NEnumber> [^<]*?<TO>
+#correct: 2
+#incorrect: 27
+
+<TO> in <PO> -
+#correct: 2
+#incorrect: 8
+
+" <PO> " starring [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+<PO_NEorganization> [^<]*?<TO>
+#correct: 2
+#incorrect: 139
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEstyle> )?[^<]*?(?:<NElocation_NEcapital_NEusPresident> )?[^<]*?movie (?:<NEsport> )?[^<]*?" <PO> "
+#correct: 2
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?(?:<NEperson> )?[^<]*?movie <PO> #
+#correct: 2
+#incorrect: 73
+
+<TO> <PO> photo
+#correct: 2
+#incorrect: 124
+
+" <PO> " starring (?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 5
+
+" <PO> , " <TO>
+#correct: 2
+#incorrect: 14
+
+in <PO> with <TO>
+#correct: 2
+#incorrect: 12
+
+with <PO> , [^<]*?<TO>
+#correct: 2
+#incorrect: 28
+
+" <PO> , <TO>
+#correct: 2
+#incorrect: 42
+
+, <PO> star <TO>
+#correct: 2
+#incorrect: 34
+
+<TO> on <PO> #
+#correct: 2
+#incorrect: 47
+
+<TO> [^<]*?(?:<NEmilitaryRank_NEprofession> )?(?:<NEperson> )?[^<]*?film ' <PO> :
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?(?:<NEdate_NEyear_NEnumber> )?(?:<NEseason> )?[^<]*?hit <PO> ,
+#correct: 2
+#incorrect: 5
+
+the <PO> <NEsport> [^<]*?<TO>
+#correct: 2
+#incorrect: 34
+
+# <PO> \[ (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+the <PO> ' [^<]*?<TO>
+#correct: 2
+#incorrect: 51
+
+the <PO> " <TO>
+#correct: 2
+#incorrect: 37
+
+<PO_NElocation> [^<]*?<TO>
+#correct: 2
+#incorrect: 161
+
+<TO> ' s <PO> #
+#correct: 2
+#incorrect: 92
+
+the <PO> - [^<]*?(?:<NEcolor> )?(?:<NEbirthstone> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 97
+
+<TO> [^<]*?(?:<NEperson> )?(?:<NEdate_NEyear_NEnumber> )?(?:<NEseason> )?[^<]*?hit <PO> ,
+#correct: 2
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?s <PO> #
+#correct: 2
+#incorrect: 193
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NElocation_NEcountry> )?(?:<NEmilitaryRank_NEprofession> )?[^<]*?movie " <PO> "
+#correct: 2
+#incorrect: 3
+
+<NEacronym> <PO> \( (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 77
+
+<PO_NElocation> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 185

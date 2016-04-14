@@ -1,0 +1,457 @@
+#passages: 944
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?(?:<NEriver_NEwater> )?<PO_NElength_NEsize>
+#correct: 23
+#incorrect: 8
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdisease> )?(?:<NElocation_NEcountry> )?[^<]*?<PO_NElength_NEsize>
+#correct: 20
+#incorrect: 8
+
+<PO_NElength_NEsize> [^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 14
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?(?:<NEriver_NEwater> )?<PO_NElength_NEsize>
+#correct: 20
+#incorrect: 8
+
+<PO_NElength_NEsize> [^<]*?(?:<NElength_NEsize> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 20
+#incorrect: 14
+
+<PO_NElength_NEsize> [^<]*?(?:<NElength_NEsize> )?[^<]*?<TO>
+#correct: 19
+#incorrect: 13
+
+<TO> [^<]*?(?:<NEriver_NEwater> )?<PO_NElength_NEsize>
+#correct: 19
+#incorrect: 8
+
+<TO> [^<]*?(?:<NEcountry> )?<PO_NElength_NEsize>
+#correct: 19
+#incorrect: 8
+
+<TO> [^<]*?<PO_NElength_NEsize>
+#correct: 18
+#incorrect: 8
+
+<PO_NElength_NEsize> [^<]*?(?:<NElocation_NEstate> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?<TO>
+#correct: 18
+#incorrect: 12
+
+<PO_NEarea_NEsize> [^<]*?<TO>
+#correct: 17
+#incorrect: 11
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?<PO_NElength_NEsize>
+#correct: 17
+#incorrect: 9
+
+<PO_NElength_NEsize> [^<]*?<TO>
+#correct: 17
+#incorrect: 11
+
+nearly <PO> , [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<PO_NElength_NEsize> of the <TO>
+#correct: 4
+#incorrect: 0
+
+<PO_NElength_NEsize> , from the <TO>
+#correct: 4
+#incorrect: 0
+
+nearly <PO> , from the <TO>
+#correct: 4
+#incorrect: 0
+
+, <PO> of [^<]*?<TO>
+#correct: 4
+#incorrect: 13
+
+, <PO> of the <TO>
+#correct: 4
+#incorrect: 3
+
+<TO> about <PO_NElength_NEsize>
+#correct: 3
+#incorrect: 1
+
+<PO_NElength_NEsize> across the <TO>
+#correct: 3
+#incorrect: 0
+
+floated <PO> across the <TO>
+#correct: 2
+#incorrect: 0
+
+floated <PO> across [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> and a facility out in the middle of the pacific <PO_NElength_NEsize>
+#correct: 2
+#incorrect: 0
+
+<TO> to widen by <PO> \(
+#correct: 2
+#incorrect: 0
+
+<TO> over <PO_NElength_NEsize>
+#correct: 2
+#incorrect: 0
+
+<TO> to widen by <PO_NElength_NEsize>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElength_NEsize> )?\( <PO> \)
+#correct: 2
+#incorrect: 7
+
+<TO> [^<]*?pacific <PO> from
+#correct: 2
+#incorrect: 0
+
+<TO> in the extreme east of <NElocation_NEcountry> , crossing the interior of the north <NEnationality_NEethnicGroup_NEriver_NEwater> continent for <NEriver_NEwater> <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> in the extreme east of <NElocation_NEcountry> , crossing the interior of the north <NEnationality_NEethnicGroup_NEriver_NEwater> continent for <NEriver_NEwater> <PO_NElength_NEsize>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?<NEriver_NEwater> <PO> #
+#correct: 2
+#incorrect: 22
+
+<TO> and a facility out in the middle of the pacific <PO> from
+#correct: 2
+#incorrect: 0
+
+<TO> <PO_NElength_NEsize>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?by <PO> \(
+#correct: 2
+#incorrect: 0
+
+\( <PO> \) [^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+than <PO> \( (?:<NElength_NEsize> )?[^<]*?(?:<NEnationality_NEethnicGroup_NEriver_NEwater> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> over <PO> away
+#correct: 2
+#incorrect: 0
+
+<TO> about <PO> east
+#correct: 2
+#incorrect: 0
+
+<TO> , more than <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+almost <PO> in length and extends from the <TO>
+#correct: 1
+#incorrect: 0
+
+over <PO> from [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+country <PO> \( <NElength_NEsize> \) from the <TO>
+#correct: 1
+#incorrect: 0
+
+and <PO> across the <TO>
+#correct: 1
+#incorrect: 7
+
+<TO> , but a line about <NElength_NEsize> \( <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+the <PO> of the deep <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> through <NElocation_NEcountry> and <NEdisease> <NElocation_NEcountry> , over <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?than <PO> away
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?<NEriver_NEwater> <PO> in
+#correct: 1
+#incorrect: 2
+
+<PO_NElength_NEsize> \( <NElength_NEsize> \) from the <TO>
+#correct: 1
+#incorrect: 1
+
+to <PO> away [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> \(
+#correct: 1
+#incorrect: 3
+
+<PO_NElength_NEsize> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?<TO>
+#correct: 1
+#incorrect: 3
+
+# <PO> from <NElocation_NEstate> to the coast of <NElocation_NEcountry> and separating the <NElocation_NEsea_NEwater> and the <NElocation_NEsea_NEwater> from the <TO>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) from \. the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> intracoastal waterway - it stretches <PO> from
+#correct: 1
+#incorrect: 0
+
+<TO> , about <PO> southeast
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> \) from the <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> , more than <PO> away
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?over <PO> to
+#correct: 1
+#incorrect: 0
+
+almost <PO> in [^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEriver_NEwater> <PO> east
+#correct: 1
+#incorrect: 0
+
+<NEacronym> <PO> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <TO>
+#correct: 1
+#incorrect: 7
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdisease> )?(?:<NElocation_NEcountry> )?[^<]*?over <PO> !
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> from the <TO>
+#correct: 1
+#incorrect: 3
+
+over <PO> from the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> about <PO> downrange
+#correct: 1
+#incorrect: 1
+
+<TO> to <NElocation_NEcontinent> , covering <NEriver_NEwater> <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> \( <NElength_NEsize> \) in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , about <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+flows <PO> \( (?:<NElength_NEsize> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdisease> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> of the deep <TO>
+#correct: 1
+#incorrect: 0
+
+# <PO> from (?:<NElocation_NEstate> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?(?:<NElocation_NEsea_NEwater> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 42
+
+to <PO> away over the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> from <NElocation_NEstate> to the coast of <NElocation_NEcountry> and separating the <NElocation_NEsea_NEwater> and the <NElocation_NEsea_NEwater> from the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> east
+#correct: 1
+#incorrect: 17
+
+<TO> a voyage of <PO> \.
+#correct: 1
+#incorrect: 0
+
+than <PO> \( <NElength_NEsize> \) in the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?stretches <PO> from
+#correct: 1
+#incorrect: 0
+
+flows <PO> \( <NElength_NEsize> \) from <NElocation_NEcountry> , down through <NElocation_NEcountry> and <NElocation_NEcountry> to empty <NEdisease> the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?about <PO> southeast
+#correct: 1
+#incorrect: 0
+
+than <PO> \( (?:<NElength_NEsize> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <NEacronym> <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , <NEriver_NEwater> <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+<TO> to <NElocation_NEcontinent> , covering <NEriver_NEwater> <PO> in
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEriver_NEwater> <PO> east
+#correct: 1
+#incorrect: 0
+
+the <PO> of [^<]*?<TO>
+#correct: 1
+#incorrect: 62
+
+<TO> , but a line about <NElength_NEsize> \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> , a distance of <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+than <PO> \( <NElength_NEsize> \) from the south <NEnationality_NEethnicGroup_NEriver_NEwater> coast in the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> \( <NElength_NEsize> \) from the south <NEnationality_NEethnicGroup_NEriver_NEwater> coast in the <TO>
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> away over the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> , over <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?of <PO> \.
+#correct: 1
+#incorrect: 5
+
+<TO> , a distance of <PO> \(
+#correct: 1
+#incorrect: 0
+
+<TO> , over <PO> to
+#correct: 1
+#incorrect: 0
+
+<TO> to lay their eggs in an <NEcountry> <PO> away
+#correct: 1
+#incorrect: 0
+
+<TO> intracoastal waterway - it stretches <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+<TO> , travelling <NElength_NEsize> \( <PO> \)
+#correct: 1
+#incorrect: 0
+
+<TO> a voyage of <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> \) from \. the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> to lay their eggs in an <NEcountry> <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+\( <PO> \) from the <TO>
+#correct: 1
+#incorrect: 1
+
+<TO> , travelling <NElength_NEsize> \( <PO_NElength_NEsize>
+#correct: 1
+#incorrect: 0
+
+country <PO> \( (?:<NElength_NEsize> )?[^<]*?<TO>
+#correct: 1
+#incorrect: 0
+
+<TO> <PO> across
+#correct: 1
+#incorrect: 1
+
+<TO> through <NElocation_NEcountry> and <NEdisease> <NElocation_NEcountry> , over <PO> !
+#correct: 1
+#incorrect: 0
+
+of <PO> of [^<]*?<TO>
+#correct: 1
+#incorrect: 29
+
+and <PO> across [^<]*?<TO>
+#correct: 1
+#incorrect: 7
+
+<NEacronym> <PO> <NEacronym> (?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?(?:<NEacronym> )?<TO>
+#correct: 1
+#incorrect: 15
+
+<PO_NElength_NEsize> \( <NElength_NEsize> \) from <NElocation_NEcountry> , down through <NElocation_NEcountry> and <NElocation_NEcountry> to empty <NEdisease> the <TO>
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?over <PO> ;
+#correct: 1
+#incorrect: 0
+
+<TO> [^<]*?<NEcountry> <PO> away
+#correct: 1
+#incorrect: 0
+
+<PO_NElength_NEsize> in length and extends from the <TO>
+#correct: 1
+#incorrect: 0

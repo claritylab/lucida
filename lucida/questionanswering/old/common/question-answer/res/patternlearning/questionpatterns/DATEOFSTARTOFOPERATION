@@ -1,0 +1,10 @@
+QUESTION_TEMPLATE: When was <TO>'s first broadcast?
+ANSWER_TEMPLATE: Operational since: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO>'s first broadcast
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be the first <TO> publish
+((what|which) (century|date|day|decade|hour|month|time|year)|when) do <TO> (begin (broadcast|operation)|go on air)
+<TO>'s first broadcast be .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+the first <TO> be publish .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+<TO> (begin (broadcast|operation)|go on air) .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be <TO>( first use| open)
