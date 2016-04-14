@@ -1,11 +1,11 @@
-CC_DIR=$(LUCIDAROOT)/commandcenter/gen-cpp
+# CC_DIR=$(LUCIDAROOT)/commandcenter/gen-cpp
 CXX = g++
 PROTO = protoc
 # Needed for linking
 GEN_DIR = ./gen-cpp
 COMMON_DIR = ../common
 
-CXX_FLAGS = -O2
+CXX_FLAGS = -O3 -std=c++11
 LINK_FLAGS = -lopencv_core \
 						 -lopencv_highgui \
 						 -lopencv_imgproc \
@@ -26,11 +26,11 @@ LINK_FLAGS = -lopencv_core \
  
 TARGET_SERVER = imm_server
 
-CMDOBJECT_SERVER = $(CC_DIR)/CommandCenter.o \
+# CMDOBJECT_SERVER = $(CC_DIR)/CommandCenter.o \
                   $(CC_DIR)/commandcenter_types.o
 # CMDOBJECT_SERVER = CommandCenter.o commandcenter_types.o
-OBJECTS_SERVER = $(CMDOBJECT_SERVER) \
-					./gen-cpp/ImageMatchingService.o \
+OBJECTS_SERVER =    ./gen-cpp/lucidatypes_types.o \
+					./gen-cpp/LucidaService.o \
 					../common/detect.o \
 					../common/kp_protobuf.o \
 					../common/keypoints.pb.cc \
@@ -43,19 +43,20 @@ proto:
 	$(PROTO) --proto_path=$(COMMON_DIR) --cpp_out=$(COMMON_DIR) $(wildcard $(COMMON_DIR)/*.proto)
 
 thrift:
-	thrift --gen cpp service.thrift
+	thrift --gen cpp lucidaservice.thrift
+	thrift --gen cpp lucidatypes.thrift
 
 $(TARGET_SERVER): $(OBJECTS_SERVER)
 	$(CXX) $(CXX_FLAGS) $(OBJECTS_SERVER) -o $(TARGET_SERVER) $(LINK_FLAGS)
 
 common:
-	$(CXX) -I$(CC_DIR) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $(COMMON_DIR)/detect.cpp -o $(COMMON_DIR)/detect.o
-	$(CXX) -I$(CC_DIR) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $(COMMON_DIR)/kp_protobuf.cpp -o $(COMMON_DIR)/kp_protobuf.o
+	$(CXX) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $(COMMON_DIR)/detect.cpp -o $(COMMON_DIR)/detect.o
+	$(CXX) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $(COMMON_DIR)/kp_protobuf.cpp -o $(COMMON_DIR)/kp_protobuf.o
 
 %.o: %.cpp
-	$(CXX) -I$(CC_DIR) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
+	$(CXX) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
 clean:
-	rm -rf $(TARGET_SERVER) *.o
+	rm -rf $(TARGET_SERVER) *.o gen-cpp
 
 .PHONY:	all
