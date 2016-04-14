@@ -36,15 +36,8 @@ public class QAClient {
 		final QueryInput knowledge_text = new QueryInput("text", new ArrayList<String>() {{
 		    add("Today China’s population is over 1007 million, the largest of any country in the world.");
 		    add("Today is March 22, 2016.");
-		    add("I love XXX.");
-		    add("China is 2003.");
-		    add("China is 2003.");
-		    add("China is 2003.");
-		    add("China is 2003.");
-		    add("China is 2003.");
 		}});
 		final QueryInput knowledge_url = new QueryInput("URL", new ArrayList<String>() {{
-		    add("https://en.wikipedia.org/wiki/Aloe");
 		    add("https://en.wikipedia.org/wiki/Cookie");
 		}});
 		QuerySpec knowledge = new QuerySpec(new ArrayList<QueryInput>() {{
