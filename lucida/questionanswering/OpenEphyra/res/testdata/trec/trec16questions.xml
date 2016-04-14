@@ -1,0 +1,3338 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE trecqa [
+
+<!-- ======================================================================
+      TREC 2007 QA track data definition
+
+      Written 2004-05-11 by Jochen L. Leidner <leidner@acm.org>.
+      Modified 2004-05-21 by Ellen Voorhees <ellen.voorhees@nist.gov>
+      Modified 2007-06-12 by Hoa Dang <hoa.dang@nist.gov>
+     ====================================================================== -->
+
+    <!ELEMENT trecqa  (target+)           >
+    <!ELEMENT target   (qa+)              >
+    <!ELEMENT qa      (q, as)             >
+    <!ELEMENT q       (CDATA)    > <!-- don't want text of question parsed -->
+    <!ELEMENT as      (a*, nugget*)      >
+
+    <!ATTLIST trecqa
+                      year  CDATA #REQUIRED
+                      task CDATA #REQUIRED>
+
+    <!ATTLIST target  id    ID    #REQUIRED
+                      text  CDATA #REQUIRED>
+
+    <!ATTLIST q       id    ID    #REQUIRED
+                      type  (FACTOID|LIST|OTHER) #REQUIRED>
+
+    <!ATTLIST a       src   CDATA #REQUIRED
+                      regex CDATA #IMPLIED >
+
+    <!ATTLIST nugget  id     ID   #REQUIRED
+                      type   (VITAL|OKAY)        #REQUIRED>
+<!-- ====================================================================== -->
+]>
+
+<trecqa year="2007" task="main">
+<target id = "216" text = "Paul Krugman">
+    <qa>
+	<q id = "216.1" type="FACTOID">
+	    For which newspaper does Krugman write?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "216.2" type="FACTOID">
+	    At which university does Krugman teach?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "216.3" type="FACTOID">
+	    From which university did he receive his doctorate?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "216.4" type="FACTOID">
+	    What is Krugman's academic specialty?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "216.5" type="FACTOID">
+	    What prize originating in Spain has Krugman won?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "216.6" type="LIST">
+	    What are titles of books written by Krugman?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "216.7" type="LIST">
+	    What persons has Krugman criticized in his op-ed columns?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "216.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "217" text = "Jay-Z">
+    <qa>
+	<q id = "217.1" type="FACTOID">
+	    What company produces his records?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "217.2" type="FACTOID">
+	    What is his real name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "217.3" type="FACTOID">
+	    Who is he planning to marry?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "217.4" type="FACTOID">
+	    Which company is he president of?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "217.5" type="FACTOID">
+	    Where did he grow up?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "217.6" type="LIST">
+	    What are titles of albums featuring Jay-Z?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "217.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "218" text = "impressionist Darrell Hammond">
+    <qa>
+	<q id = "218.1" type="FACTOID">
+	    How old is Darrell Hammond?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "218.2" type="FACTOID">
+	    From which university did he graduate?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "218.3" type="FACTOID">
+	    What is his annual income?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "218.4" type="FACTOID">
+	    On what TV show does Hammond regularly appear?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "218.5" type="FACTOID">
+	    His shows appear on which network?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "218.6" type="FACTOID">
+	    On what Comedy Central program was Hammond featured?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "218.7" type="LIST">
+	    Which people has he impersonated?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "218.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "219" text = "Iraqi defector Curveball">
+    <qa>
+	<q id = "219.1" type="FACTOID">
+	    What year did Curveball defect?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "219.2" type="FACTOID">
+	    What was Curveball's profession?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "219.3" type="FACTOID">
+	    What is Curveball's real name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "219.4" type="FACTOID">
+	    Which intelligence service employed Curveball?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "219.5" type="LIST">
+	    Which US government officials accepted his claims regarding Iraqi weapons labs?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "219.6" type="FACTOID">
+	    Where does Curveball now live?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "219.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "220" text = "International Management Group (IMG)">
+    <qa>
+	<q id = "220.1" type="FACTOID">
+	    Who founded the firm?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "220.2" type="FACTOID">
+	    In what year was the firm founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "220.3" type="FACTOID">
+	    What company acquired IMG in 2004?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "220.4" type="LIST">
+	    Who are members of the board of the IMG?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "220.5" type="FACTOID">
+	    Who is the head of the IMG golf division in North America?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "220.6" type="FACTOID">
+	    What IMG agent represents Vijay Singh?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "220.7" type="LIST">
+	    What other sport stars are represented by IMG?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "220.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "221" text = "U.S. Mint">
+    <qa>
+	<q id = "221.1" type="FACTOID">
+	    Where is the Mint headquartered?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "221.2" type="FACTOID">
+	    What year was the Mint established?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "221.3" type="FACTOID">
+	    The Mint is part of which cabinet department?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "221.4" type="FACTOID">
+	    Who is director of the Mint?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "221.5" type="FACTOID">
+	    Who many dimes does the Mint produce each month?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "221.6" type="FACTOID">
+	    What name is given to the coin honoring the Lewis and Clark expedition?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "221.7" type="LIST">
+	    Name people who have appeared on the Mint's coins.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "221.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "222" text = "3M">
+    <qa>
+	<q id = "222.1" type="FACTOID">
+	    When was 3M founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "222.2" type="FACTOID">
+	    Where is the company based?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "222.3" type="FACTOID">
+	    Who is the CEO?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "222.4" type="FACTOID">
+	    Who was his predecessor as 3M CEO?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "222.5" type="FACTOID">
+	    What does 3M stand for?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "222.6" type="FACTOID">
+	    What is 3M's web address?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "222.7" type="LIST">
+	    What brand name products does 3M manufacture?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "222.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "223" text = "Merrill Lynch &amp; Co.">
+    <qa>
+	<q id = "223.1" type="FACTOID">
+	    Who is the chief executive?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "223.2" type="FACTOID">
+	    What is Merrill Lynch's prime business?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "223.3" type="FACTOID">
+	    Where is Merrill Lynch headquartered?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "223.4" type="FACTOID">
+	    On which street is Merrill Lynch headquarters located?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "223.5" type="FACTOID">
+	    By what other name is the company known?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "223.6" type="LIST">
+	    Name persons involved in law suits with Merrill Lynch.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "223.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "224" text = "WWE">
+    <qa>
+	<q id = "224.1" type="FACTOID">
+	    Who is the chairman of WWE?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "224.2" type="FACTOID">
+	    Who is the chief executive of WWE?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "224.3" type="FACTOID">
+	    Where is WWE headquartered?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "224.4" type="FACTOID">
+	    What is "WWE" short for?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "224.5" type="FACTOID">
+	    WWE evolved from what earlier organization?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "224.6" type="FACTOID">
+	    What cable network airs WWE?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "224.7" type="LIST">
+	    What wrestlers have appeared in WWE events?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "224.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "225" text = "Sago Mine disaster">
+    <qa>
+	<q id = "225.1" type="FACTOID">
+	    On what date did the disaster occur?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "225.2" type="FACTOID">
+	    Who was the sole survivor?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "225.3" type="FACTOID">
+	    What company owned the Sago Mine?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "225.4" type="FACTOID">
+	    How many miners died in the disaster?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "225.5" type="FACTOID">
+	    In what state was the Sago mine?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "225.6" type="FACTOID">
+	    What organization investigated the disaster?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "225.7" type="LIST">
+	    Who were victims of the disaster?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "225.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "226" text = "Harriet Miers withdraws nomination to Supreme Court">
+    <qa>
+	<q id = "226.1" type="FACTOID">
+	    On what date did she withdraw her nomination?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "226.2" type="FACTOID">
+	    On what date was she nominated for the post?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "226.3" type="FACTOID">
+	    Whose place would she have taken on the Supreme Court?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "226.4" type="FACTOID">
+	    Who nominated Miers for the post?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "226.5" type="FACTOID">
+	    What criterion did this person cite in nominating Miers?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "226.6" type="FACTOID">
+	    How old is Harriet Miers?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "226.7" type="LIST">
+	    What Republican senators supported the nomination?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "226.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "227" text = "Robert Blake criminal trial">
+    <qa>
+	<q id = "227.1" type="FACTOID">
+	    Who was Blake accused of murdering?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "227.2" type="FACTOID">
+	    On what date did the court begin screening potential jurors?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "227.3" type="FACTOID">
+	    On what date did the trial end?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "227.4" type="FACTOID">
+	    Who was the judge in the trial?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "227.5" type="FACTOID">
+	    What was the verdict in the trial?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "227.6" type="FACTOID">
+	    Which attorney was the last prosecutor?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "227.7" type="LIST">
+	    Who were witnesses during the trial?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "227.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "228" text = "March Madness 2006">
+    <qa>
+	<q id = "228.1" type="FACTOID">
+	    How long does the Madness last?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "228.2" type="FACTOID">
+	    What is another slang expression for the Madness?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "228.3" type="FACTOID">
+	    When is the concluding night of the Madness?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "228.4" type="FACTOID">
+	    What expression describes the Madness' semifinals?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "228.5" type="FACTOID">
+	    How many teams compete in the Madness?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "228.6" type="LIST">
+	    What head coaches had teams in the Madness?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "228.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "229" text = "first partial face transplant">
+    <qa>
+	<q id = "229.1" type="FACTOID">
+	    In what city was the operation performed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "229.2" type="FACTOID">
+	    What was the age of the recipient?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "229.3" type="FACTOID">
+	    What was the name of the recipient?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "229.4" type="FACTOID">
+	    On what date was the surgery performed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "229.5" type="FACTOID">
+	    Who supervised the transplant?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "229.6" type="FACTOID">
+	    What was the cause of the recipient's facial problem?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "229.7" type="LIST">
+	    What individuals with professional experience in medicine or ethics commented unfavorably on the procedure?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "229.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "230" text = "AMT">
+    <qa>
+	<q id = "230.1" type="FACTOID">
+	    What is the expansion of "AMT"?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "230.2" type="FACTOID">
+	    On what IRS tax form is the AMT calculation done?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "230.3" type="FACTOID">
+	    In what year was the AMT added to the Tax Code?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "230.4" type="FACTOID">
+	    What is the AMT exemption amount for a single taxpayer in 2006?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "230.5" type="FACTOID">
+	    What does President Bush want to do to the AMT?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "230.6" type="LIST">
+	    Which Congress persons want to change the AMT?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "230.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "231" text = "USS Abraham Lincoln">
+    <qa>
+	<q id = "231.1" type="FACTOID">
+	    What is the abbreviated ship designation for the USS Abraham Lincoln?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "231.2" type="FACTOID">
+	    On what date was the USS Abraham Lincoln commissioned?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "231.3" type="FACTOID">
+	    Where is the USS Abraham Lincoln home ported?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "231.4" type="FACTOID">
+	    On what date did President Bush visit the USS Abraham Lincoln?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "231.5" type="FACTOID">
+	    Who is the commander of the USS Abraham Lincoln?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "231.6" type="LIST">
+	    What types of aircraft can fly from the USS Abraham Lincoln?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "231.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "232" text = "Dulles Airport">
+    <qa>
+	<q id = "232.1" type="FACTOID">
+	    What is the 3-character airport code for Dulles?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "232.2" type="FACTOID">
+	    What is the approved designation for Dulles?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "232.3" type="FACTOID">
+	    In what state is Dulles located?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "232.4" type="FACTOID">
+	    Who is the airport named after?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "232.5" type="FACTOID">
+	    Which authority runs the airport?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "232.6" type="LIST">
+	    Which airlines use Dulles?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "232.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "233" text = "comic strip Blondie">
+    <qa>
+	<q id = "233.1" type="FACTOID">
+	    Who was the creator of the strip?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "233.2" type="FACTOID">
+	    Blondie is syndicated by what organization?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "233.3" type="LIST">
+	    Name characters in the strip besides Blondie.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "233.4" type="FACTOID">
+	    What is the last name of the character Blondie?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "233.5" type="FACTOID">
+	    What is the name of Blondie's father-in-law?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "233.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "234" text = "Irving Berlin">
+    <qa>
+	<q id = "234.1" type="FACTOID">
+	    In what country was Irving Berlin born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "234.2" type="FACTOID">
+	    How many songs did Irving Berlin compose?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "234.3" type="FACTOID">
+	    What was Irving Berlin's first big hit?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "234.4" type="LIST">
+	    List some of Berlin's compositions.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "234.5" type="FACTOID">
+	    When did Irving Berlin die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "234.6" type="FACTOID">
+	    How did Irving Berlin die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "234.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "235" text = "Susan Butcher">
+    <qa>
+	<q id = "235.1" type="FACTOID">
+	    In what year was Susan Butcher born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "235.2" type="FACTOID">
+	    How many times did Susan Butcher run the Iditarod Race?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "235.3" type="FACTOID">
+	    How many times did Susan Butcher win the Iditarod Race?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "235.4" type="LIST">
+	    List the years that she won the Iditarod Race.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "235.5" type="FACTOID">
+	    Where does she live?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "235.6" type="FACTOID">
+	    On what date was she diagnosed with acute myelogenous leukemia?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "235.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "236" text = "Boston Pops">
+    <qa>
+	<q id = "236.1" type="FACTOID">
+	    Who is the conductor of the Boston Pops?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "236.2" type="LIST">
+	    List previous conductors of the Boston Pops.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "236.3" type="FACTOID">
+	    What is the annual salary of the Boston Pops conductor?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "236.4" type="FACTOID">
+	    Who is the manager of the Boston Pops?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "236.5" type="FACTOID">
+	    What is the concert venue of the Boston Pops?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "236.6" type="FACTOID">
+	    How many concerts did the Boston Pops hold there in 2005?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "236.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "237" text = "Cunard Cruise Lines">
+    <qa>
+	<q id = "237.1" type="FACTOID">
+	    What corporation owns Cunard Cruise Lines?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "237.2" type="FACTOID">
+	    In what city is this corporation based?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "237.3" type="FACTOID">
+	    Who is Cunard's president and managing director?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "237.4" type="FACTOID">
+	    What is the name of the largest ship in Cunard Cruise Lines?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "237.5" type="FACTOID">
+	    How many passengers have traveled with Cunard Cruise Lines?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "237.6" type="LIST">
+	    List the ships in Cunard Cruise Lines.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "237.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "238" text = "2004 Baseball World Series">
+    <qa>
+	<q id = "238.1" type="FACTOID">
+	    Who won the 2004 World Series?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "238.2" type="FACTOID">
+	    What team was defeated in the 2004 World Series?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "238.3" type="FACTOID">
+	    How many years transpired between world championships for the winning team?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "238.4" type="FACTOID">
+	    Who drove in the deciding runs in the first game of the 2004 World Series?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "238.5" type="LIST">
+	    List some of the stars in the 2004 World Series.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "238.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "239" text = "game show Jeopardy">
+    <qa>
+	<q id = "239.1" type="FACTOID">
+	    On what date did Jeopardy air for the first time?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "239.2" type="FACTOID">
+	    Who was the first host of Jeopardy?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "239.3" type="FACTOID">
+	    Who is the current host of Jeopardy?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "239.4" type="FACTOID">
+	    What Jeopardy contestant is the biggest money-winner in television game show history?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "239.5" type="LIST">
+	    List some contestants on Jeopardy.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "239.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "240" text = "Harry Potter and the Goblet of Fire">
+    <qa>
+	<q id = "240.1" type="FACTOID">
+	    Who is the author of "Harry Potter and the Goblet of Fire"?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "240.2" type="FACTOID">
+	    What is the number for "Harry Potter and the Goblet of Fire" in the series of Harry Potter books?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "240.3" type="FACTOID">
+	    Into how many languages has "Harry Potter and the Goblet of Fire" been translated?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "240.4" type="FACTOID">
+	    What is the name of the Wizarding Game in "Harry Potter and the Goblet of Fire"?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "240.5" type="LIST">
+	    List names of characters in "Harry Potter and the Goblet of Fire".
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "240.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "241" text = "Jasper Fforde">
+    <qa>
+	<q id = "241.1" type="FACTOID">
+	    What was author Jasper Fforde's first book?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "241.2" type="FACTOID">
+	    What year was his first book written?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "241.3" type="FACTOID">
+	    What company published his first book?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "241.4" type="FACTOID">
+	    How old was Jasper Fforde when he wrote his first Thursday Next novel?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "241.5" type="FACTOID">
+	    How many books did he write in the Thursday Next series?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "241.6" type="LIST">
+	    What books did Jasper Fforde write?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "241.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "242" text = "Guinness Brewery">
+    <qa>
+	<q id = "242.1" type="FACTOID">
+	    Who was the founder of the Guinness Brewery?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "242.2" type="FACTOID">
+	    In what year was the Guinness Brewery founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "242.3" type="FACTOID">
+	    Who was the Guinness Brewmaster in 2006?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "242.4" type="FACTOID">
+	    How many pints of stout a day does Guinness sell in Ireland?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "242.5" type="FACTOID">
+	    What is the percent of alcohol by volume in Guinness Stout?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "242.6" type="FACTOID">
+	    What other Breweries make stout beers?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "242.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "243" text = "2005 London terror bombing attacks">
+    <qa>
+	<q id = "243.1" type="LIST">
+	    What were the names of bombing suspects in the London terrorist attacks in 2005?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "243.2" type="FACTOID">
+	    On what date were the first London terror bombing attacks of 2005 carried out?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "243.3" type="FACTOID">
+	    On what date was the second London terror bombing attack?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "243.4" type="FACTOID">
+	    How many bombers were killed in the London terror bombing attacks?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "243.5" type="FACTOID">
+	    Who many people were killed in total in the attacks?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "243.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "244" text = "Rubik's Cube Competitions">
+    <qa>
+	<q id = "244.1" type="FACTOID">
+	    Who invented the Rubik's Cube?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "244.2" type="FACTOID">
+	    Who founded the International Rubik's Cube Competition in the United States?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "244.3" type="FACTOID">
+	    What was the world record time set in the 2006 competition?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "244.4" type="FACTOID">
+	    What was the previous world record time?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "244.5" type="FACTOID">
+	    Who is considered to be the "fastest Rubik's Cube solver on the planet"?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "244.6" type="LIST">
+	    Who have set world records in solving Rubik's Cubes?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "244.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "245" text = "hybrid cars">
+    <qa>
+	<q id = "245.1" type="FACTOID">
+	    How many new hybrid vehicles were sold in the United States in 2004?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "245.2" type="FACTOID">
+	    Which automaker was the first to introduce a hybrid car?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "245.3" type="FACTOID">
+	    In what year was the Prius concept car introduced?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "245.4" type="FACTOID">
+	    What percentage of new car sales in the U.S. in 2004 was for hybrid cars?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "245.5" type="LIST">
+	    Which automobile manufacturers are producing hybrid vehicles?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "245.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "246" text = "Michael Brown">
+    <qa>
+	<q id = "246.1" type="LIST">
+	    What positions did Michael Brown hold before becoming head of FEMA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "246.2" type="FACTOID">
+	    Who preceded Brown as head of FEMA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "246.3" type="FACTOID">
+	    When did Brown start working at FEMA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "246.4" type="FACTOID">
+	    On what date did Brown resign as head of FEMA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "246.5" type="FACTOID">
+	    Who was appointed as the acting head of FEMA when Brown resigned?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "246.6" type="FACTOID">
+	    Which government department was FEMA under at the time of Hurricane Katrina?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "246.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "247" text = "Ella Fitzgerald">
+    <qa>
+	<q id = "247.1" type="FACTOID">
+	    What was Ella Fitzgerald's first hit record?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "247.2" type="FACTOID">
+	    How old was Ella Fitzgerald when she made her first hit record?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "247.3" type="FACTOID">
+	    Who was Ella Fitzgerald's husband?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "247.4" type="LIST">
+	    What singers made recordings with Ella Fitzgerald?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "247.5" type="FACTOID">
+	    What was the name of Ella Fitzgerald's Christmas record album?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "247.6" type="FACTOID">
+	    In 2005 Ella Fitzgerald was inducted into what hall of fame?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "247.7" type="LIST">
+	    What composers wrote songs that Ella Fitzgerald recorded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "247.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "248" text = "CSPI">
+    <qa>
+	<q id = "248.1" type="FACTOID">
+	    What does the abbreviation CSPI stand for?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "248.2" type="FACTOID">
+	    What is the name of CSPI's newsletter?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "248.3" type="LIST">
+	    Name officers of CSPI.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "248.4" type="FACTOID">
+	    What is the CSPI web site?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "248.5" type="FACTOID">
+	    According to CSPI, which artificial sweetener is the safest?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "248.6" type="FACTOID">
+	    What restaurant was praised by CSPI for putting nutrition information for all the items on its menus?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "248.7" type="FACTOID">
+	    What restaurant chain was the subject of a complaint made by CSPI to the Food and Drug Administration?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "248.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "249" text = "Fulbright Program">
+    <qa>
+	<q id = "249.1" type="FACTOID">
+	    What year was the Fulbright Program established?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "249.2" type="FACTOID">
+	    What U.S. government entity sponsors the Fulbright Program?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "249.3" type="FACTOID">
+	    What UN organization hosts internships under the Fulbright Program?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "249.4" type="LIST">
+	    In what countries can Fulbright scholars be found?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "249.5" type="FACTOID">
+	    How many grants does the Fulbright Program award each year?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "249.6" type="FACTOID">
+	    How many times can a person get a Fulbright award?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "249.7" type="FACTOID">
+	    What senator applied for and received a Fulbright but turned it down?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "249.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "250" text = "publication of Danish cartoons of Mohammed">
+    <qa>
+	<q id = "250.1" type="FACTOID">
+	    What newspaper first published the cartoons?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "250.2" type="FACTOID">
+	    How many cartoons were there?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "250.3" type="LIST">
+	    In what countries were protests staged?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "250.4" type="FACTOID">
+	    What earlier publication about Mohammed created protests and death threats?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "250.5" type="FACTOID">
+	    What was the first U.S. newspaper to publish one of the cartoons?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "250.6" type="FACTOID">
+	    What museum planned to exhibit the cartoons?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "250.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "251" text = "Lyme disease">
+    <qa>
+	<q id = "251.1" type="FACTOID">
+	    In what city and state was Lyme disease first reported?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "251.2" type="FACTOID">
+	    When was Lyme disease named?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "251.3" type="FACTOID">
+	    What organism causes Lyme disease?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "251.4" type="LIST">
+	    In what states is Lyme disease a problem?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "251.5" type="FACTOID">
+	    What medications are used to treat Lyme disease?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "251.6" type="FACTOID">
+	    What insect repellent works against the ticks that carry Lyme disease?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "251.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "252" text = "American Girl dolls">
+    <qa>
+	<q id = "252.1" type="FACTOID">
+	    In what year were American Girl dolls first introduced?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "252.2" type="LIST">
+	    Name the historical dolls.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "252.3" type="LIST">
+	    Which American Girl dolls have had TV movies made about them?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "252.4" type="FACTOID">
+	    How much does an American Girl doll cost?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "252.5" type="FACTOID">
+	    How many American Girl dolls have been sold?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "252.6" type="FACTOID">
+	    What is the name of the American Girl store in New York?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "252.7" type="FACTOID">
+	    What corporation owns the American Girl company?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "252.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "253" text = "Kurt Weill">
+    <qa>
+	<q id = "253.1" type="FACTOID">
+	    What is the date of Kurt Weill's birth?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "253.2" type="FACTOID">
+	    In what year did Kurt Weill die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "253.3" type="FACTOID">
+	    In what country was Kurt Weill born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "253.4" type="LIST">
+	    What musicals did Kurt Weill write?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "253.5" type="FACTOID">
+	    Who was Kurt Weill's wife?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "253.6" type="LIST">
+	    With whom did Kurt Weill collaborate?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "253.7" type="FACTOID">
+	    For which Kurt Weill song did Bobby Darin receive a Grammy award?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "253.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "254" text = "House of Chanel">
+    <qa>
+	<q id = "254.1" type="FACTOID">
+	    Who founded the House of Chanel?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "254.2" type="FACTOID">
+	    In what year was the company founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "254.3" type="FACTOID">
+	    Who is the president of the House of Chanel?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "254.4" type="FACTOID">
+	    Who took over the House of Chanel in 1983?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "254.5" type="LIST">
+	    What women have worn Chanel clothing to award ceremonies?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "254.6" type="LIST">
+	    What museums have displayed Chanel clothing?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "254.7" type="FACTOID">
+	    What Chanel creation is the top-selling fragrance in the world?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "254.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "255" text = "British American Tobacco (BAT)">
+    <qa>
+	<q id = "255.1" type="FACTOID">
+	    Who is the chairman of BAT?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "255.2" type="FACTOID">
+	    In what city are BAT's headquarters?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "255.3" type="LIST">
+	    What brands of cigarettes does BAT manufacture?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "255.4" type="FACTOID">
+	    How many people does BAT employ?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "255.5" type="LIST">
+	    What companies has BAT owned?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "255.6" type="FACTOID">
+	    What public health group did BAT help fund?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "255.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "256" text = "Buffalo Soldiers">
+    <qa>
+	<q id = "256.1" type="FACTOID">
+	    When were the Buffalo Soldiers organized?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "256.2" type="FACTOID">
+	    What ethnicity were the Buffalo Soldiers?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "256.3" type="FACTOID">
+	    What part of the Soldiers' anatomy reminded the Indians of the buffalo?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "256.4" type="LIST">
+	    Name members of the Buffalo Soldiers.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "256.5" type="FACTOID">
+	    In what year were the Buffalo Soldier regiments merged with the integrated army?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "256.6" type="FACTOID">
+	    In what year were the Buffalo Soldier regiments disbanded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "256.7" type="FACTOID">
+	    In which state did the Buffalo Soldiers protect National Parks?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "256.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "257" text = "2005 DARPA Grand Challenge">
+    <qa>
+	<q id = "257.1" type="FACTOID">
+	    What does the acronym DARPA stand for?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "257.2" type="FACTOID">
+	    In what city and state did the Challenge finals race take place?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "257.3" type="FACTOID">
+	    How many vehicles took part in the Challenge?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "257.4" type="LIST">
+	    What makes of vehicles participated in the Challenge, including semi-finals?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "257.5" type="FACTOID">
+	    What was the make of the winning vehicle?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "257.6" type="FACTOID">
+	    What was the name of the fuel the winner used?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "257.7" type="FACTOID">
+	    At what government agency were the winning vehicles on display?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "257.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "258" text = "2005 presidential election in Egypt">
+    <qa>
+	<q id = "258.1" type="FACTOID">
+	    On what date was the presidential election held?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "258.2" type="FACTOID">
+	    What was the percentage of turnout for the election?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "258.3" type="FACTOID">
+	    How many candidates ran for president?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "258.4" type="FACTOID">
+	    Who won the presidential election?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "258.5" type="FACTOID">
+	    What percentage of the votes did the winner receive?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "258.6" type="FACTOID">
+	    How much did a poster of the winning candidate cost?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "258.7" type="LIST">
+	    What international leaders sent or gave congratulations?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "258.8" type="FACTOID">
+	    Which of the candidates was arrested for forgery?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "258.9" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "259" text = "2005 World Snooker Championships">
+    <qa>
+	<q id = "259.1" type="FACTOID">
+	    In what city were the 2005 World Snooker Championships held?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "259.2" type="FACTOID">
+	    In what building was the 2005 World Snooker Championships held?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "259.3" type="FACTOID">
+	    In what month did the 2005 Snooker World Championship start?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "259.4" type="LIST">
+	    Name the participants in the 2005 World Snooker Championships.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "259.5" type="FACTOID">
+	    Who won the 2005 Snooker World Championship?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "259.6" type="FACTOID">
+	    How many World Snooker tournaments are there annually?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "259.7" type="LIST">
+	    Name the World Snooker tournaments.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "259.8" type="FACTOID">
+	    Who is the reigning superstar of snooker?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "259.9" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "260" text = "Teenage Mutant Ninja Turtles (TMNT)">
+    <qa>
+	<q id = "260.1" type="LIST">
+	    What were the names of characters in the TMNT stories?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "260.2" type="FACTOID">
+	    How many Ninja Turtles were there?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "260.3" type="FACTOID">
+	    What food did they eat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "260.4" type="FACTOID">
+	    What television network carried TMNT?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "260.5" type="FACTOID">
+	    In what year did the first TMNT movie come out?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "260.6" type="FACTOID">
+	    Including the planned 2007 movie, how many TMNT movies have there been?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "260.7" type="FACTOID">
+	    What state-of-the-art technique is being used for the newest TMNT movie?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "260.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "261" text = "marsupials">
+    <qa>
+	<q id = "261.1" type="FACTOID">
+	    In what do marsupials keep their young?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "261.2" type="LIST">
+	    What non-extinct animals are marsupials?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "261.3" type="FACTOID">
+	    What is the largest meat-eating marsupial?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "261.4" type="FACTOID">
+	    What marsupial is found outside of Australia?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "261.5" type="FACTOID">
+	    What can be made from marsupial manure?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "261.6" type="FACTOID">
+	    What cartoon character is based on a marsupial?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "261.7" type="FACTOID">
+	    The extinct Tasmanian tiger is known by what other name?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "261.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "262" text = "kumquat">
+    <qa>
+	<q id = "262.1" type="FACTOID">
+	    What type of produce is a kumquat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "262.2" type="FACTOID">
+	    What is the genus of kumquat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "262.3" type="FACTOID">
+	    What color is a kumquat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "262.4" type="FACTOID">
+	    What is the diameter of a kumquat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "262.5" type="LIST">
+	    Outside the US, in what countries can kumquat trees be found?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "262.6" type="FACTOID">
+	    In which continent did Kumquat trees originate?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "262.7" type="FACTOID">
+	    What holiday are kumquat trees associated with?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "262.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "263" text = "Ayn Rand">
+    <qa>
+	<q id = "263.1" type="FACTOID">
+	    On what date was she born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "263.2" type="FACTOID">
+	    What year did she come to the United States?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "263.3" type="FACTOID">
+	    What school did she get her bachelor's degree from?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "263.4" type="FACTOID">
+	    What is the name of the philosophy that she started?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "263.5" type="LIST">
+	    What government officials have been influenced by this philosophy?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "263.6" type="LIST">
+	    What were her fictional publications (including novels, novelettes, and plays)?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "263.7" type="FACTOID">
+	    What was the name of her husband?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "263.8" type="FACTOID">
+	    What year did she die?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "263.9" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "264" text = "Alan Greenspan">
+    <qa>
+	<q id = "264.1" type="FACTOID">
+	    When was Alan Greenspan born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.2" type="FACTOID">
+	    What school did he get his bachelor's degree from?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.3" type="FACTOID">
+	    What federal organization was Mr. Greenspan chairman of?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.4" type="FACTOID">
+	    When (month and year) was he first nominated to this position?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.5" type="FACTOID">
+	    How long did he serve in this position?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.6" type="FACTOID">
+	    Who has served longer in this position?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.7" type="FACTOID">
+	    Who has been selected to be Mr. Greenspan's successor as chairman?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.8" type="FACTOID">
+	    How many chairmen of this organization have there been since it was established in 1913?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.9" type="LIST">
+	    What foreign countries did Mr. Greenspan visit while chairman?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "264.10" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "265" text = "Mahmud (or Mahmood, Mahmoud) Ahmadinejad">
+    <qa>
+	<q id = "265.1" type="FACTOID">
+	    What country is Ahmadinejad president of?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "265.2" type="FACTOID">
+	    In what town was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "265.3" type="FACTOID">
+	    On what date was he born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "265.4" type="FACTOID">
+	    He holds a Ph.D. in what field?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "265.5" type="LIST">
+	    What foreign countries has he visited since his election to the presidency?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "265.6" type="LIST">
+	    What other positions has he held in government?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "265.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "266" text = "Rafik Hariri, former Lebanese Prime Minister">
+    <qa>
+	<q id = "266.1" type="FACTOID">
+	    When was Rafik Hariri born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.2" type="FACTOID">
+	    To what religion did he belong (including sect)?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.3" type="FACTOID">
+	    From what university did he get a degree?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.4" type="FACTOID">
+	    At what time in the day was he assassinated?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.5" type="FACTOID">
+	    How many others were killed at the same time?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.6" type="FACTOID">
+	    What country did the UN investigator, Detlev Mehlis, accuse of responsibility for Hariri's assassination?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.7" type="FACTOID">
+	    How long did Hariri serve as prime minister, total?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.8" type="FACTOID">
+	    What country other than Lebanon did he hold citizenship?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.9" type="LIST">
+	    What countries offered condolences at his death?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "266.10" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "267" text = "FISA Court">
+    <qa>
+	<q id = "267.1" type="FACTOID">
+	    What does the acronym FISA stand for?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "267.2" type="FACTOID">
+	    In what year was the court established?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "267.3" type="FACTOID">
+	    In 1990, how many wiretap applications were approved?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "267.4" type="FACTOID">
+	    How long a term do FISA judges serve?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "267.5" type="FACTOID">
+	    Under the original act, how many judges were to be on the court?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "267.6" type="LIST">
+	    Name the judges serving on this court in November 2005.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "267.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "268" text = "Israel evacuation of the Gaza Strip">
+    <qa>
+	<q id = "268.1" type="FACTOID">
+	    On what date was the evacuation of the settlers completed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "268.2" type="FACTOID">
+	    How many settlers were evacuated?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "268.3" type="FACTOID">
+	    What is the average compensation paid for each evacuated family?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "268.4" type="FACTOID">
+	    How many soldiers or police officers were used to carry out the evacuation?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "268.5" type="LIST">
+	    Who contributed money to purchase the Gaza greenhouses and supporting equipment?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "268.6" type="FACTOID">
+	    In the three months following the evacuation, how many rockets were fired at Israel from Gaza?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "268.7" type="LIST">
+	    What were the settlements that were evacuated?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "268.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "269" text = "Pakistan earthquakes of October 2005">
+    <qa>
+	<q id = "269.1" type="FACTOID">
+	    On what date did this earthquake strike?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "269.2" type="LIST">
+	    What countries were affected by this earthquake?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "269.3" type="FACTOID">
+	    What was the final death toll from this earthquake?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "269.4" type="FACTOID">
+	    What was the strength of this earthquake?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "269.5" type="FACTOID">
+	    Where was the epicenter (latitude and longitude)?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "269.6" type="LIST">
+	    What countries supplied aid?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "269.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "270" text = "The Mars rovers, Spirit and Opportunity">
+    <qa>
+	<q id = "270.1" type="FACTOID">
+	    On what date did Opportunity land on Mars?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "270.2" type="FACTOID">
+	    Who manages this mission?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "270.3" type="FACTOID">
+	    What was the original plans for the mission length?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "270.4" type="FACTOID">
+	    How many meters has Opportunity traveled on Mars?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "270.5" type="FACTOID">
+	    What is the minimum power requirement per day for one of these rovers to function?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "270.6" type="LIST">
+	    What named landmarks were visited by one of these rovers?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "270.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "271" text = "Jon Bon Jovi">
+    <qa>
+	<q id = "271.1" type="FACTOID">
+	    What is Jon Bon Jovi's profession?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "271.2" type="FACTOID">
+	    When was Bon Jovi born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "271.3" type="FACTOID">
+	    Where was Bon Jovi born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "271.4" type="LIST">
+	    What are some Bon Jovi hits?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "271.5" type="FACTOID">
+	    In what movie did Bon Jovi star?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "271.6" type="FACTOID">
+	    In how many concerts has Bon Jovi performed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "271.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "272" text = "Barack Obama">
+    <qa>
+	<q id = "272.1" type="FACTOID">
+	    In what US state was Barack Obama born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "272.2" type="FACTOID">
+	    On what date was Obama born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "272.3" type="FACTOID">
+	    What year was Obama elected to the US Senate?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "272.4" type="FACTOID">
+	    Whom did Obama defeat for the US Senate seat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "272.5" type="FACTOID">
+	    What position did Obama hold before becoming US senator?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "272.6" type="LIST">
+	    In which US states has Barack Obama lived?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "272.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "273" text = "Rush Limbaugh">
+    <qa>
+	<q id = "273.1" type="FACTOID">
+	    How big is Limbaugh's listening audience?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "273.2" type="FACTOID">
+	    How many markets carry Limbaugh's radio show?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "273.3" type="FACTOID">
+	    When was Limbaugh born?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "273.4" type="FACTOID">
+	    How many times has Limbaugh been married?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "273.5" type="LIST">
+	    What drugs did Limbaugh take for back pain?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "273.6" type="LIST">
+	    What books has Limbaugh written?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "273.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "274" text = "Exxon Mobile Corp">
+    <qa>
+	<q id = "274.1" type="FACTOID">
+	    Where is Exxon Mobile headquartered?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "274.2" type="FACTOID">
+	    In what year did Exxon and Mobile merge?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "274.3" type="FACTOID">
+	    Who is the Exxon Mobile CEO?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "274.4" type="LIST">
+	    In what countries has Exxon Mobile explored for oil?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "274.5" type="FACTOID">
+	    How much oil was spilled by the Exxon tanker Valdez?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "274.6" type="FACTOID">
+	    What was the cost of the oil clean-up?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "274.7" type="FACTOID">
+	    On what date did the oil spill occur?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "274.8" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "275" text = "Dixie Chicks">
+    <qa>
+	<q id = "275.1" type="FACTOID">
+	    What type of music is performed by the Dixie Chicks?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "275.2" type="LIST">
+	    What are the names of the Dixie Chicks?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "275.3" type="FACTOID">
+	    The Dixie Chicks are from which state?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "275.4" type="FACTOID">
+	    Which of the Dixie Chicks criticized President Bush?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "275.5" type="LIST">
+	    List songs recorded by the Dixie Chicks.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "275.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "276" text = "B-17 bomber">
+    <qa>
+	<q id = "276.1" type="FACTOID">
+	    What was the nickname given to the B-17 Bomber?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "276.2" type="FACTOID">
+	    What company manufactured the B-17 bomber?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "276.3" type="FACTOID">
+	    How many B-17's were built?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "276.4" type="LIST">
+	    The B-17 bomber was used against which countries?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "276.5" type="FACTOID">
+	    How many missions did the Memphis Belle fly?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "276.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "277" text = "Boeing 777 aircraft">
+    <qa>
+	<q id = "277.1" type="FACTOID">
+	    How many engines does the Boeing 777 have?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "277.2" type="FACTOID">
+	    What is the non-stop distance record established by the Boeing 777?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "277.3" type="FACTOID">
+	    How many versions of the Boeing 777 are there?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "277.4" type="FACTOID">
+	    Where is the Boeing 777 built?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "277.5" type="LIST">
+	    What countries have placed orders to buy the Boeing 777?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "277.6" type="FACTOID">
+	    How many passengers will the Boeing 777 carry?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "277.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "278" text = "St. Peter's Basilica">
+    <qa>
+	<q id = "278.1" type="FACTOID">
+	    How many years did it take to build St. Peter's Basilica?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "278.2" type="FACTOID">
+	    How tall is St. Peter's Basilica?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "278.3" type="FACTOID">
+	    What Pope started the building of the basilica?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "278.4" type="FACTOID">
+	    What Pope finished building St. Peter's?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "278.5" type="LIST">
+	    What architects were involved in building St. Peter's?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "278.6" type="FACTOID">
+	    Who built the basilica that previously stood at the same site as St. Peter's Basilica?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "278.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "279" text = "Australian wine">
+    <qa>
+	<q id = "279.1" type="FACTOID">
+	    What is Australia's signature grape?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "279.2" type="FACTOID">
+	    How much wine does Australia export to the U.S.?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "279.3" type="FACTOID">
+	    Where does Australia rank in exports of wine?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "279.4" type="FACTOID">
+	    What winery produces Yellowtail?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "279.5" type="LIST">
+	    Name some of Australia's female winemakers.
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "279.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "280" text = "Angkor Wat temples">
+    <qa>
+	<q id = "280.1" type="FACTOID">
+	    In what country is Angkor Wat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "280.2" type="FACTOID">
+	    How many monuments are there in Angkor Wat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "280.3" type="FACTOID">
+	    How long did it take to build the temples?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "280.4" type="LIST">
+	    What temples are at Angkor Wat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "280.5" type="FACTOID">
+	    Which is the largest temple at Angkor Wat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "280.6" type="FACTOID">
+	    How many people visit Angkor Wat annually?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "280.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "281" text = "Joseph Steffen">
+    <qa>
+	<q id = "281.1" type="FACTOID">
+	    How old is Joseph Steffen?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "281.2" type="FACTOID">
+	    What governor employed Steffen?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "281.3" type="FACTOID">
+	    In what state was Steffen employed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "281.4" type="FACTOID">
+	    How many state jobs did Steffen hold?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "281.5" type="LIST">
+	    Who has employed Steffen?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "281.6" type="FACTOID">
+	    Who was the target of rumors spread by Steffen?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "281.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "282" text = "Orhan Pamuk">
+    <qa>
+	<q id = "282.1" type="FACTOID">
+	    What nationality is novelist Orhan Pamuk?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "282.2" type="FACTOID">
+	    What is Pamuk's year of birth?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "282.3" type="FACTOID">
+	    What is Pamuk's city of birth?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "282.4" type="LIST">
+	    What awards has Pamuk won?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "282.5" type="LIST">
+	    What are titles of Pamuk's works?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "282.6" type="FACTOID">
+	    Into how many languages have Pamuk's works been translated?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "282.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "283" text = "Habitat for Humanity">
+    <qa>
+	<q id = "283.1" type="FACTOID">
+	    In what year was Habitat for Humanity founded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "283.2" type="FACTOID">
+	    Who was the founder of Habitat?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "283.3" type="FACTOID">
+	    In what city and state are Habitat for Humanity International headquarters?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "283.4" type="FACTOID">
+	    Who is Habitat for Humanity's most famous volunteer?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "283.5" type="FACTOID">
+	    How many volunteers have contributed to building houses for Habitat for Humanity?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "283.6" type="LIST">
+	    In what countries has Habitat for Humanity provided assistance abroad?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "283.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "284" text = "CAFTA approval by U.S. Congress">
+    <qa>
+	<q id = "284.1" type="FACTOID">
+	    What is the full name for CAFTA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "284.2" type="FACTOID">
+	    How many countries are included in CAFTA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "284.3" type="FACTOID">
+	    When was CAFTA signed?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "284.4" type="FACTOID">
+	    What was the deadline for implementation of CAFTA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "284.5" type="FACTOID">
+	    When did the U.S. Congress approve CAFTA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "284.6" type="LIST">
+	    What members of the U.S. House of Representatives opposed CAFTA?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "284.7" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+<target id = "285" text = "Yeti">
+    <qa>
+	<q id = "285.1" type="FACTOID">
+	    In what year did Sir Edmund Hillary search for Yeti?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "285.2" type="LIST">
+	    In what U.S. states have sightings of Yeti been reported?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "285.3" type="FACTOID">
+	    What was the height of Yeti reported as sighted in Malaysia?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "285.4" type="FACTOID">
+	    In what province and country were Yeti vocalizations recorded?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "285.5" type="LIST">
+	    What other names have been used for Yeti?
+	</q>
+    </qa>
+
+    <qa>
+	<q id = "285.6" type="OTHER">
+	    Other
+	</q>
+    </qa>
+</target>
+
+
+
+</trecqa>

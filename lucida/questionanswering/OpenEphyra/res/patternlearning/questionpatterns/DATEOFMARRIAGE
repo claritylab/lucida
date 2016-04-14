@@ -1,0 +1,7 @@
+QUESTION_TEMPLATE: When die <TO> get married?
+ANSWER_TEMPLATE: Married: <PO>
+
+((what|which) (century|date|day|decade|hour|month|time|year)|when) do <TO> (get )?marry
+((what|which) (century|date|day|decade|hour|month|time|year)|when) be the (marriage|wedding) of <TO>
+<TO> (get )?marry .*((what|which) (century|date|day|decade|hour|month|time|year)|when)
+the (marriage|wedding) of <TO> be .*((what|which) (century|date|day|decade|hour|month|time|year)|when)

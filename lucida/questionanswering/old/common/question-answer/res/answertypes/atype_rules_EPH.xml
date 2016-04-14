@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ATYPE_RULES>
+  <RULE atype="ACRONYM" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>acronym</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="ANGLE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>angle</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="BIRTHSTONE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>birthstone</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="BODY_PART" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>body_part</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="BODY_PART" conf="1.0">
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>part-of</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>of-the</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>the-body</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="CAUSE_OF_DEATH" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>cause_of_death</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="COLOR" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>color</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="CREATURE.ANIMAL" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>bird</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="CREATURE.PLANT" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>flower</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="CRIME" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>crime</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DATE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>century</FEATURE_VALUE>
+      <FEATURE_VALUE>decade</FEATURE_VALUE>
+      <FEATURE_VALUE>month</FEATURE_VALUE>
+      <FEATURE_VALUE>day_month</FEATURE_VALUE>
+      <FEATURE_VALUE>season</FEATURE_VALUE>
+      <FEATURE_VALUE>weekday</FEATURE_VALUE>
+      <FEATURE_VALUE>year</FEATURE_VALUE>
+      <FEATURE_VALUE>day</FEATURE_VALUE>
+      <FEATURE_VALUE>date=day</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DATE" conf="0.99">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>when</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DATE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>day=day_month</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DATE.WEEKDAY" conf="1.0">
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>what-day</FEATURE_VALUE>
+      <FEATURE_VALUE>What-day</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>day-of</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>of-the</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>the-week</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DISEASE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>disease</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DRAMA_TYPE" conf="0.99">
+    <RULE_ELEMENT feature_name="OF_HEAD">
+      <FEATURE_VALUE>kind</FEATURE_VALUE>
+      <FEATURE_VALUE>type</FEATURE_VALUE>
+      <FEATURE_VALUE>genre</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>show=show_type</FEATURE_VALUE>
+      <FEATURE_VALUE>film=film_type</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DRUG" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>narcotic</FEATURE_VALUE>
+      <FEATURE_VALUE>vaccine</FEATURE_VALUE>
+      <FEATURE_VALUE>medicinal</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>  
+  <RULE atype="DURATION" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>duration</FEATURE_VALUE>
+      <FEATURE_VALUE>age=duration</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DURATION" conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>how_much</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>time</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DURATION" conf="0.99">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>long</FEATURE_VALUE>
+      <FEATURE_VALUE>old</FEATURE_VALUE>
+      <FEATURE_VALUE>short</FEATURE_VALUE>
+      <FEATURE_VALUE>young</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DURATION"  conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>how_many</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>days</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="DURATION" conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>how_many</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>years</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="FOOD" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>fruit</FEATURE_VALUE>
+      <FEATURE_VALUE>food</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="FREQUENCY" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>often</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="FREQUENCY" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>frequency</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="LANGUAGE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>language</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="LEGAL_SENTENCE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>legal_sentence</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="LOCATION" conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>where</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+    <RULE atype="LOCATION" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>location</FEATURE_VALUE>
+      <FEATURE_VALUE>airport</FEATURE_VALUE>
+      <FEATURE_VALUE>city</FEATURE_VALUE>
+      <FEATURE_VALUE>capital=city.capital</FEATURE_VALUE>
+      <FEATURE_VALUE>continent</FEATURE_VALUE>
+      <FEATURE_VALUE>country</FEATURE_VALUE>
+      <FEATURE_VALUE>county</FEATURE_VALUE>
+      <FEATURE_VALUE>hemisphere</FEATURE_VALUE>
+      <FEATURE_VALUE>island</FEATURE_VALUE>
+      <FEATURE_VALUE>mountain</FEATURE_VALUE>
+      <FEATURE_VALUE>mountain_range</FEATURE_VALUE>
+      <FEATURE_VALUE>park=national_park</FEATURE_VALUE>
+      <FEATURE_VALUE>peninsula</FEATURE_VALUE>
+      <FEATURE_VALUE>planet</FEATURE_VALUE>
+      <FEATURE_VALUE>province</FEATURE_VALUE>
+      <FEATURE_VALUE>reef</FEATURE_VALUE>
+      <FEATURE_VALUE>state</FEATURE_VALUE>
+      <FEATURE_VALUE>street</FEATURE_VALUE>
+      <FEATURE_VALUE>water</FEATURE_VALUE>
+      <FEATURE_VALUE>canal=water.canal</FEATURE_VALUE>
+      <FEATURE_VALUE>lake=water.lake</FEATURE_VALUE>
+      <FEATURE_VALUE>river=water.river</FEATURE_VALUE>
+      <FEATURE_VALUE>sea=water.sea</FEATURE_VALUE>
+      <FEATURE_VALUE>ocean=water.sea.ocean</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="MATERIAL" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>chemical_element</FEATURE_VALUE>
+      <FEATURE_VALUE>metal</FEATURE_VALUE>
+      <FEATURE_VALUE>mineral</FEATURE_VALUE>
+      <FEATURE_VALUE>stone</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="MEDICAL_TREATMENT" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>medical_treatment</FEATURE_VALUE>
+      <FEATURE_VALUE>therapy</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="MONEY" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>rich</FEATURE_VALUE>
+      <FEATURE_VALUE>poor</FEATURE_VALUE>
+      <FEATURE_VALUE>expensive</FEATURE_VALUE>
+      <FEATURE_VALUE>inexpensive</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="MONEY" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>money</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="MONEY" conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>what</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="MAIN_VERB">
+      <FEATURE_VALUE>pay</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="MONEY" conf="0.99">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>how_much</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="MUSICAL_INSTRUMENT" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>musical_instrument</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="MUSIC_TYPE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>music_type</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="NATIONALITY" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>nationality</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="NUMBER" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>numex=number</FEATURE_VALUE>
+      <FEATURE_VALUE>ordinal</FEATURE_VALUE>
+      <FEATURE_VALUE>population=number</FEATURE_VALUE>
+      <FEATURE_VALUE>phone_number</FEATURE_VALUE>
+      <FEATURE_VALUE>zipcode</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="NUMBER" conf="0.99">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>how_many</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PATHOGEN" conf="0.99">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>bacteria</FEATURE_VALUE>
+      <FEATURE_VALUE>virus</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PERCENTAGE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>percent=percentage</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROFESSION" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>profession</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>prize=award</FEATURE_VALUE>
+      <FEATURE_VALUE>book</FEATURE_VALUE>
+      <FEATURE_VALUE>ethnic_group</FEATURE_VALUE>
+      <FEATURE_VALUE>stadium</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.DRAMA" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>film</FEATURE_VALUE>
+      <FEATURE_VALUE>play</FEATURE_VALUE>
+      <FEATURE_VALUE>musical=play.musical</FEATURE_VALUE>
+      <FEATURE_VALUE>show</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.EVENT" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>competition</FEATURE_VALUE>
+      <FEATURE_VALUE>conflict</FEATURE_VALUE>
+      <FEATURE_VALUE>festival</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.MUSIC" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>anthem=song.anthem</FEATURE_VALUE>
+      <FEATURE_VALUE>opera</FEATURE_VALUE>
+      <FEATURE_VALUE>song</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.ORGANIZATION" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>organization=</FEATURE_VALUE>
+      <FEATURE_VALUE>company=</FEATURE_VALUE>
+      <FEATURE_VALUE>educational_institution</FEATURE_VALUE>
+      <FEATURE_VALUE>ministry</FEATURE_VALUE>
+      <FEATURE_VALUE>newspaper</FEATURE_VALUE>
+      <FEATURE_VALUE>political_party</FEATURE_VALUE>
+      <FEATURE_VALUE>radio_station</FEATURE_VALUE>
+      <FEATURE_VALUE>team</FEATURE_VALUE>
+      <FEATURE_VALUE>tv_channel</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.PERSON" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>us_president</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>which</FEATURE_VALUE>
+      <FEATURE_VALUE>what</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.PERSON" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>people=</FEATURE_VALUE>
+      <FEATURE_VALUE>first_name</FEATURE_VALUE>
+      <FEATURE_VALUE>last_name</FEATURE_VALUE>
+      <FEATURE_VALUE>last_name</FEATURE_VALUE>
+      <FEATURE_VALUE>director=</FEATURE_VALUE>
+      <FEATURE_VALUE>actor</FEATURE_VALUE>
+      <FEATURE_VALUE>author</FEATURE_VALUE>
+      <FEATURE_VALUE>mathematician</FEATURE_VALUE>
+      <FEATURE_VALUE>playwright</FEATURE_VALUE>
+      <FEATURE_VALUE>scientist</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.PERSON" conf="1.0" >
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>whose</FEATURE_VALUE>
+      <FEATURE_VALUE>whom</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.PERSON.ACTOR" conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>who</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="MAIN_VERB">
+      <FEATURE_VALUE>played</FEATURE_VALUE>
+      <FEATURE_VALUE>plays</FEATURE_VALUE>
+      <FEATURE_VALUE>play</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.PERSON.DIRECTOR" conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>who</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="MAIN_VERB">
+      <FEATURE_VALUE>directed</FEATURE_VALUE>
+      <FEATURE_VALUE>directs</FEATURE_VALUE>
+      <FEATURE_VALUE>direct</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="PROPER_NAME.PERSON.DIRECTOR" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>director=</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="UNIGRAM">
+      <FEATURE_VALUE>movie</FEATURE_VALUE>
+      <FEATURE_VALUE>film</FEATURE_VALUE>
+      <FEATURE_VALUE>production</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="RANGE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>range</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="RATE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>rate</FEATURE_VALUE>
+      <FEATURE_VALUE>speed</FEATURE_VALUE>
+      <FEATURE_VALUE>mph=speed.mph</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="RATE.SPEED" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>fast</FEATURE_VALUE>
+      <FEATURE_VALUE>slow</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="RELATION" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>relation</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="RELATION" conf="0.98">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>how</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="MAIN_VERB">
+      <FEATURE_VALUE>relate</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="RELIGION" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>religion</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SCORE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>score</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SIZE" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>size</FEATURE_VALUE>
+      <FEATURE_VALUE>area</FEATURE_VALUE>
+      <FEATURE_VALUE>square_miles=area.square_miles</FEATURE_VALUE>
+      <FEATURE_VALUE>length</FEATURE_VALUE>
+      <FEATURE_VALUE>feet=length.feet</FEATURE_VALUE>
+      <FEATURE_VALUE>miles=length.miles</FEATURE_VALUE>
+      <FEATURE_VALUE>volume</FEATURE_VALUE>
+      <FEATURE_VALUE>gallons=volume.gallons</FEATURE_VALUE>
+      <FEATURE_VALUE>liters=volume.liters</FEATURE_VALUE>
+      <FEATURE_VALUE>ounces=volume.ounces</FEATURE_VALUE>
+      <FEATURE_VALUE>weight</FEATURE_VALUE>
+      <FEATURE_VALUE>grams=weight.grams</FEATURE_VALUE>
+      <FEATURE_VALUE>pounds=weight.pounds</FEATURE_VALUE>
+      <FEATURE_VALUE>tons=weight.tons</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SIZE" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>big</FEATURE_VALUE>
+      <FEATURE_VALUE>large</FEATURE_VALUE>
+      <FEATURE_VALUE>small</FEATURE_VALUE>
+      <FEATURE_VALUE>little</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SIZE.LENGTH" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>close</FEATURE_VALUE>
+      <FEATURE_VALUE>deep</FEATURE_VALUE>
+      <FEATURE_VALUE>far</FEATURE_VALUE>
+      <FEATURE_VALUE>high</FEATURE_VALUE>
+      <FEATURE_VALUE>narrow</FEATURE_VALUE>
+      <FEATURE_VALUE>short</FEATURE_VALUE>
+      <FEATURE_VALUE>tall</FEATURE_VALUE>
+      <FEATURE_VALUE>wide</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SIZE.LENGTH" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>long</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>long-is</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SIZE.VOLUME" conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>how_much</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>liquid=</FEATURE_VALUE>
+      <FEATURE_VALUE>water=</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SIZE.WEIGHT" conf="1.0">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>how_much</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="MAIN_VERB">
+      <FEATURE_VALUE>weigh</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SIZE.WEIGHT" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>heavy</FEATURE_VALUE>
+      <FEATURE_VALUE>light</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SOCIAL_TITLE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>social_title</FEATURE_VALUE>
+      <FEATURE_VALUE>military_rank</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SOCIAL_TITLE.POLICE_RANK" conf="0.99">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>rank=</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="UNIGRAM">
+      <FEATURE_VALUE>police</FEATURE_VALUE>
+      <FEATURE_VALUE>chief</FEATURE_VALUE>
+      <FEATURE_VALUE>serjeant</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SOCIAL_TITLE.MILITARY_RANK" conf="0.99">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>rank=</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="UNIGRAM">
+      <FEATURE_VALUE>military</FEATURE_VALUE>
+      <FEATURE_VALUE>army</FEATURE_VALUE>
+      <FEATURE_VALUE>navy</FEATURE_VALUE>
+      <FEATURE_VALUE>marines</FEATURE_VALUE>
+      <FEATURE_VALUE>force</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="SPORT" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>sport</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="STYLE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>style</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="TEMPERATURE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>temperature</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="TEMPERATURE" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>cold</FEATURE_VALUE>
+      <FEATURE_VALUE>hot</FEATURE_VALUE>
+      <FEATURE_VALUE>warm</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="TIME" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>time</FEATURE_VALUE>
+      <FEATURE_VALUE>hour</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="TIME" conf="1.0">
+    <RULE_ELEMENT feature_name="FOCUS_ADJ">
+      <FEATURE_VALUE>early</FEATURE_VALUE>
+      <FEATURE_VALUE>late</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="TIME" conf="0.99">
+    <RULE_ELEMENT feature_name="WH_WORD">
+      <FEATURE_VALUE>when</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="TIME" conf="0.99">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>time=daytime</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>of-day</FEATURE_VALUE>
+    </RULE_ELEMENT>
+    <RULE_ELEMENT feature_name="BIGRAM">
+      <FEATURE_VALUE>time-of</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="TIMEZONE" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>timezone</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="UNIT" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>currency</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="URL" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>url</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+  <RULE atype="ZODIAC_SIGN" conf="0.98">
+    <RULE_ELEMENT feature_name="FOCUS_TYPE">
+      <FEATURE_VALUE>zodiac_sign</FEATURE_VALUE>
+    </RULE_ELEMENT>
+  </RULE>
+</ATYPE_RULES>
+

@@ -1,0 +1,497 @@
+#passages: 12152
+
+<TO> (?:<NEeducationalInstitution> )?[^<]*?the <PO> <NEdate_NEyear_NEnumber>
+#correct: 60
+#incorrect: 186
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?the <PO> <NEdate_NEyear_NEnumber>
+#correct: 60
+#incorrect: 194
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?the <PO> \.
+#correct: 41
+#incorrect: 177
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEmusicalInstrument> )?[^<]*?(?:<NEsport> )?[^<]*?the <PO> \.
+#correct: 41
+#incorrect: 176
+
+<TO> [^<]*?<NEnumber> <PO> \.
+#correct: 36
+#incorrect: 91
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<NEdate_NEyear_NEnumber> <PO> \.
+#correct: 36
+#incorrect: 94
+
+<TO> [^<]*?<NEdate_NEyear_NEnumber> <PO> \.
+#correct: 36
+#incorrect: 92
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?the <PO> #
+#correct: 31
+#incorrect: 1107
+
+<TO> [^<]*?(?:<NEtime> )?[^<]*?(?:<NEperson> )?[^<]*?the <PO> #
+#correct: 31
+#incorrect: 1111
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?the <PO> in
+#correct: 30
+#incorrect: 359
+
+<TO> [^<]*?awarded the <PO> \.
+#correct: 30
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?the <PO> #
+#correct: 30
+#incorrect: 1086
+
+<TO> [^<]*?the <PO> #
+#correct: 30
+#incorrect: 1075
+
+<TO> [^<]*?the <PO> in
+#correct: 30
+#incorrect: 354
+
+<TO> [^<]*?awarded the <PO> #
+#correct: 19
+#incorrect: 63
+
+<TO> [^<]*?won the <PO> in
+#correct: 19
+#incorrect: 65
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NElanguage_NEnationality_NEethnicGroup> )?[^<]*?(?:<NElocation_NEacronym_NEcountry> )?[^<]*?(?:<NEprofession> )?[^<]*?<NEdate_NEyear_NEnumber> <PO> #
+#correct: 18
+#incorrect: 821
+
+<NEnumber> <PO> , [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 17
+#incorrect: 122
+
+<TO> [^<]*?<NEdate_NEyear_NEnumber> <PO> for
+#correct: 17
+#incorrect: 140
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<NEdate_NEyear_NEnumber> <PO> for
+#correct: 17
+#incorrect: 140
+
+<NEdate_NEyear_NEnumber> <PO> , [^<]*?<TO>
+#correct: 17
+#incorrect: 123
+
+<NEdate_NEyear_NEnumber> <PO> , [^<]*?(?:<NEcurrency> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 17
+#incorrect: 125
+
+<NEdate_NEyear_NEnumber> <PO> , [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 17
+#incorrect: 125
+
+<NEnumber> <PO> <TO>
+#correct: 16
+#incorrect: 1225
+
+the <PO> to <TO>
+#correct: 16
+#incorrect: 67
+
+<NEdate_NEyear_NEnumber> <PO> <TO>
+#correct: 16
+#incorrect: 1243
+
+the <PO> , [^<]*?<TO>
+#correct: 15
+#incorrect: 271
+
+<TO> is awarded the <PO> #
+#correct: 15
+#incorrect: 30
+
+<NEdate_NEyear_NEnumber> <PO> , <TO>
+#correct: 14
+#incorrect: 70
+
+<TO> [^<]*?<NEdate_NEyear_NEnumber> <PO> #
+#correct: 13
+#incorrect: 689
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEdisease> )?[^<]*?<NEdate_NEyear_NEnumber> <PO> #
+#correct: 13
+#incorrect: 778
+
+<TO> [^<]*?<NEnumber> <PO> #
+#correct: 13
+#incorrect: 685
+
+<TO> [^<]*?five <PO> \.
+#correct: 13
+#incorrect: 10
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?<NEdate_NEyear_NEnumber> <PO> #
+#correct: 13
+#incorrect: 732
+
+<TO> [^<]*?(?:<NEmilitaryRank> )?[^<]*?the <PO> on
+#correct: 11
+#incorrect: 46
+
+# <PO> <NEdate_NEyear_NEnumber> (?:<NEmonth> )?[^<]*?(?:<NEmonth> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 596
+
+# <PO> <NEnumber> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NEnationality> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 643
+
+<TO> [^<]*?the <PO> for
+#correct: 10
+#incorrect: 193
+
+# <PO> : [^<]*?<TO>
+#correct: 10
+#incorrect: 365
+
+: <PO> <TO>
+#correct: 10
+#incorrect: 228
+
+<TO> [^<]*?awarded [^<]*?<NEdate_NEyear_NEnumber> <PO> for
+#correct: 10
+#incorrect: 6
+
+# <PO> : (?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 370
+
+<TO> [^<]*?the <PO> ,
+#correct: 9
+#incorrect: 245
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?the <PO> ,
+#correct: 9
+#incorrect: 252
+
+# <PO> : <TO>
+#correct: 9
+#incorrect: 286
+
+<NEorganization> <PO> , (?:<NEperson> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 58
+
+<TO> won the <PO> in
+#correct: 8
+#incorrect: 19
+
+<TO> " won the <PO> in
+#correct: 7
+#incorrect: 0
+
+<TO> [^<]*?awarded the <PO> for
+#correct: 6
+#incorrect: 29
+
+<TO> [^<]*?<NEdate_NEyear_NEnumber> <PO> in
+#correct: 6
+#incorrect: 151
+
+<TO> [^<]*?five <PO> for
+#correct: 6
+#incorrect: 6
+
+<TO> [^<]*?(?:<NEethnicGroup> )?(?:<NEprofession> )?[^<]*?received [^<]*?<NEdate_NEyear_NEnumber> <PO> for
+#correct: 6
+#incorrect: 5
+
+<TO> [^<]*?<NEnumber> <PO> \(
+#correct: 5
+#incorrect: 60
+
+<TO> [^<]*?(?:<NEmilitaryRank_NEprofession> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?[^<]*?received [^<]*?<NEdate_NEyear_NEnumber> <PO> for
+#correct: 5
+#incorrect: 5
+
+the <PO> , <TO>
+#correct: 5
+#incorrect: 102
+
+, <PO> was [^<]*?<TO>
+#correct: 4
+#incorrect: 32
+
+<TO> [^<]*?(?:<NElocation_NEnumber> )?[^<]*?annual <PO> in
+#correct: 4
+#incorrect: 5
+
+: <PO> - [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 10
+
+<TO> (?:<NEdisease> )?[^<]*?won [^<]*?the <PO> ,
+#correct: 4
+#incorrect: 34
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?won the <PO> ,
+#correct: 4
+#incorrect: 34
+
+: <PO> - (?:<NEusPresident> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 10
+
+<TO> [^<]*?five <PO> ,
+#correct: 4
+#incorrect: 15
+
+: <PO> - [^<]*?<TO>
+#correct: 4
+#incorrect: 10
+
+<PO_NEaward> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 71
+
+the <PO> was awarded to <TO>
+#correct: 4
+#incorrect: 6
+
+<TO> [^<]*?<NEdate_NEyear_NEnumber> <PO> with
+#correct: 4
+#incorrect: 37
+
+<NEdate_NEyear_NEnumber> <PO> for (?:<NEperson> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 30
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?annual <PO> in
+#correct: 4
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?the <PO> and
+#correct: 4
+#incorrect: 105
+
+<TO> [^<]*?five <PO> in
+#correct: 4
+#incorrect: 20
+
+<TO> [^<]*?(?:<NEweekday> )?(?:<NEtime> )?[^<]*?won the <PO> ,
+#correct: 4
+#incorrect: 34
+
+: <PO> - [^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 4
+#incorrect: 11
+
+<TO> [^<]*?(?:<NEtime> )?at <PO> #
+#correct: 4
+#incorrect: 110
+
+the <PO> was awarded [^<]*?<TO>
+#correct: 4
+#incorrect: 6
+
+<TO> [^<]*?<NEdate_NEyear_NEnumber> <PO> ,
+#correct: 4
+#incorrect: 120
+
+<NEorganization_NEdate_NEyear_NEnumber> <PO> to [^<]*?<TO>
+#correct: 3
+#incorrect: 83
+
+<TO> [^<]*?won the <PO> last
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?won the <PO> \.
+#correct: 3
+#incorrect: 26
+
+<TO> [^<]*?won the <PO> \.
+#correct: 3
+#incorrect: 26
+
+<NEdate_NEyear_NEnumber> <PO> to <TO>
+#correct: 3
+#incorrect: 24
+
+<TO> [^<]*?(?:<NEsport> )?[^<]*?(?:<NEaward_NEfirstName> )?[^<]*?(?:<NEprofession> )?[^<]*?most <PO> \.
+#correct: 3
+#incorrect: 11
+
+# <PO> goes to <TO>
+#correct: 3
+#incorrect: 2
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?won the <PO> #
+#correct: 3
+#incorrect: 146
+
+# <PO> goes [^<]*?<TO>
+#correct: 3
+#incorrect: 4
+
+<TO> [^<]*?five <PO> including
+#correct: 3
+#incorrect: 16
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?won the <PO> \.
+#correct: 3
+#incorrect: 26
+
+<TO> [^<]*?received the <PO> for
+#correct: 2
+#incorrect: 10
+
+<TO> [^<]*?(?:<NElocation_NEcontinent_NEcountry> )?[^<]*?<NEdate_NEyear_NEnumber> <PO> ;
+#correct: 2
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?won the <PO> #
+#correct: 2
+#incorrect: 145
+
+<TO> , <PO> \.
+#correct: 2
+#incorrect: 123
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?received the <PO> for
+#correct: 2
+#incorrect: 10
+
+<TO> won five <PO> ,
+#correct: 2
+#incorrect: 11
+
+<PO_NEaward> [^<]*?(?:<NEorganization> )?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 104
+
+<PO_NEaward> (?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 66
+
+<TO> is awarded the <PO> for
+#correct: 2
+#incorrect: 0
+
+<TO> received the <PO> for
+#correct: 2
+#incorrect: 4
+
+<TO> [^<]*?(?:<NElocation_NEcountry> )?, <PO> \.
+#correct: 2
+#incorrect: 168
+
+the <PO> in (?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 109
+
+<TO> receives <PO> #
+#correct: 2
+#incorrect: 3
+
+the <PO> <NEdate_NEyear_NEnumber> [^<]*?<TO>
+#correct: 2
+#incorrect: 99
+
+<TO> [^<]*?(?:<NElocation_NEnumber> )?[^<]*?annual <PO> ,
+#correct: 2
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?annual <PO> ,
+#correct: 2
+#incorrect: 9
+
+<PO_NEaward> [^<]*?(?:<NEorganization_NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 68
+
+<TO> [^<]*?<NEdate_NEyear_NEnumber> <PO> \)
+#correct: 2
+#incorrect: 136
+
+<PO_NEaward> for <NEorganization> in " <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?<NEorganization_NEdate_NEyear_NEnumber> <PO> \)
+#correct: 2
+#incorrect: 142
+
+<TO> (?:<NEacronym_NEfirstName> )?(?:<NEacronym> )?<NEdate_NEyear_NEnumber> <PO> \.
+#correct: 2
+#incorrect: 9
+
+<TO> <PO_NEaward>
+#correct: 2
+#incorrect: 3
+
+<TO> (?:<NEacronym_NEchemicalElement_NEmetal_NEmineral> )?(?:<NEnumber> )?(?:<NEacronym> )?<PO_NEacronym_NEaward>
+#correct: 2
+#incorrect: 100
+
+<NEdate_NEyear_NEnumber> <PO> and [^<]*?<TO>
+#correct: 2
+#incorrect: 20
+
+<TO> [^<]*?the <PO> '
+#correct: 2
+#incorrect: 68
+
+<NEdate_NEyear_NEnumber> <PO> is [^<]*?(?:<NEprofession> )?<TO>
+#correct: 2
+#incorrect: 5
+
+<PO_NEaward> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEsport> )?[^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 66
+
+the <PO> in [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?<TO>
+#correct: 2
+#incorrect: 139
+
+<TO> [^<]*?s <PO> ,
+#correct: 2
+#incorrect: 45
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?, <PO> \.
+#correct: 2
+#incorrect: 174
+
+# <PO> <NEorganization> [^<]*?<TO>
+#correct: 2
+#incorrect: 151
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?annual <PO> <NEweekday>
+#correct: 2
+#incorrect: 5
+
+<PO_NEaward> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 68
+
+<TO> won <PO> \.
+#correct: 2
+#incorrect: 8
+
+<TO> [^<]*?three <PO> on
+#correct: 2
+#incorrect: 0
+
+<PO_NEaward> [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 66
+
+<TO> [^<]*?<NEdate_NEyear_NEnumber> <PO> winner
+#correct: 2
+#incorrect: 7
+
+<TO> [^<]*?five <PO> #
+#correct: 2
+#incorrect: 69
