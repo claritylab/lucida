@@ -14,11 +14,14 @@
 #include <sox.h>
 #include <cstdlib> //07-12-15 for arg passing
 
-#include "gen-cpp/KaldiService.h"
+#include "gen-cpp/LucidaService.h"
+#include "gen-cpp/lucidatypes_types.h"
 #include "../common/subproc.h"
-#include "CommandCenter.h"
+//#include "CommandCenter.h"
 #include <thrift/protocol/TBinaryProtocol.h>
 #include <thrift/server/TSimpleServer.h>
+#include <thrift/server/TThreadPoolServer.h>
+#include <thrift/server/TThreadedServer.h>
 #include <thrift/transport/TServerSocket.h>
 #include <thrift/transport/TBufferTransports.h>
 //#include <thrift/protocol/TBinaryProtocol.h>
@@ -30,10 +33,10 @@ using namespace apache::thrift::protocol;
 using namespace apache::thrift::transport;
 using namespace apache::thrift::server;
 using boost::shared_ptr;
-using namespace cmdcenterstubs;
+//using namespace cmdcenterstubs;
 
 
-class KaldiServiceHandler : virtual public KaldiServiceIf {
+class KaldiServiceHandler : virtual public LucidaServiceIf {
   public:
     //Variables
     cmd_subproc kaldi;
@@ -49,8 +52,17 @@ class KaldiServiceHandler : virtual public KaldiServiceIf {
 
     //-----Member Functions-------//
 
-    void kaldi_asr(std::string& _return, const std::string& audio_file);
     void sox();
+    
+    void create(const std::string& LUCID, const  ::QuerySpec& spec);
+
+    void learn(const std::string& LUCID, const  ::QuerySpec& knowledge);
+
+    void infer(std::string& _return, const std::string& LUCID, const  ::QuerySpec& query);
+
+
+  private:
+    std::string  kaldi_asr(const std::string& audio_file);
 
 };
 
@@ -64,10 +76,27 @@ KaldiServiceHandler::KaldiServiceHandler(const char* const argv[]){
 
 //Member Functions
 
+void KaldiServiceHandler::create(const std::string& LUCID, const  ::QuerySpec& spec){
+  // needs implemented
+  std::cout << "asr create ..." << std::endl;
+}
+
+void KaldiServiceHandler::learn(const std::string& LUCID, const  ::QuerySpec& knowledge){
+  // needs implemented
+  std::cout << "asr learn ..." << std::endl;
+}
+
+void KaldiServiceHandler::infer(std::string& _return, const std::string& LUCID, const  ::QuerySpec& query){
+  
+  std::string audio_file = query.content[0].data[0]; 
+
+  _return = kaldi_asr(audio_file);
+}
+
 //An Input is the  file in a form of a string
 //processes the file and return the answer in the form of 
 //text
-void KaldiServiceHandler::kaldi_asr(std::string& _return, const std::string& audio_file) {
+std::string KaldiServiceHandler::kaldi_asr(const std::string& audio_file) {
   
 //Reconstructing the audio file
   std::string audio_path = "inputserver.wav";
@@ -85,7 +114,7 @@ void KaldiServiceHandler::kaldi_asr(std::string& _return, const std::string& aud
   getline(kaldi.stdout, answer);//Grabbing the answer	
   std::cout << "Finished Running Kaldi Algorithm..."<< std::endl;	
   std::cout << "Now Returing Answer: "<<answer<< std::endl;
-  _return = answer;
+  return answer;
 }
   
 //Run the sox() library to conver audio files to
@@ -153,8 +182,7 @@ void KaldiServiceHandler::sox(){
 
 
 int main(int argc, char **argv) {
-
-  const char* const argvc[]={"../common/src/online2bin/online2-wav-nnet2-latgen-faster",
+    const char* const argvc[]={"../common/src/online2bin/online2-wav-nnet2-latgen-faster",
     "--do-endpointing=false",
     "--online=true",
     "--config=../common/nnet_a_gpu_online/conf/online_nnet2_decoding.conf",
@@ -169,11 +197,51 @@ int main(int argc, char **argv) {
     "\"scp:echo utterance-id1 null|\"",
     "ark:/dev/null",(char*)NULL};
 
-  int port = atoi(argv[1]);
-  int cmdcenterport = atoi(argv[2]);
+  //Setup server parameters
+  auto port = 9090; 
+  auto hw_threads = std::thread::hardware_concurrency(); 
+  int io_threads = hw_threads / 2 + 1; 
+  int worker_threads = hw_threads * 1.5 + 1; 
+  //Create I/O factories
+  auto handler_fac = make_shared<TradeHistoryFactory>(); 
+  auto proc_fac = 
+  make_shared<TradeHistoryProcessorFactory>(handler_fac); 
+  auto proto_fac = 
+  make_shared<TCompactProtocolFactoryT<TMemoryBuffer>>(); 
+  //Setup the worker-thread manager
+  auto thread_man = 
+  ThreadManager::newSimpleThreadManager(worker_threads); 
+  thread_man->threadFactory(make_shared<PlatformThreadFactory>()); 
+  thread_man->start(); 
+  //Start the server on a background thread
+  TNonblockingServer server(proc_fac, proto_fac, port, thread_man); 
+  server.setNumIOThreads(io_threads); 
+  std::thread server_thread([&server](){server.serve();}); 
+  //Log status and wait for user to quit
+  std::string str; 
+  do { 
+  std::cout << "[Server (" << hw_threads <<", " 
+  << server.getNumIOThreads() <<'/' 
+  << thread_man->workerCount() <<"):" 
+  << port << "] Enter 'q' to quit" << std::endl; 
+  std::getline(std::cin, str); 
+  } while (str[0] != 'q'); 
+  //Stop the server, wait for I/O and worker threads then exit
+  server.stop(); 
+  std::cout << "waiting for server to exit..." << std::endl; 
+  server_thread.join(); 
+  std::cout << "service complete, exiting." << std::endl; 
+  return 0;
+
+  //
+
+
+
+  // int port = atoi(argv[1]);
+  // int cmdcenterport = atoi(argv[2]);
 
   //Register with the command center 
-  boost::shared_ptr<TTransport> cmdsocket(new TSocket("localhost", cmdcenterport));
+  /*boost::shared_ptr<TTransport> cmdsocket(new TSocket("localhost", cmdcenterport));
   boost::shared_ptr<TTransport> cmdtransport(new TBufferedTransport(cmdsocket));
   boost::shared_ptr<TProtocol> cmdprotocol(new TBinaryProtocol(cmdtransport));
   CommandCenterClient cmdclient(cmdprotocol);
@@ -183,17 +251,15 @@ int main(int argc, char **argv) {
   mDataObj.name="localhost";
   mDataObj.port=port;
   cmdclient.registerService("ASR", mDataObj);
-  cmdtransport->close();
+  cmdtransport->close(); */
 
   shared_ptr<KaldiServiceHandler> handler(new KaldiServiceHandler(argvc));
-  shared_ptr<TProcessor> processor(new KaldiServiceProcessor(handler));
+  shared_ptr<TProcessor> processor(new LucidaServiceProcessor(handler));
   shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
   shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
   shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
 
-  TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
+  TThreadedServer server(processor, serverTransport, transportFactory, protocolFactory);
     
   std::cout << "Starting the automatic speech recognition server on port " << port << "..." << std::endl;
-  server.serve();
-  return 0;
 }

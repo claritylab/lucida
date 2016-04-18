@@ -28,6 +28,13 @@ export LUCIDAROOT=`pwd`/lucida
 cd tools
 supervisord -c lucida.conf
 ```
+- Alternatively, you can start all the services using a simple script:
+```
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+cd tools
+chmod +x start_all_services.sh
+./start_all_services.sh
+```
 - To test, in another terminal navigate to `lucida/commandcenter` and use the
   following commands (replacing (PORT) with 8090 as defined in `lucida.conf`):
 ```
@@ -37,6 +44,10 @@ supervisord -c lucida.conf
 ./ccclient --asr <AUDIO_FILE> (PORT)
 # Test question-answering
 ./ccclient --qa <QUESTION> (PORT)
+```
+- For example,
+```
+./ccclient --asr inputs/how.tall.is.this.wav --imm inputs/query.jpg 8090
 ```
 - The above example uses a small test database for the QA system. To use all of
   Wikipedia:

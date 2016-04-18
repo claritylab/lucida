@@ -1,0 +1,1065 @@
+#passages: 11841
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEdate> )?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEacronym> )?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 77
+#incorrect: 1005
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEcountry> )?[^<]*?(?:<NEnumber> )?(?:<NEcolor> )?[^<]*?<PO_NEnumber>
+#correct: 76
+#incorrect: 951
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<PO_NEnumber>
+#correct: 72
+#incorrect: 982
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NEcountry> )?[^<]*?<PO_NEnumber>
+#correct: 71
+#incorrect: 954
+
+<TO> (?:<NElocation> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 70
+#incorrect: 923
+
+<TO> [^<]*?(?:<NElocation> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 70
+#incorrect: 975
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 69
+#incorrect: 920
+
+<TO> (?:<NEfirstName> )?[^<]*?(?:<NEpercentage> )?[^<]*?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 69
+#incorrect: 943
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 69
+#incorrect: 920
+
+<TO> [^<]*?(?:<NEacronym_NEcountry_NEriver_NEwater> )?[^<]*?<PO_NEnumber>
+#correct: 64
+#incorrect: 1029
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEusPresident> )?[^<]*?<PO_NEnumber>
+#correct: 64
+#incorrect: 1021
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?<PO_NEnumber>
+#correct: 64
+#incorrect: 1015
+
+<TO> (?:<NEacronym> )?[^<]*?<PO_NEnumber>
+#correct: 63
+#incorrect: 943
+
+<TO> (?:<NElocation> )?[^<]*?<PO_NEnumber>
+#correct: 57
+#incorrect: 938
+
+<TO> [^<]*?(?:<NEperson> )?[^<]*?<PO_NEnumber>
+#correct: 56
+#incorrect: 963
+
+<TO> (?:<NEnumber> )?(?:<NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 56
+#incorrect: 935
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?<PO_NEnumber>
+#correct: 56
+#incorrect: 959
+
+<TO> [^<]*?(?:<NEorganization> )?(?:<NElanguage> )?[^<]*?<PO_NEnumber>
+#correct: 56
+#incorrect: 984
+
+<TO> [^<]*?(?:<NEmonth> )?<PO_NEnumber>
+#correct: 56
+#incorrect: 1004
+
+<TO> [^<]*?(?:<NEcapital> )?[^<]*?<PO_NEnumber>
+#correct: 56
+#incorrect: 969
+
+<TO> [^<]*?(?:<NEmonth_NEfirstName> )?<PO_NEnumber>
+#correct: 56
+#incorrect: 1004
+
+<TO> [^<]*?(?:<NEnumber> )?(?:<NEnumber> )?(?:<NEnumber> )?<PO_NEnumber>
+#correct: 56
+#incorrect: 935
+
+<TO> [^<]*?<PO_NEnumber>
+#correct: 56
+#incorrect: 935
+
+<TO> [^<]*?(?:<NEperson_NEusPresident> )?[^<]*?<PO_NEnumber>
+#correct: 56
+#incorrect: 965
+
+<PO_NEnumber> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEtemperature> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 33
+#incorrect: 912
+
+<PO_NEnumber> [^<]*?(?:<NElocation_NEcapital> )?[^<]*?(?:<NEreligion> )?[^<]*?<TO>
+#correct: 33
+#incorrect: 775
+
+<PO_NEnumber> [^<]*?(?:<NEtime> )?[^<]*?<TO>
+#correct: 32
+#incorrect: 672
+
+<PO_NEnumber> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 32
+#incorrect: 765
+
+<PO_NEnumber> [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 32
+#incorrect: 768
+
+<PO_NEnumber> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 730
+
+<PO_NEnumber> [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 704
+
+<PO_NEnumber> [^<]*?<TO>
+#correct: 31
+#incorrect: 671
+
+<PO_NEnumber> [^<]*?(?:<NEperson> )?[^<]*?(?:<NEmilitaryRank> )?[^<]*?(?:<NErelation> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 676
+
+<PO_NEnumber> [^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?(?:<NEcolor> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 696
+
+<PO_NEnumber> [^<]*?(?:<NEnumber> )?<TO>
+#correct: 31
+#incorrect: 701
+
+<PO_NEnumber> [^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 675
+
+<PO_NEnumber> [^<]*?(?:<NEusPresident> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 677
+
+<PO_NEnumber> [^<]*?(?:<NEorganization_NEperson> )?[^<]*?(?:<NEperson> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 709
+
+<PO_NEnumber> [^<]*?(?:<NEpercentage> )?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 702
+
+<PO_NEnumber> [^<]*?(?:<NEpercentage> )?[^<]*?<TO>
+#correct: 31
+#incorrect: 682
+
+<TO> is <PO> :
+#correct: 30
+#incorrect: 0
+
+<TO> is <PO_NEnumber>
+#correct: 30
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?of <PO> ,
+#correct: 19
+#incorrect: 67
+
+<TO> [^<]*?population [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?of <PO> ,
+#correct: 16
+#incorrect: 9
+
+<TO> ' s <PO> people
+#correct: 15
+#incorrect: 1
+
+<TO> [^<]*?s <PO> people
+#correct: 15
+#incorrect: 1
+
+<TO> [^<]*?of <PO> ,
+#correct: 12
+#incorrect: 60
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?(?:<NEnumber> )?[^<]*?population of <PO> ,
+#correct: 12
+#incorrect: 9
+
+<PO_NEnumber> ; continuous <TO>
+#correct: 12
+#incorrect: 0
+
+# <PO> ; [^<]*?<TO>
+#correct: 12
+#incorrect: 37
+
+# <PO> ; continuous <TO>
+#correct: 12
+#incorrect: 0
+
+\$ <PO> in [^<]*?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 23
+
+<TO> [^<]*?population of <PO> \.
+#correct: 11
+#incorrect: 4
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?of <PO> \.
+#correct: 11
+#incorrect: 46
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?population of <PO> ,
+#correct: 11
+#incorrect: 9
+
+\$ <PO> in (?:<NEusPresident> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 23
+
+\$ <PO> in (?:<NEdate_NEyear_NEnumber> )?[^<]*?<TO>
+#correct: 11
+#incorrect: 24
+
+<TO> [^<]*?population of <PO> ,
+#correct: 10
+#incorrect: 9
+
+approximately <PO> people [^<]*?(?:<NElocation> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 10
+#incorrect: 0
+
+approximately <PO> people [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 9
+#incorrect: 0
+
+<TO> [^<]*?at <PO> ,
+#correct: 9
+#incorrect: 21
+
+\$ <PO> in [^<]*?<TO>
+#correct: 9
+#incorrect: 23
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?of <PO> people
+#correct: 9
+#incorrect: 5
+
+<TO> [^<]*?of <PO> people
+#correct: 8
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEorganization_NEacronym_NEcountry> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEorganization_NEacronym_NEcountry> )?\$ <PO> in
+#correct: 8
+#incorrect: 27
+
+<TO> [^<]*?population (?:<NEfirstName> )?[^<]*?from <PO> to
+#correct: 8
+#incorrect: 0
+
+are <PO> people [^<]*?<TO>
+#correct: 8
+#incorrect: 2
+
+<PO_NEnumber> people [^<]*?<TO>
+#correct: 7
+#incorrect: 1
+
+<TO> [^<]*?from <PO> to
+#correct: 7
+#incorrect: 19
+
+<TO> [^<]*?population [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?<PO_NEnumber>
+#correct: 7
+#incorrect: 80
+
+<TO> [^<]*?has <PO> people
+#correct: 7
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?\$ <PO> \.
+#correct: 7
+#incorrect: 24
+
+<TO> [^<]*?(?:<NEdisease> )?[^<]*?population of <PO> #
+#correct: 7
+#incorrect: 46
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?is <PO> #
+#correct: 6
+#incorrect: 298
+
+<TO> (?:<NEacronym> )?<PO_NEnumber>
+#correct: 6
+#incorrect: 118
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEcountry> )?[^<]*?(?:<NEnumber> )?(?:<NEcolor> )?[^<]*?over <PO> sq
+#correct: 6
+#incorrect: 0
+
+than <PO> people (?:<NEriver_NEfirstName_NEwater> )?[^<]*?<TO>
+#correct: 6
+#incorrect: 0
+
+<PO_NEnumber> [^<]*?people living [^<]*?<TO>
+#correct: 6
+#incorrect: 6
+
+<TO> <NEacronym> <PO_NEnumber>
+#correct: 6
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEfirstName> )?[^<]*?\$ <PO> in
+#correct: 6
+#incorrect: 21
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?\$ <PO> in
+#correct: 6
+#incorrect: 27
+
+<TO> has <PO> people
+#correct: 6
+#incorrect: 8
+
+<TO> , with a population at the <NEdate_NEyear_NEnumber> census of <PO> ,
+#correct: 6
+#incorrect: 0
+
+<TO> , <PO> of
+#correct: 6
+#incorrect: 165
+
+<TO> <NEacronym> <PO> ;
+#correct: 6
+#incorrect: 1
+
+approximately <PO> people in <NElocation_NEcountry> , <NElocation_NEcountry> , <NElocation_NEcountry> , <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> at <PO_NEnumber>
+#correct: 6
+#incorrect: 2
+
+<TO> , with a population at the <NEdate_NEyear_NEnumber> census of <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+are <PO> people living in the <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> counted in the <NEdate_NEyear_NEnumber> census is <PO_NEnumber>
+#correct: 6
+#incorrect: 0
+
+<PO_NEnumber> people living in the <TO>
+#correct: 6
+#incorrect: 0
+
+<TO> , <PO_NEnumber>
+#correct: 6
+#incorrect: 43
+
+<TO> at <PO> ,
+#correct: 6
+#incorrect: 3
+
+<TO> counted in the <NEdate_NEyear_NEnumber> census is <PO> #
+#correct: 6
+#incorrect: 0
+
+are <PO> people living [^<]*?<TO>
+#correct: 6
+#incorrect: 2
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?\$ <PO> in
+#correct: 6
+#incorrect: 28
+
+<PO_NEnumber> people living [^<]*?<TO>
+#correct: 6
+#incorrect: 0
+
+\$ <PO> and [^<]*?<TO>
+#correct: 5
+#incorrect: 29
+
+<TO> [^<]*?\$ <PO> in
+#correct: 5
+#incorrect: 21
+
+of <PO> people [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 5
+
+<TO> [^<]*?of <PO> #
+#correct: 5
+#incorrect: 311
+
+<TO> [^<]*?s <PO> citizens
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEreligion> )?[^<]*?about <PO> ,
+#correct: 5
+#incorrect: 9
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?\( <PO> \)
+#correct: 5
+#incorrect: 185
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEnumber> )?[^<]*?\$ <PO> in
+#correct: 5
+#incorrect: 22
+
+<TO> ' s <PO> citizens
+#correct: 5
+#incorrect: 0
+
+\$ <PO> and [^<]*?(?:<NEpercentage> )?(?:<NEprofession> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 37
+
+<TO> [^<]*?population [^<]*?from <PO> to
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?s <PO> residents
+#correct: 5
+#incorrect: 0
+
+<TO> ' s <PO> residents
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEprofession> )?(?:<NEprofession> )?[^<]*?\$ <PO> ,
+#correct: 5
+#incorrect: 33
+
+of <PO> people [^<]*?(?:<NEprofession> )?[^<]*?(?:<NElocation_NEcontinent> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 5
+
+\$ <PO> and [^<]*?(?:<NEpercentage> )?[^<]*?<TO>
+#correct: 5
+#incorrect: 34
+
+than <PO> people [^<]*?<TO>
+#correct: 5
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?\$ <PO> \.
+#correct: 4
+#incorrect: 22
+
+<TO> (?:<NElocation> )?[^<]*?\$ <PO> \.
+#correct: 4
+#incorrect: 22
+
+are <PO> souls in <TO>
+#correct: 4
+#incorrect: 0
+
+<TO> , with a population of <PO> ,
+#correct: 4
+#incorrect: 1
+
+<TO> [^<]*?about <PO> ,
+#correct: 4
+#incorrect: 7
+
+<TO> (?:<NEprofession> )?[^<]*?(?:<NEacronym> )?[^<]*?\$ <PO> to
+#correct: 4
+#incorrect: 11
+
+# <PO> people [^<]*?<TO>
+#correct: 4
+#incorrect: 56
+
+<TO> \( <PO> \)
+#correct: 4
+#incorrect: 135
+
+<TO> [^<]*?population of <PO> #
+#correct: 4
+#incorrect: 46
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?\$ <PO> ,
+#correct: 4
+#incorrect: 31
+
+are <PO> souls [^<]*?<TO>
+#correct: 4
+#incorrect: 0
+
+<TO> , a country of <PO> people
+#correct: 4
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym_NEcountry_NEriver_NEwater> )?[^<]*?\$ <PO> \.
+#correct: 4
+#incorrect: 24
+
+the <PO> people [^<]*?<TO>
+#correct: 4
+#incorrect: 10
+
+<TO> [^<]*?\$ <PO> ,
+#correct: 4
+#incorrect: 31
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?(?:<NEethnicGroup> )?[^<]*?population of <PO> people
+#correct: 4
+#incorrect: 3
+
+<TO> [^<]*?(?:<NEprofession> )?[^<]*?(?:<NElocation_NEstate> )?[^<]*?population of <PO> people
+#correct: 4
+#incorrect: 3
+
+\$ <PO> and <TO>
+#correct: 4
+#incorrect: 24
+
+<TO> [^<]*?s <PO> #
+#correct: 3
+#incorrect: 150
+
+<TO> [^<]*?population of <PO> and
+#correct: 3
+#incorrect: 4
+
+<TO> [^<]*?with <PO> inhabitants
+#correct: 3
+#incorrect: 3
+
+\$ <PO> annually [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<TO> <PO> ;
+#correct: 3
+#incorrect: 72
+
+<PO_NEnumber> (?:<NEacronym_NEcountry> )?(?:<NEcapital> )?(?:<NEnumber> )?<TO>
+#correct: 3
+#incorrect: 107
+
+<TO> ' s at <PO> ,
+#correct: 3
+#incorrect: 0
+
+\$ <PO> to (?:<NElocation_NEcountry> )?[^<]*?(?:<NEorganization_NEacronym_NEcountry> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 30
+
+<TO> [^<]*?s <PO> population
+#correct: 3
+#incorrect: 6
+
+<TO> [^<]*?population <PO> ,
+#correct: 3
+#incorrect: 36
+
+<TO> [^<]*?(?:<NEorganization> )?(?:<NEprofession> )?[^<]*?(?:<NEprofession> )?(?:<NEperson> )?[^<]*?(?:<NEorganization_NEacronym_NEcountry> )?\$ <PO> #
+#correct: 3
+#incorrect: 218
+
+<PO_NEnumber> <TO>
+#correct: 3
+#incorrect: 91
+
+<TO> ' s <PO> population
+#correct: 3
+#incorrect: 4
+
+for <PO> people [^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NElocation_NEcountry> )?[^<]*?(?:<NEcountry> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 2
+
+\$ <PO> from (?:<NElocation_NEcapital> )?[^<]*?(?:<NEreligion> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 6
+
+<TO> [^<]*?s <PO> \.
+#correct: 3
+#incorrect: 31
+
+<TO> has a population of about <PO> ,
+#correct: 3
+#incorrect: 0
+
+<TO> ' s <PO> \.
+#correct: 3
+#incorrect: 25
+
+<TO> ' s population <NEfirstName> drop from <PO> to
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?population [^<]*?about <PO> ,
+#correct: 3
+#incorrect: 0
+
+<TO> is in the region of <PO> #
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElength_NEsize> )?[^<]*?about <PO> people
+#correct: 3
+#incorrect: 3
+
+<TO> is in the region of <PO_NEnumber>
+#correct: 3
+#incorrect: 0
+
+\$ <PO> annually for <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?\$ <PO> or
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?population of <PO> people
+#correct: 3
+#incorrect: 3
+
+approximately <PO> people [^<]*?<TO>
+#correct: 3
+#incorrect: 0
+
+<TO> ' s <PO> #
+#correct: 3
+#incorrect: 96
+
+<PO_NEnumber> in gifts to fans , including cash , airline tickets , a trip to the <TO>
+#correct: 3
+#incorrect: 0
+
+\$ <PO> , [^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 32
+
+\$ <PO> from (?:<NElocation_NEcountry> )?[^<]*?(?:<NEprofession> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?(?:<NEnumber> )?[^<]*?<TO>
+#correct: 3
+#incorrect: 7
+
+<TO> [^<]*?\$ <PO> \.
+#correct: 3
+#incorrect: 22
+
+\$ <PO> in gifts to fans , including cash , airline tickets , a trip to the <TO>
+#correct: 3
+#incorrect: 0
+
+<TO> releases <PO> cubic
+#correct: 3
+#incorrect: 0
+
+<TO> ' s population would shrink from <PO> to
+#correct: 3
+#incorrect: 0
+
+<TO> [^<]*?population of <PO> is
+#correct: 3
+#incorrect: 2
+
+<TO> [^<]*?<NEriver_NEwater> <PO> inhabitants
+#correct: 2
+#incorrect: 0
+
+<TO> , plus over <PO> <NEreligion>
+#correct: 2
+#incorrect: 0
+
+\$ <PO> in refunds , the <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> has more than doubled a pledge to the <NEorganization> to fight <NEacronym> , <NEdisease> and <NEdisease> for <NEdate_NEyear_NEnumber> to <PO> <NEcurrency>
+#correct: 2
+#incorrect: 0
+
+about <PO> customers , or nearly <NEnumber> million people , in <NElocation_NEstate> , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> ' s population would wither from <PO> to
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?\$ <PO> #
+#correct: 2
+#incorrect: 185
+
+<TO> [^<]*?\$ <PO> with
+#correct: 2
+#incorrect: 5
+
+<TO> [^<]*?population [^<]*?<NEriver_NEwater> <PO> people
+#correct: 2
+#incorrect: 0
+
+\$ <PO> , [^<]*?(?:<NElocation> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 34
+
+<TO> [^<]*?about <PO> <NElanguage_NEnationality_NEethnicGroup>
+#correct: 2
+#incorrect: 0
+
+<TO> of <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?s <PO> inhabitants
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization_NEacronym> )?[^<]*?\$ <PO> #
+#correct: 2
+#incorrect: 194
+
+\$ <PO> ; [^<]*?(?:<NElocation_NEstate_NEriver_NEwater> )?[^<]*?(?:<NEorganization_NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 4
+
+the <PO> people in <TO>
+#correct: 2
+#incorrect: 1
+
+of <PO> , <TO>
+#correct: 2
+#incorrect: 153
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?\$ <PO> of
+#correct: 2
+#incorrect: 14
+
+<TO> has a population of <PO> ,
+#correct: 2
+#incorrect: 7
+
+<TO> this year , and it is estimated that <PO> of
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEconflict> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?population [^<]*?over <PO> people
+#correct: 2
+#incorrect: 0
+
+affecting <PO> people [^<]*?(?:<NElocation_NEcountry> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> <NEpercentage> , <NElocation_NEcountry> <NEpercentage> , <NEacronym_NEcountry> <NEpercentage> , <NEcountry> <NEpercentage> , <NEacronym_NEcountry> <NEpercentage> \( <NEdate_NEyear_NEnumber> \) <NEprofession> : \$ <PO> f
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEprofession> )?(?:<NEperson> )?[^<]*?(?:<NEacronym> )?[^<]*?\$ <PO> #
+#correct: 2
+#incorrect: 194
+
+<TO> whose population of <PO> is
+#correct: 2
+#incorrect: 0
+
+\$ <PO> in <NEusPresident> funds awarded this year , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> ' s populace of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> <NEprofession> ' s race , while the <NEacronym> spent nearly \$ <PO> to
+#correct: 2
+#incorrect: 0
+
+<TO> out of a total population of <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?about <PO> people
+#correct: 2
+#incorrect: 3
+
+<TO> that has a total population of <PO> \.
+#correct: 2
+#incorrect: 0
+
+<TO> is one of the world ' s largest economies with a population of <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?population approaching <PO> is
+#correct: 2
+#incorrect: 0
+
+<TO> , however , currently <NElocation_NEcontinent> ' s biggest nation with <PO> ,
+#correct: 2
+#incorrect: 0
+
+than <PO> inhabitants [^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEdisease> )?[^<]*?(?:<NEdisease> )?[^<]*?(?:<NEdate_NEyear_NEnumber> )?to <PO> <NEcurrency>
+#correct: 2
+#incorrect: 4
+
+<TO> \$ <PO> \.
+#correct: 2
+#incorrect: 7
+
+<TO> [^<]*?that <PO> of
+#correct: 2
+#incorrect: 6
+
+<TO> [^<]*?population [^<]*?was <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> has a population of <NEriver_NEwater> <PO> people
+#correct: 2
+#incorrect: 0
+
+\$ <PO> in <NEdate_NEyear_NEnumber> after <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> ' s population , which was <PO> in
+#correct: 2
+#incorrect: 0
+
+than <PO> people living [^<]*?(?:<NEorganization> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+<TO> announced second - quarter net income of \$ <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEorganization> )?[^<]*?<NEcapital> <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEacronym> )?[^<]*?(?:<NEacronym> )?[^<]*?(?:<NEorganization> )?[^<]*?(?:<NEusPresident> )?[^<]*?\$ <PO> #
+#correct: 2
+#incorrect: 197
+
+<TO> , plus over <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+<TO> , with <PO> people
+#correct: 2
+#incorrect: 2
+
+<TO> \( <NEorganization_NEacronym> \) was owed \$ <NEnumber> million in <NEprofession> and \$ <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> , the <NEorganization> estimates that facilities that <NEcapital> <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> this year , and it is estimated that <PO_NEnumber>
+#correct: 2
+#incorrect: 0
+
+are <PO> people in <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEfirstName> )?[^<]*?\$ <PO> u
+#correct: 2
+#incorrect: 7
+
+<TO> [^<]*?population [^<]*?from <PO> #
+#correct: 2
+#incorrect: 5
+
+<TO> [^<]*?(?:<NElocation_NEcontinent> )?[^<]*?with <PO> ,
+#correct: 2
+#incorrect: 37
+
+<TO> ' s population is set to decline from <PO> #
+#correct: 2
+#incorrect: 0
+
+about <PO> customers [^<]*?(?:<NEnumber> )?[^<]*?people [^<]*?(?:<NElocation_NEstate> )?[^<]*?<TO>
+#correct: 2
+#incorrect: 0
+
+affecting <PO> people in <NElocation_NEcountry> , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEchemicalElement_NEmetal_NEmineral> )?(?:<NEprofession> )?with <PO> metric
+#correct: 2
+#incorrect: 0
+
+approximately <PO> people in <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?over <PO> <NEreligion>
+#correct: 2
+#incorrect: 0
+
+<TO> ' s population exceeds <PO> and
+#correct: 2
+#incorrect: 0
+
+<TO> plans to stockpile enough <NEdisease> vaccine by the end of the year to protect its entire population of <PO> #
+#correct: 2
+#incorrect: 0
+
+<TO> <NEflower> to <NEpercentage> , with <NEnumber> million people out of work in the nation of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> , with <PO> inhabitants
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?(?:<NEcolor_NEchemicalElement_NEmetal_NEmineral> )?[^<]*?(?:<NEnumber> )?[^<]*?(?:<NEprofession> )?[^<]*?\$ <PO> #
+#correct: 2
+#incorrect: 181
+
+<TO> [^<]*?than <PO> inhabitants
+#correct: 2
+#incorrect: 0
+
+<TO> is <PO> compared
+#correct: 2
+#incorrect: 0
+
+\$ <PO> in <TO>
+#correct: 2
+#incorrect: 15
+
+<TO> ' s national population approaching <PO> is
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NEnumber> )?[^<]*?totaled <PO> head
+#correct: 2
+#incorrect: 0
+
+<TO> was the <NEchemicalElement_NEmetal_NEmineral> <NEprofession> with <PO> metric
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?than <PO> citizens
+#correct: 2
+#incorrect: 0
+
+\$ <PO> from [^<]*?<TO>
+#correct: 2
+#incorrect: 6
+
+\$ <PO> , up <NEnumber> , and to <TO>
+#correct: 2
+#incorrect: 0
+
+with <PO> people [^<]*?<TO>
+#correct: 2
+#incorrect: 3
+
+<TO> , which has a total population of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> spent nearly \$ <PO> with
+#correct: 2
+#incorrect: 0
+
+<TO> ' s <PO> inhabitants
+#correct: 2
+#incorrect: 0
+
+<TO> feedlots with <NEnumber> head or more capacity totaled <PO> head
+#correct: 2
+#incorrect: 0
+
+<TO> (?:<NEorganization> )?[^<]*?\$ <PO> verdict
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?with <PO> people
+#correct: 2
+#incorrect: 5
+
+<TO> [^<]*?(?:<NEdate_NEyear_NEnumber> )?[^<]*?\$ <PO> to
+#correct: 2
+#incorrect: 10
+
+<TO> ' s is set to plummet from <PO> to
+#correct: 2
+#incorrect: 0
+
+<TO> [^<]*?(?:<NElocation_NEcapital_NEusPresident> )?[^<]*?\$ <PO> for
+#correct: 2
+#incorrect: 21
+
+<TO> has a <NEreligion> minority of about <NEnumber> million out of a total population of <PO> ,
+#correct: 2
+#incorrect: 0
+
+<TO> ; <PO> people
+#correct: 2
+#incorrect: 0
+
+<TO> which has a total population of <PO> \.
+#correct: 2
+#incorrect: 0
+
+the <PO> people living in <TO>
+#correct: 2
+#incorrect: 1
+
+<TO> [^<]*?population <PO> \)
+#correct: 2
+#incorrect: 6
+
+<TO> [^<]*?population exceeds <PO> and
+#correct: 2
+#incorrect: 0
+
+the <PO> people living [^<]*?<TO>
+#correct: 2
+#incorrect: 7
+
+<TO> exported <NEorganization_NEacronym_NEcountry> \$ <NEnumber> billion of computer equipment , up more than twelvefold from the <NEorganization_NEacronym_NEcountry> \$ <PO> in
+#correct: 2
+#incorrect: 0
+
+<TO> has <PO> residents
+#correct: 2
+#incorrect: 1
+
+<TO> returned a verdict of \$ <PO> in
+#correct: 2
+#incorrect: 0
+
+for <PO> people in six southern african countries - <NElocation_NEcountry> , <NElocation_NEcountry> , <NEcountry> , <TO>
+#correct: 2
+#incorrect: 0
+
+<TO> has more than <PO> citizens
+#correct: 2
+#incorrect: 0
+
+<TO> <NEpercentage> , <NElocation_NEcountry> <NEpercentage> , <NEacronym_NEcountry> <NEpercentage> , <NEcountry> <NEpercentage> , <NElocation_NEcountry> <NEpercentage> \( <NEdate_NEyear_NEnumber> \) <NEprofession> : \$ <PO> f
+#correct: 2
+#incorrect: 0
