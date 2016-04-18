@@ -106,7 +106,6 @@ int main(int argc, char** argv) {
 
   // turn off caffe's loggingk
   FLAGS_minloglevel = google::ERROR;
-  openblas_set_num_threads(1);
 
   STATS_INIT("kernel", "dnn_automatic_speech_recognition");
   PRINT_STAT_STRING("abrv", "dnn-asr");

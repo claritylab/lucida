@@ -110,7 +110,6 @@ int main(int argc, char** argv) {
   STATS_INIT("kernel", "pthread_dnn_automatic_speech_recognition");
   PRINT_STAT_STRING("abrv", "pthread_dnn-asr");
   int NTHREADS = atoi(argv[1]);
-  openblas_set_num_threads(NTHREADS);
   PRINT_STAT_INT("threads", NTHREADS);
 
   string network(argv[2]);
