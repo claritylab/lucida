@@ -1,8 +1,5 @@
 CXX=g++
-CXX_FLAGS = -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math  -DCPU_ONLY 
-# LINK_FLAGS = -lcaffe \
-# 			 -lopenblas \
-# 			 -lglog
+CXX_FLAGS = -O2 -march=native -DCPU_ONLY
 LINK_FLAGS = -lcaffe \
 			 -lprotobuf \
 			 -lgflags -lleveldb -lsnappy \

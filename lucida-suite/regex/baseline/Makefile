@@ -1,6 +1,5 @@
 CXX = g++
-LINK_FLAGS =
-CXX_FLAGS  = -O2 -ftree-vectorize -mavx -mavx2 -mfma -ffast-math
+CXX_FLAGS  = -O2 -march=native
 LINK_FLAGS += -lpthread -ldl
 
 NUM_PATTERNS  = 100
