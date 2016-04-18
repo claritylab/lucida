@@ -2,7 +2,6 @@
 ## FROM ubuntu:14.04
 ## Run as sudo
 
-sed 's/main$/main universe/' -i /etc/apt/sources.list
 apt-get update
 apt-get install -y software-properties-common \
                    gfortran \
