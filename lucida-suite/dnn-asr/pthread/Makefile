@@ -1,13 +1,10 @@
-CXX=g++
-CXX_FLAGS = -O2 -march=native -DCPU_ONLY
-LINK_FLAGS = libcaffe-avx.a \
-			 -lprotobuf \
-			 -lgflags -lleveldb -lsnappy \
-			 -llmdb -lhdf5 -lhdf5_hl -lboost_thread -lpthread -lopencv_core -lopencv_imgproc \
-			 libopenblas-avx.a \
-			 -lglog
-LINK_FLAGS += /opt/intel/vtune_amplifier_xe/lib64/libittnotify.a -lpthread -ldl
-CXX_FLAGS  += -I/opt/intel/vtune_amplifier_xe/include/
+CXX_FLAGS = -O2 -DCPU_ONLY -I$(CAFFE)/include
+LINK_FLAGS = $(CAFFE)/lib/libcaffe.so \
+						 -lprotobuf \
+						 -lgflags -lleveldb -lsnappy \
+						 -llmdb -lhdf5 -lhdf5_hl -lboost_thread -lpthread -lopencv_core -lopencv_imgproc \
+						 -lglog
+LINK_FLAGS += -lpthread -ldl
 
 THREADS = 4
 MODEL   = ../model/asr.prototxt

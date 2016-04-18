@@ -8,7 +8,8 @@
  *
  */
 
-/** * TODO:
+/**
+ * TODO:
  *
  * @author: Johann Hauswald
  * @contact: jahausw@umich.edu
@@ -22,12 +23,12 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <time.h>
-#include <vector>
 
 #include "../../utils/timer.h"
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/types_c.h"
-#include "opencv2/xfeatures2d/nonfree.hpp"
+#include "opencv2/features2d/features2d.hpp"
+#include "opencv2/nonfree/features2d.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/nonfree/gpu.hpp"
 #include "opencv2/objdetect/objdetect.hpp"
@@ -36,13 +37,12 @@ using namespace cv;
 using namespace std;
 
 vector<vector<KeyPoint> > keys;
-int minHessian = 400;
-Ptr<xfeatures2d::SURF> surf = xfeatures2d::SURF::create(minHessian);
+FeatureDetector *detector = new SurfFeatureDetector();
 int iterations;
 
 vector<KeyPoint> exec_feature(const Mat &img) {
   vector<KeyPoint> keypoints;
-  surf->detect(img, keypoints, Mat());
+  detector->detect(img, keypoints);
 
   return keypoints;
 }
@@ -53,8 +53,6 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Usage: %s [INPUT FILE]\n\n", argv[0]);
     exit(0);
   }
-
-  cvUseOptimized(1);
 
   STATS_INIT("kernel", "feature_extraction");
   PRINT_STAT_STRING("abrv", "fe");
@@ -75,12 +73,15 @@ int main(int argc, char **argv) {
 
   STATS_END();
 
-// #ifdef TESTING
-//   Mat output;
-//
-//   drawKeypoints(img, key, output, CV_RGB(255, 0, 0));
-//   imwrite("../input/surf-fe.baseline.jpg", output);
-// #endif
+#ifdef TESTING
+  Mat output;
+
+  drawKeypoints(img, key, output, CV_RGB(255, 0, 0));
+  imwrite("../input/surf-fe.baseline.jpg", output);
+#endif
+
+  // Clean up
+  delete detector;
 
   return 0;
 }

@@ -1,0 +1,231 @@
+body {
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 20% auto;
+}
+.controls {
+  display: block;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  padding: 0;
+}
+#log {
+  font-size: 80%
+}
+#statusBar {
+  font-family: monospace;
+  color: #9F000F;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0;
+}
+#serverStatusBar {
+  position: fixed;
+  bottom: 0.4em;
+  right: 0.4em;
+  top: auto;
+  left: auto;
+  font-family: monospace;
+  padding: 0.2em 0.2em 0.2em 0.2em;
+}
+.highlight {
+  color: red;
+}
+ins {
+  background-color: #c6ffc6;
+  text-decoration: none;
+}
+
+del {
+  background-color: #ffc6c6;
+}
+.diff {
+  font-family: monospace;
+}
+
+.buttonsContainer {
+  display: table;
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  background-color: rgba(128,128,200,0.7);
+}
+
+.inline-div {
+  display:inline-block;
+}
+
+.buttons {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0.5em;
+}
+
+button {
+  width: 7em;
+}
+
+pre {
+  height: 100px;
+  width: 600px;
+  overflow-y: scroll;
+  resize: vertical;
+  display: none;
+}
+
+#canvas-container {
+  width: 100%;
+  height : 150px;
+  text-align:center;
+}
+
+.audiocontrol {
+  position: absolute;
+  display: inline;
+  cursor: pointer;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;  
+}
+
+#vumeter {
+  z-index: 0;
+}
+
+#playbutton {
+  position: absolute;
+  display: inline;
+  cursor: pointer;
+  z-index: 1;
+
+}
+#playbutton.playing {
+  opacity: 1;
+}
+
+#playbutton.disabled {
+  opacity: 1;
+}
+
+#recbutton {
+  margin-left:auto;
+  margin-right:auto;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background: url(../media/microphone.png) no-repeat;
+  background-color: rgba(1a0, 128, 136, .0);
+  background-size:70px 70px;
+  background-position:bottom;
+}
+#recbutton.playing {
+  background: url(../media/microphone_off.png) no-repeat;
+  background-size:70px 70px;
+  background-position:bottom;
+}
+
+#recbutton:hover {
+  background-size:75px 75px;
+}
+
+#recbutton.disabled {
+  opacity: 1;
+}
+
+
+#recbutton.playing:hover {
+  background-size:75px 75px;
+}
+
+.wrap{
+    display:inline-block;
+    background: url("../media/speech_bubble_page.png") no-repeat;
+    background-size: contain;
+    margin-top:.4em;
+    margin-left:4em;
+    height:200px;
+    min-width:300px;
+}
+.wrap textarea{
+    border: none;
+    resize: none;
+    margin-top:1.9em;
+    margin-left:2em;
+    width:190px;
+    height:110px;
+}
+.wrapr{
+    display:inline-block;
+    background: url("../media/speech_bubble_page_r.png") no-repeat;
+    background-size: contain;
+    margin-top:.5em;
+    margin-left:0em;
+    height:200px;
+    min-width:300px;
+}
+.wrapr textarea{
+    border: none;
+    resize: none;
+    margin-top:1.9em;
+    margin-left: 2em;
+    width:190px;
+    height:110px;
+}
+
+
+
+.blended_grid{
+display : block;
+width : 800px;
+overflow : auto;
+margin : 100px auto 0 auto;
+background-color : rgba(0, 0, 0, 0.0);
+}
+.pageHeader{
+float : left;
+clear : none;
+height : 50px;
+width : 800px;
+font-size : 20pt;
+}
+.containerResponse{
+float : left;
+clear : none;
+height : 500px;
+width : 800px;
+}
+.pageFooter{
+float : left;
+clear : none;
+height : 100px;
+width : 800px;
+margin-top: 20px;
+}
+
+.demointro {
+font-size : 40pt;
+text-align: center;
+}
+
+.submitbutton {
+background: #428BCA;
+color: #fff;
+font-family: Sans-serif;
+font-size: 20px;
+height: 60px;
+width: 120px;
+line-height: 60px;
+margin: 25px 25px;
+text-align: center;
+border: 0;
+transition: all 0.3s ease 0s;
+float: right;
+}
+
+.submitbutton:hover {
+opacity: 0.75;
+}
