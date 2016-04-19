@@ -26,7 +26,8 @@ $ cd kaldi
 $ make
 ```
 
-Note: This may take a while. Thus, once it is done, there is no need to come back and re-compile.
+Note: This may take a while. Thus, only do this once.
+For example, if Kaldi is already compiled by `../../../Makefile`, please do not re-build.
 
 Navigate back to `kaldi_asr` to build the server:
 
@@ -53,7 +54,6 @@ and act as its client.
 In either case, the server can interact with a testing client.
 To compile and run the testing client:
 
-
 ```
 $ cd test
 $ cd make
@@ -61,7 +61,3 @@ $ ./client (port number of Kaldi) (path of the audio file)
 ``` 
 
 An example audio file is provided `how.tall.is.this.wav`.
-
-## Notes
-If you want to use another ASR implementation,
-you can start by creating a separate folder parallel to parallel.
