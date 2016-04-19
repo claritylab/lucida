@@ -7,4 +7,4 @@ To build and start the Kaldi ASR service, please navigate to `kaldi_asr` and fol
 ## Note:
 
 If you want to use another ASR implementation,
-you can start by creating a separate folder parallel to parallel.
+you can start by creating a separate folder parallel to `kaldi_asr`.
