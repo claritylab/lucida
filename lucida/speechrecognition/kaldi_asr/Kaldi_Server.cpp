@@ -2,7 +2,7 @@
  * Implementation for the Automatic Speech Recognition daemon.
  */
 
-// Import kaldi utility headers.
+// Import utility headers.
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/wait.h>
@@ -17,6 +17,7 @@
 #include <stdexcept>
 #include <stdio.h>
 #include <thread>
+#include <ctime>
 
 #include "gen-cpp/LucidaService.h"
 #include "kaldi/subproc.h"
@@ -86,7 +87,7 @@ private:
 	/*
 	 * Runs the sox() library to convert audio files to  8000Hz and normalize.
 	 */
-	void sox();
+	void sox(const string &input_audio, const string &input_audio_1);
 
 	/*
 	 * Extracts the audio data from query.
@@ -125,18 +126,20 @@ void LucidaServiceHandler::infer(
 	}
 
 	// Reconstruct the audio file.
-	string audio_path = "inputserver.wav";
+	time_t now = time(0);
+	string audio_path = "inputserver_" + to_string(now) + ".wav";
+	string audio_path_1 = "inputserver1_" + to_string(now) + ".wav";
 	ofstream audiofile(audio_path.c_str(), ios::binary);
 	audiofile.write(audio.c_str(),audio.size());
 	audiofile.close();
 	cout << "Audio File Recieved..."<< endl;
 
-	cout << "Converting audio file...." << endl;
-	sox(); // running SOX
-	cout << "Converting audio file complete..." << endl;
+	cout << "Converting audio file...." << audio_path << endl;
+	sox(audio_path, audio_path_1); // running SOX
+	cout << "Converting audio file complete..." << audio_path_1 << endl;
 
 	cout << "Running Kaldi Algorithm..."<< endl;
-	kaldi.stdin << "inputserver1.wav"  << endl; // giving the audio file via stdin (pipes)
+	kaldi.stdin << audio_path_1 << endl; // giving the audio file via stdin (pipes)
 	getline(kaldi.stdout, answer);// grabbing the answer
 	cout << "Finished Running Kaldi Algorithm..."<< endl;
 	cout << "Now Returing Answer: "<< answer << endl;
@@ -147,8 +150,8 @@ void LucidaServiceHandler::infer(
 	if (remove(audio_path.c_str()) == -1) {
 		cout << audio_path << " can't be deleted from disk." << endl;
 	}
-	if (remove("inputserver1.wav") == -1) {
-		cout << "inputserver1.wav can't be deleted from disk." << endl;
+	if (remove(audio_path_1.c_str()) == -1) {
+		cout << audio_path_1 << "can't be deleted from disk." << endl;
 	}
 }
 
@@ -164,7 +167,8 @@ void LucidaServiceHandler::extractAudioFromQuery(
 	audio = query.content.front().data.front(); // the rest is ignored
 }
 
-void LucidaServiceHandler::sox(){
+void LucidaServiceHandler::sox(const string &input_audio,
+		const string &input_audio_1) {
 	static sox_format_t * in, * out; /* input and output files */
 	sox_effects_chain_t * chain;
 	sox_effect_t * e;
@@ -180,9 +184,9 @@ void LucidaServiceHandler::sox(){
 	};
 
 	assert(sox_init() == SOX_SUCCESS);
-	assert(in = sox_open_read("inputserver.wav", NULL, NULL, NULL));
+	assert(in = sox_open_read(input_audio.c_str(), NULL, NULL, NULL));
 	assert(out = sox_open_write(
-			"inputserver1.wav", &out_signal, NULL, NULL, NULL, NULL));
+			input_audio_1.c_str(), &out_signal, NULL, NULL, NULL, NULL));
 	chain = sox_create_effects_chain(&in->encoding, &out->encoding);
 
 	interm_signal = in->signal; /* NB: deep copy */

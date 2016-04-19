@@ -17,13 +17,15 @@ OBJECTS_SERVER = gen-cpp/LucidaService.o gen-cpp/lucidatypes_types.o Kaldi_Serve
 debug: FLAGS += -g3
 debug: clean all
 
-all: thrift  $(TARGET_SERVER)
+all: thrift $(TARGET_SERVER)
 
 $(TARGET_SERVER): $(OBJECTS_SERVER)
 	$(CXX) -g $(FLAGS) $(OBJECTS_SERVER) -o $(TARGET_SERVER) $(LINK_FLAGS)
 thrift:
-	thrift --gen cpp ../../lucidaservice.thrift
-	thrift --gen cpp ../../lucidatypes.thrift
+	@if [ ! -d "gen-cpp" ]; then \
+       thrift --gen cpp ../../lucidaservice.thrift; \
+       thrift --gen cpp ../../lucidatypes.thrift; \
+    fi
 %.o: %.cpp
 	$(CXX) -g $(FLAGS) -c $(CXX_FLAGS) $(EXTRA_FLAGS) $< -o $@
 
