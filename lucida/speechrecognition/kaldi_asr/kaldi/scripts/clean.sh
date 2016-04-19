@@ -2,6 +2,5 @@
 # keeps downloaded tars
 
 cd ..
-rm -rf nnet_a_gpu_online/ graph/
-rm -rf src/
-rm -rf tools/
+cd tools && make clean && cd -
+cd src && make clean && cd -
