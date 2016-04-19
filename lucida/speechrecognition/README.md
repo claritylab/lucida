@@ -18,10 +18,10 @@ test/
 
 ## Build
 
-Build Kaldi:
+Navigate to `kaldi_asr/kaldi` to build Kaldi:
 
 ```
-$ cd kaldi_asr/kaldi/
+$ cd kaldi_asr/kaldi
 $ make
 ```
 
@@ -34,7 +34,7 @@ $ cd ..
 $ make
 ```
 
-## Run and test
+## Run and Test
 
 Start the server:
 
