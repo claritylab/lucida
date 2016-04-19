@@ -3,8 +3,9 @@ include ../../../../Makefile.common
 
 all-here::
 	@if [ ! -d "src" ]; then \
-        cd scripts && ./prepare.sh && ./compile-kaldi.sh; \
-    fi
+        cd scripts && ./prepare.sh; \
+	fi
+	cd scripts && ./compile-kaldi.sh
 
 clean-here::
-	# To complete remove Kaldi files, please "cd scripts" abd "./clean.sh"
+	cd scripts && ./clean.sh && cd -
