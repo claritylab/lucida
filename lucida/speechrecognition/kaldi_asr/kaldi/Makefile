@@ -2,7 +2,9 @@ SUBDIRS=
 include ../../../../Makefile.common
 
 all-here::
-	cd scripts && ./prepare.sh && ./compile-kaldi.sh
+	if [ ! -d "src" ]; then \
+        cd scripts && ./prepare.sh && ./compile-kaldi.sh; \
+    fi
 
 clean-here::
 	cd scripts && ./clean.sh 

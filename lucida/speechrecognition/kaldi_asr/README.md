@@ -19,20 +19,7 @@ test/
 
 ## Build
 
-Navigate to `kaldi` to build Kaldi:
-
 ```
-$ cd kaldi
-$ make
-```
-
-Note: This may take a while. Thus, only do this once.
-For example, if Kaldi is already compiled by `../../../Makefile`, please do not re-build.
-
-Navigate back to `kaldi_asr` to build the server:
-
-```
-$ cd ..
 $ make
 ```
 
@@ -52,11 +39,10 @@ Otherwise, the server can interact with the command center
 and act as its client.
 
 In either case, the server can interact with a testing client.
-To compile and run the testing client:
+To run the testing client:
 
 ```
 $ cd test
-$ cd make
 $ ./client (port number of Kaldi) (path of the audio file)
 ``` 
 
