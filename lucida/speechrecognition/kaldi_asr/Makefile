@@ -1,3 +1,4 @@
+SUBDIRS=kaldi test
 include ../../../Makefile.common
 
 # CC_DIR=$(LUCIDAROOT)/commandcenter/gen-cpp
