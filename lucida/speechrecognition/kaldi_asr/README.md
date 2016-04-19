@@ -28,7 +28,7 @@ $ make
 Start the server:
 
 ```
-$ ./start_server.sh (port number of Kaldi) (port number of the command center, optional)
+$ ./asr_server (port number of Kaldi) (port number of the command center, optional)
 ```
 
 Note: There are two modes of usage. 
@@ -43,7 +43,7 @@ To run the testing client:
 
 ```
 $ cd test
-$ ./client (port number of Kaldi) (path of the audio file)
+$ ./asr_client (port number of Kaldi) (path of the audio file)
 ``` 
 
 An example audio file is provided `how.tall.is.this.wav`.
