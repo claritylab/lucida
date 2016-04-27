@@ -12,4 +12,4 @@ you can start by making a directory parallel to `opencv_asr` and modify `Makefil
 Make sure to reference `../lucidaservice.thrift` and `../lucidatypes.thrift`.
 
 3. Type `make` to build all IMM implementations,
-or type `cd opencv_asr` and `make` to only build the OpenCV IMM service.
+or type `cd opencv_imm` and `make` to only build the OpenCV IMM service.
