@@ -5,7 +5,7 @@ that includes several hundreds of computer vision algorithms.
 
 ## Notes:
 
-1. `opencv_asr` contains the implementation of the OpenCV IMM service. 
+1. `opencv_imm` contains the implementation of the OpenCV IMM service. 
 
 2. If you want to create and use another IMM implementation,
 you can start by making a directory parallel to `opencv_asr` and modify `Makefile`.
