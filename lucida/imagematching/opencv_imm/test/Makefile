@@ -30,7 +30,7 @@ OBJECTS_SERVER =    ./gen-cpp/lucidatypes_types.o \
 					../opencv/kp_protobuf.o \
 					../opencv/keypoints.pb.cc \
 					../opencv/store_mat.pb.cc \
-					IMSClient.o
+					imm_client.o
 
 all: CXX_FLAGS += -O3
 all: thrift $(TARGET_CLIENT)

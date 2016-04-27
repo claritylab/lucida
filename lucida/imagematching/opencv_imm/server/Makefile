@@ -35,7 +35,7 @@ OBJECTS_SERVER =    ./gen-cpp/lucidatypes_types.o \
 					../opencv/kp_protobuf.o \
 					../opencv/keypoints.pb.cc \
 					../opencv/store_mat.pb.cc \
-					IMSDaemon.o
+					imm_server.o
 
 all: CXX_FLAGS += -O3
 all: thrift $(TARGET_SERVER)
@@ -56,6 +56,6 @@ $(TARGET_SERVER): $(OBJECTS_SERVER)
 	$(CXX) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $< -o $@
 
 clean:
-	rm -rf $(TARGET_SERVER) *.o gen-cpp
+	rm -rf $(TARGET_SERVER) *.o gen-cpp .pb
 
 .PHONY:	all debug thrift clean
