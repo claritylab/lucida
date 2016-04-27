@@ -1,5 +1,5 @@
 /*
- * Implementation for the Automatic Speech Recognition service testing client.
+ * Implementation for the ASR testing client.
  */
 
 #include <iostream>
@@ -21,28 +21,22 @@ using namespace apache::thrift::protocol;
 using namespace apache::thrift::transport;
 
 int main(int argc, char ** argv){
-	//Audio file from command line
-	string audio_file;
-	//Creating a server_port
+	// Creating a server_port
 	int server_port = 8081;
-	if (argc == 3){
-		server_port = atoi(argv[1]);
-		audio_file = argv[2];
-	} else if (argc==2){
-		audio_file = argv[1];
-	} else{
-		cerr << "At least provide a input file in .wav format" << endl;
-		exit(0);
+	if (argc != 3) {
+		cerr << "Usage: ./asr_client <asr_port> <path_to_audio>" << endl;
+		exit(1);
 	}
+	server_port = atoi(argv[1]);
+	string audio_path = argv[2];
+	// Initialize Thrift objects.
 	boost::shared_ptr<TTransport> socket(new TSocket("localhost", server_port));
 	boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
 	boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
 	LucidaServiceClient client(protocol);
-
-	struct timeval tv1, tv2;
 	try {
 		// Open the audio.
-		ifstream fin(audio_file.c_str(), ios::binary);
+		ifstream fin(audio_path.c_str(), ios::binary);
 		if (!fin) cerr << "Could not open the file!" << endl;
 		ostringstream ostrm;
 		ostrm << fin.rdbuf();
@@ -58,8 +52,9 @@ int main(int argc, char ** argv){
 		query_spec.content.push_back(query_input);
 		string LUCID = "QLL";
 		// Invoke the infer service.
+		cout << "Sending audio " << audio_path << " to the server..." << endl;
 		client.infer(answer, LUCID, query_spec);
-		cout << answer << endl;
+		cout << "Result: " << answer << endl;
 		// Close the connection.
 		transport->close();
 	} catch (TException &tx){
