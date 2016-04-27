@@ -36,10 +36,10 @@ $ make start_server (port number of IMM) (port number of command center, optiona
 ```
 
 Note: There are two modes of usage. 
-If the port number of the command center is not provided,
+⋅⋅* If the port number of the command center is not provided,
 or the command center cannot be connected to,
 the server runs as a stand-alone program.
-Otherwise, the server can interact with the command center
+⋅⋅* Otherwise, the server can interact with the command center
 and act as its client.
 
 In either case, the server can interact with a testing client.
@@ -47,12 +47,21 @@ To run the testing client:
 
 ```
 $ cd test
-$ ./imm_client (port number of IMM) (path of image file)
+$ ./imm_client (port number of IMM) (path of image file **relative to test**)
 ``` 
 
 Alternatively,
 ```
-$ make start_test (port number of IMM) (port number of command center, optional)
+$ make start_test (port number of IMM) (path of image file **relative to test**)
 ```
 
 An example image file is provided `test.jpg`.
+
+## Example Usage as a Summary
+
+```
+$ make
+$ make start_server 8081
+$ # Wait until you see "Start listening to requests" in the server terminal.
+$ make start_test 8081 test.jpg
+```

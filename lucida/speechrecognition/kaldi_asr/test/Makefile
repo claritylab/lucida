@@ -1,16 +1,18 @@
-# Makefile for generating the kaldi-thrift service
 CXX = g++
-FLAGS = --std=c++11 -O3
+CXX_FLAGS = -std=c++11
 TARGET_CLIENT = asr_client
 LINK_FLAGS = -lthrift -lsox
 
-# Needed for finding header files during preprocessing
-OBJECTS_CLIENT = gen-cpp/LucidaService.o gen-cpp/lucidatypes_types.o Kaldi_Client.o
+OBJECTS_CLIENT = gen-cpp/LucidaService.o gen-cpp/lucidatypes_types.o asr_client.o
 
+all: CXX_FLAGS += -O3
 all: thrift $(TARGET_CLIENT)
 
+debug: CXX_FLAGS += -g3
+debug: thrift $(TARGET_CLIENT)
+
 $(TARGET_CLIENT): $(OBJECTS_CLIENT)
-	$(CXX) $(FLAGS) $(OBJECTS_CLIENT) -o $(TARGET_CLIENT) $(LINK_FLAGS)
+	$(CXX) -g $(CXX_FLAGS) $(OBJECTS_CLIENT) -o $(TARGET_CLIENT) $(LINK_FLAGS)
 
 thrift:
 	@if [ ! -d "gen-cpp" ]; then \
@@ -19,9 +21,9 @@ thrift:
     fi
 
 %.o: %.cpp
-	$(CXX) $(FLAGS) -c $(CXX_FLAGS) $< -o $@
+	$(CXX) -g $(CXX_FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(TARGET_CLIENT) gen-cpp *.o *~
 
-.PHONY:	all
+.PHONY:	all debug thrift clean

@@ -1,17 +1,15 @@
-# Image Matching
-## Building Image Matching
-Depends on opencv-2.4.9/
+# Image Matching (IMM)
 
-In `lucida`/ or `template/` run:
-```
-make
-```
+The current implementation of IMM uses [OpenCV](http://http://opencv.org/), an open-source BSD-licensed library 
+that includes several hundreds of computer vision algorithms. 
 
-## To run:
-In either folder, run
-```
-./imserver <imm_port> <cc_port>
-```
-Note: that the template version does not have the cc_port argument because it
-does not register with the command center
+## Notes:
 
+1. `opencv_asr` contains the implementation of the OpenCV IMM service. 
+
+2. If you want to create and use another IMM implementation,
+you can start by making a directory parallel to `opencv_asr` and modify `Makefile`.
+Make sure to reference `../lucidaservice.thrift` and `../lucidatypes.thrift`.
+
+3. Type `make` to build all IMM implementations,
+or type `cd opencv_asr` and `make` to only build the OpenCV IMM service.
