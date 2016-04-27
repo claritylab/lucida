@@ -173,7 +173,7 @@ int main(int argc, char **argv){
 	//  cmdclient.registerService("IMM", mDataObj);
 	//  cmdtransport->close();
 
-	cout << "Start listening to requests." << endl;
+	cout << "Start listening to requests at port " << port << endl;
 	serverThread.join();
 
 	return 0;
