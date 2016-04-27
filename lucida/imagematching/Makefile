@@ -1,2 +1,2 @@
-SUBDIRS=lucida template
+SUBDIRS=opencv_imm
 include ../../Makefile.common
