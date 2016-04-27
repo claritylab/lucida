@@ -1,6 +1,6 @@
 # Image Matching (IMM)
 
-The current implementation of IMM uses [OpenCV](http://http://opencv.org/), an open-source BSD-licensed library 
+The current implementation of IMM uses [OpenCV](http://opencv.org/), an open-source BSD-licensed library 
 that includes several hundreds of computer vision algorithms. 
 
 ## Notes:
