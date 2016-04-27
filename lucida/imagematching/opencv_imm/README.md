@@ -1,6 +1,6 @@
 # OpenCV IMM
 
-OpenCV IMM uses [OpenCV](http://http://opencv.org/), an open-source BSD-licensed library 
+OpenCV IMM uses [OpenCV](http://opencv.org/), an open-source BSD-licensed library 
 that includes several hundreds of computer vision algorithms. 
 
 This directory contains three sub-directories:
@@ -36,10 +36,10 @@ $ make start_server (port number of IMM) (port number of command center, optiona
 ```
 
 Note: There are two modes of usage. 
-⋅⋅* If the port number of the command center is not provided,
+* If the port number of the command center is not provided,
 or the command center cannot be connected to,
 the server runs as a stand-alone program.
-⋅⋅* Otherwise, the server can interact with the command center
+* Otherwise, the server can interact with the command center
 and act as its client.
 
 In either case, the server can interact with a testing client.
@@ -57,7 +57,7 @@ $ make start_test (port number of IMM) (path of image file **relative to test**)
 
 An example image file is provided `test.jpg`.
 
-## Example Usage as a Summary
+## Summary: Example Usage
 
 ```
 $ make
