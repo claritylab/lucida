@@ -2,7 +2,7 @@ all: thrift
 	ant
 
 thrift:
-	@if [ ! -d "gen-java" ]; then \
+	@if [ ! -d "src/lucida/thrift" ]; then \
        thrift --gen java ../../lucidaservice.thrift; \
        thrift --gen java ../../lucidatypes.thrift; \
        sed -i '1s/^/package lucida.thrift;\n/' gen-java/LucidaService.java; \
