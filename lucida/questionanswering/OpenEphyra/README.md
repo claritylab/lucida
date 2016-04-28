@@ -80,3 +80,62 @@ Sponsors:
 
 The OpenEphyra effort is supported in part by IBM Open Collaboration Agreement
 #W0652159.
+================================================================================
+
+
+
+
+================================================================================
+
+# Lucida
+
+This following directories are specific to Lucida:
+
+```
+OpenEphyra/src/lucida/handler/
+OpenEphyra/src/lucida/main/
+OpenEphyra/src/lucida/test/
+```
+
+- `OpenEphyra/src/lucida/handler/`: Contains code that handles the Lucida services
+- `OpenEphyra/src/lucida/main/`: Contains an OpenEphyra wrapper to communicates with Lucida
+- `OpenEphyra/src/lucida/test/`: Contains a testing client
+
+## Build
+
+```
+$ make
+```
+
+## Run and Test
+
+Start the server:
+
+```
+$ make start_server (port number of QA) (port number of command center, optional)
+```
+
+Note: There are two modes of usage. 
+* If the port number of the command center is not provided,
+or the command center cannot be connected to,
+the server runs as a stand-alone program.
+* Otherwise, the server can interact with the command center
+and act as its client.
+
+In either case, the server can interact with a testing client.
+To run the testing client:
+
+```
+$ make start_test (port number of QA)
+```
+
+## Summary: Example Usage
+
+```
+$ make
+$ make start_server 8081
+$ # Wait until you see "Start listening to requests" in the server terminal.
+$ make start_test 8081
+```
+
+================================================================================
