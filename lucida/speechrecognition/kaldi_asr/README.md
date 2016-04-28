@@ -5,7 +5,7 @@ It uses [Apache Thrift](http://thrift.apache.org/) to communicate with the comma
 in which case it acts as its client,
 but it can also run and be tested independently.
 
-This directory contains two sub-directories:
+This directory contains three sub-directories:
 
 ```
 kaldi/ 
@@ -39,10 +39,10 @@ $ make start_server (port number of ASR) (port number of command center, optiona
 ```
 
 Note: There are two modes of usage. 
-⋅⋅* If the port number of the command center is not provided,
+* If the port number of the command center is not provided,
 or the command center cannot be connected to,
 the server runs as a stand-alone program.
-⋅⋅* Otherwise, the server can interact with the command center
+* Otherwise, the server can interact with the command center
 and act as its client.
 
 In either case, the server can interact with a testing client.
@@ -60,7 +60,7 @@ $ make start_test (port number of ASR) (path of audio file **relative to test**)
 
 An example audio file is provided `test.wav`.
 
-## Example Usage as a Summary
+## Summary: Example Usage
 
 ```
 $ make
