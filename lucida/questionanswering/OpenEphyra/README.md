@@ -16,8 +16,9 @@ OpenEphyra is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with
+You should have received a copy of the GNU General Public License along with 
 OpenEphyra. If not, see <http://www.gnu.org/licenses/>.
+
 ================================================================================
 
 Acknowledgements:
@@ -79,7 +80,8 @@ Sponsors:
 ---------
 
 The OpenEphyra effort is supported in part by IBM Open Collaboration Agreement
-#W0652159.
+\#W0652159.
+
 ================================================================================
 
 
@@ -92,14 +94,14 @@ The OpenEphyra effort is supported in part by IBM Open Collaboration Agreement
 This following directories are specific to Lucida:
 
 ```
-OpenEphyra/src/lucida/handler/
-OpenEphyra/src/lucida/main/
-OpenEphyra/src/lucida/test/
+src/lucida/handler/
+src/lucida/main/
+src/lucida/test/
 ```
 
-- `OpenEphyra/src/lucida/handler/`: Contains code that handles the Lucida services
-- `OpenEphyra/src/lucida/main/`: Contains an OpenEphyra wrapper to communicates with Lucida
-- `OpenEphyra/src/lucida/test/`: Contains a testing client
+- `src/lucida/handler/`: Contains code that handles the Lucida services
+- `src/lucida/main/`: Contains an OpenEphyra wrapper to communicates with Lucida
+- `src/lucida/test/`: Contains a testing client
 
 ## Build
 
