@@ -129,6 +129,8 @@ To run the testing client:
 $ make start_test (port number of QA)
 ```
 
+To change the knowledge base or query, you can modify `src/lucida/test/QAClient.java` and rebuild.
+
 ## Summary: Example Usage
 
 ```
