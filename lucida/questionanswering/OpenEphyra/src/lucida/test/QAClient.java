@@ -22,7 +22,7 @@ public class QAClient {
 	
 	public static void main(String [] args) {
 		// Collect the port number.
-		int port = 9091;
+		int port = 8083;
 
 		if (args.length >= 1) {
 			port = Integer.parseInt(args[0]);
@@ -34,8 +34,9 @@ public class QAClient {
 		
 		// Knowledge.
 		final QueryInput knowledge_text = new QueryInput("text", new ArrayList<String>() {{
-		    add("Today China’s population is over 1007 million, the largest of any country in the world.");
-		    add("Today is March 22, 2016.");
+		    add("Today China’s population is over 1.4 billion,"
+		    		+ " the largest of any country in the world.");
+		    add("The capital of Italy is Rome.");
 		}});
 		final QueryInput knowledge_url = new QueryInput("URL", new ArrayList<String>() {{
 		    add("https://en.wikipedia.org/wiki/Cookie");
@@ -61,10 +62,12 @@ public class QAClient {
 		try {
 			// Talk to the server.
 			transport.open();
-			System.out.println("///// Connecting to OpenEphyra... /////");
+			System.out.println("///// Connecting to OpenEphyra at port " + port + " ... /////");
 			// Call the three functions.
 			client.create(LUCID, spec);
 			client.learn(LUCID, knowledge);
+			System.out.println("///// Query input: /////");
+			System.out.println(query_input);
 			String answer = client.infer(LUCID, query);
 			// Print the answer.
 			System.out.println("///// Answer: /////");
