@@ -115,9 +115,5 @@ public class QAServiceHandler implements LucidaService.Iface {
 //		}
 //		return answersList;
 //	}
-
-	public void ping() {
-		System.out.println("pinged");
-	}
 }
 
