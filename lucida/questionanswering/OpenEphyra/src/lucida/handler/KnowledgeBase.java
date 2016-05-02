@@ -208,10 +208,10 @@ public class KnowledgeBase {
 				// Write the text to a temporary file.
 				String file_path = Indri_repo + "/url_" + i + ".txt";
 				File file = new File(file_path);
-				FileWriter fileWriter = new FileWriter(file);
-				fileWriter.write(parsed_text);
-				fileWriter.flush();
-				fileWriter.close();
+				FileWriter file_writer = new FileWriter(file);
+				file_writer.write(parsed_text);
+				file_writer.flush();
+				file_writer.close();
 				// Add the file to the Indri index environment.
 				env.addFile(file_path);
 				// Delete the temporary file.
@@ -266,10 +266,4 @@ public class KnowledgeBase {
 		sb.append("******************** End of Summary ********************");
 		return sb.toString();
 	}
-	
-	
-	
-	
-	
 }
-
