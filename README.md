@@ -22,6 +22,7 @@ also build `lucida-suite` and `lucida`.
 export THRIFT_ROOT=`pwd`/tools/thrift-0.9.2
 export CAFFE=`pwd`/tools/caffe/distribute
 export LUCIDAROOT=`pwd`/lucida
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ```
 - Start all the services using supervisord:
 ```
