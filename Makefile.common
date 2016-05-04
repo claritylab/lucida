@@ -1,15 +1,19 @@
 UNDER_TEST=1
 
-.PHONY: default all test clean
+.PHONY: default all debug test clean
 
 default: all
 
 all: all-sub all-here
+debug: debug-sub debug-here
 test: test-sub test-here
 clean: clean-sub clean-here
 
 all-sub:
 	$(foreach var,$(SUBDIRS),$(MAKE) -C $(var) all || exit 1;)
+
+debug-sub:
+	$(foreach var,$(SUBDIRS),$(MAKE) -C $(var) debug || exit 1;)
 
 test-sub:
 	$(foreach var,$(TESTSUBDIRS),$(MAKE) -C $(var) test || exit 1;)
