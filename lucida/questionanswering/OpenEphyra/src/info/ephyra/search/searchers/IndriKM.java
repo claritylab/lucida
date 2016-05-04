@@ -213,6 +213,7 @@ public class IndriKM extends KnowledgeMiner {
 			}
 		    
 		    // run an Indri query, returning up to MAX_RESULTS_PERQUERY results
+			System.out.println("@@@@@@@@@@" + transformQueryString(query.getQueryString()));
 		    ScoredExtentResult[] results =
 		    	env.runQuery(transformQueryString(query.getQueryString()),
 		    				 MAX_RESULTS_PERQUERY);

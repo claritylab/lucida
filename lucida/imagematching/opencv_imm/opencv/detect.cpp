@@ -334,7 +334,7 @@ void build_model(DescriptorMatcher *matcher, vector<string> *trainImgs){
 	DescriptorExtractor *extractor = new SurfDescriptorExtractor();
 	
   // Generate desc
-  string db = fs::current_path().parent_path().string() + "/opencv/matching/landmarks/db";
+  string db = fs::current_path().parent_path().string() + "/opencv_imm/opencv/matching/landmarks/db";
 	fs::path p = fs::system_complete(db);
 	assert(fs::is_directory(p));
 
