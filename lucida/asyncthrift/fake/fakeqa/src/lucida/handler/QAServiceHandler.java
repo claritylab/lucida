@@ -11,7 +11,10 @@ import org.apache.thrift.async.AsyncMethodCallback;
 import lucida.thrift.*;
 
 public class QAServiceHandler {
+	
 	public static class SyncQAServiceHandler implements LucidaService.Iface {
+		int count = 0;
+		
 		@Override
 		public void create(String LUCID, QuerySpec spec) {
 			System.out.println("Sync Create");
@@ -25,7 +28,12 @@ public class QAServiceHandler {
 		@Override
 		public String infer(String LUCID, QuerySpec query) {
 			System.out.println("Sync Infer");
-			return "QA Result: I love XXX";
+			List<Integer> li = new ArrayList<Integer>();
+			for (int i = 0; i < 5; ++i) {
+				li.add(i);
+			}
+			
+			return li.get(count++) + " QA says I love XXX";
 		}	
 	}
 	

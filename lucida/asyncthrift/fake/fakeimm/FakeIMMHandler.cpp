@@ -53,7 +53,6 @@ folly::Future<folly::Unit> FakeImmHandler::future_learn
 	return future;
 }
 
-
 folly::Future<std::unique_ptr<std::string>> FakeImmHandler::future_infer
 (std::unique_ptr<std::string> LUCID, std::unique_ptr< ::cpp2::QuerySpec> query) {
 	std::cout << "Infer" << std::endl;
@@ -62,33 +61,33 @@ folly::Future<std::unique_ptr<std::string>> FakeImmHandler::future_infer
 
 	folly::RequestEventBase::get()->runInEventBaseThread(
 			[promise, this]() mutable {
-		std::string QA_result = askQA();
-		std::unique_ptr<std::string> result = folly::make_unique<std::string>(QA_result);
-		promise->setValue(std::move(result));
+		EventBase event_base;
+
+		std::shared_ptr<TAsyncSocket> socket(
+				TAsyncSocket::newSocket(&event_base, FLAGS_QA_hostname, FLAGS_QA_port));
+
+		std::unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor> channel(
+							new HeaderClientChannel(socket));
+
+		channel->setClientType(THRIFT_FRAMED_DEPRECATED);
+
+		LucidaServiceAsyncClient client(std::move(channel));
+
+		QuerySpec q;
+
+		cout << "Sending request to QA at 8083" << endl;
+		auto result = client.future_infer("Johann", q).then(
+				[promise, this](folly::Try<std::string>&& t) mutable {
+			cout << "Result: " << t.value();
+			std::unique_ptr<std::string> result = folly::make_unique<std::string>(t.value());
+			promise->setValue(std::move(result));
+		});
+
+		event_base.loop();
 	}
 	);
 
 	return future;
 }
 
-std::string FakeImmHandler::askQA() {
-	EventBase event_base;
-
-	std::shared_ptr<TAsyncSocket> socket(
-			TAsyncSocket::newSocket(&event_base, FLAGS_QA_hostname, FLAGS_QA_port));
-
-	std::unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor> channel(
-						new HeaderClientChannel(socket));
-
-	channel->setClientType(THRIFT_FRAMED_DEPRECATED);
-
-	LucidaServiceAsyncClient client(std::move(channel));
-
-	QuerySpec q;
-
-	cout << "Sending request to QA at 8083" << endl;
-	std::string result = client.future_infer("Johann", q).getVia(&event_base);
-	cout << "Result: " << result << endl;
-	return result;
-}
 }
