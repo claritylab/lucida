@@ -57,14 +57,10 @@ folly::Future<folly::Unit> IMMHandler::future_learn
 	folly::RequestEventBase::get()->runInEventBaseThread(
 			[=]() mutable {
 
-	    mongo::client::GlobalInstance instance;
-	    if (!instance.initialized()) {
-	        std::cout << "failed to initialize the client driver: " << instance.status() << std::endl;
-	        return EXIT_FAILURE;
-	    }
 
 		for (const QueryInput &query_input : knowledge_save.content) {
 			for (int i = 0; i < (int) query_input.data.size(); ++i) {
+
 			    cout << "@@@ Label: " << query_input.tags[i] << endl;
 			    cout << "@@@ Size: " << query_input.data[i].size() << endl;
 			    string uri = "localhost:27017";
@@ -84,22 +80,18 @@ folly::Future<folly::Unit> IMMHandler::future_learn
 
 
 
-		        BSONObj o = BSON("hello"
-		                         << "world");
-		        conn->insert("test.foo", o);
 
+			    BSONObj p = BSONObjBuilder()
+			    		.append("image_label", query_input.tags[i])
+						.append("image_data", query_input.data[i]).obj();
+
+
+			    conn->insert("lucida.images_" + LUCID_save, p);
+			    cout << "lucida.images_" + LUCID_save << endl;
 		        string e = conn->getLastError();
 		        if (!e.empty()) {
 		            cout << "insert #1 failed: " << e << endl;
 		        }
-
-//			    BSONObj p = BSONObjBuilder()
-//			    		.append("image_label", query_input.tags[i])
-//						.append("image_data", query_input.data[i]).obj();
-//
-//
-//			    conn->insert("lucida.images_" + LUCID_save, p);
-			    cout << "lucida.images_" + LUCID_save << endl;
 			}
 		}
 		promise->setValue(Unit{});
