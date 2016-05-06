@@ -26,7 +26,7 @@ SOURCES = gen-cpp2/LucidaService_client.cpp \
 				gen-cpp2/lucidaservice_types.cpp \
 				gen-cpp2/lucidatypes_constants.cpp \
 				gen-cpp2/lucidatypes_types.cpp \
-				$(wildcard *.cpp)
+				$(wildcard *.cpp) \
 OBJECTS = $(SOURCES:.cpp=.o)
 
 all: CXXFLAGS += -O3
