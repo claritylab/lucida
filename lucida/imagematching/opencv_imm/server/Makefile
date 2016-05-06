@@ -1,14 +1,11 @@
 CXX = g++
 
-CXXFLAGS = -std=c++11 \
+CXXFLAGS = 		-std=c++11 \
 				-fPIC \
-				-I/usr/local/include/mongocxx/v_noabi \
-				-I/usr/local/include/libbson-1.0 \
-				-I/usr/local/include/libmongoc-1.0 \
-				-I/usr/local/include/bsoncxx/v_noabi \
-				-L/usr/local/lib 
+				-I /usr/local/include/mongo 
 
-LINKFLAGS =  -lopencv_core \
+LINKFLAGS =  	-I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
+				-lopencv_core \
 				-lopencv_highgui \
 				-lopencv_imgproc \
 				-lopencv_nonfree \
@@ -19,8 +16,7 @@ LINKFLAGS =  -lopencv_core \
 				-lrt \
 				-lprotobuf \
 				-ltesseract \
-				-lmongocxx \
-				-lbsoncxx\
+				-pthread \
 				-lboost_program_options \
 				-lboost_filesystem \
 				-lboost_system \
@@ -33,7 +29,7 @@ LINKFLAGS =  -lopencv_core \
 				-lthriftcpp2 \
 				-lgflags \
 				-lthriftprotocol \
-				-lcrypto
+				-lcrypto 
 
 TARGET  = imm_server
 SOURCES = gen-cpp2/LucidaService_client.cpp \
@@ -45,7 +41,7 @@ SOURCES = gen-cpp2/LucidaService_client.cpp \
 				gen-cpp2/lucidatypes_constants.cpp \
 				gen-cpp2/lucidatypes_types.cpp \
 				$(wildcard *.cpp) \
-				../opencv/detect.o \
+				../opencv/Image.o \
 				../opencv/kp_protobuf.o \
 				../opencv/keypoints.pb.cc \
 				../opencv/store_mat.pb.cc
@@ -69,7 +65,7 @@ $(TARGET): $(OBJECTS)
 	$(CXX) $(OBJECTS) -o $@ $(LINKFLAGS)
 
 %.o: %.cpp
-	$(CXX) -Wall -I$(COMMON_DIR) $(CXXFLAGS) -c $< -o $@
+	$(CXX) -Wall -I$(COMMON_DIR) $(CXXFLAGS) -c $< -o $@ $(LINKFLAGS)
 
 clean:
 	rm -rf $(TARGET) *.o gen-cpp2
