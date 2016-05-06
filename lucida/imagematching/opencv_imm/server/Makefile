@@ -1,7 +1,12 @@
 CXX = g++
 
 CXXFLAGS = -std=c++11 \
-				-fPIC
+				-fPIC \
+				-I/usr/local/include/mongocxx/v_noabi \
+				-I/usr/local/include/libbson-1.0 \
+				-I/usr/local/include/libmongoc-1.0 \
+				-I/usr/local/include/bsoncxx/v_noabi \
+				-L/usr/local/lib 
 
 LINKFLAGS =  -lopencv_core \
 				-lopencv_highgui \
@@ -14,6 +19,8 @@ LINKFLAGS =  -lopencv_core \
 				-lrt \
 				-lprotobuf \
 				-ltesseract \
+				-lmongocxx \
+				-lbsoncxx\
 				-lboost_program_options \
 				-lboost_filesystem \
 				-lboost_system \
@@ -67,7 +74,4 @@ $(TARGET): $(OBJECTS)
 clean:
 	rm -rf $(TARGET) *.o gen-cpp2
 
-start_server: 
-	gnome-terminal -x bash -c "./imm_server $(filter-out $@,$(MAKECMDGOALS)); read -n1"
-
-.PHONY:	all debug thrift clean start_server
+.PHONY:	all debug thrift clean

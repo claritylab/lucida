@@ -6,8 +6,8 @@
 #include <thrift/lib/cpp2/server/ThriftServer.h>
 
 DEFINE_int32(port,
-		8082,
-		"Port for ASR service (default: 8082)");
+		8087,
+		"Port for ASR service (default: 8087)");
 
 DEFINE_int32(num_of_threads,
 		4,

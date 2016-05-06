@@ -1,56 +1,66 @@
 CXX = g++
-# Needed for linking
-GEN_DIR = ./gen-cpp
+
+CXXFLAGS = -std=c++11 \
+				-fPIC
+
+LINKFLAGS =  -lopencv_core \
+				-lopencv_highgui \
+				-lopencv_imgproc \
+				-lopencv_nonfree \
+				-lopencv_flann \
+				-lopencv_objdetect \
+				-lopencv_features2d \
+				-lopencv_gpu \
+				-lrt \
+				-lprotobuf \
+				-ltesseract \
+				-lboost_program_options \
+				-lboost_filesystem \
+				-lboost_system \
+				-lboost_thread \
+				-lboost_regex \
+				-lthrift \
+				-lfolly \
+				-lwangle \
+				-lglog \
+				-lthriftcpp2 \
+				-lgflags \
+				-lthriftprotocol \
+				-lcrypto
+
+TARGET  = imm_test
+SOURCES = gen-cpp2/LucidaService_client.cpp \
+				gen-cpp2/lucidaservice_constants.cpp \
+				gen-cpp2/LucidaService.cpp \
+				gen-cpp2/LucidaService_processmap_binary.cpp \
+				gen-cpp2/LucidaService_processmap_compact.cpp \
+				gen-cpp2/lucidaservice_types.cpp \
+				gen-cpp2/lucidatypes_constants.cpp \
+				gen-cpp2/lucidatypes_types.cpp \
+				$(wildcard *.cpp) 
+OBJECTS = $(SOURCES:.cpp=.o)
+
 COMMON_DIR = ../opencv
 
-CXX_FLAGS = -std=c++11
-LINK_FLAGS = -lopencv_core \
-						 -lopencv_highgui \
-						 -lopencv_imgproc \
-						 -lopencv_nonfree \
-						 -lopencv_flann \
-						 -lopencv_objdetect \
-						 -lopencv_features2d \
-						 -lopencv_gpu \
-						 -lrt \
-						 -lboost_program_options \
-						 -lboost_filesystem \
-						 -lboost_system \
-						 -lboost_thread \
-						 -lboost_regex \
-						 -lprotobuf \
-						 -ltesseract \
-						 -lthrift
- 
-TARGET_CLIENT = imm_client
+all: CXXFLAGS += -O3
+all: thrift $(TARGET)
 
-OBJECTS_SERVER =    ./gen-cpp/lucidatypes_types.o \
-					./gen-cpp/LucidaService.o \
-					../opencv/detect.o \
-					../opencv/kp_protobuf.o \
-					../opencv/keypoints.pb.cc \
-					../opencv/store_mat.pb.cc \
-					imm_client.o
-
-all: CXX_FLAGS += -O3
-all: thrift $(TARGET_CLIENT)
-
-debug: CXX_FLAGS += -g3
-debug: thrift $(TARGET_CLIENT)
+debug: CXXFLAGS += -g3
+debug: thrift $(TARGET)
 
 thrift:
-	@if [ ! -d "gen-cpp" ]; then \
-       thrift --gen cpp ../../../lucidaservice.thrift; \
-       thrift --gen cpp ../../../lucidatypes.thrift; \
+	@if [ ! -d "gen-cpp2" ]; then \
+       python -mthrift_compiler.main --gen cpp2 ../../../lucidaservice.thrift; \
+       python -mthrift_compiler.main --gen cpp2 ../../../lucidatypes.thrift; \
     fi
 
-$(TARGET_CLIENT): $(OBJECTS_SERVER)
-	$(CXX) $(CXX_FLAGS) $(OBJECTS_SERVER) -o $(TARGET_CLIENT) $(LINK_FLAGS)
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $@ $(LINKFLAGS)
 
 %.o: %.cpp
-	$(CXX) -I$(GEN_DIR) -I$(COMMON_DIR) -c $(CXX_FLAGS) $< -o $@
+	$(CXX) -Wall -I$(COMMON_DIR) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(TARGET_CLIENT) *.o gen-cpp
+	rm -rf $(TARGET) *.o gen-cpp2
 
 .PHONY:	all debug thrift clean
