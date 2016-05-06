@@ -1,4 +1,4 @@
-all: thrift
+all: 
 	ant
 
 thrift:
@@ -18,7 +18,6 @@ start_server:
 
 clean:
 	rm -rf bin
-	rm -rf src/lucida/thrift
 
 .PHONY:	all thrift start_server clean
 

@@ -18,7 +18,15 @@ LINKFLAGS =  -lboost_program_options \
 				-lcrypto
 
 TARGET  = cmd
-SOURCES = $(wildcard *.cpp gen-cpp2/*.cpp)
+SOURCES = gen-cpp2/LucidaService_client.cpp \
+				gen-cpp2/lucidaservice_constants.cpp \
+				gen-cpp2/LucidaService.cpp \
+				gen-cpp2/LucidaService_processmap_binary.cpp \
+				gen-cpp2/LucidaService_processmap_compact.cpp \
+				gen-cpp2/lucidaservice_types.cpp \
+				gen-cpp2/lucidatypes_constants.cpp \
+				gen-cpp2/lucidatypes_types.cpp \
+				$(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
 all: CXXFLAGS += -O3
