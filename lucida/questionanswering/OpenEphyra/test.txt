@@ -1,0 +1,95 @@
+Unreal Engine
+Welcome to the Unreal Engine source code!
+
+From this repository you can build the Unreal Editor for Windows and Mac, compile Unreal Engine games for Android, iOS, Playstation 4, Xbox One, HTML5 and Linux, and build tools like Unreal Lightmass and Unreal Frontend. Modify them in any way you can imagine, and share your changes with others!
+
+We have a heap of documentation available for the engine on the web. If you're looking for the answer to something, you may want to start here:
+
+Unreal Engine Programming Guide
+Unreal Engine API Reference
+Engine source and GitHub on the Unreal Engine forums
+If you need more, just ask! A lot of Epic developers hang out on the forums or AnswerHub, and we're proud to be part of a well-meaning, friendly and welcoming community of thousands.
+
+Branches
+
+We publish source for the engine in three rolling branches:
+
+The release branch is extensively tested by our QA team and makes a great starting point for learning the engine or making your own games. We work hard to make releases stable and reliable, and aim to publish new releases every few months.
+
+The promoted branch is updated with builds for our artists and designers to use. We try to update it daily (though we often catch things that prevent us from doing so) and it's a good balance between getting the latest cool stuff and knowing most things work.
+
+The master branch tracks live changes by our engine team. This is the cutting edge and may be buggy - it may not even compile. Battle-hardened developers eager to work lock-step with us on the latest and greatest should head here.
+
+Other short-lived branches may pop-up from time to time as we stabilize new releases or hotfixes.
+
+Getting up and running
+
+The steps below will take you through cloning your own private fork, then compiling and running the editor yourself:
+
+Windows
+
+Install GitHub for Windows then fork and clone our repository. To use Git from the command line, see the Setting up Git and Fork a Repo articles.
+
+If you'd prefer not to use Git, you can get the source with the 'Download ZIP' button on the right. The built-in Windows zip utility will mark the contents of zip files downloaded from the Internet as unsafe to execute, so right-click the zip file and select 'Properties...' and 'Unblock' before decompressing it. Third-party zip utilities don't normally do this.
+
+Install Visual Studio 2015. All desktop editions of Visual Studio 2015 can build UE4, including Visual Studio Community 2015, which is free for small teams and individual developers. Be sure to include C++ support as part of the install, which is disabled by default.
+
+Open your source folder in Explorer and run Setup.bat. This will download binary content for the engine, as well as installing prerequisites and setting up Unreal file associations. On Windows 8, a warning from SmartScreen may appear. Click "More info", then "Run anyway" to continue.
+
+A clean download of the engine binaries is currently 3-4gb, which may take some time to complete. Subsequent checkouts only require incremental downloads and will be much quicker.
+
+Run GenerateProjectFiles.bat to create project files for the engine. It should take less than a minute to complete.
+
+Load the project into Visual Studio by double-clicking on the UE4.sln file. Set your solution configuration to Development Editor and your solution platform to Win64, then right click on the UE4 target and select Build. It may take anywhere between 10 and 40 minutes to finish compiling, depending on your system specs.
+
+After compiling finishes, you can load the editor from Visual Studio by setting your startup project to UE4 and pressing F5 to debug.
+
+Mac
+
+Install GitHub for Mac then fork and clone our repository. To use Git from the Terminal, see the Setting up Git and Fork a Repo articles. If you'd rather not use Git, use the 'Download ZIP' button on the right to get the source directly.
+
+Install the latest version of Xcode.
+
+Open your source folder in Finder and double-click on Setup.command to download binary content for the engine. You can close the Terminal window afterwards.
+
+If you downloaded the source as a .zip file, you may see a warning about it being from an unidentified developer (because .zip files on GitHub aren't digitally signed). To work around it, right-click on Setup.command, select Open, then click the Open button.
+
+In the same folder, double-click GenerateProjectFiles.command. It should take less than a minute to complete.
+
+Load the project into Xcode by double-clicking on the UE4.xcworkspace file. Select the UE4 for My Mac target in the title bar, then select the 'Product > Build' menu item. Compiling may take anywhere between 15 and 40 minutes, depending on your system specs.
+
+After compiling finishes, select the 'Product > Run' menu item to load the editor.
+
+Linux
+
+Set up Git and fork our repository. If you'd prefer not to use Git, use the 'Download ZIP' button on the right to get the source as a zip file.
+
+Open your source folder and run Setup.sh to download binary content for the engine.
+
+Both cross-compiling and native builds are supported.
+
+Cross-compiling is handy when you are a Windows (Mac support planned too) developer who wants to package your game for Linux with minimal hassle, and it requires a cross-compiler toolchain to be installed (see the Linux cross-compiling page on the wiki).
+
+Native compilation is discussed in a separate README and community wiki page.
+
+Additional target platforms
+
+Android support will be downloaded by the setup script if you have the Android NDK installed. See the Android getting started guide.
+
+iOS programming requires a Mac. Instructions are in the iOS getting started guide.
+
+HTML5 support will be downloaded by the setup script if you have Emscripten installed. Please see the HTML5 getting started guide.
+
+Playstation 4 or XboxOne development require additional files that can only be provided after your registered developer status is confirmed by Sony or Microsoft. See the announcement blog post for more information.
+
+Licensing and Contributions
+
+Your access to and use of Unreal Engine on GitHub is governed by the Unreal Engine End User License Agreement. If you don't agree to those terms, as amended from time to time, you are not permitted to access or use Unreal Engine.
+
+We welcome any contributions to Unreal Engine development through pull requests on GitHub. Most of our active development is in the master branch, so we prefer to take pull requests there (particularly for new features). We try to make sure that all new code adheres to the Epic coding standards. All contributions are governed by the terms of the EULA.
+
+Additional Notes
+
+The first time you start the editor from a fresh source build, you may experience long load times. The engine is optimizing content for your platform to the derived data cache, and it should only happen once.
+
+Your private forks of the Unreal Engine code are associated with your GitHub account permissions. If you unsubscribe or switch GitHub user names, you'll need to re-fork and upload your changes from a local copy.

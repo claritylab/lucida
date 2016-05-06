@@ -332,7 +332,7 @@ void build_model(DescriptorMatcher *matcher, vector<string> *trainImgs){
 	vector<Mat> trainDesc;
 	FeatureDetector *detector = new SurfFeatureDetector();
 	DescriptorExtractor *extractor = new SurfDescriptorExtractor();
-	
+
   // Generate desc
   string db = fs::current_path().parent_path().string() + "/opencv_imm/opencv/matching/landmarks/db";
 	fs::path p = fs::system_complete(db);
@@ -348,11 +348,11 @@ void build_model(DescriptorMatcher *matcher, vector<string> *trainImgs){
 		trainImgs->push_back(img_name);
 		save_mat(desc, make_pbdesc(img_name).c_str());
 	}
-	
+
 	// Cluster
 	matcher->add(trainDesc);
 	matcher->train();
-	
+
 	// Clean up
 	delete detector;
 	delete extractor;
@@ -367,7 +367,7 @@ string exec_match(string img_path, DescriptorMatcher *matcher, vector<string> *t
 	Mat testDesc;
 	vector<vector<DMatch> > knnMatches;
 	vector<int> bestMatches(trainImgs->size(), 0);
-	
+
 	unsigned int runtimefeat = 0, totalfeat = 0;
 	unsigned int runtimedesc = 0, totaldesc = 0;
 	unsigned int runtimecluster = 0;
@@ -404,7 +404,7 @@ string exec_match(string img_path, DescriptorMatcher *matcher, vector<string> *t
 	// returns the best match for each descriptor
 	int knn = 1;
 	matcher->knnMatch(testDesc, knnMatches, knn);
-	
+
 	gettimeofday(&tv2, NULL);
 	runtimesearch = (tv2.tv_sec - tv1.tv_sec) * 1000000 + (tv2.tv_usec - tv1.tv_usec);
 

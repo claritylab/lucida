@@ -7,6 +7,13 @@
 #include <unistd.h>
 #include <iostream>
 
+#include <bsoncxx/builder/stream/document.hpp>
+#include <bsoncxx/json.hpp>
+#include <bsoncxx/types.hpp>
+#include <mongocxx/client.hpp>
+#include <mongocxx/instance.hpp>
+
+
 DEFINE_int32(QA_port,
 		8083,
 		"Port for QA service (default: 8083)");
@@ -28,8 +35,6 @@ using std::shared_ptr;
 namespace cpp2 {
 IMMHandler::IMMHandler() {
 	this->matcher = new FlannBasedMatcher();
-	cout << "Building the image matching model..." << endl;
-	build_model(this->matcher, &(this->trainImgs));
 }
 
 folly::Future<folly::Unit> IMMHandler::future_create
@@ -48,15 +53,30 @@ folly::Future<folly::Unit> IMMHandler::future_create
 
 folly::Future<folly::Unit> IMMHandler::future_learn
 (unique_ptr<string> LUCID, unique_ptr< ::cpp2::QuerySpec> knowledge) {
+	cout << "Learn" << endl;
+	// Save LUCID and knowledge.
+	string LUCID_save = *LUCID;
+	::cpp2::QuerySpec knowledge_save = *knowledge;
 	folly::MoveWrapper<folly::Promise<folly::Unit > > promise;
 	auto future = promise->getFuture();
-
 	folly::RequestEventBase::get()->runInEventBaseThread(
-			[promise, this]() mutable {
-		// do stuff
+			[=]() mutable {
+		for (const QueryInput &query_input : knowledge_save.content) {
+			for (int i = 0; i < (int) query_input.data.size(); ++i) {
+			    mongocxx::instance inst{};
+			    mongocxx::client conn{mongocxx::uri{}};
+			    bsoncxx::builder::stream::document document{};
+			    auto collection = conn["lucida"]["images_" + LUCID_save];
+			    document << "image_label" << query_input.tags[i]
+						<< "image_data" << query_input.data[i];
+			    cout << "@@@ Label: " << query_input.tags[i] << endl;
+			    cout << "@@@ Size: " << query_input.data[i].size() << endl;
+			    collection.insert_one(document.view());
+			}
+		}
+		promise->setValue(Unit{});
 	}
 	);
-
 	return future;
 }
 
@@ -87,7 +107,7 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 		QuerySpec q;
 
 		cout << "Sending request to QA at 8083" << endl;
-		auto result = client.future_infer("Johann", q).then(
+		client.future_infer("Johann", q).then(
 				[&](folly::Try<string>&& t) mutable {
 			cout << "Result: " << t.value();
 			unique_ptr<string> result = folly::make_unique<std::string>(t.value());
