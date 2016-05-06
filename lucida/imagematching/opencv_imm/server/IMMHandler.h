@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "gen-cpp2/LucidaService.h"
-#include "../opencv/detect.h"
+#include "../opencv/Image.h"
 
 namespace cpp2 {
 class IMMHandler : virtual public LucidaServiceSvIf {
@@ -20,12 +20,9 @@ public:
 	(std::unique_ptr<std::string> LUCID, std::unique_ptr< ::cpp2::QuerySpec> query);
 
 private:
-	struct timeval tp;
-	DescriptorMatcher *matcher;
-	std::vector<std::string> trainImgs;
-
-	std::string infer(unique_ptr<string> LUCID, std::unique_ptr< ::cpp2::QuerySpec> query);
+	std::vector<std::unique_ptr<Image>> getImages(std::unique_ptr<std::string> LUCID);
 	void extractImageFromQuery(std::unique_ptr< ::cpp2::QuerySpec> query, std::string &image);
+
 
 };
 }
