@@ -1,10 +1,9 @@
 #include <unistd.h>
 #include <gflags/gflags.h>
 #include <iostream>
-#include <mutex>
-#include <thread>
 #include <vector>
 
+#include <folly/futures/Future.h>
 #include "gen-cpp2/LucidaService.h"
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
 
@@ -15,11 +14,6 @@ using namespace cpp2;
 
 using std::cout;
 using std::endl;
-using std::vector;
-using std::mutex;
-using std::thread;
-
-mutex m;
 
 DEFINE_int32(port,
 		8082,
@@ -29,7 +23,10 @@ DEFINE_string(hostname,
 		"127.0.0.1",
 		"Hostname of the server (default: localhost)");
 
-void client(int i) {
+int main(int argc, char* argv[]) {
+	google::InitGoogleLogging(argv[0]);
+	google::ParseCommandLineFlags(&argc, &argv, true);
+
 	EventBase event_base;
 
 	std::shared_ptr<TAsyncSocket> socket(
@@ -39,28 +36,18 @@ void client(int i) {
 			std::unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>(
 					new HeaderClientChannel(socket)));
 
-	QuerySpec q;
-
-	m.lock();
-	cout << i << " Going to send request to IMM at 8082" << endl;
-	m.unlock();
-	std::string result = client.future_infer("Johann", q).getVia(&event_base);
-	m.lock();
-	cout << i << " Result: " << result << endl;
-	m.unlock();
-}
-
-int main(int argc, char* argv[]) {
-	google::InitGoogleLogging(argv[0]);
-	google::ParseCommandLineFlags(&argc, &argv, true);
-
-	vector<thread> threads;
-	for (int i = 0; i < 10; ++i) {
-		threads.emplace_back(client, i);
+	for (int i = 0; i < 5; ++i) {
+		QuerySpec q;
+		cout << i << " Going to send request to IMM at 8082" << endl;
+		auto result = client.future_infer("Johann", std::move(q)).then(
+				[](folly::Try<std::string>&& t) mutable {
+			cout << "Result: " << t.value() << endl;
+			return t.value();
+		});
 	}
-	for (thread &t : threads) {
-		t.join();
-	}
+
+	cout << "Going to loop" << endl;
+	event_base.loop();
 
 	return 0;
 }
