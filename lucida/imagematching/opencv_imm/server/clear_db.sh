@@ -4,3 +4,4 @@ use lucida
 db.dropDatabase()
 exit
 rm *.jpg
+rm *.txt

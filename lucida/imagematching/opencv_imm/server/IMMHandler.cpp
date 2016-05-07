@@ -28,6 +28,8 @@ using std::string;
 using std::unique_ptr;
 using std::shared_ptr;
 
+Mat to_compare;
+
 namespace cpp2 {
 IMMHandler::IMMHandler() {}
 
@@ -82,7 +84,7 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 		vector<unique_ptr<StoredImage>> images = getImages(LUCID_save);
 		int best_index = Image::match(images,
 				unique_ptr<QueryImage>(new QueryImage(
-						move(Image::dataToMatObj(
+						move(Image::imageToMatObj(
 								query_save.content[0].data[0])))));
 		promise->setValue(unique_ptr<string>(
 				new string(images[best_index]->getLabel())));
@@ -124,9 +126,11 @@ void IMMHandler::addImage(const string &LUCID,
 	BSONObj p = BSONObjBuilder().append("label", label).append("data", data)
 			.append("size", (int) data.size()).obj();
 	conn->insert("lucida.images_" + LUCID, p); // insert the image data
+	// If the machine crashes here, good luck with the accuracy!
+	string mat_str = Image::imageToMatString(data);
 	p = BSONObjBuilder().append("label", label)
-			.append("desc", Image::dataToMatString(data))
-			.append("size", (int) Image::dataToMatString(data).size()).obj();
+			.append("desc", mat_str)
+			.append("size", (int) mat_str.size()).obj();
 	conn->insert("lucida.opencv_" + LUCID, p); // insert the image desc
 	string e = conn->getLastError();
 	if (!e.empty()) {
@@ -151,7 +155,7 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 	return rtn;
 }
 
-unique_ptr<mongo::DBClientBase> IMMHandler::getConnection() {
+unique_ptr<DBClientBase> IMMHandler::getConnection() {
 	string uri = "localhost:27017"; // specify where MongoDB is running
 	string errmsg;
 	ConnectionString cs = ConnectionString::parse(uri, errmsg);
