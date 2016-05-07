@@ -26,17 +26,18 @@
 
 class Image {
 private:
-	std::string label;
-	std::string data;
+	const std::string data;
 	cv::Mat desc;
+	void setDesc();
 
 public:
-	Image(std::string &_label, std::string &_data);
-
-	int match(
+	const std::string label;
+	Image(const std::string &_data);
+	Image(const std::string &_label, const std::string &_data);
+	static std::string saveToFS(const std::string &data);
+	static int match(
 			std::vector<std::unique_ptr<Image>> &train_images,
 			std::unique_ptr<Image> query_image);
 };
-
 
 #endif

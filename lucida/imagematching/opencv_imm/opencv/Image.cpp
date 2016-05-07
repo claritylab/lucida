@@ -33,21 +33,36 @@ namespace fs = boost::filesystem;
 struct timeval tv1, tv2;
 int debug = 0;
 
-Image::Image(string &_label, string &_data) : label(_label), data(_data) {
-	// Log the image.
-	struct timeval tp;
-	gettimeofday(&tp, NULL);
-	long int timestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
-	string image_path = "log/input-" + to_string(timestamp) + ".jpg";
-	ofstream image_file(image_path.c_str(), ios::binary);
-	image_file.write(data.c_str(), data.size());
-	image_file.close();
+Image::Image(const string &_data) : data(_data) {
+	setDesc();
+}
+
+Image::Image(const string &_label, const string &_data) :
+		label(_label), data(_data) {
+	setDesc();
+}
+
+void Image::setDesc() {
+	// Logging: save the image to file system.
+	string image_path = saveToFS(data);
 	// Load the image and extract features into a matrix.
 	Mat img = imread(image_path, CV_LOAD_IMAGE_GRAYSCALE);
 	vector<KeyPoint> keys;
 	(new SurfFeatureDetector())->detect(img, keys);
 	(new SurfDescriptorExtractor())->compute(img, keys, desc);
 	desc.convertTo(desc, CV_32F);
+}
+
+string Image::saveToFS(const string &data) {
+	struct timeval tp;
+	gettimeofday(&tp, NULL);
+	long int timestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
+	string image_path = "input-" + to_string(timestamp) + ".jpg";
+	ofstream image_file(image_path, ios::binary);
+	cout << "Size of image written to FS: " << data.size() << endl;
+	image_file.write(data.c_str(), data.size());
+	image_file.close();
+	return image_path;
 }
 
 int Image::match(
