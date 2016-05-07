@@ -65,7 +65,7 @@ $(TARGET): $(OBJECTS)
 	$(CXX) $(OBJECTS) -o $@ $(LINKFLAGS)
 
 %.o: %.cpp
-	$(CXX) -Wall -I$(COMMON_DIR) $(CXXFLAGS) -c $< -o $@ $(LINKFLAGS)
+	$(CXX) -Wall -I$(COMMON_DIR) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(TARGET) *.o gen-cpp2

@@ -4,6 +4,7 @@
 
 #include "gen-cpp2/LucidaService.h"
 #include "../opencv/Image.h"
+#include "client/dbclient.h" // MongoDB
 
 namespace cpp2 {
 class IMMHandler : virtual public LucidaServiceSvIf {
@@ -11,18 +12,24 @@ public:
 	IMMHandler();
 
 	folly::Future<folly::Unit> future_create
-	(std::unique_ptr<std::string> LUCID, std::unique_ptr< ::cpp2::QuerySpec> spec);
+	(std::unique_ptr<std::string> LUCID,
+			std::unique_ptr< ::cpp2::QuerySpec> spec);
 
 	folly::Future<folly::Unit> future_learn
-	(std::unique_ptr<std::string> LUCID, std::unique_ptr< ::cpp2::QuerySpec> knowledge);
+	(std::unique_ptr<std::string> LUCID,
+			std::unique_ptr< ::cpp2::QuerySpec> knowledge);
 
 	folly::Future<std::unique_ptr<std::string>> future_infer
-	(std::unique_ptr<std::string> LUCID, std::unique_ptr< ::cpp2::QuerySpec> query);
+	(std::unique_ptr<std::string> LUCID,
+			std::unique_ptr< ::cpp2::QuerySpec> query);
 
 private:
-	std::vector<std::unique_ptr<Image>> getImages(std::unique_ptr<std::string> LUCID);
-	void extractImageFromQuery(std::unique_ptr< ::cpp2::QuerySpec> query, std::string &image);
+	void addImage(const std::string &LUCID,
+			const std::string &label, const std::string &data);
 
+	std::vector<std::unique_ptr<Image>> getImages(const std::string &LUCID);
+
+	std::unique_ptr<mongo::DBClientBase> getConnection();
 
 };
 }
