@@ -42,7 +42,21 @@ string Image::saveToFS(const string &data) {
 	return image_path;
 }
 
-unique_ptr<Mat> Image::dataToMatObj(const string &data) {
+vector<float> Image::matToVector(unique_ptr<Mat> mat) {
+	std::vector<float> array;
+	if (mat->isContinuous()) {
+		array.assign((float*)mat->datastart, (float*)mat->dataend);
+	} else {
+		for (int i = 0; i < mat->rows; ++i) {
+			array.insert(array.end(),
+					(float*)mat->ptr<uchar>(i),
+					(float*)mat->ptr<uchar>(i) + mat->cols);
+		}
+	}
+	return array;
+}
+
+unique_ptr<Mat> Image::imageToMatObj(const string &data) {
 	// Logging: save the image to file system.
 	string image_path = saveToFS(data);
 	// Load the image and extract features into a matrix.
@@ -53,32 +67,43 @@ unique_ptr<Mat> Image::dataToMatObj(const string &data) {
 	unique_ptr<Mat> desc(new Mat());
 	unique_ptr<SurfDescriptorExtractor>(new SurfDescriptorExtractor())->
 			compute(img, keys, *desc);
-	desc->convertTo(*desc, CV_32F);
+	desc->convertTo(*desc, OPENCV_TYPE);
 	return desc;
 }
 
-const string Image::dataToMatString(const string &data) {
-	unique_ptr<Mat> desc = dataToMatObj(data);
-	string rtn = to_string(desc->rows) + " " + to_string(desc->cols)
-			+ " " + to_string(desc->type()) + " "; // append a white space
-	vector<uchar> array;
+const string Image::imageToMatString(const string &data) {
+	// Convert image data to Mat.
+	unique_ptr<Mat> desc = imageToMatObj(data);
+	// Convert Mat to CSV string.
+	string rtn;
 	for (int i = 0; i < desc->rows; ++i) {
 		for (int j = 0; j < desc->cols; ++j) {
-			rtn += to_string(*(desc->ptr<uchar>(i) + j));
+			rtn += to_string(*((float*)desc->ptr<uchar>(i) + j));
+			rtn += ",";
 		}
+		rtn.pop_back();
+		rtn += '\n';
 	}
 	return rtn;
 }
 
 unique_ptr<Mat> Image::matStringToMatObj(const string &mat) {
+	unique_ptr<Mat> rtn(new Mat());
 	stringstream ss(mat);
-	int rows, cols, type;
-	ss >> rows >> cols >> type;
-	string data;
-	getline(ss, data);
-	cout << "### row " << rows << " col " << cols << " type " << type << endl;
- 	return unique_ptr<Mat>(new Mat(rows, cols, type, &data[1]));
- 	// Note: skip the beginning white space.
+	for (string line; getline(ss, line); ) {
+		vector<double> dvals;
+		stringstream ssline(line);
+		for (string val; getline(ssline, val, ','); )  {
+			dvals.push_back(stod(val));
+		}
+		Mat mline(dvals, true);
+		transpose(mline, mline);
+		rtn->push_back(mline);
+	}
+	int ch = CV_MAT_CN(OPENCV_TYPE);
+	*rtn = rtn->reshape(ch);
+	rtn->convertTo(*rtn, OPENCV_TYPE);
+	return rtn;
 }
 
 int Image::match(
@@ -88,9 +113,6 @@ int Image::match(
 	unique_ptr<DescriptorMatcher> matcher(new FlannBasedMatcher());
 	vector<Mat> train_mats;
 	for (unique_ptr<StoredImage> &image_ptr : train_images) {
-		cout << "@@@ row " << image_ptr->desc->rows << " col "
-				<< image_ptr->desc->cols
-				<< " type " << image_ptr->desc->type() << endl;
 		train_mats.push_back(*(image_ptr->desc));
 	}
 	matcher->add(train_mats);
@@ -107,9 +129,13 @@ int Image::match(
 			++scores[dMatch.imgIdx];
 		}
 	}
-	// Find best match.
+	// Find the best match.
 	auto best = max_element(scores.begin(), scores.end());
 	return best - scores.begin();
+}
+
+bool Image::matEqual(unique_ptr<Mat> a, unique_ptr<Mat> b) {
+	return matToVector(move(a)) == matToVector(move(b));
 }
 
 //struct timeval tv1, tv2;

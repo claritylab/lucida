@@ -31,14 +31,18 @@ class Image {
 private:
 	std::unique_ptr<cv::Mat> desc;
 	static std::string saveToFS(const std::string &data);
+	static std::vector<float> matToVector(std::unique_ptr<cv::Mat> mat);
+	static const int OPENCV_TYPE = CV_32F;
 public:
 	Image(std::unique_ptr<cv::Mat> _desc) { desc = std::move(_desc); }
-	static std::unique_ptr<cv::Mat> dataToMatObj(const std::string &data);
-	static const std::string dataToMatString(const std::string &data);
+	static std::unique_ptr<cv::Mat> imageToMatObj(const std::string &data);
+	static const std::string imageToMatString(const std::string &data);
 	static std::unique_ptr<cv::Mat> matStringToMatObj(const std::string &mat);
 	static int match(
 			std::vector<std::unique_ptr<StoredImage>> &train_images,
 			std::unique_ptr<QueryImage> query_image);
+	static bool matEqual(std::unique_ptr<cv::Mat> a,
+			std::unique_ptr<cv::Mat> b);
 };
 
 class StoredImage : public Image {
