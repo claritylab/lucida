@@ -27,7 +27,8 @@ private:
 	void addImage(const std::string &LUCID,
 			const std::string &label, const std::string &data);
 
-	std::vector<std::unique_ptr<Image>> getImages(const std::string &LUCID);
+	std::vector<std::unique_ptr<StoredImage>> getImages(
+			const std::string &LUCID);
 
 	std::unique_ptr<mongo::DBClientBase> getConnection();
 

@@ -30,29 +30,6 @@ using namespace std;
 namespace po = boost::program_options;
 namespace fs = boost::filesystem;
 
-struct timeval tv1, tv2;
-int debug = 0;
-
-Image::Image(const string &_data) : data(_data) {
-	setDesc();
-}
-
-Image::Image(const string &_label, const string &_data) :
-		label(_label), data(_data) {
-	setDesc();
-}
-
-void Image::setDesc() {
-	// Logging: save the image to file system.
-	string image_path = saveToFS(data);
-	// Load the image and extract features into a matrix.
-	Mat img = imread(image_path, CV_LOAD_IMAGE_GRAYSCALE);
-	vector<KeyPoint> keys;
-	(new SurfFeatureDetector())->detect(img, keys);
-	(new SurfDescriptorExtractor())->compute(img, keys, desc);
-	desc.convertTo(desc, CV_32F);
-}
-
 string Image::saveToFS(const string &data) {
 	struct timeval tp;
 	gettimeofday(&tp, NULL);
@@ -65,14 +42,56 @@ string Image::saveToFS(const string &data) {
 	return image_path;
 }
 
+unique_ptr<Mat> Image::dataToMatObj(const string &data) {
+	// Logging: save the image to file system.
+	string image_path = saveToFS(data);
+	// Load the image and extract features into a matrix.
+	Mat img = imread(image_path, CV_LOAD_IMAGE_GRAYSCALE);
+	vector<KeyPoint> keys;
+	unique_ptr<SurfFeatureDetector>(new SurfFeatureDetector())->
+			detect(img, keys);
+	unique_ptr<Mat> desc(new Mat());
+	unique_ptr<SurfDescriptorExtractor>(new SurfDescriptorExtractor())->
+			compute(img, keys, *desc);
+	desc->convertTo(*desc, CV_32F);
+	return desc;
+}
+
+const string Image::dataToMatString(const string &data) {
+	unique_ptr<Mat> desc = dataToMatObj(data);
+	string rtn = to_string(desc->rows) + " " + to_string(desc->cols)
+			+ " " + to_string(desc->type()) + " "; // append a white space
+	vector<uchar> array;
+	for (int i = 0; i < desc->rows; ++i) {
+		for (int j = 0; j < desc->cols; ++j) {
+			rtn += to_string(*(desc->ptr<uchar>(i) + j));
+		}
+	}
+	return rtn;
+}
+
+unique_ptr<Mat> Image::matStringToMatObj(const string &mat) {
+	stringstream ss(mat);
+	int rows, cols, type;
+	ss >> rows >> cols >> type;
+	string data;
+	getline(ss, data);
+	cout << "### row " << rows << " col " << cols << " type " << type << endl;
+ 	return unique_ptr<Mat>(new Mat(rows, cols, type, &data[1]));
+ 	// Note: skip the beginning white space.
+}
+
 int Image::match(
-		vector<unique_ptr<Image>> &train_images,
-		unique_ptr<Image> query_image) {
+		vector<unique_ptr<StoredImage>> &train_images,
+		unique_ptr<QueryImage> query_image) {
 	// Train a FlannBasedMatcher.
 	unique_ptr<DescriptorMatcher> matcher(new FlannBasedMatcher());
 	vector<Mat> train_mats;
-	for (unique_ptr<Image> &image_ptr : train_images) {
-		train_mats.push_back(image_ptr->desc);
+	for (unique_ptr<StoredImage> &image_ptr : train_images) {
+		cout << "@@@ row " << image_ptr->desc->rows << " col "
+				<< image_ptr->desc->cols
+				<< " type " << image_ptr->desc->type() << endl;
+		train_mats.push_back(*(image_ptr->desc));
 	}
 	matcher->add(train_mats);
 	matcher->train();
@@ -81,7 +100,7 @@ int Image::match(
 	vector<int> scores(train_images.size(), 0);
 	int knn = 1;
 	// Match.
-	matcher->knnMatch(query_image->desc, knn_matches, knn);
+	matcher->knnMatch(*(query_image->desc), knn_matches, knn);
 	// Filter results.
 	for (auto &v : knn_matches) {
 		for(auto &dMatch : v){
@@ -92,6 +111,9 @@ int Image::match(
 	auto best = max_element(scores.begin(), scores.end());
 	return best - scores.begin();
 }
+
+//struct timeval tv1, tv2;
+//int debug = 0;
 
 //string make_pbdesc(string img_name) {
 //	string res;
