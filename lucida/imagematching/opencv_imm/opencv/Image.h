@@ -24,20 +24,37 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 
+class StoredImage;
+class QueryImage;
+
 class Image {
 private:
-	const std::string data;
-	cv::Mat desc;
-	void setDesc();
-
-public:
-	const std::string label;
-	Image(const std::string &_data);
-	Image(const std::string &_label, const std::string &_data);
+	std::unique_ptr<cv::Mat> desc;
 	static std::string saveToFS(const std::string &data);
+public:
+	Image(std::unique_ptr<cv::Mat> _desc) { desc = std::move(_desc); }
+	static std::unique_ptr<cv::Mat> dataToMatObj(const std::string &data);
+	static const std::string dataToMatString(const std::string &data);
+	static std::unique_ptr<cv::Mat> matStringToMatObj(const std::string &mat);
 	static int match(
-			std::vector<std::unique_ptr<Image>> &train_images,
-			std::unique_ptr<Image> query_image);
+			std::vector<std::unique_ptr<StoredImage>> &train_images,
+			std::unique_ptr<QueryImage> query_image);
+};
+
+class StoredImage : public Image {
+private:
+	const std::string label;
+public:
+	StoredImage(const std::string &_label, std::unique_ptr<cv::Mat> _desc) :
+				Image(std::move(_desc)), label(_label) {}
+	const std::string getLabel() { return label; }
+};
+
+class QueryImage : public Image {
+private:
+public:
+	QueryImage(std::unique_ptr<cv::Mat> _desc) :
+		Image(std::move(_desc)) {}
 };
 
 #endif

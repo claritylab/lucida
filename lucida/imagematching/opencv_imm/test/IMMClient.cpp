@@ -28,14 +28,14 @@ DEFINE_string(hostname,
 		"127.0.0.1",
 		"Hostname of the server (default: localhost)");
 
-string getImageData(string image_path) {
+string getImageData(const string &image_path) {
 	string img_name(image_path);
 	ifstream fin(img_name.c_str(), ios::binary);
 	ostringstream ostrm;
 	ostrm << fin.rdbuf();
 	string image(ostrm.str());
 	if (!fin) {
-		cerr << "Could not open the file!" << endl;
+		cerr << "Could not open the file " << image_path << endl;
 		exit(1);
 	}
 	return image;
@@ -78,20 +78,24 @@ int main(int argc, char* argv[]) {
 	}
 
 	// Infer.
-	string image = getImageData("test.jpg");
-	// Create a QuerySpec.
-	QuerySpec query_spec;
-	// Create a QueryInput for the query image and add it to the QuerySpec.
-	QueryInput query_input;
-	query_input.type = "image";
-	query_input.data.push_back(image);
-	query_spec.content.push_back(query_input);
 	// Make request.
-	for (int i = 0; i < 2; ++i) {
+	int num_tests = 3;
+	if (argc == 2) {
+		num_tests = atoi(argv[1]);
+	}
+	for (int i = 0; i < num_tests; ++i) {
+		string image = getImageData("test" + to_string(i) + ".jpg");
+		// Create a QuerySpec.
+		QuerySpec query_spec;
+		// Create a QueryInput for the query image and add it to the QuerySpec.
+		QueryInput query_input;
+		query_input.type = "image";
+		query_input.data.push_back(image);
+		query_spec.content.push_back(query_input);
 		cout << i << " Sending request to IMM at 8082" << endl;
 		auto result = client.future_infer("Johann", std::move(query_spec)).then(
-				[](folly::Try<std::string>&& t) mutable {
-			cout << "Result: " << t.value() << endl;
+				[=](folly::Try<std::string>&& t) mutable {
+			cout << i << " result: " << t.value() << endl;
 			return t.value();
 		});
 	}

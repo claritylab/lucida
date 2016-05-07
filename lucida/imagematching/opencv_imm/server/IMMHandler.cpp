@@ -54,7 +54,6 @@ folly::Future<folly::Unit> IMMHandler::future_learn
 		for (const QueryInput &query_input : knowledge_save.content) {
 			for (int i = 0; i < (int) query_input.data.size(); ++i) {
 				try {
-					Image::saveToFS(query_input.data[i]);
 					this->addImage(LUCID_save, query_input.tags[i],
 							query_input.data[i]);
 				} catch (exception &e) {
@@ -80,11 +79,13 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 
 	folly::RequestEventBase::get()->runInEventBaseThread(
 			[=]() mutable {
-		vector<unique_ptr<Image>> images = getImages(LUCID_save);
+		vector<unique_ptr<StoredImage>> images = getImages(LUCID_save);
 		int best_index = Image::match(images,
-				unique_ptr<Image>(new Image(query_save.content[0].data[0])));
+				unique_ptr<QueryImage>(new QueryImage(
+						move(Image::dataToMatObj(
+								query_save.content[0].data[0])))));
 		promise->setValue(unique_ptr<string>(
-				new string(images[best_index]->label)));
+				new string(images[best_index]->getLabel())));
 		//		EventBase event_base;
 		//
 		//		std::shared_ptr<TAsyncSocket> socket(
@@ -122,23 +123,30 @@ void IMMHandler::addImage(const string &LUCID,
 	unique_ptr<DBClientBase> conn = move(getConnection());
 	BSONObj p = BSONObjBuilder().append("label", label).append("data", data)
 			.append("size", (int) data.size()).obj();
-	conn->insert("lucida.images_" + LUCID, p); // insert
+	conn->insert("lucida.images_" + LUCID, p); // insert the image data
+	p = BSONObjBuilder().append("label", label)
+			.append("desc", Image::dataToMatString(data))
+			.append("size", (int) Image::dataToMatString(data).size()).obj();
+	conn->insert("lucida.opencv_" + LUCID, p); // insert the image desc
 	string e = conn->getLastError();
 	if (!e.empty()) {
 		throw runtime_error("Insert failed " + e);
 	}
 }
 
-vector<unique_ptr<Image>> IMMHandler::getImages(const string &LUCID) {
-	vector<unique_ptr<Image>> rtn;
-	// Retrieve a;; images of the user from MongoDB.
+vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
+	vector<unique_ptr<StoredImage>> rtn;
+	// Retrieve all images of the user from MongoDB.
 	unique_ptr<DBClientBase> conn = move(getConnection());
-	string collection = "lucida.images_Johann";
-	auto_ptr<DBClientCursor> cursor = conn->query(collection, BSONObj());
+	auto_ptr<DBClientCursor> cursor = conn->query(
+			"lucida.opencv_" + LUCID, BSONObj()); // retrieve desc, NOT data
 	while (cursor->more()) {
 		BSONObj p = cursor->next();
-		rtn.push_back(unique_ptr<Image>(new Image(p.getStringField("label"),
-				string(p.getStringField("data"), p.getIntField("size")))));
+		rtn.push_back(unique_ptr<StoredImage>(new StoredImage(
+				p.getStringField("label"),
+				move(Image::matStringToMatObj(
+						string(p.getStringField("desc"),
+								p.getIntField("size")))))));
 	}
 	return rtn;
 }
