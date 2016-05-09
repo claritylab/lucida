@@ -29,26 +29,20 @@ public class QAClient {
 		}
 		
 		// User.
-		String LUCID = "Johann";
+		String LUCID = "Falk";
 		QuerySpec spec = new QuerySpec();
 		
 		// Knowledge.
 		final QueryInput knowledge_text = new QueryInput("text", new ArrayList<String>() {{
-		    add("Today China’s population is over 1.4 billion,"
-		    		+ " the largest of any country in the world.");
-		    add("The master branch tracks live changes by our engine team. This is the cutting edge and may be buggy - it may not even compile. Battle-hardened developers eager to work lock-step with us on the latest and greatest should head here.");
-		}});
-		final QueryInput knowledge_url = new QueryInput("file", new ArrayList<String>() {{
-		    add("/home/yba/Documents/clarity/lucida/lucida/questionanswering/OpenEphyra/test.txt");
+		    add("YodaQA is being developed by Fauk.");
 		}});
 		QuerySpec knowledge = new QuerySpec(new ArrayList<QueryInput>() {{
 		    add(knowledge_text);
-		    add(knowledge_url);
 		}});
 		
 		// Query.
 		final QueryInput query_input = new QueryInput("query", new ArrayList<String>() {{
-		    add("Which branch tracks live changes by the engine team?");
+		    add("What is Falk developing?");
 		}});
 		QuerySpec query = new QuerySpec(new ArrayList<QueryInput>() {{
 		    add(query_input);
@@ -64,7 +58,7 @@ public class QAClient {
 			transport.open();
 			System.out.println("///// Connecting to OpenEphyra at port " + port + " ... /////");
 			// Call the three functions.
-			//client.create(LUCID, spec);
+			client.create(LUCID, spec);
 			client.learn(LUCID, knowledge);
 			System.out.println("///// Query input: /////");
 			System.out.println(query_input);

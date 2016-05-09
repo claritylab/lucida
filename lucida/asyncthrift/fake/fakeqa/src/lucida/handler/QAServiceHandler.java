@@ -11,54 +11,58 @@ import org.apache.thrift.async.AsyncMethodCallback;
 import lucida.thrift.*;
 
 public class QAServiceHandler {
-	
+	private static void print(String s) {
+		synchronized (System.out) {
+			System.out.println(s);
+		}
+	}
+
 	public static class SyncQAServiceHandler implements LucidaService.Iface {
-		int count = 0;
-		
+		Integer count = 0;
+
 		@Override
 		public void create(String LUCID, QuerySpec spec) {
-			System.out.println("Sync Create");
+			print("Sync Create");
 		}
 
 		@Override
 		public void learn(String LUCID, QuerySpec knowledge) {
-			System.out.println("Sync Learn");
+			print("Sync Learn");
 		}
 
 		@Override
 		public String infer(String LUCID, QuerySpec query) {
-			System.out.println("Sync Infer");
-			List<Integer> li = new ArrayList<Integer>();
-			for (int i = 0; i < 5; ++i) {
-				li.add(i);
+			print("Sync Infer");
+			int rtn = 0;
+			synchronized (count) {
+				rtn = count++;
 			}
-			
-			return li.get(count++) + " QA says I love XXX";
+			return rtn + " QA says I love XXX";
 		}	
 	}
-	
+
 	public static class AsyncQAServiceHandler implements LucidaService.AsyncIface {
 		private SyncQAServiceHandler handler;
-		
+
 		public AsyncQAServiceHandler() {
 			handler = new SyncQAServiceHandler();
 		}
-		
+
 		@Override
 		public void create(String LUCID, QuerySpec spec, AsyncMethodCallback resultHandler) throws TException {
-			System.out.println("Async Create");
+			print("Async Create");
 		}
 
 		@Override
 		public void learn(String LUCID, QuerySpec knowledge, AsyncMethodCallback resultHandler) throws TException {
-			System.out.println("Async Learn");
+			print("Async Learn");
 		}
 
 		@Override
 		public void infer(String LUCID, QuerySpec query, AsyncMethodCallback resultHandler) throws TException {
-			System.out.println("Async Infer");
+			print("Async Infer");
 			try {
-				System.out.println("Sleeping for 3 seconds");
+				print("Sleeping for 3 seconds");
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

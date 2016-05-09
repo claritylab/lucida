@@ -23,6 +23,9 @@ using std::cout;
 using std::endl;
 
 namespace cpp2 {
+// Initiialize static variables.
+std::mutex FakeImmHandler::cout_lock;
+
 FakeImmHandler::FakeImmHandler() {}
 
 folly::Future<folly::Unit> FakeImmHandler::future_create
@@ -55,7 +58,7 @@ folly::Future<folly::Unit> FakeImmHandler::future_learn
 
 folly::Future<std::unique_ptr<std::string>> FakeImmHandler::future_infer
 (std::unique_ptr<std::string> LUCID, std::unique_ptr< ::cpp2::QuerySpec> query) {
-	std::cout << "Infer" << std::endl;
+	print("Infer");
 	folly::MoveWrapper<folly::Promise<std::unique_ptr<std::string> > > promise;
 	auto future = promise->getFuture();
 
@@ -67,7 +70,7 @@ folly::Future<std::unique_ptr<std::string>> FakeImmHandler::future_infer
 				TAsyncSocket::newSocket(&event_base, FLAGS_QA_hostname, FLAGS_QA_port));
 
 		std::unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor> channel(
-							new HeaderClientChannel(socket));
+				new HeaderClientChannel(socket));
 
 		channel->setClientType(THRIFT_FRAMED_DEPRECATED);
 
@@ -75,10 +78,10 @@ folly::Future<std::unique_ptr<std::string>> FakeImmHandler::future_infer
 
 		QuerySpec q;
 
-		cout << "Sending request to QA at 8083" << endl;
+		print("Sending request to QA at 8083");
 		auto result = client.future_infer("Johann", q).then(
 				[promise, this](folly::Try<std::string>&& t) mutable {
-			cout << "Result: " << t.value();
+			print("Result: " + t.value());
 			std::unique_ptr<std::string> result = folly::make_unique<std::string>(t.value());
 			promise->setValue(std::move(result));
 		});

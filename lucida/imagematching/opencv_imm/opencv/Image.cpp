@@ -78,7 +78,7 @@ const string Image::imageToMatString(const string &data) {
 	string rtn;
 	for (int i = 0; i < desc->rows; ++i) {
 		for (int j = 0; j < desc->cols; ++j) {
-			rtn += to_string(*((float*)desc->ptr<uchar>(i) + j));
+			rtn += to_string(*((float*) desc->ptr<uchar>(i) + j)); // CV_32F
 			rtn += ",";
 		}
 		rtn.pop_back();
