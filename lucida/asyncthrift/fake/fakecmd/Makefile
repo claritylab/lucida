@@ -37,6 +37,7 @@ debug: thrift $(TARGET)
 
 thrift:
 	@if [ ! -d "gen-cpp2" ]; then \
+	   thrift1 --gen py ../../../lucidaservice.thrift; \
        python -mthrift_compiler.main --gen cpp2 ../../../lucidaservice.thrift; \
        python -mthrift_compiler.main --gen cpp2 ../../../lucidatypes.thrift; \
     fi
