@@ -8,6 +8,8 @@ class FakeImmHandler : virtual public LucidaServiceSvIf {
 private:
 	std::string askQA();
 	static std::mutex cout_lock;
+
+public:
 	static void print(const char *s) {
 		cout_lock.lock();
 		std::cout << s << std::endl;
@@ -19,7 +21,6 @@ private:
 		cout_lock.unlock();
 	}
 
-public:
 	FakeImmHandler();
 
 	folly::Future<folly::Unit> future_create
