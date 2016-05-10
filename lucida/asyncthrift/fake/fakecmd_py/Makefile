@@ -18,7 +18,7 @@ thrift:
     fi
 
 clean:
-	rm -rf *.o gen-py lucidaservice lucidatypes __init__.py
+	rm -rf *.o gen-py lucidaservice lucidatypes __init__.py venv
 
 start_client: 
 	gnome-terminal -x bash -c "source venv/bin/activate; python FakeCMDClient.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
