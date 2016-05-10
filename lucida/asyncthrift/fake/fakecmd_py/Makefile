@@ -1,4 +1,9 @@
-all: thrift 
+all: venv thrift 
+
+venv:
+	virtualenv venv --distribute; \
+	source venv/bin/activate; \
+	pip install -r requirements.txt; \
 
 thrift:
 	@if [ ! -d "gen-py" ]; then \
@@ -13,7 +18,10 @@ thrift:
 clean:
 	rm -rf *.o gen-py lucidaservice lucidatypes __init__.py
 
+start_client: 
+	gnome-terminal -x bash -c "python FakeCMDClient.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+
 start_server: 
 	gnome-terminal -x bash -c "python FakeCMDServer.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
 
-.PHONY:	all thrift clean start_server
+.PHONY:	all venv thrift clean start_client start_server

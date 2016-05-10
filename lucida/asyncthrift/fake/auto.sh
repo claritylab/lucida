@@ -11,4 +11,4 @@ cd ..
 # make start_server
 cd fakecmd_py
 make
-make start_server
+make start_client
