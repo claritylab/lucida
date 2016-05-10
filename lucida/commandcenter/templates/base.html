@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sticky-footer.css')}}" />
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+{% endblock %}
+
+<head>
+	<title>Lucida</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a id="nav_home" class="navbar-brand" href="{{ url_for('main.main_route') }}">Lucida</a>
+			</div>
+		
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a>Yunsheng Bai</a></li>
+					 	</ul>
+					</li>
+			 	</ul>
+
+
+
+
+			 			 	 	 
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div>
+		 {% block content %}{% endblock %}
+	</div>
+
+	<footer class="footer">
+	 	<div class="container">
+			<p class="text-muted">By Yunsheng Bai.
+			<a href="{{ url_for('main.contact_route') }}">Contact</a></p>
+		</div>
+	</footer>
+</body>
+</html>

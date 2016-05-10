@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<p style="color:gray">Main » Contact</p>
+		</div>
+
+		<div class="page-header">
+			<h1>Contact us</h1>
+		</div>
+
+		<div class="row">
+			<ul>
+				<li><p class="lead">Yunsheng Bai: yba AT umich.edu</li>
+			</ul>
+		</div>
+
+		<br><br>
+
+		<div class="row">
+			<a href="{{ url_for('main.main_route') }}" class="btn btn-default">Back to Main</a>
+		</div>
+
+		<br>
+	</div>
+{% endblock %}

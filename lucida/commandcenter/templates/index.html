@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<div class="page-header">
+			<h1><center>Welcome to Lucida!</center></h1>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4" style="background-color: #FF9999"><h4><center>Create</center><h4></div>
+			<div class="col-md-4" style="background-color: #F2F5A9"><h4><center>Learn</center><h4></div>
+			<div class="col-md-4" style="background-color: #99CCFF"><h4><center>Infer</center><h4></div>
+		</div>
+
+		<br>
+
+		<div class="row">
+			<p class="lead">Please sign up to start. Once you are logged in, click "My Albums" to create new albums and upload photos. </p>
+		</div>
+	</div>
+
+<!-- 	{% if not session['logged_in'] %} -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10" style="background-color: #B8D192">
+					<h4>Public albums to look at:</h4>
+
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+		</div>
+<!-- 	{% endif %} -->
+
+<!-- 	{% if session['logged_in'] %}
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10" style="background-color: #B8D192">
+					<h4>Albums to view:</h4>
+						<ul>
+							<li><p>Public albums:</p>
+						<ul>
+							{% for username, albums_info in get_all_public_albums().iteritems() %}
+								{% for i in albums_info %}
+									<li><p><a href="{{ url_for('album.album_route', id=i[0]) }}">{{ i[1] }}</a> (owned by {{ username }})</p></li>
+								{% endfor %}
+							{% endfor %}
+						</ul>
+							</li>
+
+							<li><p>Albums that I am granted access to:</p></li>
+						<ul>
+							{% for i in get_granted_albums(session['username']) %}
+								<li><p><a href="{{ album_view_link(i[0]) }}">{{ i[1] }}</a> (owned by {{ i[2] }})</p></li>
+							{% endfor %}
+						</ul>
+							</li>
+
+							<li><p>My own albums:</p></li>
+						<ul>
+							{% for i in get_albums_info(session['username']) %}
+								<li><p><a href="{{ url_for('album.album_route', id=i[0]) }}">{{ i[1] }}</a></p></li>
+							{% endfor %}
+						</ul>
+							</li>
+						</ul>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+		</div>
+	{% endif %} -->
+
+	<br>
+{% endblock %}
