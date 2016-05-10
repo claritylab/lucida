@@ -12,7 +12,14 @@ from zope.interface import implements
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
-from thrift.server import TNonblockingServer 
+from thrift.server import TNonblockingServer
+from thrift.server import TServer 
+
+from flask import *
+from threading import Thread
+
+# Initialize Flask app with the template folder address
+app = Flask(__name__, template_folder='templates')
 
 class LucidaServiceHandler:
     implements(LucidaService.Iface)
@@ -21,6 +28,7 @@ class LucidaServiceHandler:
         self.log = {}
  
     def create(self, LUCID, spec):
+        # app.run(host='0.0.0.0', port=3000, debug=True)
         print LUCID, 'Create: port', spec.name
         return
  
@@ -31,14 +39,26 @@ class LucidaServiceHandler:
     def infer(self, LUCID, query): 
         print LUCID, 'Infer'
         return 'Lucida!!!!!!!'
+    
+@app.route("/")
+def home():
+    return "I am Lucida"
+
+def threaded_function():
+    app.run(host='0.0.0.0', port=3000, debug=True)
      
 if __name__ == '__main__':
+#     thread = Thread(target = threaded_function)
+#     thread.start()
+#     thread.join()
+    app.run(host='0.0.0.0', port=3000, debug=True)
     handler = LucidaServiceHandler()
     processor = LucidaService.Processor(handler)
     transport = TSocket.TServerSocket(port=8080)
     tfactory = TTransport.TBufferedTransportFactory()
     pfactory = TBinaryProtocol.TBinaryProtocolFactory()
     server = TNonblockingServer.TNonblockingServer(processor, transport, pfactory, pfactory)
+#     server = TServer.TThreadedServer(processor, transport, pfactory, pfactory)
     print 'CMD at', str(8080)
     server.serve()
 
