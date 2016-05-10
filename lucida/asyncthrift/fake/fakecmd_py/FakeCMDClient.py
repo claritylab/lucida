@@ -20,7 +20,8 @@ def main(client):
     except Exception as e:
         print e
     
-if __name__ == '__main__':  
+if __name__ == '__main__':
+    print 'CMD sending 7 requests to IMM at 8082'
     for x in xrange(0, 7):
         d = ClientCreator(reactor,  
         TTwisted.ThriftClientProtocol,  

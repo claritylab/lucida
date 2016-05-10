@@ -31,26 +31,23 @@ using namespace cpp2;
 
 using std::cout;
 using std::endl;
+using std::shared_ptr;
+using std::unique_ptr;
+using std::to_string;
 
 void registerToCMD() {
 	EventBase event_base;
-
-	std::shared_ptr<TAsyncSocket> socket(
+	shared_ptr<TAsyncSocket> socket(
 			TAsyncSocket::newSocket(&event_base, FLAGS_CMD_hostname, FLAGS_CMD_port));
-
-	std::unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor> channel(
+	unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor> channel(
 			new HeaderClientChannel(socket));
-
 	channel->setClientType(THRIFT_FRAMED_DEPRECATED);
-
 	LucidaServiceAsyncClient client(std::move(channel));
-
 	QuerySpec q;
-
-	auto result = client.future_infer("Johann", q).then(
-			[](folly::Try<std::string>&& t) mutable {
-		cout << "CMD says, " + t.value() << endl;
-		std::unique_ptr<std::string> result = folly::make_unique<std::string>(t.value());
+	q.set_name(to_string(8082));
+	auto result = client.future_create("IMM", q).then(
+			[](folly::Try<folly::Unit>&& t) mutable {
+		cout << "Successfully registered to command center" << endl;
 	});
 
 	event_base.loop();

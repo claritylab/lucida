@@ -32,41 +32,20 @@ import lucida.thrift.*;
  */
 public class QADaemon {
 	private static void connectToCMD() {
-		// User.
-		String LUCID = "Falk";
+		String LUCID = "QA";
 		QuerySpec spec = new QuerySpec();
-		// Knowledge.
-		final QueryInput knowledge_text = new QueryInput("text", new ArrayList<String>() {{
-		    add("YodaQA is being developed by Fauk.");
-		}});
-		QuerySpec knowledge = new QuerySpec(new ArrayList<QueryInput>() {{
-		    add(knowledge_text);
-		}});
-		// Query.
-		final QueryInput query_input = new QueryInput("query", new ArrayList<String>() {{
-		    add("What is Falk developing?");
-		}});
-		QuerySpec query = new QuerySpec(new ArrayList<QueryInput>() {{
-		    add(query_input);
-		}});
+		spec.name = "" + 8083;
 		// Initialize thrift objects.
 		TTransport transport = new TSocket("localhost", 8080);
 		TProtocol protocol = new TBinaryProtocol(new TFramedTransport(transport));
 		LucidaService.Client client = new LucidaService.Client(protocol);
 		try {
-			// Talk to the server.
 			transport.open();
-			System.out.println("///// Connecting to CMD at port " + 8080 + " ... /////");
-			// Call the three functions.
+			System.out.println("Connecting to CMD at port " + 8080);
+			// Register itself to CMD.
 			client.create(LUCID, spec);
-			client.learn(LUCID, knowledge);
-			System.out.println("///// Query input: /////");
-			System.out.println(query_input);
-			String answer = client.infer(LUCID, query);
-			// Print the answer.
-			System.out.println("///// Answer: /////");
-			System.out.println(answer);
 			transport.close();
+			System.out.println("Successfully connected to CMD");
 		} catch (TException x) {
 			x.printStackTrace();
 		}
@@ -84,7 +63,7 @@ public class QADaemon {
 		.protocolFactory(new TBinaryProtocol.Factory())
 		.transportFactory(new TFramedTransport.Factory());
 		final TNonblockingServer server = new TNonblockingServer(arguments);
-		System.out.println("Start listening to requests at port 8083 ...");
+		System.out.println("QA at port 8083");
 		server.serve();
 	}
 }
