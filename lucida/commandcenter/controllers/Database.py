@@ -1,7 +1,6 @@
 import os, time, hashlib, uuid
 from pymongo import MongoClient
 from base64 import b64encode
-from ThriftClient import ThriftClient
 from ConcurrencyManagement import *
 
 
@@ -54,7 +53,6 @@ class Database(object):
 	# Adds the uploaded image.
 	def add_picture(username, label, upload_file):
 		Database.images.insert_one({'label': label, 'data': b64encode(upload_file)})
-		ThriftClient.learn_image(username, label, upload_file)
 		
 	@staticmethod
 	# Returns the images by username.
@@ -62,4 +60,5 @@ class Database(object):
 		images_db = "images_" + username
 		log('Retrieving images from ' + images_db)
 		return [image for image in Database.images.find()]
+	
 
