@@ -1,9 +1,11 @@
 CXX = g++
 
-CXXFLAGS = -std=c++11 \
-				-fPIC
+CXXFLAGS = 		-std=c++11 \
+				-fPIC \
+				-I /usr/local/include/mongo 
 
-LINKFLAGS =  -lopencv_core \
+LINKFLAGS =     -I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
+				-lopencv_core \
 				-lopencv_highgui \
 				-lopencv_imgproc \
 				-lopencv_nonfree \
@@ -14,6 +16,7 @@ LINKFLAGS =  -lopencv_core \
 				-lrt \
 				-lprotobuf \
 				-ltesseract \
+				-pthread \
 				-lboost_program_options \
 				-lboost_filesystem \
 				-lboost_system \
@@ -37,7 +40,7 @@ SOURCES = gen-cpp2/LucidaService_client.cpp \
 				gen-cpp2/lucidaservice_types.cpp \
 				gen-cpp2/lucidatypes_constants.cpp \
 				gen-cpp2/lucidatypes_types.cpp \
-				$(wildcard *.cpp) 
+				$(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
 COMMON_DIR = ../opencv

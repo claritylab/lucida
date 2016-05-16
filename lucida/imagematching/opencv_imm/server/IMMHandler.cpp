@@ -121,13 +121,12 @@ void IMMHandler::addImage(const string &LUCID,
 		const string &label, const string &data) {
 	cout << "@@@ Label: " << label << endl;
 	cout << "@@@ Size: " << data.size() << endl;
-	// Insert the image Matrix into MongoDB.
+	// Insert the descriptors matrix into MongoDB.
 	unique_ptr<DBClientBase> conn = move(getConnection());
-	string mat_str = Image::imageToMatString(data);
-	BSONObj p = BSONObjBuilder().append("label", label)
-			.append("desc", mat_str)
-			.append("size", (int) mat_str.size()).obj();
-	conn->insert("lucida.opencv_" + LUCID, p); // insert the image Matrix
+	string mat_str = Image::imageToMatString(data); // written to file system
+	GridFS grid(*conn, "lucida");
+	BSONObj result = grid.storeFile(mat_str.c_str(), mat_str.size(),
+			"opencv_" + LUCID + "/" + label);
 	string e = conn->getLastError();
 	if (!e.empty()) {
 		throw runtime_error("Insert failed " + e);
@@ -139,14 +138,15 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 	// Retrieve all images of the user from MongoDB.
 	unique_ptr<DBClientBase> conn = move(getConnection());
 	auto_ptr<DBClientCursor> cursor = conn->query(
-			"lucida.opencv_" + LUCID, BSONObj()); // retrieve desc, NOT data
+			"lucida.images_" + LUCID, BSONObj()); // retrieve desc, NOT data
+	GridFS grid(*conn, "lucida");
 	while (cursor->more()) {
-		BSONObj p = cursor->next();
+		string label = cursor->next().getStringField("label");
+		ostringstream out;
+		grid.findFile("opencv_" + LUCID + "/" + label).write(out);
 		rtn.push_back(unique_ptr<StoredImage>(new StoredImage(
-				p.getStringField("label"),
-				move(Image::matStringToMatObj(
-						string(p.getStringField("desc"),
-								p.getIntField("size")))))));
+				label,
+				move(Image::matStringToMatObj(out.str())))));
 	}
 	return rtn;
 }

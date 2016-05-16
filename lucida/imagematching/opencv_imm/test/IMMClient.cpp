@@ -12,21 +12,50 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 
+#include "client/dbclient.h" // MongoDB
+
 using namespace folly;
 using namespace apache::thrift;
 using namespace apache::thrift::async;
 using namespace cpp2;
 using namespace std;
 
+using mongo::ConnectionString;
+using mongo::DBClientBase;
+using mongo::BSONObj;
+using mongo::BSONObjBuilder;
+
 namespace fs = boost::filesystem;
 
 DEFINE_int32(port,
-		8087,
-		"Port for IMM service (default: 8087)");
+		8082,
+		"Port for IMM service (default: 8082)");
 
 DEFINE_string(hostname,
 		"127.0.0.1",
 		"Hostname of the server (default: localhost)");
+
+void saveToMongoDb(const string &LUCID,
+		const string &label, const string &data) {
+	string uri = "localhost:27017"; // specify where MongoDB is running
+	string errmsg;
+	ConnectionString cs = ConnectionString::parse(uri, errmsg);
+	if (!cs.isValid()) {
+		throw runtime_error("Error parsing connection string "
+				+ uri + ": " + errmsg);
+	}
+	unique_ptr<DBClientBase> conn(cs.connect(errmsg));
+	if (!conn) {
+		throw runtime_error("Couldn't connect: " + errmsg);
+	}
+	BSONObj p = BSONObjBuilder().append("label", label).append("data", data)
+			.append("size", (int) data.size()).obj();
+	conn->insert("lucida.images_" + LUCID, p); // insert the image data
+	string e = conn->getLastError();
+	if (!e.empty()) {
+		throw runtime_error("Insert failed " + e);
+	}
+}
 
 string getImageData(const string &image_path) {
 	ifstream fin(image_path.c_str(), ios::binary);
@@ -67,6 +96,7 @@ int main(int argc, char* argv[]) {
 		cout << "Image size: " << image.size() << endl;
 		query_input.tags.push_back(label);
 		query_spec.content.push_back(query_input);
+		saveToMongoDb("Johann", label, image);
 		// Make request.
 		client.future_learn("Johann", std::move(query_spec)).then(
 				[](folly::Try<folly::Unit>&& t) mutable {

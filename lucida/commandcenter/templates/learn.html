@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+	<!-- https://www.imagely.com/wordpress-gallery-plugin/ -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/thumbnail.css')}}" type="text/css" media="all">
+
 	<div class="container">
 		<div class="row">
 			<p style="color:gray">Main » {{ session['username'] }} » Learn</p>
 		</div>
 
 		<div class="page-header">
-			<h1>Thumbnail Gallery</h1>
+			<h1>Album</h1>
 		</div>
 
 			<div class="container">
@@ -28,7 +31,7 @@
 
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Label: </label>
-						<div class="col-sm-9">
+						<div class="col-sm-8">
 							<input name="label" class="form-control" placeholder="Eiffel Tower">
 						</div>
 					</div>
@@ -43,7 +46,7 @@
 		{% for i in pictures %}
 			<div class="ngg-gallery-thumbnail-box">
 				<div class="ngg-gallery-thumbnail">
-					<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="150"></img>
+					<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
 				</div>
 			</div>
 		{% endfor %}
