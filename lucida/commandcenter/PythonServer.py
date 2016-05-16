@@ -47,7 +47,7 @@ class LucidaServiceHandler(LucidaService.Iface):
         return
  
     def learn(self, LUCID, knowledge):
-        log('####################################')
+        print '####################################'
         return      
      
     def infer(self, LUCID, query): 

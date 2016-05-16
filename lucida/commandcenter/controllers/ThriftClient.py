@@ -66,19 +66,20 @@ class ThriftClient(object):
 		
 	@staticmethod
 	@gen.coroutine
-	def learn_image_callback2():
+	def learn_image_callback2(LUCID, knowledge):
 		log('$$$$$$$$$$')
 		transport = TTornado.TTornadoStreamTransport('localhost', 8082)
 		pfactory = TBinaryProtocol.TBinaryProtocolFactory()
 		client = LucidaService.Client(transport, pfactory)
  		
 		# open the transport, bail on error
-		yield transport.open()
-		log('Transport is opened')
-
-		#client.learn("yba2", QuerySpec())
-		#xxx = {'LUCID': 'yba2', 'knowledge': QuerySpec()}
-		yield gen.Task(client.learn, "yba2", QuerySpec())
+		try:
+			yield transport.open()
+		except TTransport.TTransportException as ex:
+			log(ex)
+			raise gen.Return()
+		
+		yield client.learn(str(LUCID), knowledge)
  		
 		# close the transport
 		client._transport.close()
@@ -98,18 +99,11 @@ class ThriftClient(object):
 # 		).connectTCP(service_inst[0], service_inst[1])
 		knowledge_input = QueryInput()
 		knowledge_input.tags = []
-		knowledge_input.tags.append(label)
+		knowledge_input.tags.append(str(label))
 		knowledge_input.data = []
-		knowledge_input.data.append(data)
+		knowledge_input.data.append(str(data))
 		knowledge = QuerySpec()
 		knowledge.content = []
 		knowledge.content.append(knowledge_input)
-# 		d.addCallback(lambda conn: conn.client)
-# 		d.addCallback(ThriftClient.learn_image_callback, LUCID, knowledge)
-		log('##########')
-		ioloop.IOLoop.current().run_sync(ThriftClient.learn_image_callback2)
+		ioloop.IOLoop.current().run_sync(lambda : ThriftClient.learn_image_callback2(LUCID, knowledge))
 		
-# 		ioloop = IOLoop.instance()
-# 		ioloop.add_callback(ThriftClient.learn_image_callback3)
-# 		ioloop.start()
-
