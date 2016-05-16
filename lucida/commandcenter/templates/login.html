@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class = "container">
+		<div class="row">
+			<p style="color:gray">Main » Log in</p>
+		</div>
+
+		<div class="page-header">
+			<h1>Log in</h1>
+		</div>
+
+		<form action="" method=post enctype=multipart/form-data>
+			<div class="form-group {% if form.username.errors %}has-error{% endif %}">
+				<label>Username</label>
+				<input id="login_username_input" name="username" class="form-control" placeholder="Username">
+			{% for e in form.username.errors %}
+				<p><strong class=text-danger>{{ e }}</strong></p>
+			{% endfor %}
+			</div>
+
+			<div class="form-group {% if form.password.errors %}has-error{% endif %}">
+				<label>Password</label>
+				<input id="login_password_input" name="password" type="password" class="form-control" placeholder="Password">
+			{% for e in form.password.errors %}
+				<p><strong class=text-danger>{{ e }}</strong></p>
+			{% endfor %}
+			</div>
+
+			<input id="submit" type="submit" class="btn btn-default" value="Submit">
+		</form>
+
+		{% if error %}
+			<br>
+			<p><strong>Please clear the following errors:</strong></p>
+			<ul>
+				{% for i in error %}
+					<strong class=text-danger><p id="{% if i == 'Username does not exist' %}error_username{% else %}error_combo{% endif %}" class="error">{{ i }}</p></strong>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+		<br>
+	</div>
+{% endblock %}

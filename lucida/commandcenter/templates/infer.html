@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="blended_grid">
+<div class="pageHeader">
+</div>
+<div class="containerResponse">
+<table style="width:800px" align="center">
+  <tr>
+    <td>
+      <div id="recbutton" class="disabled" onclick="clearTranscription(); toggleListening();"></div>
+    </td>
+    <td><div class="wrap">
+  <!-- <textarea readonly style="margin&#45;left: 4%;" id="trans" ></textarea> -->
+  <textarea readonly id="trans" ></textarea>
+      </div></td>
+    <td><div class="wrapr">
+  <textarea readonly id="clinc" style="margin-right: 10px"></textarea>
+      </div></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <img src="{{ url_for('static', filename='image/user.png')}}" style="float: left; width: 70px;">
+    </td>
+    <td>
+      <img src="{{ url_for('static', filename='image/lucida.jpg')}}" style="float: right; width: 80px;">
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+    <br><br>
+    <center>
+      Powered by <a href="http://lucida.ai">Lucida</a>
+    </center>
+    
+    </td>
+  </tr>
+  <tr>
+
+    <td></td>
+    <td>
+      <br>
+      <a href="http://lucida.ai">
+      <img src="{{ url_for('static', filename='image/lucida.jpg')}}" style="float: right; width: 100px; margin-right: 65px">
+      </a>
+    </td>
+    <td>
+      <br>
+      <a href="http://djinn.clarity-lab.org">
+      <img src="{{ url_for('static', filename='image/djinn.png')}}" style="float: left; width: 100px; margin-left: 5px">
+      </a>
+    </td>
+
+  </tr>
+</table>
+
+</div>
+<div class="pageFooter" style="margin-bottom: 50px">
+<span id="serverStatusBar" title="Number of available workers"></span>
+<select style="display: none;" id="servers" name="servers" style="margin-top:.5em">
+  <option value="ws://localhost:8888/client/ws/speech|ws://localhost:8888/client/ws/status" selected="selected">Lucida</option>
+</select>
+
+<p style="clear: both;">
+
+<pre id="log"></pre>
+
+<!-- <div class="buttonsContainer"> -->
+<!-- <span class="buttons"> -->
+<!-- <button -->
+<!-- 	id="buttonToggleListening" -->
+<!-- 	onclick="toggleListening();" -->
+<!-- 	title="Starts/stops listening for speech.">Start</button> -->
+<!-- <button -->
+<!-- 	id="buttonCancel" -->
+<!-- 	disabled="disabled" -->
+<!-- 	onclick="cancel();" -->
+<!-- 	title="Cancels the speech recognition.">Cancel</button> -->
+<!-- <button -->
+<!--     onclick="clearTranscription();" -->
+<!--     title="Clears the transcription">Clear</button> -->
+<!-- </span> -->
+<!-- </div> -->
+
+<div>
+  <div id="content_id" class="hidden">xxx</div>
+  <div id="user_id" class="hidden">xxx</div>
+  <!-- <p id="helptext" class="text&#45;center tiny">Microphone uninitialized</p> -->
+</div>
+</div>
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="{{ url_for('static', filename='js/dictate.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/recorder.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/mob.js')}}"></script>
+{% endblock %}

@@ -36,10 +36,33 @@
 					</li>
 			 	</ul>
 
+			 	{% if session['logged_in'] %}
+					<ul class="nav navbar-nav navbar-left">
+						<li><a id="nav_albums" href="{{ url_for('learn.learn_route') }}">Learn</a></li>
+				 	</ul>
 
+					<ul class="nav navbar-nav navbar-left">
+						<li><a id="nav_albums" href="{{ url_for('infer.infer_route') }}">Infer</a></li>
+				 	</ul>
 
+					<ul class="nav navbar-nav navbar-right">
+						<li><a id="nav_logout" href="{{ url_for('create.logout_route') }}">Log out</a><li>
+				 	</ul>
 
-			 			 	 	 
+					<ul class="nav navbar-nav navbar-right">
+						<li><a>Logged in as {{ session['username'] }}</a></li>
+				 	</ul>
+			 	{% endif %}
+
+			 	{% if not session['logged_in'] %}
+					<ul class="nav navbar-nav navbar-right">
+						<li><a id="home_user_create" href="{{ url_for('create.signup_route') }}">Sign up</a></li>
+				 	</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a id="home_login" href="{{ url_for('create.login_route') }}">Log in</a></li>
+				 	</ul>
+			 	{% endif %}	 
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>

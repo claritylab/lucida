@@ -121,17 +121,13 @@ void IMMHandler::addImage(const string &LUCID,
 		const string &label, const string &data) {
 	cout << "@@@ Label: " << label << endl;
 	cout << "@@@ Size: " << data.size() << endl;
-	// Insert the image into MongoDB.
+	// Insert the image Matrix into MongoDB.
 	unique_ptr<DBClientBase> conn = move(getConnection());
-	BSONObj p = BSONObjBuilder().append("label", label).append("data", data)
-			.append("size", (int) data.size()).obj();
-	conn->insert("lucida.images_" + LUCID, p); // insert the image data
-	// If the machine crashes here, good luck with the accuracy!
 	string mat_str = Image::imageToMatString(data);
-	p = BSONObjBuilder().append("label", label)
+	BSONObj p = BSONObjBuilder().append("label", label)
 			.append("desc", mat_str)
 			.append("size", (int) mat_str.size()).obj();
-	conn->insert("lucida.opencv_" + LUCID, p); // insert the image desc
+	conn->insert("lucida.opencv_" + LUCID, p); // insert the image Matrix
 	string e = conn->getLastError();
 	if (!e.empty()) {
 		throw runtime_error("Insert failed " + e);

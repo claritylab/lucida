@@ -29,8 +29,7 @@ DEFINE_string(hostname,
 		"Hostname of the server (default: localhost)");
 
 string getImageData(const string &image_path) {
-	string img_name(image_path);
-	ifstream fin(img_name.c_str(), ios::binary);
+	ifstream fin(image_path.c_str(), ios::binary);
 	ostringstream ostrm;
 	ostrm << fin.rdbuf();
 	string image(ostrm.str());
@@ -45,11 +44,11 @@ int main(int argc, char* argv[]) {
 	google::InitGoogleLogging(argv[0]);
 	google::ParseCommandLineFlags(&argc, &argv, true);
 	EventBase event_base;
-	std::shared_ptr<TAsyncSocket> socket(
+	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(
 			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, FLAGS_port));
 	LucidaServiceAsyncClient client(
 			std::unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>(
-					new HeaderClientChannel(socket)));
+					new HeaderClientChannel(socket_t)));
 	// Open the images.
 	string db = fs::current_path().string() + "/test_db";
 	fs::path p = fs::system_complete(db);

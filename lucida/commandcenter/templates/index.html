@@ -34,44 +34,5 @@
 		</div>
 <!-- 	{% endif %} -->
 
-<!-- 	{% if session['logged_in'] %}
-		<div class="container">
-			<div class="row">
-				<div class="col-md-1"></div>
-				<div class="col-md-10" style="background-color: #B8D192">
-					<h4>Albums to view:</h4>
-						<ul>
-							<li><p>Public albums:</p>
-						<ul>
-							{% for username, albums_info in get_all_public_albums().iteritems() %}
-								{% for i in albums_info %}
-									<li><p><a href="{{ url_for('album.album_route', id=i[0]) }}">{{ i[1] }}</a> (owned by {{ username }})</p></li>
-								{% endfor %}
-							{% endfor %}
-						</ul>
-							</li>
-
-							<li><p>Albums that I am granted access to:</p></li>
-						<ul>
-							{% for i in get_granted_albums(session['username']) %}
-								<li><p><a href="{{ album_view_link(i[0]) }}">{{ i[1] }}</a> (owned by {{ i[2] }})</p></li>
-							{% endfor %}
-						</ul>
-							</li>
-
-							<li><p>My own albums:</p></li>
-						<ul>
-							{% for i in get_albums_info(session['username']) %}
-								<li><p><a href="{{ url_for('album.album_route', id=i[0]) }}">{{ i[1] }}</a></p></li>
-							{% endfor %}
-						</ul>
-							</li>
-						</ul>
-				</div>
-				<div class="col-md-1"></div>
-			</div>
-		</div>
-	{% endif %} -->
-
 	<br>
 {% endblock %}
