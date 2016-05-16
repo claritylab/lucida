@@ -27,4 +27,10 @@ start_client:
 start_server: 
 	gnome-terminal -x bash -c ". venv/bin/activate; python app.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
 
+start_fake_server:
+	gnome-terminal -x bash -c ". venv/bin/activate; python PythonServer.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+
+start_fake_server:
+	gnome-terminal -x bash -c ". venv/bin/activate; python PythonClient.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+
 .PHONY:	all venv thrift clean start_client start_server

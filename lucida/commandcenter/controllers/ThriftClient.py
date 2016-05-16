@@ -8,6 +8,7 @@ from lucidaservice import LucidaService
 # from thrift import Thrift
 # from thrift.transport import TTwisted  
 # from thrift.protocol import TBinaryProtocol
+
 from thrift import TTornado
 from thrift.transport import TSocket
 from thrift.transport import TTransport
@@ -19,6 +20,7 @@ from ConcurrencyManagement import *
 
 from tornado import gen
 from tornado import ioloop
+
 
 
 class ThriftClient(object):
@@ -63,32 +65,28 @@ class ThriftClient(object):
 # 		log("should return!!!!!!!!!!")
 		
 	@staticmethod
-	@gen.engine 
-	def learn_image_callback2(callback, LUCID, knowledge):
+	@gen.coroutine
+	def learn_image_callback2():
+		log('$$$$$$$$$$')
 		transport = TTornado.TTornadoStreamTransport('localhost', 8082)
 		pfactory = TBinaryProtocol.TBinaryProtocolFactory()
 		client = LucidaService.Client(transport, pfactory)
-		
+ 		
 		# open the transport, bail on error
-		try:
-			yield gen.Task(transport.open)
-		except TTransport.TTransportException as ex:
-			log(ex)
-			if callback:
-				callback()
-			return
+		yield transport.open()
+		log('Transport is opened')
+
 		#client.learn("yba2", QuerySpec())
-		xxx = {'LUCID': 'yba2', 'knowledge': QuerySpec()}
-		args, kwargs = yield gen.Task(client.learn, 'yba2', QuerySpec())
-		
+		#xxx = {'LUCID': 'yba2', 'knowledge': QuerySpec()}
+		yield gen.Task(client.learn, "yba2", QuerySpec())
+ 		
 		# close the transport
 		client._transport.close()
-		
-		if callback:
-			callback()
-		
+ 		
+		# close the transport
+		client._transport.close()
+		raise gen.Return()
 
-	
 	@staticmethod    
 	def learn_image(LUCID, label, data):
 # 		service_inst = ThriftClient.get_service(ThriftClient.IMM)
@@ -108,9 +106,10 @@ class ThriftClient(object):
 		knowledge.content.append(knowledge_input)
 # 		d.addCallback(lambda conn: conn.client)
 # 		d.addCallback(ThriftClient.learn_image_callback, LUCID, knowledge)
-		io_loop = ioloop.IOLoop.instance()
-		def this_joint():
-			ThriftClient.learn_image_callback2(io_loop.stop, LUCID, knowledge)
-		io_loop.add_callback(this_joint)
-		io_loop.start()		
+		log('##########')
+		ioloop.IOLoop.current().run_sync(ThriftClient.learn_image_callback2)
 		
+# 		ioloop = IOLoop.instance()
+# 		ioloop.add_callback(ThriftClient.learn_image_callback3)
+# 		ioloop.start()
+

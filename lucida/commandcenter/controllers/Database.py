@@ -2,6 +2,7 @@ import os, time, hashlib, uuid
 from pymongo import MongoClient
 from base64 import b64encode
 from ThriftClient import ThriftClient
+from ConcurrencyManagement import *
 
 
 class Database(object):
@@ -59,6 +60,6 @@ class Database(object):
 	# Returns the images by username.
 	def get_pictures(username):
 		images_db = "images_" + username
-		print images_db
+		log('Retrieving images from ' + images_db)
 		return [image for image in Database.images.find()]
 
