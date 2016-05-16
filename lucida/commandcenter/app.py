@@ -3,58 +3,48 @@ from __future__ import division
 from __future__ import unicode_literals
  
 import sys, glob  
-sys.path.insert(0, glob.glob('/home/yba/Documents/clarity/fbthrift/thrift/lib/py/build/lib*')[0]) # This needs to be more generic.
+#sys.path.insert(0, glob.glob('/home/yba/Documents/clarity/fbthrift/thrift/lib/py/build/lib*')[0]) # This needs to be more generic.
+sys.path.insert(0, glob.glob('/home/yba/Documents/clarity/thrift-0.9.3/lib/py/build/lib*')[0])
  
-from lucidatypes.ttypes import *
-from lucidaservice import *
-import controllers
  
-from zope.interface import implements
-from thrift.transport import TSocket
-from thrift.transport import TTransport
-from thrift.protocol import TBinaryProtocol
-from thrift.server import TNonblockingServer
+ 
+from controllers import *
 
 from flask import *
 from threading import Thread
+# from twisted.internet import reactor
+import config
 
-# Initialize Flask app with the template folder address.
+
+# Initialize the Flask app with the template folder address.
 app = Flask(__name__, template_folder='templates')
 
+app.config.from_object('config')
+
 # Register the controllers.
-app.register_blueprint(controllers.main)
+app.register_blueprint(Main.main)
+app.register_blueprint(Create.create)
+app.register_blueprint(Learn.learn)
+app.register_blueprint(Infer.infer)
 
-class LucidaServiceHandler:
-    implements(LucidaService.Iface)
- 
-    def __init__(self):
-        self.log = {}
- 
-    def create(self, LUCID, spec):
-        print LUCID, 'Create: port', spec.name
-        return
- 
-    def learn(self, LUCID, knowledge):
-        print LUCID, 'Learn'
-        return      
-     
-    def infer(self, LUCID, query): 
-        print LUCID, 'Infer'
-        return 'Lucida!!!!!!!'
+# Session.
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-def threaded_function():
-    handler = LucidaServiceHandler()
-    processor = LucidaService.Processor(handler)
-    transport = TSocket.TServerSocket(port=8080)
-    tfactory = TTransport.TBufferedTransportFactory()
-    pfactory = TBinaryProtocol.TBinaryProtocolFactory()
-    server = TNonblockingServer.TNonblockingServer(processor, transport, pfactory, pfactory)
-    print 'CMD at', str(8080)
+def thrift_server():
+    handler = ThriftServer.LucidaServiceHandler()
+    processor = ThriftServer.LucidaService.Processor(handler)
+    transport = ThriftServer.TSocket.TServerSocket(port=8080)
+    pfactory = ThriftServer.TBinaryProtocol.TBinaryProtocolFactory()
+    server = ThriftServer.TNonblockingServer.TNonblockingServer(processor, transport, pfactory, pfactory)
+    print 'CMD at ' + str(8080)
     server.serve()
+    
+def flask_server():
+    app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False) 
      
 if __name__ == '__main__':
-    thread = Thread(target = threaded_function)
-    thread.start()
-    app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False)
+    Thread(target = thrift_server).start()
+    Thread(target = flask_server).start()
+    
 
 

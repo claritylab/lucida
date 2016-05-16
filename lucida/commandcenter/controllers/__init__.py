@@ -1,2 +1,2 @@
-from main import *
-
+__all__ = ['Main', 'Auth', 'AccessManagement', 'ThriftServer',
+            'ThriftClient', 'Create', 'Learn', 'Infer', 'ConcurrencyManagement']

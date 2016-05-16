@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class = "container">
+		<div class="row">
+			<p style="color:gray">Main » Sign up</p>
+		</div>
+
+		<div class="page-header">
+			<h1>Register</h1>
+		</div>
+
+		<form action="{{ url_for('create.signup_route') }}" method=post enctype=multipart/form-data>
+			<div class="form-group {% if form.username.errors %}has-error{% endif %}">
+				<label>Username</label>
+				<input id="new_username_input" name="username" class="form-control" placeholder="Username">
+			{% for e in form.username.errors %}
+				<p><strong class=text-danger>{{ e }}</strong></p>
+			{% endfor %}
+			</div>
+
+			<div class="form-group {% if form.firstname.errors %}has-error{% endif %}">
+				<label>First name</label>
+				<input id="new_firstname_input" name="firstname" class="form-control" placeholder="First name">
+			{% for e in form.firstname.errors %}
+				<p><strong  class=text-danger>{{ e }}</strong></p>
+			{% endfor %}					
+			</div>
+
+			<div class="form-group {% if form.lastname.errors %}has-error{% endif %}">
+				<label>Last name</label>
+				<input id="new_lastname_input" name="lastname" class="form-control" placeholder="Last name">
+			{% for e in form.lastname.errors %}
+				<p><strong class=text-danger>{{ e }}</strong></p>
+			{% endfor %}
+			</div>
+
+			<div class="form-group {% if form.email.errors %}has-error{% endif %}">
+				<label>Email Address</label>
+				<input id="new_email_input" name="email" class="form-control" placeholder="Email">
+			{% for e in form.email.errors %}
+				<p><strong class=text-danger>{{ e }}</strong></p>
+			{% endfor %}
+			</div>
+
+			<div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+				<label>Password</label>
+				<input id="new_password1_input" name="password1" type="password" class="form-control" placeholder="Password">
+			{% for e in form.password1.errors %}
+				<p><strong class=text-danger>{{ e }}</strong></p>
+			{% endfor %}
+			</div>
+
+			<div class="form-group {% if form.password2.errors %}has-error{% endif %}">
+				<label>Confirm Password</label>
+				<input id="new_password2_input" name="password2" type="password" class="form-control" placeholder="Confirm password">
+			{% for e in form.password2.errors %}
+				<p><strong class=text-danger>{{ e }}</strong></p>
+			{% endfor %}
+			</div>
+
+			<input id="new_submit" type="submit" class="btn btn-default" value="Submit">
+		</form>
+		
+		{% if error %}
+			<br>
+			<p><strong>Please clear the following errors:</strong></p>
+			<ul>
+				{% for i in error %}
+					<strong class=text-danger><p class="error">{{ i }}</p></strong>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+		<br>
+	</div>
+{% endblock %}
