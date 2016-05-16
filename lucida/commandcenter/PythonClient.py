@@ -65,7 +65,7 @@ def communicate():
     knowledge = QuerySpec()
     knowledge.content = []
     knowledge.content.append(knowledge_input)
-    yield gen.Task(client.learn, LUCID, knowledge_input)
+    yield client.learn(LUCID, knowledge_input)
     print("Learn")
 
     # close the transport
