@@ -28,7 +28,8 @@ using std::string;
 using std::unique_ptr;
 using std::shared_ptr;
 
-Mat to_compare;
+// cout lock.
+std::mutex cout_lock_cpp;
 
 namespace cpp2 {
 IMMHandler::IMMHandler() {}
@@ -43,7 +44,7 @@ folly::Future<folly::Unit> IMMHandler::future_create
 
 folly::Future<folly::Unit> IMMHandler::future_learn
 (unique_ptr<string> LUCID, unique_ptr< ::cpp2::QuerySpec> knowledge) {
-	cout << "Learn" << endl;
+	print("Learn");
 	// Save LUCID and knowledge.
 	string LUCID_save = *LUCID;
 	::cpp2::QuerySpec knowledge_save = *knowledge;
@@ -52,16 +53,16 @@ folly::Future<folly::Unit> IMMHandler::future_learn
 
 	folly::RequestEventBase::get()->runInEventBaseThread(
 			[=]() mutable {
-		// Go through all images and store them into MongoDB.
-		for (const QueryInput &query_input : knowledge_save.content) {
-			for (int i = 0; i < (int) query_input.data.size(); ++i) {
-				try {
+		try {
+			// Go through all images and store them into MongoDB.
+			for (const QueryInput &query_input : knowledge_save.content) {
+				for (int i = 0; i < (int) query_input.data.size(); ++i) {
 					this->addImage(LUCID_save, query_input.tags[i],
 							query_input.data[i]);
-				} catch (exception &e) {
-					cout << e.what() << endl;
 				}
 			}
+		} catch (Exception &e) {
+			print(e.what());
 		}
 		promise->setValue(Unit{});
 	}
@@ -72,7 +73,7 @@ folly::Future<folly::Unit> IMMHandler::future_learn
 
 folly::Future<unique_ptr<string>> IMMHandler::future_infer
 (unique_ptr<string> LUCID, unique_ptr< ::cpp2::QuerySpec> query) {
-	cout << "Infer" << endl;
+	print("Infer");
 	// Save LUCID and query.
 	string LUCID_save = *LUCID;
 	::cpp2::QuerySpec query_save = *query;
@@ -81,14 +82,19 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 
 	folly::RequestEventBase::get()->runInEventBaseThread(
 			[=]() mutable {
-		vector<unique_ptr<StoredImage>> images = getImages(LUCID_save);
-		int best_index = Image::match(images,
-				unique_ptr<QueryImage>(new QueryImage(
-						move(Image::imageToMatObj(
-								query_save.content[0].data[0])))));
-		cout << "Result: " << images[best_index]->getLabel() << endl;
-		promise->setValue(unique_ptr<string>(
-				new string(images[best_index]->getLabel())));
+		try {
+			vector<unique_ptr<StoredImage>> images = getImages(LUCID_save);
+			int best_index = Image::match(images,
+					unique_ptr<QueryImage>(new QueryImage(
+							move(Image::imageToMatObj(
+									query_save.content[0].data[0])))));
+			print("Result: " << images[best_index]->getLabel());
+			promise->setValue(unique_ptr<string>(
+					new string(images[best_index]->getLabel())));
+		} catch (Exception &e) {
+			print(e.what());
+			promise->setValue(unique_ptr<string>(new string()));
+		}
 		//		EventBase event_base;
 		//
 		//		std::shared_ptr<TAsyncSocket> socket(
@@ -120,8 +126,8 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 
 void IMMHandler::addImage(const string &LUCID,
 		const string &label, const string &data) {
-	cout << "@@@ Label: " << label << endl;
-	cout << "@@@ Size: " << data.size() << endl;
+	print("@@@ Label: " << label);
+	print("@@@ Size: " << data.size());
 	// Insert the descriptors matrix into MongoDB.
 	unique_ptr<DBClientBase> conn = move(getConnection());
 	string mat_str = Image::imageToMatString(data); // written to file system

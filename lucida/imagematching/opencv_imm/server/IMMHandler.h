@@ -1,10 +1,21 @@
 #pragma once
 
 #include <vector>
+#include <mutex>
 
 #include "gen-cpp2/LucidaService.h"
-#include "../opencv/Image.h"
+#include "Image.h"
 #include "client/dbclient.h" // MongoDB
+
+// Define print which is the function used for debugging.
+extern std::mutex cout_lock_cpp;
+#define print( x ) \
+	( \
+			(cout_lock_cpp.lock()), \
+			(std::cout << x << endl), \
+			(cout_lock_cpp.unlock()), \
+			(void)0 \
+	)
 
 namespace cpp2 {
 class IMMHandler : virtual public LucidaServiceSvIf {

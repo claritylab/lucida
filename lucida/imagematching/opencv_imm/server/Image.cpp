@@ -23,7 +23,7 @@
 
 #include <algorithm>
 #include "Image.h"
-#include "kp_protobuf.h"
+#include "IMMHandler.h"
 
 using namespace cv;
 using namespace std;
@@ -36,7 +36,7 @@ string Image::saveToFS(const string &data) {
 	long int timestamp = tp.tv_sec * 1000 + tp.tv_usec / 1000;
 	string image_path = "input-" + to_string(timestamp) + ".jpg";
 	ofstream image_file(image_path, ios::binary);
-	cout << "Size of image written to FS: " << data.size() << endl;
+	print("Size of image written to FS: " << data.size());
 	image_file.write(data.c_str(), data.size());
 	image_file.close();
 	return image_path;

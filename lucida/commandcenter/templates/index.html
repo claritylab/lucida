@@ -16,23 +16,28 @@
 
 		<br>
 
+		{% if not session['logged_in'] %}
+			<div class="row">
+				<p class="lead">Please log in to start. </p>
+			</div>
+		{% else %}
+			<div class="row">
+				<p class="lead">Click "Learn" or "Infer" above. </p>
+			</div>		
+		{% endif %}
+	</div>
+
+	<div class="container">
 		<div class="row">
-			<p class="lead">Please sign up to start. Once you are logged in, click "My Albums" to create new albums and upload photos. </p>
+			<div class="col-md-1"></div>
+			<div class="col-md-10" style="background-color: #B8D192">
+				<h4>Introduction to Lucida and Clinc:</h4>
+
+			</div>
+			<div class="col-md-1"></div>
 		</div>
 	</div>
 
-<!-- 	{% if not session['logged_in'] %} -->
-		<div class="container">
-			<div class="row">
-				<div class="col-md-1"></div>
-				<div class="col-md-10" style="background-color: #B8D192">
-					<h4>Public albums to look at:</h4>
-
-				</div>
-				<div class="col-md-1"></div>
-			</div>
-		</div>
-<!-- 	{% endif %} -->
 
 	<br>
 {% endblock %}

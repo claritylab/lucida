@@ -26,10 +26,10 @@ def learn_route():
 			# Get the uploaded image.
 			upload_file = request.files['file']
 			if (not (upload_file and file_extension_allowed(upload_file.filename))):
-				abort(404)
+				return 'Invalid file'
 			# Get the label of the image.
 			if not ('label' in request.form and request.form['label']):
-				abort(404)
+				return 'Please enter a label for your image'
 			# Add the new photo into the database by a thrift call.
 			image_data = upload_file.read()
 			upload_file.close()
