@@ -7,7 +7,6 @@ import sys, glob
 sys.path.insert(0, glob.glob('/home/yba/Documents/clarity/thrift-0.9.3/lib/py/build/lib*')[0])
  
  
- 
 from controllers import *
 
 from flask import *

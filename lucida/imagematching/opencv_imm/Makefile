@@ -1,4 +1,4 @@
-SUBDIRS=opencv server test
+SUBDIRS=server test
 include ../../../Makefile.common
 
 start_server: 

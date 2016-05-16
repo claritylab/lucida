@@ -7,7 +7,12 @@ from ConcurrencyManagement import *
 class Database(object):
 	db = MongoClient().lucida
 	users = db.users
-	images = db.images_yba2
+	
+	@staticmethod
+	# Returns the image collection of the user.
+	def get_image_collection(username):
+		images_collection = 'images_' + username
+		return Database.db[images_collection]
 	
 	# Name of the algorithm to use for password encryption.
 	ENCRYPT_ALGORITHM = 'sha512'
@@ -52,13 +57,13 @@ class Database(object):
 	@staticmethod
 	# Adds the uploaded image.
 	def add_picture(username, label, upload_file):
-		Database.images.insert_one({'label': label, 'data': b64encode(upload_file)})
+		Database.get_image_collection(username) \
+		.insert_one({'label': label, 'data': b64encode(upload_file)})
 		
 	@staticmethod
 	# Returns the images by username.
 	def get_pictures(username):
-		images_db = "images_" + username
-		log('Retrieving images from ' + images_db)
-		return [image for image in Database.images.find()]
+		log('Retrieving images from images_' + username)
+		return [image for image in Database.get_image_collection(username).find()]
 	
 

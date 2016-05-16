@@ -24,12 +24,11 @@ def infer_route():
 			# Get the uploaded image.
 			upload_file = request.files['file']
 			if (not (upload_file and file_extension_allowed(upload_file.filename))):
-				abort(404)
+				return 'Invalid file'
 			# Send the image to IMM.
 			image_data = upload_file.read()
 			upload_file.close()
-			result = ThriftClient.infer_image(session['username'],
-											 image_data)
+			result = ThriftClient.infer_image(session['username'], image_data)
 			# Filter all the images owned by the user with label equal to result.
 			options['uploaded_picture'] = b64encode(image_data)
 			for image in Database.get_pictures(session['username']):
