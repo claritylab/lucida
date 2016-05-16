@@ -86,6 +86,7 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 				unique_ptr<QueryImage>(new QueryImage(
 						move(Image::imageToMatObj(
 								query_save.content[0].data[0])))));
+		cout << "Result: " << images[best_index]->getLabel() << endl;
 		promise->setValue(unique_ptr<string>(
 				new string(images[best_index]->getLabel())));
 		//		EventBase event_base;

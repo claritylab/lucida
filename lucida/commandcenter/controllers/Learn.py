@@ -1,6 +1,7 @@
 from flask import *
 from Database import Database
 from AccessManagement import login_required
+from ThriftClient import ThriftClient
 
 
 learn = Blueprint('learn', __name__, template_folder='templates')
@@ -9,7 +10,6 @@ learn = Blueprint('learn', __name__, template_folder='templates')
 def file_extension_allowed(filename):
 	allowed_extensions = set(['png', 'PNG', 'jpg', 'JPG', 'bmp', 'BMP', \
 		'gif', 'GIF'])
-	# Display
 	return (('.' in filename) and \
 		(filename.rsplit('.', 1)[1] in allowed_extensions))
 
@@ -17,7 +17,7 @@ def file_extension_allowed(filename):
 @login_required
 def learn_route():
 	# Deal with POST requests.
-	if (request.method == 'POST'):
+	if request.method == 'POST':
 		# If the request does not contain an "op" field.
 		if not 'op' in request.form:
 			abort(404)
@@ -31,8 +31,15 @@ def learn_route():
 			if not ('label' in request.form and request.form['label']):
 				abort(404)
 			# Add the new photo into the database by a thrift call.
-			Database.add_picture(session['username'], request.form['label'],
-								 upload_file.read())
+			image_data = upload_file.read()
+			upload_file.close()
+			Database.add_picture(session['username'],
+								request.form['label'],
+								image_data)
+			# Send the image to IMM.
+			ThriftClient.learn_image(session['username'],
+									request.form['label'],
+									image_data)
 # 		# When the "op" field is equal to "delete"
 # 		elif request.form["op"] == "delete":
 # 			# If the request does not have an "albumid" or a "picid" field,
@@ -50,12 +57,11 @@ def learn_route():
 		# Abort
 		else:
 			abort(404)
-	# Render template
 	options = {
-		"pictures": Database.get_pictures(session['username'])
+		'pictures': Database.get_pictures(session['username'])
 	}
-	# Display
-	return render_template("learn.html", **options)
+	# Display.
+	return render_template('learn.html', **options)
 
 
 
