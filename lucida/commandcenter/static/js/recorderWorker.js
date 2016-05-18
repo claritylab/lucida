@@ -155,15 +155,6 @@ var recLength = 0,
 
 
 this.onmessage = function(e){
-
-
-
-	console.log('onmessage recorderWorker **********')
-
-
-
-
-
   switch(e.data.command){
     case 'init':
       init(e.data.config);

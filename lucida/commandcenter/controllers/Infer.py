@@ -39,9 +39,3 @@ def infer_route():
 			abort(404)
 	# Display.
 	return render_template('infer.html', **options)
-
-@infer.route('/infer_ASR', methods=['GET', 'POST'])
-@login_required
-def infer_ASR_route():
-	# Display.
-	return render_template('infer_ASR.html')
