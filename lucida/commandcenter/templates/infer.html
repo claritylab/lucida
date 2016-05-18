@@ -1,61 +1,61 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="container">
-		<div class="row">
-			<p style="color:gray">Main » Infer</p>
-		</div>
-
-		<div class="container">
-			<div class="row">
-				<h1>Image Matching</h1>
-				<h5>(will be integrated with ASR later, of course)</h5>
-			</div>
-		</div>
-
-		<div class="container">
-			<form action="" method=post enctype=multipart/form-data>
-				<input name="op" type="hidden" value="add_image"></input>
-
-				<div class="form-group">
-					<label for="exampleInputFile">File input</label>
-					<input id="file_input" type="file" name="file">
-					<p class="help-block">Upload your picture!</p>
-				</div>
-
-				<div class="form-group">
-					<input id="file_submit" type="submit" value="Upload" class="btn btn-info">
-				</div>
-			</form>
-		</div>	
-
-		{% if uploaded_picture %}
-			<center>
-				<h5>Uplaoded picture</h5>
-				<div>
-					<img src="data:;base64,{{ uploaded_picture }}" style="max-width:none;" height="90"></img>
-				</div>
-			</center>
-		{% endif %}
-
-		{% if result_pictures %}
-			<h5>Result pictures</h5>
-		{% endif %}		
-
-
-		{% for i in result_pictures %}
-			<div class="col-sm-4">
-				<div>
-					<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
-				</div>
-				<div>
-					<p>{{ i['label'] }}</p>
-				</div>  
-			</div>
-		{% endfor %}
+<div class="container">
+	<div class="row">
+		<p style="color:gray">Main » Infer</p>
 	</div>
 
-	<br><br>
+	<div class="container">
+		<div class="row">
+			<h1>Image Matching</h1>
+			<h5>(will be integrated with ASR later, of course)</h5>
+		</div>
+	</div>
+
+	<div class="container">
+		<form action="" method=post enctype=multipart/form-data>
+			<input name="op" type="hidden" value="add_image"></input>
+
+			<div class="form-group">
+				<label for="exampleInputFile">File input</label>
+				<input id="file_input" type="file" name="file">
+				<p class="help-block">Upload your picture!</p>
+			</div>
+
+			<div class="form-group">
+				<input id="file_submit" type="submit" value="Upload" class="btn btn-info">
+			</div>
+		</form>
+	</div>	
+
+	{% if uploaded_picture %}
+		<center>
+			<h5>Uplaoded picture</h5>
+			<div>
+				<img src="data:;base64,{{ uploaded_picture }}" style="max-width:none;" height="90"></img>
+			</div>
+		</center>
+	{% endif %}
+
+	{% if result_pictures %}
+		<h5>Result pictures</h5>
+	{% endif %}		
+
+
+	{% for i in result_pictures %}
+		<div class="col-sm-4">
+			<div>
+				<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
+			</div>
+			<div>
+				<p>{{ i['label'] }}</p>
+			</div>  
+		</div>
+	{% endfor %}
+</div>
+
+<br><br>
 {% endblock %}
 
 

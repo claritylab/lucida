@@ -16,8 +16,8 @@ class OAuthSignIn(object):
         # self.consumer_id = credentials['id']
         # self.consumer_secret = credentials['secret']
         
-        self.consumer_id = """988943258581-r6ptfa9jnc8ton2i5vfr29gv52onke39.apps.googleusercontent.com"""
-        self.consumer_secret = "WwCr6rlxg8cZ9sQMgZtMZabP"
+        self.consumer_id = """secret"""
+        self.consumer_secret = "secret"
 
     def authorize(self):
         pass
