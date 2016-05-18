@@ -1,2 +1,2 @@
-SUBDIRS=kaldi_asr
+SUBDIRS=kaldi_gstreamer_asr
 include ../../Makefile.common

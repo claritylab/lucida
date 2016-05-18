@@ -76,6 +76,17 @@
       currCallback = cb || config.callback;
       type = type || config.type || 'audio/raw';
       if (!currCallback) throw new Error('Callback not set');
+
+
+
+
+
+      console.log('&&&&&')
+
+
+
+
+
       worker.postMessage({
         command: 'export16kMono',
         type: type
@@ -93,7 +104,15 @@
       });
     }
 
-    worker.onmessage = function(e){
+    worker.onmessage = function(e) {
+
+
+
+
+      console.log('onmessage recorder **********')
+
+
+
       var blob = e.data;
       currCallback(blob);
     }

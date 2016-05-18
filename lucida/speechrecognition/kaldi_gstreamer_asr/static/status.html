@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body>
+<script type="text/javascript">
+var ws_status_uri = window.location.href.replace(/^https?:\/\/(.*)\/static\/status.html$/, 'ws://$1/ws/status');
+
+var ws = new WebSocket(ws_status_uri);
+ws.onmessage = function(evt) {
+   var status = JSON.parse(evt.data);
+   $("#status").html(JSON.stringify(status, undefined, 2));
+};
+</script>
+
+
+Speech server status: <div id="status"></div>
+
+
+
+  </body>
+</html>

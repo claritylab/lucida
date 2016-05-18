@@ -1,43 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="container">
-		<div class="page-header">
-			<h1><center>Welcome to Lucida!</center></h1>
-		</div>
+<div class="container">
+	<div class="page-header">
+		<h1><center>Welcome to Lucida!</center></h1>
 	</div>
+</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4" style="background-color: #FF9999"><h4><center>Create</center><h4></div>
-			<div class="col-md-4" style="background-color: #F2F5A9"><h4><center>Learn</center><h4></div>
-			<div class="col-md-4" style="background-color: #99CCFF"><h4><center>Infer</center><h4></div>
-		</div>
-
-		<br>
-
-		{% if not session['logged_in'] %}
-			<div class="row">
-				<p class="lead">Please log in to start. </p>
-			</div>
-		{% else %}
-			<div class="row">
-				<p class="lead">Click "Learn" or "Infer" above. </p>
-			</div>		
-		{% endif %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-4" style="background-color: #FF9999"><h4><center>Create</center><h4></div>
+		<div class="col-md-4" style="background-color: #F2F5A9"><h4><center>Learn</center><h4></div>
+		<div class="col-md-4" style="background-color: #99CCFF"><h4><center>Infer</center><h4></div>
 	</div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-10" style="background-color: #B8D192">
-				<h4>Introduction to Lucida and Clinc:</h4>
-
-			</div>
-			<div class="col-md-1"></div>
-		</div>
-	</div>
-
 
 	<br>
+
+	{% if not session['logged_in'] %}
+		<div class="row">
+			<p class="lead">Please log in to start. </p>
+		</div>
+	{% else %}
+		<div class="row">
+			<p class="lead">Click "Learn" or "Infer" above. </p>
+		</div>		
+	{% endif %}
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10" style="background-color: #B8D192">
+			<h4>Introduction to Lucida and Clinc:</h4>
+
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>
+
+<br>
 {% endblock %}

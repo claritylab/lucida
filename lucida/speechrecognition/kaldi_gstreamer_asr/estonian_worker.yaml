@@ -1,0 +1,29 @@
+timeout-decoder : 10
+decoder:
+   model: test/models/estonian/tri2b_mmi_pruned/final.mdl
+   lda-mat: test/models/estonian/tri2b_mmi_pruned/final.mat
+   word-syms: test/models/estonian/tri2b_mmi_pruned/words.txt
+   fst: test/models/estonian/tri2b_mmi_pruned/HCLG.fst
+   silence-phones: 6
+out-dir: tmp
+
+use-vad: True
+silence-timeout: 60
+
+# Reconstructs compound words. Requires SRILM. Just comment out when no SRILM available.
+post-processor: hidden-ngram -hidden-vocab test/models/estonian/compounder/hidden.vocab -lm test/models/estonian/compounder/compounder-pruned.vestlused-dev.splitw.arpa.gz  -text - -keep-unk | perl -npe 'BEGIN {use IO::Handle; STDOUT->autoflush(1);} s/ ?\+C\+ ?//g; s/ ?\+D\+ ?/-/g;'
+logging:
+    version : 1
+    disable_existing_loggers: False
+    formatters:
+        simpleFormater:
+            format: '%(asctime)s - %(levelname)7s: %(name)10s: %(message)s'
+            datefmt: '%Y-%m-%d %H:%M:%S'
+    handlers:
+        console:
+            class: logging.StreamHandler
+            formatter: simpleFormater
+            level: DEBUG
+    root:
+        level: DEBUG
+        handlers: [console]

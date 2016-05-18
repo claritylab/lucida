@@ -110,7 +110,7 @@
 
 		// Start recording and transcribing
 		this.startListening = function() {
-			if (! recorder) {
+			if (!recorder) {
 				config.onError(ERR_AUDIO, "Recorder undefined");
 				return;
 			}
@@ -158,25 +158,25 @@
 			config.onEvent(MSG_SERVER_CHANGED, 'Server status server changed: ' + serverStatus);
 		}
 
-    // Sends reference text to speech server
-    this.submitReference = function submitReference(text, successCallback, errorCallback) {
-      var headers = {}
-      if (config["user_id"]) {
-        headers["User-Id"] = config["user_id"]
-      }      
-      if (config["content_id"]) {
-        headers["Content-Id"] = config["content_id"]
-      }      
-      $.ajax({
-        url: config.referenceHandler,
-        type: "POST",
-        headers: headers,
-        data: text,
-        dataType: "text",
-        success: successCallback,
-        error: errorCallback,
-      });  
-    }
+		// Sends reference text to speech server
+		this.submitReference = function submitReference(text, successCallback, errorCallback) {
+			var headers = {}
+			if (config["user_id"]) {
+				headers["User-Id"] = config["user_id"]
+			}      
+			if (config["content_id"]) {
+				headers["Content-Id"] = config["content_id"]
+			}      
+			$.ajax({
+				url: config.referenceHandler,
+				type: "POST",
+				headers: headers,
+				data: text,
+				dataType: "text",
+				success: successCallback,
+				error: errorCallback,
+			});  
+		}
 
 		// Private methods
 		function startUserMedia(stream) {
@@ -194,7 +194,20 @@
 		}
 
 		function socketSend(item) {
+
+
+
+			console.log('@@@@@socketSend1')
+
+
 			if (ws) {
+
+
+
+
+				console.log('@@@@@socketSend2')
+
+
 				var state = ws.readyState;
 				if (state == 1) {
 					// If item is an audio blob
@@ -218,82 +231,118 @@
 			}
 		}
 
+		// Stop listening, i.e. recording and sending of new input.
+		this.stopListening = function() {
+			// Stop the regular sending of audio
+			clearInterval(intervalKey);
+			// Stop recording
+			if (recorder) {
+				recorder.stop();
+				config.onEvent(MSG_STOP, 'Stopped recording');
+				// Push the remaining audio to the server
 
-  function createWebSocket() {
-    // TODO: do we need to use a protocol?
-    //var ws = new WebSocket("ws://127.0.0.1:8081", "echo-protocol");
-    var url = config.server + '?' + config.contentType;
-    if (config["user_id"]) {
-      url += '&user-id=' + config["user_id"]
-    }
-    if (config["content_id"]) {
-      url += '&content-id=' + config["content_id"]
-    }      
-    var ws = new WebSocket(url);
 
-    // Stop listening, i.e. recording and sending of new input.
-    this.stopListening = function() {
-      // Stop the regular sending of audio
-      clearInterval(intervalKey);
-      // Stop recording
-      if (recorder) {
-        recorder.stop();
-        config.onEvent(MSG_STOP, 'Stopped recording');
-        // Push the remaining audio to the server
-        recorder.export16kMono(function(blob) {
-          socketSend(blob);
-          socketSend(TAG_END_OF_SENTENCE);
-          recorder.clear();
-        }, 'audio/x-raw');
-        config.onEndOfSpeech();
-      } else {
-        config.onError(ERR_AUDIO, "Recorder undefined");
-      }
-    }
 
-  ws.onmessage = function(e) {
-    var data = e.data;
-    config.onEvent(MSG_WEB_SOCKET, data);
-    var r = JSON.parse(data);
-    if (r.hascoachresponse) {
-      config.onClinc(r.coachresponse);
-    }
-    if (data instanceof Object && ! (data instanceof Blob)) {
-      config.onError(ERR_SERVER, 'WebSocket: onEvent: got Object that is not a Blob');
-    } else if (data instanceof Blob) {
-      config.onError(ERR_SERVER, 'WebSocket: got Blob');
-    } else {
-      var res = JSON.parse(data);
-      if (res.status == 0) {
-	  // TODO: final is undefined sometimes
-        if (res.result.final) {
-          config.onResults(res.result.hypotheses);
-          stopListening();
-        } else {
-          config.onPartialResults(res.result.hypotheses);
-        }
-        // if (res.hascoachresponse) {
-        // 	config.onClinc(res.coachresponse);
-        // }
-      } else {
-        config.onError(ERR_SERVER, 'Server error: ' + res.status + ': ' + getDescription(res.status));
-      }
-    }
-  }
+				console.log('@@@@@@@@@  stopListening');
 
-  // Start recording only if the socket becomes open
-  ws.onopen = function(e) {
-    intervalKey = setInterval(function() {
-      recorder.export16kMono(function(blob) {
-        socketSend(blob);
-        recorder.clear();
-      }, 'audio/x-raw');
-    }, config.interval);
-    // Start recording
-    recorder.record();
-    config.onReadyForSpeech();
-    config.onEvent(MSG_WEB_SOCKET_OPEN, e);
-  };
+
+				recorder.export16kMono(function(blob) {
+					socketSend(blob);
+					socketSend(TAG_END_OF_SENTENCE);
+					recorder.clear();
+				}, 'audio/x-raw');
+				config.onEndOfSpeech();
+			} else {
+				config.onError(ERR_AUDIO, "Recorder undefined");
+			}
+		}
+
+		function createWebSocket() {
+			// TODO: do we need to use a protocol?
+			//var ws = new WebSocket("ws://127.0.0.1:8081", "echo-protocol");
+			var url = config.server + '?' + config.contentType;
+			if (config["user_id"]) {
+				url += '&user-id=' + config["user_id"]
+			}
+			if (config["content_id"]) {
+				url += '&content-id=' + config["content_id"]
+			}      
+			var ws = new WebSocket(url);
+
+
+
+
+
+
+
+			ws.onmessage = function(e) {
+
+
+
+				console.log('onmessage dictate **********')
+
+
+				var data = e.data;
+
+
+				console.log('onmessage dictate data is: ' + data)
+
+
+				config.onEvent(MSG_WEB_SOCKET, data);
+				var r = JSON.parse(data);
+				if (r.hascoachresponse) {
+					config.onClinc(r.coachresponse);
+				}
+				if (data instanceof Object && ! (data instanceof Blob)) {
+					config.onError(ERR_SERVER, 'WebSocket: onEvent: got Object that is not a Blob');
+				} else if (data instanceof Blob) {
+					config.onError(ERR_SERVER, 'WebSocket: got Blob');
+				} else {
+					var res = JSON.parse(data);
+					if (res.status == 0) {
+						// TODO: final is undefined sometimes
+						if (res.result.final) {
+							config.onResults(res.result.hypotheses);
+							stopListening();
+						} else {
+							config.onPartialResults(res.result.hypotheses);
+						}
+						// if (res.hascoachresponse) {
+						// 	config.onClinc(res.coachresponse);
+						// }
+					} else {
+
+
+						console.log('error: res.status == ' + res.status + ' ' + getDescription(res.status))
+
+
+						config.onError(ERR_SERVER, 'Server error: ' + res.status + ': ' + getDescription(res.status));
+					}
+				}
+			}
+
+			// Start recording only if the socket becomes open
+			ws.onopen = function(e) {
+				intervalKey = setInterval(function() {
+					recorder.export16kMono(function(blob) {
+						socketSend(blob);
+						recorder.clear();
+					}, 'audio/x-raw');
+				}, config.interval);
+				// Start recording
+
+
+
+				console.log('$$$$$recorder.record();')
+
+
+				recorder.record();
+				config.onReadyForSpeech();
+
+				console.log('$$$$$config.onEvent(MSG_WEB_SOCKET_OPEN, e);')
+
+				config.onEvent(MSG_WEB_SOCKET_OPEN, e);
+			};
 
 			// This can happen if the blob was too big
 			// E.g. "Frame size of 65580 bytes exceeds maximum accepted frame size"
@@ -337,10 +386,10 @@
 			}
 			return "Unknown error";
 		}
-    
 
 
-	};
+
+	}; // Dictate
 
 	// Simple class for persisting the transcription.
 	// If isFinal==true then a new line is started in the transcription list
