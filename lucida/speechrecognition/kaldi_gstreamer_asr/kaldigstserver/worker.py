@@ -56,6 +56,7 @@ if not lucida_service == None:
 
 else:
     def call_commandcenter(transcript):
+        print '@@@@@@@@@@@@@@@', transcript
         return unknown_response
 
 logger = logging.getLogger(__name__)
@@ -277,7 +278,7 @@ class ServerWebsocket(WebSocketClient):
     def _on_eos(self, data=None):
         self.last_decoder_message = time.time()
         self.state = self.STATE_FINISHED
-        self.send_adaptation_state()
+        #self.send_adaptation_state()
         self.close()
 
     def _on_error(self, error):
@@ -294,6 +295,16 @@ class ServerWebsocket(WebSocketClient):
         if hasattr(self.decoder_pipeline, 'get_adaptation_state'):
             logger.info("%s: Sending adaptation state to client..." % (self.request_id))
             adaptation_state = self.decoder_pipeline.get_adaptation_state()
+
+
+            print '########################'
+            logger.info('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$') 
+            print self.coachtranscript
+            logger.info(self.coachtranscript) 
+
+
+
+
             event = dict(status=common.STATUS_SUCCESS,
                          hascoachresponse=True,
                          coachresponse=call_commandcenter(self.coachtranscript),

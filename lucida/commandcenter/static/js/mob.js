@@ -123,11 +123,6 @@ var dictate = new Dictate({
 		}
 	},
 	onPartialResults : function(hypos) {
-
-
-
-		console.log('**********')
-
 		hypText = prettyfyHyp(hypos[0].transcript, doUpper, doPrependSpace);
 		val = $("#trans").val();
 		$("#trans").val(val.slice(0, startPosition) + hypText + val.slice(endPosition));        
@@ -135,12 +130,6 @@ var dictate = new Dictate({
 		$("#trans").prop("selectionStart", endPosition);
 	},
 	onResults : function(hypos) {
-
-		console.log('2*********')
-
-
-
-
 		hypText = prettyfyHyp(hypos[0].transcript, doUpper, doPrependSpace);
 		val = $("#trans").val();
 		$("#trans").val(val.slice(0, startPosition) + hypText + val.slice(endPosition));        
@@ -155,13 +144,6 @@ var dictate = new Dictate({
 		doPrependSpace = (hypText.length > 0) && !(/\n *$/.test(hypText));
 	},
 	onClinc : function(hypos) {
-
-
-
-		console.log('3**********')
-
-
-
 		hypText = prettyfyHyp(hypos, doUpper, doPrependSpace);
 		val = $("#clinc").val();
 		$("#clinc").val(val.slice(0, startPosition) + hypText + val.slice(endPosition));
@@ -211,35 +193,15 @@ function __serverStatus(msg) {
 }
 
 function __updateTranscript(text) {
-
-
-	console.log('4**********')
-
-
-
 	$("#trans").val(text);
 }
 
 // Public methods (called from the GUI)
 function toggleListening() {
 	if (isConnected) {
-
-
-
-
-		console.log('toggleListening isConnected **********')
-
-
-
-
-
 		dictate.stopListening();
 		$("#recbutton").addClass("disabled");
 	} else {
-
-		console.log('toggleListening !isConnected **********')
-
-
 		dictate.startListening();
 	}
 }

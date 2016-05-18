@@ -194,20 +194,7 @@
 		}
 
 		function socketSend(item) {
-
-
-
-			console.log('@@@@@socketSend1')
-
-
 			if (ws) {
-
-
-
-
-				console.log('@@@@@socketSend2')
-
-
 				var state = ws.readyState;
 				if (state == 1) {
 					// If item is an audio blob
@@ -231,8 +218,9 @@
 			}
 		}
 
-		// Stop listening, i.e. recording and sending of new input.
-		this.stopListening = function() {
+
+
+		var stopListeningFunc = function() {
 			// Stop the regular sending of audio
 			clearInterval(intervalKey);
 			// Stop recording
@@ -240,12 +228,6 @@
 				recorder.stop();
 				config.onEvent(MSG_STOP, 'Stopped recording');
 				// Push the remaining audio to the server
-
-
-
-				console.log('@@@@@@@@@  stopListening');
-
-
 				recorder.export16kMono(function(blob) {
 					socketSend(blob);
 					socketSend(TAG_END_OF_SENTENCE);
@@ -256,6 +238,9 @@
 				config.onError(ERR_AUDIO, "Recorder undefined");
 			}
 		}
+
+		// Stop listening, i.e. recording and sending of new input.
+		this.stopListening = stopListeningFunc
 
 		function createWebSocket() {
 			// TODO: do we need to use a protocol?
@@ -269,25 +254,8 @@
 			}      
 			var ws = new WebSocket(url);
 
-
-
-
-
-
-
 			ws.onmessage = function(e) {
-
-
-
-				console.log('onmessage dictate **********')
-
-
 				var data = e.data;
-
-
-				console.log('onmessage dictate data is: ' + data)
-
-
 				config.onEvent(MSG_WEB_SOCKET, data);
 				var r = JSON.parse(data);
 				if (r.hascoachresponse) {
@@ -301,9 +269,11 @@
 					var res = JSON.parse(data);
 					if (res.status == 0) {
 						// TODO: final is undefined sometimes
-						if (res.result.final) {
-							config.onResults(res.result.hypotheses);
-							stopListening();
+						if (res.result === undefined || res.result.final) {
+							if (res.result !== undefined) {
+								config.onResults(res.result.hypotheses);							
+							}
+							stopListeningFunc();
 						} else {
 							config.onPartialResults(res.result.hypotheses);
 						}
@@ -311,11 +281,6 @@
 						// 	config.onClinc(res.coachresponse);
 						// }
 					} else {
-
-
-						console.log('error: res.status == ' + res.status + ' ' + getDescription(res.status))
-
-
 						config.onError(ERR_SERVER, 'Server error: ' + res.status + ': ' + getDescription(res.status));
 					}
 				}
@@ -330,17 +295,8 @@
 					}, 'audio/x-raw');
 				}, config.interval);
 				// Start recording
-
-
-
-				console.log('$$$$$recorder.record();')
-
-
 				recorder.record();
 				config.onReadyForSpeech();
-
-				console.log('$$$$$config.onEvent(MSG_WEB_SOCKET_OPEN, e);')
-
 				config.onEvent(MSG_WEB_SOCKET_OPEN, e);
 			};
 
