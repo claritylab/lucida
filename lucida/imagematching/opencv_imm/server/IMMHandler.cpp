@@ -84,6 +84,10 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 			[=]() mutable {
 		try {
 			vector<unique_ptr<StoredImage>> images = getImages(LUCID_save);
+			if (images.empty()) {
+				print("Error! No images for " + LUCID_save);
+				promise->setValue(unique_ptr<string>(new string()));
+			}
 			int best_index = Image::match(images,
 					unique_ptr<QueryImage>(new QueryImage(
 							move(Image::imageToMatObj(
@@ -150,7 +154,12 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 	while (cursor->more()) {
 		string label = cursor->next().getStringField("label");
 		ostringstream out;
-		grid.findFile("opencv_" + LUCID + "/" + label).write(out);
+		GridFile gf = grid.findFile("opencv_" + LUCID + "/" + label);
+		if (!gf.exists()) {
+			print("opencv_" + LUCID + "/" + label + " not found!");
+			continue;
+		}
+		gf.write(out);
 		rtn.push_back(unique_ptr<StoredImage>(new StoredImage(
 				label,
 				move(Image::matStringToMatObj(out.str())))));

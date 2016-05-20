@@ -57,6 +57,9 @@ class Database(object):
 	@staticmethod
 	# Adds the uploaded image.
 	def add_picture(username, label, upload_file):
+		if not Database.get_image_collection(username).find_one(
+			{'label': label}) is None:
+			raise RuntimeError('Image ' + label + ' already exists')
 		Database.get_image_collection(username) \
 		.insert_one({'label': label, 'data': b64encode(upload_file)})
 		
@@ -66,4 +69,8 @@ class Database(object):
 		log('Retrieving images from images_' + username)
 		return [image for image in Database.get_image_collection(username).find()]
 	
-
+	@staticmethod
+	# Deletes the specified image.
+	def delete_picture(username, label):
+		Database.get_image_collection(username) \
+		.remove({'label': label})

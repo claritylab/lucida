@@ -19,6 +19,7 @@ import logging
 app = Flask(__name__, template_folder='templates')
 
 app.config.from_object('config')
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # 16 MB due to MongoDB
 
 # Register the controllers.
 app.register_blueprint(Main.main)
@@ -40,7 +41,7 @@ def thrift_listener():
     server.serve()
     
 def flask_listener():
-    app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False) 
+    app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False, threaded=True) 
     
 def web_socket_listener():
     logging.basicConfig(level=logging.DEBUG, format="%(levelname)8s %(asctime)s %(message)s ")

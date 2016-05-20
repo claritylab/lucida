@@ -237,6 +237,47 @@
 			} else {
 				config.onError(ERR_AUDIO, "Recorder undefined");
 			}
+
+			console.log($("#clinc").val())
+
+
+
+
+
+			// $.ajax({
+			// 	type: "POST",
+			// 	url: "/api/login",
+			// 	data: JSON.stringify(user_login_info),
+			// 	contentType: "application/json",
+			// 	success: function(success_data) {
+			// 		if ($.url().param("url") !== undefined) {
+	
+			// 			console.log($.url().param("url"));
+			// 			window.location.href = secret_url_str + $.url().param("url");
+			// 		} else {
+			// 			window.location.href = secret_url_str + "/"; //redirect to the main page	
+			// 		}
+			// 	},
+	 	// 		error: function(error_data) {
+			// 		// {readyState: 4, responseText: "{"errors": [{
+			// 		//	"message": "Username does not exist"}]}", 
+			// 		//  responseJSON: Object, status: 404, statusText: "NOT FOUND"}
+			// 		var response = error_data.responseJSON;
+			// 		if (error_data.status == 404) {
+			// 			X_username.append(
+			// 				error_html_start + response.errors[0].message + error_html_end);
+
+			// 		} else {
+			// 			X_password.append(
+			// 				error_html_start + response.errors[0].message + error_html_end);
+			// 		}
+			// 	}
+			// });
+
+
+
+
+
 		}
 
 		// Stop listening, i.e. recording and sending of new input.
@@ -258,9 +299,9 @@
 				var data = e.data;
 				config.onEvent(MSG_WEB_SOCKET, data);
 				var r = JSON.parse(data);
-				if (r.hascoachresponse) {
-					config.onClinc(r.coachresponse);
-				}
+				// if (r.hascoachresponse) {
+				// 	config.onClinc(r.coachresponse);
+				// }
 				if (data instanceof Object && ! (data instanceof Blob)) {
 					config.onError(ERR_SERVER, 'WebSocket: onEvent: got Object that is not a Blob');
 				} else if (data instanceof Blob) {

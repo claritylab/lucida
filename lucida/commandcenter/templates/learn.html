@@ -9,13 +9,9 @@
 		<p style="color:gray">Main » Learn</p>
 	</div>
 
-	<div class="page-header">
-		<h1>Album</h1>
-	</div>
-
 	<div class="container">
 		<div class="row">
-			<p><h4>Add a new picture:</h4></p>
+			<p><h3>Add a picture:</h3></p>
 		</div>
 	</div>
 
@@ -24,8 +20,8 @@
 			<input name="op" type="hidden" value="add_image"></input>
 
 			<div class="form-group">
-				<label for="exampleInputFile">File input</label>
-				<input id="file_input" type="file" name="file"></input>
+				<label>Image input</label>
+				<input id="file_input" type="file" name="file">
 				<p class="help-block">Upload your picture!</p>
 			</div>
 
@@ -42,13 +38,17 @@
 		</form>
 	</div>					
 
+	{% if errors %}
+	<strong class=text-danger><p class="error">{{ errors }}</p></strong>
+	{% endif %}
 	
 	{% for i in pictures %}
-		<div class="ngg-gallery-thumbnail-box">
-			<div class="ngg-gallery-thumbnail">
-				<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
-			</div>
+	<div class="ngg-gallery-thumbnail-box">
+		<div class="ngg-gallery-thumbnail">
+			<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
 		</div>
+		<p>{{ i['label'] }}</p>
+	</div>
 	{% endfor %}
 </div>
 

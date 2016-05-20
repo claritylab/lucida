@@ -314,7 +314,7 @@ class DecoderSocketHandler(tornado.websocket.WebSocketHandler):
             self.worker.write_message(json.dumps(dict(id=self.id, content_type=content_type, user_id=self.user_id, content_id=self.content_id)))
         except KeyError:
             logging.warn("%s: No worker available for client request" % self.id)
-            event = dict(status=common.STATUS_NOT_AVAILABLE, message="No decoder available, try again later")
+            event = dict(status=STATUS_NOT_AVAILABLE, message="No decoder available, try again later")
             self.send_event(event)
             self.close()
 

@@ -1,15 +1,11 @@
 from lucidatypes.ttypes import QueryInput, QuerySpec
 from lucidaservice import LucidaService
 
-from thrift import TTornado
+from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
-from tornado import gen
-from tornado import ioloop
-
 from ConcurrencyManagement import services_lock, log
-
 
 class ThriftClient(object):
 	services = {}
@@ -19,7 +15,7 @@ class ThriftClient(object):
 	def add_service(name, host, port):
 		# Check service name.
 		if not name.isupper():
-			raise ValueError('Service name must be in upper case')
+			raise RuntimeError('Service name must be in upper case')
 		# Add (host, port) to services.
 		services_lock.acquire()
 		if not name in ThriftClient.services:
@@ -34,7 +30,7 @@ class ThriftClient(object):
 		services_lock.acquire()
 		if not (name in ThriftClient.services and ThriftClient.services[name]):
 			services_lock.release()
-			raise KeyError(name + ' has not been registered yet')
+			raise RuntimeError(name + ' has not been registered yet')
 		host, port = ThriftClient.services[name][0] # (host, port)
 		# Rotate the list to balance the load of back-end servers.
 		ThriftClient.services[name].pop(0)
@@ -43,46 +39,12 @@ class ThriftClient(object):
 		return host, port
 
 	@staticmethod
-	@gen.coroutine
-	def learn_image_callback(LUCID, knowledge):
-		host, port = ThriftClient.get_service(ThriftClient.IMM)
-		# Create a client based on host and port.
-		transport = TTornado.TTornadoStreamTransport(host, port)
-		pfactory = TBinaryProtocol.TBinaryProtocolFactory()
-		client = LucidaService.Client(transport, pfactory)
-		# Open the transport.
-		try:
-			yield transport.open()
-		except TTransport.TTransportException as ex:
-			log(ex)
-			raise gen.Return()
-		# Call learn.
-		log('Sending learn_image request to IMM')
-		yield client.learn(str(LUCID), knowledge)
-		# Close the transport.
-		client._transport.close()
-		raise gen.Return()
-	
-	@staticmethod
-	@gen.coroutine
-	def infer_image_callback(LUCID, query):
-		host, port = ThriftClient.get_service(ThriftClient.IMM)
-		# Create a client based on host and port.
-		transport = TTornado.TTornadoStreamTransport(host, port)
-		pfactory = TBinaryProtocol.TBinaryProtocolFactory()
-		client = LucidaService.Client(transport, pfactory)
-		# Open the transport.
-		try:
-			yield transport.open()
-		except TTransport.TTransportException as ex:
-			log(ex)
-			raise gen.Return()		
-		# Call infer.
-		log('Sending infer_image request to IMM')
-		result = yield client.infer(str(LUCID), query)
-		# Close the transport.
-		client._transport.close()
-		raise gen.Return(result)
+	def get_client_transport(service_name):
+		host, port = ThriftClient.get_service(service_name)
+		transport = TTransport.TBufferedTransport(TSocket.TSocket(host ,port))
+		protocol = TBinaryProtocol.TBinaryProtocol(transport)
+		transport.open()
+		return LucidaService.Client(protocol), transport
 
 	@staticmethod    
 	def learn_image(LUCID, label, data):
@@ -94,8 +56,11 @@ class ThriftClient(object):
 		knowledge = QuerySpec()
 		knowledge.content = []
 		knowledge.content.append(knowledge_input)
-		ioloop.IOLoop.current().run_sync(
-		lambda : ThriftClient.learn_image_callback(LUCID, knowledge))
+		client, transport = ThriftClient.get_client_transport(ThriftClient.IMM)
+		# Call learn.
+		log('Sending learn_image request to IMM')
+		client.learn(str(LUCID), knowledge)
+		transport.close()
 	
 	@staticmethod    
 	def infer_image(LUCID, data):
@@ -105,8 +70,11 @@ class ThriftClient(object):
 		query = QuerySpec()
 		query.content = []
 		query.content.append(query_input)
-		result = ioloop.IOLoop.current().run_sync(
-		lambda : ThriftClient.infer_image_callback(LUCID, query))
+		client, transport = ThriftClient.get_client_transport(ThriftClient.IMM)
+		# Call learn.
+		log('Sending infer_image request to IMM')
+		result = client.infer(str(LUCID), query)
+		transport.close()
 		return result
-		
+
 		
