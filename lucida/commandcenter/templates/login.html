@@ -31,13 +31,13 @@
 	</form>
 
 	{% if error %}
-		<br>
-		<p><strong>Please clear the following errors:</strong></p>
-		<ul>
-			{% for i in error %}
-				<strong class=text-danger><p id="{% if i == 'Username does not exist' %}error_username{% else %}error_combo{% endif %}" class="error">{{ i }}</p></strong>
-			{% endfor %}
-		</ul>
+	<br>
+	<p><strong>Please clear the following errors:</strong></p>
+	<ul>
+		{% for i in error %}
+	<strong class=text-danger><p id="{% if i == 'Username does not exist' %}error_username{% else %}error_combo{% endif %}" class="error">{{ i }}</p></strong>
+		{% endfor %}
+	</ul>
 	{% endif %}
 
 	<br>

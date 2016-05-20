@@ -1,76 +1,65 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
 
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}" />
 <link rel="stylesheet" href="{{ url_for('static', filename='css/sticky-footer.css')}}" />
 {% endblock %}
 
 {% block scripts %}
+<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
 <script src="{{ url_for('static', filename='js/jquery-1.10.2.min.js')}}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
 {% endblock %}
 
 <head>
+	<base href="/">
+	<meta charset="UTF-8" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 	<title>Lucida</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<link rel="icon" href="{{ url_for('static', filename='image/lucida.ico')}}" type="image/x-icon" />
 </head>
 
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
 			<div class="navbar-header">
 				<a id="nav_home" class="navbar-brand" href="{{ url_for('main.main_route') }}">Lucida</a>
 			</div>
-		
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a>Yunsheng Bai</a></li>
-					 	</ul>
-					</li>
+			 	{% if session['logged_in'] %}
+				<ul class="nav navbar-nav navbar-left">
+					<li><a id="nav_albums" href="{{ url_for('learn.learn_route') }}">Learn</a></li>
 			 	</ul>
 
-			 	{% if session['logged_in'] %}
-					<ul class="nav navbar-nav navbar-left">
-						<li><a id="nav_albums" href="{{ url_for('learn.learn_route') }}">Learn</a></li>
-				 	</ul>
+				<ul class="nav navbar-nav navbar-left">
+					<li><a id="nav_albums" href="{{ url_for('infer.infer_route') }}">Infer</a></li>
+			 	</ul>
 
-					<ul class="nav navbar-nav navbar-left">
-						<li><a id="nav_albums" href="{{ url_for('infer.infer_route') }}">Infer</a></li>
-				 	</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a id="nav_logout" href="{{ url_for('create.logout_route') }}">Log out</a><li>
+			 	</ul>
 
-					<ul class="nav navbar-nav navbar-right">
-						<li><a id="nav_logout" href="{{ url_for('create.logout_route') }}">Log out</a><li>
-				 	</ul>
-
-					<ul class="nav navbar-nav navbar-right">
-						<li><a>Logged in as {{ session['username'] }}</a></li>
-				 	</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a>Logged in as {{ session['username'] }}</a></li>
+			 	</ul>
 			 	{% endif %}
 
 			 	{% if not session['logged_in'] %}
-					<ul class="nav navbar-nav navbar-right">
-						<li><a id="home_user_create" href="{{ url_for('create.signup_route') }}">Sign up</a></li>
-				 	</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a id="home_user_create" href="{{ url_for('create.signup_route') }}">Sign up</a></li>
+			 	</ul>
 
-					<ul class="nav navbar-nav navbar-right">
-						<li><a id="home_login" href="{{ url_for('create.login_route') }}">Log in</a></li>
-				 	</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a id="home_login" href="{{ url_for('create.login_route') }}">Log in</a></li>
+			 	</ul>
 			 	{% endif %}	 
 			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
+		</div><!-- /.container -->
 	</nav>
 
 	<div>
+	<br><br><br><br>
 		 {% block content %}{% endblock %}
 	</div>
 

@@ -1,13 +1,16 @@
 from flask import *
 from Database import Database
+from ConcurrencyManagement import log
 from AccessManagement import login_required
 from ThriftClient import ThriftClient
+from werkzeug import secure_filename
 
 
 learn = Blueprint('learn', __name__, template_folder='templates')
 
-# Returns true if the file name's extension is valid.
-def file_extension_allowed(filename):
+# Returns true if the extension of the file is valid.
+def image_allowed(upload_file):
+	filename = secure_filename(upload_file.filename)
 	allowed_extensions = set(['png', 'PNG', 'jpg', 'JPG', 'bmp', 'BMP', \
 		'gif', 'GIF'])
 	return (('.' in filename) and \
@@ -25,21 +28,33 @@ def learn_route():
 		elif request.form['op'] == 'add_image':
 			# Get the uploaded image.
 			upload_file = request.files['file']
-			if (not (upload_file and file_extension_allowed(upload_file.filename))):
-				return 'Invalid file'
+			if (not (upload_file and image_allowed(upload_file))):
+				return render_template('learn.html', errors='Invalid file')
 			# Get the label of the image.
 			if not ('label' in request.form and request.form['label']):
-				return 'Please enter a label for your image'
+				return render_template('learn.html',
+					errors='Please enter a label for your image')
 			# Add the new photo into the database by a thrift call.
 			image_data = upload_file.read()
 			upload_file.close()
-			Database.add_picture(session['username'],
-								request.form['label'],
-								image_data)
-			# Send the image to IMM.
-			ThriftClient.learn_image(session['username'],
+			try:
+				Database.add_picture(session['username'],
 									request.form['label'],
 									image_data)
+			except Exception as e:
+				log(e)
+				return render_template('learn.html', errors=e)
+			# Send the image to IMM.
+			try:
+				ThriftClient.learn_image(session['username'],
+										request.form['label'],
+										image_data)
+			except Exception as e:
+				log(e)
+				options['errors'] = [e]
+				Database.delete_picture(session['username'],
+									request.form['label'])
+				return render_template('learn.html', errors=e)
 # 		# When the "op" field is equal to "delete"
 # 		elif request.form["op"] == "delete":
 # 			# If the request does not have an "albumid" or a "picid" field,
@@ -57,11 +72,6 @@ def learn_route():
 		# Abort
 		else:
 			abort(404)
-	options = {
-		'pictures': Database.get_pictures(session['username'])
-	}
 	# Display.
-	return render_template('learn.html', **options)
-
-
-
+	return render_template('learn.html', 
+		pictures=Database.get_pictures(session['username']))
