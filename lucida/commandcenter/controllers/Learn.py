@@ -51,7 +51,6 @@ def learn_route():
 										image_data)
 			except Exception as e:
 				log(e)
-				options['errors'] = [e]
 				Database.delete_picture(session['username'],
 									request.form['label'])
 				return render_template('learn.html', errors=e)

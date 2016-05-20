@@ -30,7 +30,7 @@ class ThriftClient(object):
 		services_lock.acquire()
 		if not (name in ThriftClient.services and ThriftClient.services[name]):
 			services_lock.release()
-			raise RuntimeError(name + ' has not been registered yet')
+			raise RuntimeError(name + ' service has not been registered yet')
 		host, port = ThriftClient.services[name][0] # (host, port)
 		# Rotate the list to balance the load of back-end servers.
 		ThriftClient.services[name].pop(0)
