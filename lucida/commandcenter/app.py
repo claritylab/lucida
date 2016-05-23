@@ -27,6 +27,11 @@ app.register_blueprint(Create.create)
 app.register_blueprint(Learn.learn)
 app.register_blueprint(Infer.infer)
 
+# Query classification.
+app.config.from_object('config')
+QueryClassifier.QueryClassifier.init(
+    app.config['TRAIN_OR_LOAD'], app.config['CLASSIFIER_PIPELINES'])
+
 # Session.
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 

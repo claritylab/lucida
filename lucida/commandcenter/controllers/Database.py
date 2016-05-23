@@ -57,7 +57,7 @@ class Database(object):
 	@staticmethod
 	# Adds the uploaded image.
 	def add_picture(username, label, upload_file):
-		if not label:
+		if label.isspace():
 			raise RuntimeError('Empty label is not allowed')
 		if not Database.get_image_collection(username).find_one(
 			{'label': label}) is None:
