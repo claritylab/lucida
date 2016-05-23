@@ -29,12 +29,12 @@ public class QAClient {
 		}
 		
 		// User.
-		String LUCID = "Falk";
+		String LUCID = "Clinc";
 		QuerySpec spec = new QuerySpec();
 		
 		// Knowledge.
 		final QueryInput knowledge_text = new QueryInput("text", new ArrayList<String>() {{
-		    add("YodaQA is being developed by Fauk.");
+		    add("Clinc is created by Jason and Lingjia.");
 		}});
 		QuerySpec knowledge = new QuerySpec(new ArrayList<QueryInput>() {{
 		    add(knowledge_text);
@@ -42,7 +42,7 @@ public class QAClient {
 		
 		// Query.
 		final QueryInput query_input = new QueryInput("query", new ArrayList<String>() {{
-		    add("What is Falk developing?");
+		    add("Who created Clinc?");
 		}});
 		QuerySpec query = new QuerySpec(new ArrayList<QueryInput>() {{
 		    add(query_input);
