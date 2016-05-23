@@ -48,14 +48,13 @@ public class QAServiceHandler {
 		}
 		
 		/**
-		 * Creates a new OpenEphyra service.
+		 * Creates a new OpenEphyra service for user LUCID.
 		 * @param LUCID ID of Lucida user
 		 * @param spec spec
 		 */
 		@Override
 	    public void create(String LUCID, QuerySpec spec) {
 	    	MsgPrinter.printStatusMsg("@@@@@ Create; User: " + LUCID);
-	    	User.addUser(LUCID);
 	    }
 
 		/**
@@ -63,9 +62,10 @@ public class QAServiceHandler {
 		 * @param LUCID ID of Lucida user
 		 * @param knowledge knowledge
 		 */
+		@Override
 	    public void learn(String LUCID, QuerySpec knowledge) {
 	    	MsgPrinter.printStatusMsg("@@@@@ Learn; User: " + LUCID);
-	    	KnowledgeBase kb = User.getUserKB(LUCID);
+	    	KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
 	    	kb.addKnowledge(knowledge);
 	    	MsgPrinter.printStatusMsg(kb.toString());
 	    }
@@ -78,7 +78,7 @@ public class QAServiceHandler {
 	    @Override
 	    public String infer(String LUCID, QuerySpec query) {
 	    	MsgPrinter.printStatusMsg("@@@@@ Infer; User: " + LUCID);
-	    	KnowledgeBase kb = User.getUserKB(LUCID);
+	    	KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
 	    	kb.commitKnowledge();
 	    	// Set INDRI_INDEX.
 	    	System.setProperty("INDRI_INDEX", kb.getIndriIndex());

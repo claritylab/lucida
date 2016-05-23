@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
-import java.util.Date;
+import java.util.Map;
+import java.util.HashMap;
 import java.io.File;
 import java.io.FileWriter;
 import java.net.URL;
@@ -32,6 +33,26 @@ import lucida.thrift.*;
  *  4. Valid urls, e.g. "https://en.wikipedia.org/wiki/Aloe".
  */
 public class KnowledgeBase {
+	/**
+	 * Stores knowledge bases that have not been committed to Indri repository yet. 
+	 */
+	public static Map<String, KnowledgeBase> active_kbs = new HashMap<String, KnowledgeBase>();
+	
+	/**
+	 * Returns the knowledge base of the user. Creates one if it does not exist.
+	 * @param LUCID ID of Lucida user
+	 */
+	public static KnowledgeBase getKnowledgeBase(String LUCID) {
+    	KnowledgeBase kb = null;
+    	if (KnowledgeBase.active_kbs.containsKey(LUCID)) {
+    		kb = KnowledgeBase.active_kbs.get(LUCID);
+    	} else {
+    		kb = new KnowledgeBase(LUCID);
+    		KnowledgeBase.active_kbs.put(LUCID, kb);
+    	}
+    	return kb;
+	}
+	
 	/**
 	 * Path to the default Indri repository.
 	 */
@@ -76,8 +97,7 @@ public class KnowledgeBase {
 	public KnowledgeBase(String LUCID) {
 		// Append the time stamp to the default Indri repository path.
 		Indri_repo = System.getenv("LUCIDAROOT")
-				+ "/questionanswering/OpenEphyra/db/" + LUCID
-				+ " " + new Date();
+				+ "/questionanswering/OpenEphyra/db/" + LUCID;
 		// Create the default Indri directory.
 		new File(Indri_repo).mkdirs();
 		IndexEnvironment env = new IndexEnvironment();
