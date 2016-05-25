@@ -10,6 +10,15 @@
 	</div>
 
 	<div class="container">
+		<form action="" method=post enctype=multipart/form-data>
+			<input name="op" type="hidden" value="secret"></input>
+			<div class="form-group">
+				<input id="secret_submit" type="submit" value="Secret" class="btn btn-info">
+			</div>
+		</form>
+	</div>
+
+	<div class="container">
 		<div class="row">
 			<p><h3>Add text knowledge:</h3></p>
 		</div>
@@ -20,9 +29,9 @@
 			<input name="op" type="hidden" value="add_text"></input>
 
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Knowledge: </label>
+				<label class="col-sm-3 control-label">Text knowledge: </label>
 				<div class="col-sm-8">
-					<input name="Knowledge" class="form-control" placeholder="The capital of Italy is Rome">
+					<input name="text_knowledge" class="form-control" placeholder="The capital of Italy is Rome">
 				</div>
 			</div>
 
@@ -32,9 +41,15 @@
 		</form>
 	</div>
 
+	{% for i in text %}
+	<ul>
+	<li>{{ i['text_knowledge'] }}</li>
+	</ul>
+	{% endfor %}
+
 	<div class="container">
 		<div class="row">
-			<p><h3>Add a picture:</h3></p>
+			<p><h3>Add image knowledge:</h3></p>
 		</div>
 	</div>
 
@@ -43,7 +58,6 @@
 			<input name="op" type="hidden" value="add_image"></input>
 
 			<div class="form-group">
-				<label>Image input</label>
 				<input id="file_input" type="file" name="file" size="60">
 				<p class="help-block">Upload your picture!</p>
 			</div>
@@ -56,7 +70,7 @@
 			</div>
 
 			<div class="form-group">
-				<input id="file_submit" type="submit" value="Upload" class="btn btn-info">
+				<input id="file_submit" type="submit" value="Add" class="btn btn-info">
 			</div>
 		</form>
 	</div>
@@ -70,8 +84,8 @@
 	</div>
 	{% endfor %}			
 
-	{% if errors %}
-	<strong class=text-danger><p class="error">{{ errors }}</p></strong>
+	{% if error %}
+	<strong class=text-danger><p class="error">{{ error }}</p></strong>
 	{% endif %}
 	
 

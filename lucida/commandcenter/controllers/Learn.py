@@ -1,9 +1,10 @@
 from flask import *
-from Database import Database
+import Database, ThriftClient
 from ConcurrencyManagement import log
 from AccessManagement import login_required
-from ThriftClient import ThriftClient
 from werkzeug import secure_filename
+from Database import database 
+from ThriftClient import thrift_client
 
 
 learn = Blueprint('learn', __name__, template_folder='templates')
@@ -19,58 +20,53 @@ def image_allowed(upload_file):
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
 def learn_route():
-	# Deal with POST requests.
-	if request.method == 'POST':
-		# If the request does not contain an "op" field.
-		if not 'op' in request.form:
-			abort(404)
-		# When the "op" field is equal to "add_image".
-		elif request.form['op'] == 'add_image':
-			# Get the uploaded image.
-			upload_file = request.files['file']
-			if (not (upload_file and image_allowed(upload_file))):
-				return render_template('learn.html', errors='Invalid file')
-			# Get the label of the image.
-			if not ('label' in request.form and request.form['label']):
-				return render_template('learn.html',
-					errors='Please enter a label for your image')
-			# Add the new photo into the database by a thrift call.
-			image_data = upload_file.read()
-			upload_file.close()
-			try:
-				Database.add_picture(session['username'],
-									request.form['label'],
-									image_data)
-			except Exception as e:
-				log(e)
-				return render_template('learn.html', errors=e)
-			# Send the image to IMM.
-			try:
-				ThriftClient.learn_image(session['username'],
-										request.form['label'],
-										image_data)
-			except Exception as e:
-				log(e)
-				Database.delete_picture(session['username'],
-									request.form['label'])
-				return render_template('learn.html', errors=e)
-# 		# When the "op" field is equal to "delete"
-# 		elif request.form["op"] == "delete":
-# 			# If the request does not have an "albumid" or a "picid" field,
-# 			# abort
-# 			if (not "albumid" in request.form) or (not "picid" in request.form):
-# 				abort(404)
-# 			# If the "albumid" field does not contain a valid albumid, abort
-# 			if not is_valid_album_id(request.form["albumid"]):
-# 				abort(404)
-# 			# If the "picid" field does not contain a valid picid, abort
-# 			if not is_valid_picid(request.form["picid"]):
-# 				abort(404)
-# 			# Now we can delete the specific photo
-# 			delete_picture(get_picture(request.form["picid"]))
-		# Abort
-		else:
-			abort(404)
+	try:
+		# Deal with POST requests.
+		if request.method == 'POST':
+			# If the request does not contain an "op" field.
+			if not 'op' in request.form:
+				abort(404) # bad user
+			# Add image knowledge.
+			elif request.form['op'] == 'add_image':
+				# Get the uploaded image.
+				upload_file = request.files['file']
+				if (not (upload_file and image_allowed(upload_file))):
+					raise RuntimeError('Invalid file')
+				# Check the label of the image.
+				if not ('label' in request.form and request.form['label']):
+					raise RuntimeError('Please enter a label for your image')
+				# Send the image to IMM.
+				image_data = upload_file.read()
+				upload_file.close()
+				thrift_client.learn_image(session['username'],
+										  request.form['label'],
+										  image_data)
+				# Add the image into the database.
+				database.add_image(session['username'],
+								   request.form['label'],
+								   image_data)
+			# Add text knowledge.
+			elif request.form['op'] == 'add_text':
+				# CHeck the text knowledge.
+				if not ('text_knowledge' in request.form \
+					and request.form['text_knowledge']):
+					raise RuntimeError(
+						'Please enter a piece of text as knowledge')
+				# Send the text to QA.
+				thrift_client.learn_text(session['username'],
+										 request.form['text_knowledge'])
+				# Add the text knowledge into the database.
+				database.add_text(session['username'],
+								  request.form['text_knowledge'])
+			elif request.form['op'] == 'secret':
+				database.secret()			
+			# Abort
+			else:
+				abort(404) # bad user
+	except Exception as e:
+		log(e)
+		return render_template('learn.html', error=e)
 	# Display.
 	return render_template('learn.html', 
-		pictures=Database.get_pictures(session['username']))
+		pictures=database.get_images(session['username']),
+		text=database.get_text(session['username']))

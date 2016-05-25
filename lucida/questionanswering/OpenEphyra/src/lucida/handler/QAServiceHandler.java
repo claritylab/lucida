@@ -7,6 +7,7 @@ import info.ephyra.io.MsgPrinter;
 
 // Java packages
 import java.util.List;
+import java.io.File;
 import java.util.ArrayList;
 
 import org.apache.thrift.TException;
@@ -21,7 +22,7 @@ import lucida.thrift.*;
  * corresponding method here.
  */
 public class QAServiceHandler {
-	private static void print(String s) {
+	public static void print(String s) {
 		synchronized (System.out) {
 			System.out.println(s);
 		}
@@ -42,9 +43,15 @@ public class QAServiceHandler {
 
 			MsgPrinter.enableStatusMsgs(true);
 			MsgPrinter.enableErrorMsgs(true);
-
+			
+			// Initialize OE pipeline.
 			oe = new OpenEphyra(dir);
 			defaultAnswer = "Factoid not found in knowledge base.";
+			
+			// Create db directory.
+			if (!new File("db").exists()) {
+			    new File("db").mkdir();
+			}
 		}
 		
 		/**
@@ -103,6 +110,7 @@ public class QAServiceHandler {
 				answer = result.getAnswer();
 			}
 
+			print("Answer: " + answer);
 			return answer;
 		}
 	}

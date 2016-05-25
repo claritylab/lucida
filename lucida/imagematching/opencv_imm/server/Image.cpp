@@ -109,6 +109,9 @@ unique_ptr<Mat> Image::matStringToMatObj(const string &mat) {
 int Image::match(
 		vector<unique_ptr<StoredImage>> &train_images,
 		unique_ptr<QueryImage> query_image) {
+	if (train_images.empty()) {
+		throw runtime_error("Error! No images!");
+	}
 	// Train a FlannBasedMatcher.
 	unique_ptr<DescriptorMatcher> matcher(new FlannBasedMatcher());
 	vector<Mat> train_mats;
