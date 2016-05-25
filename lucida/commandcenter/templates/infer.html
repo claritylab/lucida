@@ -19,23 +19,31 @@
 			<input name="op" type="hidden" value="infer" />
 
 			<div class="form-group">
-				<label>Speech Text</label>
+				<label>Speech input</label>
 				<p class="help-block">Not satisfied with speech recognition? Use this!</p>
-				<input id="speech_text" class="form-control" placeholder="What is the speed of light?">
+				<input name="speech_input" class="form-control" placeholder="What is the speed of light?">
 			</div>
 
 			<div class="form-group">
 				<label>Image input</label>
-				<input id="file_input" type="file" name="file" size="60">
+				<input id="image_input" type="file" name="file" size="60">
 				<p class="help-block">Upload your picture!</p>
-				<img id="image_upload_preview" height="90" />
 			</div>
 
 			<div class="form-group">
-				<input id="file_submit" type="submit" value="Infer" class="btn btn-info">
+				<input id="file_submit" type="submit" value="Ask" class="btn btn-info">
 			</div>
 		</form>
 	</div>
+
+	{% if error %}
+	<strong class=text-danger><p class="error">{{ error }}</p></strong>
+	{% endif %}
+
+	{% if result %}
+	<h3 class="bg-success">Results</h3>
+	<h4 class="bg-success">{{ result }}</h4>
+	{% endif %}
 </div>
 
 <div class="blended_grid">
@@ -90,25 +98,6 @@
 
 		  </tr>
 		</table>
-
-		{% if errors %}
-		<strong class=text-danger><p class="error">{{ errors }}</p></strong>
-		{% endif %}
-
-		{% if result_pictures %}
-		<h5>Results</h5>
-		{% endif %}
-
-		{% for i in result_pictures %}
-		<div class="col-sm-4">
-			<div>
-				<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
-			</div>
-			<div>
-				<p>{{ i['label'] }}</p>
-			</div>  
-		</div>
-		{% endfor %}
 	</div>
 
 	<div class="pageFooter" style="margin-bottom: 0px">

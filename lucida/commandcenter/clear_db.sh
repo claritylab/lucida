@@ -1,10 +1,7 @@
 mongo
 use lucida
-# db.images_yba2.find()
-db.fs.files.find()
-db.images_yba.count()
+db.text_yba.drop()
 db.images_yba.drop()
-db.opencv_yba.drop()
-db.fs.files.drop()
-db.dropDatabase()
+db.fs.files.drop() # opencv
+# db.dropDatabase()
 exit

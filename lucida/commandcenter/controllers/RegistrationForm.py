@@ -1,5 +1,5 @@
 from wtforms import Form, TextField, PasswordField, validators, ValidationError
-from Database import Database
+from Database import database
 import re
 
 
@@ -10,7 +10,7 @@ def email_check(form, field):
 
 # A custom validator to check if a username input already exists.
 def username_existence_check(form, field):
-	if Database.username_exists(form.username.data): # already exists
+	if database.username_exists(form.username.data): # already exists
 		raise ValidationError('This username is taken')
 
 # Returns an error message when the field has length less than min_length.

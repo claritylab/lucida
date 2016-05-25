@@ -35,7 +35,8 @@ using std::to_string;
 void registerToCMD() {
 	EventBase event_base;
 	shared_ptr<TAsyncSocket> socket(
-			TAsyncSocket::newSocket(&event_base, FLAGS_CMD_hostname, FLAGS_CMD_port));
+			TAsyncSocket::newSocket(&event_base, FLAGS_CMD_hostname,
+					FLAGS_CMD_port));
 	unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor> channel(
 			new HeaderClientChannel(socket));
 	channel->setClientType(THRIFT_FRAMED_DEPRECATED);
