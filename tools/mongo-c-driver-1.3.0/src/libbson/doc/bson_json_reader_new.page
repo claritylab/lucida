@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_json_reader_new">
+  <info>
+    <link type="guide" xref="bson_json_reader_t" group="function"/>
+  </info>
+  <title>bson_json_reader_new()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bson_json_reader_t *
+bson_json_reader_new (void                *data,
+                      bson_json_reader_cb  cb,
+                      bson_json_destroy_cb dcb,
+                      bool                 allow_multiple,
+                      size_t               buf_size);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>data</code></p></td><td><p>A user-defined pointer.</p></td></tr>
+      <tr><td><p><code>cb</code></p></td><td><p>A bson_json_reader_cb.</p></td></tr>
+      <tr><td><p><code>dcb</code></p></td><td><p>A bson_json_destroy_cb.</p></td></tr>
+      <tr><td><p><code>allow_multiple</code></p></td><td><p>A bool indicating if more than one document is allowed in the stream.</p></td></tr>
+      <tr><td><p><code>buf_size</code></p></td><td><p>A size_t containing the requested internal buffer size.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Creates a new bson_json_reader_t that can read from an arbitrary data source in a streaming fashion.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>A newly allocated bson_json_reader_t that should be freed with bson_json_reader_destroy().</p>
+  </section>
+</page>

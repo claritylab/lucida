@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_init_from_json">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_init_from_json()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_init_from_json (bson_t       *bson,
+                     const char   *data,
+                     ssize_t       len,
+                     bson_error_t *error);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>bson</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>data</p></td><td><p>A UTF-8 encoded string containing valid JSON.</p></td></tr>
+      <tr><td><p>len</p></td><td><p>The length of <code>data</code> in bytes excluding a trailing <code>\0</code> or -1 to determine the length with <code>strlen()</code>.</p></td></tr>
+      <tr><td><p>error</p></td><td><p>An optional location for a <code xref="bson_error_t">bson_error_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code>bson_init_from_json()</code> function will initialize a new <code xref="bson_t">bson_t</code> by parsing the JSON found in <code>data</code>. Only a single JSON object may exist in <code>data</code> or an error will be set and false returned.</p>
+    <p><code>data</code> should be in <link href="http://docs.mongodb.org/manual/reference/mongodb-extended-json/">MongoDB Extended JSON</link> format.</p>
+  </section>
+
+  <section id="errors">
+    <title>Errors</title>
+    <p>Errors are propagated via the <code>error</code> parameter.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if successful, otherwise false and <code>error</code> is set.</p>
+  </section>
+
+</page>

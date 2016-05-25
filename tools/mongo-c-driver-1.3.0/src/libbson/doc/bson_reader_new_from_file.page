@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_reader_new_from_file">
+  <info>
+    <link type="guide" xref="bson_reader_t" group="function"/>
+  </info>
+  <title>bson_reader_new_from_file()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bson_reader_t *
+bson_reader_new_from_file (const char   *path,
+                           bson_error_t *error);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>path</code></p></td><td><p>A filename in the host filename encoding.</p></td></tr>
+      <tr><td><p><code>error</code></p></td><td><p>A <code xref="bson_error_t">bson_error_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Creates a new <code xref="bson_reader_t">bson_reader_t</code> using the file denoted by <code>filename</code>.</p>
+  </section>
+
+  <section id="errors">
+    <title>Errors</title>
+    <p>Errors are propagated via the <code>error</code> parameter.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>A newly allocated <code xref="bson_reader_t">bson_reader_t</code> on success, otherwise NULL and error is set.</p>
+  </section>
+
+</page>

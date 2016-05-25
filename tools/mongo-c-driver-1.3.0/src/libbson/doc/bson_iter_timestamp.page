@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_iter_timestamp">
+  <info>
+    <link type="guide" xref="bson_iter_t" group="function"/>
+  </info>
+  <title>bson_iter_timestamp()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[
+#define BSON_ITER_HOLDS_TIMESTAMP(iter) \
+   (bson_iter_type ((iter)) == BSON_TYPE_TIMESTAMP)
+
+void
+bson_iter_timestamp (const bson_iter_t *iter,
+                     uint32_t          *timestamp,
+                     uint32_t          *increment);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>iter</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+      <tr><td><p>timestamp</p></td><td><p>A uint32_t.</p></td></tr>
+      <tr><td><p>increment</p></td><td><p>A uint32_t.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The BSON_TYPE_TIMESTAMP type is not a date/time and is typically used for intra-server communication.</p>
+    <p>You probably want <code xref="bson_iter_date_time">bson_iter_date_time()</code>.</p>
+    <p>The <code xref="bson_iter_timestamp">bson_iter_timestamp()</code> function shall return the contents of a BSON_TYPE_TIMESTAMP element. It is invalid to call this function while observing an element that is not of type BSON_TYPE_TIMESTAMP.</p>
+  </section>
+
+</page>

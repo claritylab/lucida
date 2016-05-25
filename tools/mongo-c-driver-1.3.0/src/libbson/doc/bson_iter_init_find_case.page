@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_iter_init_find_case">
+  <info>
+    <link type="guide" xref="bson_iter_t" group="function"/>
+  </info>
+  <title>bson_iter_init_find_case()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_iter_init_find_case (bson_iter_t  *iter,
+                          const bson_t *bson,
+                          const char   *key);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>iter</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+      <tr><td><p>bson</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>key</p></td><td><p>A key to locate after initializing the iter.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>This function is identical to <code>bson_iter_init() &amp;&amp; bson_iter_find_case()</code>.</p>
+  </section>
+
+</page>

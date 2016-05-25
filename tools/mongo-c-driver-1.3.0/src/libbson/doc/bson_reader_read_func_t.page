@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page id="bson_reader_read_func_t"
+      type="topic"
+      style="function"
+      xmlns="http://projectmallard.org/1.0/"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/">
+
+  <info>
+    <link type="guide" xref="bson_reader_t" group="function"/>
+  </info>
+
+  <title>bson_reader_read_func_t</title>
+
+  <section id="synopsis">
+      <title>Synopsis</title>
+      <synopsis><code mime="text/x-csrc"><![CDATA[typedef ssize_t (*bson_reader_read_func_t) (void  *handle,
+                                            void  *buf,
+                                            size_t count);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>handle</code></p></td><td><p>The handle to read from.</p></td></tr>
+      <tr><td><p><code>buf</code></p></td><td><p>The buffer to read into.</p></td></tr>
+      <tr><td><p><code>count</code></p></td><td><p>The number of bytes to read.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>A callback function that will be called by <code xref="bson_reader_t">bson_reader_t</code> to read the next chunk of data from the underlying opaque file descriptor.</p>
+    <p>This function is meant to operate similar to the <code>read(2)</code> function as part of libc on UNIX-like systems.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>0 for end of stream.</p>
+    <p>-1 for a failure on read.</p>
+    <p>A value greater than zero for the number of bytes read into <code>buf</code>.</p>
+  </section>
+</page>

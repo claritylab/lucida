@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_iter_type">
+  <info>
+    <link type="guide" xref="bson_iter_t" group="function"/>
+  </info>
+  <title>bson_iter_type()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[typedef enum
+{
+   BSON_TYPE_EOD           = 0x00,
+   BSON_TYPE_DOUBLE        = 0x01,
+   BSON_TYPE_UTF8          = 0x02,
+   BSON_TYPE_DOCUMENT      = 0x03,
+   BSON_TYPE_ARRAY         = 0x04,
+   BSON_TYPE_BINARY        = 0x05,
+   BSON_TYPE_UNDEFINED     = 0x06,
+   BSON_TYPE_OID           = 0x07,
+   BSON_TYPE_BOOL          = 0x08,
+   BSON_TYPE_DATE_TIME     = 0x09,
+   BSON_TYPE_NULL          = 0x0A,
+   BSON_TYPE_REGEX         = 0x0B,
+   BSON_TYPE_DBPOINTER     = 0x0C,
+   BSON_TYPE_CODE          = 0x0D,
+   BSON_TYPE_SYMBOL        = 0x0E,
+   BSON_TYPE_CODEWSCOPE    = 0x0F,
+   BSON_TYPE_INT32         = 0x10,
+   BSON_TYPE_TIMESTAMP     = 0x11,
+   BSON_TYPE_INT64         = 0x12,
+   BSON_TYPE_MAXKEY        = 0x7F,
+   BSON_TYPE_MINKEY        = 0xFF,
+} bson_type_t;
+
+bson_type_t
+bson_iter_type (const bson_iter_t *iter);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>iter</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code>bson_iter_type()</code> function shall return the type of the observed element in a bson document.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>A <code xref="bson_type_t">bson_type_t</code>.</p>
+  </section>
+</page>

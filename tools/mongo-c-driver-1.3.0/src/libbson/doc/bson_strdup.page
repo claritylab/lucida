@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_strdup">
+  <info>
+    <link type="guide" xref="bson_string_t" group="function"/>
+  </info>
+  <title>bson_strdup()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[char *
+bson_strdup (const char *str);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>str</code></p></td><td><p>A string.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Copies <code>str</code> into a new string. If <code>str</code> is NULL, then NULL is returned.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>A newly allocated string that should be freed with bson_free().</p>
+  </section>
+
+</page>

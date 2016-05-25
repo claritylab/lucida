@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_append_code_with_scope">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_append_code_with_scope()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_append_code_with_scope (bson_t       *bson,
+                             const char   *key,
+                             int           key_length,
+                             const char   *javascript,
+                             const bson_t *scope);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>bson</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>key</p></td><td><p>An ASCII C string containing the name of the field.</p></td></tr>
+      <tr><td><p>key_length</p></td><td><p>The length of <code>key</code> in bytes, or -1 to determine the length with <code>strlen()</code>.</p></td></tr>
+      <tr><td><p>javascript</p></td><td><p>A NULL-terminated UTF-8 encoded string containing the javascript fragment.</p></td></tr>
+      <tr><td><p>scope</p></td><td><p>A <code xref="bson_t">bson_t</code> containing the scope for <code>javascript</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_append_code_with_scope">bson_append_code_with_scope()</code> function shall perform like <code xref="bson_append_code">bson_append_code()</code> except it allows providing a scope to the javascript function in the form of a bson document.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if the operation was applied successfully, otherwise false and <code>bson</code> should be discarded.</p>
+  </section>
+</page>

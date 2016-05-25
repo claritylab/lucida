@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_iter_symbol">
+  <info>
+    <link type="guide" xref="bson_iter_t" group="function"/>
+  </info>
+  <title>bson_iter_symbol()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[const char *
+bson_iter_symbol (const bson_iter_t *iter,
+                  uint32_t          *length);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>iter</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+      <tr><td><p>length</p></td><td><p>A uint32_t.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The symbol element type is <em>DEPRECATED</em> in the bson specification at http://bsonspec.org.</p>
+    <p>The <code xref="bson_iter_symbol">bson_iter_symbol()</code> function shall return the contents of a BSON_TYPE_SYMBOL element.</p>
+    <p>if non-NULL, <code>length</code> will be set to the length of the resulting string.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>The symbol and <code>length</code> is set.</p>
+  </section>
+</page>

@@ -7,6 +7,8 @@ all-here::
 	./install_opencv.sh
 	./install_caffe.sh
 	./install_thrift.sh
+	./install_fbthrift.sh
+	./install_mongodb.sh
 
 clean-here::
 	./clean.sh

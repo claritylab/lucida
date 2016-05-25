@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_append_utf8">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_append_utf8()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_append_utf8 (bson_t     *bson,
+                  const char *key,
+                  int         key_length,
+                  const char *value,
+                  int         length);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>bson</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>key</p></td><td><p>An ASCII C string containing the name of the field.</p></td></tr>
+      <tr><td><p>key_length</p></td><td><p>The length of <code>key</code> in bytes, or -1 to determine the length with <code>strlen()</code>.</p></td></tr>
+      <tr><td><p>value</p></td><td><p>A UTF-8 encoded string.</p></td></tr>
+      <tr><td><p>length</p></td><td><p>The number of bytes in <code>value</code> excluding the trailing <code>\0</code>, or -1 to determine the length with <code>strlen()</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_append_utf8">bson_append_utf8()</code> function shall append a UTF-8 encoded string to <code>bson</code>.</p>
+    <p>_value_ <em>MUST</em> be valid UTF-8.</p>
+    <p>Some UTF-8 implementations allow for <code>\0</code> to be contained within the string (excluding the termination <code>\0</code>. This is allowed, but remember that it could cause issues with communicating with external systems that do not support it.</p>
+    <p>It is suggested to use modified UTF-8 which uses a 2 byte representation for embedded <code>\0</code> within the string. This will allow these UTF-8 encoded strings to used with many libc functions.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if the operation was applied successfully, otherwise false and <code>bson</code> should be discarded.</p>
+  </section>
+</page>

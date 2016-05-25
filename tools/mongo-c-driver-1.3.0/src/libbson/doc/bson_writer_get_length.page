@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_writer_get_length">
+  <info>
+    <link type="guide" xref="bson_writer_t" group="function"/>
+  </info>
+  <title>bson_writer_get_length()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[size_t
+bson_writer_get_length (bson_writer_t *writer);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>writer</code></p></td><td><p>A <code xref="bson_writer_t">bson_writer_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Fetches the current length of the content written by the buffer (including the initial offset). This includes a partly written document currently being written.</p>
+    <p>This is useful if you want to check to see if you've passed a given memory boundry that cannot be sent in a packet. See <code xref="bson_writer_rollback">bson_writer_rollback()</code> to abort the current document being written.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>The length of the underlying buffer.</p>
+  </section>
+
+</page>

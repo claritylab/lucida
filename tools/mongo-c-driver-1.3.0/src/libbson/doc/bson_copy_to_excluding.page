@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_copy_to_excluding">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_copy_to_excluding()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void
+bson_copy_to_excluding (const bson_t *src,
+                        bson_t       *dst,
+                        const char   *first_exclude,
+                        ...) BSON_GNUC_NULL_TERMINATED;
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>src</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>dst</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>first_exclude</p></td><td><p>The first field name to exclude.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_copy_to_excluding">bson_copy_to_excluding()</code> function shall copy all fields from <code>src</code> to <code>dst</code> except those speified by the variadic, NULL terminated list of keys starting from <code>first_exclude</code>.</p>
+    <note style="warning"><p>This is generally not needed except in very special situations.</p></note>
+  </section>
+
+</page>

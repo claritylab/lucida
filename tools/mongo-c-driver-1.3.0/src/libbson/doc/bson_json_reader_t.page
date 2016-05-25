@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<page id="bson_json_reader_t"
+      type="guide"
+      style="class"
+      xmlns="http://projectmallard.org/1.0/"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/">
+
+  <info>
+    <link type="guide" xref="index#api-reference" />
+  </info>
+
+  <title>bson_json_reader_t</title>
+  <subtitle>Bulk JSON to BSON conversion</subtitle>
+
+  <section id="description">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[#include <bson.h>
+
+typedef struct _bson_json_reader_t bson_json_reader_t;
+
+typedef enum
+{
+   BSON_JSON_ERROR_READ_CORRUPT_JS = 1,
+   BSON_JSON_ERROR_READ_INVALID_PARAM,
+   BSON_JSON_ERROR_READ_CB_FAILURE,
+} bson_json_error_code_t;]]></code></synopsis>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_json_reader_t">bson_json_reader_t</code> structure is used for reading a sequence of JSON documents and transforming them to <code xref="bson_t">bson_t</code> documents.</p>
+    <p>This can often be useful if you want to perform bulk operations that are defined in a file containing JSON documents.</p>
+    <note style="tip"><p><code xref="bson_json_reader_t">bson_json_reader_t</code> works upon JSON documents formatted in <link href="http://docs.mongodb.org/manual/reference/mongodb-extended-json/">MongoDB extended JSON</link> format.</p></note>
+  </section>
+
+  <links type="topic" groups="function" style="2column">
+    <title>Functions</title>
+  </links>
+
+  <section id="examples">
+    <title>Example</title>
+    <listing>
+      <title></title>
+      <synopsis>
+        <code mime="text/x-csrc"><include parse="text" href="../examples/json-to-bson.c" xmlns="http://www.w3.org/2001/XInclude" /></code>
+      </synopsis>
+    </listing>
+  </section>
+</page>

@@ -1,0 +1,91 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="streaming-bson">
+
+  <title>Streaming BSON</title>
+
+  <p><code xref="bson_reader_t">bson_reader_t</code> provides a streaming reader which can be initialized with a filedescriptor or memory region. <code xref="bson_writer_t">bson_writer_t</code> provides a streaming writer which can be initialized with a memory region. (Streaming BSON to a file descriptor is not yet supported.)</p>
+
+  <section id="reader">
+    <title>Reading from a BSON Stream</title>
+    <info><link type="guide" xref="index#streaming"/></info>
+    <p><code xref="bson_reader_t">bson_reader_t</code> provides a convenient API to read sequential BSON documents from a file-descriptor or memory buffer. The <code xref="bson_reader_read">bson_reader_read()</code> function will read forward in the underlying stream and returna <code xref="bson_t">bson_t</code> that can be inspected and iterated upon.</p>
+    <example>
+      <title>reader.c</title>
+      <code mime="text/x-csrc"><![CDATA[#include <stdio.h>
+#include <bson.h>
+
+int main (int argc, char *argv[])
+{
+   bson_reader_t *reader;
+   const bson_t *doc;
+   bson_error_t error;
+   bool eof;
+
+   reader = bson_reader_new_from_file ("mycollection.bson", &error);
+
+   if (!reader) {
+      fprintf (stderr, "Failed to open file.\n");
+      return 1;
+   }
+
+   while ((doc = bson_reader_read (reader, &eof))) {
+      char *str = bson_as_json (doc, NULL);
+      printf ("%s\n", str);
+      bson_free (str);
+   }
+
+   if (!eof) {
+      fprintf (stderr, "corrupted bson document found at %u\n",
+               (unsigned)bson_reader_tell (reader));
+   }
+
+   bson_reader_destroy (reader);
+
+   return 0;
+}]]></code>
+    </example>
+    <p>See <code xref="bson_reader_new_from_fd">bson_reader_new_from_fd()</code>, <code xref="bson_reader_new_from_file">bson_reader_new_from_file()</code>, and <code xref="bson_reader_new_from_data">bson_reader_new_from_data()</code> for more information.</p>
+  </section>
+
+  <section id="writer">
+    <title>Writing a sequence of BSON Documents</title>
+    <info><link type="guide" xref="index#streaming"/></info>
+    <p><code xref="bson_writer_t">bson_writer_t</code> provides a convenient API to write a sequence of BSON documents to a <code>realloc()</code>'able memory buffer. The <code xref="bson_writer_begin">bson_writer_begin()</code> and <code xref="bson_writer_end">bson_writer_end()</code> functions will manage the underlying buffer while building the sequence of documents.</p>
+    <p>This could also be useful if you want to write to a network packet while serializing the documents from a higher level language, (but do so just after the packets header).</p>
+    <example>
+      <title>writer.c</title>
+      <code mime="text/x-csrc"><![CDATA[#include <stdio.h>
+#include <bson.h>
+#include <assert.h>
+
+int main (int argc, char *argv[])
+{
+   bson_writer_t *writer;
+   bson_t *doc;
+   uint8_t *buf = NULL;
+   size_t buflen = 0;
+   bool r;
+   int i;
+
+   writer = bson_writer_new (&buf, &buflen, 0, bson_realloc_ctx, NULL);
+
+   for (i = 0; i < 10000; i++) {
+      r = bson_writer_begin (writer, &doc);
+      assert (r);
+
+      r = BSON_APPEND_INT32 (doc, "i", i);
+      assert (r);
+
+      bson_writer_end (writer);
+   }
+
+   bson_free (buf);
+
+   return 0;
+}]]></code>
+    </example>
+    <p>See <code xref="bson_writer_new">bson_writer_new()</code> for more information.</p>
+  </section>
+
+</page>

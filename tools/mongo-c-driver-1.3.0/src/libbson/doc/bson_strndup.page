@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_strndup">
+  <info>
+    <link type="guide" xref="bson_string_t" group="function"/>
+  </info>
+  <title>bson_strndup()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[char *
+bson_strndup (const char *str,
+              size_t      n_bytes);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>str</code></p></td><td><p>A string to copy.</p></td></tr>
+      <tr><td><p><code>n_bytes</code></p></td><td><p>A size_t.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Allocates a new string and copies up to <code>n_bytes</code> from <code>str</code> into it. A trailing <code>\0</code> is always set.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>A newly allocated string that should be freed with bson_free().</p>
+  </section>
+</page>

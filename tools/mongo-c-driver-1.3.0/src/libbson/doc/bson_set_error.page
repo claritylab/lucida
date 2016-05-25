@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_set_error">
+  <info>
+    <link type="guide" xref="bson_error_t" group="function"/>
+  </info>
+  <title>bson_set_error()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void
+bson_set_error (bson_error_t *error,
+                uint32_t      domain,
+                uint32_t      code,
+                const char   *format,
+                ...) BSON_GNUC_PRINTF (4, 5);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>error</code></p></td><td><p>A <code xref="bson_error_t">bson_error_t</code>.</p></td></tr>
+      <tr><td><p><code>domain</code></p></td><td><p>A <code>uint32_t</code>.</p></td></tr>
+      <tr><td><p><code>code</code></p></td><td><p>A <code>uint32_t</code>.</p></td></tr>
+      <tr><td><p><code>format</code></p></td><td><p>A <code>printf()</code> style format string.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>This is a helper function to set the parameters of a <code xref="bson_error_t">bson_error_t</code>. It handles the case where <code>error</code> is NULL by doing nothing.</p>
+  </section>
+
+</page>

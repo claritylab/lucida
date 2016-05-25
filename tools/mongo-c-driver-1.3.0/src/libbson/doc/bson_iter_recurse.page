@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_iter_recurse">
+  <info>
+    <link type="guide" xref="bson_iter_t" group="function"/>
+  </info>
+  <title>bson_iter_recurse()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_iter_recurse (const bson_iter_t *iter,
+                   bson_iter_t       *child);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>iter</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+      <tr><td><p>child</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_iter_recurse">bson_iter_recurse()</code> function shall initialize <code>child</code> using the embedded document or array currently observed by <code>iter</code>.</p>
+    <p>If there was a failure to initialize the <code>iter</code>, false is returned and both <code>iter</code> and <code>child</code> should be considered invalid.</p>
+    <p>This should only be called when observing an element of type BSON_TYPE_ARRAY or BSON_TYPE_DOCUMENT.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if <code>child</code> has been intialized. Otherwise, both <code>child</code> and <code>iter</code> should be considered invalid.</p>
+  </section>
+</page>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_iter_regex">
+  <info>
+    <link type="guide" xref="bson_iter_t" group="function"/>
+  </info>
+  <title>bson_iter_regex()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[const char *
+bson_iter_regex (const bson_iter_t *iter,
+                 const char       **options);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>iter</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+      <tr><td><p>options</p></td><td><p>A (null).</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_iter_regex">bson_iter_regex()</code> function shall retrieve the contents of a BSON_TYPE_REGEX element currently observed by <code>iter</code>.</p>
+    <p>It is invalid to call this function when not observing an element of type BSON_TYPE_REGEX.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>A string containing the regex which should not be modified or freed. <code>options</code> is set to the options provided for the regex.</p>
+  </section>
+</page>

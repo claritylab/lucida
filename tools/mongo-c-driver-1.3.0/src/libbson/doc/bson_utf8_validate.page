@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_utf8_validate">
+  <info>
+    <link type="guide" xref="bson_string_t" group="function"/>
+  </info>
+  <title>bson_utf8_validate()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_utf8_validate (const char *utf8,
+                    size_t      utf8_len,
+                    bool        allow_null);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>utf8</code></p></td><td><p>A string to verify.</p></td></tr>
+      <tr><td><p><code>utf8_len</code></p></td><td><p>The length of <code>utf8</code> in bytes.</p></td></tr>
+      <tr><td><p><code>allow_null</code></p></td><td><p>A bool indicating that embedded <code>\0</code> bytes are allowed.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Validates that the content within <code>utf8</code> is valid UTF-8. If <code>allow_null</code> is <code>true</code>, then embedded NULL bytes are allowed (<code>\0</code>).</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if <code>utf8</code> contains valid UTF-8.</p>
+  </section>
+</page>

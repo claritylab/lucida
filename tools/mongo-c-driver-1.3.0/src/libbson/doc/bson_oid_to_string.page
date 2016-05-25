@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_oid_to_string">
+  <info>
+    <link type="guide" xref="bson_oid_t" group="function"/>
+  </info>
+  <title>bson_oid_to_string()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void
+bson_oid_to_string (const bson_oid_t *oid,
+                    char              str[25]);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>oid</code></p></td><td><p>A <code xref="bson_oid_t">bson_oid_t</code>.</p></td></tr>
+      <tr><td><p><code>str</code></p></td><td><p>A location for the resulting string.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Converts <code>oid</code> into a hex encoded string.</p>
+  </section>
+
+</page>

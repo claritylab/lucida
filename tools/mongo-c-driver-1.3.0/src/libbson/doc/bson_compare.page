@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_compare">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_compare()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[int
+bson_compare (const bson_t *bson,
+              const bson_t *other);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>bson</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>other</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_compare">bson_compare()</code> function shall compare two bson documents for equality.</p>
+    <p>This can be useful in conjunction with _qsort()_.</p>
+    <p>If equal, 0 is returned.</p>
+    <note style="tip"><p>This function uses _memcmp()_ internally, so the semantics are the same.</p></note>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>less than zero, zero, or greater than zero in <code>qsort()</code> style.</p>
+  </section>
+</page>

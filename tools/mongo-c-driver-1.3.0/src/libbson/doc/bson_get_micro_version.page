@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_get_micro_version">
+  <info>
+    <link type="guide" xref="version" group="function"/>
+  </info>
+  <title>bson_get_micro_version()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[int
+bson_get_micro_version (void);
+]]></code></synopsis>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Get the third number in libbson's MAJOR.MINOR.MICRO release version.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>The value of <code>BSON_MICRO_VERSION</code> when Libbson was compiled.</p>
+  </section>
+</page>

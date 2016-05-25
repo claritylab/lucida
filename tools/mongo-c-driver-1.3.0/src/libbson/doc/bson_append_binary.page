@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_append_binary">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_append_binary()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_append_binary (bson_t        *bson,
+                    const char    *key,
+                    int            key_length,
+                    bson_subtype_t subtype,
+                    const uint8_t *binary,
+                    uint32_t       length);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>bson</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>key</p></td><td><p>The key name.</p></td></tr>
+      <tr><td><p>key_length</p></td><td><p>The length of <code>key</code> in bytes or -1 to use strlen().</p></td></tr>
+      <tr><td><p>subtype</p></td><td><p>A bson_subtype_t indicationg the binary subtype.</p></td></tr>
+      <tr><td><p>binary</p></td><td><p>A buffer to embed as binary data.</p></td></tr>
+      <tr><td><p>length</p></td><td><p>The length of <code>buffer</code> in bytes.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_append_binary">bson_append_binary()</code> function shall append a new element to <code>bson</code> containing the binary data provided.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if the operation was applied successfully, otherwise false and <code>bson</code> should be discarded.</p>
+  </section>
+</page>

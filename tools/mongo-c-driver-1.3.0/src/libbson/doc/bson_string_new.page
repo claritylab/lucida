@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_string_new">
+  <info>
+    <link type="guide" xref="bson_string_t" group="function"/>
+  </info>
+  <title>bson_string_new()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bson_string_t *
+bson_string_new (const char *str);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>str</code></p></td><td><p>A string to be copied or NULL.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Creates a new string builder, which uses power-of-two growth of buffers. Use the various bson_string_append*() functions to append to the string.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>A newly allocated bson_string_t that should be freed with bson_string_free() when no longer in use.</p>
+  </section>
+</page>

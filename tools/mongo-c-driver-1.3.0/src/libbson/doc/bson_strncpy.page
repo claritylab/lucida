@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_strncpy">
+  <info>
+    <link type="guide" xref="bson_string_t" group="function"/>
+  </info>
+  <title>bson_strncpy()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void
+bson_strncpy (char       *dst,
+              const char *src,
+              size_t      size);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>dst</code></p></td><td><p>The destination buffer.</p></td></tr>
+      <tr><td><p><code>src</code></p></td><td><p>The src buffer.</p></td></tr>
+      <tr><td><p><code>size</code></p></td><td><p>The number of bytes to copy into dst, which must be at least that size.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Copies up to <code>size</code> bytes from <code>src</code> into <code>dst</code>. <code>dst</code> must be at least <code>size</code> bytes in size. A trailing <code>\0</code> will be set.</p>
+  </section>
+
+</page>
