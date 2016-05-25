@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_zero_free">
+  <info>
+    <link type="guide" xref="memory" group="function"/>
+  </info>
+  <title>bson_zero_free()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void
+bson_zero_free (void  *mem,
+                size_t size);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>mem</code></p></td><td><p>A memory region.</p></td></tr>
+      <tr><td><p><code>size</code></p></td><td><p>The size of <code>mem</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>This function behaves like <code xref="bson_free">bson_free()</code> except that it zeroes the memory first. This can be useful if you are storing passwords or other similarly important data. Note that if it truly is important, you probably want a page protected with <code>mlock()</code> as well to prevent it swapping to disk.</p>
+  </section>
+
+</page>

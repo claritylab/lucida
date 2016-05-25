@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_iter_binary">
+  <info>
+    <link type="guide" xref="bson_iter_t" group="function"/>
+  </info>
+  <title>bson_iter_binary()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[
+#define BSON_ITER_HOLDS_BINARY(iter) \
+   (bson_iter_type ((iter)) == BSON_TYPE_BINARY)
+
+void
+bson_iter_binary (const bson_iter_t *iter,
+                  bson_subtype_t    *subtype,
+                  uint32_t          *binary_len,
+                  const uint8_t    **binary);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>iter</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+      <tr><td><p>subtype</p></td><td><p>A location for a <code xref="bson_subtype_t">bson_subtype_t</code> or NULL.</p></td></tr>
+      <tr><td><p>binary_len</p></td><td><p>A location for the length of <code>binary</code>.</p></td></tr>
+      <tr><td><p>binary</p></td><td><p>A location for a pointer to the immutable buffer.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>This function shall return the binary data of a BSON_TYPE_BINARY element. It is a programming error to call this function on a field that is not of type BSON_TYPE_BINARY. You can check this with the BSON_ITER_HOLDS_BINARY() macro or <code xref="bson_iter_type">bson_iter_type()</code>.</p>
+  </section>
+
+</page>

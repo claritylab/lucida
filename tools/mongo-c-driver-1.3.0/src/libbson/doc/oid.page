@@ -1,0 +1,84 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="oid">
+
+  <info><link type="guide" xref="index#intro"/></info>
+
+  <title>ObjectIDs</title>
+  <p>Libbson provides a simple way to generate ObjectIDs. It can be used in a single-threaded or multi-threaded manner depending on your requirements.</p>
+
+  <p>The <code xref="bson_oid_t">bson_oid_t</code> structure represents an <code>ObjectI</code> in MongoDB. It is a 96-bit identifier that includes various information about the system generating the OID.</p>
+
+  <section id="composition">
+    <title>Composition</title>
+    <list>
+      <title>Object ID Composition</title>
+      <item><p>4 bytes : The UNIX timestamp in big-endian format.</p></item>
+      <item><p>3 bytes : The first 3 bytes of <code>MD5(hostname)</code>.</p></item>
+      <item><p>2 bytes : The <code>pid_t</code> of the current process. Alternatively the task-id if configured.</p></item>
+      <item><p>3 bytes : A 24-bit monotonic counter incrementing from <code>rand()</code> in big-endian.</p></item>
+    </list>
+  </section>
+
+  <section id="sorting">
+    <title>Sorting ObjectIDs</title>
+    <p>The typical way to sort in C is using <code>qsort()</code>. Therefore, Libbson provides a <code>qsort()</code> compatible callback function named <code xref="bson_oid_compare">bson_oid_compare()</code>. It returns <code>less than 1</code>, <code>greater than 1</code>, or <code>0</code> depending on the equality of two <code xref="bson_oid_t">bson_oid_t</code> structures.</p>
+  </section>
+
+  <section id="comparing">
+    <title>Comparing Object IDs</title>
+    <p>If you simply want to compare two <code xref="bson_oid_t">bson_oid_t</code> structures for equality, use <code xref="bson_oid_equal">bson_oid_equal()</code>.</p>
+  </section>
+
+  <section id="generating">
+    <title>Generating</title>
+    <p>To generate a <code xref="bson_oid_t">bson_oid_t</code>, you may use the following.</p>
+
+    <example>
+      <code mime="text/x-csrc"><![CDATA[bson_oid_t oid;
+
+bson_oid_init (&oid, NULL);]]></code>
+    </example>
+  </section>
+
+  <section id="parsing">
+    <title>Parsing ObjectID Strings</title>
+    <p>You can also parse a string contianing a <code xref="bson_oid_t">bson_oid_t</code>. The input string <em>MUST</em> be 24 characters or more in length.</p>
+
+    <example>
+      <code mime="text/x-csrc"><![CDATA[bson_oid_t oid;
+
+bson_oid_init_from_string (&oid, "123456789012345678901234");]]></code>
+    </example>
+
+    <p>If you need to parse may <code xref="bson_oid_t">bson_oid_t</code> in a tight loop and can guarantee the data is safe, you might consider using the inline variant. It will be inlined into your code and reduce the need for a foreign function call.</p>
+
+    <example>
+      <code mime="text/x-csrc"><![CDATA[bson_oid_t oid;
+
+bson_oid_init_from_string_unsafe (&oid, "123456789012345678901234");]]></code>
+    </example>
+  </section>
+
+  <section id="hashing">
+    <title>Hashing ObjectIDs</title>
+    <p>If you need to store items in a hashtable, you may want to use the <code xref="bson_oid_t">bson_oid_t</code> as the key. Libbson provides a hash function for just this purpose. It is based on DJB hash.</p>
+    <example>
+      <code mime="text/x-csrc">unsigned hash;
+
+hash = bson_oid_hash (oid);</code>
+    </example>
+  </section>
+
+  <section id="time">
+    <title>Fetching ObjectID Creation Time</title>
+    <p>You can easily fetch the time that a <code xref="bson_oid_t">bson_oid_t</code> was generated using <code xref="bson_oid_get_time_t">bson_oid_get_time_t()</code>.</p>
+    <example>
+      <code mime="text/x-csrc">time_t t;
+
+t = bson_oid_get_time_t (oid);
+printf ("The OID was generated at %u\n", (unsigned)t);</code>
+    </example>
+  </section>
+
+</page>

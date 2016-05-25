@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<page id="bson_oid_t"
+      type="guide"
+      style="class"
+      xmlns="http://projectmallard.org/1.0/"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/">
+
+  <info>
+    <link type="guide" xref="index#api-reference" />
+  </info>
+
+  <title>bson_oid_t</title>
+  <subtitle>BSON ObjectID Abstraction</subtitle>
+
+  <section id="description">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[#include <bson.h>
+
+typedef struct
+{
+   uint8_t bytes[12];
+} bson_oid_t;]]></code></synopsis>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_oid_t">bson_oid_t</code> structure contains the 12-byte ObjectId notation defined by the <link href="http://docs.mongodb.org/manual/reference/object-id/">BSON ObjectID specificiation</link>.</p>
+    <p>ObjectId is a 12-byte BSON type, constructed using:</p>
+    <list>
+      <item><p>a 4-byte value representing the seconds since the Unix epoch (in Big Endian)</p></item>
+      <item><p>a 3-byte machine identifier</p></item>
+      <item><p>a 2-byte process id (Big Endian), and</p></item>
+      <item><p>a 3-byte counter (Big Endian), starting with a random value.</p></item>
+    </list>
+  </section>
+
+  <section id="validating">
+    <title>String Conversion</title>
+    <p>You can convert an Object ID to a string using <code xref="bson_oid_to_string">bson_oid_to_string()</code> and back with <code xref="bson_oid_init_from_string">bson_oid_init_from_string()</code>.</p>
+  </section>
+
+  <section id="hashing">
+    <title>Hashing</title>
+    <p>A <code xref="bson_oid_t">bson_oid_t</code> can be used in hashtables using the function <code xref="bson_oid_hash">bson_oid_hash()</code> and <code xref="bson_oid_equal">bson_oid_equal()</code>.</p>
+  </section>
+
+  <section id="hashing">
+    <title>Comparing</title>
+    <p>A <code xref="bson_oid_t">bson_oid_t</code> can be compared to another using <code xref="bson_oid_compare">bson_oid_compare()</code> for <code>qsort()</code> style comparing and <code xref="bson_oid_equal">bson_oid_equal()</code> for direct equality.</p>
+  </section>
+
+  <section id="validating">
+    <title>Validating</title>
+    <p>You can validate that a string containing a hex-encoded ObjectID is valid using the function <code xref="bson_oid_is_valid">bson_oid_is_valid()</code>.</p>
+  </section>
+
+  <links type="topic" groups="function" style="2column">
+    <title>Functions</title>
+  </links>
+
+  <section id="examples">
+    <title>Example</title>
+    <listing>
+      <title></title>
+      <synopsis><code mime="text/x-csrc"><![CDATA[#include <bson.h>
+#include <stdio.h>
+
+int main (int argc, char *argv[])
+{
+   bson_oid_t oid;
+   char str[25];
+
+   bson_oid_init (&oid, NULL);
+   bson_oid_to_string (&oid, str);
+   printf ("%s\n", str);
+
+   if (bson_oid_is_valid (str, sizeof str)) {
+      bson_oid_init_from_string (&oid, str);
+   }
+
+   printf ("The UNIX time was: %u\n",
+           (unsigned)bson_oid_get_time_t (&oid));
+
+   return 0;
+}]]></code></synopsis>
+    </listing>
+  </section>
+</page>

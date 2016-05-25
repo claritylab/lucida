@@ -1,0 +1,25 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="performance">
+
+  <title>Performance Notes</title>
+
+  <section id="keys">
+    <info><link type="guide" xref="index#performance"/></info>
+    <title>Array Element Key Building</title>
+    <p>When writing marshaling layers between higher level languages and Libbson, you will eventually need to build keys for array elements. Each element in a BSON array has a monotonic string key like <code>"0"</code>, <code>"1"</code>, etc. Using <code>snprintf()</code> and others tend to be rather slow on most <code>libc</code> implementations. Therefore, Libbson provides <code xref="bson_uint32_to_string">bson_uint32_to_string()</code> to improve this. Using this function allows an internal fast path to be used for numbers less than 1000 which is the vast majority of arrays. If the key is larger than that, a fallback of <code>snprintf()</code> will be used.</p>
+    <example>
+      <title>Example</title>
+      <synopsis><code mime="text/x-csrc"><![CDATA[char str[16];
+const char *key;
+uint32_t i;
+
+for (i = 0; i < 10; i++) {
+   bson_uint32_to_string (i, &key, str, sizeof str);
+   printf ("Key: %s\n", key);
+}]]></code></synopsis>
+    </example>
+    <p>For more information, see <code xref="bson_uint32_to_string">bson_uint32_to_string()</code>.</p>
+  </section>
+
+</page>

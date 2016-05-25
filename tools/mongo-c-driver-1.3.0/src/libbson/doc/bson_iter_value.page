@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_iter_value">
+  <info>
+    <link type="guide" xref="bson_iter_t" group="function"/>
+  </info>
+  <title>bson_iter_value()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[const bson_value_t *
+bson_iter_value (bson_iter_t *iter);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>iter</p></td><td><p>A <code xref="bson_iter_t">bson_iter_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Fetches the value for the currently observed type as a boxed type. This allows passing around the value without knowing the type at runtime.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>A <code xref="bson_value_t">bson_value_t</code> that should not be modified or freed.</p>
+  </section>
+</page>

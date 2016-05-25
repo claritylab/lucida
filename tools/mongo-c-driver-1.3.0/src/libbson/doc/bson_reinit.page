@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_reinit">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_reinit()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void
+bson_reinit (bson_t *b);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>b</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_reinit">bson_reinit()</code> function shall be equivalent to calling <code xref="bson_destroy">bson_destroy()</code> and <code xref="bson_init">bson_init()</code>.</p>
+    <p>However, if the <code xref="bson_t">bson_t</code> structure contains a malloc()'d buffer, it may be reused. To be certain that any buffer is freed, always call <code xref="bson_destroy">bson_destroy</code> on any <code xref="bson_t">bson_t</code> structure, whether initialized or reinitialized, after its final use.</p>
+  </section>
+
+</page>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_has_field">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_has_field()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_has_field (const bson_t *bson,
+                const char   *key);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>bson</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>key</p></td><td><p>A string containing the name of the field to check for.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Checks to see if key contains an element named <code>key</code>. This also accepts "dotkey" notation such as "a.b.c.d".</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if <code>key</code> was found within <code>bson</code>; otherwise false.</p>
+  </section>
+</page>

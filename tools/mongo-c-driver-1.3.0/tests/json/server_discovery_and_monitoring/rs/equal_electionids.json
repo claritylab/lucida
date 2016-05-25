@@ -1,0 +1,58 @@
+{
+    "description": "New primary with equal electionId", 
+    "phases": [
+        {
+            "outcome": {
+                "servers": {
+                    "a:27017": {
+                        "electionId": null, 
+                        "setName": null, 
+                        "type": "Unknown"
+                    }, 
+                    "b:27017": {
+                        "electionId": {
+                            "$oid": "000000000000000000000001"
+                        }, 
+                        "setName": "rs", 
+                        "type": "RSPrimary"
+                    }
+                }, 
+                "setName": "rs", 
+                "topologyType": "ReplicaSetWithPrimary"
+            }, 
+            "responses": [
+                [
+                    "a:27017", 
+                    {
+                        "electionId": {
+                            "$oid": "000000000000000000000001"
+                        }, 
+                        "hosts": [
+                            "a:27017", 
+                            "b:27017"
+                        ], 
+                        "ismaster": true, 
+                        "ok": 1, 
+                        "setName": "rs"
+                    }
+                ], 
+                [
+                    "b:27017", 
+                    {
+                        "electionId": {
+                            "$oid": "000000000000000000000001"
+                        }, 
+                        "hosts": [
+                            "a:27017", 
+                            "b:27017"
+                        ], 
+                        "ismaster": true, 
+                        "ok": 1, 
+                        "setName": "rs"
+                    }
+                ]
+            ]
+        }
+    ], 
+    "uri": "mongodb://a/?replicaSet=rs"
+}

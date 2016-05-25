@@ -4,6 +4,7 @@ rm -rf caffe
 rm -rf opencv-*
 rm -rf protobuf-*
 rm -rf thrift-*
+rm -rf fbthrift
 
 for tar in *.tar.gz;
 do

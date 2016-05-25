@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_oid_init_sequence">
+  <info>
+    <link type="guide" xref="bson_oid_t" group="function"/>
+  </info>
+  <title>bson_oid_init_sequence()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void
+bson_oid_init_sequence (bson_oid_t     *oid,
+                        bson_context_t *context);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>oid</code></p></td><td><p>A <code xref="bson_oid_t">bson_oid_t</code>.</p></td></tr>
+      <tr><td><p><code>context</code></p></td><td><p>An optional <code xref="bson_context_t">bson_context_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Generates a new ObjectID using the 64-bit sequence.</p>
+    <note style="warning"><p>This form of ObjectID is generally used by MongoDB replica peers only.</p></note>
+  </section>
+
+</page>

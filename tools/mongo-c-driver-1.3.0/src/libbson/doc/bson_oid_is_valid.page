@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_oid_is_valid">
+  <info>
+    <link type="guide" xref="bson_oid_t" group="function"/>
+  </info>
+  <title>bson_oid_is_valid()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_oid_is_valid (const char *str,
+                   size_t      length);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>str</code></p></td><td><p>A string.</p></td></tr>
+      <tr><td><p><code>length</code></p></td><td><p>The length of <code>str</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Checks if a string containing a hex encoded string is a valid BSON ObjectID.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if <code>str</code> could be parsed.</p>
+  </section>
+
+</page>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_copy_to">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_copy_to()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void
+bson_copy_to (const bson_t *src,
+              bson_t       *dst);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>src</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>dst</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>The <code xref="bson_copy_to">bson_copy_to()</code> function shall initialize <code>dst</code> with a copy of the contents of <code>src</code>.</p>
+    <p><code>dst</code> <em>MUST</em> be an uninitialized <code xref="bson_t">bson_t</code> to avoid leaking memory.</p>
+  </section>
+
+</page>

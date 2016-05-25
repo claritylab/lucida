@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_append_iter">
+  <info>
+    <link type="guide" xref="bson_t" group="function"/>
+  </info>
+  <title>bson_append_iter()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_append_iter (bson_t            *bson,
+                  const char        *key,
+                  int                key_length,
+                  const bson_iter_t *iter);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p>bson</p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+      <tr><td><p>key</p></td><td><p>An ASCII C string containing the name of the field.</p></td></tr>
+      <tr><td><p>key_length</p></td><td><p>The length of <code>key</code> in bytes, or -1 to determine the length with <code>strlen()</code>.</p></td></tr>
+      <tr><td><p>iter</p></td><td><p>A bson_iter_t.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>TODO:</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>TODO:</p>
+  </section>
+</page>

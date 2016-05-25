@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_mem_restore_vtable">
+  <info>
+    <link type="guide" xref="memory" group="function"/>
+  </info>
+  <title>bson_mem_restore_vtable()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[void bson_mem_restore_vtable (void);
+]]></code></synopsis>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>This function shall restore the default memory allocator to be used by Libbson.</p>
+    <note style="critical"><p>This function <em>MUST</em> be called at the end of the process. Failure to do so will result in memory being freed by the wrong allocator.</p></note>
+  </section>
+
+</page>

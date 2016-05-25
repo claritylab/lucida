@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      style="function"
+      xmlns:api="http://projectmallard.org/experimental/api/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      id="bson_writer_begin">
+  <info>
+    <link type="guide" xref="bson_writer_t" group="function"/>
+  </info>
+  <title>bson_writer_begin()</title>
+
+  <section id="synopsis">
+    <title>Synopsis</title>
+    <synopsis><code mime="text/x-csrc"><![CDATA[bool
+bson_writer_begin (bson_writer_t *writer,
+                   bson_t       **bson);
+]]></code></synopsis>
+  </section>
+
+  <section id="parameters">
+    <title>Parameters</title>
+    <table>
+      <tr><td><p><code>writer</code></p></td><td><p>A <code xref="bson_writer_t">bson_writer_t</code>.</p></td></tr>
+      <tr><td><p><code>bson</code></p></td><td><p>A <code xref="bson_t">bson_t</code>.</p></td></tr>
+    </table>
+  </section>
+
+  <section id="description">
+    <title>Description</title>
+    <p>Begins writing a new document. The caller may use the bson structure to write out a new BSON document. When completed, the caller must call either <code xref="bson_writer_end">bson_writer_end()</code> or <code xref="bson_writer_rollback">bson_writer_rollback()</code>.</p>
+  </section>
+
+  <section id="return">
+    <title>Returns</title>
+    <p>true if there was space in the underlying buffers to begin the document.</p>
+  </section>
+
+</page>
