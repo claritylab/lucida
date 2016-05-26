@@ -129,5 +129,5 @@ RUN cd /usr/src/protobuf \
 RUN mkdir -p /usr/local/lucida
 WORKDIR /usr/local/lucida
 ADD . /usr/local/lucida
-RUN cd lucida/ && ./thrift-gen.sh
+RUN cd lucida/
 RUN /usr/bin/make all
