@@ -35,3 +35,4 @@ sudo apt-get upgrade
 git checkout legacy
 sudo apt-get install scons
 sudo scons --prefix=/usr/local --ssl install
+rm -rf .git

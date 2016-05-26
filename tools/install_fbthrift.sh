@@ -24,3 +24,4 @@ cd thrift/
 ./build/deps_ubuntu_14.04.sh  
 autoreconf -if && ./configure && make
 sudo make install
+rm -rf .git
