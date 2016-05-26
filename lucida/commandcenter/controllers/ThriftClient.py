@@ -105,7 +105,6 @@ class ThriftClient(object):
 			query_input_list.append(self.create_query_input(
 				input_type, data_in, tag_in))
 			i += 1
-			print '@@@', tag_in
 		# Send request to the front service in services_needed.
 		client, transport = self.get_client_transport(services_needed[0])
 		log('Sending infer request to ' + services_needed[0])
