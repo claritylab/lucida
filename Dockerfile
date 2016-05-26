@@ -128,6 +128,6 @@ RUN cd /usr/src/protobuf \
 # fixes some weird OE compiliation issue
 RUN mkdir -p /usr/local/lucida
 WORKDIR /usr/local/lucida
-ADD . /usr/local/lucida
-RUN cd lucida/
+ADD . /usr/local/lucida/lucida
+RUN cd lucida/lucida
 RUN /usr/bin/make all
