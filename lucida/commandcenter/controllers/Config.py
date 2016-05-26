@@ -15,7 +15,8 @@ LEARNERS = { 'audio' : [], 'image' : [ 'IMM' ], 'text' : [ 'QA' ] }
 # Map from input type to query classes and services needed by each class.
 CLASSIFIER_DESCRIPTIONS = { 'text' : { 'class_QA' :  [ 'QA' ] , 'class_CA' : [ 'CA' ] },
                             'image' : { 'class_IMM' : [ 'IMM' ] },
-                            'text_image' : { 'class_IMM_QA' : [ 'IMM', 'QA' ] } }
+                            'text_image' : { 'class_IMM' : [ 'IMM' ], 
+                                             'class_IMM_QA' : [ 'IMM', 'QA' ] } }
 
 for input_type, services in LEARNERS.iteritems():
     for service in services:

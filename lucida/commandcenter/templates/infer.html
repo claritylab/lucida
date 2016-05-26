@@ -15,34 +15,18 @@
 	</div>
 
 	<div class="container">
-		<form id="infer_form" method=post enctype=multipart/form-data>
+		<form id="infer_form" method="post" enctype="multipart/form-data">
 			<input name="op" type="hidden" value="infer" />
-
-			<div class="form-group">
-				<label>Speech input</label>
-				<p class="help-block">Not satisfied with speech recognition? Use this!</p>
-				<input name="speech_input" class="form-control" placeholder="What is the speed of light?">
-			</div>
 
 			<div class="form-group">
 				<label>Image input</label>
 				<input id="image_input" type="file" name="file" size="60">
 				<p class="help-block">Upload your picture!</p>
 			</div>
-
-			<div class="form-group">
-				<input id="file_submit" type="submit" value="Ask" class="btn btn-info">
-			</div>
-		</form>
 	</div>
 
 	{% if error %}
 	<strong class=text-danger><p class="error">{{ error }}</p></strong>
-	{% endif %}
-
-	{% if result %}
-	<h3 class="bg-success">Results</h3>
-	<h4 class="bg-success">{{ result }}</h4>
 	{% endif %}
 </div>
 
@@ -54,12 +38,11 @@
 					<div id="recbutton" class="disabled" onclick="clearTranscription(); toggleListening();"></div>
 				</td>
 				<td><div class="wrap">
-						<!-- <textarea readonly style="margin&#45;left: 4%;" id="trans" ></textarea> -->
-						<textarea readonly id="trans" ></textarea>
+						<textarea id="trans" name="speech_input" form="infer_form"></textarea>
 					</div>
 				</td>
 				<td><div class="wrapr">
-						<textarea readonly id="clinc" style="margin-right: 10px"></textarea>
+						<textarea readonly id="clinc" style="margin-right: 10px">{% if result %}{{ result }}{% endif %}</textarea>
 					</div>
 				</td>
 			</tr>
@@ -76,6 +59,15 @@
 				<td></td>
 				<td colspan="2">
 				<br><br>
+
+
+
+			<div class="form-group">
+				<input id="file_submit" type="submit" value="Ask" class="btn btn-info">
+			</div>
+		</form>
+
+
 				<center>
 					Powered by <a href="http://lucida.ai">Lucida</a>
 				</center>
