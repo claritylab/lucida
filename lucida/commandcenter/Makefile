@@ -1,15 +1,20 @@
-all: deps
+all: thrift
 
-deps:
-	sudo pip install -r requirements.txt; \
+thrift:
+	@if [ ! -d "lucidaservice" ]; then \
+		thrift --gen py ../lucidaservice.thrift; \
+		thrift --gen py ../lucidatypes.thrift; \
+		cd gen-py; \
+		mv * ..; \
+		cd ..; \
+		rmdir gen-py; \
+		rm __init__.py; \
+    fi
 
 clean:
-	rm -rf *.o venv
-
-start_client: 
-	gnome-terminal -x bash -c "python FakeCMDClient.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+	rm lucidaservice lucidatypes
 
 start_server: 
 	gnome-terminal -x bash -c "python app.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
 
-.PHONY:	all venv thrift clean start_client start_server
+.PHONY:	all venv thrift clean start_server

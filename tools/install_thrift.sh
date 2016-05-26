@@ -1,4 +1,4 @@
-export THRIFT_VERSION=0.9.2
+export THRIFT_VERSION=0.9.3
 
 if [ -z "$THREADS" ]; then
   THREADS=4

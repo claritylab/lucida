@@ -22,6 +22,7 @@ start_test:
 clean:
 	rm -rf bin
 	rm -rf db
+	rm -rf src/lucida/thrift
 
 .PHONY:	all thrift start_server start_test clean
 

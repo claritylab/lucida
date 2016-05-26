@@ -50,6 +50,19 @@ public class KnowledgeBase {
     		kb = new KnowledgeBase(LUCID);
     		KnowledgeBase.active_kbs.put(LUCID, kb);
     	}
+		// Create the default Indri directory if it does not exist.
+		if (!new File(kb.Indri_repo).exists()) {
+			QAServiceHandler.print("Creating directory " + kb.Indri_repo);
+			new File(kb.Indri_repo).mkdirs();
+			IndexEnvironment env = new IndexEnvironment();
+			try {
+				env.setStemmer("krovetz");
+				env.create(kb.Indri_repo);
+				env.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
     	return kb;
 	}
 	
@@ -98,19 +111,6 @@ public class KnowledgeBase {
 		// Append the time stamp to the default Indri repository path.
 		Indri_repo = System.getenv("LUCIDAROOT")
 				+ "/questionanswering/OpenEphyra/db/" + LUCID;
-		// Create the default Indri directory if it does not exist.
-		if (!new File(Indri_repo).exists()) {
-			QAServiceHandler.print("Creating directory " + Indri_repo);
-			new File(Indri_repo).mkdirs();
-			IndexEnvironment env = new IndexEnvironment();
-			try {
-				env.setStemmer("krovetz");
-				env.create(Indri_repo);
-				env.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
 		// Initialize other instance variables.
 		custom_Indri_repos = new HashSet<String>();
 		texts = new ArrayList<String>();
