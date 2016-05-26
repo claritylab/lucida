@@ -124,15 +124,6 @@ RUN cd /usr/src/protobuf \
   && make -j$THREADS \
   && make install
 
-#### Caffe for djinn
-RUN cd /usr/src \
-  && git clone https://github.com/jhauswald/caffe.git \
-  && cd caffe \
-  && git checkout ipa \
-  && cp Makefile.config.example Makefile.config \
-  && make -j$THREADS \
-  && make distribute
-
 ## install lucida
 # fixes some weird OE compiliation issue
 RUN mkdir -p /usr/local/lucida
