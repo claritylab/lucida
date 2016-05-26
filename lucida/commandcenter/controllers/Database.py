@@ -59,8 +59,6 @@ class Database():
 	
 	# Adds the uploaded image.
 	def add_image(self, username, label, upload_file):
-		if label.isspace():
-			raise RuntimeError('Empty label is not allowed')
 		if not self.get_image_collection(username).find_one(
 			{'label': label}) is None:
 			raise RuntimeError('Image ' + label + ' already exists')
@@ -74,8 +72,6 @@ class Database():
 	
 	# Adds the knowledge text.
 	def add_text(self, username, text_knowledge):
-		if text_knowledge.isspace():
-			raise RuntimeError('Empty knowledge is not allowed')
 		self.get_text_collection(username).insert_one(
 			{'text_knowledge': text_knowledge})
 		
@@ -89,7 +85,7 @@ class Database():
 		self.get_image_collection(username).remove({'label': label})
 		
 	# Test. 
-	def secret(self):
+	def secret(self, username):
 		for image_path in glob.glob('inputs/*.jpg') + glob.glob('inputs/*.JPG'):
 			image_label = image_path.split('/')[-1]
 			with open(image_path) as f:
@@ -97,13 +93,13 @@ class Database():
 				image_data = f.read()
 				f.close()
 				thrift_client.learn_image('yba', image_label, image_data)
-				self.add_image('yba', image_label, image_data)
+				self.add_image(username, image_label, image_data)
 		with open('inputs/knowledge.txt') as f:
 			lines = f.readlines()
 			for line in lines:
 				log('Adding text ' + line)
 				thrift_client.learn_text('yba', line)
-				self.add_text('yba', line)
+				self.add_text(username, line)
 	
 database = Database()
 	
