@@ -33,20 +33,26 @@ public class QAClient {
 		QuerySpec spec = new QuerySpec();
 		
 		// Knowledge.
-		final QueryInput knowledge_text = new QueryInput("text", new ArrayList<String>() {{
+		final QueryInput knowledge_text = new QueryInput();
+		knowledge_text.type = "text";
+		knowledge_text.data =  new ArrayList<String>() {{
 		    add("Clinc is created by Jason and Lingjia.");
-		}});
-		QuerySpec knowledge = new QuerySpec(new ArrayList<QueryInput>() {{
+		}};
+		QuerySpec knowledge = new QuerySpec();
+		knowledge.content = new ArrayList<QueryInput>() {{
 		    add(knowledge_text);
-		}});
+		}};
 		
 		// Query.
-		final QueryInput query_input = new QueryInput("query", new ArrayList<String>() {{
+		final QueryInput query_input = new QueryInput();
+		query_input.type = "query";
+		query_input.data = new ArrayList<String>() {{
 		    add("Who created Clinc?");
-		}});
-		QuerySpec query = new QuerySpec(new ArrayList<QueryInput>() {{
+		}};
+		QuerySpec query = new QuerySpec();
+		query.content = new ArrayList<QueryInput>() {{
 		    add(query_input);
-		}});
+		}};
 		
 		// Initialize thrift objects.
 		// TTransport transport = new TSocket("clarity08.eecs.umich.edu", port);

@@ -4,7 +4,7 @@ from __future__ import unicode_literals
  
 import sys, glob  
 #sys.path.insert(0, glob.glob('/home/yba/Documents/clarity/fbthrift/thrift/lib/py/build/lib*')[0]) # This needs to be more generic.
-sys.path.insert(0, glob.glob('../../tools/thrift-0.9.2/lib/py/build/lib*')[0])
+sys.path.insert(0, glob.glob('../../tools/thrift-0.9.3/lib/py/build/lib*')[0])
  
 from controllers import *
 from flask import *

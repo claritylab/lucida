@@ -63,4 +63,4 @@ apt-get install -y zlib1g-dev \
                    libkrb5-dev \
                    libsasl2-dev \
                    libnuma-dev
-pip install -r ../lucida/commandcenter/requirements.txt
+pip install -r python_requirements.txt

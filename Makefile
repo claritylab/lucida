@@ -20,3 +20,7 @@ export CAFFE=$(shell pwd)/tools/caffe/distribute
 export LUCIDAROOT=$(shell pwd)/lucida
 local:
 	cd tools && make && cd - && cd lucida && ./thrift-gen.sh && cd - && make all
+
+## start all services
+start_all:
+	cd lucida/commandcenter && make start_server && sleep 5 && cd ../speechrecognition/kaldi_gstreamer_asr && make start_server && cd ../../imagematching/opencv_imm && make start_server && cd ../../questionanswering/OpenEphyra && make start_server
