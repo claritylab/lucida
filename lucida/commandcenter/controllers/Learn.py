@@ -25,7 +25,7 @@ def learn_route():
 		if request.method == 'POST':
 			# If the request does not contain an "op" field.
 			if not 'op' in request.form:
-				abort(404) # bad user
+				raise RuntimeError('Did you click the Add button?')
 			# Add image knowledge.
 			elif request.form['op'] == 'add_image':
 				# Get the uploaded image.
@@ -33,7 +33,8 @@ def learn_route():
 				if (not (upload_file and image_allowed(upload_file))):
 					raise RuntimeError('Invalid file')
 				# Check the label of the image.
-				if not ('label' in request.form and request.form['label']):
+				if not 'label' in request.form or \
+					request.form['label'].isspace():
 					raise RuntimeError('Please enter a label for your image')
 				# Send the image to IMM.
 				image_data = upload_file.read()
@@ -48,8 +49,8 @@ def learn_route():
 			# Add text knowledge.
 			elif request.form['op'] == 'add_text':
 				# CHeck the text knowledge.
-				if not ('text_knowledge' in request.form \
-					and request.form['text_knowledge']):
+				if not 'text_knowledge' in request.form \
+					or request.form['text_knowledge'].isspace():
 					raise RuntimeError(
 						'Please enter a piece of text as knowledge')
 				# Send the text to QA.
@@ -59,10 +60,9 @@ def learn_route():
 				database.add_text(session['username'],
 								  request.form['text_knowledge'])
 			elif request.form['op'] == 'secret':
-				database.secret()			
-			# Abort
+				database.secret(session['username'])			
 			else:
-				abort(404) # bad user
+				raise RuntimeError('Did you click the Add button?')
 	except Exception as e:
 		log(e)
 		return render_template('learn.html', error=e)
