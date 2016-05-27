@@ -144,55 +144,9 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk$JAVA_VERSION-installer
 
-#### Thrift
-RUN cd /usr/src \
- && wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" \
- && tar xf thrift-$THRIFT_VERSION.tar.gz \
- && cd thrift-$THRIFT_VERSION \
- && ./configure \
- && make -j $THREADS\
- && make -j $THREADS install \
- && cd lib/py/ \
- && python setup.py install \
- && cd ../../lib/java/ \
- && ant \
- && cd ../../..
-
-#### OpenCV
-RUN mkdir -p /usr/src/opencv
-RUN cd /usr/src/opencv \
-  && git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
-  && cd opencv-$OPENCV_VERSION \
-  && git checkout $OPENCV_VERSION \
-  && mkdir build \
-  && cd build \
-  && cmake .. \
-  && make -j$THREADS \
-  && make -j$THREADS install
-
-#### Protobuf
-RUN mkdir -p /usr/src/protobuf
-RUN cd /usr/src/protobuf \
-  && wget "https://github.com/google/protobuf/releases/download/v$PROTOBUF_VERSION/protobuf-$PROTOBUF_VERSION.tar.gz" \
-  && tar xf protobuf-$PROTOBUF_VERSION.tar.gz \
-  && cd protobuf-$PROTOBUF_VERSION \
-  && ./configure \
-  && make -j$THREADS \
-  && make install
-
-#### Caffe for djinn
-RUN cd /usr/src \
-  && git clone https://github.com/jhauswald/caffe.git \
-  && cd caffe \
-  && git checkout ipa \
-  && cp Makefile.config.example Makefile.config \
-  && CPU_ONLY=1 make -j$THREADS \
-  && CPU_ONLY=1 make distribute
-
 ## install lucida
 # fixes some weird OE compiliation issue
 RUN mkdir -p /usr/local/lucida
 WORKDIR /usr/local/lucida
 ADD . /usr/local/lucida
-RUN cd lucida/
-RUN /usr/bin/make all
+RUN /usr/bin/make local
