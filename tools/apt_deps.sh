@@ -63,4 +63,5 @@ apt-get install -y zlib1g-dev \
                    libkrb5-dev \
                    libsasl2-dev \
                    libnuma-dev
+pip install --upgrade distribute
 pip install -r python_requirements.txt

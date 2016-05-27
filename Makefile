@@ -1,4 +1,4 @@
-SUBDIRS=lucida-suite lucida
+SUBDIRS=lucida
 
 DOCKER_CONTAINER=claritylab/lucida
 VERSION=latest
