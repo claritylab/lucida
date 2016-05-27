@@ -4,9 +4,9 @@ FROM ubuntu:14.04
 
 #### environment variables
 ENV LUCIDAROOT /usr/local/lucida/lucida
-ENV THRIFT_ROOT /usr/src/thrift-$THRIFT_VERSION
+ENV THRIFT_ROOT /usr/local/lucida/tools/thrift-$THRIFT_VERSION
 ENV LD_LIBRARY_PATH /usr/local/lib
-ENV CAFFE /usr/src/caffe/distribute
+ENV CAFFE /usr/local/lucida/tools/caffe/distribute
 ENV CPU_ONLY 1 # for caffe
 
 ENV OPENCV_VERSION 2.4.9
