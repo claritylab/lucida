@@ -79,6 +79,62 @@ RUN apt-get install -y libkrb5-dev
 RUN apt-get install -y libsasl2-dev
 RUN apt-get install -y libnuma-dev
 
+RUN pip install --upgrade distribute
+RUN pip install Flask==0.10.1
+RUN pip install Flask-Login==0.3.2
+RUN pip install Flask-WTF==0.12
+RUN pip install Jinja2==2.8
+RUN pip install MarkupSafe==0.23
+RUN pip install WTForms==2.1
+RUN pip install Werkzeug==0.11.4
+RUN pip install argparse==1.2.1
+RUN pip install backports-abc==0.4
+RUN pip install backports.ssl-match-hostname==3.5.0.1
+RUN pip install cached-property==1.3.0
+RUN pip install certifi==2016.2.28
+RUN pip install config==0.3.9
+RUN pip install defer==1.0.3
+RUN pip install docker-compose==1.7.1
+RUN pip install docker-py==1.8.1
+RUN pip install dockerpty==0.4.1
+RUN pip install docopt==0.6.2
+RUN pip install functools32==3.2.3-2
+RUN pip install futures==3.0.5
+RUN pip install greenlet==0.4.9
+RUN pip install html5lib==0.999
+RUN pip install httplib2==0.8
+RUN pip install ipaddress==1.0.16
+RUN pip install itsdangerous==0.24
+RUN pip install jsonlib2==1.5.2
+RUN pip install jsonschema==2.5.1
+RUN pip install oauthlib==0.6.1
+RUN pip install piston-mini-client==0.7.5
+RUN pip install pyOpenSSL==0.13
+RUN pip install pycrypto==2.6.1
+RUN pip install pymongo==3.2.2
+RUN pip install pyserial==2.6
+RUN pip install pysha3==0.3
+RUN pip install python-dateutil==2.5.3
+RUN pip install pytz==2016.4
+RUN pip install pyxdg==0.25
+RUN pip install rauth==0.7.2
+RUN pip install reportlab==3.0
+RUN pip install requests==2.7.0
+RUN pip install scipy==0.17.1
+RUN pip install singledispatch==3.4.0.3
+RUN pip install six==1.5.2
+RUN pip install supervisor==3.0b2
+RUN pip install texttable==0.8.4
+RUN pip install thrift==0.9.3
+RUN pip install tornado==4.3
+RUN pip install torthrift==0.0.9
+RUN pip install urllib3==1.7.1
+RUN pip install virtualenv==15.0.1
+RUN pip install websocket-client==0.37.0
+RUN pip install scikit-learn==0.17.1
+RUN pip install numpy==1.8.2
+RUN pip install pandas==0.18.1
+
 #### package specific routines
 RUN \
   echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
@@ -123,6 +179,15 @@ RUN cd /usr/src/protobuf \
   && ./configure \
   && make -j$THREADS \
   && make install
+
+#### Caffe for djinn
+RUN cd /usr/src \
+  && git clone https://github.com/jhauswald/caffe.git \
+  && cd caffe \
+  && git checkout ipa \
+  && cp Makefile.config.example Makefile.config \
+  && CPU_ONLY=1 make -j$THREADS \
+  && CPU_ONLY=1 make distribute
 
 ## install lucida
 # fixes some weird OE compiliation issue
