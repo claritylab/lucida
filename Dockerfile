@@ -149,4 +149,9 @@ RUN \
 RUN mkdir -p /usr/local/lucida
 WORKDIR /usr/local/lucida
 ADD . /usr/local/lucida
-RUN /usr/bin/make local
+RUN /usr/bin/make tools ### fix
+RUN /usr/bin/make services  ### fix
+
+### docker build -t claritylab/lucida .
+###  docker run -it claritylab/lucida  /bin/bash
+### docker rm -f `docker ps -a -q`

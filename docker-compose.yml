@@ -1,20 +1,26 @@
 ## to run
 ## $ docker-compose up
 
-lucida_services:
+CMD:
   image: claritylab/lucida:latest
   ports:
-    - "8081:8081" # learn server
-    - "8090:8090" # cc
-  command: bash -c "cd tools && supervisord -c full_lucida.conf"
+    - "3000:3000" # CMD
+  command: bash -c "cd lucida/commandcenter; python app.py"
 
-lucida_asr:
-  image: claritylab/lucida-asr:latest
-  command: bash -c "sleep 10; cd /opt/kaldi-gstreamer-server/ && ./start.sh -y sample_english_nnet2.yaml && cd lucida-demos/ && python -m SimpleHTTPServer 8089"
-  links:
-    - lucida_services:lucida_services
-  environment:
-    - LUCIDA_SERVICE=lucida_services:8090
+ASR:
+  image: claritylab/lucida:latest
   ports:
-    - "8888:8888" # asr WS
-    - "8089:8089" # asr FE
+    - "8081:8081" # ASR
+  command: bash -c "cd lucida/speechrecognition/kaldi_gstreamer_asr/; export GST_PLUGIN_PATH=kaldi/tools/gst-kaldi-nnet2-online/src/:kaldi/src/gst-plugin/; python kaldigstserver/worker.py -u ws://localhost:8888/worker/ws/speech -c sample_english_nnet2.yaml"
+
+IMM:
+  image: claritylab/lucida:latest
+  ports:
+    - "8082:8082" # IMM
+  command: bash -c "cd lucida/imagematching/opencv_imm/; cd server; ./imm_server"
+
+QA:
+  image: claritylab/lucida:latest
+  ports:
+    - "8083:8083" # QA
+  command: bash -c "cd lucida/questionanswering/OpenEphyra/; java -Djava.library.path=lib/search/ -classpath bin:lib/learn/jsoup-1.8.3.jar:lib/ml/maxent.jar:lib/ml/minorthird.jar:lib/nlp/jwnl.jar:lib/nlp/lingpipe.jar:lib/nlp/opennlp-tools.jar:lib/nlp/plingstemmer.jar:lib/nlp/snowball.jar:lib/nlp/stanford-ner.jar:lib/nlp/stanford-parser.jar:lib/nlp/stanford-postagger.jar:lib/qa/javelin.jar:lib/search/bing-search-java-sdk.jar:lib/search/googleapi.jar:lib/search/indri.jar:lib/search/yahoosearch.jar:lib/thrift/libthrift-0.9.2.jar:lib/thrift/log4j-1.2.14.jar:lib/thrift/slf4j-api-1.5.8.jar:lib/thrift/slf4j-log4j12-1.5.8.jar:lib/util/commons-logging.jar:lib/util/gson.jar:lib/util/htmlparser.jar:lib/util/jetty-all.jar:lib/util/log4j.jar:lib/util/servlet-api.jar:lib/util/trove.jar lucida.main.QADaemon"
