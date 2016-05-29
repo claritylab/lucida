@@ -23,6 +23,7 @@ apt-get install -y zlib1g-dev \
                    automake \
                    git \
                    curl \
+                   libboost-dev \
                    libboost-all-dev \
                    libevent-dev \
                    libdouble-conversion-dev \
