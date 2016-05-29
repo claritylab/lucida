@@ -194,7 +194,7 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 }
 
 unique_ptr<DBClientBase> IMMHandler::getConnection() {
-	string uri = "localhost:27017"; // specify where MongoDB is running
+	string uri = "mongodb://localhost:27017"; // specify where MongoDB is running
 	string errmsg;
 	ConnectionString cs = ConnectionString::parse(uri, errmsg);
 	if (!cs.isValid()) {
