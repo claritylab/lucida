@@ -25,3 +25,8 @@ cd thrift/
 autoreconf -if && ./configure && make
 sudo make install
 rm -rf .git
+
+if [ -d "fbthrift" ]; then
+  echo "FBThrift already installed, skipping"
+  exit
+fi
