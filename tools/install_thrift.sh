@@ -1,12 +1,18 @@
 export THRIFT_VERSION=0.9.3
 
-if [ -z "$THREADS" ]; then
-  THREADS=4
-fi
+installCheck () {
+  thrift --gen java ../lucida/lucidaservice.thrift
+  if [ -d gen-java ]; then
+    rm -rf gen-java
+    return 0
+  else
+    return 1
+  fi
+}
 
-if [ -d thrift-$THRIFT_VERSION ]; then
-  echo "Thrift already installed, skipping"
-  exit
+if installCheck $0; then
+  echo "Apache Thrift installed";
+  exit 0;
 fi
 
 wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" \
@@ -20,3 +26,11 @@ wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSI
   && cd ../../lib/java/ \
   && ant \
   && cd ../../..
+
+if installCheck $0; then
+  echo "Apache Thrift installed";
+  exit 0;
+else
+  echo "Faile to install Apache Thrift";
+  exit 1;
+fi
