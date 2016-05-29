@@ -65,4 +65,5 @@ apt-get install -y zlib1g-dev \
                    libsasl2-dev \
                    libnuma-dev
 pip install --upgrade distribute
+pip install --upgrade pip
 pip install -r python_requirements.txt

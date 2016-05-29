@@ -89,13 +89,12 @@ RUN \
   rm -rf /var/cache/oracle-jdk$JAVA_VERSION-installer
 
 ## install lucida
-# fixes some weird OE compiliation issue
 RUN mkdir -p /usr/local/lucida
 WORKDIR /usr/local/lucida
 ADD . /usr/local/lucida
-RUN /usr/bin/make tools ### fix
-RUN /usr/bin/make services  ### fix
+RUN /usr/bin/make tools
+RUN /usr/bin/make services
 
-### docker build -t claritylab/lucida .
-###  docker run -it claritylab/lucida  /bin/bash
+### docker build --pull -t claritylab/lucida .
+### docker run -it claritylab/lucida  /bin/bash
 ### docker rm -f `docker ps -a -q`
