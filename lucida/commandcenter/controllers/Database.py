@@ -84,9 +84,12 @@ class Database():
 	def delete_image(self, username, label):
 		self.get_image_collection(username).remove({'label': label})
 		
-	# Test. 
-	def secret(self, username):
-		for image_path in glob.glob('inputs/*.jpg') + glob.glob('inputs/*.JPG'):
+	# Load knowledge from a given directory. Only for testing. 
+	def secret(self, username, directory):
+		if directory[-1] != '/':
+			directory += '/'
+		for image_path in glob.glob(directory + '*.jpg') \
+			+ glob.glob(directory + '*.JPG'):
 			image_label = image_path.split('/')[-1]
 			with open(image_path) as f:
 				log('Adding image ' + image_label)
@@ -94,7 +97,7 @@ class Database():
 				f.close()
 				thrift_client.learn_image('yba', image_label, image_data)
 				self.add_image(username, image_label, image_data)
-		with open('inputs/knowledge.txt') as f:
+		with open(directory + 'knowledge.txt') as f:
 			lines = f.readlines()
 			for line in lines:
 				log('Adding text ' + line)

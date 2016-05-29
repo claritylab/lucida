@@ -18,7 +18,7 @@ import thrift.*;
 public class CalendarClient {
 	public static void main(String [] args) {
 		// Collect the port number.
-		int port = 8081;
+		int port = 8084;
 
 		if (args.length == 1) {
 			port = Integer.parseInt(args[0]);
@@ -28,10 +28,10 @@ public class CalendarClient {
 
 		// Query.
 		String LUCID = "QLL";
+		String query_input_data = "What is on my Google calendar from next Sunday morning to next Sunday noon to next Sunday night?";
 		final QueryInput query_input = new QueryInput("query", new ArrayList<String>() {{
-		    add("");
+		    add(query_input_data);
 		}});
-		query_input.type = "calendar";
 		QuerySpec query_spec = new QuerySpec(new ArrayList<QueryInput>() {{
 		    add(query_input);
 		}});
@@ -44,6 +44,7 @@ public class CalendarClient {
 		try {
 			// Talk to the Calendar server.
 			transport.open();
+			System.out.println(query_input_data);
 			System.out.println("///// Connecting to Calendar... /////");
 			String results = client.infer(LUCID, query_spec);
 			System.out.println("///// Results: /////");

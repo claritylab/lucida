@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'Calendar.CalendarDaemon'
+mainClassName = 'calendar.CalendarDaemon'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 version = '1.0'
@@ -14,6 +14,9 @@ run {
 
 repositories {
     mavenCentral()
+    flatDir {
+       dirs 'lib'
+   	}
 }
 
 dependencies {
@@ -21,5 +24,19 @@ dependencies {
     compile 'com.google.oauth-client:google-oauth-client-jetty:1.20.0'
     compile 'com.google.apis:google-api-services-calendar:v3-rev125-1.20.0'
     compile 'org.apache.thrift:libthrift:0.9.3'
-    
+	compile name: 'ejml-0.23'
+	compile name: 'javax.json-api-1.0-sources'
+	compile name: 'javax.json'
+	compile name: 'joda-time-2.9-sources'
+	compile name: 'joda-time'
+	compile name: 'jollyday-0.4.7-sources'
+	compile name: 'jollyday'
+	compile name: 'protobuf'
+	compile name: 'stanford-corenlp-3.6.0-javadoc'
+	compile name: 'stanford-corenlp-3.6.0-models'
+	compile name: 'stanford-corenlp-3.6.0-sources'
+	compile name: 'stanford-corenlp-3.6.0'
+	compile name: 'xom-1.2.10-src'
+	compile name: 'xom'
+
 }

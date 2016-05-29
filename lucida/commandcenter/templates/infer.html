@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% if dates %}
+<meta id="dates" data-name="{{ dates }}"> <!-- passed to calendar.js -->
+<script src="https://apis.google.com/js/client.js?onload=checkAuth&output=embed"></script>
+<script src="{{ url_for('static', filename='js/calendar.js')}}"></script>
+{% endif %}
+
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/asr.css')}}">
 
 <div class="container">
@@ -22,6 +29,10 @@
 				<label>Image input</label>
 				<input id="image_input" type="file" name="file" size="60">
 				<p class="help-block">Upload your picture!</p>
+			</div>
+
+			<div class="form-group">
+				<label>Speech input</label>
 			</div>
 	</div>
 
@@ -59,7 +70,6 @@
 				<td></td>
 				<td colspan="2">
 				<br><br>
-
 
 
 			<div class="form-group">
@@ -104,7 +114,6 @@
 	</div>
 </div>
 
-<script src="{{ url_for('static', filename='js/infer.js')}}"></script>
 <script src="{{ url_for('static', filename='js/dictate.js')}}"></script>
 <script src="{{ url_for('static', filename='js/recorder.js')}}"></script>
 <script src="{{ url_for('static', filename='js/recorderWorker.js')}}"></script>
