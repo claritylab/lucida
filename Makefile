@@ -19,7 +19,7 @@ export THRIFT_ROOT=$(shell pwd)/tools/thrift-$(THRIFT_VERSION)
 export CAFFE=$(shell pwd)/tools/caffe/distribute
 export LUCIDAROOT=$(shell pwd)/lucida
 local:
-	cd tools && make && cd - && cd lucida && ./thrift-gen.sh && cd - && make all
+	cd tools && make && cd - && cd lucida && make all
 
 ## start all services
 start_all:
