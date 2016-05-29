@@ -8,9 +8,9 @@ int main() {
     DBClientConnection conn;
     try {
         conn.connect("localhost:27017");
-        cout << "Connection ok" << endl;
+        std::cout << "Connection ok" << std::endl;
     } catch( DBException &e ) {
-        cout << "Caught " << e.what() << endl;
+        std::cout << "Caught " << e.what() << std::endl;
     }
     return 0;
 }
