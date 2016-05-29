@@ -54,11 +54,12 @@ git checkout legacy
 sudo apt-get install scons
 sudo scons --prefix=/usr/local --ssl install
 rm -rf .git
+cd ..
 
 if installCheck $0; then
   echo "MongoDB and C++ driver installed"; 
   exit 0;
 else 
-  echo "Faile to install Facebook Thrift"; 
+  echo "Faile to install MongoDB and C++ driver"; 
   exit 1;
 fi
