@@ -22,7 +22,9 @@ autoreconf -ivf
 make
 make check
 sudo make install
-cd ../../
+cd ../
+rm -rf .git
+cd ../
 git clone https://github.com/facebook/wangle.git
 cd wangle/wangle
 cmake .
@@ -34,6 +36,7 @@ cd thrift/
 ./build/deps_ubuntu_14.04.sh  
 autoreconf -if && ./configure && make
 sudo make install
+cd ..
 rm -rf .git
 
 if installCheck $0; then
