@@ -38,6 +38,7 @@ cd mongo-c-driver-1.3.0
 make
 sudo make install
 rm -rf .git
+cd ..
 
 # Upgrade CMake.
 sudo apt-get install -y software-properties-common

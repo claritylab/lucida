@@ -15,6 +15,8 @@ if installCheck $0; then
   exit 0;
 fi
 
+sudo apt-get remove -y thrift-compiler
+
 wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" \
   && tar xf thrift-$THRIFT_VERSION.tar.gz \
   && cd thrift-$THRIFT_VERSION \
