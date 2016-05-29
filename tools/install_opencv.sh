@@ -12,5 +12,5 @@ git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
   && cd build \
   && cmake ..  \
   && make -j$THREADS \
-  && sudo make -j$THREADS install
+  && sudo make -j$THREADS install \
   && rm -rf .git
