@@ -2,6 +2,7 @@ CXX = g++
 
 CXXFLAGS = 		-std=c++11 \
 				-fPIC \
+				-I /usr/local/include \
 				-I /usr/local/include/mongo 
 
 LINKFLAGS =  	-I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
