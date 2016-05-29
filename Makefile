@@ -1,5 +1,3 @@
-SUBDIRS=lucida
-
 DOCKER_CONTAINER=claritylab/lucida
 VERSION=latest
 
@@ -14,9 +12,7 @@ docker:
 	docker build -t $(DOCKER_CONTAINER):$(VERSION) .
 
 ## build local environment
-THRIFT_VERSION=0.9.2
-export THRIFT_ROOT=$(shell pwd)/tools/thrift-$(THRIFT_VERSION)
-export CAFFE=$(shell pwd)/tools/caffe/distribute
+export LD_LIBRARY_PATH=/usr/local/lib
 export LUCIDAROOT=$(shell pwd)/lucida
 local:
 	cd tools && make && cd - && cd lucida && make all

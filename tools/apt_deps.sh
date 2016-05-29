@@ -4,6 +4,7 @@
 
 apt-get update
 ln -s -f bash /bin/sh
+sudo ln -s /usr/bin/pip2 /usr/local/bin/pip
 apt-get install -y zlib1g-dev \
                    libatlas3-base \
                    python2.7-dev \

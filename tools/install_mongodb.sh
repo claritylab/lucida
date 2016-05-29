@@ -8,7 +8,6 @@ sudo service mongod start
 
 if [ -d mongo-c-driver-$MONGO_C_DRIVER_VERSION ]; then
   echo "MongoDB C Driver already installed, skipping"
-  exit
 fi
 
 wget https://github.com/mongodb/mongo-c-driver/releases/download/1.3.0/mongo-c-driver-1.3.0.tar.gz
