@@ -88,8 +88,7 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 			[=]() mutable {
 		try {
 			if (query_save.content.empty()
-					|| query_save.content[0].data.empty()
-					|| query_save.content[0].tags.empty()) {
+					|| query_save.content[0].data.empty()) {
 				throw runtime_error("IMM received empty infer query");
 			}
 			vector<unique_ptr<StoredImage>> images = getImages(LUCID_save);
@@ -99,7 +98,8 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 									query_save.content[0].data[0]))))); // use opencv
 			print("Result: " << images[best_index]->getLabel());
 			// Check if the query needs to be further sent to QA.
-			if (query_save.content[0].tags[0] != "") {
+			if (!query_save.content[0].tags.empty() &&
+					query_save.content[0].tags[0] != "") {
 				if (query_save.content.size() == 1
 						|| query_save.content[1].data.empty()) {
 					throw runtime_error("IMM wants to further request"
@@ -194,7 +194,7 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 }
 
 unique_ptr<DBClientBase> IMMHandler::getConnection() {
-	string uri = "mongodb://localhost:27017"; // specify where MongoDB is running
+	string uri = "localhost:27017"; // specify where MongoDB is running
 	string errmsg;
 	ConnectionString cs = ConnectionString::parse(uri, errmsg);
 	if (!cs.isValid()) {
