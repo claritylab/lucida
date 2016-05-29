@@ -1,12 +1,8 @@
 export OPENCV_VERSION=2.4.9
 
-if [ -z "$THREADS" ]; then
-  THREADS=4
-fi
-
-if [ -d opencv-$OPENCV_VERSION ]; then
+if [ -d /usr/local/include/opencv2 ]; then
   echo "OpenCV already installed, skipping"
-  exit
+  exit 0
 fi
 
 git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
@@ -17,3 +13,4 @@ git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
   && cmake ..  \
   && make -j$THREADS \
   && sudo make -j$THREADS install
+  && rm -rf .git

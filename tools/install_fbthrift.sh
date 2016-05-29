@@ -1,6 +1,16 @@
-if [ -d "fbthrift" ]; then
-  echo "FBThrift already installed, skipping"
-  exit
+installCheck () {
+  python -mthrift_compiler.main --gen cpp2 ../lucida/lucidaservice.thrift
+  if [ -d gen-cpp2 ]; then
+    rm -rf gen-cpp2
+    return 0
+  else
+    return 1
+  fi
+}
+
+if installCheck $0; then
+  echo "Facebook Thrift installed";
+  exit 0;
 fi
 
 git clone https://github.com/facebook/fbthrift.git
@@ -26,7 +36,10 @@ autoreconf -if && ./configure && make
 sudo make install
 rm -rf .git
 
-if [ -d "fbthrift" ]; then
-  echo "FBThrift already installed, skipping"
-  exit
+if installCheck $0; then
+  echo "Facebook Thrift installed";
+  exit 0;
+else
+  echo "Faile to install Facebook Thrift";
+  exit 1;
 fi
