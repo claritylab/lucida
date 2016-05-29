@@ -20,7 +20,7 @@ local: tools services
 tools:
 	cd tools && make
 
-services:
+services: tools
 	cd lucida && make all
 
 ## start all services
