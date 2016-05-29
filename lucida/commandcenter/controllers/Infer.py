@@ -1,7 +1,6 @@
 from flask import *
 from ConcurrencyManagement import log
 from AccessManagement import login_required
-from Learn import image_allowed
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
 
@@ -30,6 +29,8 @@ def infer_route():
 								   			 form['speech_input'],
 								   			 request.files['file'].read())
 				log('Result ' + result)
+				if services_needed == ['CA']:
+					return render_template('infer.html', dates=result)
 			else:
 				raise RuntimeError('Did you click the Ask button?')
 	except Exception as e:

@@ -60,7 +60,7 @@ def learn_route():
 				database.add_text(session['username'],
 								  request.form['text_knowledge'])
 			elif request.form['op'] == 'secret':
-				database.secret(session['username'])			
+				database.secret(session['username'], request.form['directory'])			
 			else:
 				raise RuntimeError('Did you click the Add button?')
 	except Exception as e:
