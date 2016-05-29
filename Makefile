@@ -15,7 +15,8 @@ docker:
 export LD_LIBRARY_PATH=/usr/local/lib
 export LUCIDAROOT=$(shell pwd)/lucida
 
-local: tools services
+local: 
+	cd tools && make && cd lucida && make
 
 tools:
 	cd tools && make
