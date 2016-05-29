@@ -21,7 +21,7 @@ tools:
 	cd tools && make
 
 services: tools
-	cd lucida && make all
+	cd lucida && make
 
 ## start all services
 start_all:
