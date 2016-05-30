@@ -25,7 +25,14 @@ using namespace folly;
 using namespace apache::thrift;
 using namespace apache::thrift::async;
 using namespace cv;
-using namespace mongo;
+
+using mongo::DBClientConnection;
+using mongo::DBException;
+using mongo::BSONObj;
+using mongo::BSONObjBuilder;
+using mongo::GridFS;
+using mongo::GridFile;
+using mongo::DBClientCursor;
 
 using std::cout;
 using std::endl;
@@ -159,21 +166,17 @@ void IMMHandler::addImage(const string &LUCID,
 	print("@@@ Label: " << label);
 	print("@@@ Size: " << data.size());
 	// Insert the descriptors matrix into MongoDB.
-	unique_ptr<DBClientBase> conn = move(getConnection());
+	unique_ptr<DBClientConnection> conn = move(getConnection());
 	string mat_str = Image::imageToMatString(data); // written to file system
 	GridFS grid(*conn, "lucida");
 	BSONObj result = grid.storeFile(mat_str.c_str(), mat_str.size(),
 			"opencv_" + LUCID + "/" + label);
-	string e = conn->getLastError();
-	if (!e.empty()) {
-		throw runtime_error("Insert failed " + e);
-	}
 }
 
 vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 	vector<unique_ptr<StoredImage>> rtn;
 	// Retrieve all images of the user from MongoDB.
-	unique_ptr<DBClientBase> conn = move(getConnection());
+	unique_ptr<DBClientConnection> conn = move(getConnection());
 	auto_ptr<DBClientCursor> cursor = conn->query(
 			"lucida.images_" + LUCID, BSONObj()); // retrieve desc, NOT data
 	GridFS grid(*conn, "lucida");
@@ -193,17 +196,16 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 	return rtn;
 }
 
-unique_ptr<DBClientBase> IMMHandler::getConnection() {
-	string uri = "localhost:27017"; // specify where MongoDB is running
-	string errmsg;
-	ConnectionString cs = ConnectionString::parse(uri, errmsg);
-	if (!cs.isValid()) {
-		throw runtime_error("Error parsing connection string "
-				+ uri + ": " + errmsg);
-	}
-	unique_ptr<DBClientBase> conn(cs.connect(errmsg));
-	if (!conn) {
-		throw runtime_error("Couldn't connect: " + errmsg);
+unique_ptr<DBClientConnection> IMMHandler::getConnection() {
+	print("###");
+	mongo::client::initialize();
+	print("qwvt");
+	unique_ptr<DBClientConnection> conn(new DBClientConnection);
+	print("q3g4");
+	try {
+		conn->connect("localhost:27017");
+	} catch( DBException &e ) {
+		cout << "Caught " << endl;
 	}
 	return conn;
 }
