@@ -34,7 +34,9 @@ sudo make install
 cd ../../
 cd thrift/
 ./build/deps_ubuntu_14.04.sh  
-autoreconf -if && ./configure && make
+autoreconf -if
+./configure
+sudo make
 sudo make install
 cd ..
 rm -rf .git
