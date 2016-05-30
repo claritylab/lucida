@@ -1,7 +1,7 @@
 export MONGO_C_DRIVER_VERSION=1.3.0
 
 installCheck () {
-  if [[ $(g++ mongodb_check.cpp -I /usr/local/include/mongo /usr/local/lib/libmongoclient.a  -lboost_thread -lboost_filesystem -lboost_program_options -lboost_system -pthread -o mongodb_check) ]]; then
+  if [[ $(g++ mongodb_check.cpp -I /usr/local/include/mongo /usr/local/lib/libmongoclient.a  -lboost_thread -lboost_filesystem -lboost_program_options -lboost_system -pthread -o -lssl -lcrypto -lboost_regex mongodb_check) ]]; then
   	return 1
   fi
   if [[ $(./mongodb_check) == "Connection ok" ]]; then
@@ -38,14 +38,13 @@ cd mongo-c-driver-1.3.0
 make
 sudo make install
 rm -rf .git
-cd ..
 
 # Upgrade CMake.
 sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y ppa:george-edison55/cmake-3.x
-sudo apt-get -y update
+sudo apt-get update
 sudo apt-get install -y cmake
-sudo apt-get -y upgrade
+sudo apt-get upgrade
 
 # C++ driver.
 git clone -b master https://github.com/mongodb/mongo-cxx-driver
@@ -61,6 +60,6 @@ if installCheck $0; then
   echo "MongoDB and C++ driver installed"; 
   exit 0;
 else 
-  echo "Faile to install MongoDB and C++ driver"; 
+  echo "Faile to install Facebook Thrift"; 
   exit 1;
 fi
