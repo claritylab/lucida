@@ -30,6 +30,7 @@ LINKFLAGS =  	-I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
 				-lthriftcpp2 \
 				-lgflags \
 				-lthriftprotocol \
+				-lssl \
 				-lcrypto 
 
 TARGET  = imm_server
