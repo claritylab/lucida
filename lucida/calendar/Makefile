@@ -1,4 +1,4 @@
-all: thrift
+all: thrift corenlp
 
 thrift:
 	@if [ ! -d "src/main/java/thrift" ]; then \
@@ -11,6 +11,13 @@ thrift:
        mv gen-java/* src/main/java/thrift/; \
        rmdir gen-java/; \
     fi
+
+corenlp:
+	@if [ ! -d "lib" ]; then \
+		wget http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip; \
+		unzip stanford-corenlp-full-2015-12-09.zip; \
+		mv stanford-corenlp-full-2015-12-09 lib; \
+	fi
 
 start_server: 
 	gnome-terminal -x bash -c "./gradlew run $(filter-out $@,$(MAKECMDGOALS)); read -n1"
