@@ -31,13 +31,24 @@ if [ $? != 0 ]; then
 fi
 
 # C driver.
-wget https://github.com/mongodb/mongo-c-driver/releases/download/1.3.0/mongo-c-driver-1.3.0.tar.gz
-tar xzf mongo-c-driver-1.3.0.tar.gz
-cd mongo-c-driver-1.3.0
-./configure --with-libbson=bundled
+sudo apt-get install git gcc automake autoconf libtool
+git clone https://github.com/mongodb/mongo-c-driver.git
+cd mongo-c-driver
+git checkout r1.3
+./autogen.sh --prefix=/usr/local
 make
 sudo make install
 rm -rf .git
+cd ..
+
+git clone git://github.com/mongodb/libbson.git
+cd libbson/
+git checkout r1.3  # To build a particular release
+./autogen.sh
+make
+sudo make install
+rm -rf .git
+cd ..
 
 # Upgrade CMake.
 sudo apt-get install -y software-properties-common
@@ -50,9 +61,10 @@ sudo apt-get upgrade
 git clone -b master https://github.com/mongodb/mongo-cxx-driver
 cd mongo-cxx-driver
 git checkout r3.0.0
-git checkout legacy
-sudo apt-get install scons
-sudo scons --prefix=/usr/local --ssl install
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+sudo cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local
+sudo make
+sudo make install
 rm -rf .git
 cd ..
 
