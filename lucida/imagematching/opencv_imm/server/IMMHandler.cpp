@@ -25,14 +25,7 @@ using namespace folly;
 using namespace apache::thrift;
 using namespace apache::thrift::async;
 using namespace cv;
-
-using mongo::DBClientConnection;
-using mongo::DBException;
-using mongo::BSONObj;
-using mongo::BSONObjBuilder;
-using mongo::GridFS;
-using mongo::GridFile;
-using mongo::DBClientCursor;
+using namespace mongo;
 
 using std::cout;
 using std::endl;
@@ -44,7 +37,16 @@ using std::shared_ptr;
 std::mutex cout_lock_cpp;
 
 namespace cpp2 {
-IMMHandler::IMMHandler() {}
+IMMHandler::IMMHandler() {
+	// Initialize MongoDB C++ driver.
+	client::initialize();
+	try {
+		conn.connect("localhost");
+		print("connected ok");
+	} catch(const DBException &e) {
+		print("caught " << e.what());
+	}
+}
 
 folly::Future<folly::Unit> IMMHandler::future_create
 (unique_ptr<string> LUCID, unique_ptr< ::cpp2::QuerySpec> spec) {
@@ -166,9 +168,8 @@ void IMMHandler::addImage(const string &LUCID,
 	print("@@@ Label: " << label);
 	print("@@@ Size: " << data.size());
 	// Insert the descriptors matrix into MongoDB.
-	unique_ptr<DBClientConnection> conn = move(getConnection());
 	string mat_str = Image::imageToMatString(data); // written to file system
-	GridFS grid(*conn, "lucida");
+	GridFS grid(conn, "lucida");
 	BSONObj result = grid.storeFile(mat_str.c_str(), mat_str.size(),
 			"opencv_" + LUCID + "/" + label);
 }
@@ -176,14 +177,13 @@ void IMMHandler::addImage(const string &LUCID,
 vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 	vector<unique_ptr<StoredImage>> rtn;
 	// Retrieve all images of the user from MongoDB.
-	unique_ptr<DBClientConnection> conn = move(getConnection());
-	auto_ptr<DBClientCursor> cursor = conn->query(
+	auto_ptr<DBClientCursor> cursor = conn.query(
 			"lucida.images_" + LUCID, BSONObj()); // retrieve desc, NOT data
-	GridFS grid(*conn, "lucida");
+	GridFS grid(conn, "lucida");
 	while (cursor->more()) {
 		string label = cursor->next().getStringField("label");
 		ostringstream out;
-		GridFile gf = grid.findFile("opencv_" + LUCID + "/" + label);
+		GridFile gf = grid.findFileByName("opencv_" + LUCID + "/" + label);
 		if (!gf.exists()) {
 			print("opencv_" + LUCID + "/" + label + " not found!");
 			continue;
@@ -194,19 +194,5 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 				move(Image::matStringToMatObj(out.str())))));
 	}
 	return rtn;
-}
-
-unique_ptr<DBClientConnection> IMMHandler::getConnection() {
-	print("###");
-	mongo::client::initialize();
-	print("qwvt");
-	unique_ptr<DBClientConnection> conn(new DBClientConnection);
-	print("q3g4");
-	try {
-		conn->connect("localhost:27017");
-	} catch( DBException &e ) {
-		cout << "Caught " << endl;
-	}
-	return conn;
 }
 }

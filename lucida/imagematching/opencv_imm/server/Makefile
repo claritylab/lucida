@@ -1,12 +1,9 @@
 CXX = g++
 
 CXXFLAGS = 		-std=c++11 \
-				-fPIC \
-				-I /usr/local/include \
-				-I /usr/local/include/mongo 
+				-fPIC 
 
-LINKFLAGS =  	-I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
-				-lopencv_core \
+LINKFLAGS =     -lopencv_core \
 				-lopencv_highgui \
 				-lopencv_imgproc \
 				-lopencv_nonfree \
@@ -18,6 +15,7 @@ LINKFLAGS =  	-I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
 				-lprotobuf \
 				-ltesseract \
 				-pthread \
+				-lmongoclient \
 				-lboost_program_options \
 				-lboost_filesystem \
 				-lboost_system \
@@ -31,7 +29,7 @@ LINKFLAGS =  	-I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
 				-lgflags \
 				-lthriftprotocol \
 				-lssl \
-				-lcrypto 
+				-lcrypto
 
 TARGET  = imm_server
 SOURCES = gen-cpp2/LucidaService_client.cpp \
@@ -44,8 +42,6 @@ SOURCES = gen-cpp2/LucidaService_client.cpp \
 				gen-cpp2/lucidatypes_types.cpp \
 				$(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
-
-COMMON_DIR = ../opencv
 
 all: CXXFLAGS += -O3
 all: thrift $(TARGET)
@@ -60,10 +56,10 @@ thrift:
     fi
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $@ $(LINKFLAGS)
+	$(CXX) $(OBJECTS) $(LINKFLAGS) -o $@
 
 %.o: %.cpp
-	$(CXX) -Wall -I$(COMMON_DIR) $(CXXFLAGS) -c $< -o $@
+	$(CXX) -Wall $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(TARGET) *.o gen-cpp2
