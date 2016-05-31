@@ -10,7 +10,7 @@ int main() {
 	DBClientConnection conn;
 	try {
 		conn.connect("localhost:27017");
-		cout << "Connected ok" << endl;
+		cout << "Connection ok" << endl;
 	} catch( DBException &e ) {
 		cout << "Caught " << e.what() << endl;
 	}

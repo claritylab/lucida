@@ -1,11 +1,11 @@
 export MONGO_C_DRIVER_VERSION=1.3.0
 
 installCheck () {
-  if [[ $(g++ mongodb_check.cpp -I /usr/local/include/mongo /usr/local/lib/libmongoclient.a  -lboost_thread -lboost_filesystem -lboost_program_options -lboost_system -pthread -lssl -lcrypto -lboost_regex -o mongodb_check) ]]; then
+  if [[ $(g++ query_mongo.cpp -std=c++11 -lmongoclient -lboost_thread -lboost_filesystem -lboost_regex -lboost_program_options -lboost_system -pthread -lssl -lcrypto -o query_mongo) ]]; then
   	return 1
   fi
-  if [[ $(./mongodb_check) == "Connection ok" ]]; then
-    rm mongodb_check
+  if [[ $(./query_mongo | sed -n '1 p') == "Connection ok" ]]; then
+    rm query_mongo
     return 0
   else
     return 1
@@ -28,6 +28,9 @@ sudo service mongod start
 if [ $? != 0 ]; then
   echo 'Failed to install MongoDB'
   exit 1
+else 
+  echo "Faile to install MongoDB and C++ driver"; 
+  exit 1;
 fi
 
 # C driver.
