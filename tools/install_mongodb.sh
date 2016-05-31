@@ -61,10 +61,9 @@ sudo apt-get -y upgrade
 git clone -b master https://github.com/mongodb/mongo-cxx-driver
 cd mongo-cxx-driver
 git checkout r3.0.0
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-sudo cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local
-sudo make
-sudo make install
+git checkout legacy
+sudo apt-get install scons
+sudo scons --prefix=/usr/local --c++11=on --ssl install
 rm -rf .git
 cd ..
 
