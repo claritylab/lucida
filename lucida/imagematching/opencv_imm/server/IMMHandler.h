@@ -5,7 +5,7 @@
 
 #include "gen-cpp2/LucidaService.h"
 #include "Image.h"
-#include "client/dbclient.h" // MongoDB
+#include "mongo/client/dbclient.h"
 
 // Define print which is the function used for debugging.
 extern std::mutex cout_lock_cpp;
@@ -35,13 +35,15 @@ public:
 			std::unique_ptr< ::cpp2::QuerySpec> query);
 
 private:
+	mongo::DBClientConnection conn;
+
 	void addImage(const std::string &LUCID,
 			const std::string &label, const std::string &data);
 
 	std::vector<std::unique_ptr<StoredImage>> getImages(
 			const std::string &LUCID);
 
-	std::unique_ptr<mongo::DBClientConnection> getConnection();
+	std::unique_ptr<mongo::DBClientBase> getConnection();
 
 };
 }

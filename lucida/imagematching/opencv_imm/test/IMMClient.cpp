@@ -1,3 +1,33 @@
+#include <cstdlib>
+#include <iostream>
+#include "mongo/client/dbclient.h"
+
+// g++ IMMClient.cpp -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lssl -lcrypto -o x
+
+// works
+
+// g++ gen-cpp2/LucidaService_client.o gen-cpp2/lucidaservice_constants.o gen-cpp2/LucidaService.o gen-cpp2/LucidaService_processmap_binary.o gen-cpp2/LucidaService_processmap_compact.o gen-cpp2/lucidaservice_types.o gen-cpp2/lucidatypes_constants.o gen-cpp2/lucidatypes_types.o IMMClient.o  -lrt -lprotobuf -ltesseract -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lboost_program_options -lboost_filesystem -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -o imm_test
+
+// :(
+
+// g++ gen-cpp2/LucidaService_client.o gen-cpp2/lucidaservice_constants.o gen-cpp2/LucidaService.o gen-cpp2/LucidaService_processmap_binary.o gen-cpp2/LucidaService_processmap_compact.o gen-cpp2/lucidaservice_types.o gen-cpp2/lucidatypes_constants.o gen-cpp2/lucidatypes_types.o IMMClient.o -lrt -lprotobuf -ltesseract -pthread -lboost_program_options -lboost_filesystem -lboost_system -lboost_thread -lboost_regex -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -lmongoclient -o imm_test
+
+
+
+// works
+
+// g++ IMMClient.cpp -lrt -lprotobuf -ltesseract -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lboost_program_options -lboost_filesystem -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -o x
+
+// :(
+
+// g++ IMMClient.o -lrt -lprotobuf -ltesseract -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lboost_program_options -lboost_filesystem -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -o x
+
+// :(
+
+// g++ IMMClient.cpp -std=c++11 -lrt -lprotobuf -ltesseract -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lboost_program_options -lboost_filesystem -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -o x
+
+// g++ -Wall -I../opencv -std=c++11 -fPIC  -O3 -c IMMClient.cpp -o IMMClient.o
+
 #include <unistd.h>
 #include <gflags/gflags.h>
 #include <iostream>
@@ -12,8 +42,6 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 
-#include "client/dbclient.h" // MongoDB
-
 using namespace folly;
 using namespace apache::thrift;
 using namespace apache::thrift::async;
@@ -21,7 +49,7 @@ using namespace cpp2;
 using namespace std;
 
 using mongo::DBClientConnection;
-using mongo::DBException;
+using mongo::DBClientBase;
 using mongo::BSONObj;
 using mongo::BSONObjBuilder;
 
@@ -35,22 +63,11 @@ DEFINE_string(hostname,
 		"127.0.0.1",
 		"Hostname of the server (default: localhost)");
 
-void saveToMongoDb(const string &LUCID,
+void saveToMongoDb(DBClientConnection &conn, const string &LUCID,
 		const string &label, const string &data) {
-	mongo::client::initialize();
-	DBClientConnection conn;
-	try {
-		conn.connect("localhost:27017");
-	} catch( DBException &e ) {
-		cout << "Caught " << e.what() << endl;
-	}
 	BSONObj p = BSONObjBuilder().append("label", label).append("data", data)
 			.append("size", (int) data.size()).obj();
 	conn.insert("lucida.images_" + LUCID, p); // insert the image data
-	string e = conn.getLastError();
-	if (!e.empty()) {
-		throw runtime_error("Insert failed " + e);
-	}
 }
 
 string getImageData(const string &image_path) {
@@ -66,6 +83,16 @@ string getImageData(const string &image_path) {
 }
 
 int main(int argc, char* argv[]) {
+	// Initialize MongoDB C++ driver.
+	mongo::client::initialize();
+	mongo::DBClientConnection c;
+	try {
+		c.connect("localhost");
+		cout << "connected ok" << endl;
+	} catch(const mongo::DBException &e) {
+		cout << "caught " << e.what() << endl;
+	}
+
 	google::InitGoogleLogging(argv[0]);
 	google::ParseCommandLineFlags(&argc, &argv, true);
 	EventBase event_base;
@@ -92,7 +119,7 @@ int main(int argc, char* argv[]) {
 		cout << "Image size: " << image.size() << endl;
 		query_input.tags.push_back(label);
 		query_spec.content.push_back(query_input);
-		saveToMongoDb("Johann", label, image);
+		saveToMongoDb(c, "Johann", label, image);
 		// Make request.
 		client.future_learn("Johann", std::move(query_spec)).then(
 				[](folly::Try<folly::Unit>&& t) mutable {
