@@ -1,6 +1,6 @@
 all:
 	@if [ ! -d "kaldi" ]; then \
-		./install_kaldi.sh
+		./install_kaldi.sh; \
 	fi
 
 start_master_server:
