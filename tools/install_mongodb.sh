@@ -53,9 +53,9 @@ cd ..
 # Upgrade CMake.
 sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y ppa:george-edison55/cmake-3.x
-sudo apt-get update
+sudo apt-get -y update
 sudo apt-get install -y cmake
-sudo apt-get upgrade
+sudo apt-get -y upgrade
 
 # C++ driver.
 git clone -b master https://github.com/mongodb/mongo-cxx-driver
@@ -72,6 +72,6 @@ if installCheck $0; then
   echo "MongoDB and C++ driver installed"; 
   exit 0;
 else 
-  echo "Faile to install Facebook Thrift"; 
+  echo "Faile to install MongoDB and C++ driver"; 
   exit 1;
 fi
