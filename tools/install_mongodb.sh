@@ -46,7 +46,7 @@ cd ..
 
 git clone git://github.com/mongodb/libbson.git
 cd libbson/
-git checkout r1.3  # To build a particular release
+git checkout r1.3
 ./autogen.sh
 make
 sudo make install
