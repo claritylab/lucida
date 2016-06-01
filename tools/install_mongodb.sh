@@ -66,5 +66,4 @@ if installCheck $0; then
   exit 0;
 else 
   echo "Faile to install MongoDB and C++ driver"; 
-  exit 1;
 fi
