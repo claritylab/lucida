@@ -90,9 +90,15 @@ RUN \
 
 ## install lucida
 RUN mkdir -p /usr/local/lucida
-WORKDIR /usr/local/lucida
 ADD . /usr/local/lucida
-RUN /usr/bin/make local
+WORKDIR "/usr/local/lucida/tools"
+RUN /bin/bash apt_deps.sh
+RUN /bin/bash install_mongodb.sh
+RUN /bin/bash install_opencv.sh
+RUN /bin/bash install_thrift.sh
+RUN /bin/bash install_fbthrift.sh
+WORKDIR "/usr/local/lucida/lucida"
+RUN /usr/bin/make
 
 ### docker build --pull -t claritylab/lucida .
 ### docker run -it claritylab/lucida  /bin/bash
