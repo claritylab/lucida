@@ -45,6 +45,5 @@ sudo apt-get install -y liblapack3
 sudo apt-get install -y liblapack-dev
 sudo apt-get install -y gfortran
 sudo apt-get install -y libc6
-sudo pip install -r $LUCIDAROOT/commandcenter/requirements.txt
 gnome-terminal -x bash -c "python kaldigstserver/worker.py -u ws://localhost:8888/worker/ws/speech -c sample_english_nnet2.yaml; read -n1"
 gnome-terminal -x bash -c "python kaldigstserver/client.py -r 8192 test/data/bill_gates-TED.mp3; read -n1"

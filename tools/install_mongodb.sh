@@ -24,15 +24,6 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo service mongod start
 
-(mongo --version) | grep "MongoDB shell version:" &> /dev/null
-if [ $? != 0 ]; then
-  echo 'Failed to install MongoDB'
-  exit 1
-else 
-  echo "Faile to install MongoDB and C++ driver"; 
-  exit 1;
-fi
-
 # C driver.
 sudo apt-get install git gcc automake autoconf libtool
 git clone https://github.com/mongodb/mongo-c-driver.git
@@ -75,5 +66,4 @@ if installCheck $0; then
   exit 0;
 else 
   echo "Faile to install MongoDB and C++ driver"; 
-  exit 1;
 fi
