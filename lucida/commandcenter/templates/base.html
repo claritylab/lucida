@@ -29,6 +29,10 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		 	{% if session['logged_in'] %}
 			<ul class="nav navbar-nav navbar-left">
+				<li><a id="nav_albums" href="{{ url_for('create.create_route') }}">Create</a></li>
+		 	</ul>
+
+			<ul class="nav navbar-nav navbar-left">
 				<li><a id="nav_albums" href="{{ url_for('learn.learn_route') }}">Learn</a></li>
 		 	</ul>
 
@@ -37,7 +41,7 @@
 		 	</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a id="nav_logout" href="{{ url_for('create.logout_route') }}">Log out</a><li>
+				<li><a id="nav_logout" href="{{ url_for('user.logout_route') }}">Log out</a><li>
 		 	</ul>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -47,11 +51,11 @@
 
 		 	{% if not session['logged_in'] %}
 			<ul class="nav navbar-nav navbar-right">
-				<li><a id="home_user_create" href="{{ url_for('create.signup_route') }}">Sign up</a></li>
+				<li><a id="home_user_create" href="{{ url_for('user.signup_route') }}">Sign up</a></li>
 		 	</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a id="home_login" href="{{ url_for('create.login_route') }}">Log in</a></li>
+				<li><a id="home_login" href="{{ url_for('user.login_route') }}">Log in</a></li>
 		 	</ul>
 		 	{% endif %}	 
 		</div><!-- /.navbar-collapse -->

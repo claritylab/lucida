@@ -3,12 +3,16 @@ from pymongo import MongoClient
 from base64 import b64encode
 from ConcurrencyManagement import log
 from ThriftClient import thrift_client
+import os
 
 
 class Database():
 	# Constructor.
 	def __init__(self):
-		self.db = MongoClient().lucida
+		if 'DB_PORT_27017_TCP_ADDR' in os.environ:
+			self.db = MongoClient(os.environ['DB_PORT_27017_TCP_ADDR'], 27017).lucida
+		else:
+			self.db = MongoClient().lucida
 		self.users = self.db.users
 	
 	# Returns the image collection of the user.

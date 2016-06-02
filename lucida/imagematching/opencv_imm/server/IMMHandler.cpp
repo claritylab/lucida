@@ -1,5 +1,6 @@
 #include "IMMHandler.h"
 
+#include <cstdlib>
 #include <sstream>
 #include <unistd.h>
 #include <iostream>
@@ -11,14 +12,6 @@
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
-
-DEFINE_int32(QA_port,
-		8083,
-		"Port for QA service (default: 8083)");
-
-DEFINE_string(QA_hostname,
-		"127.0.0.1",
-		"Hostname of the server (default: localhost)");
 
 using namespace std;
 using namespace folly;
@@ -32,6 +25,7 @@ using std::endl;
 using std::string;
 using std::unique_ptr;
 using std::shared_ptr;
+using std::getenv;
 
 // cout lock.
 std::mutex cout_lock_cpp;
@@ -41,7 +35,13 @@ IMMHandler::IMMHandler() {
 	// Initialize MongoDB C++ driver.
 	client::initialize();
 	try {
-		conn.connect("localhost");
+		if (const char* env_p = getenv("DB_PORT_27017_TCP_ADDR")) {
+			print("MongoDB: " << env_p);
+			conn.connect(env_p);
+		} else {
+			print("MongoDB: localhost");
+			conn.connect("localhost");
+		}
 		print("connected ok");
 	} catch(const DBException &e) {
 		print("caught " << e.what());
@@ -124,8 +124,12 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 				print("Sending request to QA at "
 						<< words[0] << " " << words[1]);
 				EventBase event_base;
+				string QA_addr = "localhost";
+				if (const char* env_p = getenv("QA_PORT_3000_TCP_ADDR")) {
+					QA_addr = env_p;
+				}
 				std::shared_ptr<TAsyncSocket> socket(
-						TAsyncSocket::newSocket(&event_base, FLAGS_QA_hostname, FLAGS_QA_port));
+						TAsyncSocket::newSocket(&event_base, QA_addr, stoi(words[1], nullptr)));
 				unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>
 				channel(new HeaderClientChannel(socket));
 				channel->setClientType(THRIFT_FRAMED_DEPRECATED);
