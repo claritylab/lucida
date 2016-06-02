@@ -32,8 +32,7 @@ make
 ctest
 sudo make install
 cd ../../
-cd thrift/
-./build/deps_ubuntu_14.04.sh  
+cd thrift/ 
 autoreconf -if
 ./configure
 sudo make
