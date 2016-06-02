@@ -20,6 +20,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # 16 MB due to MongoDB
 
 # Register the controllers.
 app.register_blueprint(Main.main)
+app.register_blueprint(User.user)
 app.register_blueprint(Create.create)
 app.register_blueprint(Learn.learn)
 app.register_blueprint(Infer.infer)
@@ -52,4 +53,5 @@ def web_socket_listener():
 if __name__ == '__main__':
     Thread(target = thrift_listener).start()
     Thread(target = flask_listener).start()
-    web_socket_listener()
+    if not Config.DOCKER:
+        web_socket_listener()
