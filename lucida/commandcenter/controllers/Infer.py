@@ -3,6 +3,7 @@ from ConcurrencyManagement import log
 from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
+import Config
 
 infer = Blueprint('infer', __name__, template_folder='templates')
 
@@ -11,6 +12,13 @@ infer = Blueprint('infer', __name__, template_folder='templates')
 @login_required
 def infer_route():
 	result = None
+	ws_host = ''
+	if Config.DOCKER:
+		ws_host = 'ASR'
+	else:
+		ws_host = 'localhost'
+	websocket = 'ws://' + ws_host + ':8888/client/ws/speech|ws://' + \
+		ws_host + ':8888/client/ws/status'
 	try:
 		# Deal with POST requests.
 		if request.method == 'POST':
@@ -30,11 +38,11 @@ def infer_route():
 								   			 request.files['file'].read())
 				log('Result ' + result)
 				if services_needed == ['CA']:
-					return render_template('infer.html', dates=result)
+					return render_template('infer.html', dates=result, websocket=websocket)
 			else:
 				raise RuntimeError('Did you click the Ask button?')
 	except Exception as e:
 		log(e)
-		return render_template('infer.html', error=e)
+		return render_template('infer.html', error=e, websocket=websocket)
 	# Display.
-	return render_template('infer.html', result=result)
+	return render_template('infer.html', result=result, websocket=websocket)

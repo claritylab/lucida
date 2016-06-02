@@ -1,3 +1,3 @@
-__all__ = ['Main', 'Auth', 'AccessManagement', 'ThriftServer', 'WebSocket',
+__all__ = ['Main', 'AccessManagement', 'ThriftServer', 'WebSocket',
            'ThriftClient', 'Create', 'Learn', 'Infer', 'ConcurrencyManagement',
-           'QueryClassifier', 'Config']
+           'QueryClassifier', 'Config', 'User']

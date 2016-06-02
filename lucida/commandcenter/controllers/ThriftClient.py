@@ -11,12 +11,13 @@ import Config
 
 class ThriftClient(object):	
 	# Constructor.
-	def __init__(self, SERVICE_LIST_IN, LEARNERS_IN):
+	def __init__(self, SERVICE_LIST_IN, LEARNERS_IN, services_in):
 		# Descriptions of services from ../config.py.
 		self.SERVICE_LIST = SERVICE_LIST_IN
 		self.LEARNERS = LEARNERS_IN
 		# Registered services.
-		self.services = {}
+		self.services = services_in
+		log('Pre-configured services: ' + str(services_in))
 	
 	def create_query_input(self, type_in, data_in, tag_in):
 		query_input = QueryInput()
@@ -62,16 +63,22 @@ class ThriftClient(object):
 	
 	def get_client_transport(self, service_name):
 		host, port = self.get_service(service_name)
-		transport = TTransport.TFramedTransport(TSocket.TSocket(host ,port)) #TFramedTransport or TBufferedTransport?????
+		transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
 		protocol = TBinaryProtocol.TBinaryProtocol(transport)
 		transport.open()
 		return LucidaService.Client(protocol), transport
+
+	def get_client_transport_QA(self, host, port):
+        transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
+        protocol = TBinaryProtocol.TBinaryProtocol(transport)
+        transport.open()
+        return LucidaService.Client(protocol), transport
 
 	def learn_image(self, LUCID, label, image_data):
 		for service_name in self.LEARNERS['image']: # add concurrency?
 			knowledge_input = self.create_query_input('image',
 													  image_data, label)
-			client, transport = self.get_client_transport(service_name)
+			client, transport = self.get_client_transport_QA('QA', 8083) # only OpenEphyra learns
 			log('Sending learn_image request to IMM')
 			client.learn(str(LUCID), 
 						 self.create_query_spec('knowledge', [knowledge_input]))
@@ -106,6 +113,26 @@ class ThriftClient(object):
 				input_type, data_in, tag_in))
 			i += 1
 		# Send request to the front service in services_needed.
+		# QA.
+		# I know hard-coding is not good, but I will fix this later.
+		if services_needed[0] == 'QA':
+			log('Asking OpenEphyra')
+			client, transport = self.get_client_transport_QA('QA', 8083)
+			result = client.infer(str(LUCID), self.create_query_spec(
+                        	'query', query_input_list))
+			transport.close()
+			if result == 'Factoid not found in knowledge base.':
+				log('Asking ensemble')
+				# Ask Falk and fix it. He implemented Thrift interface differently.
+				transport = TSocket.TSocket('ensemble', 9090)
+				transport = TTransport.TBufferedTransport(transport)
+				protocol = TBinaryProtocol.TBinaryProtocol(transport)
+				client = LucidaService.Client(protocol)
+				transport.open()
+				result = client.infer(text_data, QuerySpec())
+				transport.close()
+			return result
+		# Not QA.
 		client, transport = self.get_client_transport(services_needed[0])
 		log('Sending infer request to ' + services_needed[0])
 		result = client.infer(str(LUCID), self.create_query_spec(
@@ -113,5 +140,5 @@ class ThriftClient(object):
 		transport.close()
 		return result
 			
-thrift_client = ThriftClient(Config.SERVICE_LIST, Config.LEARNERS)
+thrift_client = ThriftClient(Config.SERVICE_LIST, Config.LEARNERS, Config.services_in)
 		
