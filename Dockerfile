@@ -78,6 +78,7 @@ RUN apt-get install -y flex
 RUN apt-get install -y libkrb5-dev
 RUN apt-get install -y libsasl2-dev
 RUN apt-get install -y libnuma-dev
+RUN apt-get install -y scons
 
 #### package specific routines
 RUN \
@@ -92,13 +93,13 @@ RUN \
 RUN mkdir -p /usr/local/lucida
 ADD . /usr/local/lucida
 WORKDIR "/usr/local/lucida/tools"
-RUN /bin/bash apt_deps.sh
-RUN /bin/bash install_mongodb.sh
-RUN /bin/bash install_opencv.sh
-RUN /bin/bash install_thrift.sh
-RUN /bin/bash install_fbthrift.sh
-WORKDIR "/usr/local/lucida/lucida"
-RUN /usr/bin/make
+## RUN /bin/bash apt_deps.sh
+## RUN /bin/bash install_mongodb.sh
+## RUN /bin/bash install_opencv.sh
+## RUN /bin/bash install_thrift.sh
+## RUN /bin/bash install_fbthrift.sh
+## WORKDIR "/usr/local/lucida/lucida"
+## RUN /usr/bin/make
 
 ### docker build -t lucida3 .
 ### docker run -it lucida3 /bin/bash
