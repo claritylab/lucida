@@ -1,12 +1,16 @@
 // g++ query_mongo.cpp -std=c++11 -lmongoclient -lboost_thread -lboost_filesystem -lboost_regex -lboost_program_options -lboost_system -pthread -lssl -lcrypto -o query_mongo
 
 #include <iostream>
+#include <cstdlib>
 #include "mongo/client/dbclient.h"
 
 using namespace mongo;
 using namespace std;
 
 int main() {
+	if (const char* env_p = std::getenv("LUCIDAROOT")) {
+		std::cout << "LUCIDAROOT is: " << env_p << '\n';
+	}
 	DBClientConnection conn;
 	try {
 		conn.connect("localhost:27017");

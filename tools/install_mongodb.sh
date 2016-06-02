@@ -4,7 +4,7 @@ installCheck () {
   if [[ $(g++ query_mongo.cpp -std=c++11 -lmongoclient -lboost_thread -lboost_filesystem -lboost_regex -lboost_program_options -lboost_system -pthread -lssl -lcrypto -o query_mongo) ]]; then
   	return 1
   fi
-  if [[ $(./query_mongo | sed -n '1 p') == "Connection ok" ]]; then
+  if [[ $(./query_mongo | grep "Connection ok") == "Connection ok" ]]; then
     rm query_mongo
     return 0
   else
