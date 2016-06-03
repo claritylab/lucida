@@ -36,7 +36,6 @@ cd ../../../../
 ./test/models/download-fisher-nnet2.sh
 export GST_PLUGIN_PATH=$LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr/kaldi/tools/gst-kaldi-nnet2-online/src
 sudo pip install tornado
-gnome-terminal -x bash -c "python kaldigstserver/master_server.py --port=8888; read -n1"
 sudo apt-get install -y python3.4-dev
 sudo apt-get install -y python2.7-dev
 sudo apt-get install -y libblas3
@@ -45,5 +44,3 @@ sudo apt-get install -y liblapack3
 sudo apt-get install -y liblapack-dev
 sudo apt-get install -y gfortran
 sudo apt-get install -y libc6
-gnome-terminal -x bash -c "python kaldigstserver/worker.py -u ws://localhost:8888/worker/ws/speech -c sample_english_nnet2.yaml; read -n1"
-gnome-terminal -x bash -c "python kaldigstserver/client.py -r 8192 test/data/bill_gates-TED.mp3; read -n1"
