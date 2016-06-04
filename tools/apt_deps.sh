@@ -64,7 +64,8 @@ apt-get install -y zlib1g-dev \
                    flex \
                    libkrb5-dev \
                    libsasl2-dev \
-                   libnuma-dev
+                   libnuma-dev \
+                   scons
 pip install --upgrade distribute
 pip install --upgrade pip
 pip install -r python_requirements.txt
