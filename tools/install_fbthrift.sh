@@ -14,7 +14,9 @@ if installCheck $0; then
 fi
 
 git clone https://github.com/facebook/fbthrift.git
-cd fbthrift
+cd fbthrift/thrift/
+./build/deps_ubuntu_14.04.sh
+cd ../
 git clone https://github.com/facebook/folly.git
 cd folly/folly
 autoreconf -ivf
@@ -32,7 +34,7 @@ make
 ctest
 sudo make install
 cd ../../
-cd thrift/ 
+cd thrift/
 autoreconf -if
 ./configure
 sudo make
@@ -45,6 +47,6 @@ if installCheck $0; then
   echo "Facebook Thrift installed";
   exit 0;
 else
-  echo "Faile to install Facebook Thrift";
+  echo "Failed to install Facebook Thrift";
   exit 1;
 fi
