@@ -9,7 +9,8 @@ import org.apache.thrift.async.AsyncMethodCallback;
 
 import thrift.*;
 
-/** Implementation of the calendar interface. A client request to any
+/** 
+ * Implementation of the calendar interface. A client request to any
  * method defined in the thrift file is handled by the
  * corresponding method here.
  */
@@ -66,7 +67,7 @@ public class CAServiceHandler {
 
 	    	String[] time_interval = TEXT_PROCESSOR.parse(query_data);
 
-	    	print(time_interval[0] + " " + time_interval[1]);
+	    	print("Result " + time_interval[0] + " " + time_interval[1]);
 
 	    	return time_interval[0] + " " + time_interval[1];
 

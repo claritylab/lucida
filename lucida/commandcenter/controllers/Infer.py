@@ -12,13 +12,6 @@ infer = Blueprint('infer', __name__, template_folder='templates')
 @login_required
 def infer_route():
 	result = None
-	ws_host = ''
-	if Config.DOCKER:
-		ws_host = 'ASR'
-	else:
-		ws_host = 'localhost'
-	websocket = 'ws://' + ws_host + ':8888/client/ws/speech|ws://' + \
-		ws_host + ':8888/client/ws/status'
 	try:
 		# Deal with POST requests.
 		if request.method == 'POST':
@@ -31,18 +24,17 @@ def infer_route():
 				# Classify the query.
 				services_needed = \
 					query_classifier.predict(form['speech_input'],
-											 request.files['file'])
+						request.files['file'])
 				result = thrift_client.infer(session['username'], 
-											 services_needed,
-								   			 form['speech_input'],
-								   			 request.files['file'].read())
+					services_needed, form['speech_input'],
+					request.files['file'].read())
 				log('Result ' + result)
 				if services_needed == ['CA']:
-					return render_template('infer.html', dates=result, websocket=websocket)
+					return render_template('infer.html', dates=result)
 			else:
 				raise RuntimeError('Did you click the Ask button?')
 	except Exception as e:
 		log(e)
-		return render_template('infer.html', error=e, websocket=websocket)
+		return render_template('infer.html', error=e)
 	# Display.
-	return render_template('infer.html', result=result, websocket=websocket)
+	return render_template('infer.html', result=result)

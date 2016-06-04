@@ -10,8 +10,8 @@ printdivision()
 # Generate thrift files
 echo -e "./compile-Calendar-client.sh: `pwd`"
 echo -e "./compile-Calendar-client.sh: Compiling thrift source code..."
-thrift --gen java lucidaservice.thrift
-thrift --gen java lucidatypes.thrift
+thrift --gen java ../../lucidaservice.thrift
+thrift --gen java ../../lucidatypes.thrift
 mv gen-java thrift
 printdivision
 

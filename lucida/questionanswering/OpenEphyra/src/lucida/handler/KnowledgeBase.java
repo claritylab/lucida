@@ -43,13 +43,13 @@ public class KnowledgeBase {
 	 * @param LUCID ID of Lucida user
 	 */
 	public static KnowledgeBase getKnowledgeBase(String LUCID) {
-    	KnowledgeBase kb = null;
-    	if (KnowledgeBase.active_kbs.containsKey(LUCID)) {
-    		kb = KnowledgeBase.active_kbs.get(LUCID);
-    	} else {
-    		kb = new KnowledgeBase(LUCID);
-    		KnowledgeBase.active_kbs.put(LUCID, kb);
-    	}
+		KnowledgeBase kb = null;
+		if (KnowledgeBase.active_kbs.containsKey(LUCID)) {
+			kb = KnowledgeBase.active_kbs.get(LUCID);
+		} else {
+			kb = new KnowledgeBase(LUCID);
+			KnowledgeBase.active_kbs.put(LUCID, kb);
+		}
 		// Create the default Indri directory if it does not exist.
 		if (!new File(kb.Indri_repo).exists()) {
 			QAServiceHandler.print("Creating directory " + kb.Indri_repo);
@@ -63,7 +63,7 @@ public class KnowledgeBase {
 				e.printStackTrace();
 			}
 		}
-    	return kb;
+		return kb;
 	}
 	
 	/**
@@ -284,8 +284,6 @@ public class KnowledgeBase {
 			sb.append(i + " ");
 		}
 		sb.append("\n");
-		sb.append("Note: Recently added items will be added to the default Indri repository\n");
-		sb.append("      upon the next call of infer().\n");
 		sb.append("******************** End of Summary ********************");
 		return sb.toString();
 	}

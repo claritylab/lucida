@@ -85,12 +85,16 @@ string getImageData(const string &image_path) {
 int main(int argc, char* argv[]) {
 	// Initialize MongoDB C++ driver.
 	mongo::client::initialize();
-	mongo::DBClientConnection c;
+	mongo::DBClientConnection conn;
 	try {
-		c.connect("localhost");
-		cout << "connected ok" << endl;
+		if (getenv("DOCKER")) {
+			conn.connect("mongo");
+		} else {
+			conn.connect("localhost");
+		}
+		cout << "Connection is ok" << endl;
 	} catch(const mongo::DBException &e) {
-		cout << "caught " << e.what() << endl;
+		cout << "Caught " << e.what() << endl;
 	}
 
 	google::InitGoogleLogging(argv[0]);
@@ -119,7 +123,7 @@ int main(int argc, char* argv[]) {
 		cout << "Image size: " << image.size() << endl;
 		query_input.tags.push_back(label);
 		query_spec.content.push_back(query_input);
-		saveToMongoDb(c, "Johann", label, image);
+		saveToMongoDb(conn, "Johann", label, image);
 		// Make request.
 		client.future_learn("Johann", std::move(query_spec)).then(
 				[](folly::Try<folly::Unit>&& t) mutable {

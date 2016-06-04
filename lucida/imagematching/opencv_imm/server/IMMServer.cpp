@@ -58,7 +58,7 @@ void registerToCMD() {
 int main(int argc, char* argv[]) {
 	registerToCMD();
 
-	std::cout << "IMM at 8082" << std::endl;
+	cout << "IMM at 8082" << endl;
 	google::InitGoogleLogging(argv[0]);
 	google::ParseCommandLineFlags(&argc, &argv, true);
 

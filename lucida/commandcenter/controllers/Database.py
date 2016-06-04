@@ -2,15 +2,14 @@ import hashlib, uuid, glob
 from pymongo import MongoClient
 from base64 import b64encode
 from ConcurrencyManagement import log
-from ThriftClient import thrift_client
 import os
 
 
 class Database():
 	# Constructor.
 	def __init__(self):
-		if 'DB_PORT_27017_TCP_ADDR' in os.environ:
-			self.db = MongoClient(os.environ['DB_PORT_27017_TCP_ADDR'], 27017).lucida
+		if not os.environ.get('DOCKER') is None:
+			self.db = MongoClient('mongo', 27017).lucida
 		else:
 			self.db = MongoClient().lucida
 		self.users = self.db.users
@@ -69,10 +68,15 @@ class Database():
 		self.get_image_collection(username).insert_one(
 			{'label': label, 'data': b64encode(upload_file)})
 		
-	# Returns the images by username.
+	# Returns all the images by username.
 	def get_images(self, username):
-		log('Retrieving images from images_' + username)
+		log('Retrieving all images from images_' + username)
 		return [image for image in self.get_image_collection(username).find()]
+
+	# Returns the number of images by username.
+	def count_images(self, username):
+		log('Retrieving the number of images from images_' + username)
+		return self.get_image_collection(username).count()
 	
 	# Adds the knowledge text.
 	def add_text(self, username, text_knowledge):
@@ -87,26 +91,6 @@ class Database():
 	# Deletes the specified image.
 	def delete_image(self, username, label):
 		self.get_image_collection(username).remove({'label': label})
-		
-	# Load knowledge from a given directory. Only for testing. 
-	def secret(self, username, directory):
-		if directory[-1] != '/':
-			directory += '/'
-		for image_path in glob.glob(directory + '*.jpg') \
-			+ glob.glob(directory + '*.JPG'):
-			image_label = image_path.split('/')[-1]
-			with open(image_path) as f:
-				log('Adding image ' + image_label)
-				image_data = f.read()
-				f.close()
-				thrift_client.learn_image('yba', image_label, image_data)
-				self.add_image(username, image_label, image_data)
-		with open(directory + 'knowledge.txt') as f:
-			lines = f.readlines()
-			for line in lines:
-				log('Adding text ' + line)
-				thrift_client.learn_text('yba', line)
-				self.add_text(username, line)
 	
 database = Database()
 	
