@@ -27,7 +27,7 @@ public class CalendarClient {
 
 		// Query.
 		String LUCID = "Clinc";
-		String query_input_data = "What is on my Google calendar for this week?";
+		String query_input_data = "What is on my Google calendar for last week?";
 		QueryInput query_input = new QueryInput();
 		query_input.type = "query";
 		query_input.data = new ArrayList<String>();
