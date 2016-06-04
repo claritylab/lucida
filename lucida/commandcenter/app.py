@@ -53,5 +53,4 @@ def web_socket_listener():
 if __name__ == '__main__':
     Thread(target = thrift_listener).start()
     Thread(target = flask_listener).start()
-    if not Config.DOCKER:
-        web_socket_listener()
+    web_socket_listener()

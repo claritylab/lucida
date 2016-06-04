@@ -10,7 +10,7 @@
 		<h1>Register</h1>
 	</div>
 
-	<form action="{{ url_for('create.signup_route') }}" method=post enctype=multipart/form-data>
+	<form action="{{ url_for('user.signup_route') }}" method=post enctype=multipart/form-data>
 		<div class="form-group {% if form.username.errors %}has-error{% endif %}">
 			<label>Username</label>
 			<input id="new_username_input" name="username" class="form-control" placeholder="Username">

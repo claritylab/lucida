@@ -6,13 +6,14 @@ from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
 from ConcurrencyManagement import services_lock, log
+from Database import database
 import Config
+import os
 
 
 class ThriftClient(object):	
 	# Constructor.
 	def __init__(self, SERVICE_LIST_IN, LEARNERS_IN, services_in):
-		# Descriptions of services from ../config.py.
 		self.SERVICE_LIST = SERVICE_LIST_IN
 		self.LEARNERS = LEARNERS_IN
 		# Registered services.
@@ -69,16 +70,16 @@ class ThriftClient(object):
 		return LucidaService.Client(protocol), transport
 
 	def get_client_transport_QA(self, host, port):
-        transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
-        protocol = TBinaryProtocol.TBinaryProtocol(transport)
-        transport.open()
-        return LucidaService.Client(protocol), transport
+		transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
+		protocol = TBinaryProtocol.TBinaryProtocol(transport)
+		transport.open()
+		return LucidaService.Client(protocol), transport
 
 	def learn_image(self, LUCID, label, image_data):
 		for service_name in self.LEARNERS['image']: # add concurrency?
 			knowledge_input = self.create_query_input('image',
 													  image_data, label)
-			client, transport = self.get_client_transport_QA('QA', 8083) # only OpenEphyra learns
+			client, transport = self.get_client_transport(service_name)
 			log('Sending learn_image request to IMM')
 			client.learn(str(LUCID), 
 						 self.create_query_spec('knowledge', [knowledge_input]))
@@ -86,11 +87,11 @@ class ThriftClient(object):
 	
 	def learn_text(self, LUCID, text_data):
 		for service_name in self.LEARNERS['text']: # add concurrency?
-			knowledge_input = self.create_query_input('text', text_data, '') # empty tag		
+			knowledge_input = self.create_query_input('text', text_data, '')
 			client, transport = self.get_client_transport(service_name)
 			log('Sending learn_text request to QA')
 			client.learn(str(LUCID), 
-						 self.create_query_spec('knowledge', [knowledge_input]))
+				self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
 		
 	def infer(self, LUCID, services_needed, text_data, image_data):
@@ -114,16 +115,20 @@ class ThriftClient(object):
 			i += 1
 		# Send request to the front service in services_needed.
 		# QA.
-		# I know hard-coding is not good, but I will fix this later.
+		# I know hard-coding is not good, but this is due to the fact that
+		# Falk implements his QA Ensemble differently.
 		if services_needed[0] == 'QA':
 			log('Asking OpenEphyra')
-			client, transport = self.get_client_transport_QA('QA', 8083)
+			QA_addr = 'localhost'
+			if not os.environ.get('DOCKER') is None:
+				QA_addr = 'QA'
+			client, transport = self.get_client_transport_QA(QA_addr, 8083)
 			result = client.infer(str(LUCID), self.create_query_spec(
                         	'query', query_input_list))
 			transport.close()
 			if result == 'Factoid not found in knowledge base.':
 				log('Asking ensemble')
-				# Ask Falk and fix it. He implemented Thrift interface differently.
+				# Ask Falk and fix it.
 				transport = TSocket.TSocket('ensemble', 9090)
 				transport = TTransport.TBufferedTransport(transport)
 				protocol = TBinaryProtocol.TBinaryProtocol(transport)
@@ -131,8 +136,11 @@ class ThriftClient(object):
 				transport.open()
 				result = client.infer(text_data, QuerySpec())
 				transport.close()
-			return result
+			return result.encode('ascii', 'ignore') # prevent unicode error
 		# Not QA.
+		if services_needed[0] == 'IMM' and \
+			database.count_images(str(LUCID)) == 0:
+				raise RuntimeError('Cannot match in empty photo collection')
 		client, transport = self.get_client_transport(services_needed[0])
 		log('Sending infer request to ' + services_needed[0])
 		result = client.infer(str(LUCID), self.create_query_spec(
@@ -140,5 +148,6 @@ class ThriftClient(object):
 		transport.close()
 		return result
 			
-thrift_client = ThriftClient(Config.SERVICE_LIST, Config.LEARNERS, Config.services_in)
+thrift_client = ThriftClient(Config.SERVICE_LIST, Config.LEARNERS,
+		Config.REGISTRERED_SERVICES)
 		

@@ -19,7 +19,6 @@ public class CalendarClient {
 	public static void main(String [] args) {
 		// Collect the port number.
 		int port = 8084;
-
 		if (args.length == 1) {
 			port = Integer.parseInt(args[0]);
 		} else {
@@ -27,14 +26,15 @@ public class CalendarClient {
 		}
 
 		// Query.
-		String LUCID = "QLL";
-		String query_input_data = "What is on my Google calendar from next Sunday morning to next Sunday noon to next Sunday night?";
-		final QueryInput query_input = new QueryInput("query", new ArrayList<String>() {{
-		    add(query_input_data);
-		}});
-		QuerySpec query_spec = new QuerySpec(new ArrayList<QueryInput>() {{
-		    add(query_input);
-		}});
+		String LUCID = "Clinc";
+		String query_input_data = "What is on my Google calendar for this week?";
+		QueryInput query_input = new QueryInput();
+		query_input.type = "query";
+		query_input.data = new ArrayList<String>();
+		query_input.data.add(query_input_data);
+		QuerySpec query_spec = new QuerySpec();
+		query_spec.content = new ArrayList<QueryInput>();
+		query_spec.content.add(query_input);
 	 
 		// Initialize thrift objects.
 		// TTransport transport = new TSocket("clarity08.eecs.umich.edu", port);
@@ -47,7 +47,7 @@ public class CalendarClient {
 			System.out.println(query_input_data);
 			System.out.println("///// Connecting to Calendar... /////");
 			String results = client.infer(LUCID, query_spec);
-			System.out.println("///// Results: /////");
+			System.out.println("///// Result: /////");
 			System.out.println(results);
 			transport.close();
 		} catch (TException e) {

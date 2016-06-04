@@ -8,6 +8,6 @@ def login_required(f):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
-            return redirect(url_for('create.login_route'))
+            return redirect(url_for('user.login_route'))
     return wrap
 

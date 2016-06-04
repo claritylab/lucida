@@ -35,16 +35,16 @@ IMMHandler::IMMHandler() {
 	// Initialize MongoDB C++ driver.
 	client::initialize();
 	try {
-		if (const char* env_p = getenv("DB_PORT_27017_TCP_ADDR")) {
-			print("MongoDB: " << env_p);
-			conn.connect(env_p);
+		if (getenv("DOCKER")) {
+			print("MongoDB: mongo");
+			conn.connect("mongo");
 		} else {
 			print("MongoDB: localhost");
 			conn.connect("localhost");
 		}
-		print("connected ok");
+		print("Connection is ok");
 	} catch(const DBException &e) {
-		print("caught " << e.what());
+		print("Caught " << e.what());
 	}
 }
 
@@ -68,7 +68,8 @@ folly::Future<folly::Unit> IMMHandler::future_learn
 	folly::RequestEventBase::get()->runInEventBaseThread(
 			[=]() mutable {
 		try {
-			// Go through all images and store them into MongoDB.
+			// Go through all images and store their descriptors matices
+			// into MongoDB GridFS.
 			for (const QueryInput &query_input : knowledge_save.content) {
 				for (int i = 0; i < (int) query_input.data.size(); ++i) {
 					this->addImage(LUCID_save, query_input.tags[i],
@@ -104,7 +105,7 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 			int best_index = Image::match(images,
 					unique_ptr<QueryImage>(new QueryImage(
 							move(Image::imageToMatObj(
-									query_save.content[0].data[0]))))); // use opencv
+									query_save.content[0].data[0])))));
 			print("Result: " << images[best_index]->getLabel());
 			// Check if the query needs to be further sent to QA.
 			if (!query_save.content[0].tags.empty() &&
@@ -121,19 +122,18 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 					throw runtime_error("tags[0] must have the following format"
 							": localhost, 8083");
 				}
-				print("Sending request to QA at "
-						<< words[0] << " " << words[1]);
 				EventBase event_base;
-				string QA_addr = "localhost";
+				string QA_addr = "127.0.0.1"; // cannot be "localhost"
+				int QA_port = stoi(words[1], nullptr);
 				if (const char* env_p = getenv("QA_PORT_3000_TCP_ADDR")) {
 					QA_addr = env_p;
 				}
+				print("Sending request to QA at " << QA_addr << " " << QA_port);
 				std::shared_ptr<TAsyncSocket> socket(
-						TAsyncSocket::newSocket(&event_base, QA_addr, stoi(words[1], nullptr)));
+						TAsyncSocket::newSocket(&event_base, QA_addr, QA_port));
 				unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>
 				channel(new HeaderClientChannel(socket));
 				channel->setClientType(THRIFT_FRAMED_DEPRECATED);
-				//channel->setClientType(THRIFT_FRAMED_DEPRECATED);
 				LucidaServiceAsyncClient client(std::move(channel));
 				QuerySpec qa_query_spec;
 				// Pop the front QueryInput from the current content
@@ -141,10 +141,9 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 				qa_query_spec.content.assign(query_save.content.begin() + 1,
 						query_save.content.end());
 				// Append the result of IMM to the end of the text query.
-				qa_query_spec.content[0].data[0].append(" "
-						+ images[best_index]->getLabel());
-				print("Query to QA " << qa_query_spec.content[0].data[0]);
 				string IMM_result = images[best_index]->getLabel();
+				qa_query_spec.content[0].data[0].append(" " + IMM_result);
+				print("Query to QA " << qa_query_spec.content[0].data[0]);
 				client.future_infer(LUCID_save, qa_query_spec).then(
 						[promise, IMM_result](folly::Try<string>&& t) mutable {
 					print("QA result: " << t.value());

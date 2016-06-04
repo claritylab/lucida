@@ -50,7 +50,7 @@ public class QAServiceHandler {
 			
 			// Create db directory.
 			if (!new File("db").exists()) {
-			    new File("db").mkdir();
+				new File("db").mkdir();
 			}
 		}
 		
@@ -60,9 +60,9 @@ public class QAServiceHandler {
 		 * @param spec spec
 		 */
 		@Override
-	    public void create(String LUCID, QuerySpec spec) {
-	    	MsgPrinter.printStatusMsg("@@@@@ Create; User: " + LUCID);
-	    }
+		public void create(String LUCID, QuerySpec spec) {
+			MsgPrinter.printStatusMsg("@@@@@ Create; User: " + LUCID);
+		}
 
 		/**
 		 * Adds knowledge to OpenEphyra.
@@ -70,32 +70,31 @@ public class QAServiceHandler {
 		 * @param knowledge knowledge
 		 */
 		@Override
-	    public void learn(String LUCID, QuerySpec knowledge) {
-	    	MsgPrinter.printStatusMsg("@@@@@ Learn; User: " + LUCID);
-	    	KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
-	    	kb.addKnowledge(knowledge);
-	    	MsgPrinter.printStatusMsg(kb.toString());
-	    }
+		public void learn(String LUCID, QuerySpec knowledge) {
+			MsgPrinter.printStatusMsg("@@@@@ Learn; User: " + LUCID);
+			KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
+			kb.addKnowledge(knowledge);
+			kb.commitKnowledge();
+		}
 
-	    /**
-	     * Extracts a query string and returns the answer from OpenEphyra.
+		/**
+		 * Extracts a query string and returns the answer from OpenEphyra.
 		 * @param LUCID ID of Lucida user
 		 * @param query query
-	     */
-	    @Override
-	    public String infer(String LUCID, QuerySpec query) {
-	    	MsgPrinter.printStatusMsg("@@@@@ Infer; User: " + LUCID);
-	    	KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
-	    	kb.commitKnowledge();
-	    	// Set INDRI_INDEX.
-	    	System.setProperty("INDRI_INDEX", kb.getIndriIndex());
-	    	if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
-	    		throw new IllegalArgumentException();
-	    	}
-	    	// Only look for the first item in content and data.
-	    	// The rest part of query is ignored.
-	    	return askFactoidThrift(query.content.get(0).data.get(0));
-	    }
+		 */
+		@Override
+		public String infer(String LUCID, QuerySpec query) {
+			MsgPrinter.printStatusMsg("@@@@@ Infer; User: " + LUCID);
+			KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
+			// Set INDRI_INDEX.
+			System.setProperty("INDRI_INDEX", kb.getIndriIndex());
+			if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
+				throw new IllegalArgumentException();
+			}
+			// Only look for the first item in content and data.
+			// The rest part of query is ignored.
+			return askFactoidThrift(query.content.get(0).data.get(0));
+		}
 
 		/** Forwards the client's question to the OpenEphyra object's askFactoid
 		 * method and collects the response.
@@ -103,13 +102,11 @@ public class QAServiceHandler {
 		 */
 		private String askFactoidThrift(String question) {
 			MsgPrinter.printStatusMsg("askFactoidThrift(): Arg = " + question);
-			
 			Result result = oe.askFactoid(question);
 			String answer = defaultAnswer;
 			if (result != null) {
 				answer = result.getAnswer();
 			}
-
 			print("Answer: " + answer);
 			return answer;
 		}

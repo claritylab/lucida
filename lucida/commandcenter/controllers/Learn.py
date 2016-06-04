@@ -17,6 +17,13 @@ def image_allowed(upload_file):
 	return (('.' in filename) and \
 		(filename.rsplit('.', 1)[1] in allowed_extensions))
 
+# Checks if the text input is valid.
+def check_text_input(text_input):
+	if len(text_input) >= 200:
+		raise RuntimeError('Please input less than 200 characters')
+	if text_input.isspace():
+		raise RuntimeError('Empty text is not allowed')
+
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
 def learn_route():
@@ -40,27 +47,22 @@ def learn_route():
 				image_data = upload_file.read()
 				upload_file.close()
 				thrift_client.learn_image(session['username'],
-										  request.form['label'],
-										  image_data)
+					request.form['label'], image_data)
 				# Add the image into the database.
 				database.add_image(session['username'],
-								   request.form['label'],
-								   image_data)
+					request.form['label'], image_data)
 			# Add text knowledge.
 			elif request.form['op'] == 'add_text':
 				# CHeck the text knowledge.
-				if not 'text_knowledge' in request.form \
-					or request.form['text_knowledge'].isspace():
-					raise RuntimeError(
-						'Please enter a piece of text as knowledge')
+				if not 'text_knowledge' in request.form:
+					raise RuntimeError('Please enter a piece of text')
+				check_text_input(request.form['text_knowledge'])
 				# Send the text to QA.
 				thrift_client.learn_text(session['username'],
-										 request.form['text_knowledge'])
+					request.form['text_knowledge'])
 				# Add the text knowledge into the database.
 				database.add_text(session['username'],
-								  request.form['text_knowledge'])
-			elif request.form['op'] == 'secret':
-				database.secret(session['username'], request.form['directory'])			
+					request.form['text_knowledge'])		
 			else:
 				raise RuntimeError('Did you click the Add button?')
 	except Exception as e:
