@@ -2,27 +2,12 @@ from flask import *
 import Database, ThriftClient
 from ConcurrencyManagement import log
 from AccessManagement import login_required
-from werkzeug import secure_filename
 from Database import database 
 from ThriftClient import thrift_client
+from Utilities import check_image_extension, check_text_input
 
 
 learn = Blueprint('learn', __name__, template_folder='templates')
-
-# Returns true if the extension of the file is valid.
-def image_allowed(upload_file):
-	filename = secure_filename(upload_file.filename)
-	allowed_extensions = set(['png', 'PNG', 'jpg', 'JPG', 'bmp', 'BMP', \
-		'gif', 'GIF'])
-	return (('.' in filename) and \
-		(filename.rsplit('.', 1)[1] in allowed_extensions))
-
-# Checks if the text input is valid.
-def check_text_input(text_input):
-	if len(text_input) >= 200:
-		raise RuntimeError('Please input less than 200 characters')
-	if text_input.isspace():
-		raise RuntimeError('Empty text is not allowed')
 
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
@@ -35,14 +20,11 @@ def learn_route():
 				raise RuntimeError('Did you click the Add button?')
 			# Add image knowledge.
 			elif request.form['op'] == 'add_image':
-				# Get the uploaded image.
+				# Check the uploaded image.
 				upload_file = request.files['file']
-				if (not (upload_file and image_allowed(upload_file))):
-					raise RuntimeError('Invalid file')
+				check_image_extension(upload_file)
 				# Check the label of the image.
-				if not 'label' in request.form or \
-					request.form['label'].isspace():
-					raise RuntimeError('Please enter a label for your image')
+				check_text_input(request.form['label'])
 				# Send the image to IMM.
 				image_data = upload_file.read()
 				upload_file.close()
@@ -53,7 +35,7 @@ def learn_route():
 					request.form['label'], image_data)
 			# Add text knowledge.
 			elif request.form['op'] == 'add_text':
-				# CHeck the text knowledge.
+				# Check the text knowledge.
 				if not 'text_knowledge' in request.form:
 					raise RuntimeError('Please enter a piece of text')
 				check_text_input(request.form['text_knowledge'])

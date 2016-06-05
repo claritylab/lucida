@@ -3,6 +3,7 @@ from ConcurrencyManagement import log
 from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
+from Utilities import check_image_extension, check_text_input
 import Config
 
 infer = Blueprint('infer', __name__, template_folder='templates')
@@ -21,6 +22,9 @@ def infer_route():
 				raise RuntimeError('Did you click the Ask button?')
 			# When the "op" field is equal to "add_image".
 			elif form['op'] == 'infer':
+				# Check input file and text.
+				check_image_extension(request.files['file'])
+				check_text_input(form['speech_input'])
 				# Classify the query.
 				services_needed = \
 					query_classifier.predict(form['speech_input'],
