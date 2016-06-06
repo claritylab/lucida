@@ -125,7 +125,7 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 				EventBase event_base;
 				string QA_addr = "127.0.0.1"; // cannot be "localhost"
 				int QA_port = stoi(words[1], nullptr);
-				if (const char* env_p = getenv("QA_PORT_3000_TCP_ADDR")) {
+				if (const char* env_p = getenv("QA_PORT_8083_TCP_ADDR")) {
 					QA_addr = env_p;
 				}
 				print("Sending request to QA at " << QA_addr << " " << QA_port);
