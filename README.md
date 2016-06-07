@@ -13,49 +13,21 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 ## Lucida Local Development
 
 - From this directory, type: `make local`. This will run scripts in `tools/` to
-  install all the required depedencies. Note: if you would like to install the
-packages locally, each install script must be modified accordingly. This will
-also build `lucida-suite` and `lucida`.
+  install all the required depedencies. After that, it compiles back-end services
+  in `lucida/`. Note: if you would like to install the
+  packages locally, each install script must be modified accordingly. This will
+  also build `lucida-suite` and `lucida`.
 - Similar to what is set in the Makefile, you must set a few environment
   variables. From the top directory:
 ```
-export THRIFT_ROOT=`pwd`/tools/thrift-0.9.2
-export CAFFE=`pwd`/tools/caffe/distribute
+export LD_LIBRARY_PATH=/usr/local/lib
 export LUCIDAROOT=`pwd`/lucida
 ```
-- Start all the services using supervisord:
+- Start all the services:
 ```
-cd tools
-supervisord -c lucida.conf
+make start_all
 ```
-- Alternatively, you can start all the services using a simple script:
-```
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-cd tools
-chmod +x start_all_services.sh
-./start_all_services.sh
-```
-- To test, in another terminal navigate to `lucida/commandcenter` and use the
-  following commands (replacing (PORT) with 8090 as defined in `lucida.conf`):
-```
-# Test image matching, speech recognition, and question-answering
-./ccclient --asr <AUDIO_FILE> --imm <IMAGE_FILE> (PORT)
-# Test speech recognition, and question-answering
-./ccclient --asr <AUDIO_FILE> (PORT)
-# Test question-answering
-./ccclient --qa <QUESTION> (PORT)
-```
-- For example,
-```
-./ccclient --asr inputs/how.tall.is.this.wav --imm inputs/query.jpg 8090
-```
-- The above example uses a small test database for the QA system. To use all of
-  Wikipedia:
-```
-cd tools;
-./download_wiki_index.sh # make sure to set INDRI_INDEX as recommended
-```
-Then restart all the services.
+- To test, open your browser, and go to `http://localhost:3000/`.
 
 ## Lucida Docker Deployment
 
@@ -64,7 +36,7 @@ Then restart all the services.
 - Install Docker Compose: use `pip install docker-compose` or refer to
   [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 - Pull the Lucida image. There are several available:  
-`docker pull claritylab/lucida:latest # add your own facts`
+`docker pull claritylab/lucida:latest # add your own facts` (TODO!!!!!)
 - Pull the speech recognition image (based on
   [kaldi-gstreamer-server](https://github.com/alumae/kaldi-gstreamer-server)):  
 `docker pull claritylab/lucida-asr`
