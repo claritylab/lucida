@@ -10,8 +10,8 @@ from Database import database
 import Config
 import os
 import sys
-reload(sys)  
-sys.setdefaultencoding('utf8')
+reload(sys)
+sys.setdefaultencoding('utf8') # solve UnicodeDecodeError
 
 
 class ThriftClient(object):	
