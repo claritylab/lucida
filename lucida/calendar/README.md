@@ -9,6 +9,6 @@ the response of the calendar service may be `"2015-01-01T00:00:00Z 2015-12-31T23
 
 ## Calendar Local Development
 
-- From this directory, type `make` to compile, and `make start_server` (or `./gradlew run -Pargs="8082"` to specify a port number) to start the service. 
+- From this directory, type `make` to compile, and `make start_server` to start the service. 
 
-- From this directory, type `make start_test` (or `cd CalendarClient && ./start-Calendar-client.sh 8082` to specify a port number) to test the running server.
+- From this directory, type `make start_test` to test the running server.
