@@ -2,18 +2,18 @@
 ## $ docker-compose up
 
 CMD:
-  image: lucida3
+  image: gcr.io/kuberlucida/lucida:20160606
   ports:
     - "3000:3000"
-  command: bash -c "cd commandcenter/; python app.py"
+  command: bash -c "export DOCKER=True && cd commandcenter/; python app.py"
   links:
-    - DB
+    - mongo
     - IMM
     - QA
-    # - ensemble
+    - ensemble
     - CA
 
-DB:
+mongo:
   volumes:
     - mongoData:/data/db
   image: mongo:3.0.2
@@ -30,88 +30,90 @@ asr:
     - "8089:8089" # asr FE
 
 IMM:
-  image: lucida3
-  command: bash -c "cd imagematching/opencv_imm/server/; ./imm_server"
+  image: gcr.io/kuberlucida/lucida:20160606
+  command: bash -c "export DOCKER=True && cd imagematching/opencv_imm/server/; ./imm_server"
   links:
     - QA
-    - DB
+    - mongo
 
 QA:
-  image: lucida3
+  image: gcr.io/kuberlucida/lucida:20160606
   volumes:
     - OpenEphyraData:/usr/local/lucida/lucida/questionanswering/OpenEphyra/db
   command: bash -c "cd questionanswering/OpenEphyra/; java -Djava.library.path=lib/search/ -classpath bin:lib/learn/jsoup-1.8.3.jar:lib/ml/maxent.jar:lib/ml/minorthird.jar:lib/nlp/jwnl.jar:lib/nlp/lingpipe.jar:lib/nlp/opennlp-tools.jar:lib/nlp/plingstemmer.jar:lib/nlp/snowball.jar:lib/nlp/stanford-ner.jar:lib/nlp/stanford-parser.jar:lib/nlp/stanford-postagger.jar:lib/qa/javelin.jar:lib/search/bing-search-java-sdk.jar:lib/search/googleapi.jar:lib/search/indri.jar:lib/search/yahoosearch.jar:lib/thrift/libthrift-0.9.2.jar:lib/thrift/log4j-1.2.14.jar:lib/thrift/slf4j-api-1.5.8.jar:lib/thrift/slf4j-log4j12-1.5.8.jar:lib/util/commons-logging.jar:lib/util/gson.jar:lib/util/htmlparser.jar:lib/util/jetty-all.jar:lib/util/log4j.jar:lib/util/servlet-api.jar:lib/util/trove.jar lucida.main.QADaemon"
+  ports:
+    - "8083:8083" # so that "QA_PORT_8083_TCP_ADDR" can be accessed by IMM
 
 CA:
-  image: lucida3
+  image: gcr.io/kuberlucida/lucida:20160606
   command: bash -c "cd calendar/; ./gradlew run"
 
-# dbpedia:
-#   image: fuseki
-#   ports:
-#    - "3037:3037"
-#   volumes:
-#    - /home/daedalus/QAEnsemble/data/db/:/jena-fuseki-1.1.1/db/
-#   command: ./fuseki-server --port 3037 --loc db /dbpedia
+dbpedia:
+  image: fuseki
+  ports:
+   - "3037:3037"
+  volumes:
+   - /home/daedalus/QAEnsemble/data/db/:/jena-fuseki-1.1.1/db/
+  command: ./fuseki-server --port 3037 --loc db /dbpedia
 
-# enwiki:
-#   image: solr
-#   ports:
-#    - "8983:8983"
-#   volumes:
-#    - /home/daedalus/QAEnsemble/data/enwiki/collection1/:/solr-4.6.0/example/enwiki/collection1/
-#   command: java -Dsolr.solr.home=enwiki -jar start.jar
+enwiki:
+  image: solr
+  ports:
+   - "8983:8983"
+  volumes:
+   - /home/daedalus/QAEnsemble/data/enwiki/collection1/:/solr-4.6.0/example/enwiki/collection1/
+  command: java -Dsolr.solr.home=enwiki -jar start.jar
 
-# freebase:
-#   image: fuseki
-#   ports:
-#    - "3030:3030"
-#   volumes:
-#    - /home/daedalus/QAEnsemble/data/d-freebase/:/jena-fuseki-1.1.1/d-freebase/
-#   command: ./fuseki-server --loc d-freebase /freebase
+freebase:
+  image: fuseki
+  ports:
+   - "3030:3030"
+  volumes:
+   - /home/daedalus/QAEnsemble/data/d-freebase/:/jena-fuseki-1.1.1/d-freebase/
+  command: ./fuseki-server --loc d-freebase /freebase
 
-# label1:
-#   image: labels
-#   ports:
-#    - "5000:5000"
-#   volumes:
-#    - /home/daedalus/QAEnsemble/data/labels/:/shared
-#   command: pypy /label-lookup/lookup-service.py /shared/sorted_list.dat
+label1:
+  image: labels
+  ports:
+   - "5000:5000"
+  volumes:
+   - /home/daedalus/QAEnsemble/data/labels/:/shared
+  command: pypy /label-lookup/lookup-service.py /shared/sorted_list.dat
 
-# label2:
-#   image: labels
-#   ports:
-#    - "5001:5001"
-#   volumes:
-#    - /home/daedalus/QAEnsemble/data/labels/:/shared
-#   command: pypy /label-lookup/lookup-service-sqlite.py /shared/labels.db
+label2:
+  image: labels
+  ports:
+   - "5001:5001"
+  volumes:
+   - /home/daedalus/QAEnsemble/data/labels/:/shared
+  command: pypy /label-lookup/lookup-service-sqlite.py /shared/labels.db
   
-# webqa:
-#   image: webqa
-#   ports:
-#    - "4000:4000"
-#   volumes:
-#    - /home/daedalus/QAEnsemble/00keys/webqa:/qaservice/conf
-#   command: ./gradlew runRestBackend
+webqa:
+  image: webqa
+  ports:
+   - "4000:4000"
+  volumes:
+   - /home/daedalus/QAEnsemble/00keys/webqa:/qaservice/conf
+  command: ./gradlew runRestBackend
 
-# yoda_offline:
-#   image: yoda_offline_tested
-#   links:
-#    - enwiki:enwiki
-#    - dbpedia:dbpedia
-#    - freebase:freebase
-#    - label1:label1
-#    - label2:label2
-#   ports:
-#    - "4567:4567"
-#   command: ./gradlew web -q -Dcz.brmlab.yodaqa.dbpediaurl="http://dbpedia:3037/dbpedia/query" -Dcz.brmlab.yodaqa.freebaseurl="http://freebase:3030/freebase/query" -Dcz.brmlab.yodaqa.solrurl="http://enwiki:8983/solr" -Dcz.brmlab.yodaqa.label1url="http://label1:5000" -Dcz.brmlab.yodaqa.label2url="http://label2:5001"
+yoda_offline:
+  image: yoda_offline_tested
+  links:
+   - enwiki:enwiki
+   - dbpedia:dbpedia
+   - freebase:freebase
+   - label1:label1
+   - label2:label2
+  ports:
+   - "4567:4567"
+  command: ./gradlew web -q -Dcz.brmlab.yodaqa.dbpediaurl="http://dbpedia:3037/dbpedia/query" -Dcz.brmlab.yodaqa.freebaseurl="http://freebase:3030/freebase/query" -Dcz.brmlab.yodaqa.solrurl="http://enwiki:8983/solr" -Dcz.brmlab.yodaqa.label1url="http://label1:5000" -Dcz.brmlab.yodaqa.label2url="http://label2:5001"
 
-# ensemble:
-#   image: ensemble
-#   links:
-#    - yoda_offline:yoda_offline
-#    - webqa:webqa
-#   ports:
-#    - "9090:9090"
-#    - "9091:9091"
-#   command: ./gradlew runThriftBackend -Dde.rwthaachen.ensemble.webqaurl="http://webqa:4000" -Dde.rwthaachen.ensemble.webqaurl="http://yoda_offline:4567"
+ensemble:
+  image: ensemble
+  links:
+   - yoda_offline:yoda_offline
+   - webqa:webqa
+  ports:
+   - "9090:9090"
+   - "9091:9091"
+  command: ./gradlew runThriftBackend -Dde.rwthaachen.ensemble.webqaurl="http://webqa:4000" -Dde.rwthaachen.ensemble.yodaqaurl="http://yoda_offline:4567" -Dwordnet.database.dir=/home/fp/Downloads/WordNet-3.0/dict
