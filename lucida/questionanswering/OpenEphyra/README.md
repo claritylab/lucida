@@ -89,8 +89,6 @@ The OpenEphyra effort is supported in part by IBM Open Collaboration Agreement
 
 ================================================================================
 
-# Lucida
-
 ## Major Dependencies
 
 - [OpenEphyra](https://sourceforge.net/projects/openephyra/)
