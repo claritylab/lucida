@@ -18,7 +18,7 @@ that includes several hundreds of computer vision algorithms.
 ## Build
 
 ```
-$ make
+make
 ```
 
 ## Run
