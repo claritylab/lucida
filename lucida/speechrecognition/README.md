@@ -5,12 +5,12 @@ a speech recognition toolkit written in C++ that is freely available under the A
 
 ## Notes:
 
-1. `kaldi_asr` contains the implementation of the Kaldi ASR service.
+1. `kaldi_gstreamer_asr` contains the implementation of the Kaldi ASR service.
 
 2. If you want to create and use another ASR implementation,
-you can start by making a directory parallel to `kaldi_asr` and modify `Makefile`.
+you can start by making a directory parallel to `kaldi_gstreamer_asr` and modify `Makefile`.
 Make sure to reference `../lucidaservice.thrift` and `../lucidatypes.thrift`.
 
 3. Type `make` to build all ASR implementations,
-or type `cd kaldi_asr` and `make` to only build the Kaldi ASR service.
+or type `cd kaldi_gstreamer_asr` and `make` to only build the Kaldi ASR service.
 
