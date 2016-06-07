@@ -58,7 +58,7 @@ Specifically, `-lmongoclient` should precede `-lssl` and `-lcrypto`.
 
 2. If the environment variable `DOCKER` is not set, the server connects to `localhost:27017`
 for MongoDB, and `localhost:8083` for QA.
-Otherwise, it connects to `mongo:27017` for MongoDB and `QA:27017` for QA.
+Otherwise, it connects to `mongo:27017` for MongoDB and `QA:8083` for QA.
 When developing locally, you should not set it.
 
 3. `server/Image.cpp` uses `cv::SurfFeatureDetector` to turn
