@@ -21,16 +21,16 @@ Python 2 is used and `scikit-learn`, `numpy`, and `pandas` take most of the time
 - install_fbthrift.sh: [Facebook Thrift](https://github.com/facebook/fbthrift) for IMM
 
 - install_mongodb.sh: [MongoDB](https://www.mongodb.com/)
- and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy) for CMD and IMM
+and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy) for CMD and IMM
 
 ## Notes
 
 1. It is likely that you will encounter problems, especially when installing Facebook Thrift
-  and MongoDB C++ driver. You're welcome to open up issues and we will try our best to help. 
+and MongoDB C++ driver. You're welcome to open up issues and we will try our best to help. 
 
 2. Both Apache Thrift and Facebook are necessary. To make sure IMM
-  compiles successfully, you must install Apache Thrift, and then install Facebook Thrift.
-  If you reverse the order, and already `make` successfully for both,
-  simply go back to Facebook Thrift: `cd fbthrift/thrift/`
-  and `sudo make install` which should not take long.
+compiles successfully, you must install Apache Thrift, and then install Facebook Thrift.
+If you reverse the order, and already `make` successfully for both,
+simply go back to Facebook Thrift: `cd fbthrift/thrift/`
+and `sudo make install` which should not take long.
   
