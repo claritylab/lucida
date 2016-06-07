@@ -5,7 +5,7 @@
 
 DEFINE_int32(port,
 		8082,
-		"Port for ASR service (default: 8082)");
+		"Port for ASR service (default: 8082)"); // I think this should be for IMM service
 
 DEFINE_int32(num_of_threads,
 		4,
@@ -13,7 +13,7 @@ DEFINE_int32(num_of_threads,
 
 DEFINE_int32(CMD_port,
 		8080,
-		"Port for QA service (default: 8080)");
+		"Port for QA service (default: 8080)"); // I think this should be CMD center.
 
 DEFINE_string(CMD_hostname,
 		"127.0.0.1",
