@@ -10,7 +10,6 @@
 Type `make` to install all dependencies necessary for Lucida in the following order:
 
 - apt_deps.sh: various packages installed using `apt-get` and `pip2`. 
-Note that `scikit-learn`, `numpy`, and `pandas` take a while.
 
 - install_java.sh: Java 7 for QA and CA
 
@@ -33,4 +32,3 @@ compiles successfully, you must install Apache Thrift, and then install Facebook
 If you reverse the order, and already `make` successfully for both,
 simply go back to Facebook Thrift: `cd fbthrift/thrift/`
 and `sudo make install` which should not take long.
-  
