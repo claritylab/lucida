@@ -42,6 +42,8 @@ cd server
 make start_test
 ```
 
+Wait until you see `IMM at 8082`.
+
 Alternatively,
 
 ```
