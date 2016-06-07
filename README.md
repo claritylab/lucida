@@ -10,6 +10,17 @@ license](LICENSE), except certain submodules contain their own specific
 licensing information. We would love to have your help on improving Lucida, and
 see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 
+## Overview
+
+- `lucida`: back-end services and command center (CMD). 
+Currently, there are 4 categories of back-end services:
+speech recognition (ASR), image matching (IMM), question answering (QA),
+and calendar (CA). By default, Lucida uses the following ports:
+3000, 8080 for CMD; 8888 for ASR (web socket listener as part of CMD) ; 
+8082 for IMM; 8083 for QA; 8084 for CA.
+
+- `tools`: dependencies necessary for compiling Lucida.
+
 ## Lucida Local Development
 
 - From this directory, type: `make local`. This will run scripts in `tools/` to
