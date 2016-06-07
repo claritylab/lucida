@@ -22,7 +22,8 @@ class ThriftClient(object):
 		# Registered services.
 		self.services = services_in
 		log('Pre-configured services: ' + str(services_in))
-	
+
+	# Creates a QueryInput.
 	def create_query_input(self, type_in, data_in, tag_in):
 		query_input = QueryInput()
 		query_input.type = type_in
@@ -31,18 +32,20 @@ class ThriftClient(object):
 		query_input.tags = []
 		query_input.tags.append(str(tag_in))
 		return query_input
-	
+
+	# Creates a QuerySpec.
 	def create_query_spec(self, name_in, query_input_list):
 		query_spec = QuerySpec()
 		query_spec.name = name_in
 		query_spec.content = query_input_list
 		return query_spec	
-	
+
+	# Adds a service instance to registered services.	
 	def add_service(self, name, host, port):
 		# Check service name.
 		if not name in self.SERVICE_LIST:
 			raise RuntimeError('Unrecognized service. Cannot find ' + name \
-							   + ' in config.py')
+				+ ' in config.py')
 		# Add (host, port) to services.
 		services_lock.acquire()
 		if not name in self.services:
@@ -52,6 +55,7 @@ class ThriftClient(object):
 		log('Registered services ' + str(self.services))
 		services_lock.release()
 		
+	# Returns a service instance from registered services.
 	def get_service(self, name):
 		services_lock.acquire()
 		try:
@@ -64,7 +68,8 @@ class ThriftClient(object):
 		except Exception:
 			services_lock.release()
 			raise RuntimeError('Cannot access service ' + name)
-	
+
+	# Returns a service instance and initializes Thrift objects.
 	def get_client_transport(self, service_name):
 		host, port = self.get_service(service_name)
 		transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
@@ -72,16 +77,18 @@ class ThriftClient(object):
 		transport.open()
 		return LucidaService.Client(protocol), transport
 
+	# Adds image knowledge to back-end service.
 	def learn_image(self, LUCID, label, image_data):
 		for service_name in self.LEARNERS['image']: # add concurrency?
 			knowledge_input = self.create_query_input('image',
-													  image_data, label)
+				image_data, label)
 			client, transport = self.get_client_transport(service_name)
 			log('Sending learn_image request to IMM')
 			client.learn(str(LUCID), 
 						 self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
-	
+
+	# Adds text knowledge to back-end service.
 	def learn_text(self, LUCID, text_data):
 		for service_name in self.LEARNERS['text']: # add concurrency?
 			knowledge_input = self.create_query_input('text', text_data, '')
@@ -91,6 +98,7 @@ class ThriftClient(object):
 				self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
 
+	# Forwards QA request to QA Ensemble.
 	def ask_ensemble(self, text_data):
 		# I know hard-coding is not good, but this is due to the fact that
 		# Falk implements his QA Ensemble differently.
@@ -104,6 +112,7 @@ class ThriftClient(object):
 		transport.close()
 		return result
 
+	# Asks back-end services a question .
 	def infer(self, LUCID, services_needed, text_data, image_data):
 		query_input_list = []
 		i = 0
@@ -112,8 +121,12 @@ class ThriftClient(object):
 			data_in = ''
 			tag_in = ''
 			if input_type == 'text':
+				if not text_data:
+					raise RuntimeError('QueryClassifier gave wrong prediction result')
 				data_in = text_data
 			elif input_type == 'image':
+				if not image_data:
+					raise RuntimeError('QueryClassifier gave wrong prediction result')
 				data_in = image_data
 			else:
 				raise RuntimeError('Can only process text and image data')
