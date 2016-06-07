@@ -109,26 +109,16 @@ src/lucida/test/
 $ make
 ```
 
-## Run and Test
-
-Start the server:
+## Run
 
 ```
-$ make start_server (port number of QA) (port number of command center, optional)
+make start_server
 ```
 
-Note: There are two modes of usage. 
-* If the port number of the command center is not provided,
-or the command center cannot be connected to,
-the server runs as a stand-alone program.
-* Otherwise, the server can interact with the command center
-and act as its client.
-
-In either case, the server can interact with a testing client.
-To run the testing client:
+## Test
 
 ```
-$ make start_test (port number of QA)
+make start_test
 ```
 
 To change the knowledge base or query, you can modify `src/lucida/test/QAClient.java` and rebuild.
@@ -136,10 +126,10 @@ To change the knowledge base or query, you can modify `src/lucida/test/QAClient.
 ## Summary: Example Usage
 
 ```
-$ make
-$ make start_server 8081
-$ # Wait until you see "Start listening to requests" in the server terminal.
-$ make start_test 8081
+make
+make start_server
+# Wait until you see "Start listening to requests" in the server terminal.
+make start_test
 ```
 
 ================================================================================
