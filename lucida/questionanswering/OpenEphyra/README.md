@@ -91,7 +91,13 @@ The OpenEphyra effort is supported in part by IBM Open Collaboration Agreement
 
 # Lucida
 
-This following directories are specific to Lucida:
+## Major Dependencies
+
+- [OpenEphyra](https://sourceforge.net/projects/openephyra/)
+- [Indri](https://sourceforge.net/projects/lemur/)
+- [Apache Thrift 0.9.3](https://thrift.apache.org/) for QA, and CA
+
+## Structure for Lucida
 
 ```
 src/lucida/handler/
