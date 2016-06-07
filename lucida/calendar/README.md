@@ -1,8 +1,14 @@
 # Calendar
 
-Calendar is a Lucida service that returns the upcoming (up to 10) events on your Google calendar.
+Calendar is a Lucida service that parses the input text query into a date range.
+The command center is responsible for sending the date range to front end,
+and the front end fetches events based on the date range.
+For example, if the input question is "What was on my Google calendar last year?", 
+the response of the calendar service may be "2015-01-01T00:00:00Z 2015-12-31T23:59:59Z"
+(depending on the current time).
 
 ## Calendar Local Development
 
-- From this directory, type: `./gradlew run` (or `./gradlew run -Pargs="8082"` to specify a port number). This will start the server.
-- Go to CalendarClient, and type `./compile-Calendar-client.sh` followed by `./start-Calendar-client.sh` (or `./start-Calendar-client.sh 8082` to specify a port number) to compile and run the testing client. You will be prompted to log into your Google account and grant access to this application. After that, credentials will be saved on your computer at home_directory/.credentials/calendar-java.json.
+- From this directory, type `make` to compile, and `make start_server` (or `./gradlew run -Pargs="8082"` to specify a port number) to start the service. 
+
+- From this directory, type `make start_test` (or `cd CalendarClient && ./start-Calendar-client.sh 8082` to specify a port number) to test the running server.
