@@ -2,8 +2,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
  
-import sys, glob  
-#sys.path.insert(0, glob.glob('/home/yba/Documents/clarity/fbthrift/thrift/lib/py/build/lib*')[0]) # This needs to be more generic.
+import sys, glob 
+# Specify Thrift.
 sys.path.insert(0, glob.glob('../../tools/thrift-0.9.3/lib/py/build/lib*')[0])
  
 from controllers import *
@@ -28,29 +28,33 @@ app.register_blueprint(Infer.infer)
 # Session.
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
+# Starts the Thrift server to listen to back-end services.
 def thrift_listener():
-    handler = ThriftServer.LucidaServiceHandler()
-    processor = ThriftServer.LucidaService.Processor(handler)
-    transport = ThriftServer.TSocket.TServerSocket(port=8080)
-    pfactory = ThriftServer.TBinaryProtocol.TBinaryProtocolFactory()
-    server = ThriftServer.TNonblockingServer.TNonblockingServer(processor,
-        transport, pfactory, pfactory)
-    print 'CMD at ' + str(8080)
-    server.serve()
-    
+	handler = ThriftServer.LucidaServiceHandler()
+	processor = ThriftServer.LucidaService.Processor(handler)
+	transport = ThriftServer.TSocket.TServerSocket(port=8080)
+	pfactory = ThriftServer.TBinaryProtocol.TBinaryProtocolFactory()
+	server = ThriftServer.TNonblockingServer.TNonblockingServer(processor,
+		transport, pfactory, pfactory)
+	print 'CMD at ' + str(8080)
+	server.serve()
+
+# Starts the Flask server to listen to front-end users.
 def flask_listener():
-    app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False,
-            threaded=True) 
-    
+	app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False,
+			threaded=True) 
+
+# Starts the ASR web socket to listen to front-end users.	
 def web_socket_listener():
-    logging.basicConfig(level=logging.DEBUG,
-                        format="%(levelname)8s %(asctime)s %(message)s ")
-    logging.debug('Starting up server')
-    WebSocket.tornado.options.parse_command_line()
-    WebSocket.Application().listen(8888)
-    WebSocket.tornado.ioloop.IOLoop.instance().start()
-     
+	logging.basicConfig(level=logging.DEBUG,
+						format="%(levelname)8s %(asctime)s %(message)s ")
+	logging.debug('Starting up server')
+	WebSocket.tornado.options.parse_command_line()
+	WebSocket.Application().listen(8888)
+	WebSocket.tornado.ioloop.IOLoop.instance().start()
+
+# Main.
 if __name__ == '__main__':
-    Thread(target = thrift_listener).start()
-    Thread(target = flask_listener).start()
-    web_socket_listener()
+	Thread(target = thrift_listener).start()
+	Thread(target = flask_listener).start()
+	web_socket_listener()

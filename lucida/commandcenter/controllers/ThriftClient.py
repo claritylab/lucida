@@ -85,7 +85,7 @@ class ThriftClient(object):
 			client, transport = self.get_client_transport(service_name)
 			log('Sending learn_image request to IMM')
 			client.learn(str(LUCID), 
-						 self.create_query_spec('knowledge', [knowledge_input]))
+				self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
 
 	# Adds text knowledge to back-end service.
