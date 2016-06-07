@@ -33,10 +33,8 @@ class Database():
 		hashed_password = self.hash_password(self.ENCRYPT_ALGORITHM,
 			salt, password)
 		self.users.insert_one({'username' : username,
-						  	   'firstname': firstname,
-						       'lastname': lastname,
-						       'password': hashed_password,
-						       'email': email})
+			'firstname': firstname, 'lastname': lastname,
+			'password': hashed_password, 'email': email})
 	
 	# Returns true if password of the user is correct
 	def check_password(self, username, input_password):

@@ -22,9 +22,9 @@ def infer_route():
 				raise RuntimeError('Did you click the Ask button?')
 			# When the "op" field is equal to "add_image".
 			elif form['op'] == 'infer':
-				# Check input file and text.
-				check_image_extension(request.files['file'])
-				check_text_input(form['speech_input'])
+				# Check input file only if the file exists.
+				if request.files['file'].filename != '':
+					check_image_extension(request.files['file'])
 				# Classify the query.
 				services_needed = \
 					query_classifier.predict(form['speech_input'],
