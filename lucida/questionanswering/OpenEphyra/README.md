@@ -119,6 +119,8 @@ make
 make start_server
 ```
 
+Wait until you see `QA at port 8083`.
+
 ## Test
 
 ```
@@ -126,15 +128,6 @@ make start_test
 ```
 
 To change the knowledge base or query, you can modify `src/lucida/test/QAClient.java` and rebuild.
-
-## Summary: Example Usage
-
-```
-make
-make start_server
-# Wait until you see "Start listening to requests" in the server terminal.
-make start_test
-```
 
 ## Developing Notes
 
