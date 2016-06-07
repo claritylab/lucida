@@ -6,8 +6,6 @@ def check_image_extension(upload_file):
 	if upload_file is None:
 		return
 	filename = secure_filename(upload_file.filename)
-	if not filename:
-		return
 	valid_extensions = ['png', 'PNG', 'jpg', 'JPG', 'bmp', 'BMP', \
 		'gif', 'GIF']
 	allowed_extensions = set(valid_extensions)
@@ -22,5 +20,5 @@ def check_text_input(text_input):
 		return
 	if len(text_input) >= 200:
 		raise RuntimeError('Please input less than 200 characters')
-	if text_input.isspace():
+	if (text_input == '') or text_input.isspace():
 		raise RuntimeError('Empty text is not allowed')

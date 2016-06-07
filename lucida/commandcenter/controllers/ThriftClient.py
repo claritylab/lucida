@@ -9,6 +9,9 @@ from ConcurrencyManagement import services_lock, log
 from Database import database
 import Config
 import os
+import sys
+reload(sys)  
+sys.setdefaultencoding('utf8')
 
 
 class ThriftClient(object):	
@@ -69,12 +72,6 @@ class ThriftClient(object):
 		transport.open()
 		return LucidaService.Client(protocol), transport
 
-	def get_client_transport_QA(self, host, port):
-		transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
-		protocol = TBinaryProtocol.TBinaryProtocol(transport)
-		transport.open()
-		return LucidaService.Client(protocol), transport
-
 	def learn_image(self, LUCID, label, image_data):
 		for service_name in self.LEARNERS['image']: # add concurrency?
 			knowledge_input = self.create_query_input('image',
@@ -93,7 +90,20 @@ class ThriftClient(object):
 			client.learn(str(LUCID), 
 				self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
-		
+
+	def ask_ensemble(self, text_data):
+		# I know hard-coding is not good, but this is due to the fact that
+		# Falk implements his QA Ensemble differently.
+		log('Asking ensemble')
+		transport = TSocket.TSocket('ensemble', 9090)
+		transport = TTransport.TBufferedTransport(transport)
+		protocol = TBinaryProtocol.TBinaryProtocol(transport)
+		client = LucidaService.Client(protocol)
+		transport.open()
+		result = client.infer(text_data, QuerySpec())
+		transport.close()
+		return result
+
 	def infer(self, LUCID, services_needed, text_data, image_data):
 		query_input_list = []
 		i = 0
@@ -113,39 +123,18 @@ class ThriftClient(object):
 			query_input_list.append(self.create_query_input(
 				input_type, data_in, tag_in))
 			i += 1
-		# Send request to the front service in services_needed.
-		# QA.
-		# I know hard-coding is not good, but this is due to the fact that
-		# Falk implements his QA Ensemble differently.
-		if services_needed[0] == 'QA':
-			log('Asking OpenEphyra')
-			QA_addr = 'localhost'
-			if not os.environ.get('DOCKER') is None:
-				QA_addr = 'QA'
-			client, transport = self.get_client_transport_QA(QA_addr, 8083)
-			result = client.infer(str(LUCID), self.create_query_spec(
-                        	'query', query_input_list))
-			transport.close()
-			if result == 'Factoid not found in knowledge base.':
-				log('Asking ensemble')
-				# Ask Falk and fix it.
-				transport = TSocket.TSocket('ensemble', 9090)
-				transport = TTransport.TBufferedTransport(transport)
-				protocol = TBinaryProtocol.TBinaryProtocol(transport)
-				client = LucidaService.Client(protocol)
-				transport.open()
-				result = client.infer(text_data, QuerySpec())
-				transport.close()
-			return result.encode('ascii', 'ignore') # prevent unicode error
-		# Not QA.
+		# Check IMM.
 		if services_needed[0] == 'IMM' and \
 			database.count_images(str(LUCID)) == 0:
 				raise RuntimeError('Cannot match in empty photo collection')
+		# Send request to the front service in services_needed.
 		client, transport = self.get_client_transport(services_needed[0])
 		log('Sending infer request to ' + services_needed[0])
 		result = client.infer(str(LUCID), self.create_query_spec(
 			'query', query_input_list))
 		transport.close()
+		if 'Factoid not found in knowledge base.' in result:
+			result = self.ask_ensemble(text_data)
 		return result
 			
 thrift_client = ThriftClient(Config.SERVICE_LIST, Config.LEARNERS,
