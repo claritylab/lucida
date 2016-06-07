@@ -1,6 +1,6 @@
 # Command Center (CMD)
 
-The command center has the following functionalities:
+The command center performs the following functionalities:
 
 - Sets up the web front end.
 - Maintains a list of registered back-end services.
