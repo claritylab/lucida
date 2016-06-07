@@ -3,7 +3,7 @@
 1. This setup is for Ubuntu 14.04.
 
 2. Each script performs a simple check on whether the package is
- installed. If for some reason the install failed, or the simple check
+ installed. If for some reason the installation failed, or the simple check
  is not sufficient and you want to force reinstallation,
  please openthe script and run the commands manually to make sure each command succeeds.
 
