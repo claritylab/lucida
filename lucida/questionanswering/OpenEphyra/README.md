@@ -99,14 +99,14 @@ src/lucida/main/
 src/lucida/test/
 ```
 
-- `src/lucida/handler/`: Contains code that handles the Lucida services
-- `src/lucida/main/`: Contains an OpenEphyra wrapper to communicates with Lucida
-- `src/lucida/test/`: Contains a testing client
+- `src/lucida/handler/`: code that handles the Lucida services
+- `src/lucida/main/`: implementation of the QA server
+- `src/lucida/test/`: implementation of the QA testing client
 
 ## Build
 
 ```
-$ make
+make
 ```
 
 ## Run
@@ -131,5 +131,10 @@ make start_server
 # Wait until you see "Start listening to requests" in the server terminal.
 make start_test
 ```
+
+## Developing Notes
+
+1. By calling `learn`, the server adds the text knowledge into the Indri repository `db/LUCID`
+(see `../../lucidaservice.thrift` for details). Thus, do not accidentally delete `db/`.
 
 ================================================================================
