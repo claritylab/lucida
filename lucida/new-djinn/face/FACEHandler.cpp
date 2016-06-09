@@ -139,7 +139,8 @@ folly::Future<unique_ptr<string>> FACEHandler::future_infer
         
         float loss;
         reshape(this->net_, img_num * img_size);
-
+  
+        // TODO(XW): We need to add code for face alignment preprocessing
         std::vector<Blob<float>*> in_blobs = this->net_->input_blobs();
         in_blobs[0]->set_cpu_data(data);
 
