@@ -13,3 +13,6 @@ FILES=/home/xiaoweiw/research/localtests/djinn-1.0/tonic-suite/img/input/face/ca
 #done
 
 python gen-py/LucidaService-remote -h localhost:9006 infer /home/xiaoweiw/research/localtests/djinn-1.0/tonic-suite/img/input/face/cameron-diaz-11/test_000011-000006-152.jpg 2
+python gen-py/LucidaService-remote -h localhost:9006 infer /home/xiaoweiw/research/localtests/djinn-1.0/tonic-suite/img/input/face/cameron-diaz-11/test_000011-000006-152.jpg 2
+python gen-py/LucidaService-remote -h localhost:9006 infer /home/xiaoweiw/research/localtests/djinn-1.0/tonic-suite/img/input/face/cameron-diaz-11/test_000011-000006-152.jpg 2
+python gen-py/LucidaService-remote -h localhost:9006 infer /home/xiaoweiw/research/localtests/djinn-1.0/tonic-suite/img/input/face/cameron-diaz-11/test_000011-000006-152.jpg 2
