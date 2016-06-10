@@ -22,6 +22,8 @@ using caffe::Net;
 
 using namespace folly;
 
+//using namespace cv;
+
 using std::cout;
 using std::endl;
 using std::string;
@@ -88,6 +90,7 @@ folly::Future<unique_ptr<string>> FACEHandler::future_infer
         // determine the image size
         int64_t img_size = 3 * 152 * 152;
 
+        Caffe::set_phase(Caffe::TEST);
         // use cpu
         Caffe::set_mode(Caffe::CPU);
 
@@ -96,7 +99,25 @@ folly::Future<unique_ptr<string>> FACEHandler::future_infer
         // prepare data into array
         float* data = (float*) malloc(img_num * img_size * sizeof(float));
         float* preds = (float*) malloc(img_num * sizeof(float));
+/*        
+        // opencv read in image 
+        std::vector<char> vectordata((**move_image).begin(),(**move_image).end());
+        //std::vector<char> vectordata(img_file.begin(),img_file.end());
+        cv::Mat data_mat(vectordata,true);
+        cv::Mat img(cv::imdecode(data_mat,1));
 
+        int pix_count = 0;
+        for (int c = 0; c < img.channels(); ++c) {
+          for (int i = 0; i < img.rows; ++i) {
+            for (int j = 0; j < img.cols; ++j) {
+              Vec3b pix = img.at<Vec3b>(i, j);
+              float* p = (float*)data;
+              p[pix_count] = pix[c];
+              ++pix_count;
+            }
+          }
+        }
+*/
         unsigned char* buffer;
 
         // read in the image
@@ -125,7 +146,9 @@ folly::Future<unique_ptr<string>> FACEHandler::future_infer
           (void) jpeg_read_scanlines(&cinfo, (JSAMPARRAY) &buffer, 1);
           for (int j = 0; j < cinfo.output_components; j++) {
             for (unsigned int k = 0; k < cinfo.output_width; k++) {
-              int index = j * cinfo.output_width * cinfo.output_height +
+              //int index = j * cinfo.output_width * cinfo.output_height +
+              int index = (cinfo.output_components -1 - j) *
+                          cinfo.output_width * cinfo.output_height +
                           (cinfo.output_scanline - 1) * cinfo.output_width + k;
               data[index] = (float) buffer[k * cinfo.output_components + j];
             }

@@ -1,5 +1,4 @@
 #include "IMCHandler.h"
-//#include "opencv2/opencv.hpp"
 #include <folly/futures/Future.h>
 
 #include <sstream>
@@ -13,7 +12,7 @@
 DEFINE_string(imc_network, "configs/imc.prototxt",
               "Network config for imc (default: config/imc.prototxt");
 
-DEFINE_string(imc_weights, "models/imc.caffemodel",
+DEFINE_string(imc_weights, "../models/imc.caffemodel",
               "Weight config for imc (default: models/imc.caffemodel");
 
 using caffe::Blob;
@@ -28,18 +27,10 @@ using std::string;
 using std::unique_ptr;
 using std::shared_ptr;
 
-/*
-namespace facebook {
-namespace windtunnel {
-namespace treadmill {
-namespace services {
-namespace imc {
-*/
-
 namespace cpp2 {
 
 IMCHandler::IMCHandler() {
-  LOG(ERROR) << "Start initializing";
+  //LOG(ERROR) << "Start initializing";
   this->network_ = FLAGS_imc_network;
   this->weights_ = FLAGS_imc_weights;
 
@@ -70,15 +61,13 @@ folly::Future<folly::Unit> IMCHandler::future_learn
 	return future;
 }
 
-
-
 folly::Future<unique_ptr<string>> IMCHandler::future_infer
 (unique_ptr<string> LUCID, unique_ptr< ::cpp2::QuerySpec> query) {
+  //LOG(ERROR) << "start infer";
 	string LUCID_save = *LUCID;
 	::cpp2::QuerySpec query_save = *query;
 
   folly::MoveWrapper<folly::Promise<std::unique_ptr<std::string> > > promise;
-
   std::unique_ptr<std::string> image (new std::string(std::move(query_save.content[0].data[0])));
   
   auto move_image = folly::makeMoveWrapper(std::move(image));
@@ -89,6 +78,7 @@ folly::Future<unique_ptr<string>> IMCHandler::future_infer
         // determine the image size
         int64_t img_size = 3 * 227 * 227;
 
+        Caffe::set_phase(Caffe::TEST);
         // use cpu
         Caffe::set_mode(Caffe::CPU);
 
@@ -98,8 +88,9 @@ folly::Future<unique_ptr<string>> IMCHandler::future_infer
         float* data = (float*) malloc(img_num * img_size * sizeof(float));
         float* preds = (float*) malloc(img_num * sizeof(float));
 
-        unsigned char* buffer;
+        //LOG(ERROR)<< "Read image!";
 
+        unsigned char* buffer;
         // read in the image
         std::istringstream is(**move_image);
         is.seekg(0, is.end);
@@ -126,17 +117,19 @@ folly::Future<unique_ptr<string>> IMCHandler::future_infer
           (void) jpeg_read_scanlines(&cinfo, (JSAMPARRAY) &buffer, 1);
           for (int j = 0; j < cinfo.output_components; j++) {
             for (unsigned int k = 0; k < cinfo.output_width; k++) {
-              int index = j * cinfo.output_width * cinfo.output_height +
+              int index = (cinfo.output_components -1 - j) *
+                          cinfo.output_width * cinfo.output_height +
                           (cinfo.output_scanline - 1) * cinfo.output_width + k;
               data[index] = (float) buffer[k * cinfo.output_components + j];
             }
           }
         }
-
+        
         delete[] img_buffer;
         delete[] buffer;
         jpeg_finish_decompress(&cinfo);
         jpeg_destroy_decompress(&cinfo);
+
         
         float loss;
         reshape(this->net_, img_num * img_size);
@@ -189,11 +182,3 @@ void IMCHandler::reshape(Net<float>* net, int input_size) {
 
 
 } // namespace cpp2
-
-/*
-} // namespace imc
-} // namespace services
-} // namespace treadmill
-} // namespace windtunnel
-} // namespace facebook
-*/
