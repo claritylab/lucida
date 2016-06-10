@@ -1,7 +1,7 @@
 #pragma once
 
 //#include "gen-cpp2/IMC.h"
-#include "gen-cpp2/LucidaService.h"
+#include "../gen-cpp2/LucidaService.h"
 
 #include "caffe/caffe.hpp"
 

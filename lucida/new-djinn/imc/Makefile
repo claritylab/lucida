@@ -9,7 +9,7 @@ CXXFLAGS += -std=c++11
 LDFLAGS += -ljpeg
 
 TARGET  = IMCServer
-SOURCES = $(wildcard *.cpp gen-cpp2/*.cpp)
+SOURCES = $(wildcard *.cpp ../gen-cpp2/*.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
 all: $(TARGET)
