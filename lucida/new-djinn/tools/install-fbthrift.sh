@@ -14,8 +14,11 @@ cmake .
 make
 ctest
 sudo make install
-
+cd ../
+rm -rf .git
+cd ../
 git clone https://github.com:facebook/fbthrift.git
+cd fbthrift/thrift
 autoreconf -if
 ./configure
 sudo make
