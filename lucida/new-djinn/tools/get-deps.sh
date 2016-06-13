@@ -21,10 +21,8 @@ apt-get install -y  g++ \
                     zlib1g-dev \
                     binutils-dev \
                     libjemalloc-dev \
-                    libssl-dev
-
-# more dependencies
-apt-get install -y  libiberty-dev \
+                    libssl-dev \
+                    libiberty-dev \
                     flex \
                     bison \
                     libkrb5-dev \
