@@ -37,3 +37,5 @@ apt-get install -y  g++ \
                     python-all-dbg \
                     cmake \
                     libatlas-base-dev
+
+# Dependencies required by Caffe

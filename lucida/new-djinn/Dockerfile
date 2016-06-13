@@ -10,5 +10,5 @@ RUN /bin/bash get-deps.sh
 RUN /bin/bash install-thrift.sh
 RUN /bin/bash install-fbthrift.sh
 
-WORKDIR = "/usr/local/new-djinn/kaldiasr"
+WORKDIR "/usr/local/new-djinn/kaldiasr"
 RUN /bin/bash make_asr.sh 
