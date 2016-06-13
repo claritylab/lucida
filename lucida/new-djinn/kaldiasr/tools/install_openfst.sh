@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#wget http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-1.5.0.tar.gz
+wget http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-1.5.0.tar.gz
 
 tar -xovf openfst-1.5.0.tar.gz
 
