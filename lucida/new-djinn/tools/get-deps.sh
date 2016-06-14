@@ -39,3 +39,7 @@ apt-get install -y  g++ \
                     libatlas-base-dev
 
 # Dependencies required by Caffe
+#apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+#apt-get install --no-install-recommends libboost-all-dev
+#apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+

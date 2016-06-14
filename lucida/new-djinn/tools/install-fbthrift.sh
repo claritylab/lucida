@@ -1,3 +1,5 @@
+export LD_LIBRARY_PATH=/usr/local/lib
+
 git clone https://github.com/facebook/folly.git
 cd folly/folly
 autoreconf -ivf
@@ -17,12 +19,12 @@ sudo make install
 cd ../
 rm -rf .git
 cd ../
-git clone https://github.com:facebook/fbthrift.git
+git clone https://github.com/facebook/fbthrift.git
 cd fbthrift/thrift
 autoreconf -if
 ./configure
-sudo make
-sudo make install
+make
+make install
 cd ..
 rm -rf .git
 cd ..
