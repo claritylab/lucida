@@ -1,7 +1,8 @@
 FROM ubuntu:14.04
 
-ENV THRIFT_VERSION 0.9.3
-ENV THREADS 8
+ENV THRIFT_VERSION=0.9.3
+ENV THREADS=8
+ENV LD_LIBRARY_PATH=/usr/local/lib
 
 RUN mkdir -p /usr/local/new-djinn
 ADD . /usr/local/new-djinn

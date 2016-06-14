@@ -15,13 +15,13 @@ valgrind: .valgrind
 
 
 CONFIGURE_VERSION := 2
-FSTROOT = /home/xiaoweiw/research/clarity-lab/lucida/lucida/kaldiasr/tools/openfst
+FSTROOT = /home/xiaoweiw/research/clarity-lab/lucida/lucida/new-djinn/kaldiasr/tools/openfst
 OPENFST_VER = 1.5.0
 OPENFST_GE_10400 = 1
 EXTRA_CXXFLAGS += -DHAVE_OPENFST_GE_10400 -std=c++0x
-OPENFSTLIBS = -L/home/xiaoweiw/research/clarity-lab/lucida/lucida/kaldiasr/tools/openfst/lib -lfst
-OPENFSTLDFLAGS = -Wl,-rpath=/home/xiaoweiw/research/clarity-lab/lucida/lucida/kaldiasr/tools/openfst/lib
-ATLASINC = /home/xiaoweiw/research/clarity-lab/lucida/lucida/kaldiasr/tools/ATLAS/include
+OPENFSTLIBS = -L/home/xiaoweiw/research/clarity-lab/lucida/lucida/new-djinn/kaldiasr/tools/openfst/lib -lfst
+OPENFSTLDFLAGS = -Wl,-rpath=/home/xiaoweiw/research/clarity-lab/lucida/lucida/new-djinn/kaldiasr/tools/openfst/lib
+ATLASINC = /home/xiaoweiw/research/clarity-lab/lucida/lucida/new-djinn/kaldiasr/tools/ATLAS/include
 ATLASLIBS = /usr/lib/libatlas.so.3 /usr/lib/libf77blas.so.3 /usr/lib/libcblas.so.3 /usr/lib/liblapack_atlas.so.3
 # You have to make sure ATLASLIBS is set...
 
