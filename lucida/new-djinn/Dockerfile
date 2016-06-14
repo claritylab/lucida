@@ -13,3 +13,11 @@ RUN /bin/bash install-fbthrift.sh
 
 WORKDIR "/usr/local/new-djinn/kaldiasr"
 RUN /bin/bash make_asr.sh 
+
+WORKDIR "/usr/local/new-djinn/tools"
+RUN /bin/bash install-protobuf.sh
+RUN /bin/bash install-caffe.sh
+ADD tools/common.hpp /usr/local/new-djinn/tools/caffe/distribute/include/caffe/common.hpp
+
+WORKDIR "/usr/local/new-djinn/imc"
+RUN /bin/bash make_imc.sh 
