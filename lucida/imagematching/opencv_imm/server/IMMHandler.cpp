@@ -32,21 +32,24 @@ std::mutex cout_lock_cpp;
 
 namespace cpp2 {
 IMMHandler::IMMHandler() {
-	// Initialize MongoDB C++ driver.
-	client::initialize();
-	try {
-		if (getenv("DOCKER")) {
-			print("MongoDB: mongo");
-			conn.connect("mongo");
-		} else {
-			print("MongoDB: localhost");
-			conn.connect("localhost");
+		// Initialize MongoDB C++ driver.
+		client::initialize();
+		string mongo_addr;
+		try {
+				if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
+					print("MongoDB: " << env_p);
+					mongo_addr = env_p;
+				} else {
+					print("MongoDB: localhost");
+					mongo_addr = "localhost";
+				}
+				conn.connect(mongo_addr);
+				print("Connection is ok");
+		} catch (const DBException &e) {
+				print("Caught " << e.what());
 		}
-		print("Connection is ok");
-	} catch(const DBException &e) {
-		print("Caught " << e.what());
-	}
 }
+
 
 folly::Future<folly::Unit> IMMHandler::future_create
 (unique_ptr<string> LUCID, unique_ptr< ::cpp2::QuerySpec> spec) {
