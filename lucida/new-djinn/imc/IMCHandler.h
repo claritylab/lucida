@@ -44,6 +44,8 @@ class IMCHandler : virtual public LucidaServiceSvIf {
   std::string network_;
   std::string weights_;
   caffe::Net<float>* net_;
+
+  std::vector<std::string>* classes_;
 };
 
 } // namespace cpp2

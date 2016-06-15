@@ -145,7 +145,7 @@ folly::Future<unique_ptr<string>> DIGHandler::future_infer
         memcpy(preds, out_blobs[0]->cpu_data(), img_num * sizeof(float));
 
         std::unique_ptr<std::string> digit =
-            folly::make_unique<std::string>(std::to_string(preds[0]));
+            folly::make_unique<std::string>(std::to_string(int(preds[0])));
         promise->setValue(std::move(digit));
       }
   );

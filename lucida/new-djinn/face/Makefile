@@ -3,6 +3,7 @@ include Makefile.config
 CAFFE = ../tools/caffe
 #CAFFE = /home/xiaoweiw/tools/caffe-1.0
 CXXFLAGS += -I$(CAFFE)/distribute/include/ -DCPU_ONLY
+#CXXFLAGS += -I$(CAFFE)/include/ -DCPU_ONLY
 LDFLAGS += $(CAFFE)/build/lib/libcaffe.so
 
 # CUDA = /usr/local/cuda
