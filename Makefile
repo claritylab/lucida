@@ -16,7 +16,7 @@ export LD_LIBRARY_PATH=/usr/local/lib
 export LUCIDAROOT=$(shell pwd)/lucida
 
 local: 
-	cd tools && make && cd lucida && make
+	cd tools && make && cd ../lucida && make
 
 tools:
 	cd tools && make
