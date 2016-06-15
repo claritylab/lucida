@@ -64,6 +64,8 @@ class ThriftClient(object):
 			if tcp_addr:
 				log('TCP address is resolved to ' + tcp_addr)
 				host = tcp_addr
+			else:
+				host = 'localhost'
 			return host, port
 		except Exception:
 			services_lock.release()
