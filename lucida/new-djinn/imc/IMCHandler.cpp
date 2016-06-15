@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <unistd.h>
+#include <fstream>
 
 #include <jpeglib.h>
 #include <gflags/gflags.h>
@@ -37,6 +38,18 @@ IMCHandler::IMCHandler() {
   // load caffe model
   this->net_ = new Net<float>(this->network_);
   this->net_->CopyTrainedLayersFrom(this->weights_);
+
+  this->classes_ = new std::vector<std::string>();
+  // load image classes
+  std::ifstream cl_file("imc-classes.txt");
+  while (!cl_file.eof()) {
+    char c;
+    std::string imc_class;
+    cl_file >> imc_class; // fake get
+    cl_file.get(c); // fake get
+    getline (cl_file, imc_class);
+    (*this->classes_).push_back(imc_class);
+  }
  
   LOG(ERROR) << "Finished initializing the handler!"; 
 }
@@ -140,8 +153,9 @@ folly::Future<unique_ptr<string>> IMCHandler::future_infer
         std::vector<Blob<float>*> out_blobs = this->net_->ForwardPrefilled(&loss);
         memcpy(preds, out_blobs[0]->cpu_data(), img_num * sizeof(float));
 
+        
         std::unique_ptr<std::string> image_class = 
-            folly::make_unique<std::string>(std::to_string(preds[0]));
+            folly::make_unique<std::string>((*(this->classes_))[int(preds[0])]);
         promise->setValue(std::move(image_class));
       }
   );
@@ -149,15 +163,6 @@ folly::Future<unique_ptr<string>> IMCHandler::future_infer
   return future;
 
 }
-
-
-/*
-folly::Future<std::unique_ptr<std::string> >
-IMCHandler::future_imageClassification(std::unique_ptr<std::string> image) {
-  folly::MoveWrapper<folly::Promise<std::unique_ptr<std::string> > > promise;
-  auto move_image = folly::makeMoveWrapper(std::move(image));
-  auto future = promise->getFuture();
-*/
 
 void IMCHandler::reshape(Net<float>* net, int input_size) {
   int n_in = net->input_blobs()[0]->num();

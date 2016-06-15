@@ -49,6 +49,19 @@ FACEHandler::FACEHandler() {
   this->net_ = new Net<float>(this->network_);
   this->net_->CopyTrainedLayersFrom(this->weights_);
  
+  this->classes_ = new std::vector<std::string>();
+  // load image classes
+  (*this->classes_).push_back(std::string("")); //offset
+  std::ifstream cl_file("face-classes.txt");
+  while (!cl_file.eof()) {
+    char c;
+    std::string face_class;
+    cl_file >> face_class; // fake get
+    cl_file.get(c); // fake get
+    getline (cl_file, face_class);
+    (*this->classes_).push_back(face_class);
+  }
+ 
   LOG(ERROR) << "Finished initializing the handler!"; 
 }
 
@@ -99,25 +112,7 @@ folly::Future<unique_ptr<string>> FACEHandler::future_infer
         // prepare data into array
         float* data = (float*) malloc(img_num * img_size * sizeof(float));
         float* preds = (float*) malloc(img_num * sizeof(float));
-/*        
-        // opencv read in image 
-        std::vector<char> vectordata((**move_image).begin(),(**move_image).end());
-        //std::vector<char> vectordata(img_file.begin(),img_file.end());
-        cv::Mat data_mat(vectordata,true);
-        cv::Mat img(cv::imdecode(data_mat,1));
-
-        int pix_count = 0;
-        for (int c = 0; c < img.channels(); ++c) {
-          for (int i = 0; i < img.rows; ++i) {
-            for (int j = 0; j < img.cols; ++j) {
-              Vec3b pix = img.at<Vec3b>(i, j);
-              float* p = (float*)data;
-              p[pix_count] = pix[c];
-              ++pix_count;
-            }
-          }
-        }
-*/
+        
         unsigned char* buffer;
 
         // read in the image
@@ -171,7 +166,8 @@ folly::Future<unique_ptr<string>> FACEHandler::future_infer
         memcpy(preds, out_blobs[0]->cpu_data(), img_num * sizeof(float));
 
         std::unique_ptr<std::string> image_class = 
-            folly::make_unique<std::string>(std::to_string(preds[0]));
+            folly::make_unique<std::string>((*(this->classes_))[int(preds[0])]);
+            //folly::make_unique<std::string>(std::to_string(preds[0]));
         promise->setValue(std::move(image_class));
       }
   );
@@ -179,15 +175,6 @@ folly::Future<unique_ptr<string>> FACEHandler::future_infer
   return future;
 
 }
-
-
-/*
-folly::Future<std::unique_ptr<std::string> >
-IMCHandler::future_imageClassification(std::unique_ptr<std::string> image) {
-  folly::MoveWrapper<folly::Promise<std::unique_ptr<std::string> > > promise;
-  auto move_image = folly::makeMoveWrapper(std::move(image));
-  auto future = promise->getFuture();
-*/
 
 void FACEHandler::reshape(Net<float>* net, int input_size) {
   int n_in = net->input_blobs()[0]->num();
