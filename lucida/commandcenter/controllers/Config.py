@@ -26,10 +26,8 @@ CLASSIFIER_DESCRIPTIONS = { 'text' : { 'class_QA' :  [ 'QA' ] ,
 # Pre-configured services.
 # The ThriftClient assumes that the following services are running.
 # Only set when Lucida is running in Docker containers.
-REGISTRERED_SERVICES = {}
-if not os.environ.get('DOCKER') is None:
-	REGISTRERED_SERVICES = {'IMM': [('IMM', 8082)], 'QA': [('QA', 8083)], \
-		 'CA': [('CA', 8084)]}
+REGISTRERED_SERVICES = {'IMM': [('IMM', 8082)], 'QA': [('QA', 8083)], \
+	'CA': [('CA', 8084)]}
 
 for input_type, services in LEARNERS.iteritems():
 	for service in services:

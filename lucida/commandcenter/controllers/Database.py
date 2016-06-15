@@ -8,9 +8,11 @@ import os
 class Database():
 	# Constructor.
 	def __init__(self):
-		if not os.environ.get('DOCKER') is None:
-			self.db = MongoClient('mongo', 27017).lucida
+		if os.environ.get('MONGO_PORT_27017_TCP_ADDR'):
+			log('MongoDB: Docker')
+			self.db = MongoClient(os.environ.get('MONGO_PORT_27017_TCP_ADDR'), 27017).lucida
 		else:
+			log('MongoDB: localhost')
 			self.db = MongoClient().lucida
 		self.users = self.db.users
 	
@@ -33,8 +35,10 @@ class Database():
 		hashed_password = self.hash_password(self.ENCRYPT_ALGORITHM,
 			salt, password)
 		self.users.insert_one({'username' : username,
-			'firstname': firstname, 'lastname': lastname,
-			'password': hashed_password, 'email': email})
+						  	   'firstname': firstname,
+						       'lastname': lastname,
+						       'password': hashed_password,
+						       'email': email})
 	
 	# Returns true if password of the user is correct
 	def check_password(self, username, input_password):
