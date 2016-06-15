@@ -88,7 +88,7 @@ RUN \
 
 ## install MongoDB, OpenCV, Thrift, and FBThrift
 RUN mkdir -p /usr/local/lucida
-ADD . /usr/local/lucida
+ADD . /usr/local/lucida/tools
 WORKDIR "/usr/local/lucida/tools"
 RUN /bin/bash apt_deps.sh
 RUN /bin/bash install_mongodb.sh
