@@ -1,6 +1,9 @@
 export THRIFT_VERSION=0.9.3
 
 installCheck () {
+  if [ ! -d thrift-$THRIFT_VERSION ]; then
+    return 1
+  fi
   thrift --gen java ../lucida/lucidaservice.thrift
   if [ -d gen-java ]; then
     rm -rf gen-java
