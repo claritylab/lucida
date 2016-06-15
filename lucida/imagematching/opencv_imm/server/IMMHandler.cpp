@@ -36,17 +36,17 @@ IMMHandler::IMMHandler() {
 		client::initialize();
 		string mongo_addr;
 		try {
-				if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
-					print("MongoDB: " << env_p);
-					mongo_addr = env_p;
-				} else {
-					print("MongoDB: localhost");
-					mongo_addr = "localhost";
-				}
-				conn.connect(mongo_addr);
-				print("Connection is ok");
+			if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
+				print("MongoDB: " << env_p);
+				mongo_addr = env_p;
+			} else {
+				print("MongoDB: localhost");
+				mongo_addr = "localhost";
+			}
+			conn.connect(mongo_addr);
+			print("Connection is ok");
 		} catch (const DBException &e) {
-				print("Caught " << e.what());
+			print("Caught " << e.what());
 		}
 }
 
