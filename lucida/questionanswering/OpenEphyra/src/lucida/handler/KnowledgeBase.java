@@ -36,7 +36,8 @@ public class KnowledgeBase {
 	/**
 	 * Stores knowledge bases that have not been committed to Indri repository yet. 
 	 */
-	public static Map<String, KnowledgeBase> active_kbs = new HashMap<String, KnowledgeBase>();
+	public static Map<String, KnowledgeBase> active_kbs
+	= new HashMap<String, KnowledgeBase>();
 	
 	/**
 	 * Returns the knowledge base of the user. Creates one if it does not exist.
@@ -44,23 +45,25 @@ public class KnowledgeBase {
 	 */
 	public static KnowledgeBase getKnowledgeBase(String LUCID) {
 		KnowledgeBase kb = null;
-		if (KnowledgeBase.active_kbs.containsKey(LUCID)) {
-			kb = KnowledgeBase.active_kbs.get(LUCID);
-		} else {
-			kb = new KnowledgeBase(LUCID);
-			KnowledgeBase.active_kbs.put(LUCID, kb);
-		}
-		// Create the default Indri directory if it does not exist.
-		if (!new File(kb.Indri_repo).exists()) {
-			QAServiceHandler.print("Creating directory " + kb.Indri_repo);
-			new File(kb.Indri_repo).mkdirs();
-			IndexEnvironment env = new IndexEnvironment();
-			try {
-				env.setStemmer("krovetz");
-				env.create(kb.Indri_repo);
-				env.close();
-			} catch (Exception e) {
-				e.printStackTrace();
+		synchronized (KnowledgeBase.active_kbs) {
+			if (KnowledgeBase.active_kbs.containsKey(LUCID)) {
+				kb = KnowledgeBase.active_kbs.get(LUCID);
+			} else {
+				kb = new KnowledgeBase(LUCID);
+				KnowledgeBase.active_kbs.put(LUCID, kb);
+			}
+			// Create the default Indri directory if it does not exist.
+			if (!new File(kb.Indri_repo).exists()) {
+				QAServiceHandler.print("Creating directory " + kb.Indri_repo);
+				new File(kb.Indri_repo).mkdirs();
+				IndexEnvironment env = new IndexEnvironment();
+				try {
+					env.setStemmer("krovetz");
+					env.create(kb.Indri_repo);
+					env.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return kb;
