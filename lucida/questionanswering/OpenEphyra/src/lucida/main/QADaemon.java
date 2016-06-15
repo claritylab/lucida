@@ -30,32 +30,6 @@ import lucida.handler.QAServiceHandler.AsyncQAServiceHandler;
  * Starts the question-answer server and listens for requests.
  */
 public class QADaemon {
-	private static void connectToCMD() {
-		QueryInput query_input = new QueryInput();
-		query_input.type = "QA";
-		query_input.data = new ArrayList<String>();
-		query_input.data.add("localhost");
-		query_input.tags = new ArrayList<String>();
-		query_input.tags.add("8083");
-		QuerySpec spec = new QuerySpec();
-		spec.content = new ArrayList<QueryInput>();
-		spec.content.add(query_input);
-		// Initialize thrift objects.
-		TTransport transport = new TSocket("localhost", 8080);
-		TProtocol protocol = new TBinaryProtocol(new TFramedTransport(transport));
-		LucidaService.Client client = new LucidaService.Client(protocol);
-		try {
-			transport.open();
-			System.out.println("Connecting to CMD at port " + 8080);
-			// Register itself to CMD.
-			client.create("", spec);
-			transport.close();
-			System.out.println("Successfully connected to CMD");
-		} catch (TException x) {
-			x.printStackTrace();
-		}
-	}
-	
 	/** 
 	 * Entry point for question-answer.
 	 * @param args the argument list. Provide port numbers
@@ -63,8 +37,6 @@ public class QADaemon {
 	 */
 	public static void main(String [] args) 
 			throws TTransportException, IOException, InterruptedException {	
-		connectToCMD();
-
 		TProcessor proc = new LucidaService.AsyncProcessor(
 				new QAServiceHandler.AsyncQAServiceHandler());
 		TNonblockingServerTransport transport = new TNonblockingServerSocket(8083);
