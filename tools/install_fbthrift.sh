@@ -1,5 +1,5 @@
 installCheck () {
-  python -mthrift_compiler.main --gen cpp2 ../lucida/lucidaservice.thrift
+  python -mthrift_compiler.main --gen cpp2 hello_world.thrift
   if [ -d gen-cpp2 ]; then
     rm -rf gen-cpp2
     return 0
