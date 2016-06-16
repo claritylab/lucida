@@ -22,7 +22,7 @@ and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy)
 
 ## Notes
 
-1. This setup is for Ubuntu 14.04.
+1. This setup has been tested for Ubuntu 14.04.
 
 2. Each script performs a simple check on whether the package is
 installed. If for some reason the installation failed, or the simple check
