@@ -1,0 +1,14 @@
+####
+# Builds the lucida base image
+FROM lucida_base
+
+#### environment variables
+ENV LUCIDAROOT /usr/local/lucida/lucida
+ENV LD_LIBRARY_PATH /usr/local/lib
+
+## install CMD
+RUN mkdir -p /usr/local/lucida/lucida/commandcenter
+ADD . /usr/local/lucida/lucida/commandcenter
+WORKDIR "/usr/local/lucida/lucida/commandcenter"
+RUN /usr/bin/make
+RUN /bin/bash apache/install_apache.sh
