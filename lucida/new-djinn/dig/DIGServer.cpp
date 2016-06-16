@@ -6,8 +6,8 @@
 #include "DIGHandler.h"
 
 DEFINE_int32(port,
-             9002,
-             "Port for DIG server (default: 9002)");
+             8087,
+             "Port for DIG server (default: 8087)");
 
 DEFINE_int32(num_of_threads,
              4,
