@@ -1,5 +1,8 @@
 # Tools (Dependencies)
 
+This directory contains common tools that are used by micro-services, so please install
+all of them before compiling any micro-service.
+
 ## Install
 
 Type `make` to install all dependencies necessary for Lucida in the following order:
