@@ -1,7 +1,7 @@
 # Tools (Dependencies)
 
-This directory contains common tools that are used by micro-services, so please install
-all of them before compiling any micro-service.
+This directory contains common tools that are used by Lucida micro-services, 
+so please install all of them before compiling any micro-service.
 
 ## Install
 
