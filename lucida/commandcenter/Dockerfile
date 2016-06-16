@@ -10,5 +10,6 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 RUN mkdir -p /usr/local/lucida/lucida/commandcenter
 ADD . /usr/local/lucida/lucida/commandcenter
 WORKDIR "/usr/local/lucida/lucida/commandcenter"
+RUN mv lucidaservice.thrift ../ && mv lucidatypes.thrift ../
 RUN /usr/bin/make
 RUN /bin/bash apache/install_apache.sh
