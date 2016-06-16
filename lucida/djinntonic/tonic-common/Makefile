@@ -1,3 +1,5 @@
+include Makefile.config
+
 CXX = g++
 CXX_FLAGS = -O3 \
 						$(INCLUDE_DIRS) \
