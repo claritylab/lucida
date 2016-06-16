@@ -15,7 +15,7 @@ infer = Blueprint('infer', __name__, template_folder='templates')
 def infer_route():
 	options = {
 		'result': None,
-		'asr_addr_port': request.url_root[7 : request.url_root.find('infer')]
+		'asr_addr_port': request.url_root[7 : request.url_root.find('infer')] 
 	}
 	if os.environ.get('DOCKER'):
 		options['asr_addr_port'] = options['asr_addr_port'][:-1] + '2'
