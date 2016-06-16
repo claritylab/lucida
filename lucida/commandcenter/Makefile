@@ -9,7 +9,7 @@ thrift:
 		cd ..; \
 		rmdir gen-py; \
 		rm __init__.py; \
-    fi
+	fi
 
 clean:
 	rm -rf lucidaservice lucidatypes
@@ -17,4 +17,11 @@ clean:
 start_server: 
 	gnome-terminal -x bash -c "python app.py $(filter-out $@,$(MAKECMDGOALS)); read -n1"
 
-.PHONY:	all venv thrift clean start_server
+docker:
+	cp ../lucidaservice.thrift .; \
+	cp ../lucidatypes.thrift .; \
+	docker build -t lucida_CMD .; \
+	rm lucidaservice.thrift; \
+	rm lucidatypes.thrift;
+
+.PHONY:	all venv thrift clean start_server docker
