@@ -95,3 +95,10 @@ RUN /bin/bash install_mongodb.sh
 RUN /bin/bash install_opencv.sh
 RUN /bin/bash install_thrift.sh
 RUN /bin/bash install_fbthrift.sh
+RUN \
+  rm -rf mongo-c-driver/ && \
+  rm -rf mongo-cxx-driver/ && \
+  rm -rf fbthrift/ && \
+  rm -rf libbson/ && \
+  rm -rf opencv-2.4.9/
+  
