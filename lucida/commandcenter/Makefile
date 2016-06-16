@@ -20,7 +20,7 @@ start_server:
 docker:
 	cp ../lucidaservice.thrift .; \
 	cp ../lucidatypes.thrift .; \
-	docker build -t lucida_CMD .; \
+	docker build -t lucida_cmd .; \
 	rm lucidaservice.thrift; \
 	rm lucidatypes.thrift;
 
