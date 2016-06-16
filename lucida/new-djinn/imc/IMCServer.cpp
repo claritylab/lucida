@@ -6,8 +6,8 @@
 #include "IMCHandler.h"
 
 DEFINE_int32(port,
-             9003,
-             "Port for IMC service (default: 9003)");
+             8085,
+             "Port for IMC service (default: 8085)");
 
 DEFINE_int32(num_of_threads,
              4,

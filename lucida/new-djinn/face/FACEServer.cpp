@@ -6,8 +6,8 @@
 #include "FACEHandler.h"
 
 DEFINE_int32(port,
-             9006,
-             "Port for FACE service (default: 9006)");
+             8086,
+             "Port for FACE service (default: 8086)");
 
 DEFINE_int32(num_of_threads,
              4,
