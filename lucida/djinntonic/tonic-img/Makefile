@@ -1,3 +1,5 @@
+include ../tonic-common/Makefile.config
+
 COMMON=../tonic-common
 IMG-COMMON=common-img
 export LIBRARY_PATH=/usr/local/lib
