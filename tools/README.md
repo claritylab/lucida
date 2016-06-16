@@ -27,7 +27,7 @@ and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy)
 2. Each script performs a simple check on whether the package is
 installed. If for some reason the installation failed, or the simple check
 is not sufficient and you want to force reinstallation,
-please either remove the folder and ```sudo ./install_xxx.sh``` 
+please either remove the folder and ```sudo ./install_xxx.sh```, 
 or open the script and run the commands manually to make sure each command succeeds.
 
 3. Both Apache Thrift and Facebook are necessary. To make sure IMM
