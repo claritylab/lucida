@@ -1,12 +1,9 @@
 CXX = g++
 
 CXXFLAGS = 		-std=c++11 \
-				-fPIC \
-				-I /usr/local/include \
-				-I /usr/local/include/mongo 
+				-fPIC 
 
-LINKFLAGS =  	-I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
-				-lopencv_core \
+LINKFLAGS =     -lopencv_core \
 				-lopencv_highgui \
 				-lopencv_imgproc \
 				-lopencv_nonfree \
@@ -31,8 +28,8 @@ LINKFLAGS =  	-I /usr/local/include/mongo /usr/local/lib/libmongoclient.a \
 				-lthriftcpp2 \
 				-lgflags \
 				-lthriftprotocol \
-				-lcrypto \
-        -lssl
+				-lssl \
+				-lcrypto
 
 TARGET  = imm_server
 SOURCES = gen-cpp2/LucidaService_client.cpp \
@@ -59,10 +56,10 @@ thrift:
     fi
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $@ $(LINKFLAGS)
+	$(CXX) $(OBJECTS) $(LINKFLAGS) -o $@
 
 %.o: %.cpp
-	$(CXX) -Wall -I$(COMMON_DIR) $(CXXFLAGS) -c $< -o $@
+	$(CXX) -Wall $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(TARGET) *.o gen-cpp2

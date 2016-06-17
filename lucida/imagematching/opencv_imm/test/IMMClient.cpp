@@ -106,7 +106,6 @@ int main(int argc, char* argv[]) {
 			std::unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>(
 					new HeaderClientChannel(socket_t)));
 	
-  /*
   // Open the images.
 	string db = fs::current_path().string() + "/test_db";
 	fs::path p = fs::system_complete(db);
@@ -134,7 +133,7 @@ int main(int argc, char* argv[]) {
 		cout << "Going to loop" << endl;
 		event_base.loop();
 	}
-  */
+  
 
 	// Infer.
 	// Make request.
