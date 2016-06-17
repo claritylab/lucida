@@ -9,5 +9,7 @@ sudo apt-get install -y \
 cp -f conf/000-default.conf /etc/apache2/sites-available/000-default.conf
 sudo a2enmod ssl
 service apache2 restart
+# lsof -i | grep http
+# killall -9 -v apache2
 
 
