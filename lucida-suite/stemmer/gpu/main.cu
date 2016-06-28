@@ -786,7 +786,7 @@ struct stemmer *gpu_stem_list;
 
 #define LETTER(ch) (isupper(ch) || islower(ch))
 
-int load_data(struct stemmer *stem_list, FILE *f) {
+int load_data(const int WORDS, struct stemmer *stem_list, FILE *f) {
   static int a_max = WORDS;
   int a_size = 0;
   while (TRUE) {
