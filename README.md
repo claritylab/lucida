@@ -17,7 +17,13 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 packages locally, each install script must be modified accordingly. This will
 also build `lucida-suite` and `lucida`.
 - Similar to what is set in the Makefile, you must set a few environment
-  variables. From the top directory:
+  variables. Make sure your machine dose not contain thrift-0.9.3 or newer version
+  because it is not compatible with this version of command center. Be careful
+  about 'pwd' when you set LUCIDAROOT because there are several directories called
+  "lucida". Your 'pwd' should be kept the same among the following three variables.
+  Don't forget to export these three variables when you open up a new shell. Or you
+  could [export the environment variables permanently](http://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables).
+  From the top directory:
 ```
 export THRIFT_ROOT=`pwd`/tools/thrift-0.9.2
 export CAFFE=`pwd`/tools/caffe/distribute
@@ -28,6 +34,19 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ```
 cd tools
 supervisord -c lucida.conf
+```
+- Sometimes supervisord does not work correctly, then you need to run command
+  center and services by running the scripts in 
+```
+'pwd'/tools/docker-scripts
+```
+  Before you run the scripts, you should export the corresponding ports for the
+  services
+```
+export DOCKER_COMMAND_CENTER='port for command center'
+export DOCKER_IMAGE_MATCHING='port for image matching service'
+export DOCKER_SPEECH_RECOGNITION='port for speech recognition service'
+export DOCKER_QUESTION_ANSWER='port for question answer service'
 ```
 - To test, in another terminal navigate to `lucida/commandcenter` and use the
   following commands (replacing (PORT) with 8090 as defined in `lucida.conf`):
