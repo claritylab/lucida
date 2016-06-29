@@ -25,6 +25,9 @@ import tornado.gen
 import tornado.concurrent
 import settings
 import common
+import os
+if os.environ.get('DOCKER'):
+    import ssl
 
 
 class Application(tornado.web.Application):
@@ -333,6 +336,9 @@ def main():
 
     tornado.options.parse_command_line()
     app = Application()
+    if os.environ.get('DOCKER'):
+        ssl_ctx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+        ssl_ctx.load_cert_chain('/etc/letsencrypt/live/clarity13.eecs.umich.edu/cert.pem', '/etc/letsencrypt/live/clarity13.eecs.umich.edu/privkey.pem')
     app.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
 
