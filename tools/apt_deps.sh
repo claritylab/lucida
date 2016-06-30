@@ -65,7 +65,8 @@ apt-get install -y zlib1g-dev \
                    libkrb5-dev \
                    libsasl2-dev \
                    libnuma-dev \
-                   scons
+                   scons \
+                   python-gobject
 pip install --upgrade distribute
 pip install --upgrade pip
 pip install -r python_requirements.txt
