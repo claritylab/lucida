@@ -66,6 +66,7 @@ apt-get install -y zlib1g-dev \
                    libsasl2-dev \
                    libnuma-dev \
                    scons \
+                   python-gobject \
                    python-gobject
 pip install --upgrade distribute
 pip install --upgrade pip
