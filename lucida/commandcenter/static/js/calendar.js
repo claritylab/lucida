@@ -86,11 +86,15 @@ function listUpcomingEvents() {
 		if (events.length > 0) {
 		  for (i = 0; i < events.length; i++) {
 			var event = events[i];
-			var when = event.start.dateTime;
-			if (!when) {
-			  when = event.start.date;
+			var start_time = event.start.dateTime;
+			if (!start_time) {
+			  start_time = event.start.date;
 			}
-			appendMsg(event.summary + ' (' + when + ')')
+			var end_time = event.end.dateTime;
+			if (!end_time) {
+			  end_time = event.end.date;
+			}
+			appendMsg((i + 1) + '. ' + event.summary + ' (' + start_time + ' -- ' + end_time + ')')
 		  }
 		} else {
 		  appendMsg('No events.');
