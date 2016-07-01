@@ -16,12 +16,12 @@ sys.setdefaultencoding('utf8')
 
 class ThriftClient(object):	
 	# Constructor.
-	def __init__(self, SERVICE_LIST_IN, LEARNERS_IN, services_in):
+	def __init__(self, SERVICE_LIST_IN, LEARNERS_IN, SERVICES_IN):
 		self.SERVICE_LIST = SERVICE_LIST_IN
 		self.LEARNERS = LEARNERS_IN
 		# Registered services.
-		self.services = services_in
-		log('Pre-configured services: ' + str(services_in))
+		self.SERVICES = SERVICES_IN
+		log('Pre-configured services: ' + str(SERVICES_IN))
 	
 	def create_query_input(self, type_in, data_in, tag_in):
 		query_input = QueryInput()
@@ -37,20 +37,6 @@ class ThriftClient(object):
 		query_spec.name = name_in
 		query_spec.content = query_input_list
 		return query_spec	
-	
-	def add_service(self, name, host, port):
-		# Check service name.
-		if not name in self.SERVICE_LIST:
-			raise RuntimeError('Unrecognized service. Cannot find ' + name \
-							   + ' in config.py')
-		# Add (host, port) to services.
-		services_lock.acquire()
-		if not name in self.services:
-			self.services[name] = [(host, int(port))]
-		elif not (host, int(port)) in self.services[name]:
-			self.services[name].append((host, int(port)))
-		log('Registered services ' + str(self.services))
-		services_lock.release()
 		
 	def get_service(self, name):
 		services_lock.acquire()
@@ -110,7 +96,6 @@ class ThriftClient(object):
 		transport.close()
 		return result
 
-
 	def infer(self, LUCID, services_needed, text_data, image_data):
 		query_input_list = []
 		i = 0
@@ -144,7 +129,5 @@ class ThriftClient(object):
 		return result
 
 
-	
 thrift_client = ThriftClient(Config.SERVICE_LIST, Config.LEARNERS,
-		Config.REGISTRERED_SERVICES)
-		
+		Config.REGISTRERED_SERVICES)	

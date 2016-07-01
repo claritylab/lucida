@@ -1,5 +1,3 @@
-import os
-
 TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 
 # If you modify the input types: 'audio', 'image', 'text', 'text_image', 
@@ -10,24 +8,33 @@ TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 
 # Map from service to its input type.
 SERVICE_LIST = { 'ASR' : 'audio', 'IMM' : 'image' , 'QA' : 'text',
-				 'CA' : 'text' }
+				 'CA' : 'text', 'ENSEMBLE' : 'text', 'IMC' : 'image',
+				 'FACE' : 'image', 'DIG' : 'image' }
  
 # Map from knowledge type to services that can learn this type of knowledge.
 LEARNERS = { 'audio' : [], 'image' : [ 'IMM' ], 'text' : [ 'QA' ] }
 
 # Map from input type to query classes and services needed by each class.
-CLASSIFIER_DESCRIPTIONS = { 'text' : { 'class_QA' :  [ 'QA' ] ,
-							'class_CA' : [ 'CA' ] },
-							'image' : { 'class_IMM' : [ 'IMM' ] },
-							'text_image' : { 'class_QA': [ 'QA' ],
-							'class_IMM' : [ 'IMM' ], 
-							'class_IMM_QA' : [ 'IMM', 'QA' ] } }
+CLASSIFIER_DESCRIPTIONS = { 
+	'text' : { 'class_QA' :  [ 'QA' ] ,
+			   'class_CA' : [ 'CA' ] },
+	'image' : { 'class_IMM' : [ 'IMM' ],
+				'class_IMC' : [ 'IMC' ],
+				'class_FACE' : [ 'FACE' ],
+				'class_DIG' : [ 'DIG' ] },
+	'text_image' : { 'class_QA': [ 'QA' ],
+					 'class_IMM' : [ 'IMM' ], 
+					 'class_IMM_QA' : [ 'IMM', 'QA' ],
+					 'class_IMC' : [ 'IMC' ],
+					 'class_FACE' : [ 'FACE' ],
+					 'class_DIG' : [ 'DIG' ] } }
 
 # Pre-configured services.
 # The ThriftClient assumes that the following services are running.
-# Only set when Lucida is running in Docker containers.
 REGISTRERED_SERVICES = {'IMM': [('IMM', 8082)], 'QA': [('QA', 8083)], \
-	'CA': [('CA', 8084)]}
+	'CA': [('CA', 8084)], 'ENSEMBLE' : [('ENSEMBLE', 9090)], \
+	'IMC' : [('IMC', 8085)], 'FACE' : [('FACE', 8086)], \
+	'DIG' : [('DIG', 8087)]}
 
 for input_type, services in LEARNERS.iteritems():
 	for service in services:
@@ -47,3 +54,4 @@ for input_type in CLASSIFIER_DESCRIPTIONS:
 				print 'CLASSIFIER_DESCRIPTIONS', service, \
 					'is not in SERVICE_LIST'
 		i += 1
+
