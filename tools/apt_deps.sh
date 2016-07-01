@@ -67,7 +67,8 @@ apt-get install -y zlib1g-dev \
                    libnuma-dev \
                    scons \
                    python-gobject \
-                   python-gobject
+                   python-gobject \
+                   vim
 pip install --upgrade distribute
 pip install --upgrade pip
 pip install -r python_requirements.txt
