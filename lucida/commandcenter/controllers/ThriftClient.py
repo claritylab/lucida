@@ -5,7 +5,7 @@ from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
-from ConcurrencyManagement import services_lock, log
+from ConcurrencyManagement import log
 from Database import database
 import Config
 import os
@@ -39,13 +39,11 @@ class ThriftClient(object):
 		return query_spec	
 		
 	def get_service(self, name):
-		services_lock.acquire()
 		try:
-			host, port = self.services[name][0] # (host, port)
+			host, port = self.SERVICES[name][0] # (host, port)
 			# Rotate the list to balance the load of back-end servers.
-			self.services[name].pop(0)
-			self.services[name].append((host, port))
-			services_lock.release()
+			self.SERVICES[name].pop(0)
+			self.SERVICES[name].append((host, port))
 			tcp_addr = os.environ.get(name + '_PORT_' + str(port) + '_TCP_ADDR')
 			if tcp_addr:
 				log('TCP address is resolved to ' + tcp_addr)
@@ -54,7 +52,6 @@ class ThriftClient(object):
 				host = 'localhost'
 			return host, port
 		except Exception:
-			services_lock.release()
 			raise RuntimeError('Cannot access service ' + name)
 	
 	def get_client_transport(self, service_name):

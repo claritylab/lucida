@@ -1,8 +1,6 @@
 from threading import Lock
 
 
-services_lock = Lock()
-
 print_lock = Lock()
 
 def log(s):
