@@ -15,12 +15,12 @@ infer = Blueprint('infer', __name__, template_folder='templates')
 def infer_route():
 	options = {
 		'result': None,
-		'asr_addr_port': request.url_root[7 : request.url_root.find('infer')] 
+		'asr_addr_port': None 
 	}
-	if os.environ.get('DOCKER'):
-		options['asr_addr_port'] = options['asr_addr_port'][:-1] + '2'
+	if os.environ.get('ASR_ADDR_PORT'):
+		options['asr_addr_port'] = os.environ.get('ASR_ADDR_PORT')
 	else:
-		options['asr_addr_port'] += '8081'
+		options['asr_addr_port'] += 'ws://localhost:8081'
 	try:
 		# Deal with POST requests.
 		if request.method == 'POST':

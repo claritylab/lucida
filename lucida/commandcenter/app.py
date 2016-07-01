@@ -27,16 +27,6 @@ app.register_blueprint(Infer.infer)
 
 # Session.
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
-
-def thrift_listener():
-	handler = ThriftServer.LucidaServiceHandler()
-	processor = ThriftServer.LucidaService.Processor(handler)
-	transport = ThriftServer.TSocket.TServerSocket(port=8080)
-	pfactory = ThriftServer.TBinaryProtocol.TBinaryProtocolFactory()
-	server = ThriftServer.TNonblockingServer.TNonblockingServer(processor,
-		transport, pfactory, pfactory)
-	print 'CMD at ' + str(8080)
-	server.serve()
 	
 def flask_listener():
 	app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False,
@@ -52,6 +42,5 @@ def web_socket_listener():
 	WebSocket.tornado.ioloop.IOLoop.instance().start()
 	 
 if __name__ == '__main__':
-	Thread(target = thrift_listener).start()
 	Thread(target = flask_listener).start()
 	web_socket_listener()
