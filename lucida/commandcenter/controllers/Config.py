@@ -41,10 +41,13 @@ CLASSIFIER_DESCRIPTIONS = {
 					 'class_DIG' : [ 'DIG' ] } }
 
 # Check the above configurations.
+if not (TRAIN_OR_LOAD == 'train' or TRAIN_OR_LOAD == 'load'):
+	print 'TRAIN_OR_LOAD must be either train or load'
+	exit()
 for service_name, service_obj in SERVICES.iteritems():
 	if not service_name == service_obj.name:
-		print service_name, 'must be the same as', service_obj.name    
-
+		print service_name, 'must be the same as', service_obj.name
+		exit()
 for input_type in CLASSIFIER_DESCRIPTIONS:
 	print '@@@@@ When query type is ' + input_type + ', there are ' + \
 		str(len(CLASSIFIER_DESCRIPTIONS[input_type])) + ' possible classes:'
@@ -57,5 +60,5 @@ for input_type in CLASSIFIER_DESCRIPTIONS:
 			if not service in SERVICES:
 				print 'CLASSIFIER_DESCRIPTIONS', service, \
 					'is not in SERVICE_LIST'
+				exit()
 		i += 1
-

@@ -3,7 +3,7 @@ from ConcurrencyManagement import log
 from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
-from Utilities import check_image_extension, check_text_input
+from Utilities import check_image_extension
 import Config
 import os
 
