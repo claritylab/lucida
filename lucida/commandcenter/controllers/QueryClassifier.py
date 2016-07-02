@@ -51,6 +51,7 @@ class QueryClassifier(object):
 		log(str(self.classifiers))
 	
 	def train(self, input_type, query_classes):
+		current_dir = os.path.abspath(os.path.dirname(__file__))
 		# If there is no or only one possible outcomes for the input type, 
 		# there is no need to train any classifier.
 		if len(query_classes) <= 1:
@@ -58,8 +59,7 @@ class QueryClassifier(object):
 		# Build DataFrame by going through all data files.
 		data = DataFrame({'text': [], 'class': []})
 		for query_class_name in query_classes:
-			path = os.environ.get('LUCIDAROOT') + '/commandcenter/data/' \
-		 + query_class_name + '.txt' # e.g. ../data/IMM_QA.txt
+			path = current_dir + '/../data/' + query_class_name + '.txt'
 			log('Opening ' + path)
 			lines = [line.rstrip('\n') for line in open(path)]
 			rows = []
@@ -96,23 +96,24 @@ class QueryClassifier(object):
 		log('Total documents classified:' + str(len(data)))
 		log('Score:' + str(sum(scores) / len(scores)))
 		# Save the classifier,
-		#if not os.path.exists('/usr/local/lucida/lucida/commandcenter/models'):
-		#    os.makedirs('/usr/local/lucida/lucida/commandcenter/models')
-		#with open('/usr/local/lucida/lucida/commandcenter/models/dumped_classifier_' + input_type + '.pkl',
-		#          'wb') as fid:
-		#    log('Saving model for ' + input_type)
-		#    cPickle.dump(pipeline, fid)
+		if not os.path.exists(current_dir + '/../models'):
+			os.makedirs(current_dir + '/../models')
+		with open(current_dir + '/../models/dumped_classifier_' +
+				input_type + '.pkl', 'wb') as fid:
+			log('Saving model for ' + input_type)
+			cPickle.dump(pipeline, fid)
 		return pipeline
 	
-	def load(self, input_type, query_classes):   
+	def load(self, input_type, query_classes):
+		current_dir = os.path.abspath(os.path.dirname(__file__))
 		# If there is no or only one possible outcomes for the input type, 
 		# there is no need to train any classifier.
 		if len(query_classes) <= 1:
 			return DummyClassifier(query_classes.keys()[0])
 		try:
-			with open(os.environ.get('LUCIDAROOT') + \
-		'/commandcenter/models/dumped_classifier_' + input_type + '.pkl',
-		'rb') as fid:
+			with open(current_dir +
+				'/../models/dumped_classifier_' + input_type + '.pkl',
+				'rb') as fid:
 				log('Loading model for ' + input_type)
 				return cPickle.load(fid)
 		except IOError as e:
@@ -136,6 +137,7 @@ class QueryClassifier(object):
 		class_predicted = class_predicted[0] # ndarray to string
 		log('Query classified as ' + class_predicted)
 		return self.CLASSIFIER_DESCRIPTIONS[input_type][class_predicted]
+
 
 query_classifier = QueryClassifier(Config.TRAIN_OR_LOAD,
 	Config.CLASSIFIER_DESCRIPTIONS)

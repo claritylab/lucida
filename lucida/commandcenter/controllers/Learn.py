@@ -13,40 +13,41 @@ learn = Blueprint('learn', __name__, template_folder='templates')
 @login_required
 def learn_route():
 	try:
+		form = request.form
 		# Deal with POST requests.
 		if request.method == 'POST':
 			# If the request does not contain an "op" field.
 			if not 'op' in request.form:
 				raise RuntimeError('Did you click the Add button?')
 			# Add image knowledge.
-			elif request.form['op'] == 'add_image':
+			elif form['op'] == 'add_image':
 				# Check the uploaded image.
 				upload_file = request.files['file']
 				if upload_file.filename == '':
 					raise RuntimeError('Empty file is not allowed')
 				check_image_extension(upload_file)
 				# Check the label of the image.
-				check_text_input(request.form['label'])
+				check_text_input(form['label'])
 				# Send the image to IMM.
 				image_data = upload_file.read()
 				upload_file.close()
 				thrift_client.learn_image(session['username'],
-					request.form['label'], image_data)
+					form['label'], image_data)
 				# Add the image into the database.
 				database.add_image(session['username'],
-					request.form['label'], image_data)
+					form['label'], image_data)
 			# Add text knowledge.
-			elif request.form['op'] == 'add_text':
+			elif form['op'] == 'add_text':
 				# Check the text knowledge.
-				if not 'text_knowledge' in request.form:
+				if not 'text_knowledge' in form:
 					raise RuntimeError('Please enter a piece of text')
-				check_text_input(request.form['text_knowledge'])
+				check_text_input(form['text_knowledge'])
 				# Send the text to QA.
 				thrift_client.learn_text(session['username'],
-					request.form['text_knowledge'])
+					form['text_knowledge'])
 				# Add the text knowledge into the database.
 				database.add_text(session['username'],
-					request.form['text_knowledge'])		
+					form['text_knowledge'])		
 			else:
 				raise RuntimeError('Did you click the Add button?')
 	except Exception as e:
