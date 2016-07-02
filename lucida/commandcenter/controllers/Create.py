@@ -9,5 +9,6 @@ create = Blueprint('create', __name__, template_folder='templates')
 @login_required
 def create_route():
 	# Display.
+	
 	return render_template("create.html")
 
