@@ -1,18 +1,29 @@
 TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 
-# If you modify the input types: 'audio', 'image', 'text', 'text_image', 
-# you need to change QueryClassifier, ThriftClient, and Infer.
-# If you modify the service names:'ASR', 'IMM', 'QA', 'CA',
-# you need to change the back-end service so that it reports itself correctly to
-# the command center (i.e. QueryInput's name matches the name here).
+class Service(object):
+	LEARNERS = { 'audio' : [], 'image' : [], 'text' : [] } 
+	# Constructor.
+	def __init__(self, name, port, input_type, learn_type):
+		self.name = name
+		self.port = port
+		self.input_type = input_type
+		if learn_type:
+			if not learn_type in Service.LEARNERS:
+				print 'learn_type must be one of audio, image, or text'
+				exit()
+			Service.LEARNERS[learn_type].append(name)
 
-# Map from service to its input type.
-SERVICE_LIST = { 'ASR' : 'audio', 'IMM' : 'image' , 'QA' : 'text',
-				 'CA' : 'text', 'ENSEMBLE' : 'text', 'IMC' : 'image',
-				 'FACE' : 'image', 'DIG' : 'image' }
- 
-# Map from knowledge type to services that can learn this type of knowledge.
-LEARNERS = { 'audio' : [], 'image' : [ 'IMM' ], 'text' : [ 'QA' ] }
+# Pre-configured services.
+# The ThriftClient assumes that the following services are running.
+SERVICES = { 
+	'IMM' : Service('IMM', 8082, 'image', 'image'), 
+	'QA' : Service('QA', 8083, 'text', 'text'),
+	'CA' : Service('CA', 8084, 'text', None),
+	'IMC' : Service('IMC', 8085, 'image', None),
+	'FACE' : Service('FACE', 8086, 'image', None),
+	'DIG' : Service('DIG', 8087, 'image', None),
+	'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None) 
+	}
 
 # Map from input type to query classes and services needed by each class.
 CLASSIFIER_DESCRIPTIONS = { 
@@ -29,17 +40,10 @@ CLASSIFIER_DESCRIPTIONS = {
 					 'class_FACE' : [ 'FACE' ],
 					 'class_DIG' : [ 'DIG' ] } }
 
-# Pre-configured services.
-# The ThriftClient assumes that the following services are running.
-REGISTRERED_SERVICES = {'IMM': [('IMM', 8082)], 'QA': [('QA', 8083)], \
-	'CA': [('CA', 8084)], 'ENSEMBLE' : [('ENSEMBLE', 9090)], \
-	'IMC' : [('IMC', 8085)], 'FACE' : [('FACE', 8086)], \
-	'DIG' : [('DIG', 8087)]}
-
-for input_type, services in LEARNERS.iteritems():
-	for service in services:
-		if not service in SERVICE_LIST:
-			print 'LEARNERS:', service, 'is not in SERVICE_LIST'       
+# Check the above configurations.
+for service_name, service_obj in SERVICES.iteritems():
+	if not service_name == service_obj.name:
+		print service_name, 'must be the same as', service_obj.name    
 
 for input_type in CLASSIFIER_DESCRIPTIONS:
 	print '@@@@@ When query type is ' + input_type + ', there are ' + \
@@ -50,7 +54,7 @@ for input_type in CLASSIFIER_DESCRIPTIONS:
 		print str(i) + '. ' + query_class_name + ' -- needs to invoke ' \
 			+ str(services)
 		for service in services:
-			if not service in SERVICE_LIST:
+			if not service in SERVICES:
 				print 'CLASSIFIER_DESCRIPTIONS', service, \
 					'is not in SERVICE_LIST'
 		i += 1

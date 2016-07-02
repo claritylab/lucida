@@ -16,12 +16,9 @@ sys.setdefaultencoding('utf8')
 
 class ThriftClient(object):	
 	# Constructor.
-	def __init__(self, SERVICE_LIST_IN, LEARNERS_IN, SERVICES_IN):
-		self.SERVICE_LIST = SERVICE_LIST_IN
-		self.LEARNERS = LEARNERS_IN
-		# Registered services.
-		self.SERVICES = SERVICES_IN
-		log('Pre-configured services: ' + str(SERVICES_IN))
+	def __init__(self, SERVICES):
+		self.SERVICES = SERVICES
+		log('Pre-configured services: ' + str(SERVICES))
 	
 	def create_query_input(self, type_in, data_in, tag_in):
 		query_input = QueryInput()
@@ -38,13 +35,11 @@ class ThriftClient(object):
 		query_spec.content = query_input_list
 		return query_spec	
 		
-	def get_service(self, name):
+	def get_service(self, service_name):
 		try:
-			host, port = self.SERVICES[name][0] # (host, port)
-			# Rotate the list to balance the load of back-end servers.
-			self.SERVICES[name].pop(0)
-			self.SERVICES[name].append((host, port))
-			tcp_addr = os.environ.get(name + '_PORT_' + str(port) + '_TCP_ADDR')
+			port = self.SERVICES[service_name].port
+			tcp_addr = os.environ.get(
+				service_name + '_PORT_' + str(port) + '_TCP_ADDR')
 			if tcp_addr:
 				log('TCP address is resolved to ' + tcp_addr)
 				host = tcp_addr
@@ -52,7 +47,7 @@ class ThriftClient(object):
 				host = 'localhost'
 			return host, port
 		except Exception:
-			raise RuntimeError('Cannot access service ' + name)
+			raise RuntimeError('Cannot access service ' + service_name)
 	
 	def get_client_transport(self, service_name):
 		host, port = self.get_service(service_name)
@@ -62,9 +57,9 @@ class ThriftClient(object):
 		return LucidaService.Client(protocol), transport
 
 	def learn_image(self, LUCID, label, image_data):
-		for service_name in self.LEARNERS['image']: # add concurrency?
+		for service_name in Config.Service.LEARNERS['image']: # add concurrency?
 			knowledge_input = self.create_query_input('image',
-													  image_data, label)
+				image_data, label)
 			client, transport = self.get_client_transport(service_name)
 			log('Sending learn_image request to IMM')
 			client.learn(str(LUCID), 
@@ -72,7 +67,7 @@ class ThriftClient(object):
 			transport.close()
 	
 	def learn_text(self, LUCID, text_data):
-		for service_name in self.LEARNERS['text']: # add concurrency?
+		for service_name in Config.Service.LEARNERS['text']: # add concurrency?
 			knowledge_input = self.create_query_input('text', text_data, '')
 			client, transport = self.get_client_transport(service_name)
 			log('Sending learn_text request to QA')
@@ -81,14 +76,8 @@ class ThriftClient(object):
 			transport.close()
 		
 	def ask_ensemble(self, text_data):
-		# I know hard-coding is not good, but this is due to the fact that
-		# Falk implements his QA Ensemble differently.
-		log('Asking ensemble')
-		transport = TSocket.TSocket('ensemble', 9090)
-		transport = TTransport.TBufferedTransport(transport)
-		protocol = TBinaryProtocol.TBinaryProtocol(transport)
-		client = LucidaService.Client(protocol)
-		transport.open()
+		log('Asking ensemble')	
+		client, transport = self.get_client_transport('ensemble')
 		result = client.infer(text_data, QuerySpec())
 		transport.close()
 		return result
@@ -97,7 +86,7 @@ class ThriftClient(object):
 		query_input_list = []
 		i = 0
 		for service_name in services_needed:
-			input_type = self.SERVICE_LIST[service_name]
+			input_type = self.SERVICES[service_name].input_type
 			data_in = ''
 			tag_in = ''
 			if input_type == 'text':
@@ -112,7 +101,7 @@ class ThriftClient(object):
 			query_input_list.append(self.create_query_input(
 				input_type, data_in, tag_in))
 			i += 1
-		# Check IMM.
+		# Check empty colletion for IMM.
 		if services_needed[0] == 'IMM' and \
 			database.count_images(str(LUCID)) == 0:
 				raise RuntimeError('Cannot match in empty photo collection')
@@ -126,5 +115,4 @@ class ThriftClient(object):
 		return result
 
 
-thrift_client = ThriftClient(Config.SERVICE_LIST, Config.LEARNERS,
-		Config.REGISTRERED_SERVICES)	
+thrift_client = ThriftClient(Config.SERVICES)	
