@@ -15,6 +15,8 @@ class Service(object):
 
 # Pre-configured services.
 # The ThriftClient assumes that the following services are running.
+# Host IP addresses are resolved dynamically: 
+# either set by Kubernetes or localhost.
 SERVICES = { 
 	'IMM' : Service('IMM', 8082, 'image', 'image'), 
 	'QA' : Service('QA', 8083, 'text', 'text'),

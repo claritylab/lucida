@@ -4,7 +4,6 @@ from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
 from Utilities import check_image_extension
-import Config
 import os
 
 infer = Blueprint('infer', __name__, template_folder='templates')
@@ -13,34 +12,32 @@ infer = Blueprint('infer', __name__, template_folder='templates')
 @infer.route('/infer', methods=['GET', 'POST'])
 @login_required
 def infer_route():
-	options = {
-		'result': None,
-		'asr_addr_port': None 
-	}
+	options = {}
 	if os.environ.get('ASR_ADDR_PORT'):
 		options['asr_addr_port'] = os.environ.get('ASR_ADDR_PORT')
 	else:
 		options['asr_addr_port'] = 'ws://localhost:8081'
 	try:
+		form = request.form
 		# Deal with POST requests.
 		if request.method == 'POST':
-			form = request.form
 			# If the request does not contain an "op" field.
 			if not 'op' in form:
 				raise RuntimeError('Did you click the Ask button?')
 			# When the "op" field is equal to "add_image".
 			elif form['op'] == 'infer':
 				# Check input file.
-				if request.files['file'].filename != '':
-					check_image_extension(request.files['file'])
+				upload_file = request.files['file']
+				if upload_file.filename != '':
+					check_image_extension(upload_file)
 				# Classify the query.
 				services_needed = \
-					query_classifier.predict(form['speech_input'],
-						request.files['file'])
+					query_classifier.predict(form['speech_input'], upload_file)
 				options['result'] = thrift_client.infer(session['username'], 
-					services_needed, form['speech_input'],
-					request.files['file'].read())
+					services_needed, form['speech_input'], upload_file.read())
 				log('Result ' + options['result'])
+				# Check if Calendar service is needed.
+				# If so, JavaScript needs to receive the parsed dates.
 				if services_needed == ['CA']:
 					options['dates'] = options['result']
 					options['result'] = None

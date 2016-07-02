@@ -1,4 +1,4 @@
-import hashlib, uuid, glob
+import hashlib, uuid
 from pymongo import MongoClient
 from base64 import b64encode
 from ConcurrencyManagement import log
@@ -67,11 +67,12 @@ class Database():
 			{'label': label}) is None:
 			raise RuntimeError('Image ' + label + ' already exists')
 		self.get_image_collection(username).insert_one(
-			{'label': label, 'data': b64encode(upload_file)})
+			{'label': label, 'data': b64encode(upload_file)}) # encoded
 		
 	# Returns all the images by username.
 	def get_images(self, username):
 		log('Retrieving all images from images_' + username)
+		# Notice image['data'] was encoded using Base64.
 		return [image for image in self.get_image_collection(username).find()]
 
 	# Returns the number of images by username.
@@ -93,5 +94,6 @@ class Database():
 	def delete_image(self, username, label):
 		self.get_image_collection(username).remove({'label': label})
 	
+
 database = Database()
 	

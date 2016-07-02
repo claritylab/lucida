@@ -11,7 +11,7 @@ import Config
 import os
 import sys
 reload(sys)  
-sys.setdefaultencoding('utf8')
+sys.setdefaultencoding('utf8') # to solve the unicode error
 
 
 class ThriftClient(object):	
@@ -101,7 +101,7 @@ class ThriftClient(object):
 			query_input_list.append(self.create_query_input(
 				input_type, data_in, tag_in))
 			i += 1
-		# Check empty colletion for IMM.
+		# Check empty collection for IMM.
 		if services_needed[0] == 'IMM' and \
 			database.count_images(str(LUCID)) == 0:
 				raise RuntimeError('Cannot match in empty photo collection')
@@ -111,6 +111,7 @@ class ThriftClient(object):
 			'query', query_input_list))
 		transport.close()
 		if 'Factoid not found in knowledge base.' in result:
+			# In future, we want to append the IMM result to text_data.
 			result = self.ask_ensemble(text_data)
 		return result
 
