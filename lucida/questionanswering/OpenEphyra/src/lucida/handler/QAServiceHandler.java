@@ -9,6 +9,8 @@ import info.ephyra.io.MsgPrinter;
 import java.util.List;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;
@@ -22,38 +24,39 @@ import lucida.thrift.*;
  * corresponding method here.
  */
 public class QAServiceHandler {
-	public static void print(String s) {
-		synchronized (System.out) {
-			System.out.println(s);
-		}
-	}
-
 	public static class SyncQAServiceHandler implements LucidaService.Iface {
 		/** An object that lets the question-answer wrapper use
 		 * the end-to-end OpenEphyra framework.
 		 */
 		private OpenEphyra oe;
-		private String defaultAnswer;
-		
+
+		/**
+		 * Default answer.
+		 */
+		private String default_answer;
+
+		/**
+		 * Since OpenEphyra is not thread-safe, we enforce the use to be single-threaded.
+		 */
+		private Lock infer_lock;
+
 		/** Constructs the handler and initializes its OpenEphyra
 		 * object.
 		 */
 		public SyncQAServiceHandler() {
 			String dir = "";
-
 			MsgPrinter.enableStatusMsgs(true);
 			MsgPrinter.enableErrorMsgs(true);
-			
 			// Initialize OE pipeline.
 			oe = new OpenEphyra(dir);
-			defaultAnswer = "Factoid not found in knowledge base.";
-			
+			default_answer = "Factoid not found in knowledge base.";
+			infer_lock = new ReentrantLock();
 			// Create db directory.
 			if (!new File("db").exists()) {
 				new File("db").mkdir();
 			}
 		}
-		
+
 		/**
 		 * Creates a new OpenEphyra service for user LUCID.
 		 * @param LUCID ID of Lucida user
@@ -72,9 +75,13 @@ public class QAServiceHandler {
 		@Override
 		public void learn(String LUCID, QuerySpec knowledge) {
 			MsgPrinter.printStatusMsg("@@@@@ Learn; User: " + LUCID);
-			KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
-			kb.addKnowledge(knowledge);
-			kb.commitKnowledge();
+			try {
+				KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
+				kb.addKnowledge(knowledge);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException((e.toString() != null) ? e.toString() : "");
+			}
 		}
 
 		/**
@@ -85,29 +92,41 @@ public class QAServiceHandler {
 		@Override
 		public String infer(String LUCID, QuerySpec query) {
 			MsgPrinter.printStatusMsg("@@@@@ Infer; User: " + LUCID);
-			KnowledgeBase kb = KnowledgeBase.getKnowledgeBase(LUCID);
-			// Set INDRI_INDEX.
-			System.setProperty("INDRI_INDEX", kb.getIndriIndex());
-			if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
-				throw new IllegalArgumentException();
+			String answer = "";
+			try {
+				infer_lock.lock(); // limit concurrency because OE is not thread-safe
+				// Set INDRI_INDEX.
+				System.setProperty("INDRI_INDEX",
+						KnowledgeBase.getKnowledgeBase(LUCID).getIndriIndex());
+				if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
+					throw new IllegalArgumentException();
+				}
+				// Only look for the first item in content and data.
+				// The rest part of query is ignored.
+				answer = askFactoidThrift(LUCID, query.content.get(0).data.get(0));
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException((e.toString() != null) ? e.toString() : "");
+			} finally {
+				infer_lock.unlock(); // always unlock at the end
 			}
-			// Only look for the first item in content and data.
-			// The rest part of query is ignored.
-			return askFactoidThrift(query.content.get(0).data.get(0));
+			return answer;
 		}
 
 		/** Forwards the client's question to the OpenEphyra object's askFactoid
 		 * method and collects the response.
+		 * @param LUCID ID of Lucida user
 		 * @param question eg. "what is the speed of light?"
+		 * @throws Exception 
 		 */
-		private String askFactoidThrift(String question) {
+		private String askFactoidThrift(String LUCID, String question) throws Exception {
 			MsgPrinter.printStatusMsg("askFactoidThrift(): Arg = " + question);
-			Result result = oe.askFactoid(question);
-			String answer = defaultAnswer;
+			Result result = oe.askFactoid(question);	
+			String answer = default_answer;
 			if (result != null) {
 				answer = result.getAnswer();
 			}
-			print("Answer: " + answer);
+			MsgPrinter.printStatusMsg("Answer: " + answer);
 			return answer;
 		}
 	}
@@ -122,7 +141,7 @@ public class QAServiceHandler {
 		@Override
 		public void create(String LUCID, QuerySpec spec, AsyncMethodCallback resultHandler)
 				throws TException {
-			print("Async Create");
+			MsgPrinter.printStatusMsg("Async Create");
 			handler.create(LUCID, spec); // FIXME
 			resultHandler.onComplete(null);
 		}
@@ -130,7 +149,7 @@ public class QAServiceHandler {
 		@Override
 		public void learn(String LUCID, QuerySpec knowledge, AsyncMethodCallback resultHandler)
 				throws TException {
-			print("Async Learn");
+			MsgPrinter.printStatusMsg("Async Learn");
 			handler.learn(LUCID, knowledge); // FIXME
 			resultHandler.onComplete(null);
 		}
@@ -138,7 +157,7 @@ public class QAServiceHandler {
 		@Override
 		public void infer(String LUCID, QuerySpec query, AsyncMethodCallback resultHandler)
 				throws TException {
-			print("Async Infer");
+			MsgPrinter.printStatusMsg("Async Infer");
 			resultHandler.onComplete(handler.infer(LUCID, query));
 		}
 	}
