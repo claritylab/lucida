@@ -237,8 +237,13 @@ public class IndriKM extends KnowledgeMiner {
 					
 					byte[] doc = documents[j].text.getBytes("UTF-8");
 					byte[] p = new byte[byteEnd - byteBegin];
-					for (int offset = byteBegin; offset < byteEnd; offset++)
+					for (int offset = byteBegin; offset < byteEnd; offset++) {
+						// Check offset to avoid OutOfBound error. By Yunsheng Bai.
+						if (offset >= doc.length) {
+							break;
+						}
 						p[offset - byteBegin] = doc[offset];
+					}
 					passages[j+i] = new String(p);
 					
 //					passages[j+i] = documents[j].text.substring(byteBegin, byteEnd);
