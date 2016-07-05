@@ -27,9 +27,11 @@ clean:
 docker:
 	cp ../../lucidaservice.thrift .; \
 	cp ../../lucidatypes.thrift .; \
+	cp ../../../Makefile.common .; \
 	docker build -t lucida_qa .; \
 	rm lucidaservice.thrift; \
-	rm lucidatypes.thrift;
+	rm lucidatypes.thrift; \
+	rm Makefile.common;
 
 .PHONY:	all thrift start_server start_test clean docker
 
