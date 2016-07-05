@@ -62,12 +62,16 @@ class Database():
 		return not self.users.find_one({'username': username}) is None
 	
 	# Adds the uploaded image.
-	def add_image(self, username, label, upload_file):
+	def add_image(self, username, image_data, label):
 		if not self.get_image_collection(username).find_one(
 			{'label': label}) is None:
 			raise RuntimeError('Image ' + label + ' already exists')
 		self.get_image_collection(username).insert_one(
-			{'label': label, 'data': b64encode(upload_file)}) # encoded
+			{'label': label, 'data': b64encode(image_data)}) # encoded
+		
+	# Deletes the specified image.
+	def delete_image(self, username, label):
+		self.get_image_collection(username).remove({'label': label})
 		
 	# Returns all the images by username.
 	def get_images(self, username):
@@ -81,9 +85,9 @@ class Database():
 		return self.get_image_collection(username).count()
 	
 	# Adds the knowledge text.
-	def add_text(self, username, text_knowledge, text_type, text_id):
+	def add_text(self, username, text_type, text_data, text_id):
 		self.get_text_collection(username).insert_one(
-			{'text_knowledge': text_knowledge, 'type': text_type,
+			{'type': text_type, 'text_data': text_data,
 			 'text_id': text_id})
 		
 	# Deletes the knowledge text.
@@ -95,10 +99,6 @@ class Database():
 	def get_text(self, username):
 		log('Retrieving text from text_' + username)
 		return [text for text in self.get_text_collection(username).find()]
-	
-	# Deletes the specified image.
-	def delete_image(self, username, label):
-		self.get_image_collection(username).remove({'label': label})
 	
 
 database = Database()

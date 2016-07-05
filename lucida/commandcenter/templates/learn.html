@@ -59,7 +59,7 @@
 			<input name="op" type="hidden" value="delete_text"></input>
 			<input name="text_id" type="hidden" value={{ i['text_id'] }}></input>
 			<div class="col-sm-10">
-				<li>{% if i['type'] == 'url' %}<a href={{ i['text_knowledge'] }}>{% endif %} {{ i['text_knowledge'] }} {% if i['type'] == 'url' %}</a>{% endif %}</li>
+				<li>{% if i['type'] == 'url' %}<a href={{ i['text_knowledge'] }}>{% endif %} {{ i['text_data'] }} {% if i['type'] == 'url' %}</a>{% endif %}</li>
 			</div>
 			<div class="col-sm-2">
 				<input type="submit" value="Delete" class="btn btn-danger btn-sm">
@@ -98,10 +98,15 @@
 	
 	{% for i in pictures %}
 	<div class="ngg-gallery-thumbnail-box">
-		<div class="ngg-gallery-thumbnail">
-			<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
-		</div>
-		<div class="ngg-template-caption">{{ i['label'] }}</div>
+		<form action="" method="post" enctype="multipart/form-data">
+			<input name="op" type="hidden" value="delete_image"></input>
+			<input name="label" type="hidden" value={{ i['label'] }}></input>
+			<div class="ngg-gallery-thumbnail">
+				<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
+			</div>
+			<div class="ngg-template-caption">{{ i['label'] }}
+			<input type="submit" value="Delete" class="btn btn-danger btn-sm"></div>
+		</form>
 	</div>
 	{% endfor %}
 	
