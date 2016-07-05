@@ -151,7 +151,8 @@ public class KnowledgeBase {
 	private void commitText(IndexEnvironment env, String text, String doc_id) throws Exception {
 		// Add the text to the Indri index environment.
 		int indri_id = env.addString(text, "text", new HashMap<String, String>());
-		MsgPrinter.printStatusMsg("indri_id: " + indri_id);
+		MsgPrinter.printStatusMsg("Add (doc_id, indri_id): (" + doc_id + ", "
+		+ indri_id + ")");
 		collection.updateOne(eq("LUCID", LUCID), set(doc_id, indri_id));
 	}
 
@@ -170,7 +171,8 @@ public class KnowledgeBase {
 		// Add the text to the Indri index environment.
 		int indri_id = env.addString(parsed_text, "text", new HashMap<String, String>());
 		MsgPrinter.printStatusMsg("parsed_text.length(): " + parsed_text.length());
-		MsgPrinter.printStatusMsg("indri_id: " + indri_id);
+		MsgPrinter.printStatusMsg("Add (doc_id, indri_id): (" + doc_id + ", "
+		+ indri_id + ")");
 		collection.updateOne(eq("LUCID", LUCID), set(doc_id, indri_id));
 	}
 
@@ -182,6 +184,8 @@ public class KnowledgeBase {
 	 */
 	private void deleteDoc(IndexEnvironment env, String doc_id) throws Exception {
 		Integer indri_id = collection.find(eq("LUCID", LUCID)).first().getInteger(doc_id);
+		MsgPrinter.printStatusMsg("Delete (doc_id, indri_id): (" + doc_id + ", "
+		+ indri_id + ")");
 		if (indri_id == null) {
 			throw new RuntimeException("Couldn't delete document that does not exist");
 		}

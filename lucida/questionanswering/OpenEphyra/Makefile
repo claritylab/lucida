@@ -24,7 +24,14 @@ clean:
 	rm -rf db
 	rm -rf src/lucida/thrift
 
-.PHONY:	all thrift start_server start_test clean
+docker:
+	cp ../../lucidaservice.thrift .; \
+	cp ../../lucidatypes.thrift .; \
+	docker build -t lucida_qa .; \
+	rm lucidaservice.thrift; \
+	rm lucidatypes.thrift;
+
+.PHONY:	all thrift start_server start_test clean docker
 
 %:
 	@:
