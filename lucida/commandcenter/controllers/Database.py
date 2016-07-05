@@ -3,9 +3,13 @@ from pymongo import MongoClient
 from base64 import b64encode
 from ConcurrencyManagement import log
 import os
+import Config
 
 
 class Database():
+	# Name of the algorithm to use for password encryption.
+	ENCRYPT_ALGORITHM = 'sha512'
+	
 	# Constructor.
 	def __init__(self):
 		if os.environ.get('MONGO_PORT_27017_TCP_ADDR'):
@@ -26,9 +30,6 @@ class Database():
 	def get_text_collection(self, username):
 		text_collection = 'text_' + username
 		return self.db[text_collection]
-	
-	# Name of the algorithm to use for password encryption.
-	ENCRYPT_ALGORITHM = 'sha512'
 	
 	# Adds a new user.
 	def add_user(self, username, firstname, lastname, password, email):
@@ -78,7 +79,14 @@ class Database():
 		log('Retrieving all images from images_' + username)
 		# Notice image['data'] was encoded using Base64.
 		return [image for image in self.get_image_collection(username).find()]
-
+	
+	# Checks whether the user can add one more image.
+	def check_add_image(self, username):
+		if self.get_image_collection(username).count() >= \
+			Config.MAX_DOC_NUM_PER_USER:
+			raise RuntimeError('Sorry. You can only add ' + 
+				str(Config.MAX_DOC_NUM_PER_USER) + \
+				' images at most')
 	# Returns the number of images by username.
 	def count_images(self, username):
 		log('Retrieving the number of images from images_' + username)
@@ -100,6 +108,13 @@ class Database():
 		log('Retrieving text from text_' + username)
 		return [text for text in self.get_text_collection(username).find()]
 	
+	# Checks whether the user can add one more piece of text.
+	def check_add_text(self, username):
+		if self.get_text_collection(username).count() >= \
+			Config.MAX_DOC_NUM_PER_USER:
+			raise RuntimeError('Sorry. You can only add ' + 
+				str(Config.MAX_DOC_NUM_PER_USER) + \
+				' pieces of text at most')
 
 database = Database()
 	

@@ -33,6 +33,8 @@ def learn_route():
 				check_image_extension(upload_file)
 				# Check the label of the image.
 				check_text_input(label)
+				# Check whether the user can add one more image.
+				database.check_add_image(username)
 				# Send the image to IMM.
 				image_data = upload_file.read()
 				upload_file.close()
@@ -54,6 +56,8 @@ def learn_route():
 				text_data = form['knowledge']
 				# Check the text knowledge.
 				check_text_input(text_data)
+				# Check whether the user can add one more piece of text.
+				database.check_add_text(username)
 				# Generate the id.
 				text_id = hashlib.md5(username + text_data
 					+ str(datetime.datetime.now())).hexdigest()
