@@ -1,5 +1,6 @@
 from flask import *
 import Database, ThriftClient
+import hashlib, datetime
 from ConcurrencyManagement import log
 from AccessManagement import login_required
 from Database import database 
@@ -12,6 +13,8 @@ learn = Blueprint('learn', __name__, template_folder='templates')
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
 def learn_route():
+	options = {}
+	username = session['username']
 	try:
 		form = request.form
 		# Deal with POST requests.
@@ -21,39 +24,51 @@ def learn_route():
 				raise RuntimeError('Did you click the Add button?')
 			# Add image knowledge.
 			elif form['op'] == 'add_image':
+				label = form['label']
 				# Check the uploaded image.
 				upload_file = request.files['file']
 				if upload_file.filename == '':
 					raise RuntimeError('Empty file is not allowed')
 				check_image_extension(upload_file)
 				# Check the label of the image.
-				check_text_input(form['label'])
+				check_text_input(label)
 				# Send the image to IMM.
 				image_data = upload_file.read()
 				upload_file.close()
-				thrift_client.learn_image(session['username'],
-					form['label'], image_data)
+				thrift_client.learn_image(username, label, image_data)
 				# Add the image into the database.
-				database.add_image(session['username'],
-					form['label'], image_data)
+				database.add_image(username, label, image_data)
 			# Add text knowledge.
-			elif form['op'] == 'add_text':
+			elif form['op'] == 'add_text' or form['op'] == 'add_url':
+				text_type = 'text' if form['op'] == 'add_text' else 'url'
+				text_data = form['knowledge']
 				# Check the text knowledge.
-				if not 'text_knowledge' in form:
-					raise RuntimeError('Please enter a piece of text')
-				check_text_input(form['text_knowledge'])
+				check_text_input(text_data)
+				# Generate the id.
+				text_id = hashlib.md5(username + text_data
+					+ str(datetime.datetime.now())).hexdigest()
 				# Send the text to QA.
-				thrift_client.learn_text(session['username'],
-					form['text_knowledge'])
+				thrift_client.learn_text(username, text_data,
+						text_type, text_id)
 				# Add the text knowledge into the database.
-				database.add_text(session['username'],
-					form['text_knowledge'])		
+				database.add_text(username, text_data, text_type, text_id)	
+			# Delete text knowledge.
+			elif form['op'] == 'delete_text':
+				text_type = 'unlearn'
+				text_id = form['text_id']
+				# Send the text to QA.
+				thrift_client.learn_text(username, text_id, # id is the data
+						text_type, text_id)
+				# Delete the text from into the database.
+				database.delete_text(username, text_id)			
 			else:
 				raise RuntimeError('Did you click the Add button?')
 	except Exception as e:
 		log(e)
-		return render_template('learn.html', error=e)
+		if str(e) == 'TSocket read 0 bytes':
+			e = 'Back-end service encountered a problem'
+		options['error'] = e
 	# Display.
-	return render_template('learn.html', 
-		pictures=database.get_images(session['username']),
-		text=database.get_text(session['username']))
+	options['pictures'] = database.get_images(username)
+	options['text'] = database.get_text(username)
+	return render_template('learn.html', **options)

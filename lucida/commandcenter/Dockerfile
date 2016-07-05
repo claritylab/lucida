@@ -1,5 +1,4 @@
-####
-# Builds the lucida base image
+## build from lucida base image
 FROM lucida_base
 
 #### environment variables

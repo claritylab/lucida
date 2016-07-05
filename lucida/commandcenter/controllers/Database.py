@@ -81,9 +81,15 @@ class Database():
 		return self.get_image_collection(username).count()
 	
 	# Adds the knowledge text.
-	def add_text(self, username, text_knowledge):
+	def add_text(self, username, text_knowledge, text_type, text_id):
 		self.get_text_collection(username).insert_one(
-			{'text_knowledge': text_knowledge})
+			{'text_knowledge': text_knowledge, 'type': text_type,
+			 'text_id': text_id})
+		
+	# Deletes the knowledge text.
+	def delete_text(self, username, text_id):
+		self.get_text_collection(username).delete_one(
+			{'text_id': text_id})
 		
 	# Returns the knowledge text by username.
 	def get_text(self, username):

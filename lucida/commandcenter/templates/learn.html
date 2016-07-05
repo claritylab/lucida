@@ -9,6 +9,10 @@
 		<p style="color:gray">Main » Learn</p>
 	</div>
 
+	{% if error %}
+	<strong class=text-danger><p class="error">{{ error }}</p></strong>
+	{% endif %}
+
 	<div class="container">
 		<div class="row">
 			<p><h3>Add text knowledge:</h3></p>
@@ -20,23 +24,49 @@
 			<input name="op" type="hidden" value="add_text"></input>
 
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Text knowledge: </label>
+				<label class="col-sm-3 control-label">Text: </label>
 				<div class="col-sm-8">
-					<input name="text_knowledge" class="form-control" placeholder="The capital of Italy is Rome">
+					<input name="knowledge" class="form-control" placeholder="The capital of Italy is Rome">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<input id="file_submit" type="submit" value="Add" class="btn btn-info">
+				<input type="submit" value="Add" class="btn btn-info">
 			</div>
 		</form>
 	</div>
 
-	{% for i in text %}
+	<div class="container">
+		<form action="" method="post" enctype="multipart/form-data">
+			<input name="op" type="hidden" value="add_url"></input>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Url: </label>
+				<div class="col-sm-8">
+					<input name="knowledge" class="form-control" placeholder="https://en.wikipedia.org/wiki/Lucida">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" value="Add" class="btn btn-info">
+			</div>
+		</form>
+	</div>
+
 	<ul>
-	<li>{{ i['text_knowledge'] }}</li>
-	</ul>
+	{% for i in text %}
+		<form action="" method="post" enctype="multipart/form-data">
+			<input name="op" type="hidden" value="delete_text"></input>
+			<input name="text_id" type="hidden" value={{ i['text_id'] }}></input>
+			<div class="col-sm-10">
+				<li>{% if i['type'] == 'url' %}<a href={{ i['text_knowledge'] }}>{% endif %} {{ i['text_knowledge'] }} {% if i['type'] == 'url' %}</a>{% endif %}</li>
+			</div>
+			<div class="col-sm-2">
+				<input type="submit" value="Delete" class="btn btn-danger btn-sm">
+			</div>
+		</form>
 	{% endfor %}
+	</ul>
 
 	<div class="container">
 		<div class="row">
@@ -74,10 +104,6 @@
 		<div class="ngg-template-caption">{{ i['label'] }}</div>
 	</div>
 	{% endfor %}
-
-	{% if error %}
-	<strong class=text-danger><p class="error">{{ error }}</p></strong>
-	{% endif %}
 	
 </div>
 

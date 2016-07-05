@@ -6,8 +6,8 @@ def check_image_extension(upload_file):
 	if upload_file is None:
 		return
 	filename = secure_filename(upload_file.filename)
-	valid_extensions = ['png', 'PNG', 'jpg', 'JPG', 'bmp', 'BMP', \
-		'gif', 'GIF']
+	valid_extensions = ['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG', \
+		'bmp', 'BMP', 'gif', 'GIF']
 	allowed_extensions = set(valid_extensions)
 	if not (('.' in filename) and \
 		(filename.rsplit('.', 1)[1] in allowed_extensions)):
