@@ -1,0 +1,41 @@
+[Mon Jun 13 19:34:55.553639 2016] [:error] [pid 13:tid 140595004507904] @@@@@ When query type is text, there are 2 possible classes:
+[Mon Jun 13 19:34:55.553692 2016] [:error] [pid 13:tid 140595004507904] 0. class_CA -- needs to invoke ['CA']
+[Mon Jun 13 19:34:55.553703 2016] [:error] [pid 13:tid 140595004507904] 1. class_QA -- needs to invoke ['QA']
+[Mon Jun 13 19:34:55.553711 2016] [:error] [pid 13:tid 140595004507904] @@@@@ When query type is image, there are 1 possible classes:
+[Mon Jun 13 19:34:55.553719 2016] [:error] [pid 13:tid 140595004507904] 0. class_IMM -- needs to invoke ['IMM']
+[Mon Jun 13 19:34:55.553726 2016] [:error] [pid 13:tid 140595004507904] @@@@@ When query type is text_image, there are 3 possible classes:
+[Mon Jun 13 19:34:55.553734 2016] [:error] [pid 13:tid 140595004507904] 0. class_IMM_QA -- needs to invoke ['IMM', 'QA']
+[Mon Jun 13 19:34:55.553742 2016] [:error] [pid 13:tid 140595004507904] 1. class_QA -- needs to invoke ['QA']
+[Mon Jun 13 19:34:55.553750 2016] [:error] [pid 13:tid 140595004507904] 2. class_IMM -- needs to invoke ['IMM']
+[Mon Jun 13 19:34:56.425707 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353] mod_wsgi (pid=13): Target WSGI script '/usr/local/lucida/lucida/commandcenter/apache/apache.wsgi' cannot be loaded as Python module.
+[Mon Jun 13 19:34:56.425740 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353] mod_wsgi (pid=13): Exception occurred processing WSGI script '/usr/local/lucida/lucida/commandcenter/apache/apache.wsgi'.
+[Mon Jun 13 19:34:56.425771 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353] Traceback (most recent call last):
+[Mon Jun 13 19:34:56.425794 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]   File "/usr/local/lucida/lucida/commandcenter/apache/apache.wsgi", line 10, in <module>
+[Mon Jun 13 19:34:56.425920 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]     from app import app as application
+[Mon Jun 13 19:34:56.425936 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]   File "/usr/local/lucida/lucida/commandcenter/app.py", line 9, in <module>
+[Mon Jun 13 19:34:56.426037 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]     from controllers import *
+[Mon Jun 13 19:34:56.426056 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]   File "/usr/local/lucida/lucida/commandcenter/controllers/Infer.py", line 5, in <module>
+[Mon Jun 13 19:34:56.426160 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]     from QueryClassifier import query_classifier
+[Mon Jun 13 19:34:56.426177 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]   File "/usr/local/lucida/lucida/commandcenter/controllers/QueryClassifier.py", line 139, in <module>
+[Mon Jun 13 19:34:56.426306 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]     Config.CLASSIFIER_DESCRIPTIONS)
+[Mon Jun 13 19:34:56.426324 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]   File "/usr/local/lucida/lucida/commandcenter/controllers/QueryClassifier.py", line 43, in __init__
+[Mon Jun 13 19:34:56.426367 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]     self.CLASSIFIER_DESCRIPTIONS[input_type])
+[Mon Jun 13 19:34:56.426379 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]   File "/usr/local/lucida/lucida/commandcenter/controllers/QueryClassifier.py", line 63, in train
+[Mon Jun 13 19:34:56.426417 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353]     lines = [line.rstrip('\\n') for line in open(path)]
+[Mon Jun 13 19:34:56.426443 2016] [:error] [pid 13:tid 140595004507904] [remote 172.17.42.1:27353] IOError: [Errno 2] No such file or directory: 'data/class_CA.txt'
+[Mon Jun 13 19:34:57.944618 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915] mod_wsgi (pid=13): Target WSGI script '/usr/local/lucida/lucida/commandcenter/apache/apache.wsgi' cannot be loaded as Python module.
+[Mon Jun 13 19:34:57.944640 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915] mod_wsgi (pid=13): Exception occurred processing WSGI script '/usr/local/lucida/lucida/commandcenter/apache/apache.wsgi'.
+[Mon Jun 13 19:34:57.944661 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915] Traceback (most recent call last):
+[Mon Jun 13 19:34:57.944680 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]   File "/usr/local/lucida/lucida/commandcenter/apache/apache.wsgi", line 10, in <module>
+[Mon Jun 13 19:34:57.944732 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]     from app import app as application
+[Mon Jun 13 19:34:57.944747 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]   File "/usr/local/lucida/lucida/commandcenter/app.py", line 9, in <module>
+[Mon Jun 13 19:34:57.944786 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]     from controllers import *
+[Mon Jun 13 19:34:57.944798 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]   File "/usr/local/lucida/lucida/commandcenter/controllers/Infer.py", line 5, in <module>
+[Mon Jun 13 19:34:57.944838 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]     from QueryClassifier import query_classifier
+[Mon Jun 13 19:34:57.944850 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]   File "/usr/local/lucida/lucida/commandcenter/controllers/QueryClassifier.py", line 139, in <module>
+[Mon Jun 13 19:34:57.944889 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]     Config.CLASSIFIER_DESCRIPTIONS)
+[Mon Jun 13 19:34:57.944901 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]   File "/usr/local/lucida/lucida/commandcenter/controllers/QueryClassifier.py", line 43, in __init__
+[Mon Jun 13 19:34:57.944938 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]     self.CLASSIFIER_DESCRIPTIONS[input_type])
+[Mon Jun 13 19:34:57.944950 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]   File "/usr/local/lucida/lucida/commandcenter/controllers/QueryClassifier.py", line 63, in train
+[Mon Jun 13 19:34:57.944988 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915]     lines = [line.rstrip('\\n') for line in open(path)]
+[Mon Jun 13 19:34:57.945011 2016] [:error] [pid 13:tid 140594886903552] [remote 172.17.42.1:51915] IOError: [Errno 2] No such file or directory: 'data/class_CA.txt'

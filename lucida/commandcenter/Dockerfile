@@ -11,4 +11,5 @@ ADD . /usr/local/lucida/lucida/commandcenter
 WORKDIR "/usr/local/lucida/lucida/commandcenter"
 RUN mv lucidaservice.thrift ../ && mv lucidatypes.thrift ../
 RUN /usr/bin/make
-RUN /bin/bash apache/install_apache.sh
+WORKDIR "/usr/local/lucida/lucida/commandcenter/apache"
+RUN /bin/bash install_apache.sh
