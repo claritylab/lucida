@@ -66,21 +66,15 @@ class ThriftClient(object):
 						 self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
 	
-	def learn_text(self, LUCID, text_data):
+	def learn_text(self, LUCID, text_data, text_type, text_id):
 		for service_name in Config.Service.LEARNERS['text']: # add concurrency?
-			knowledge_input = self.create_query_input('text', text_data, '')
+			knowledge_input = self.create_query_input(
+				text_type, text_data, text_id)
 			client, transport = self.get_client_transport(service_name)
 			log('Sending learn_text request to QA')
 			client.learn(str(LUCID), 
 				self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
-		
-	def ask_ensemble(self, text_data):
-		log('Asking ensemble')	
-		client, transport = self.get_client_transport('ensemble')
-		result = client.infer(text_data, QuerySpec())
-		transport.close()
-		return result
 
 	def infer(self, LUCID, services_needed, text_data, image_data):
 		query_input_list = []
@@ -112,7 +106,10 @@ class ThriftClient(object):
 		transport.close()
 		if 'Factoid not found in knowledge base.' in result:
 			# In future, we want to append the IMM result to text_data.
-			result = self.ask_ensemble(text_data)
+			client, transport = self.get_client_transport('ENSEMBLE')
+			result = client.infer(str(LUCID), self.create_query_spec(
+			'query', query_input_list))
+			transport.close()
 		return result
 
 

@@ -46,6 +46,8 @@ def infer_route():
 				raise RuntimeError('Did you click the Ask button?')
 	except Exception as e:
 		log(e)
+		if str(e) == 'TSocket read 0 bytes':
+			e = 'Back-end service encountered a problem'
 		options['error'] = e
 		return render_template('infer.html', **options)
 	# Display.
