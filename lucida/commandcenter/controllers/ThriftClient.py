@@ -56,17 +56,17 @@ class ThriftClient(object):
 		transport.open()
 		return LucidaService.Client(protocol), transport
 
-	def learn_image(self, LUCID, label, image_data):
+	def learn_image(self, LUCID, image_type, image_data, label):
 		for service_name in Config.Service.LEARNERS['image']: # add concurrency?
-			knowledge_input = self.create_query_input('image',
+			knowledge_input = self.create_query_input(image_type,
 				image_data, label)
 			client, transport = self.get_client_transport(service_name)
 			log('Sending learn_image request to IMM')
 			client.learn(str(LUCID), 
-						 self.create_query_spec('knowledge', [knowledge_input]))
+				self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
 	
-	def learn_text(self, LUCID, text_data, text_type, text_id):
+	def learn_text(self, LUCID, text_type, text_data, text_id):
 		for service_name in Config.Service.LEARNERS['text']: # add concurrency?
 			knowledge_input = self.create_query_input(
 				text_type, text_data, text_id)
