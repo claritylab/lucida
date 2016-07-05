@@ -9,5 +9,6 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 RUN mkdir -p /usr/local/lucida/lucida/imagematching/opencv_imm
 ADD . /usr/local/lucida/lucida/imagematching/opencv_imm
 WORKDIR "/usr/local/lucida/lucida/imagematching/opencv_imm"
+RUN mv Makefile.common ../../../ 
 RUN mv lucidaservice.thrift ../../ && mv lucidatypes.thrift ../../
 RUN /usr/bin/make
