@@ -1,5 +1,7 @@
 TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 
+MAX_DOC_NUM_PER_USER = 30 # maximum number of texts or images per user
+
 class Service(object):
 	LEARNERS = { 'audio' : [], 'image' : [], 'text' : [] } 
 	# Constructor.
@@ -43,6 +45,8 @@ CLASSIFIER_DESCRIPTIONS = {
 					 'class_DIG' : [ 'DIG' ] } }
 
 # Check the above configurations.
+if MAX_DOC_NUM_PER_USER <= 0:
+	print 'MAX_DOC_NUM_PER_USER must be non-negative'
 if not (TRAIN_OR_LOAD == 'train' or TRAIN_OR_LOAD == 'load'):
 	print 'TRAIN_OR_LOAD must be either train or load'
 	exit()
