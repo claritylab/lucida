@@ -61,7 +61,7 @@ def learn_route():
 				thrift_client.learn_text(username, text_type,
 						text_data, text_id)
 				# Add the text knowledge into the database.
-				database.add_text(username, text_data, text_type, text_id)	
+				database.add_text(username, text_type, text_data, text_id)	
 			# Delete text knowledge.
 			elif form['op'] == 'delete_text':
 				text_type = 'unlearn'
