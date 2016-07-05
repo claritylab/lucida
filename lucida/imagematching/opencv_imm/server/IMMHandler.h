@@ -7,7 +7,7 @@
 #include "Image.h"
 #include "mongo/client/dbclient.h"
 
-// Define print which is the function used for debugging.
+// Define print for simple logging.
 extern std::mutex cout_lock_cpp;
 #define print( x ) \
 	( \
@@ -39,6 +39,9 @@ private:
 
 	void addImage(const std::string &LUCID,
 			const std::string &label, const std::string &data);
+
+	void deleteImage(const std::string &LUCID,
+			const std::string &label);
 
 	std::vector<std::unique_ptr<StoredImage>> getImages(
 			const std::string &LUCID);

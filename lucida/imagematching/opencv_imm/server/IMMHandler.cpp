@@ -74,9 +74,15 @@ folly::Future<folly::Unit> IMMHandler::future_learn
 			// Go through all images and store their descriptors matices
 			// into MongoDB GridFS.
 			for (const QueryInput &query_input : knowledge_save.content) {
-				for (int i = 0; i < (int) query_input.data.size(); ++i) {
-					this->addImage(LUCID_save, query_input.tags[i],
-							query_input.data[i]);
+				if (query_input.type == "image") {
+					for (int i = 0; i < (int) query_input.data.size(); ++i) {
+						this->addImage(LUCID_save, query_input.tags[i],
+								query_input.data[i]);
+					}
+				} else if (query_input.type == "unlearn") {
+					for (int i = 0; i < (int) query_input.data.size(); ++i) {
+						this->deleteImage(LUCID_save, query_input.tags[i]);
+					}
 				}
 			}
 		} catch (Exception &e) {
@@ -178,6 +184,12 @@ void IMMHandler::addImage(const string &LUCID,
 	GridFS grid(conn, "lucida");
 	BSONObj result = grid.storeFile(mat_str.c_str(), mat_str.size(),
 			"opencv_" + LUCID + "/" + label);
+}
+
+void IMMHandler::deleteImage(const string &LUCID, const string &label) {
+	print("~~~ Label: " << label);
+	GridFS grid(conn, "lucida");
+	grid.removeFile("opencv_" + LUCID + "/" + label); // match addImage()
 }
 
 vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
