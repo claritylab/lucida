@@ -9,5 +9,6 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 RUN mkdir -p /usr/local/lucida/lucida/questionanswering/OpenEphyra
 ADD . /usr/local/lucida/lucida/questionanswering/OpenEphyra
 WORKDIR "/usr/local/lucida/lucida/questionanswering/OpenEphyra"
+RUN mv Makefile.common ../../../ 
 RUN mv lucidaservice.thrift ../../ && mv lucidatypes.thrift ../../
 RUN /usr/bin/make
