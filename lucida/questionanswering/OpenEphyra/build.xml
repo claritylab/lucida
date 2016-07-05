@@ -37,6 +37,7 @@
         <pathelement location="lib/util/log4j.jar"/>
         <pathelement location="lib/util/servlet-api.jar"/>
         <pathelement location="lib/util/trove.jar"/>
+        <pathelement location="lib/db/mongo-java-driver-3.2.2.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -75,7 +76,7 @@
     </target>
     <target name="lucida.main.QADaemon">
         <java classname="lucida.main.QADaemon" failonerror="true" fork="yes">
-            <env key="LUCIDAROOT" value="/home/yba/Documents/lucida/lucida"/>
+            <env key="LUCIDAROOT" value="/home/yba/Documents/clarity/lucida/lucida"/>
             <jvmarg line="-Djava.library.path=lib/search/"/>
             <classpath refid="OpenEphyra.classpath"/>
         </java>
