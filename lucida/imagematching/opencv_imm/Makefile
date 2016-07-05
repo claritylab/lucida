@@ -10,9 +10,11 @@ start_test:
 docker:
 	cp ../../lucidaservice.thrift .; \
 	cp ../../lucidatypes.thrift .; \
+	cp ../../../Makefile.common .; \
 	docker build -t lucida_imm .; \
 	rm lucidaservice.thrift; \
-	rm lucidatypes.thrift;
+	rm lucidatypes.thrift; \
+	rm Makefile.common;
 
 %:
 	@:
