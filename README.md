@@ -83,7 +83,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
 1. Implement the Thrift interface jointly defined in `lucida/lucidaservice.thrift` and `lucida/lucidatypes.thrift`.
 
-(1) `lucida/lucidaservice.thrift`:
+⋅⋅1. `lucida/lucidaservice.thrift`:
 
 ```
 include "lucidatypes.thrift"
@@ -135,7 +135,7 @@ This is the most important functionality in the sense that it receives a query i
 returns the response in the form of a string. As will be explained soon, a string can be either plain text or image data,
 but usually human readable plain text is returned and this is what is assumed in the command center.
 
-(2) `lucida/lucidatypes.thrift`:
+⋅⋅2. `lucida/lucidatypes.thrift`:
 
 ```
 struct QueryInput {
@@ -153,7 +153,7 @@ A `QuerySpec` has a name, which is `create` for `create`, `knowledge` for `learn
 A `QuerySpec` also has a list of `QueryInput` which is the data payload. 
 A `QueryInput` consists of a `type`, a list of `data`, and a list of `tags`. 
 
-i. If the function call is `learn`:
+⋅⋅⋅⋅1. If the function call is `learn`:
 
 Only one `QueryInput` is sent to your service currently, but you shouldn't assume this. Instead,
 you should iterate through all `QueryInput`s and grab all data to learn.
@@ -175,7 +175,7 @@ if `type` is `unlearn`, `data` is a list of empty strings,
 and `tags[i]` is the id of the text to delete or the label of the image to delete
 depending on whether the service can handle text or image.
 
-ii. If the function call is `infer`:
+⋅⋅⋅⋅2. If the function call is `infer`:
 
 Each `QuerySpec` in `content` corresponds to one service (CMD is not considered to be a service)
 in the service graph, a directed acyclic graph (DAG) describing all services that are needed for the query.
@@ -248,7 +248,7 @@ the most complicated graph looks like this:
 
 . Thus, most current services can ignore the `tags` without any problem.
 
-(3) Here are the concrete code examples that you can use for your own service:
+⋅⋅3. Here are the concrete code examples that you can use for your own service:
 
 If it is written in C++, refer to the code in `lucida/lucida/imagematching/opencv_imm/server/`, especially `IMMHandler.h`,
 `IMMHandler.cpp`, and `IMMServer.cpp`.
@@ -257,14 +257,14 @@ If it is written in Java, refer to the code in `lucida/lucida/calendar/src/main/
 
 Here are what you need to do concretely: 
 
-i. Add a thrift wrapper which typically consists of a Thrift handler
+⋅⋅⋅⋅1. Add a thrift wrapper which typically consists of a Thrift handler
 which implements the Thrift interface described above, and a server daemon which is the entry point of your service.
 
-ii. Modify your Makefile for compiling your service and shell script for starting your service.
+⋅⋅⋅⋅2. Modify your Makefile for compiling your service and shell script for starting your service.
 
-iii. Test your service.
+⋅⋅⋅⋅3. Test your service.
 
-iv. Put your service into a Docker image, and add Kubernetes `yaml` scripts for your service.
+⋅⋅⋅⋅4. Put your service into a Docker image, and add Kubernetes `yaml` scripts for your service.
 
 2. Modify the command center. (TODO)
 
