@@ -5,7 +5,7 @@ from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
-from ConcurrencyManagement import log
+from Utilities import log
 from Database import database
 import Config
 import os
@@ -20,97 +20,70 @@ class ThriftClient(object):
 		self.SERVICES = SERVICES
 		log('Pre-configured services: ' + str(SERVICES))
 	
-	def create_query_input(self, type_in, data_in, tag_in):
+	def create_query_input(self, type, data, tag_list):
 		query_input = QueryInput()
-		query_input.type = type_in
+		query_input.type = type
 		query_input.data = []
-		query_input.data.append(str(data_in))
-		query_input.tags = []
-		query_input.tags.append(str(tag_in))
+		query_input.data.append(str(data))
+		query_input.tags = tag_list
 		return query_input
 	
-	def create_query_spec(self, name_in, query_input_list):
+	def create_query_spec(self, name, query_input_list):
 		query_spec = QuerySpec()
-		query_spec.name = name_in
+		query_spec.name = name
 		query_spec.content = query_input_list
 		return query_spec	
-		
-	def get_service(self, service_name):
-		try:
-			port = self.SERVICES[service_name].port
-			tcp_addr = os.environ.get(
-				service_name + '_PORT_' + str(port) + '_TCP_ADDR')
-			if tcp_addr:
-				log('TCP address is resolved to ' + tcp_addr)
-				host = tcp_addr
-			else:
-				host = 'localhost'
-			return host, port
-		except Exception:
-			raise RuntimeError('Cannot access service ' + service_name)
 	
-	def get_client_transport(self, service_name):
-		host, port = self.get_service(service_name)
+	def get_client_transport(self, service):
+		host, port = service.get_host_port()
 		transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
 		protocol = TBinaryProtocol.TBinaryProtocol(transport)
 		transport.open()
 		return LucidaService.Client(protocol), transport
 
 	def learn_image(self, LUCID, image_type, image_data, label):
-		for service_name in Config.Service.LEARNERS['image']: # add concurrency?
-			knowledge_input = self.create_query_input(image_type,
-				image_data, label)
-			client, transport = self.get_client_transport(service_name)
+		for service in Config.Service.LEARNERS['image']: # add concurrency?
+			knowledge_input = self.create_query_input(
+				image_type, image_data, [label])
+			client, transport = self.get_client_transport(service)
 			log('Sending learn_image request to IMM')
 			client.learn(str(LUCID), 
 				self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
 	
 	def learn_text(self, LUCID, text_type, text_data, text_id):
-		for service_name in Config.Service.LEARNERS['text']: # add concurrency?
+		for service in Config.Service.LEARNERS['text']: # add concurrency?
 			knowledge_input = self.create_query_input(
-				text_type, text_data, text_id)
-			client, transport = self.get_client_transport(service_name)
+				text_type, text_data, [text_id])
+			client, transport = self.get_client_transport(service)
 			log('Sending learn_text request to QA')
 			client.learn(str(LUCID), 
 				self.create_query_spec('knowledge', [knowledge_input]))
 			transport.close()
 
-	def infer(self, LUCID, services_needed, text_data, image_data):
+	def infer(self, LUCID, service_graph, text_data, image_data):
+		# Create the list of QueryInput.
 		query_input_list = []
-		i = 0
-		for service_name in services_needed:
-			input_type = self.SERVICES[service_name].input_type
-			data_in = ''
-			tag_in = ''
-			if input_type == 'text':
-				data_in = text_data
-			elif input_type == 'image':
-				data_in = image_data
-			else:
-				raise RuntimeError('Can only process text and image data')
-			if i != len(services_needed) - 1:
-				host, port = self.get_service(services_needed[i + 1])
-				tag_in = host + ', ' + str(port)	
+		for node in service_graph.node_list:
+			service = self.SERVICES[node.service_name]
+			data = text_data if service.input_type == 'text' else image_data
+			host, port = service.get_host_port()
+			tag_list = [host, str(port), str(len(node.to_indices))]
+			for to_index in node.to_indices:
+				tag_list.append(str(to_index))
 			query_input_list.append(self.create_query_input(
-				input_type, data_in, tag_in))
-			i += 1
-		# Check empty collection for IMM.
-		if services_needed[0] == 'IMM' and \
-			database.count_images(str(LUCID)) == 0:
-				raise RuntimeError('Cannot match in empty photo collection')
-		client, transport = self.get_client_transport(services_needed[0])
-		log('Sending infer request to ' + services_needed[0])
-		result = client.infer(str(LUCID), self.create_query_spec(
-			'query', query_input_list))
-		transport.close()
-		if 'Factoid not found in knowledge base.' in result:
-			# In future, we want to append the IMM result to text_data.
-			client, transport = self.get_client_transport('ENSEMBLE')
-			result = client.infer(str(LUCID), self.create_query_spec(
-			'query', query_input_list))
+				service.input_type, data, tag_list))
+		query_spec = self.create_query_spec('query', query_input_list)
+		# Go through all starting indices and send requests.
+		result = []
+		for start_index in service_graph.starting_indices:
+			service = self.SERVICES[service_graph.get_node(
+				start_index).service_name]
+			client, transport = self.get_client_transport(service)
+			log('Sending infer request to ' + service.name)
+			result.append(client.infer(str(LUCID), query_spec))
 			transport.close()
-		return result
+		return ' '.join(result)
 
 
 thrift_client = ThriftClient(Config.SERVICES)	

@@ -1,5 +1,13 @@
 from werkzeug import secure_filename
+from threading import Lock
 
+
+print_lock = Lock()
+
+def log(s):
+	print_lock.acquire()
+	print(s)
+	print_lock.release() 
 
 # Checks if the extension of the input file is valid.
 def check_image_extension(upload_file):
