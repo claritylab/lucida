@@ -130,7 +130,7 @@ public class KnowledgeBase {
 				break;
 			case "unlearn":
 				for (int i = 0; i < q.data.size(); ++i) {
-					deleteDoc(env, q.data.get(i));
+					deleteDoc(env, q.tags.get(i));
 				}
 				break;
 			default:
