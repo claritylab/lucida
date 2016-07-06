@@ -93,6 +93,8 @@ service LucidaService {
     string infer(1:string LUCID, 2:lucidatypes.QuerySpec query);
 }
 ```
+ 
+ 2. aaaaa
 
 The basic funtionalities that your service needs to provide are called `create`, `learn`, and `infer`. 
 They all take in the same type of parameters, a `string` representing the Lucida user ID (`LUCID`),
@@ -100,6 +102,8 @@ and a custom type called `QuerySpec` defined in `lucida/lucidatypes.thrift`.
 The command center invokes these three procedures implemented by your service,
 and services can also invoke these procedures on each other to achieve communication.
 Thus the typical data flow looks like this:
+
+ 3. xxx
 
 ```Command Center (CMD) -> Your Own Service (YOS)```
 
