@@ -37,6 +37,12 @@ public:
 private:
 	mongo::DBClientConnection conn;
 
+	void getNextNode(::cpp2::QuerySpec &original_spec,
+			const std::string &IMM_result, int node_index,
+			::cpp2::QuerySpec &new_spec, std::string &addr, int &port);
+
+	int countImages(const std::string &LUCID);
+
 	void addImage(const std::string &LUCID,
 			const std::string &label, const std::string &data);
 
@@ -47,6 +53,5 @@ private:
 			const std::string &LUCID);
 
 	std::unique_ptr<mongo::DBClientBase> getConnection();
-
 };
 }

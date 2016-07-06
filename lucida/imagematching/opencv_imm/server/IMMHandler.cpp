@@ -10,9 +10,6 @@
 #include <thrift/lib/cpp2/server/ThriftServer.h>
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
 
-#include <boost/algorithm/string/classification.hpp>
-#include <boost/algorithm/string/split.hpp>
-
 using namespace std;
 using namespace folly;
 using namespace apache::thrift;
@@ -32,22 +29,22 @@ std::mutex cout_lock_cpp;
 
 namespace cpp2 {
 IMMHandler::IMMHandler() {
-		// Initialize MongoDB C++ driver.
-		client::initialize();
-		string mongo_addr;
-		try {
-			if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
-				print("MongoDB: " << env_p);
-				mongo_addr = env_p;
-			} else {
-				print("MongoDB: localhost");
-				mongo_addr = "localhost";
-			}
-			conn.connect(mongo_addr);
-			print("Connection is ok");
-		} catch (const DBException &e) {
-			print("Caught " << e.what());
+	// Initialize MongoDB C++ driver.
+	client::initialize();
+	string mongo_addr;
+	try {
+		if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
+			print("MongoDB: " << env_p);
+			mongo_addr = env_p;
+		} else {
+			print("MongoDB: localhost");
+			mongo_addr = "localhost";
 		}
+		conn.connect(mongo_addr);
+		print("Connection is ok");
+	} catch (const DBException &e) {
+		print("Caught " << e.what());
+	}
 }
 
 
@@ -99,13 +96,19 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 	print("Infer");
 	// Save LUCID and query.
 	string LUCID_save = *LUCID;
-	::cpp2::QuerySpec query_save = *query;
+	QuerySpec query_save = *query;
 	folly::MoveWrapper<folly::Promise<unique_ptr<string>>> promise;
 	auto future = promise->getFuture();
 	// Async.
 	folly::RequestEventBase::get()->runInEventBaseThread(
 			[=]() mutable {
 		try {
+			if (countImages(LUCID_save) == 0) {
+				promise->setValue(
+						unique_ptr<string>(new string(
+								"Cannot match in empty collection")));
+				return;
+			}
 			if (query_save.content.empty()
 					|| query_save.content[0].data.empty()) {
 				throw runtime_error("IMM received empty infer query");
@@ -115,64 +118,110 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 					unique_ptr<QueryImage>(new QueryImage(
 							move(Image::imageToMatObj(
 									query_save.content[0].data[0])))));
-			print("Result: " << images[best_index]->getLabel());
+			string IMM_result = images[best_index]->getLabel();
+			print("Result: " << IMM_result);
 			// Check if the query needs to be further sent to QA.
-			if (!query_save.content[0].tags.empty() &&
-					query_save.content[0].tags[0] != "") {
-				if (query_save.content.size() == 1
-						|| query_save.content[1].data.empty()) {
-					throw runtime_error("IMM wants to further request"
-							" to QA but no text query");
+			if (query_save.content[0].tags[2] == "0") {
+				promise->setValue(unique_ptr<string>(
+						new string(images[best_index]->getLabel())));
+				return;
+			}
+			// Ask QA.
+			QuerySpec QA_spec;
+			string QA_addr = "";
+			int QA_port = 0;
+			getNextNode(query_save, IMM_result, 1, QA_spec, QA_addr, QA_port);
+			print("Sending to QA at " << QA_addr << " " << QA_port);
+			print("Query to QA " << QA_spec.content[0].data[0]);
+			EventBase event_base;
+			std::shared_ptr<TAsyncSocket> socket(
+					TAsyncSocket::newSocket(&event_base, QA_addr, QA_port));
+			unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>
+			channel(new HeaderClientChannel(socket));
+			channel->setClientType(THRIFT_FRAMED_DEPRECATED);
+			LucidaServiceAsyncClient client(std::move(channel));
+			client.future_infer(LUCID_save, QA_spec).then(
+					[this, LUCID_save, query_save, IMM_result, promise]
+					 (folly::Try<string>&& t) mutable {
+				print("QA result: " << t.value());
+				unique_ptr<string> result = folly::make_unique<std::string>(
+						"IMM: " + IMM_result
+						+ "; QA: " + t.value());
+				// Check if the query needs to be further sent to EMSEMBLE.
+				if (t.value().find("Factoid not found in knowledge base.")
+						== string::npos || query_save.content.size() < 2) {
+					promise->setValue(std::move(result));
+					return;
 				}
-				vector<string> words;
-				boost::split(words,query_save.content[0].tags[0],
-						boost::is_any_of(", "), boost::token_compress_on);
-				if (words.size() != 2) {
-					throw runtime_error("tags[0] must have the following format"
-							": localhost, 8083");
-				}
+				// Ask ENSEMBLE.
+				QuerySpec ENSEMBLE_spec;
+				string ENSEMBLE_addr = "";
+				int ENSEMBLE_port = 0;
+				getNextNode(query_save, IMM_result, 2, ENSEMBLE_spec,
+						ENSEMBLE_addr, ENSEMBLE_port);
+				print("Sending to ENSEMBLE at " << ENSEMBLE_addr
+						<< " " << ENSEMBLE_port);
+				print("Query to ENSEMBLE "
+						<< ENSEMBLE_spec.content[0].data[0]);
 				EventBase event_base;
-				string QA_addr = "127.0.0.1"; // cannot be "localhost"
-				int QA_port = stoi(words[1], nullptr);
-				if (const char* env_p = getenv("QA_PORT_8083_TCP_ADDR")) {
-					QA_addr = env_p;
-				}
-				print("Sending request to QA at " << QA_addr << " " << QA_port);
 				std::shared_ptr<TAsyncSocket> socket(
-						TAsyncSocket::newSocket(&event_base, QA_addr, QA_port));
+						TAsyncSocket::newSocket(
+								&event_base, ENSEMBLE_addr, ENSEMBLE_port));
 				unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>
 				channel(new HeaderClientChannel(socket));
 				channel->setClientType(THRIFT_FRAMED_DEPRECATED);
 				LucidaServiceAsyncClient client(std::move(channel));
-				QuerySpec qa_query_spec;
-				// Pop the front QueryInput from the current content
-				// to get the new QuerySpec content for QA.
-				qa_query_spec.content.assign(query_save.content.begin() + 1,
-						query_save.content.end());
-				// Append the result of IMM to the end of the text query.
-				string IMM_result = images[best_index]->getLabel();
-				qa_query_spec.content[0].data[0].append(" " + IMM_result);
-				print("Query to QA " << qa_query_spec.content[0].data[0]);
-				client.future_infer(LUCID_save, qa_query_spec).then(
-						[promise, IMM_result](folly::Try<string>&& t) mutable {
-					print("QA result: " << t.value());
-					unique_ptr<string> result = folly::make_unique<std::string>(
-							"IMM: " + IMM_result
-							+ "; QA: " + t.value());
-					promise->setValue(std::move(result)); // exit
-				});
+				client.future_infer(LUCID_save, ENSEMBLE_spec).then(
+						[IMM_result, promise]
+						(folly::Try<string>&& t) mutable {
+							print("ENSEMBLE result: " << t.value());
+							unique_ptr<string> result =
+									folly::make_unique<std::string>(
+									"IMM: " + IMM_result
+									+ "; QA: " + t.value());
+							// No more sending. Exit.
+							promise->setValue(std::move(result));
+							return;
+						});
 				event_base.loop();
-			} else {
-				promise->setValue(unique_ptr<string>(
-						new string(images[best_index]->getLabel()))); // exit
-			}
+			});
+			event_base.loop();
 		} catch (Exception &e) {
-			print(e.what());
-			promise->setValue(unique_ptr<string>(new string())); // exit
+			print(e.what()); // program aborted although exception is caught
+			promise->setValue(unique_ptr<string>(new string(e.what())));
+			return;
 		}
 	}
 	);
 	return future;
+}
+
+void IMMHandler::getNextNode(QuerySpec &original_spec, const string &IMM_result,
+		int node_index, QuerySpec &new_spec, string &addr, int &port) {
+	if (node_index < 0 || node_index >= (int) original_spec.content.size()) {
+		throw runtime_error("Invalid node_index " + to_string(node_index));
+	}
+	QueryInput new_input = original_spec.content[node_index];
+	new_input.data[0] += " ";
+	new_input.data[0] += IMM_result;
+	new_spec.name = "query";
+	new_spec.content.push_back(new_input);
+	addr = original_spec.content[node_index].tags[0];
+	if (addr =="localhost") {
+		addr = "127.0.0.1"; // cannot be "localhost"
+	}
+	port = stoi(original_spec.content[node_index].tags[1], nullptr);
+}
+
+int IMMHandler::countImages(const string &LUCID) {
+	auto_ptr<DBClientCursor> cursor = conn.query(
+			"lucida.images_" + LUCID, BSONObj());
+	int rtn = 0;
+	while (cursor->more()) {
+		++rtn;
+		cursor->next();
+	}
+	return rtn;
 }
 
 void IMMHandler::addImage(const string &LUCID,
@@ -196,7 +245,7 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 	vector<unique_ptr<StoredImage>> rtn;
 	// Retrieve all images of the user from MongoDB.
 	auto_ptr<DBClientCursor> cursor = conn.query(
-			"lucida.images_" + LUCID, BSONObj()); // retrieve desc, NOT data
+			"lucida.images_" + LUCID, BSONObj());
 	GridFS grid(conn, "lucida");
 	while (cursor->more()) {
 		string label = cursor->next().getStringField("label");
