@@ -189,7 +189,7 @@ However, the length of `tags` is always 1, and `tags[0]` is a string of the foll
 , which indicates a node in the service graph. The `host:port` specifies the location of the service, the list following `from`
 specifies the nodes that point to the service, and the list following `to` specifies the nodes that the service points to.
 The integers in the list are indices of other nodes/services in `content`,
-and thus must be within `[-1, content.size())` where `-1` indicates `null` (no service it is pointed or points to).
+and thus must be within `[-1, content.size())` where `-1` indicates `null` (no service it is pointed to by or points to).
 
 Therefore, the above service graph results in a `QuerySpec` like this:
 
