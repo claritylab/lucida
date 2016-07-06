@@ -102,7 +102,7 @@ public class KnowledgeBase {
 		Indri_path = System.getenv("LUCIDAROOT")
 				+ "/questionanswering/OpenEphyra/db/" + LUCID;
 		// Insert the document for id mappings if it does not exist.
-		if (collection.find().first() == null) {
+		if (collection.find(eq("LUCID", LUCID)).first() == null) {
 			collection.insertOne(new Document(new Document("LUCID", LUCID)));
 		}
 	}
@@ -129,7 +129,7 @@ public class KnowledgeBase {
 				}
 				break;
 			case "unlearn":
-				for (int i = 0; i < q.data.size(); ++i) {
+				for (int i = 0; i < q.tags.size(); ++i) {
 					deleteDoc(env, q.tags.get(i));
 				}
 				break;

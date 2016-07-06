@@ -80,8 +80,8 @@ public class QAClient {
 		// Unlearn.
 		final QueryInput knowledge_unlearn_input = createQueryInput(
 				"unlearn",
-				"abcdefg",
-				"");
+				"",
+				"abcdefg");
 		final QuerySpec knowledge_unlearn_spec = createQuerySpec(
 				"unlearn knowledge",
 				new ArrayList<QueryInput>() {{
