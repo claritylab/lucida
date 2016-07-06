@@ -11,13 +11,12 @@ from sklearn.naive_bayes import BernoulliNB, MultinomialNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neighbors import NearestCentroid
 from sklearn.ensemble import RandomForestClassifier
-
 from sklearn.pipeline import Pipeline
 from sklearn.cross_validation import KFold
 from sklearn.metrics import f1_score
 import os, cPickle
 
-from ConcurrencyManagement import log
+from Utilities import log
 import Config
 
 
@@ -51,6 +50,7 @@ class QueryClassifier(object):
 		log(str(self.classifiers))
 	
 	def train(self, input_type, query_classes):
+		log('********************** ' + input_type + ' **********************')
 		current_dir = os.path.abspath(os.path.dirname(__file__))
 		# If there is no or only one possible outcomes for the input type, 
 		# there is no need to train any classifier.
@@ -92,7 +92,6 @@ class QueryClassifier(object):
 							 pos_label=None if len(query_classes) == 2 else 1,
 							 average='weighted')
 			scores.append(score)
-		log('********************** ' + input_type + ' **********************')
 		log('Total documents classified:' + str(len(data)))
 		log('Score:' + str(sum(scores) / len(scores)))
 		# Save the classifier,

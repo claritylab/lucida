@@ -1,12 +1,12 @@
 import hashlib, uuid
 from pymongo import MongoClient
 from base64 import b64encode
-from ConcurrencyManagement import log
+from Utilities import log
 import os
 import Config
 
 
-class Database():
+class Database(object):
 	# Name of the algorithm to use for password encryption.
 	ENCRYPT_ALGORITHM = 'sha512'
 	

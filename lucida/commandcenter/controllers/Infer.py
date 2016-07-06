@@ -1,9 +1,8 @@
 from flask import *
-from ConcurrencyManagement import log
 from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
-from Utilities import check_image_extension
+from Utilities import log, check_image_extension
 import os
 
 infer = Blueprint('infer', __name__, template_folder='templates')
@@ -38,7 +37,7 @@ def infer_route():
 				log('Result ' + options['result'])
 				# Check if Calendar service is needed.
 				# If so, JavaScript needs to receive the parsed dates.
-				if services_needed == ['CA']:
+				if services_needed.has_service('CA'):
 					options['dates'] = options['result']
 					options['result'] = None
 					return render_template('infer.html', **options)

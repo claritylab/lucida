@@ -1,11 +1,10 @@
 from flask import *
 import Database, ThriftClient
 import hashlib, datetime
-from ConcurrencyManagement import log
 from AccessManagement import login_required
 from Database import database 
 from ThriftClient import thrift_client
-from Utilities import check_image_extension, check_text_input
+from Utilities import log, check_image_extension, check_text_input
 
 
 learn = Blueprint('learn', __name__, template_folder='templates')
@@ -71,8 +70,7 @@ def learn_route():
 				text_type = 'unlearn'
 				text_id = form['text_id']
 				# Send the unlearn request to QA.
-				thrift_client.learn_text(username, text_type,
-						text_id, text_id) # id is the data
+				thrift_client.learn_text(username, text_type, '', text_id)
 				# Delete the text from into the database.
 				database.delete_text(username, text_id)			
 			else:
