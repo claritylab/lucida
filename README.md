@@ -153,7 +153,7 @@ A `QuerySpec` has a name, which is `create` for `create`, `knowledge` for `learn
 A `QuerySpec` also has a list of `QueryInput` which is the data payload. 
 A `QueryInput` consists of a `type`, a list of `data`, and a list of `tags`. 
 
-    1. If the function call is `learn`:
+* If the function call is `learn`:
 
 Only one `QueryInput` is sent to your service currently, but you shouldn't assume this. Instead,
 you should iterate through all `QueryInput`s and grab all data to learn.
@@ -175,7 +175,7 @@ if `type` is `unlearn`, `data` is a list of empty strings,
 and `tags[i]` is the id of the text to delete or the label of the image to delete
 depending on whether the service can handle text or image.
 
-    2. If the function call is `infer`:
+* If the function call is `infer`:
 
 Each `QuerySpec` in `content` corresponds to one service (CMD is not considered to be a service)
 in the service graph, a directed acyclic graph (DAG) describing all services that are needed for the query.
@@ -257,14 +257,14 @@ If it is written in Java, refer to the code in `lucida/lucida/calendar/src/main/
 
 Here are what you need to do concretely: 
 
-  1. Add a thrift wrapper which typically consists of a Thrift handler
+* Add a thrift wrapper which typically consists of a Thrift handler
 which implements the Thrift interface described above, and a server daemon which is the entry point of your service.
 
-  2. Modify your Makefile for compiling your service and shell script for starting your service.
+* Modify your Makefile for compiling your service and shell script for starting your service.
 
-  3. Test your service.
+* Test your service.
 
-  4. Put your service into a Docker image, and add Kubernetes `yaml` scripts for your service.
+* Put your service into a Docker image, and add Kubernetes `yaml` scripts for your service.
 
 2. Modify the command center. (TODO)
 
