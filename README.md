@@ -83,7 +83,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
 1. Implement the Thrift interface jointly defined in `lucida/lucidaservice.thrift` and `lucida/lucidatypes.thrift`.
 
-(1) `lucida/lucidaservice.thrift`:
+( 1 ) `lucida/lucidaservice.thrift`:
 
 ```
 include "lucidatypes.thrift"
@@ -135,7 +135,7 @@ This is the most important functionality in the sense that it receives a query i
 returns the response in the form of a string. As will be explained soon, a string can be either plain text or image data,
 but usually human readable plain text is returned and this is what is assumed in the command center.
 
-(2) `lucida/lucidatypes.thrift`:
+( 2 ) `lucida/lucidatypes.thrift`:
 
 ```
 struct QueryInput {
@@ -248,7 +248,7 @@ the most complicated graph looks like this:
 
 . Thus, most current services can ignore the `tags` without any problem.
 
-3. Here are the concrete code examples that you can use for your own service:
+( 3 ) Here are the concrete code examples that you can use for your own service:
 
 If it is written in C++, refer to the code in `lucida/lucida/imagematching/opencv_imm/server/`, especially `IMMHandler.h`,
 `IMMHandler.cpp`, and `IMMServer.cpp`.
