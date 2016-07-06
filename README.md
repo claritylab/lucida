@@ -83,18 +83,16 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
 1. Implement the Thrift interface jointly defined in `lucida/lucidaservice.thrift` and `lucida/lucidatypes.thrift`.
 
- 1. `lucida/lucidaservice.thrift`:
+  1. `lucida/lucidaservice.thrift`:
 
-```
-include "lucidatypes.thrift"
-service LucidaService {
-    void create(1:string LUCID, 2:lucidatypes.QuerySpec spec);
-    void learn(1:string LUCID, 2:lucidatypes.QuerySpec knowledge);
-    string infer(1:string LUCID, 2:lucidatypes.QuerySpec query);
-}
-```
- 
- 2. aaaaa
+  ```
+  include "lucidatypes.thrift"
+  service LucidaService {
+     void create(1:string LUCID, 2:lucidatypes.QuerySpec spec);
+     void learn(1:string LUCID, 2:lucidatypes.QuerySpec knowledge);
+     string infer(1:string LUCID, 2:lucidatypes.QuerySpec query);
+  }
+  ```
 
 The basic funtionalities that your service needs to provide are called `create`, `learn`, and `infer`. 
 They all take in the same type of parameters, a `string` representing the Lucida user ID (`LUCID`),
