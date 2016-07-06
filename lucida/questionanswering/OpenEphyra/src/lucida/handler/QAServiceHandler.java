@@ -14,6 +14,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;
+import org.apache.thrift.protocol.TBinaryProtocol;
+import org.apache.thrift.protocol.TProtocol;
+import org.apache.thrift.transport.TFramedTransport;
+import org.apache.thrift.transport.TSocket;
+import org.apache.thrift.transport.TTransport;
 
 // Interface definition
 import lucida.thrift.*;
@@ -104,6 +109,21 @@ public class QAServiceHandler {
 				// Only look for the first item in content and data.
 				// The rest part of query is ignored.
 				answer = askFactoidThrift(LUCID, query.content.get(0).data.get(0));
+				// Check if it needs to ask ENSEMBLE.
+				if (answer.equals(default_answer) && query.content.get(0).tags.get(2).equals("1")) {
+					QuerySpec ENSEMBLE_spec = new QuerySpec();
+					ENSEMBLE_spec.name = "query";
+					ENSEMBLE_spec.content = new ArrayList<QueryInput>();
+					ENSEMBLE_spec.content.add(query.content.get(1));
+					String ENSEMBLE_addr = query.content.get(1).tags.get(0);
+					int ENSEMBLE_port = Integer.parseInt(query.content.get(1).tags.get(1));
+					TTransport transport = new TSocket(ENSEMBLE_addr, ENSEMBLE_port);
+					TProtocol protocol = new TBinaryProtocol(new TFramedTransport(transport));
+					LucidaService.Client client = new LucidaService.Client(protocol);
+					MsgPrinter.printStatusMsg("Asking ENSEMBLE at " + ENSEMBLE_addr + " "
+					+ ENSEMBLE_port);
+					answer = client.infer(LUCID, ENSEMBLE_spec);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException((e.toString() != null) ? e.toString() : "");
