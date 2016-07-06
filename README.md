@@ -108,14 +108,18 @@ But it also can be like this:
 ```Command Center (CMD) -> Your Own Service 1 (YOS1) -> Your Own Service 2 (YOS2) -> Your Own Service 3 (YOS3)```
 
 In this scenario, the command center sends a request to YOS1, YOS1 processes the query
-and sends the reqeust to YOS2. If YOS1 implements asynchronous Thrift interface, which it should,
+and sends the reqeust to YOS2. 
+
+Make sure to implement the asynchronous Thrift interface.
+If YOS1 implements the asynchronous Thrift interface, which it should,
 it won't block on waiting for the response from YOS2. Rather, a callback function is registered
 and the current thread can resume execution, so that when the reponse from YOS2 gets back to YOS1, the callback
 function is executed, in which YOS1 can either further process the response or immediately return it to CMD.
 If YOS1 implements the synchronous Thrift interface, the current thread cannot continue execution until
 YOS2 returns the response, so the operating system will suspend the current thread and perform a thread context switch
 which incurs overhead. The current thread sleeps until YOS2 returns. 
-Hopefully you see why we prefer asynchronous implementation of the thrift interface rather than synchronous implementation.
+Hopefully you see why we prefer asynchronous implementation of the thrift interface to synchronous implementation.
+See (3) of step 1 for details.
 
 `create`: create an intelligent instance based on supplied LUCID
 
@@ -243,6 +247,26 @@ the most complicated graph looks like this:
 ```Command Center (CMD) -> IMM -> QA```
 
 . Thus, most current services can ignore the `tags` without any problem.
+
+(3) Here are the concrete code examples that you can use for your own service:
+
+If it is written in C++, refer to the code in `lucida/lucida/imagematching/opencv_imm/server/`, especially `IMMHandler.h`,
+`IMMHandler.cpp`, and `IMMServer.cpp`.
+
+If it is written in Java, refer to the code in `lucida/lucida/calendar/src/main/java/calendar/`, especially `CAServiceHandler.java` and `CalendarDaemon.java`.
+
+Here are what you need to do concretely: 
+
+i. Add a thrift wrapper which typically consists of a Thrift handler
+which implements the Thrift interface described above, and a server daemon which is the entry point of your service.
+
+ii. Modify your Makefile for compiling your service and shell script for starting your service.
+
+iii. Test your service.
+
+iv. Put your service into a Docker image, and add Kubernetes `yaml` scripts for your service.
+
+2. Modify the command center. (TODO)
 
 
 
