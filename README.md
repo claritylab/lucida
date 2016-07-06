@@ -83,59 +83,59 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
 1. Implement the Thrift interface jointly defined in `lucida/lucidaservice.thrift` and `lucida/lucidatypes.thrift`.
 
-( 1 ) `lucida/lucidaservice.thrift`:
+ 1. `lucida/lucidaservice.thrift`:
 
-```
-include "lucidatypes.thrift"
-service LucidaService {
-   void create(1:string LUCID, 2:lucidatypes.QuerySpec spec);
-   void learn(1:string LUCID, 2:lucidatypes.QuerySpec knowledge);
-   string infer(1:string LUCID, 2:lucidatypes.QuerySpec query);
-}
-```
+  ```
+  include "lucidatypes.thrift"
+  service LucidaService {
+     void create(1:string LUCID, 2:lucidatypes.QuerySpec spec);
+     void learn(1:string LUCID, 2:lucidatypes.QuerySpec knowledge);
+     string infer(1:string LUCID, 2:lucidatypes.QuerySpec query);
+  }
+  ```
+  
+  The basic funtionalities that your service needs to provide are called `create`, `learn`, and `infer`. 
+  They all take in the same type of parameters, a `string` representing the Lucida user ID (`LUCID`),
+  and a custom type called `QuerySpec` defined in `lucida/lucidatypes.thrift`. 
+  The command center invokes these three procedures implemented by your service,
+  and services can also invoke these procedures on each other to achieve communication.
+  Thus the typical data flow looks like this:
+  
+  ```Command Center (CMD) -> Your Own Service (YOS)```
+  
+  But it also can be like this:
+  
+  ```Command Center (CMD) -> Your Own Service 1 (YOS1) -> Your Own Service 2 (YOS2) -> Your Own Service 3 (YOS3)```
+  
+  In this scenario, the command center sends a request to YOS1, YOS1 processes the query
+  and sends the reqeust to YOS2. 
+  
+  Make sure to implement the asynchronous Thrift interface.
+  If YOS1 implements the asynchronous Thrift interface, which it should,
+  it won't block on waiting for the response from YOS2. Rather, a callback function is registered
+  and the current thread can resume execution, so that when the reponse from YOS2 gets back to YOS1, the callback
+  function is executed, in which YOS1 can either further process the response or immediately return it to CMD.
+  If YOS1 implements the synchronous Thrift interface, the current thread cannot continue execution until
+  YOS2 returns the response, so the operating system will suspend the current thread and perform a thread context switch
+  which incurs overhead. The current thread sleeps until YOS2 returns. 
+  Hopefully you see why we prefer asynchronous implementation of the thrift interface to synchronous implementation.
+  See (3) of step 1 for details.
+  
+  `create`: create an intelligent instance based on supplied LUCID
+  
+  `learn`: tell the intelligent instance to learn based on data supplied in the query. 
+  Although it must be implemented, you can choose to do nothing in the function body or simply print some message
+  if your service cannot learn new knowledge. For example, it may be hard to retrain a DNN model, so the facial recognition
+  service simply print a message when it receives a learn request. You can tell the command center not to send a learn request
+  to your service, which will be explained soon.
+  If your service can handle new knowledge in the form of either image or text, you should tell the command center, which will be explained soon.
+  
+  `infer`: ask the intelligence to infer using the data supplied in the query.
+  This is the most important functionality in the sense that it receives a query in the form of either image or text and
+  returns the response in the form of a string. As will be explained soon, a string can be either plain text or image data,
+  but usually human readable plain text is returned and this is what is assumed in the command center.
 
-The basic funtionalities that your service needs to provide are called `create`, `learn`, and `infer`. 
-They all take in the same type of parameters, a `string` representing the Lucida user ID (`LUCID`),
-and a custom type called `QuerySpec` defined in `lucida/lucidatypes.thrift`. 
-The command center invokes these three procedures implemented by your service,
-and services can also invoke these procedures on each other to achieve communication.
-Thus the typical data flow looks like this:
-
-```Command Center (CMD) -> Your Own Service (YOS)```
-
-But it also can be like this:
-
-```Command Center (CMD) -> Your Own Service 1 (YOS1) -> Your Own Service 2 (YOS2) -> Your Own Service 3 (YOS3)```
-
-In this scenario, the command center sends a request to YOS1, YOS1 processes the query
-and sends the reqeust to YOS2. 
-
-Make sure to implement the asynchronous Thrift interface.
-If YOS1 implements the asynchronous Thrift interface, which it should,
-it won't block on waiting for the response from YOS2. Rather, a callback function is registered
-and the current thread can resume execution, so that when the reponse from YOS2 gets back to YOS1, the callback
-function is executed, in which YOS1 can either further process the response or immediately return it to CMD.
-If YOS1 implements the synchronous Thrift interface, the current thread cannot continue execution until
-YOS2 returns the response, so the operating system will suspend the current thread and perform a thread context switch
-which incurs overhead. The current thread sleeps until YOS2 returns. 
-Hopefully you see why we prefer asynchronous implementation of the thrift interface to synchronous implementation.
-See (3) of step 1 for details.
-
-`create`: create an intelligent instance based on supplied LUCID
-
-`learn`: tell the intelligent instance to learn based on data supplied in the query. 
-Although it must be implemented, you can choose to do nothing in the function body or simply print some message
-if your service cannot learn new knowledge. For example, it may be hard to retrain a DNN model, so the facial recognition
-service simply print a message when it receives a learn request. You can tell the command center not to send a learn request
-to your service, which will be explained soon.
-If your service can handle new knowledge in the form of either image or text, you should tell the command center, which will be explained soon.
-
-`infer`: ask the intelligence to infer using the data supplied in the query.
-This is the most important functionality in the sense that it receives a query in the form of either image or text and
-returns the response in the form of a string. As will be explained soon, a string can be either plain text or image data,
-but usually human readable plain text is returned and this is what is assumed in the command center.
-
-( 2 ) `lucida/lucidatypes.thrift`:
+ 2.  `lucida/lucidatypes.thrift`:
 
 ```
 struct QueryInput {
