@@ -83,7 +83,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
 1. Implement the Thrift interface jointly defined in `lucida/lucidaservice.thrift` and `lucida/lucidatypes.thrift`.
 
- 1. `lucida/lucidaservice.thrift`:
+  1. `lucida/lucidaservice.thrift`:
 
     ```
     include "lucidatypes.thrift"
@@ -135,7 +135,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     returns the response in the form of a string. As will be explained soon, a string can be either plain text or image data,
     but usually human readable plain text is returned and this is what is assumed in the command center.
 
- 2.  `lucida/lucidatypes.thrift`:
+  2.  `lucida/lucidatypes.thrift`:
 
     ```
     struct QueryInput {
@@ -210,7 +210,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     . We can define arbitrarily complicated service graphs. For example, for the following service graph:
     
-    ![Alt text](Service_Graph.png?raw=true "Service Graph")
+    ![Alt text](service_graph_0.png?raw=true "Service Graph")
     
     , the resulting `QuerySpec` may look like this, assuming YOSX is running at 909X:
     
@@ -253,17 +253,18 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     . Thus, most current services can ignore the `tags` without any problem.
 
- 3. Here are the concrete code examples that you can use for your own service:
+  3. Here are the concrete code examples that you can use for your own service:
 
     If it is written in C++, refer to the code in `lucida/lucida/imagematching/opencv_imm/server/`, especially `IMMHandler.h`,
     `IMMHandler.cpp`, and `IMMServer.cpp`.
     
     If it is written in Java, refer to the code in `lucida/lucida/calendar/src/main/java/calendar/`, especially `CAServiceHandler.java` and `CalendarDaemon.java`.
     
-    Here are what you need to do concretely: 
+  4. Here is a list of what you need to do for step 1: 
     
     * Add a thrift wrapper which typically consists of a Thrift handler
       which implements the Thrift interface described above, and a server daemon which is the entry point of your service.
+      Refer to the sample code mentioned above.
     
     * Modify your Makefile for compiling your service and shell script for starting your service.
     
@@ -273,46 +274,111 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
 2. Modify the command center. 
 
- [This is the only file you need to modify.](lucida/commandcenter/controllers/Config.py)
- 
- ```
- MAX_DOC_NUM_PER_USER = 30 # maximum number of texts or images per user
-
-TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
-
-# Pre-configured services.
-# The ThriftClient assumes that the following services are running.
-# Host IP addresses are resolved dynamically: 
-# either set by Kubernetes or localhost.
-SERVICES = { 
-	'IMM' : Service('IMM', 8082, 'image', ['image']), 
-	'QA' : Service('QA', 8083, 'text', ['text']),
-	'CA' : Service('CA', 8084, 'text', None),
-	'IMC' : Service('IMC', 8085, 'image', None),
-	'FACE' : Service('FACE', 8086, 'image', None),
-	'DIG' : Service('DIG', 8087, 'image', None),
-	'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None) 
-	}
-
-# Map from input type to query classes and services needed by each class.
-CLASSIFIER_DESCRIPTIONS = { 
-	'text' : { 'class_QA' :  Graph([Node('QA')]) ,
-			   'class_CA' : Graph([Node('CA')]) },
-	'image' : { 'class_IMM' : Graph([Node('IMM')]),
-				'class_IMC' : Graph([Node('IMC')]),
-				'class_FACE' : Graph([Node('FACE')]),
-				'class_DIG' : Graph([Node('DIG')]) },
-	'text_image' : { 'class_QA': Graph([Node('QA')]),
-					 'class_IMM' : Graph([Node('IMM')]), 
-					 'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')]),
-					 'class_IMC' : Graph([Node('IMC')]),
-					 'class_FACE' : Graph([Node('FACE')]),
-					 'class_DIG' : Graph([Node('DIG')]) } }
- ```
-
-
-
-
+  [This](lucida/commandcenter/controllers/Config.py) is the only file you need to modify,
+  but you may also need to add sample queries to [this directory](lucida/commandcenter/data/)
+  as training data for the query classifier.
+  
+  1. Modify the configuration file
+    
+    ```
+    SERVICES = { 
+    	'IMM' : Service('IMM', 8082, 'image', 'image'),  # image matching
+    	'QA' : Service('QA', 8083, 'text', 'text'), # question answering
+    	'CA' : Service('CA', 8084, 'text', None), # calendar
+    	}
+    
+    CLASSIFIER_DESCRIPTIONS = { 
+    	'text' : { 'class_QA' :  Graph([Node('QA')]) ,
+    			       'class_CA' : Graph([Node('CA')]) },
+    	'image' : { 'class_IMM' : Graph([Node('IMM')]) },
+    	'text_image' : { 'class_QA': Graph([Node('QA')]),
+    					         'class_IMM' : Graph([Node('IMM')]), 
+    					         'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')]) } }
+    ```
+    
+    `SERVICES` is a dictionary from service name to service object.
+    A service object is constructed this way:
+    
+    ```Service(name, port, input_type, learn_type)```
+    
+    , where `name` is the name of the service, `port` is the port number,
+    `input_type` is the type of input that the service can handle which is either `text` or `image`,
+    and `learn_type` is the type of knowledge that the service can receive which is either`text`, `image`, or `None`.
+    
+    Notice you do not need to specify the IP address of the service. By default it is `localhost`,
+    but if you use Kubernetes and run your service behind a Kubernetes `Service`,
+    Kubernetes dynamically assigns an IP address for the service and sets an environment variable
+    `<SERVICE_NAME>_PORT_<PORT>_TCP_ADDR` for each running container in the Kubernetes cluster.
+    This implies that the Kubernetes service must have the same name as the service name defined in this file.
+    For example, you have to define a Kubernetes service called `IMM` and run your container behind it,
+    so that the command center has the following environment variable set:
+    
+    ```
+    IMM_PORT_8082_TCP_ADDR
+    ```
+    
+    . Use your service name consistently. Do not use `IMM` here but `image_matching` in the Kubernetes `yaml` file.
+    See more details on how to define Kubernetes service at (TODO!!!!!!!!!!)
+    
+    Notice that you do not to list `ASR` (automatic speech recognition) service here.
+    The reason is that we currently use [kaldi gstremer server] (https://github.com/alumae/kaldi-gstreamer-server)
+    which receives real-time voice query from front end JavaScript rather than the command center.
+    However, if you want to redirect the voice query to the command center and then send it to your own
+    ASR service, you also need to modify [the Javascript front end] (lucida/commandcenter/static/js/).
+  
+    `CLASSIFIER_DESCRIPTIONS` is a dictionary from query class to service graph.
+    Internally, the command center uses a query classifier that predicts the services that are needed
+    from the user input query. In the above example, `class_QA` corresponds to a list of
+    sample questions that a user can possibly ask about generic QA style questions
+    which is defined in `lucida/commandcenter/data/class_QA.txt`. Thus, if you simply want to replace the current
+    QA implementation with your own, you can still use the training data, and only modify the service graph that
+    `class_QA` maps to like this:
+    
+    ```
+    'text_image' : { 'class_QA': Graph([Node('NAME_OF_MY_OWN_QA_SERVICE')]), ...
+    ```
+    
+    However, if you need to define another set of questions that a user can ask, e.g. questions about facial recognition,
+    you should read the next section on how to add training data.
+    
+    Each query class maps to a service graph described in step 1. Notice a service `Graph` object is constructed
+    with a list of `Node`. Each `Node` is constructed with the servide name and an optional list of node indices that
+    the current node points to. If not provided, it is an empty list, meaning the node does not point to any other node.
+    For example, `'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')])` is graphically represented as:
+    
+    ![Alt text](service_graph_1.png?raw=true "Service Graph")
+    
+    Notice that we do not define which nodes the current node is pointed to by, so we do not know which node is pointed to
+    by the command center which is not a service node. Thus, we need to specify the starting nodes separately.
+    This is done by an optional second paramater in the constructor of `Graph`:
+    
+    ```
+    def __init__(self, node_list, starting_indices=[0]):
+    ```
+    
+    As you see, by default, the command center assumes the 0th node in the node list is the starting node.
+    Thus, the command center will create a `QuerySpec` like the following and then it to the `IMM` service:
+    
+    ```
+    { name: "query", 
+    content: [
+    { type: "image",
+    data: [ "1234567...abcdefg" ],
+    tags: ["localhost", "8082", "1", 1"] },
+    { type: "text",
+    data: [ "How old is this person?" ],
+    tags: ["localhost", "8083", "0"] }
+    ] }
+    ```
+    
+    The `IMM` service receives this `QuerySpec` along with the user ID, and is responsible for further sending
+    the request to the `QA` service. The `IMM` service is allowed to modify the `QuerySpec` and possibly
+    send a reconstructed `QuerySpec` to `QA`, but as long as `IMM` finally returns a response to the
+    command center, it is fine. This degree of flexibility opens up opportunities for complicated communication
+    between your services. Usually, a simple graph one node suffices, because that one node may be an entry point
+    to a cluster of your own services, which have their own way of communication (which may not be Thrift!).
+    In other words, as long as your service cluster exposes one node to the command center through Thrift,
+    it is considered to be a Lucida service!
 
 
 
