@@ -382,6 +382,9 @@ in order to add your own service into Lucida. Let's break it down into two steps
     In other words, as long as your service cluster exposes one node to the command center through Thrift,
     it is considered to be a Lucida service!
     
+    Be aware that there are other parameters that you can change in this configuration file,
+    which are self-explanatory in the file itself.
+    
   2. Add training data for your own query class.
   
     We already prepare some sample training data in `lucida/commandcenter/data/`, but if you need to define
@@ -392,4 +395,4 @@ in order to add your own service into Lucida. Let's break it down into two steps
     ```
     
     , and fill at least 40 pieces of text in it, each being one or several sentences asking about that query class.
-    For example, if your want to support
+    
