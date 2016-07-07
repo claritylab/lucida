@@ -272,13 +272,13 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     * Put your service into a Docker image, and add Kubernetes `yaml` scripts for your service.
 
-2. Modify the command center. 
+2. Confugure the command center. 
 
   [This](lucida/commandcenter/controllers/Config.py) is the only file you need to modify,
   but you may also need to add sample queries to [this directory](lucida/commandcenter/data/)
   as training data for the query classifier.
   
-  1. Modify the configuration file
+  1. Modify the configuration file.
     
     ```
     SERVICES = { 
@@ -288,8 +288,8 @@ in order to add your own service into Lucida. Let's break it down into two steps
     	}
     
     CLASSIFIER_DESCRIPTIONS = { 
-    	'text' : { 'class_QA' :  Graph([Node('QA')]) ,
-    			       'class_CA' : Graph([Node('CA')]) },
+    	'text' : { 'class_QA' :  Graph([Node('QA')]),
+    	           'class_CA' : Graph([Node('CA')]) },
     	'image' : { 'class_IMM' : Graph([Node('IMM')]) },
     	'text_image' : { 'class_QA': Graph([Node('QA')]),
     					         'class_IMM' : Graph([Node('IMM')]), 
@@ -346,9 +346,9 @@ in order to add your own service into Lucida. Let's break it down into two steps
     the current node points to. If not provided, it is an empty list, meaning the node does not point to any other node.
     For example, `'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')])` is represented as:
     
-  ```
-  IMM -> QA
-  ```
+    ```
+    IMM -> QA
+    ```
     
     Notice that we do not define which nodes the current node is pointed to by, so we do not know which node is pointed to
     by the command center which is not a service node. Thus, we need to specify the starting nodes separately.
@@ -381,6 +381,15 @@ in order to add your own service into Lucida. Let's break it down into two steps
     to a cluster of your own services, which have their own way of communication (which may not be Thrift!).
     In other words, as long as your service cluster exposes one node to the command center through Thrift,
     it is considered to be a Lucida service!
-
-
-
+    
+  2. Add training data for your own query class.
+  
+    We already prepare some sample training data in `lucida/commandcenter/data/`, but if you need to define
+    a custom type of query that your service can handle, you should create the following file in the above directory:
+  
+    ```
+    class_<NAME_OF_YOUR_QUERY_CLASS>.txt
+    ```
+    
+    , and fill at least 40 pieces of text in it, each being one or several sentences asking about that query class.
+    For example, if your want to support
