@@ -270,7 +270,10 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     * Put your service into a Docker image, and add Kubernetes `yaml` scripts for your service.
 
-2. Modify the command center. (TODO)
+2. Modify the command center. 
+
+ [Config!](lucida/lucida/commandcenter/controllers/Config.py)
+
 
 
 
