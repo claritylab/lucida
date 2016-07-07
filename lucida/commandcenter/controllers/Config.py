@@ -10,8 +10,8 @@ TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 # Host IP addresses are resolved dynamically: 
 # either set by Kubernetes or localhost.
 SERVICES = { 
-	'IMM' : Service('IMM', 8082, 'image', ['image']), 
-	'QA' : Service('QA', 8083, 'text', ['text']),
+	'IMM' : Service('IMM', 8082, 'image', 'image'), 
+	'QA' : Service('QA', 8083, 'text', 'text'),
 	'CA' : Service('CA', 8084, 'text', None),
 	'IMC' : Service('IMC', 8085, 'image', None),
 	'FACE' : Service('FACE', 8086, 'image', None),
