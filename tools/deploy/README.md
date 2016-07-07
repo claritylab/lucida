@@ -1,0 +1,1 @@
+`./cluster_up.sh`. Wait. Then `./start_services.sh`.

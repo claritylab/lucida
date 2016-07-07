@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  labels:
+    name: web
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 30000
+      port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    name: web
