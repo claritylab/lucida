@@ -318,7 +318,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     ```
     
     . Use your service name consistently. Do not use `IMM` here but `image_matching` in the Kubernetes `yaml` file.
-    See more details on how to define Kubernetes service at (TODO!!!!!!!!!!)
+    See more details on how to define Kubernetes service at [tools/deploy/](tools/deploy/)
     
     Notice that you do not to list `ASR` (automatic speech recognition) service here.
     The reason is that we currently use [kaldi gstremer server] (https://github.com/alumae/kaldi-gstreamer-server)
