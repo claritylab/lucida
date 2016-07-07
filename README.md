@@ -383,7 +383,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     it is considered to be a Lucida service!
     
     Be aware that there are other parameters that you can change in this configuration file,
-    which are self-explanatory in the file itself.
+    which are self-explanatory in the file.
     
   2. Add training data for your own query class.
   
