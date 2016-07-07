@@ -344,9 +344,11 @@ in order to add your own service into Lucida. Let's break it down into two steps
     Each query class maps to a service graph described in step 1. Notice a service `Graph` object is constructed
     with a list of `Node`. Each `Node` is constructed with the servide name and an optional list of node indices that
     the current node points to. If not provided, it is an empty list, meaning the node does not point to any other node.
-    For example, `'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')])` is graphically represented as:
+    For example, `'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')])` is represented as:
     
-    ![Alt text](service_graph_1.png?raw=true "Service Graph")
+  ```
+  IMM -> QA
+  ```
     
     Notice that we do not define which nodes the current node is pointed to by, so we do not know which node is pointed to
     by the command center which is not a service node. Thus, we need to specify the starting nodes separately.
