@@ -6,5 +6,5 @@ sudo apt-get install -y \
         apache2-utils \
         libapache2-mod-wsgi \
         python-pip
-cp -f conf/000-default.conf /etc/apache2/sites-available/000-default.conf
-sudo a2enmod ssl
+cp -f $LUCIDAROOT/commandcenter/apache/conf/000-default.conf /etc/apache2/sites-available/000-default.conf
+sudo a2enmod ssl # for https
