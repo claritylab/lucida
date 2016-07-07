@@ -15,7 +15,7 @@ class Service(object):
 			if not learn_type in Service.LEARNERS:
 				print 'Unrecognized learn_type'
 				exit()
-				Service.LEARNERS[learn_type].append(self)
+			Service.LEARNERS[learn_type].append(self)
 			
 	def get_host_port(self):
 		try:
