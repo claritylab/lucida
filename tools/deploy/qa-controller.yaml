@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: qa
+  name: qa-controller
+spec:
+  replicas: 1
+  selector:
+    name: qa
+  template:
+    metadata:
+      labels:
+        name: qa
+    spec:
+      containers:
+      - image: ybga/lucida
+        command: ['/bin/sh', '-c']
+        args: ['cd $LUCIDAROOT/questionanswering/OpenEphyra/ && chmod +x start_server.sh && ./start_server.sh']
+        name: qa
+        ports:
+        - containerPort: 8083
+          name: thrift
+        volumeMounts:
+          - mountPath: /usr/local/lucida/lucida/questionanswering/OpenEphyra/db
+            name: openephyra-persistent-storage
+            readOnly: false
+      volumes:
+        - hostPath:
+            path: ~/lucida_data/openephyra
+          name: openephyra-persistent-storage
