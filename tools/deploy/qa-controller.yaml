@@ -16,7 +16,7 @@ spec:
       containers:
       - image: ybga/lucida
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/questionanswering/OpenEphyra/ && chmod +x start_server.sh && ./start_server.sh']
+        args: ['cd $LUCIDAROOT/questionanswering/OpenEphyra/ && ./start_server.sh']
         name: qa
         ports:
         - containerPort: 8083
@@ -27,5 +27,5 @@ spec:
             readOnly: false
       volumes:
         - hostPath:
-            path: ~/lucida_data/openephyra
+            path: /home/daedalus/Documents/docker/lucida/tools/deploy/lucida_data/openephyra
           name: openephyra-persistent-storage
