@@ -1,22 +1,22 @@
-.PHONY: all tonic-common djinn tonic-img clean dist-clean
+include ../../Makefile.common
 
-export CPU_ONLY=1
+all: 
+	cd tools; \
+	make; \
+	cd ..; \
+	python -mthrift_compiler.main --gen cpp2 lucidaservice.thrift; \
+	python -mthrift_compiler.main --gen cpp2 lucidatypes.thrift; \
+	cd models; \
+	fname=djinn-weights-1.0.tar.gz; \
+	wget http://web.eecs.umich.edu/~jahausw/download/$fname; \
+	tar xvzf $fname; \
+	rm -rf $fname; \
+	cd ../imc; \
+	make; \
+	cd ../dig; \
+	make; \
+	cd ../face; \
+	make
 
-export INCLUDE_DIRS:=/usr/local/include
-export LIBRARY_DIRS:=/usr/local/lib
-
-all: tonic-common djinn tonic-img
-
-tonic-common:
-	make -C $@ all
-
-djinn:
-	make -C $@ all
-
-tonic-img:
-	make -C $@ all
-
-clean:
-	make -C tonic-common clean
-	make -C djinn clean
-	make -C tonic-img clean
+%:
+	@:
