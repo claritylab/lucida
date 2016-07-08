@@ -2,10 +2,11 @@ include ../../Makefile.common
 
 all: 
 	cd tools; \
-	make; \
+	./install-protobuf.sh; \
+	./install-caffe.sh; \
 	cd ..; \
-	python -mthrift_compiler.main --gen cpp2 lucidaservice.thrift; \
-	python -mthrift_compiler.main --gen cpp2 lucidatypes.thrift; \
+	python -mthrift_compiler.main --gen cpp2 ../lucidaservice.thrift; \
+	python -mthrift_compiler.main --gen cpp2 ../lucidatypes.thrift; \
 	cd models; \
 	fname=djinn-weights-1.0.tar.gz; \
 	wget http://web.eecs.umich.edu/~jahausw/download/$fname; \
