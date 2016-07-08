@@ -84,16 +84,15 @@ The OpenEphyra effort is supported in part by IBM Open Collaboration Agreement
 
 ================================================================================
 
-
-
+# OpenEphyra as a Lucida Service
 
 ================================================================================
 
 ## Major Dependencies
 
-- [OpenEphyra](https://sourceforge.net/projects/openephyra/)
 - [Indri](https://sourceforge.net/projects/lemur/)
-- [Apache Thrift 0.9.3](https://thrift.apache.org/) for QA, and CA
+- [MongoDB](https://www.mongodb.com/)
+- [Apache Thrift 0.9.3](https://thrift.apache.org/)
 
 ## Structure for Lucida
 
@@ -126,8 +125,6 @@ Wait until you see `QA at port 8083`.
 ```
 make start_test
 ```
-
-To change the knowledge base or query, you can modify `src/lucida/test/QAClient.java` and rebuild.
 
 ## Developing Notes
 

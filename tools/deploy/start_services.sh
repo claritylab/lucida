@@ -1,7 +1,8 @@
-# Before going on, make sure the cluster is set up.
-kubectl describe node
+echo "Assume that the local cluster is set up."
 
-kubectl get pod
+kubectl cluster-info
+
+kubectl describe node
 
 filelist=$(ls *-controller.yaml)
 if [ "${filelist}" != "" ]; then
@@ -37,4 +38,6 @@ fi
 
 kubectl get services
 
-watch "kubectl get pod"
+kubectl get pod
+
+echo "Run 'watch kubectl get pod' to monitor the pods. Open your browser after all pods have the status 'running'."

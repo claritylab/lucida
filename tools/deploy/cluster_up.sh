@@ -1,5 +1,5 @@
 # Set up a local cluster via docker on a single machine.
-export K8S_VERSION=v1.2.5
+export K8S_VERSION=v1.2.5 # as of July 8, 2016, v.1.3.0 has a bug that prevents service creation
 export ARCH=amd64
 docker run -d \
 --volume=/:/rootfs:ro \
