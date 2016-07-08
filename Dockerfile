@@ -36,6 +36,7 @@ RUN /bin/bash install_thrift.sh
 RUN /bin/bash install_fbthrift.sh
 WORKDIR "/usr/local/lucida/lucida"
 RUN /usr/bin/make
+RUN /bin/bash commandcenter/apache/install_apache.sh
 
 ### function docker-flush(){
 ###     dockerlist=$(docker ps -a -q)
