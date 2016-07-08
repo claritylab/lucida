@@ -125,6 +125,8 @@ in order to add your own service into Lucida. Let's break it down into two steps
     Although it has be implemented, you can choose to do nothing in the function body
     if your service cannot learn new knowledge. For example, it may be hard to retrain a DNN model, so the facial recognition
     service simply prints a message when it receives a learn request.
+    Otherwise, consider using a database system to store the new knowledge.
+    Currently we use MongoDB to store the text and image knowledge.
     You need to tell the command center whether to send a learn request
     to your service or not, which is detailed in step 2.
     
@@ -397,8 +399,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     tags: ["localhost", "8082", "1", 1"] },
     { type: "text",
     data: [ "How old is this person?" ],
-    tags: ["localhost", "8083", "0"] }
-    ] }
+    tags: ["localhost", "8083", "0"] } ] }
     ```
     
     The `IMM` service receives this `QuerySpec` along with the user ID, and is responsible for further sending
