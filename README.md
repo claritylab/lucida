@@ -26,8 +26,8 @@ all services should be compiled after these dependencies are installed.
 - From this directory, type: `make local`. This will run scripts in `tools/` to
   install all the required depedencies. After that, it compiles back-end services
   in `lucida/`.
-- If for some reason, you need to compile services individually,
-  make sure to set a few environment as set in `Makefile`:
+- If you need to compile services individually,
+  make sure to set a few environment as set in [`Makefile`](Makefile):
 
 ```
 export LD_LIBRARY_PATH=/usr/local/lib
