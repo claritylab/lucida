@@ -11,12 +11,12 @@ The default paths probably won't work on your machine.
 Make sure you have write access to the directories you specify.
 For example, modify the last section of `qa-controller.yaml` to be:
 
-```
-      volumes:
-        - hostPath:
-            path: /home/<your_username>/Documents/lucida_data_for_Kuebrnetes
-          name: openephyra-persistent-storage
-```
+  ```
+        volumes:
+          - hostPath:
+              path: /home/<your_username>/Documents/lucida_data_for_Kuebrnetes
+            name: openephyra-persistent-storage
+  ```
 
 3. Run `./start_services.sh` to launch all Kubernetes services and pods.
 It assumes that a local cluster is set up.
@@ -25,3 +25,7 @@ To debug, you can run `kubectl get service` to check the services,
 `docker ps | grep <controller_name>` followed by `docker exec -it <running_container_id> bash` to check the running containers.
 Also, if MongoDB container is constantly being created without making progress, 
 run `sudo netstat -tulpn | grep 27017` and kill the currently running MongoDB instance which also uses the port 27017.
+
+4. Open your browser and visit `http://localhost:30000`.
+It may take up to several minutes for the Apache server to start working,
+but if it seems to take forever for the index page to show up, please debug as described in step 3.
