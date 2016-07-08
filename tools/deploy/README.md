@@ -11,12 +11,12 @@ The default paths probably won't work on your machine.
 Make sure you have write access to the directories you specify.
 For example, modify the last section of `qa-controller.yaml` to be:
 
-```
-      volumes:
-        - hostPath:
-            path: /home/<your_username>/Documents/lucida_data_for_Kuebrnetes
-          name: openephyra-persistent-storage
-```
+  ```
+        volumes:
+          - hostPath:
+              path: /home/<your_username>/Documents/lucida_data_for_Kuebrnetes
+            name: openephyra-persistent-storage
+  ```
 
 3. Run `./start_services.sh` to launch all Kubernetes services and pods.
 It assumes that a local cluster is set up.
