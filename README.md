@@ -260,7 +260,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     and the entry point (which uses a multi-threaded server provided by Thrift) is in `IMMServer.cpp`.
     
     If it is written in Java, refer to the code in [`lucida/calendar/src/main/java/calendar/`]
-    (lucida/calendar/src/main/java/calendar/) and [`lucida/lucida/calendar/`](lucida/lucida/calendar/).
+    (lucida/calendar/src/main/java/calendar/) and [`lucida/calendar/`](lucida/calendar/).
     Look at `Makefile` for how to generate Thrift stubs which are the interfaces your handlers need to implement.
     Notice that the interface is implemented in `CAServiceHandler.java`,
     and the entry point (which uses a multi-threaded server provided by Thrift) is in `CalendarDaemon.java`.
@@ -279,7 +279,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     * Test your service.
     
     * (optional) Put your service into a Docker image,
-     and add Kubernetes `yaml` scripts for your service into `[tools/deploy/]`(tools/deploy/).
+     and add Kubernetes `yaml` scripts for your service into [`tools/deploy/`](tools/deploy/).
 
 2. Configure the command center. 
 
