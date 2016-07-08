@@ -1,3 +1,3 @@
-# Djinn-and-Tonic
+# Djinn and Tonic
 
-`make` to compile.
+Type `make` to compile.

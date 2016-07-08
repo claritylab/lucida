@@ -22,30 +22,37 @@ all services should be compiled after these dependencies are installed.
 
 ## Lucida Local Development
 
+  If you want to make contributions to Lucida, or simply want to test it on your machine,
+  please build Lucida locally:
+
 - From this directory, type: `make local`. This will run scripts in `tools/` to
   install all the required depedencies. After that, it compiles back-end services
   in `lucida/`.
+
 - If you need to compile services individually,
   make sure to set a few environment as set in [`Makefile`](Makefile):
 
-```
-export LD_LIBRARY_PATH=/usr/local/lib
-export LUCIDAROOT=`pwd`/lucida
-```
+  ```
+  export LD_LIBRARY_PATH=/usr/local/lib
+  export LUCIDAROOT=`pwd`/lucida
+  ```
 
-- Start all the services:
+- Start all services:
 
-```
-make start_all
-```
+  ```
+  make start_all
+  ```
 
-  This will spawn a new terminal window for each service as well as the command center.
+  This will spawn a terminal window for each service as well as the command center.
   Open your browser and visit `http://localhost:3000/` to start using Lucida.
   
   Currently, the command center receives user input in the form of HTTP requests sent from your browser,
   but in future we can support other forms of input. 
 
-## Lucida Docker Deployment via Kubernetes
+## Lucida Docker Deployment
+
+  If you want to deploy Lucida as a web application, please deploy Lucida using
+  [Docker](https://www.docker.com/) and [Kubernetes](http://kubernetes.io/):
 
 - Install Docker: refer to
   [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/).
@@ -118,6 +125,8 @@ in order to add your own service into Lucida. Let's break it down into two steps
     Although it has be implemented, you can choose to do nothing in the function body
     if your service cannot learn new knowledge. For example, it may be hard to retrain a DNN model, so the facial recognition
     service simply prints a message when it receives a learn request.
+    Otherwise, consider using a database system to store the new knowledge.
+    Currently we use MongoDB to store the text and image knowledge.
     You need to tell the command center whether to send a learn request
     to your service or not, which is detailed in step 2.
     
@@ -198,8 +207,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     tags: ["localhost", "8083", "1", "1"] },
     { type: "text",
     data: [ "What's the speed of light?" ],
-    tags: ["localhost", "9090", "0"] }
-    ] }
+    tags: ["localhost", "9090", "0"] } ] }
     ```
     
     . We can define arbitrarily complicated service graphs. For example, for the following service graph:
@@ -222,8 +230,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     tags: ["localhost", "9092", "0"] },
     { type: "image",
     data: [ "1234567...abcdefg" ],
-    tags: ["localhost", "9093", "0"] }
-    ] }
+    tags: ["localhost", "9093", "0"] } ] }
     ```
     
     . Notice that if the order of `QueryInput` in `content` is rearranged, the resulting `QuerySpec`
@@ -303,8 +310,9 @@ in order to add your own service into Lucida. Let's break it down into two steps
     	           'class_CA' : Graph([Node('CA')]) },
     	'image' : { 'class_IMM' : Graph([Node('IMM')]) },
     	'text_image' : { 'class_QA': Graph([Node('QA')]),
-    					         'class_IMM' : Graph([Node('IMM')]), 
-    					         'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')]) } }
+    	                 'class_IMM' : Graph([Node('IMM')]), 
+    	                 'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')]) } 
+    	}
     ```
     
     * `SERVICES`
@@ -372,8 +380,6 @@ in order to add your own service into Lucida. Let's break it down into two steps
     IMM -> QA
     ```
     
-    .
-    
     Notice that we do not define which nodes the current node is pointed to by, so we do not know which node is pointed to
     by the command center. Thus, we need to specify the starting nodes separately.
     This is done by an optional second paramater in the constructor of `Graph`:
@@ -393,8 +399,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     tags: ["localhost", "8082", "1", 1"] },
     { type: "text",
     data: [ "How old is this person?" ],
-    tags: ["localhost", "8083", "0"] }
-    ] }
+    tags: ["localhost", "8083", "0"] } ] }
     ```
     
     The `IMM` service receives this `QuerySpec` along with the user ID, and is responsible for further sending
