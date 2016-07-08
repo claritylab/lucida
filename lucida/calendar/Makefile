@@ -1,4 +1,5 @@
 all: thrift corenlp client
+	./gradlew build
 
 thrift:
 	@if [ ! -d "src/main/java/thrift" ]; then \
