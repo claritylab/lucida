@@ -303,8 +303,8 @@ in order to add your own service into Lucida. Let's break it down into two steps
     	           'class_CA' : Graph([Node('CA')]) },
     	'image' : { 'class_IMM' : Graph([Node('IMM')]) },
     	'text_image' : { 'class_QA': Graph([Node('QA')]),
-    					         'class_IMM' : Graph([Node('IMM')]), 
-    					         'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')]) } }
+    	           'class_IMM' : Graph([Node('IMM')]), 
+    	           'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')]) } }
     ```
     
     * `SERVICES`
