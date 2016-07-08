@@ -44,12 +44,12 @@ make start_all
   Open your browser and visit `http://localhost:3000/` to start using Lucida.
   
   Currently, the command center receives user input in the form of HTTP requests sent from your browser,
-  but in future we will support other forms of input. 
+  but in future we can support other forms of input. 
 
 ## Lucida Docker Deployment via Kubernetes
 
 - Install Docker: refer to
-  [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
+  [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/).
 
 - Navigate to `tools/deploy` and follow the instructions there.
 
@@ -77,7 +77,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
 1. Implement the Thrift interface jointly defined in `lucida/lucidaservice.thrift` and `lucida/lucidatypes.thrift`.
 
-  1. `lucida/lucidaservice.thrift`:
+  1. [`lucida/lucidaservice.thrift`](lucida/lucidaservice.thrift)
 
     ```
     include "lucidatypes.thrift"
@@ -128,7 +128,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     Notice all the three functions take in `QuerySpec` as their second parameters,
     so let's see what `QuerySpec` means for each function.
     
-  2.  `lucida/lucidatypes.thrift`:
+  2.  [`lucida/lucidatypes.thrift`](lucida/lucidatypes.thrift):
 
     ```
     struct QueryInput {
@@ -253,13 +253,13 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
   3. Here are the code examples that you can use for your own service:
 
-    If it is written in C++, refer to the code in [lucida/lucida/imagematching/opencv_imm/server/]
+    If it is written in C++, refer to the code in [`lucida/lucida/imagematching/opencv_imm/server/`]
     (lucida/lucida/imagematching/opencv_imm/server/).
     Look at `Makefile` for how to generate Thrift stubs which are the abstract base classes your handlers need to inherit.
     Notice that the interface is implemented in `IMMHandler.h` and `IMMHandler.cpp`,
     and the entry point (which uses a multi-threaded server provided by Thrift) is in `IMMServer.cpp`.
     
-    If it is written in Java, refer to the code in [lucida/lucida/calendar/src/main/java/calendar/]
+    If it is written in Java, refer to the code in [`lucida/lucida/calendar/src/main/java/calendar/`]
     (lucida/lucida/calendar/src/main/java/calendar/) and [lucida/lucida/calendar/](lucida/lucida/calendar/).
     Look at `Makefile` for how to generate Thrift stubs which are the interfaces your handlers need to implement.
     Notice that the interface is implemented in `CAServiceHandler.java`,
@@ -279,16 +279,16 @@ in order to add your own service into Lucida. Let's break it down into two steps
     * Test your service.
     
     * (optional) Put your service into a Docker image,
-     and add Kubernetes `yaml` scripts for your service into [tools/deploy/](tools/deploy/).
+     and add Kubernetes `yaml` scripts for your service into `[tools/deploy/]`(tools/deploy/).
 
 2. Configure the command center. 
 
-  [lucida/commandcenter/controllers/Config.py](lucida/commandcenter/controllers/Config.py)
+  `[lucida/commandcenter/controllers/Config.py]`(lucida/commandcenter/controllers/Config.py)
   is the only file you must modify,
-  but you may also need to add sample queries to [lucida/commandcenter/data/](lucida/commandcenter/data/)
+  but you may also need to add sample queries to `[lucida/commandcenter/data/]`(lucida/commandcenter/data/)
   as training data for the query classifier.
   
-  1. Modify the configuration file [lucida/commandcenter/controllers/Config.py](lucida/commandcenter/controllers/Config.py).
+  1. Modify the configuration file `[lucida/commandcenter/controllers/Config.py]`(lucida/commandcenter/controllers/Config.py).
     
     ```
     SERVICES = { 
@@ -349,7 +349,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     In the above example, if the user only gives voice input without image, the input type is `text`,
     and the prediction result can be either `class_QA` or `class_CA`.
     If the query is classified as `class_QA` which means generic QA style questions whose training data is
-    in [lucida/commandcenter/data/class_QA.txt](lucida/commandcenter/data/class_QA.txt),
+    in `[lucida/commandcenter/data/class_QA.txt]`(lucida/commandcenter/data/class_QA.txt),
     the services are needed are represented in a `Graph` with one `Node`, i.e. service `QA`.
     If you want to replace the current QA implementation with your own,
     you can still use the training data, and only modify the service graph:
@@ -410,8 +410,9 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
   2. Add training data for your own query class.
   
-    We already prepare some sample training data in `lucida/commandcenter/data/`, but if you need to define
-    a custom type of query that your service can handle, you should create the following file in the above directory:
+    We already prepare some sample training data in [`lucida/commandcenter/data/`](lucida/commandcenter/data/),
+    but if you need to define a custom type of query that your service can handle,
+    you should create the following file in the above directory:
   
     ```
     class_<NAME_OF_YOUR_QUERY_CLASS>.txt
