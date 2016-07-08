@@ -84,15 +84,14 @@ The OpenEphyra effort is supported in part by IBM Open Collaboration Agreement
 
 ================================================================================
 
-
-
+# OpenEphyra as a Lucida Service
 
 ================================================================================
 
 ## Major Dependencies
 
-- [OpenEphyra](https://sourceforge.net/projects/openephyra/)
 - [Indri](https://sourceforge.net/projects/lemur/)
+- [MongoDB](https://www.mongodb.com/)
 - [Apache Thrift 0.9.3](https://thrift.apache.org/) for QA, and CA
 
 ## Structure for Lucida
