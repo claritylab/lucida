@@ -253,14 +253,14 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
   3. Here are the code examples that you can use for your own service:
 
-    If it is written in C++, refer to the code in [`lucida/lucida/imagematching/opencv_imm/server/`]
-    (lucida/lucida/imagematching/opencv_imm/server/).
+    If it is written in C++, refer to the code in [`lucida/imagematching/opencv_imm/server/`]
+    (lucida/imagematching/opencv_imm/server/).
     Look at `Makefile` for how to generate Thrift stubs which are the abstract base classes your handlers need to inherit.
     Notice that the interface is implemented in `IMMHandler.h` and `IMMHandler.cpp`,
     and the entry point (which uses a multi-threaded server provided by Thrift) is in `IMMServer.cpp`.
     
-    If it is written in Java, refer to the code in [`lucida/lucida/calendar/src/main/java/calendar/`]
-    (lucida/lucida/calendar/src/main/java/calendar/) and [lucida/lucida/calendar/](lucida/lucida/calendar/).
+    If it is written in Java, refer to the code in [`lucida/calendar/src/main/java/calendar/`]
+    (lucida/calendar/src/main/java/calendar/) and [`lucida/lucida/calendar/`](lucida/lucida/calendar/).
     Look at `Makefile` for how to generate Thrift stubs which are the interfaces your handlers need to implement.
     Notice that the interface is implemented in `CAServiceHandler.java`,
     and the entry point (which uses a multi-threaded server provided by Thrift) is in `CalendarDaemon.java`.
@@ -283,12 +283,12 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
 2. Configure the command center. 
 
-  `[lucida/commandcenter/controllers/Config.py]`(lucida/commandcenter/controllers/Config.py)
+  [`lucida/commandcenter/controllers/Config.py`](lucida/commandcenter/controllers/Config.py)
   is the only file you must modify,
-  but you may also need to add sample queries to `[lucida/commandcenter/data/]`(lucida/commandcenter/data/)
+  but you may also need to add sample queries to [`lucida/commandcenter/data/`](lucida/commandcenter/data/)
   as training data for the query classifier.
   
-  1. Modify the configuration file `[lucida/commandcenter/controllers/Config.py]`(lucida/commandcenter/controllers/Config.py).
+  1. Modify the configuration file [`lucida/commandcenter/controllers/Config.py`](lucida/commandcenter/controllers/Config.py).
     
     ```
     SERVICES = { 
@@ -349,7 +349,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     In the above example, if the user only gives voice input without image, the input type is `text`,
     and the prediction result can be either `class_QA` or `class_CA`.
     If the query is classified as `class_QA` which means generic QA style questions whose training data is
-    in `[lucida/commandcenter/data/class_QA.txt]`(lucida/commandcenter/data/class_QA.txt),
+    in [`lucida/commandcenter/data/class_QA.txt`](lucida/commandcenter/data/class_QA.txt),
     the services are needed are represented in a `Graph` with one `Node`, i.e. service `QA`.
     If you want to replace the current QA implementation with your own,
     you can still use the training data, and only modify the service graph:
