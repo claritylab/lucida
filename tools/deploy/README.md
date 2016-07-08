@@ -26,6 +26,6 @@ To debug, you can run `kubectl get service` to check the services,
 Also, if MongoDB container is constantly being created without making progress, 
 run `sudo netstat -tulpn | grep 27017` and kill the currently running MongoDB instance which also uses the port 27017.
 
-4. Open your browser and visit http://localhost:30000.
+4. Open your browser and visit `http://localhost:30000`.
 It may take up to several minutes for the Apache server to start working,
 but if it seems to take forever for the index page to show up, please debug as described in step 3.
