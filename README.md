@@ -1,11 +1,10 @@
 # Lucida
 
 Lucida is a speech and vision based intelligent personal assistant inspired by
-[Sirius](http://sirius.clarity-lab.org). Visit the provided readmes in
-[lucida](lucida) for instructions to build Lucida and follow the instructions to
-build [lucida-suite here](http://sirius.clarity-lab.org/sirius-suite/).  Post to
-[Lucida-users](http://groups.google.com/forum/#!forum/sirius-users) for more
-information and answers to questions. The project is released under [BSD
+[Sirius](http://sirius.clarity-lab.org).
+Visit [our website](http://lucida.ai) for tutorial, and
+[Lucida-users](http://groups.google.com/forum/#!forum/lucida-users) for help.
+The project is released under [BSD
 license](LICENSE), except certain submodules contain their own specific
 licensing information. We would love to have your help on improving Lucida, and
 see [CONTRIBUTING](CONTRIBUTING.md) for more details.
@@ -51,7 +50,7 @@ make start_all
 - Install Docker: refer to
   [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/).
 
-- Navigate to `tools/deploy` and follow the instructions there.
+- Navigate to [`tools/deploy/`](tools/deploy) and follow the instructions there.
 
 ## Design Notes -- How to Add Your Own Service into Lucida?
 
@@ -335,7 +334,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     ```
     
     to something like `10.0.0.92`. This IP address will be `tags[0]` in the `QueryInput` as described in step 1.
-    All of the existing Kubernetes scripts in [tools/deploy/](tools/deploy/) follow this naming convention.
+    All of the existing Kubernetes scripts in [`tools/deploy/`](tools/deploy/) follow this naming convention.
     
     Notice that you `ASR` (automatic speech recognition) is not listed here.
     The reason is that we currently use [kaldi gstremer server] (https://github.com/alumae/kaldi-gstreamer-server)
