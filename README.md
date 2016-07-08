@@ -275,10 +275,12 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     * Modify your `Makefile` so that it uses the Thrift compiler to generate Thrift stubs code.
       Following the style of the existing `Makefile`s is recommended.
-    
+
     * Test your service.
     
-    * (optional) Put your service into a Docker image,
+    * (Local development) Modify the top-level [`Makefile`](Makefile) so that `make start_all` includes your service.
+    
+    * (Docker deployment) Create a Dockerfile image for your service, or merge it into the top-level [`Dockerfile`](Dockerfile)
      and add Kubernetes `yaml` scripts for your service into [`tools/deploy/`](tools/deploy/).
 
 2. Configure the command center. 
