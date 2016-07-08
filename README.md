@@ -49,7 +49,7 @@ all services should be compiled after these dependencies are installed.
   Currently, the command center receives user input in the form of HTTP requests sent from your browser,
   but in future we can support other forms of input. 
 
-## Lucida Docker Deployment via Kubernetes
+## Lucida Docker Deployment
 
   If you want to deploy Lucida as a web application, please deploy Lucida using
   [Docker](https://www.docker.com/) and [Kubernetes](http://kubernetes.io/):
