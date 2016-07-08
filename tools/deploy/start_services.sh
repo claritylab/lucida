@@ -1,7 +1,7 @@
 # Before going on, make sure the cluster is set up.
-kubectl describe node
+kubectl cluster-info
 
-kubectl get pod
+kubectl describe node
 
 filelist=$(ls *-controller.yaml)
 if [ "${filelist}" != "" ]; then
