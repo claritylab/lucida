@@ -16,6 +16,12 @@ ENV PROTOBUF_VERSION 2.5.0
 ENV JAVA_VERSION 8
 ENV JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 
 
+## common package installations
+RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install -y software-properties-common 
+RUN apt-get install -y make
+
 ## install lucida
 RUN mkdir -p /usr/local/lucida
 ADD . /usr/local/lucida
