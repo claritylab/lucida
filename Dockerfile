@@ -16,24 +16,11 @@ ENV PROTOBUF_VERSION 2.5.0
 ENV JAVA_VERSION 8
 ENV JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 
 
-#### package specific routines
-RUN \
-  echo oracle-java$JAVA_VERSION-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-  add-apt-repository -y ppa:webupd8team/java && \
-  apt-get update && \
-  apt-get install -y oracle-java$JAVA_VERSION-installer && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/cache/oracle-jdk$JAVA_VERSION-installer
-
 ## install lucida
 RUN mkdir -p /usr/local/lucida
 ADD . /usr/local/lucida
 WORKDIR "/usr/local/lucida/tools"
-RUN /bin/bash apt_deps.sh
-RUN /bin/bash install_mongodb.sh
-RUN /bin/bash install_opencv.sh
-RUN /bin/bash install_thrift.sh
-RUN /bin/bash install_fbthrift.sh
+RUN /usr/bin/make
 WORKDIR "/usr/local/lucida/lucida"
 RUN /usr/bin/make
 RUN /bin/bash commandcenter/apache/install_apache.sh
