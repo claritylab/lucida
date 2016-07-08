@@ -126,8 +126,6 @@ Wait until you see `QA at port 8083`.
 make start_test
 ```
 
-To change the knowledge base or query, you can modify `src/lucida/test/QAClient.java` and rebuild.
-
 ## Developing Notes
 
 1. By calling `learn`, the server adds the text knowledge into the Indri repository `db/LUCID`
