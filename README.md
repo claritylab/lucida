@@ -334,7 +334,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     ```
     
     to something like `10.0.0.92`. This IP address will be `tags[0]` in the `QueryInput` as described in step 1.
-    All of the existing Kubernetes scripts in [tools/deploy/](tools/deploy/) follow this naming convention.
+    All of the existing Kubernetes scripts in [`tools/deploy/`](tools/deploy/) follow this naming convention.
     
     Notice that you `ASR` (automatic speech recognition) is not listed here.
     The reason is that we currently use [kaldi gstremer server] (https://github.com/alumae/kaldi-gstreamer-server)
