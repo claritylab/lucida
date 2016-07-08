@@ -92,7 +92,7 @@ The OpenEphyra effort is supported in part by IBM Open Collaboration Agreement
 
 - [Indri](https://sourceforge.net/projects/lemur/)
 - [MongoDB](https://www.mongodb.com/)
-- [Apache Thrift 0.9.3](https://thrift.apache.org/) for QA, and CA
+- [Apache Thrift 0.9.3](https://thrift.apache.org/)
 
 ## Structure for Lucida
 
