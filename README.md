@@ -50,7 +50,7 @@ make start_all
 - Install Docker: refer to
   [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/).
 
-- Navigate to `tools/deploy` and follow the instructions there.
+- Navigate to [`tools/deploy/`](tools/deploy) and follow the instructions there.
 
 ## Design Notes -- How to Add Your Own Service into Lucida?
 
