@@ -1,6 +1,6 @@
 # Contributing
 
-We would love to have your help in making Sirius better.
+We would love to have your help in making Lucida better.
 
 ## Pull Requests
 
@@ -15,12 +15,7 @@ We actively welcome your pull requests.
 We use GitHub issues to track public bugs. Please ensure your description is
 clear and has sufficient instructions to be able to reproduce the issue.
 
-## Coding Style
-
-* 2 spaces for indentation rather than tabs
-* 80 character line length
-
 ## License
 
-By contributing to Sirius, you agree that your contribution will be licensed
+By contributing to Lucida, you agree that your contribution will be licensed
 under its BSD license.
