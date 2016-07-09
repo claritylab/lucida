@@ -4,7 +4,7 @@ all:
 	fi
 
 start_master_server:
-	gnome-terminal -x bash -c "python kaldigstserver/master_server.py --port=8888; read -n1"
+	gnome-terminal -x bash -c "python kaldigstserver/master_server.py --port=8081; read -n1"
 
 start_server:
 	./simple_start.sh
