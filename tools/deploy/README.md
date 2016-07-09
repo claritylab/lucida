@@ -47,10 +47,12 @@ but if it seems to take forever for the index page to show up, please debug as d
   then recreate the following service and pods by running:
   
   ```
+  kubectl delete -f asrworker-controller.yaml
   kubectl delete -f asrmaster-controller.yaml
   kubectl delete -f web-controller.yaml
   kubectl delete -f web-service.yaml
   kubectl create -f web-service-https.yaml
   kubectl create -f web-controller-https.yaml
   kubectl create -f asrmaster-controller-https.yaml
+  kubectl create -f asrworker-controller-https.yaml
 ```
