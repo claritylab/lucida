@@ -154,7 +154,7 @@ public class TextProcessor {
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.WEEK_OF_YEAR, week_num);        
 		cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-		return sdf.format(cal.getTime()).toString() + "T00:00:00Z";
+		return sdf.format(cal.getTime()).toString() + "T00:00:00";
 	}
 
 	/** 
@@ -186,6 +186,7 @@ public class TextProcessor {
 		rtn += "T";
 		if (matcher_time.find()) {
 			rtn += matcher_time.group(0);
+			rtn += ":00";
 		} else if (s.contains("MO")) {
 			rtn += "05:00:00";
 		} else if (s.contains("AF")) {
@@ -196,10 +197,8 @@ public class TextProcessor {
 			rtn += "00:00:00";
 		} else if (i == 1) {
 			rtn += "23:59:59";
-		} else {
-			System.out.println("Error");
-		}
-		return rtn + "Z";
+		} else {}
+		return rtn; // no time zone offset returned
 	}
 
 	/** Example usage:
