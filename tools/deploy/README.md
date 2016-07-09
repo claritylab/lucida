@@ -38,19 +38,19 @@ but if it seems to take forever for the index page to show up, please debug as d
 
 6. If you have SSL certificates and want to set up https, please modify the following files according to their comments:
 
-```
-web-service-https.yaml
-web-controller-https.yaml
-asrmaster-controller-https.yaml
-```
-
-run recreate the following pods by running:
-
-```
-kubectl delete -f asrmaster-controller.yaml
-kubectl delete -f web-controller.yaml
-kubectl delete -f web-service.yaml
-kubectl create -f web-service-https.yaml
-kubectl create -f web-controller-https.yaml
-kubectl create -f asrmaster-controller-https.yaml
+  ```
+  web-service-https.yaml
+  web-controller-https.yaml
+  asrmaster-controller-https.yaml
+  ```
+  
+  run recreate the following pods by running:
+  
+  ```
+  kubectl delete -f asrmaster-controller.yaml
+  kubectl delete -f web-controller.yaml
+  kubectl delete -f web-service.yaml
+  kubectl create -f web-service-https.yaml
+  kubectl create -f web-controller-https.yaml
+  kubectl create -f asrmaster-controller-https.yaml
 ```
