@@ -1,6 +1,6 @@
 # Deploy Lucida using Kubernetes
 
-1. Run `./cluster_up.sh` to create a Kubernetes cluster on a single machine via Docker.
+1. Run `sudo ./cluster_up.sh` to create a Kubernetes cluster on a single machine via Docker.
 It assumes that Docker is already installed.
 If you want to create a cluster with more than one machines,
 please refer to [the official documentation](http://kubernetes.io/docs/).
@@ -22,7 +22,7 @@ For example, modify the last section of `qa-controller.yaml` to be:
   rather than pulling from our Dockerhub, you need to modify
   the `image` fields of all `*-controllers.yaml`s and set up a local Kubernetes container registry.
 
-3. Run `./start_services.sh` to launch all Kubernetes services and pods.
+3. Run `sudo ./start_services.sh` to launch all Kubernetes services and pods.
 It assumes that a local cluster is set up.
 To debug, you can run `kubectl get service` to check the services,
 `kubectl get pod` and `kubectl describe pod` to check the pods,
@@ -33,3 +33,6 @@ run `sudo netstat -tulpn | grep 27017` and kill the currently running MongoDB in
 4. Open your browser and visit `http://localhost:30000`.
 It may take up to several minutes for the Apache server to start working,
 but if it seems to take forever for the index page to show up, please debug as described in step 3.
+
+5. To destroy the cluster, run `docker ps`, then `stop` and `rm` all the containers related to Kubernetes.
+
