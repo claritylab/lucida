@@ -22,7 +22,7 @@ For example, modify the last section of `qa-controller.yaml` to be:
   rather than pulling from our Dockerhub, you need to modify
   the `image` fields of all `*-controllers.yaml`s and set up a local Kubernetes container registry.
 
-3. Run `sudo ./start_services.sh` to launch all Kubernetes services and pods.
+3. Run `./start_services.sh` to launch all Kubernetes services and pods.
 It assumes that a local cluster is set up.
 To debug, you can run `kubectl get service` to check the services,
 `kubectl get pod` and `kubectl describe pod` to check the pods,
