@@ -54,6 +54,24 @@ function loadCalendarApi() {
 }
 
 /**
+ * Return the time zone offset in the form of "-04:00".
+ */
+ function getTimeZoneOffset() {
+ 	function pad(number, length){
+		var str = "" + number
+		while (str.length < length) {
+			str = "0" + str
+		}
+		return str
+	}
+	var offset = new Date().getTimezoneOffset();
+	return ((offset < 0 ? "+" : "-") +
+		pad(parseInt(Math.abs(offset / 60)), 2) + ":" +
+		pad(Math.abs(offset % 60), 2));
+ }
+
+
+/**
  * Print the summary and start datetime/date of the next ten events in
  * the authorized user's calendar. If no events are found an
  * appropriate message is printed.
@@ -69,11 +87,14 @@ function listUpcomingEvents() {
 		'maxResults': 10,
 		'orderBy': 'startTime'
 	}
+	var zone_offset = getTimeZoneOffset();
 	if (min !== 'null') {
-		options['timeMin'] = min;
+		options['timeMin'] = min + zone_offset;
+		console.log(options['timeMin']);
 	}
 	if (max !== 'null') {
-		options['timeMax'] = max;
+		options['timeMax'] = max + zone_offset;
+		console.log(options['timeMax']);
 	}
 	if (min === 'null' && max === 'null') {
 		// Just return the upcoming 10 events.
@@ -83,7 +104,7 @@ function listUpcomingEvents() {
 	request.execute(function(resp) {
 		var events = resp.items;
 		appendMsg('Google calendar events:');
-		if (events.length > 0) {
+		if (events !== undefined && events.length > 0) {
 		  for (i = 0; i < events.length; i++) {
 			var event = events[i];
 			var start_time = event.start.dateTime;
@@ -99,6 +120,7 @@ function listUpcomingEvents() {
 		} else {
 		  appendMsg('No events.');
 		}
+		textToVoice(document.getElementById('clinc').value);
 	});
 	// Revoke access given to Lucida.
 	$.ajax({
