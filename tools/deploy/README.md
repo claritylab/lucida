@@ -29,7 +29,7 @@ To debug, you can run `kubectl get service` to check the services,
 `docker ps | grep <controller_name>` followed by `docker exec -it <running_container_id> bash` to check the running containers.
 Also, if MongoDB container is constantly being created without making progress, 
 run `sudo netstat -tulpn | grep 27017` and kill the currently running MongoDB instance which also uses the port 27017.
-This applies to other containers whose ports are already used and thus cannot be started.
+This also applies to other containers whose ports are already used and thus cannot be started.
 
 4. Open your browser and visit `http://localhost:30000`.
 It may take up to several minutes for the Apache server to start working,
