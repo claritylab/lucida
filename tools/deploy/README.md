@@ -36,15 +36,14 @@ but if it seems to take forever for the index page to show up, please debug as d
 
 5. To destroy the cluster, run `docker ps`, then `stop` and `rm` all the containers related to Kubernetes.
 
-6. If you have SSL certificates and want to set up https, please modify the following files according to their comments:
+6. If you have SSL certificates and want to set up https, please modify the following files according to their inline comments:
 
   ```
-  web-service-https.yaml
   web-controller-https.yaml
   asrmaster-controller-https.yaml
   ```
   
-  run recreate the following pods by running:
+  then recreate the following pods by running:
   
   ```
   kubectl delete -f asrmaster-controller.yaml
