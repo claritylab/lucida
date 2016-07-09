@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: asrmaster
+  name: asrmaster-controller
+spec:
+  replicas: 1
+  selector:
+    name: asrmaster
+  template:
+    metadata:
+      labels:
+        name: asrmaster
+    spec:
+      containers:
+      - image: ybga/lucida_asr
+        command: ['/bin/sh', '-c']
+        args: ['export HTTPS=True && source python_2_7_9/bin/activate && python kaldigstserver/master_server.py --port=8081']
+        name: asrmaster
+        ports:
+        - containerPort: 8081
+          name: http-server
+        volumeMounts:
+          - mountPath: /etc/letsencrypt/live/host
+            name: asrmaster-ssl
+            readOnly: false
+      volumes:
+        - hostPath:
+            path: /etc/letsencrypt/archive/clarity13.eecs.umich.edu
+          name: asrmaster-ssl
