@@ -43,7 +43,7 @@ but if it seems to take forever for the index page to show up, please debug as d
   asrmaster-controller-https.yaml
   ```
   
-  then recreate the following pods by running:
+  then recreate the following service and pods by running:
   
   ```
   kubectl delete -f asrmaster-controller.yaml
