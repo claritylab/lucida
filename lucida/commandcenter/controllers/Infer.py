@@ -29,6 +29,7 @@ def infer_route():
 				upload_file = request.files['file']
 				if upload_file.filename != '':
 					check_image_extension(upload_file)
+				print '@@@@@@@@@@', form['speech_input']
 				# Classify the query.
 				services_needed = \
 					query_classifier.predict(form['speech_input'], upload_file)
