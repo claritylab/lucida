@@ -10,7 +10,7 @@ The command center performs the following functionalities:
 Specifically, `app.py` starts the Flask server (listening to front end)
 and web socket ASR router (listening to front end).
 
-## Important
+## Configuration
 
 To configure the command center, please read the last section of [this](../../README.md).
 
