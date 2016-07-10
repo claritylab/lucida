@@ -20,6 +20,7 @@ To configure the command center, please read the end of [this](../../README.md).
 
 ## Structure
 
+- `apache/`: scripts and configuration files for the Apache HTTP server
 - `controllers/`: web controllers, database module, Thrift modules, utilities module, 
 query classification module, configuration file (`Config.py`), etc.
 - `data/`: training data for query classifier
@@ -41,10 +42,16 @@ the instructions in the file.
 
 ## Run
 
-Start the server:
+Start the server without using Apache:
 
 ```
 make start_server
 ```
 
 Open your browser and go to `http://localhost:3000/`. 
+
+We commend starting the Apache server in a Docker container (see [deploy](../../tools/deploy/)),
+but you if you really want to use it on your host machine (which makes debugging hard),
+select the configuration file in `apache/conf` (by default it is http, but you can also modify `apache/conf/000-default_https.conf`),
+run `apache/install_apache.sh`, and follow the commands in [web-controller.yaml](../../tools/deploy/web-controller.yaml)
+or [web-controller-https.yaml](../../tools/deploy/web-controller-https.yaml).
