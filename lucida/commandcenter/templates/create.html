@@ -19,6 +19,7 @@
 					<th>Service name</th>
 					<th>Host</th>
 					<th>Port</th>
+					<th>Use Only?</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,6 +28,11 @@
 					<td>{{ i[0] }}</td>
 					<td>{{ i[1] }}</td>
 					<td>{{ i[2] }}</td>
+					<form action="" method="post" enctype="multipart/form-data">
+						<input name="op" type="hidden" value="use_only"></input>
+						<input name="service_name" type="hidden" value="{{ i[0] }}"></input>
+						<td><input type="submit" value="Use Only" class="btn btn-info btn-sm"</td>
+					</form>
 				</tr>
 				{% endfor %}
 			</tbody>
