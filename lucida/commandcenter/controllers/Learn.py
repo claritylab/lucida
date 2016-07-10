@@ -75,12 +75,12 @@ def learn_route():
 				database.delete_text(username, text_id)			
 			else:
 				raise RuntimeError('Did you click the button?')
+		# Retrieve knowledge.
+		options['pictures'] = database.get_images(username)
+		options['text'] = database.get_text(username)
 	except Exception as e:
 		log(e)
 		if str(e) == 'TSocket read 0 bytes':
 			e = 'Back-end service encountered a problem'
 		options['error'] = e
-	# Display.
-	options['pictures'] = database.get_images(username)
-	options['text'] = database.get_text(username)
 	return render_template('learn.html', **options)
