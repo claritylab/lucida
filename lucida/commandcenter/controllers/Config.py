@@ -1,8 +1,13 @@
 from Service import Service
 from Graph import Graph, Node
 
-MAX_DOC_NUM_PER_USER = 30 # maximum number of texts or images per user
+# The maximum number of texts or images for each user.
+# This is to prevent the server from over-loading.
+MAX_DOC_NUM_PER_USER = 30 # non-negative inetegr
 
+# Train or load the query classifier.
+# If you set it to 'load', it is assumed that
+# models are already saved in `../models`.
 TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 
 # Pre-configured services.
@@ -33,28 +38,3 @@ CLASSIFIER_DESCRIPTIONS = {
 					 'class_IMC' : Graph([Node('IMC')]),
 					 'class_FACE' : Graph([Node('FACE')]),
 					 'class_DIG' : Graph([Node('DIG')]) } }
-
-# Check the above configurations.
-if MAX_DOC_NUM_PER_USER <= 0:
-	print 'MAX_DOC_NUM_PER_USER must be non-negative'
-	exit()
-if not (TRAIN_OR_LOAD == 'train' or TRAIN_OR_LOAD == 'load'):
-	print 'TRAIN_OR_LOAD must be either train or load'
-	exit()
-for service_name, service_obj in SERVICES.iteritems():
-	if not service_name == service_obj.name:
-		print service_name, 'must be the same as', service_obj.name
-		exit()
-for input_type in CLASSIFIER_DESCRIPTIONS:
-	print '@@@@@ When query type is ' + input_type + ', there are ' + \
-		str(len(CLASSIFIER_DESCRIPTIONS[input_type])) + ' possible classes:'
-	i = 0
-	for query_class_name, graph in \
-		CLASSIFIER_DESCRIPTIONS[input_type].iteritems():
-		print str(i) + '. ' + query_class_name + ' -- needs to invoke ' \
-			+ graph.to_string()
-		for node in graph.node_list:
-			if not node.service_name in SERVICES:
-				print 'Unrecognized service:', node.sercice_name
-				exit()
-		i += 1
