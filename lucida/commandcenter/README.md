@@ -39,8 +39,7 @@ make
 
 This generates Thrift modules and thus only needs to be done once.
 To change configurations such as whether to train or load models
-for the query classifier, modify `controllers/Config.py` by reading
-the instructions in the file.
+for the query classifier, modify `controllers/Config.py`.
 
 ## Run
 
