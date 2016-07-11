@@ -16,15 +16,16 @@ Currently, there are 7 categories of back-end services:
 "ASR" (automatic speech recognition), "IMM" (image matching), "QA" (question answering),
 "CA" (calendar events retrieval), "IMC" (image classification), "FACE" (facial recognition),
 and "DIG" (digit recognition).
-There is another service called "ENSEMBLE" (ensemble-style question answering) which is not in part of this repo.
+There is another service called "ENSEMBLE" (ensemble-style question answering) which is not part of this repo.
 We will provide instructions on how to set it up soon.
-Notice that you can delete them or replace these services with your own.
+
+Notice that you can delete or replace these services with your own.
 For example, if you know or have an interesting image captioning algorithm
 and want to integrate it into Lucida, you can read the section "How to Add Your Own Service into Lucida?" below.
-The following diagram shows how the command center receives query from the front end and how services communicate with
-each other.
+In following diagram, the user asks a query that needs the following three services: ASR, IMM, and QA.
+The "cloud" behind each box means the Docker container running on the host machine.
 
-![Alt text](high_level.png?raw=true "High Level Diagram")
+![Alt text](high_level.png?raw=true "High Level Diagram" | width=100)
 
 - `tools`: dependencies necessary for compiling Lucida.
 Due to the fact that services share some common dependencies,
