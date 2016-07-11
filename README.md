@@ -12,9 +12,20 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 ## Overview
 
 - `lucida`: back-end services and command center (CMD). 
-Currently, there are 7 categories of back-end services,
-but you can delete them or replace them with your own implementations.
-See below for details.
+Currently, there are 7 categories of back-end services:
+"ASR" (automatic speech recognition), "IMM" (image matching), "QA" (question answering),
+"CA" (calendar events retrieval), "IMC" (image classification), "FACE" (facial recognition),
+and "DIG" (digit recognition).
+There is another service called "ENSEMBLE" (ensemble-style question answering) which is not part of this repo.
+We will provide instructions on how to set it up soon.
+
+  Notice that you can delete or replace these services with your own.
+  For example, if you know or have an interesting image captioning algorithm
+  and want to integrate it into Lucida, you can read the section "How to Add Your Own Service into Lucida?" below.
+  In following diagram, the user asks a query that needs the following three services: ASR, IMM, and QA.
+  The "cloud" behind each box means the Docker container running on the host machine.
+
+  <img src="high_level.png" alt="" width="600" />
 
 - `tools`: dependencies necessary for compiling Lucida.
 Due to the fact that services share some common dependencies,
@@ -185,9 +196,9 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     For `QueryInput`, `type` can be `text` for plain text, or `image` for image (no `url` for `infer`).
     See step 2 for details on how to specify the type of query that your service can process.
-    Similar to `learn`, if `type` is `text`, `data[i]` is the `i`th piece of text;
-    if `type` is `image`, `data[i]` is the `i`th image.
-    However, `tags` have different meanings from `learn` and are of the following format:
+    If `type` is `text`, `data[0]` is the `0`th piece of text;
+    if `type` is `image`, `data[0]` is the `0`th image. There is only one string in `data`.
+    `tags` have different meanings from `learn` and are of the following format:
     
     ```
     [host, port, <size of the following list>, <list of integers>]
