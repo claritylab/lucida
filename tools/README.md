@@ -31,8 +31,8 @@ is not sufficient and you want to force reinstallation,
 please either ```sudo ./install_xxx.sh```, 
 or open the script and run the commands manually to make sure each command succeeds.
 
-3. Both Apache Thrift and Facebook are necessary. To make sure IMM
-compiles successfully, you must install Apache Thrift, and then install Facebook Thrift.
-If you reverse the order, and already `make` successfully for both,
+3. Both Apache Thrift and Facebook are necessary, and you must install Apache Thrift first,
+and then install Facebook Thrift. The `Makefile` guarantees that, but
+if for some reason you reverse the order (both compiled and installed),
 simply go back to Facebook Thrift: `cd fbthrift/thrift/`
 and `sudo make install` which should not take long.
