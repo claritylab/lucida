@@ -19,13 +19,13 @@ and "DIG" (digit recognition).
 There is another service called "ENSEMBLE" (ensemble-style question answering) which is not part of this repo.
 We will provide instructions on how to set it up soon.
 
-Notice that you can delete or replace these services with your own.
-For example, if you know or have an interesting image captioning algorithm
-and want to integrate it into Lucida, you can read the section "How to Add Your Own Service into Lucida?" below.
-In following diagram, the user asks a query that needs the following three services: ASR, IMM, and QA.
-The "cloud" behind each box means the Docker container running on the host machine.
+  Notice that you can delete or replace these services with your own.
+  For example, if you know or have an interesting image captioning algorithm
+  and want to integrate it into Lucida, you can read the section "How to Add Your Own Service into Lucida?" below.
+  In following diagram, the user asks a query that needs the following three services: ASR, IMM, and QA.
+  The "cloud" behind each box means the Docker container running on the host machine.
 
-![](high_level.png =20x)
+![Alt text](high_level.png?raw=true "High Level Diagram")
 
 - `tools`: dependencies necessary for compiling Lucida.
 Due to the fact that services share some common dependencies,
