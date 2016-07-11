@@ -1,4 +1,4 @@
-DOCKER_CONTAINER=claritylab/lucida
+DOCKER_CONTAINER=lucida
 VERSION=latest
 
 THREADS=4
