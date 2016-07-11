@@ -120,14 +120,14 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     But it also can be like this:
     
-    ```Command Center (CMD) -> Your Own Service 1 (YOS1) -> Your Own Service 2 (YOS2) -> Your Own Service 3 (YOS3)```
+    ```Command Center (CMD) -> Your Own Service 0 (YOS0) -> Your Own Service 1 (YOS1) -> Your Own Service 2 (YOS2)```
     
     In this scenario, make sure to implement the asynchronous Thrift interface.
-    If YOS1 implements the asynchronous Thrift interface,
-    it won't block on waiting for the response from YOS2.
-    If YOS1 implements the synchronous Thrift interface, it cannot make progress until
-    YOS2 returns the response, so the operating system will suspend the current thread and perform a thread context switch,
-    and let it sleep until YOS2 returns. 
+    If YOS0 implements the asynchronous Thrift interface,
+    it won't block on waiting for the response from YOS1.
+    If YOS0 implements the synchronous Thrift interface, it cannot make progress until
+    YOS1 returns the response, so the operating system will perform a thread context switch,
+    and let the current thread sleep until YOS1 returns. 
     See section 3 of step 1 for implementation details.
     
     `create`: create an intelligent instance based on supplied LUCID.
