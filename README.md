@@ -419,17 +419,16 @@ in order to add your own service into Lucida. Let's break it down into two steps
     tags: ["localhost", "8083", "0"] } ] }
     ```
     
-    The `IMM` service receives this `QuerySpec` along with the user ID, and is responsible for further sending
+    The `IMM` service receives this `QuerySpec` along with `LUCID`, and is responsible for further sending
     the request to the `QA` service. The `IMM` service is allowed to modify the `QuerySpec` and
-    send a reconstructed `QuerySpec` to `QA`, but as long as `IMM` finally returns a response to the
+    send a reconstructed `QuerySpec` to `QA`, but as long as `IMM` finally returns a `string` to the
     command center, it is fine. This degree of flexibility opens up opportunities for complicated communication
     between your services. Usually, a graph with one node suffices, because that one node may be an entry point
     to a cluster of your services, which may have complicated feedback loops and use a different communication mechanism.
-    In other words, as long as you expose one node to the command center through Thrift,
-    it is considered to be a Lucida service!
     
     Notice that there is only one possible prediction result if the user only gives image input: `class_IMM`,
-    but you can still send the image to multiple services like this:
+    because the query classifier only works on text input.
+    However, you can still send the image to multiple services like this:
     
     ```
     ''image' : { 'class_IMM' : Graph([Node('IMM'), Node('IMC'), Node('IMAGE_CAPTIONING')], [0, 1, 2]) }, ...
