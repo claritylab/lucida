@@ -22,10 +22,12 @@ We will provide instructions on how to set it up soon.
   Notice that you can delete or replace these services with your own.
   For example, if you know or have an interesting image captioning algorithm
   and want to integrate it into Lucida, you can read the section "How to Add Your Own Service into Lucida?" below.
-  In following diagram, the user asks a query that needs the following three services: ASR, IMM, and QA.
+  In the following diagram, the user asks a query that needs the following three services: ASR, IMM, and QA.
   The "cloud" behind each box means the Docker container running on the host machine.
 
-  <img src="high_level.png" alt="" width="600" align="center" />
+  <p align="center">
+    <img src="high_level.png" alt="" width="600" />
+  </p>
 
 - `tools`: dependencies necessary for compiling Lucida.
 Due to the fact that services share some common dependencies,
