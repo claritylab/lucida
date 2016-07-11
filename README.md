@@ -347,26 +347,25 @@ in order to add your own service into Lucida. Let's break it down into two steps
     and if `learn_type` is specified as `image`, your service will receive `type` of `image` and `unlearn`.
     
     Notice that you do not need to specify the IP address of your service. By default it is `localhost`,
-    but if you use Kubernetes and run your service behind a Kubernetes `Service`,
+    but if you use Kubernetes and run each service behind a Kubernetes `Service`,
     Kubernetes dynamically assigns an IP address to the `Service` and sets an environment variable
-    `<SERVICE_NAME>_PORT_<PORT>_TCP_ADDR` for each running container in the Kubernetes cluster.
+    `<SERVICE_NAME>_PORT_<PORT>_TCP_ADDR` for each running container in the cluster.
     This implies that the Kubernetes `Service` defined in the `yaml` file
-    should have the same name as the service name defined in this Python file.
-    For example, if you create a Kubernetes `Service` called `IMM` and run your `IMM` container behind it,
-    the command center which runs behind another `Service` but is in the same cluster has the following environment variable set:
+    should have the same name as the service defined in this Python file.
+    All of the current Kubernetes scripts in [`tools/deploy/`](tools/deploy/) follow this naming convention.
+    
+    For example, if you create a Kubernetes `Service` called `imm` and run your `IMM` container behind it,
+    the command center in the same cluster has the following environment variable
     
     ```
     IMM_PORT_8082_TCP_ADDR
     ```
     
-    to something like `10.0.0.92`. This IP address will be `tags[0]` in the `QueryInput` as described in step 1.
-    All of the existing Kubernetes scripts in [`tools/deploy/`](tools/deploy/) follow this naming convention.
+    set to something like `10.0.0.92`. This IP address will be `tags[0]` in the `QueryInput` as described in step 1.
     
-    Notice that you `ASR` (automatic speech recognition) is not listed here.
+    Notice that `ASR` (automatic speech recognition) is not listed here.
     The reason is that we currently use [kaldi gstremer server] (https://github.com/alumae/kaldi-gstreamer-server)
-    which receives real-time voice query from the front end, which bypasses the command center.
-    However, if you want to redirect the voice query to the command center and then send it to your own
-    ASR service, you need to modify [the Javascript front end] (lucida/commandcenter/static/js/) as well.
+    which directly receives real-time voice query from the front end through web socket in the Docker mode.
     
     * `CLASSIFIER_DESCRIPTIONS`
   
@@ -379,13 +378,13 @@ in order to add your own service into Lucida. Let's break it down into two steps
     in [`lucida/commandcenter/data/class_QA.txt`](lucida/commandcenter/data/class_QA.txt),
     the services are needed are represented in a `Graph` with one `Node`, i.e. service `QA`.
     If you want to replace the current QA implementation with your own,
-    you can still use the training data, and only modify the service graph:
+    you can still use the training data, and only modify the service graph to be:
     
     ```
     'text_image' : { 'class_QA': Graph([Node('NAME_OF_MY_OWN_QA_SERVICE')]), ...
     ```
     
-    However, if you need to define another set of questions that a user can ask, e.g. questions about facial recognition,
+    However, if you need to define another set of questions that a user can ask, e.g. questions about image captioning,
     refer to the next section on how to add training data.
     
     Notice that a service `Graph` object is constructed with a list of `Node`
@@ -428,6 +427,13 @@ in order to add your own service into Lucida. Let's break it down into two steps
     to a cluster of your services, which may have complicated feedback loops and use a different communication mechanism.
     In other words, as long as you expose one node to the command center through Thrift,
     it is considered to be a Lucida service!
+    
+    Notice that there is only one possible prediction result if the user only gives image input: `class_IMM`,
+    but you can still send the image to multiple services like this:
+    
+    ```
+    ''image' : { 'class_IMM' : Graph([Node('IMM'), Node('IMC'), Node('IMAGE_CAPTIONING')], [0, 1, 2]) }, ...
+    ```
     
     Be aware that there are other parameters that you can change in this configuration file,
     which are pretty self-explanatory in their names and comments.
