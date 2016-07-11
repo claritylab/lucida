@@ -35,4 +35,4 @@ or open the script and run the commands manually to make sure each command succe
 and then install Facebook Thrift. The `Makefile` guarantees that, but
 if for some reason you reverse the order (both compiled and installed),
 simply go back to Facebook Thrift: `cd fbthrift/thrift/`
-and `sudo make install` which should not take long.
+and `sudo make install` which should not take too long because it is already compiled.
