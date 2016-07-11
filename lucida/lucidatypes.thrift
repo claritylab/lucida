@@ -1,8 +1,8 @@
 struct QueryInput {
-    // type of data (i.e. audio, image, etc)
+    // type of data
     1: string type;
 
-    // list of data (if sending multiple inputs) each a binary string
+    // list of data
     2: list<string> data;
 
     // tags to pass information about data
