@@ -76,7 +76,7 @@ the disadvante is that it makes deleting a service from Lucida non-trivial -- yo
 
 ## Design Notes -- How to Add Your Own Service into Lucida?
 
-### Start with Thrift
+### Back-end Communication
 
 Thrift is an RPC framework with the advantages of being efficient and language-neutral. 
 It was originally developed by Facebook and now developed by both the open-source community (Apache Thrift) and Facebook.
@@ -91,7 +91,7 @@ If the interface changes, all services have to re-implement the interface.
 We try to avoid changing the interface by careful design, but if you really need to adapt the interface for your need,
 feel free to modify, but make sure that all services implement and use the new interface.
 
-### Does it mean I only need to implement the Thrift interface?
+### Detailed Instructions
 
 You need to configure the command center (CMD) besides implementing the Thrift interface
 in order to add your own service into Lucida. Let's break it down into two steps:
@@ -301,7 +301,8 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     * (optional) Modify `tools` if you choose to put the dependencies of your service in this central point.
     
-    * (Local development) Modify the top-level [`Makefile`](Makefile) so that `make` and `make start_all` includes your service.
+    * (Local development) Modify the top-level [`Makefile`](Makefile) and [`lucida/Makefile`](lucida/Makefile)
+      so that `make local` and `make start_all` include your service.
     
     * (Docker deployment) Create a Dockerfile image for your service, or merge it into the top-level [`Dockerfile`](Dockerfile)
      and add Kubernetes `yaml` scripts for your service into [`tools/deploy/`](tools/deploy/).
