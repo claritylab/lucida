@@ -25,7 +25,9 @@ We will provide instructions on how to set it up soon.
   In following diagram, the user asks a query that needs the following three services: ASR, IMM, and QA.
   The "cloud" behind each box means the Docker container running on the host machine.
 
-![Alt text](high_level.png?raw=true "High Level Diagram")
+  ![Alt text](high_level.png?raw=true "High Level Diagram")
+  <img src="high_level.png" alt="" width="100" />
+
 
 - `tools`: dependencies necessary for compiling Lucida.
 Due to the fact that services share some common dependencies,
