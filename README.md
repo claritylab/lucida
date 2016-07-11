@@ -299,7 +299,9 @@ in order to add your own service into Lucida. Let's break it down into two steps
 
     * Test your service.
     
-    * (Local development) Modify the top-level [`Makefile`](Makefile) so that `make start_all` includes your service.
+    * (optional) Modify `tools` if you choose to put the dependencies of your service in this central point.
+    
+    * (Local development) Modify the top-level [`Makefile`](Makefile) so that `make` and `make start_all` includes your service.
     
     * (Docker deployment) Create a Dockerfile image for your service, or merge it into the top-level [`Dockerfile`](Dockerfile)
      and add Kubernetes `yaml` scripts for your service into [`tools/deploy/`](tools/deploy/).
