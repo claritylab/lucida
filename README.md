@@ -32,23 +32,25 @@ We will provide instructions on how to set it up soon.
 - `tools`: dependencies necessary for compiling Lucida.
 Due to the fact that services share some common dependencies,
 all services should be compiled after these dependencies are installed.
+The advantage of a central point of dependencies is that the total size of compiled services is minimized;
+the disadvante is that it makes deleting a service from Lucida non-trivial -- you have to remove its dependencies in `tools`. 
 
 ## Lucida Local Development
 
-  If you want to make contributions to Lucida, or simply want to test it on your machine,
-  please build Lucida locally:
+  If you want to make contributions to Lucida, please build it locally:
 
 - From this directory, type: `make local`. This will run scripts in `tools/` to
-  install all the required depedencies. After that, it compiles back-end services
+  install all the required depedencies. After that, it will compile back-end services
   in `lucida/`.
 
-- If you need to compile services individually,
+- If for some reason you need to compile part of it (e.g. one back-end service),
   make sure to set a few environment as set in [`Makefile`](Makefile):
 
   ```
   export LD_LIBRARY_PATH=/usr/local/lib
   export LUCIDAROOT=`pwd`/lucida
   ```
+  We recommend adding them permanently to your bash profile.
 
 - Start all services:
 
