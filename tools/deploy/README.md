@@ -2,7 +2,7 @@
 
 1. Run `sudo ./cluster_up.sh` to create a Kubernetes cluster on a single machine via Docker.
   It assumes that Docker is already installed, port 8080 is not in use,
-  and you have at least 16 GB of disk space.
+  and you have at least 16 GB of disk space for the Docker image(s).
   If you want to create a cluster with more than one machines,
   please refer to [the official documentation](http://kubernetes.io/docs/).
 
