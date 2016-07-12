@@ -62,15 +62,15 @@ the disadvante is that it makes deleting a service from Lucida non-trivial -- yo
   ```
 
   This will spawn a terminal window (`gnome-terminal`) for each service as well as the command center.
-  Once all back-end services and the command center start running,
-  open your browser and visit `http://localhost:3000/` to start using Lucida.
+  Once they all start running,
+  open your browser and visit `http://localhost:3000/`.
   
   Currently, the command center receives the user input in the form of HTTP requests sent from your browser,
   but in future we can support other forms of input. 
 
 ## Lucida Docker Deployment
 
-  If you want to deploy Lucida as a web application, please deploy Lucida using
+  If you want to use Lucida as a web application, please deploy using
   [Docker](https://www.docker.com/) and [Kubernetes](http://kubernetes.io/):
 
 - Install Docker: refer to
