@@ -12,16 +12,18 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 ## Overview
 
 - `lucida`: back-end services and command center (CMD). 
-Currently, there are 7 categories of back-end services:
-"ASR" (automatic speech recognition), "IMM" (image matching), "QA" (question answering),
-"CA" (calendar events retrieval), "IMC" (image classification), "FACE" (facial recognition),
-and "DIG" (digit recognition).
-There is another service called "ENSEMBLE" (ensemble-style question answering) which is not part of this repo.
-We will provide instructions on how to set it up soon.
+  Currently, there are 7 categories of back-end services:
+  "ASR" (automatic speech recognition), "IMM" (image matching), "QA" (question answering),
+  "CA" (calendar events retrieval), "IMC" (image classification), "FACE" (facial recognition),
+  and "DIG" (digit recognition).
+  There is another service called "ENSEMBLE" (ensemble-style question answering) which is not part of this repo.
+  We will provide instructions on how to set it up soon.
 
-  Notice that you can delete or replace these services with your own.
-  For example, if you know or have an interesting image captioning algorithm
-  and want to integrate it into Lucida, you can read the section "How to Add Your Own Service into Lucida?" below.
+  You can delete or replace these services with your own, or you can simply add a new service.
+  For example, if you know some better ASR implementation,
+  have an interesting image captioning end-to-end system,
+  or have access to a quality machine translation algorithm,
+  please read the section "How to Add Your Own Service into Lucida?" below.
   
   The command center determines which services are needed based on the user input,
   sends requests to them, and returns response to the user.
@@ -33,10 +35,10 @@ We will provide instructions on how to set it up soon.
   </p>
 
 - `tools`: dependencies necessary for compiling Lucida.
-Due to the fact that services share some common dependencies,
-all services should be compiled after these dependencies are installed.
-The advantage of a central point of dependencies is that the total size of compiled services is minimized;
-the disadvante is that it makes deleting a service from Lucida non-trivial -- you have to remove its dependencies in `tools`. 
+  Due to the fact that services share some common dependencies,
+  all services should be compiled after these dependencies are installed.
+  The advantage of a central point of dependencies is that the total size of compiled services is minimized;
+  the disadvante is that it makes deleting a service from Lucida non-trivial -- you have to remove its dependencies in `tools`. 
 
 ## Lucida Local Development
 
