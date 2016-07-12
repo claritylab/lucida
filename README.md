@@ -47,13 +47,13 @@ the disadvante is that it makes deleting a service from Lucida non-trivial -- yo
   in `lucida/`.
 
 - If for some reason you need to compile part of it (e.g. one back-end service),
-  make sure to set a few environment as set in [`Makefile`](Makefile):
+  make sure to set the following environment variables as set in [`Makefile`](Makefile):
 
   ```
   export LD_LIBRARY_PATH=/usr/local/lib
   export LUCIDAROOT=`pwd`/lucida
   ```
-  We recommend adding them permanently to your bash profile.
+  You can add them permanently to your bash profile.
 
 - Start all services:
 
@@ -61,10 +61,11 @@ the disadvante is that it makes deleting a service from Lucida non-trivial -- yo
   make start_all
   ```
 
-  This will spawn a terminal window for each service as well as the command center.
-  Open your browser and visit `http://localhost:3000/` to start using Lucida.
+  This will spawn a terminal window (`gnome-terminal`) for each service as well as the command center.
+  Once all back-end services and the command center start running,
+  open your browser and visit `http://localhost:3000/` to start using Lucida.
   
-  Currently, the command center receives user input in the form of HTTP requests sent from your browser,
+  Currently, the command center receives the user input in the form of HTTP requests sent from your browser,
   but in future we can support other forms of input. 
 
 ## Lucida Docker Deployment
