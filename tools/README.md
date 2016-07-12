@@ -9,21 +9,24 @@ Type `make` to install all dependencies necessary for Lucida in the following or
 
 - apt_deps.sh: various packages installed using `apt-get` and `pip2`. 
 
-- install_java.sh: Java 7 for QA and CA
+- install_java.sh: Java 7
 
-- install_opencv.sh: [OpenCV](http://opencv.org/) for IMM
+- install_opencv.sh: [OpenCV](http://opencv.org/)
 
-- install_thrift.sh: [Apache Thrift 0.9.3](https://thrift.apache.org/) for QA, and CA
+- install_thrift.sh: [Apache Thrift 0.9.3](https://thrift.apache.org/)
 
-- install_fbthrift.sh: [Facebook Thrift](https://github.com/facebook/fbthrift) for IMM
+- install_fbthrift.sh: [Facebook Thrift](https://github.com/facebook/fbthrift)
 
 - install_mongodb.sh: [MongoDB](https://www.mongodb.com/)
-and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy) for CMD and IMM
+and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy)
 
 ## Notes
 
 1. This setup has been tested for Ubuntu 14.04, gcc 4.8, and Python 2.7.6, but
 you are welcome to improve the build system.
+For example, the current idea of putting shared dependencies in this directory
+makes removing a service from Lucida hard. If you have a better way to solve
+dependency issues for multiple services within one Github repo, please make a pull request.
 
 2. Each script performs a simple check on whether the package is
 installed. If for some reason the installation failed, or the simple check
