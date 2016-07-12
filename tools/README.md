@@ -22,7 +22,7 @@ and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy)
 
 ## Notes
 
-1. This setup has been tested for Ubuntu 14.04 and gcc 4.8, but
+1. This setup has been tested for Ubuntu 14.04, gcc 4.8, and Python 2.7.6, but
 you are welcome to improve the build system.
 
 2. Each script performs a simple check on whether the package is
