@@ -1,7 +1,7 @@
 # Deploy Lucida using Kubernetes
 
 1. Run `sudo ./cluster_up.sh` to create a Kubernetes cluster on a single machine via Docker.
-  It assumes that Docker is already installed.
+  It assumes that Docker is already installed, and port 8080 is not in use.
   If you want to create a cluster with more than one machines,
   please refer to [the official documentation](http://kubernetes.io/docs/).
 
