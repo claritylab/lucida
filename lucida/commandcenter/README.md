@@ -48,6 +48,9 @@ make start_server
 ```
 
 Open your browser and go to `http://localhost:3000/`. 
+Notice that the command center assumes that the services specified in `controllers/Config.py` are running.
+Make sure to start those services as well.
+Read [the top level README](../../README.md) for more information about the configuration file.
 
 We commend starting the Apache server in a Docker container (see [deploy](../../tools/deploy/)),
 but you if you really want to use it on your host machine (which makes debugging hard),
