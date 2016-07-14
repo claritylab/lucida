@@ -338,7 +338,7 @@ def main():
     app = Application()
     if os.environ.get('DOCKER'):
         ssl_ctx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-        ssl_ctx.load_cert_chain('/etc/letsencrypt/live/clarity13.eecs.umich.edu/cert.pem', '/etc/letsencrypt/live/clarity13.eecs.umich.edu/privkey.pem')
+        ssl_ctx.load_cert_chain('/etc/letsencrypt/live/host/cert1.pem', '/etc/letsencrypt/live/host/privkey1.pem')
     app.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
 
