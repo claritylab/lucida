@@ -24,5 +24,5 @@ chmod +x /usr/bin/kubectl
 kubectl config set-cluster test-doc --server=http://localhost:8080
 kubectl config set-context test-doc --cluster=test-doc
 kubectl config use-context test-doc
-echo "Exiting... Wait for several minutes until 'kubectl get pod' does not give error. Then run 'start_services.sh'."
+echo "Exiting... Wait until 'kubectl get pod' does not give error. Fix permission errors if exist. Then run 'start_services.sh'."
 echo "Meanwhile, you can 'watch docker ps' to see how Kubernetes sets up the cluster via Docker containers."
