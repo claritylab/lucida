@@ -55,3 +55,17 @@
   but if it seems to take forever for the index page to show up, please debug as described in step 5.
 
 7. To destroy the cluster, run `docker ps`, then `stop` and `rm` all the containers related to Kubernetes.
+   The following function may be helpful if you want to stop and remove all Docker containers.
+
+  ```
+  function docker-flush(){
+    dockerlist=$(docker ps -a -q)
+      if [ "${dockerlist}" != "" ]; then
+        for d in ${dockerlist}; do
+          echo "***** ${d}"
+          docker stop ${d} 2>&1 > /dev/null
+          docker rm ${d} 2>&1 > /dev/null
+          done
+        fi
+  }
+  ```
