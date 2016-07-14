@@ -2,7 +2,7 @@
 
 1. Run `sudo ./cluster_up.sh` to create a Kubernetes cluster on a single machine via Docker.
   It assumes that Docker is already installed, port 8080 is not in use,
-  and you have at least 16 GB of disk space for the Docker image(s).
+  and you have at least 16 GB of disk space for the Docker image(s) and containers.
   If you want to create a cluster with more than one machines,
   please refer to [the official documentation](http://kubernetes.io/docs/).
 
@@ -44,6 +44,8 @@
   To debug, you can run `kubectl get service` to check the services,
   `kubectl get pod` and `kubectl describe pod` to check the pods,
   `docker ps | grep <controller_name>` followed by `docker exec -it <running_container_id> bash` to check the running containers.
+  For example, if you see "Internal Server Error", you should check the web container,
+  and see the error logs in `/usr/local/lucida/lucida/commandcenter/apache/logs/`.
   Also, if MongoDB container is constantly being created without making progress, 
   run `sudo netstat -tulpn | grep 27017` and kill the currently running MongoDB instance which also uses the port 27017.
   This also applies to other containers whose ports are already used and thus cannot be started.
