@@ -54,6 +54,7 @@ Read [the top level README](../../README.md) for more information about the conf
 
 We commend starting the Apache server in a Docker container (see [deploy](../../tools/deploy/)),
 but you if you really want to use it on your host machine (which makes debugging hard),
-select the configuration file in `apache/conf` (by default it is http, but you can also modify `apache/conf/000-default_https.conf`),
+select the configuration file in `apache/conf` (by default it is http, but if you need https,
+you should modify `apache/conf/000-default_https.conf` and `apache/install_apache.sh`),
 run `apache/install_apache.sh`, and follow the commands in [web-controller.yaml](../../tools/deploy/web-controller.yaml)
 or [web-controller-https.yaml](../../tools/deploy/web-controller-https.yaml).
