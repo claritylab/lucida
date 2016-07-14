@@ -52,6 +52,6 @@
 
 6. Open your browser and visit `http://localhost:30000` (or `https://<YOUR_DOMAIN_NAME>:30000` if you set up https in step 4).
   It may take up to several minutes for the Apache server to start working,
-  but if it seems to take forever for the index page to show up, please debug as described in step 3.
+  but if it seems to take forever for the index page to show up, please debug as described in step 5.
 
 7. To destroy the cluster, run `docker ps`, then `stop` and `rm` all the containers related to Kubernetes.
