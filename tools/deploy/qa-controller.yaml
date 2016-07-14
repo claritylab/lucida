@@ -27,5 +27,6 @@ spec:
             readOnly: false
       volumes:
         - hostPath:
-            path: /home/daedalus/Documents/docker/lucida/tools/deploy/lucida_data/openephyra
+            # Modify the path below.
+            path: /home/lucida_data/openephyra
           name: openephyra-persistent-storage
