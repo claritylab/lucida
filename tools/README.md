@@ -22,7 +22,7 @@ and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy)
 
 ## Notes
 
-1. This setup has been tested for Ubuntu 14.04, gcc 4.8, and Python 2.7.6, but
+1. This setup has been tested for Ubuntu 14.04 (64 bit), gcc 4.8, and Python 2.7.6, but
 you are welcome to improve the build system.
 For example, the current idea of putting shared dependencies in this directory
 makes removing a service from Lucida hard. If you have a better way to solve
