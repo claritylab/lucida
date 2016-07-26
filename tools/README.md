@@ -9,7 +9,7 @@ Type `make` to install all dependencies necessary for Lucida in the following or
 
 - apt_deps.sh: various packages installed using `apt-get` and `pip2`. 
 
-- install_java.sh: Java 7
+- install_java.sh: Java 8
 
 - install_opencv.sh: [OpenCV](http://opencv.org/)
 
