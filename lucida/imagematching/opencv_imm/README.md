@@ -58,12 +58,7 @@ cd test
 1. The linker flags in `server/Makefile` are complicated and should be modified with caution.
 Specifically, `-lmongoclient` should precede `-lssl` and `-lcrypto`.
 
-2. If the environment variable `DOCKER` is not set, the server connects to `localhost:27017`
-for MongoDB, and `localhost:8083` for QA.
-Otherwise, it connects to `mongo:27017` for MongoDB and `QA:8083` for QA.
-When developing locally, you should not set it.
-
-3. `server/Image.cpp` uses `cv::SurfFeatureDetector` to turn
+2. `server/Image.cpp` uses `cv::SurfFeatureDetector` to turn
 an image into a descriptor matrix both represented as `std::string`,
 and `server/IMMHandler.cpp` saves the matrix into and loads it from
 [GridFS](https://docs.mongodb.com/manual/core/gridfs/).
