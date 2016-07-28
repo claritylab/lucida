@@ -201,13 +201,11 @@ public class TextProcessor {
 		return rtn; // no time zone offset returned
 	}
 
-	/** Example usage:
-	 *  java SUTimeDemo "Three interesting dates are 18 Feb 1997, the 20th of july and 4 days from today."
-	 *
+	/**
+	 * Main.
 	 *  @param args Strings to interpret
 	 */
 	public static void main(String[] args) {
-		System.out.println(args[0]);
 		TextProcessor p = new TextProcessor();
 		boolean debug = false;
 		if (!debug) {
