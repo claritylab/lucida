@@ -54,8 +54,8 @@ def login_route():
 				# Display.
 				return render_template("login.html", form=form, **options)
 			# Check if the password is correct.
-			password_is_correct = database.check_password(form.username.data,
-														  form.password.data)
+			password_is_correct = database.check_password(form.username.data, 
+				form.password.data)
 			if not password_is_correct:
 				options['error'] = \
 					['Password is incorrect for the specified username']
