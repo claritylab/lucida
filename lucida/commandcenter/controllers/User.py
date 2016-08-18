@@ -23,8 +23,8 @@ def signup_route():
 		if form.validate():
 			# Insert the user into database.
 			database.add_user(form.username.data, form.firstname.data,
-							  form.lastname.data, form.password1.data,
-							  form.email.data)
+				form.lastname.data, form.password1.data,
+				form.email.data)
 			# Display.
 			return redirect(url_for('user.login_route')) # still need to log in
 		else:
