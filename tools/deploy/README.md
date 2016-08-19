@@ -23,7 +23,7 @@
 
 3. If you prefer to build the Docker image from [the top level Dockerfile](../../Dockerfile)
   rather than pulling from our Dockerhub, you need to modify
-  the `image` fields of all `*-controllers.yaml`s and set up a local Kubernetes container registry.
+  the `image` fields of all `*-controllers`s and set up a local Kubernetes container registry.
 
 4. If you have SSL certificates and want to set up https, please modify the following files according to their inline comments:
 
