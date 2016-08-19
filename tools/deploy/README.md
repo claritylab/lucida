@@ -18,6 +18,8 @@
               path: /home/<your_username>/Documents/lucida_data_for_Kuebrnetes
             name: openephyra-persistent-storage
   ```
+  
+  Also modify the number of replicas in `*-controller`s if the default parameter does not suffice.
 
 3. If you prefer to build the Docker image from [the top level Dockerfile](../../Dockerfile)
   rather than pulling from our Dockerhub, you need to modify
