@@ -113,7 +113,6 @@ class Database(object):
 		
 	# Returns the knowledge text by username.
 	def get_text(self, username):
-
 		log('Retrieving text from text_' + username)
 		return [text for text in self.get_text_collection(username).find()]
 	
