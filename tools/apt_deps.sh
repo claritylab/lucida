@@ -69,7 +69,8 @@ apt-get install -y zlib1g-dev \
                    python-gi \
                    python-gobject \
                    python-gobject-2 \
-                   vim
+                   vim \
+                   memcached
 pip install --upgrade distribute
 pip install --upgrade pip
 pip install -r python_requirements.txt

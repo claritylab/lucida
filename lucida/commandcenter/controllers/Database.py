@@ -4,6 +4,7 @@ from base64 import b64encode
 from Utilities import log
 import os
 import Config
+from Memcached import memcached
 
 
 class Database(object):
@@ -12,10 +13,10 @@ class Database(object):
 	
 	# Constructor.
 	def __init__(self):
-		if os.environ.get('MONGO_PORT_27017_TCP_ADDR'):
-			log('MongoDB: ' + os.environ.get('MONGO_PORT_27017_TCP_ADDR'))
-			self.db = MongoClient(os.environ.get('MONGO_PORT_27017_TCP_ADDR'),
-				27017).lucida
+		mongodb_addr = os.environ.get('MONGO_PORT_27017_TCP_ADDR')
+		if mongodb_addr:
+			log('MongoDB: ' + mongodb_addr)
+			self.db = MongoClient(mongodb_addr, 27017).lucida
 		else:
 			log('MongoDB: localhost')
 			self.db = MongoClient().lucida
@@ -39,11 +40,18 @@ class Database(object):
 		self.users.insert_one({'username' : username,
 			'firstname': firstname, 'lastname': lastname,
 			'password': hashed_password, 'email': email})
+		# Add the password entry to memcached,
+		# which auto-expire after 60 seconds.
+		memcached.client.set(username, hashed_password, time=60)
 	
 	# Returns true if password of the user is correct
 	def check_password(self, username, input_password):
-		correct_password_in_db = (self.users.find_one
-			({'username': username}))['password']
+		# Try memcached first.
+		correct_password_in_db = memcached.client.get(username)
+		if not correct_password_in_db:
+			correct_password_in_db = (self.users.find_one
+				({'username': username}))['password']
+			memcached.client.set(username, correct_password_in_db, time=60)
 		salt = correct_password_in_db.split('$')[1]
 		generated_password = self.hash_password(self.ENCRYPT_ALGORITHM,
 			salt, input_password)
@@ -105,6 +113,7 @@ class Database(object):
 		
 	# Returns the knowledge text by username.
 	def get_text(self, username):
+
 		log('Retrieving text from text_' + username)
 		return [text for text in self.get_text_collection(username).find()]
 	
@@ -117,4 +126,3 @@ class Database(object):
 				' pieces of text at most')
 
 database = Database()
-	
