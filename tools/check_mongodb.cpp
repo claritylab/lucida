@@ -1,4 +1,4 @@
-// g++ query_mongo.cpp -std=c++11 -lmongoclient -lboost_thread -lboost_filesystem -lboost_regex -lboost_program_options -lboost_system -pthread -lssl -lcrypto -o query_mongo
+// g++ check_mongodb.cpp -std=c++11 -lmongoclient -lboost_thread -lboost_filesystem -lboost_regex -lboost_program_options -lboost_system -pthread -lssl -lcrypto -o check_mongodb
 
 #include <iostream>
 #include <cstdlib>

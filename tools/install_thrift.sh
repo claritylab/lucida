@@ -4,7 +4,7 @@ installCheck () {
   if [ ! -d thrift-$THRIFT_VERSION ]; then
     return 1
   fi
-  thrift --gen java hello_world.thrift
+  thrift --gen java check_thrift.thrift
   if [ -d gen-java ]; then
     rm -rf gen-java
     return 0

@@ -50,7 +50,7 @@
   and see the error logs in `/usr/local/lucida/lucida/commandcenter/apache/logs/`.
   Also, if MongoDB container is constantly being created without making progress, 
   run `sudo netstat -tulpn | grep 27017` and kill the currently running MongoDB instance which also uses the port 27017.
-  This also applies to other containers whose ports are already used and thus cannot be started.
+  This also applies to other containers, e.g. Memcached, qa, etc. whose ports are already used and thus cannot be started.
 
 6. Open your browser and visit `http://localhost:30000` (or `https://<YOUR_DOMAIN_NAME>:30000` if you set up https in step 4).
   It may take up to several minutes for the Apache server to start working,

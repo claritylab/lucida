@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: memcached
+  name: memcached-controller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: memcached
+    spec:
+      containers:
+      - image: memcached
+        name: memcached
+        ports:
+        - name: memcached
+          containerPort: 11211
