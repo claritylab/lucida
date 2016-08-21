@@ -19,6 +19,7 @@ To configure the command center, please read the last section of [this](../../RE
 - [Flask](http://flask.pocoo.org/)
 - [Apache Thrift](https://thrift.apache.org/)
 - [scikit-learn](http://scikit-learn.org/stable/)
+- [Memcached](https://memcached.org/)
 
 ## Structure
 
