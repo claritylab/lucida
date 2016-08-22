@@ -1,7 +1,8 @@
 export OPENCV_VERSION=2.4.9
 
 installCheck () {
-  if [[ !$(g++ check_opencv.cpp -o check_opencv) ]]; then
+  g++ check_opencv.cpp -o check_opencv
+  if [[ $? -ne 0 ]]; then
     return 1
   else
     rm check_opencv
