@@ -114,6 +114,9 @@ make
 
 ## Run
 
+By default OpenEphyra queries user-defined database, 
+but it will also query the database located at `wiki_indri_index` if it is set.
+
 ```
 make start_server
 ```

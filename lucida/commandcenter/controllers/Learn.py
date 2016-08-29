@@ -34,21 +34,24 @@ def learn_route():
 				check_text_input(label)
 				# Check whether the user can add one more image.
 				database.check_add_image(username)
-				# Send the image to IMM.
+				# Generate the id.
 				image_data = upload_file.read()
+				image_id = hashlib.md5(username +
+					str(datetime.datetime.now())).hexdigest()
+				# Send the image to IMM.
 				upload_file.close()
 				thrift_client.learn_image(username, image_type, image_data,
-					label)
+					image_id)
 				# Add the image into the database.
-				database.add_image(username, image_data, label)
+				database.add_image(username, image_data, label, image_id)
 			# Delete image knowledge.
 			elif form['op'] == 'delete_image':
 				image_type = 'unlearn'
-				label = form['label']
+				image_id = form['image_id']
 				# Send the unlearn request to IMM.
-				thrift_client.learn_image(username, image_type, '', label)
+				thrift_client.learn_image(username, image_type, '', image_id)
 				# Delete the image from the database.
-				database.delete_image(username, label)	
+				database.delete_image(username, image_id)	
 			# Add text knowledge.
 			elif form['op'] == 'add_text' or form['op'] == 'add_url':
 				text_type = 'text' if form['op'] == 'add_text' else 'url'
@@ -58,8 +61,8 @@ def learn_route():
 				# Check whether the user can add one more piece of text.
 				database.check_add_text(username)
 				# Generate the id.
-				text_id = hashlib.md5(username + text_data
-					+ str(datetime.datetime.now())).hexdigest()
+				text_id = hashlib.md5(username + text_data +
+					str(datetime.datetime.now())).hexdigest()
 				# Send the text to QA.
 				thrift_client.learn_text(username, text_type,
 						text_data, text_id)

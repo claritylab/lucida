@@ -109,6 +109,7 @@ public class QAServiceHandler {
 				// Only look for the first item in content and data.
 				// The rest part of query is ignored.
 				answer = askFactoidThrift(LUCID, query.content.get(0).data.get(0));
+				MsgPrinter.printStatusMsg("Answer: " + answer);
 				// Check if it needs to ask ENSEMBLE.
 				if (answer.equals(default_answer) && query.content.get(0).tags.get(2).equals("1")) {
 					QuerySpec ENSEMBLE_spec = new QuerySpec();
@@ -146,7 +147,19 @@ public class QAServiceHandler {
 			if (result != null) {
 				answer = result.getAnswer();
 			}
-			MsgPrinter.printStatusMsg("Answer: " + answer);
+			// Check if Wikipedia Indri repository is pre-configured.
+			String wiki_indri_index = System.getenv("wiki_indri_index");
+			if (wiki_indri_index == null) {
+				return answer;
+			}
+			// Set INDRI_INDEX.
+			System.setProperty("INDRI_INDEX", wiki_indri_index);
+			result = oe.askFactoid(question);
+			if (result != null) {
+				answer += " (from Wikipedia: ";
+				answer += result.getAnswer();
+				answer += ")";
+			}
 			return answer;
 		}
 	}

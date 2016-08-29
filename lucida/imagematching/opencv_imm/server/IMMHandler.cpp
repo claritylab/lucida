@@ -118,12 +118,13 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 					unique_ptr<QueryImage>(new QueryImage(
 							move(Image::imageToMatObj(
 									query_save.content[0].data[0])))));
-			string IMM_result = images[best_index]->getLabel();
+			string IMM_result = getImageLabelFromId(
+				LUCID_save, images[best_index]->getImageId());
 			print("Result: " << IMM_result);
 			// Check if the query needs to be further sent to QA.
 			if (query_save.content[0].tags[2] == "0") {
 				promise->setValue(unique_ptr<string>(
-						new string(images[best_index]->getLabel())));
+						new string(IMM_result)));
 				return;
 			}
 			// Ask QA.
@@ -225,20 +226,20 @@ int IMMHandler::countImages(const string &LUCID) {
 }
 
 void IMMHandler::addImage(const string &LUCID,
-		const string &label, const string &data) {
-	print("@@@ Label: " << label);
+		const string &image_id, const string &data) {
+	print("@@@ image_id: " << image_id);
 	print("@@@ Size: " << data.size());
 	// Insert the descriptors matrix into MongoDB.
 	string mat_str = Image::imageToMatString(data); // written to file system
 	GridFS grid(conn, "lucida");
 	BSONObj result = grid.storeFile(mat_str.c_str(), mat_str.size(),
-			"opencv_" + LUCID + "/" + label);
+			"opencv_" + LUCID + "/" + image_id);
 }
 
-void IMMHandler::deleteImage(const string &LUCID, const string &label) {
-	print("~~~ Label: " << label);
+void IMMHandler::deleteImage(const string &LUCID, const string &image_id) {
+	print("~~~ image_id: " << image_id);
 	GridFS grid(conn, "lucida");
-	grid.removeFile("opencv_" + LUCID + "/" + label); // match addImage()
+	grid.removeFile("opencv_" + LUCID + "/" + image_id); // match addImage()
 }
 
 vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
@@ -248,18 +249,29 @@ vector<unique_ptr<StoredImage>> IMMHandler::getImages(const string &LUCID) {
 			"lucida.images_" + LUCID, BSONObj());
 	GridFS grid(conn, "lucida");
 	while (cursor->more()) {
-		string label = cursor->next().getStringField("label");
+		string image_id = cursor->next().getStringField("image_id");
 		ostringstream out;
-		GridFile gf = grid.findFileByName("opencv_" + LUCID + "/" + label);
+		GridFile gf = grid.findFileByName("opencv_" + LUCID + "/" + image_id);
 		if (!gf.exists()) {
-			print("opencv_" + LUCID + "/" + label + " not found!");
+			print("opencv_" + LUCID + "/" + image_id + " not found!");
 			continue;
 		}
 		gf.write(out);
 		rtn.push_back(unique_ptr<StoredImage>(new StoredImage(
-				label,
+				image_id,
 				move(Image::matStringToMatObj(out.str())))));
 	}
 	return rtn;
+}
+
+string IMMHandler::getImageLabelFromId(const string &LUCID, const string &image_id) {
+	auto_ptr<DBClientCursor> cursor = conn.query(
+			"lucida.images_" + LUCID, MONGO_QUERY("image_id" << image_id));
+	while (cursor->more()) {
+		string image_label = cursor->next().getStringField("label");
+		print(image_label);
+		return image_label;
+	}
+	return "";
 }
 }

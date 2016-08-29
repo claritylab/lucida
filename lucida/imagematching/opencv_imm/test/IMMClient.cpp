@@ -64,8 +64,8 @@ DEFINE_string(hostname,
 		"Hostname of the server (default: localhost)");
 
 void saveToMongoDb(DBClientConnection &conn, const string &LUCID,
-		const string &label, const string &data) {
-	BSONObj p = BSONObjBuilder().append("label", label).append("data", data)
+		const string &image_id, const string &data) {
+	BSONObj p = BSONObjBuilder().append("image_id", image_id).append("data", data)
 			.append("size", (int) data.size()).obj();
 	conn.insert("lucida.images_" + LUCID, p); // insert the image data
 }
@@ -120,11 +120,11 @@ int main(int argc, char* argv[]) {
 		query_input.type = "image";
 		query_input.data.push_back(image);
 		string label = dir_itr->path().stem().string();
-		cout << "Label: " << label << endl;
+		cout << "Label (image_id): " << label << endl;
 		cout << "Image size: " << image.size() << endl;
 		query_input.tags.push_back(label);
 		query_spec.content.push_back(query_input);
-		saveToMongoDb(conn, "Johann", label, image);
+		saveToMongoDb(conn, "Johann", label, image); // label is image_id in this file
 		// Make request.
 		client.future_learn("Johann", std::move(query_spec)).then(
 				[](folly::Try<folly::Unit>&& t) mutable {
@@ -134,7 +134,6 @@ int main(int argc, char* argv[]) {
 		event_base.loop();
 	}
   
-
 	// Infer.
 	// Make request.
 	int num_tests = 3;
@@ -149,6 +148,9 @@ int main(int argc, char* argv[]) {
 		QueryInput query_input;
 		query_input.type = "image";
 		query_input.data.push_back(image);
+		query_input.tags.push_back("localhost");
+		query_input.tags.push_back("8082");
+		query_input.tags.push_back("0");
 		query_spec.content.push_back(query_input);
 		cout << i << " Sending request to IMM at 8082" << endl;
 		auto result = client.future_infer("Johann", std::move(query_spec)).then(

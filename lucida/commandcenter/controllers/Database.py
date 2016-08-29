@@ -71,16 +71,14 @@ class Database(object):
 		return not self.users.find_one({'username': username}) is None
 	
 	# Adds the uploaded image.
-	def add_image(self, username, image_data, label):
-		if not self.get_image_collection(username).find_one(
-			{'label': label}) is None:
-			raise RuntimeError('Image ' + label + ' already exists')
+	def add_image(self, username, image_data, label, image_id):
 		self.get_image_collection(username).insert_one(
-			{'label': label, 'data': b64encode(image_data)}) # encoded
+			{'label': label, 'data': b64encode(image_data), # encoded
+			 'image_id': image_id})
 		
 	# Deletes the specified image.
-	def delete_image(self, username, label):
-		self.get_image_collection(username).remove({'label': label})
+	def delete_image(self, username, image_id):
+		self.get_image_collection(username).remove({'image_id': image_id})
 		
 	# Returns all the images by username.
 	def get_images(self, username):

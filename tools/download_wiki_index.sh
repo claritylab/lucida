@@ -9,5 +9,5 @@ else
 fi
 
 echo "******************************************************"
-echo "Make sure to export INDRI_INDEX=`pwd`/wiki_indri_index"
+echo "Make sure to export wiki_indri_index=`pwd`/wiki_indri_index"
 echo "******************************************************"

@@ -1,8 +1,9 @@
 export MONGO_C_DRIVER_VERSION=1.3.0
 
 installCheck () {
-  if [[ !$(g++ check_mongodb.cpp -std=c++11 -lmongoclient -lboost_thread -lboost_filesystem -lboost_regex -lboost_program_options -lboost_system -pthread -lssl -lcrypto -o check_mongodb) ]]; then
-  	return 1
+  g++ check_mongodb.cpp -std=c++11 -lmongoclient -lboost_thread -lboost_filesystem -lboost_regex -lboost_program_options -lboost_system -pthread -lssl -lcrypto -o check_mongodb
+  if [[ $? -ne 0 ]]; then
+    return 1
   fi
   if [[ $(./check_mongodb | grep "Connection ok") == "Connection ok" ]]; then
     rm check_mongodb

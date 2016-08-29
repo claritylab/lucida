@@ -103,7 +103,7 @@ class MyClient(WebSocketClient):
 def main():
 
     parser = argparse.ArgumentParser(description='Command line client for kaldigstserver')
-    parser.add_argument('-u', '--uri', default="ws://localhost:8888/client/ws/speech", dest="uri", help="Server websocket URI")
+    parser.add_argument('-u', '--uri', default="ws://localhost:8081/client/ws/speech", dest="uri", help="Server websocket URI")
     parser.add_argument('-r', '--rate', default=32000, dest="rate", type=int, help="Rate in bytes/sec at which audio should be sent to the server. NB! For raw 16-bit audio it must be 2*samplerate!")
     parser.add_argument('--save-adaptation-state', help="Save adaptation state to file")
     parser.add_argument('--send-adaptation-state', help="Send adaptation state from file")

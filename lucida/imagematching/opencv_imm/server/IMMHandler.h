@@ -52,6 +52,9 @@ private:
 	std::vector<std::unique_ptr<StoredImage>> getImages(
 			const std::string &LUCID);
 
+	std::string getImageLabelFromId(
+		const std::string &LUCID, const std::string &image_id);
+
 	std::unique_ptr<mongo::DBClientBase> getConnection();
 };
 }

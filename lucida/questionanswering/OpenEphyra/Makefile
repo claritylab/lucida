@@ -1,3 +1,7 @@
+ifndef LUCIDAROOT
+$(error LUCIDAROOT is not set)
+endif
+
 all: thrift
 	ant
 

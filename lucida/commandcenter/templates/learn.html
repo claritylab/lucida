@@ -101,6 +101,7 @@
 		<form action="" method="post" enctype="multipart/form-data">
 			<input name="op" type="hidden" value="delete_image"></input>
 			<input name="label" type="hidden" value={{ i['label'] }}></input>
+			<input name="image_id" type="hidden" value={{ i['image_id'] }}></input>
 			<div class="ngg-gallery-thumbnail">
 				<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
 			</div>

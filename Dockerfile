@@ -30,6 +30,7 @@ RUN /usr/bin/make
 WORKDIR "/usr/local/lucida/lucida"
 RUN /usr/bin/make
 RUN /bin/bash commandcenter/apache/install_apache.sh
+RUN mkdir -p /etc/letsencrypt/live/host
 
 ### function docker-flush(){
 ###     dockerlist=$(docker ps -a -q)

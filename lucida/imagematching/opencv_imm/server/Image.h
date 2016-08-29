@@ -34,7 +34,7 @@ private:
 	static std::vector<float> matToVector(std::unique_ptr<cv::Mat> mat);
 	static const int OPENCV_TYPE = CV_32F;
 public:
-	Image(std::unique_ptr<cv::Mat> _desc) { desc = std::move(_desc); }
+	Image(std::unique_ptr<cv::Mat> desc_) { desc = std::move(desc_); }
 	static std::unique_ptr<cv::Mat> imageToMatObj(const std::string &data);
 	static const std::string imageToMatString(const std::string &data);
 	static std::unique_ptr<cv::Mat> matStringToMatObj(const std::string &mat);
@@ -47,18 +47,18 @@ public:
 
 class StoredImage : public Image {
 private:
-	const std::string label;
+	const std::string image_id;
 public:
-	StoredImage(const std::string &_label, std::unique_ptr<cv::Mat> _desc) :
-				Image(std::move(_desc)), label(_label) {}
-	const std::string getLabel() { return label; }
+	StoredImage(const std::string &image_id_, std::unique_ptr<cv::Mat> desc_) :
+				Image(std::move(desc_)), image_id(image_id_) {}
+	const std::string getImageId() { return image_id; }
 };
 
 class QueryImage : public Image {
 private:
 public:
-	QueryImage(std::unique_ptr<cv::Mat> _desc) :
-		Image(std::move(_desc)) {}
+	QueryImage(std::unique_ptr<cv::Mat> desc_) :
+		Image(std::move(desc_)) {}
 };
 
 #endif
