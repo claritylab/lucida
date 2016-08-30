@@ -23,7 +23,9 @@ git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
   && cmake ..  \
   && make -j$THREADS \
   && sudo make -j$THREADS install \
-  && rm -rf .git
+  && cd ../ \
+  && rm -rf .git \
+  && cd ../
 
 if installCheck $0; then
   echo "OpenCV installed"; 
