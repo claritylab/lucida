@@ -14,9 +14,9 @@ spec:
         name: asrmaster
     spec:
       containers:
-      - image: ybga/lucida_asr
+      - image: claritylab/lucida:v2.0
         command: ['/bin/sh', '-c']
-        args: ['export WSS=True && source python_2_7_9/bin/activate && python kaldigstserver/master_server.py --port=8081']
+        args: ['cd $LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr/ && export WSS=True && source $LUCIDAROOT/../tools/python_2_7_9/bin/activate && python kaldigstserver/master_server.py --port=8081']
         name: asrmaster
         ports:
         - containerPort: 8081

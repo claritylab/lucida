@@ -14,10 +14,10 @@ spec:
         name: web
     spec:
       containers:
-      - image: ybga/lucida_cmd
+      - image: claritylab/lucida:v2.0
         command: ['/bin/sh', '-c']
         # Modify the domain name (but leave the port number unchanged).
-        args: ['export ASR_ADDR_PORT=wss://clarity13.eecs.umich.edu:30001 && sudo a2enmod ssl && env > envs.txt && sudo chown -R www-data:www-data /usr/local/lucida && sudo /usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['cd $LUCIDAROOT/commandcenter/apache/ && export ASR_ADDR_PORT=wss://clarity13.eecs.umich.edu:30001 && cp -f $LUCIDAROOT/commandcenter/apache/conf/000-default_https.conf /etc/apache2/sites-available/000-default.conf && sudo a2enmod ssl && env > envs.txt && sudo chown -R www-data:www-data /usr/local/lucida && sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: web
         ports:
         - containerPort: 443

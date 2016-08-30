@@ -14,9 +14,9 @@ spec:
         name: web
     spec:
       containers:
-      - image: ybga/lucida
+      - image: claritylab/lucida:v2.0
         command: ['/bin/sh', '-c']
-        args: ['export ASR_ADDR_PORT=ws://localhost:30001 && cd $LUCIDAROOT/commandcenter/apache/ && env > envs.txt && sudo chown -R www-data:www-data /usr/local/lucida && sudo /usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['cd $LUCIDAROOT/commandcenter/apache/ && export ASR_ADDR_PORT=ws://localhost:30001 && env > envs.txt && sudo chown -R www-data:www-data /usr/local/lucida && sudo /usr/sbin/apache2ctl -D FOREGROUND']
         name: web
         ports:
         - containerPort: 80
