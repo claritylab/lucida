@@ -1,4 +1,3 @@
-: "${LUCIDAROOT:?Need to set LUCIDAROOT non-empty}"
 if [ -d localpython2_7_9 ];
 then
   echo "Virtual Python environment installed."
