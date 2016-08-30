@@ -49,13 +49,12 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
   in `lucida/`.
 
 - If for some reason you need to compile part of it (e.g. one back-end service),
-  make sure to set the following environment variables as set in [`Makefile`](Makefile):
+  make sure to set the following environment variable as set in [`Makefile`](Makefile):
 
   ```
   export LD_LIBRARY_PATH=/usr/local/lib
-  export LUCIDAROOT=`pwd`/lucida
   ```
-  You can add them permanently to your bash profile.
+  You can add it permanently to your bash profile.
 
 - Start all services:
 

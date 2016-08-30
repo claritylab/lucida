@@ -99,8 +99,8 @@ public class KnowledgeBase {
 	 */
 	private KnowledgeBase(String LUCID) {
 		this.LUCID = LUCID;
-		Indri_path = System.getenv("LUCIDAROOT")
-				+ "/questionanswering/OpenEphyra/db/" + LUCID;
+		Indri_path = KnowledgeBase.class.getProtectionDomain().
+		getCodeSource().getLocation().getFile() + "../db/" + LUCID;
 		// Insert the document for id mappings if it does not exist.
 		if (collection.find(eq("LUCID", LUCID)).first() == null) {
 			collection.insertOne(new Document(new Document("LUCID", LUCID)));

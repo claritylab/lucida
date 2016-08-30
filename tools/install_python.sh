@@ -1,4 +1,3 @@
-: "${LUCIDAROOT:?Need to set LUCIDAROOT non-empty}"
 if [ -d localpython2_7_9 ];
 then
   echo "Virtual Python environment installed."
@@ -8,7 +7,7 @@ wget http://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
 mkdir localpython2_7_9
 tar -zxvf Python-2.7.9.tgz
 cd Python-2.7.9
-./configure --prefix=$LUCIDAROOT/../tools/localpython2_7_9
+./configure --prefix=$(pwd)/../localpython2_7_9
 make
 make install
 cd ../

@@ -148,43 +148,8 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 				unique_ptr<string> result = folly::make_unique<std::string>(
 						"IMM: " + IMM_result
 						+ "; QA: " + t.value());
-				// Check if the query needs to be further sent to EMSEMBLE.
-				if (t.value().find("Factoid not found in knowledge base.")
-						== string::npos || query_save.content.size() < 2) {
-					promise->setValue(std::move(result));
-					return;
-				}
-				// Ask ENSEMBLE.
-				QuerySpec ENSEMBLE_spec;
-				string ENSEMBLE_addr = "";
-				int ENSEMBLE_port = 0;
-				getNextNode(query_save, IMM_result, 2, ENSEMBLE_spec,
-						ENSEMBLE_addr, ENSEMBLE_port);
-				print("Sending to ENSEMBLE at " << ENSEMBLE_addr
-						<< " " << ENSEMBLE_port);
-				print("Query to ENSEMBLE "
-						<< ENSEMBLE_spec.content[0].data[0]);
-				EventBase event_base;
-				std::shared_ptr<TAsyncSocket> socket(
-						TAsyncSocket::newSocket(
-								&event_base, ENSEMBLE_addr, ENSEMBLE_port));
-				unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>
-				channel(new HeaderClientChannel(socket));
-				channel->setClientType(THRIFT_FRAMED_DEPRECATED);
-				LucidaServiceAsyncClient client(std::move(channel));
-				client.future_infer(LUCID_save, ENSEMBLE_spec).then(
-						[IMM_result, promise]
-						(folly::Try<string>&& t) mutable {
-							print("ENSEMBLE result: " << t.value());
-							unique_ptr<string> result =
-									folly::make_unique<std::string>(
-									"IMM: " + IMM_result
-									+ "; QA: " + t.value());
-							// No more sending. Exit.
-							promise->setValue(std::move(result));
-							return;
-						});
-				event_base.loop();
+				promise->setValue(std::move(result));
+				return;
 			});
 			event_base.loop();
 		} catch (Exception &e) {

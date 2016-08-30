@@ -26,7 +26,7 @@ import tornado.concurrent
 import settings
 import common
 import os
-if os.environ.get('DOCKER'):
+if os.environ.get('WSS'):
     import ssl
 
 
@@ -336,10 +336,14 @@ def main():
 
     tornado.options.parse_command_line()
     app = Application()
-    if os.environ.get('DOCKER'):
+    if os.environ.get('WSS'):
         ssl_ctx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
         ssl_ctx.load_cert_chain('/etc/letsencrypt/live/host/cert1.pem', '/etc/letsencrypt/live/host/privkey1.pem')
-    app.listen(options.port)
+        logging.info('wss')
+        app.listen(options.port, ssl_options={"certfile": '/etc/letsencrypt/live/host/cert1.pem', "keyfile": '/etc/letsencrypt/live/host/privkey1.pem'})
+    else:
+        logging.info('ws')
+        app.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
 
 
