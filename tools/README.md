@@ -1,4 +1,4 @@
-# Tools (Dependencies)
+# Tools
 
 This directory contains common tools that are used by Lucida micro-services, 
 so please install all of them before compiling any micro-service.
@@ -22,6 +22,9 @@ and various packages installed via `pip`.
 
 - `install_mongodb.sh`: [MongoDB](https://www.mongodb.com/)
 and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy)
+
+Besides, if you want to use Wikipedia as an additional data source for [OpenEphyra](../lucida/questionanswering/OpenEphyra), please run `./download_wiki_index.sh` and export `wiki_indri_index`. When deploying, you need to mount the Wikipedia database to the Kubernetes cluster, so please move the database to the host volume directory where other user databases are stored.
+(refer to [`deploy/qa-controller.yaml`](deploy/qa-controller.yaml) for details).
 
 ## Notes
 
