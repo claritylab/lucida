@@ -35,7 +35,7 @@ cd ../
 git clone https://github.com/facebook/wangle.git
 cd wangle/wangle
 git checkout 86c4794422e473f3ed5b50035104e1bc04c9646d
-cmake .
+cmake . -DBUILD_TESTS=OFF
 make
 ctest
 sudo make install
