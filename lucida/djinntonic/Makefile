@@ -1,4 +1,5 @@
 include ../../Makefile.common
+SUBDIRS=dig face imc
 fname=djinn-weights-1.0.tar.gz
 
 all: 
@@ -7,18 +8,19 @@ all:
 	./install-caffe.sh; \
 	cp common.hpp caffe/distribute/include/caffe/common.hpp; \
 	cd ..; \
-	python -mthrift_compiler.main --gen cpp2 ../lucidaservice.thrift; \
-	python -mthrift_compiler.main --gen cpp2 ../lucidatypes.thrift; \
+	if [ ! -d "gen-cpp2" ]; then \
+		python -mthrift_compiler.main --gen cpp2 ../lucidaservice.thrift; \
+		python -mthrift_compiler.main --gen cpp2 ../lucidatypes.thrift; \
+	fi; \
 	cd models; \
-	wget http://web.eecs.umich.edu/~jahausw/download/${fname}; \
-	tar xvzf ${fname}; \
-	rm -rf ${fname}; \
+	test ! -s face.caffemodel && wget http://web.eecs.umich.edu/~jahausw/download/${fname} && tar xvzf ${fname} && rm -rf ${fname}; \
 	cd ../imc; \
 	make; \
 	cd ../dig; \
 	make; \
 	cd ../face; \
-	make
+	make; \
+	cd ..; \
 
 %:
 	@:
