@@ -2,33 +2,26 @@
 
 0. Prerequisites.
   Docker is installed, port 8080 is not in use,
-  and you have at least 18 GB of disk space and 8 GB of memory.
+  and you have at least 18 GB of disk space and 16 GB of memory.
   The Docker image contains all the compiled dependencies, ASR models, Stanford CoreNLP packages, etc.,
   and make sure your docker allows you to pull an image of 18 GB.
   The disk usgae will increase as users add data to Lucida.
   If you need to set memory and CPU limits for Kubernetes,
   please refer to [this](http://kubernetes.io/docs/admin/limitrange/).
-  If you want to create a cluster with more than one machines,
-  please refer to [the official documentation](http://kubernetes.io/docs/).
 
 1. Run `sudo ./cluster_up.sh` to create a Kubernetes cluster on a single machine via Docker.
   If you want to create a cluster with more than one machines,
   please refer to [the official documentation](http://kubernetes.io/docs/).
 
-2. Modify the `hostPath` fields of `mongo-controller.yaml` and `qa-controller.yaml`
+2. Open `mongo-controller.yaml` and `qa-controller.yaml` and modify the `hostPath` fields
   to point to the directories where you want to store the data for MongoDB and OpenEphyra.
-  The default paths probably won't work on your machine.
-  Make sure you have write access to the directories you specify.
-  For example, modify the last section of `qa-controller.yaml` to be:
+  Make sure you have write access to the directories you specify. 
 
-  ```
-        volumes:
-          - hostPath:
-              path: /home/<your_username>/Documents/lucida_data_for_Kuebrnetes
-            name: openephyra-persistent-storage
-  ```
-  
-  Also modify the number of replicas in `*-controller`s if the default parameter does not suffice.
+  Move the Wikipedia knowledge base to the correct directory according to the inline comment in
+  `qa-controller.yaml` if you choose to use it as an addition to the user-input knowledge base.
+  Otherwise, remove `export wiki_indri_index=...` from the `args` field.
+
+  Modify the number of replicas in `*-controller`s if the default parameter does not suffice.
 
 3. If you prefer to build the Docker image from [the top level Dockerfile](../../Dockerfile)
   rather than pulling from our Dockerhub, you need to modify
