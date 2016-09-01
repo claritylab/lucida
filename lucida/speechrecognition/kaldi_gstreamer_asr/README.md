@@ -6,6 +6,42 @@ Kaldi GStreamer server
 This is a real-time full-duplex speech recognition server, based on
 the Kaldi toolkit and the GStreamer framework and implemented in Python.
 
+Notes for Lucida Users
+======================
+
+Build
+--------
+
+```
+make
+```
+
+This runs `install_kaldi` if the directory `kaldi` does not exist.
+However, if previous intallation fails, please remove this directory and compile again.
+
+Run
+--------
+
+Start the master server followed by the worker:
+
+```
+make start_master_server
+make start_server
+```
+
+Wait until you see `Opened websocket connection to server` from the worker.
+
+Test
+--------
+
+Test the installtion process:
+
+```
+make start_test
+```
+
+If you see results popping up, it should be ready to go. Please use it from the command center.
+
 Features
 --------
 
