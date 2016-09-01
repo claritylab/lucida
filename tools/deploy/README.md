@@ -1,8 +1,17 @@
 # Deploy Lucida using Kubernetes
 
+0. Prerequisites.
+  Docker is installed, port 8080 is not in use,
+  and you have at least 18 GB of disk space and 8 GB of memory.
+  The Docker image contains all the compiled dependencies, ASR models, Stanford CoreNLP packages, etc.,
+  and make sure your docker allows you to pull an image of 18 GB.
+  The disk usgae will increase as users add data to Lucida.
+  If you need to set memory and CPU limits for Kubernetes,
+  please refer to [this](http://kubernetes.io/docs/admin/limitrange/).
+  If you want to create a cluster with more than one machines,
+  please refer to [the official documentation](http://kubernetes.io/docs/).
+
 1. Run `sudo ./cluster_up.sh` to create a Kubernetes cluster on a single machine via Docker.
-  It assumes that Docker is already installed, port 8080 is not in use,
-  and you have at least 16 GB of disk space for the Docker image(s) and containers.
   If you want to create a cluster with more than one machines,
   please refer to [the official documentation](http://kubernetes.io/docs/).
 
