@@ -23,8 +23,13 @@ and various packages installed via `pip`.
 - `install_mongodb.sh`: [MongoDB](https://www.mongodb.com/)
 and [C++ legacy driver](https://github.com/mongodb/mongo-cxx-driver/tree/legacy)
 
-Besides, if you want to use Wikipedia as an additional data source for [OpenEphyra](../lucida/questionanswering/OpenEphyra), please run `./download_wiki_index.sh` and export `wiki_indri_index`. When deploying, you need to mount the Wikipedia database to the Kubernetes cluster, so please move the database to the host volume directory where other user databases are stored.
+Other scripts:
+
+- `download_wiki_index.sh`: if you want to use Wikipedia as an additional data source for [OpenEphyra](../lucida/questionanswering/OpenEphyra), please run `./download_wiki_index.sh` and export `wiki_indri_index`. When deploying, you need to mount the Wikipedia database to the Kubernetes cluster, so please move the database to the host volume directory where other user databases are stored.
 (refer to [`deploy/qa-controller.yaml`](deploy/qa-controller.yaml) for details).
+
+- `start_all.sh`: if you want to use a subset of services, please modify this file which is called
+by [`the top-level Makefile`](../Makefile) to start all the services.
 
 ## Notes
 
