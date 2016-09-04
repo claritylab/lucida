@@ -1,6 +1,6 @@
 # Deploy Lucida using Kubernetes
 
-0. Prerequisites.
+0. Prerequisites:
   Docker is installed, port 8080 is not in use,
   and you have at least 18 GB of disk space and 16 GB of memory.
   The Docker image contains all the compiled dependencies, ASR models, Stanford CoreNLP packages, etc.,
@@ -56,7 +56,7 @@
 
 6. Open your browser and visit `http://localhost:30000` (or `https://<YOUR_DOMAIN_NAME>:30000` if you set up https in step 4).
   It may take up to several minutes for the Apache server to start working,
-  but if it seems to take forever for the index page to show up, please debug as described in step 5.
+  but if it seems to take forever for the index page to show up, please debug as described above.
 
 7. To destroy the cluster, run `docker ps`, then `stop` and `rm` all the containers related to Kubernetes.
    The following function may be helpful if you want to stop and remove all Docker containers.

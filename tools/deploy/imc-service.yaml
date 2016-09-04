@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: imc
+  labels:
+    name: imc
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8085
+      targetPort: 8085
+      protocol: TCP
+  selector:
+    name: imc

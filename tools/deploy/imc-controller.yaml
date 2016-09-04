@@ -2,22 +2,22 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: imm
-  name: imm-controller
+    name: imc
+  name: imc-controller
 spec:
   replicas: 1
   selector:
-    name: imm
+    name: imc
   template:
     metadata:
       labels:
-        name: imm
+        name: imc
     spec:
       containers:
       - image: claritylab/lucida:v2.1
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/imagematching/opencv_imm/server/ && ./imm_server']
-        name: imm
+        args: ['cd $LUCIDAROOT/djinntonic/imc && ./IMCServer']
+        name: imc
         ports:
-        - containerPort: 8082
+        - containerPort: 8085
           name: thrift

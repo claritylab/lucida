@@ -1,10 +1,10 @@
 include ../../Makefile.common
 fname=djinn-weights-1.0.tar.gz
 
-all: 
+all:
 	cd tools; \
-	./install-protobuf.sh; \
-	./install-caffe.sh; \
+	sh install-protobuf.sh; \
+	sh install-caffe.sh; \
 	cp common.hpp caffe/distribute/include/caffe/common.hpp; \
 	cd ..; \
 	if [ ! -d "gen-cpp2" ]; then \

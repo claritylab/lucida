@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: face
+  labels:
+    name: face
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8086
+      targetPort: 8086
+      protocol: TCP
+  selector:
+    name: face
