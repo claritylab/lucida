@@ -1,5 +1,4 @@
 include ../../Makefile.common
-SUBDIRS=dig face imc
 fname=djinn-weights-1.0.tar.gz
 
 all: 
