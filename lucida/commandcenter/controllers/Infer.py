@@ -26,15 +26,19 @@ def infer_route():
 			# When the "op" field is equal to "add_image".
 			elif form['op'] == 'infer':
 				# Check input file.
-				upload_file = request.files['file']
-				if upload_file.filename != '':
+				upload_file = request.files['file'] if 'file' in request.files \
+					else None
+				if not upload_file is None and upload_file.filename != '':
 					check_image_extension(upload_file)
-				print '@@@@@@@@@@', form['speech_input']
 				# Classify the query.
+				speech_input = form['speech_input'] if 'speech_input' in form \
+					else ''
+				print '@@@@@@@@@@', speech_input
 				services_needed = \
-					query_classifier.predict(form['speech_input'], upload_file)
+					query_classifier.predict(speech_input, upload_file)
 				options['result'] = thrift_client.infer(session['username'], 
-					services_needed, form['speech_input'], upload_file.read())
+					services_needed, speech_input, upload_file.read()
+					if upload_file else None)
 				log('Result ' + options['result'])
 				# Check if Calendar service is needed.
 				# If so, JavaScript needs to receive the parsed dates.
