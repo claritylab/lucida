@@ -48,6 +48,8 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
   install all the required depedencies. After that, it will compile back-end services
   in `lucida/`.
 
+- Important note for Ubuntu 16.04 users: please read [note #1](tools/README.md).
+
 - If for some reason you need to compile part of it (e.g. one back-end service),
   make sure to set the following environment variable as set in [`Makefile`](Makefile):
 

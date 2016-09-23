@@ -35,9 +35,7 @@ by [`the top-level Makefile`](../Makefile) to start all the services.
 
 1. This setup has been tested for Ubuntu 14.04 (64 bit), gcc 4.8, and Python 2.7.9, but
 you are welcome to improve the build system.
-For example, the current idea of putting shared dependencies in this directory
-makes removing a service from Lucida hard. If you have a better way to solve
-dependency issues for multiple services within one Github repo, please make a pull request.
+If you use Ubuntu 16.04, modify `python_requirements.txt` so that `pyOpenSSL==0.14`.
 
 2. Each script performs a simple check on whether the package is
 installed. If for some reason the installation failed, or the simple check
