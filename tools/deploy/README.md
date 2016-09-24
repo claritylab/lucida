@@ -2,7 +2,7 @@
 
 1. Prerequisites:
   Docker is installed, port 8080 is not in use,
-  and you have at least 18 GB of disk space and 16 GB of memory.
+  and you have at least 18 GB of disk space and 7 GB of memory.
   The Docker image contains all the compiled dependencies, ASR models, DNN models,
   Stanford CoreNLP packagesetc.,
   and make sure your docker allows you to pull an image of 18 GB.
