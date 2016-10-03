@@ -16,10 +16,9 @@ Build
 make
 ```
 
-The dependencies in [`../../../tools`](../../../tools) should have been installed.
 It runs `install_kaldi.sh` only if the directory `kaldi` does not exist.
 Therefore, if previous intallation fails, please remove this directory and compile again.
-It may take up to 4 hours and 4 GB to complete.
+It may take up to 4 hours to complete.
 
 Run
 --------
@@ -43,6 +42,17 @@ make start_test
 ```
 
 If you see results popping up, it should be ready to go.
+
+Text to Speech
+--------
+
+In addition to the speech recognition service, we provide a text-to-speech (TTS) service based on [kaldi idlak](https://github.com/bpotard/idlak). 
+Currently, it is experimental because our web front end uses the [web APIs](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) to perform voice synthesis. 
+However, you are welcome to use this service by running the script `install_kaldi_tts.sh`.
+It installs both the kaldi toolkit (~4 hours for C++ compilation) and the idlak component (~4 hours for DNN training), and at the end of this process, we provide one way to use it --
+convert text input from command line to audio file saved on disk.
+
+(End of Notes for Lucida Users)
 
 Features
 --------
