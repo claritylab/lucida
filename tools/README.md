@@ -35,7 +35,9 @@ by [`the top-level Makefile`](../Makefile) to start all the services.
 
 1. This setup has been tested for Ubuntu 14.04 (64 bit), gcc 4.8, and Python 2.7.9, but
 you are welcome to improve the build system.
-If you use Ubuntu 16.04, modify `python_requirements.txt` so that `pyOpenSSL==0.14`.
+If you use Ubuntu 16.04, modify `python_requirements.txt` so that `pyOpenSSL==0.14`,
+and be aware that you may not be able to compile OpenCV.
+Make sure to use `gcc 4.8.4`, because MongoDB C++ driver fails to compile on newer version of gcc.
 
 2. Each script performs a simple check on whether the package is
 installed. If for some reason the installation failed, or the simple check
