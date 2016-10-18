@@ -116,6 +116,7 @@ make
 
 By default OpenEphyra queries user-defined database, 
 but it will also query the database located at `wiki_indri_index` if it is set.
+You can download the entire Wikipedia Indri repository by running [`this script`](../../../tools/download_wiki_index.sh).
 
 ```
 make start_server
