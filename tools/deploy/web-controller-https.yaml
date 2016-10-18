@@ -14,7 +14,7 @@ spec:
         name: web
     spec:
       containers:
-      - image: claritylab/lucida:v2.1
+      - image: claritylab/lucida:v2.2
         command: ['/bin/sh', '-c']
         # Modify the domain name (but leave the port number unchanged).
         args: ['cd $LUCIDAROOT/commandcenter/apache/ && export ASR_ADDR_PORT=wss://clarity13.eecs.umich.edu:30001 && cp -f $LUCIDAROOT/commandcenter/apache/conf/000-default_https.conf /etc/apache2/sites-available/000-default.conf && sudo a2enmod ssl && env > envs.txt && sudo chown -R www-data:www-data /usr/local/lucida && sudo /usr/sbin/apache2ctl -D FOREGROUND']

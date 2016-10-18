@@ -14,7 +14,7 @@ spec:
         name: asrworker
     spec:
       containers:
-      - image: claritylab/lucida:v2.1
+      - image: claritylab/lucida:v2.2
         command: ['/bin/sh', '-c']
         args: ['cd $LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr/ && export GST_PLUGIN_PATH=$LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr/kaldi/tools/gst-kaldi-nnet2-online/src && python kaldigstserver/worker.py -u wss://$ASRMASTER_PORT_8081_TCP_ADDR:8081/worker/ws/speech -c sample_english_nnet2.yaml']
         name: asrworker
