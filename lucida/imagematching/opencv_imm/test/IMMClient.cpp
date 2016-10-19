@@ -2,32 +2,6 @@
 #include <iostream>
 #include "mongo/client/dbclient.h"
 
-// g++ IMMClient.cpp -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lssl -lcrypto -o x
-
-// works
-
-// g++ gen-cpp2/LucidaService_client.o gen-cpp2/lucidaservice_constants.o gen-cpp2/LucidaService.o gen-cpp2/LucidaService_processmap_binary.o gen-cpp2/LucidaService_processmap_compact.o gen-cpp2/lucidaservice_types.o gen-cpp2/lucidatypes_constants.o gen-cpp2/lucidatypes_types.o IMMClient.o  -lrt -lprotobuf -ltesseract -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lboost_program_options -lboost_filesystem -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -o imm_test
-
-// :(
-
-// g++ gen-cpp2/LucidaService_client.o gen-cpp2/lucidaservice_constants.o gen-cpp2/LucidaService.o gen-cpp2/LucidaService_processmap_binary.o gen-cpp2/LucidaService_processmap_compact.o gen-cpp2/lucidaservice_types.o gen-cpp2/lucidatypes_constants.o gen-cpp2/lucidatypes_types.o IMMClient.o -lrt -lprotobuf -ltesseract -pthread -lboost_program_options -lboost_filesystem -lboost_system -lboost_thread -lboost_regex -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -lmongoclient -o imm_test
-
-
-
-// works
-
-// g++ IMMClient.cpp -lrt -lprotobuf -ltesseract -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lboost_program_options -lboost_filesystem -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -o x
-
-// :(
-
-// g++ IMMClient.o -lrt -lprotobuf -ltesseract -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lboost_program_options -lboost_filesystem -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -o x
-
-// :(
-
-// g++ IMMClient.cpp -std=c++11 -lrt -lprotobuf -ltesseract -pthread -lmongoclient -lboost_thread -lboost_system -lboost_regex -lboost_program_options -lboost_filesystem -lthrift -lfolly -lwangle -lglog -lthriftcpp2 -lgflags -lthriftprotocol -lssl -lcrypto -o x
-
-// g++ -Wall -I../opencv -std=c++11 -fPIC  -O3 -c IMMClient.cpp -o IMMClient.o
-
 #include <unistd.h>
 #include <gflags/gflags.h>
 #include <iostream>
