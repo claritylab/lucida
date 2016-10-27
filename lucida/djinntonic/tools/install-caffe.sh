@@ -1,3 +1,4 @@
+#!/bin/bash
 ## Install Djinn specific version of Caffe
 export CPU_ONLY=1
 

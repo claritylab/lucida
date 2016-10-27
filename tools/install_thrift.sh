@@ -1,3 +1,4 @@
+#!/bin/bash
 export THRIFT_VERSION=0.9.3
 
 installCheck () {
@@ -13,7 +14,7 @@ installCheck () {
   fi
 }
 
-if installCheck $0; then
+if installCheck "$0"; then
   echo "Apache Thrift installed";
   exit 0;
 fi
@@ -24,15 +25,15 @@ wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSI
   && tar xf thrift-$THRIFT_VERSION.tar.gz \
   && cd thrift-$THRIFT_VERSION \
   && ./configure --with-lua=no --with-ruby=no --with-go=no --with-erlang=no --with-nodejs=no \
-  && make -j $THREADS\
-  && sudo make -j $THREADS install \
+  && make -j "$THREADS"\
+  && sudo make -j "$THREADS" install \
   && cd lib/py/ \
   && sudo python setup.py install \
   && cd ../../lib/java/ \
   && ant \
   && cd ../../..
 
-if installCheck $0; then
+if installCheck "$0"; then
   echo "Apache Thrift installed";
   exit 0;
 else

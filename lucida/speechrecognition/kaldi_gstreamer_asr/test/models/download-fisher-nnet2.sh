@@ -1,15 +1,15 @@
-#! /bin/bash
+#!/bin/bash
 
 BASE_URL=http://kaldi-asr.org/downloads/build/2/sandbox/online/egs/fisher_english/s5
 
 MODEL=exp/nnet2_online/nnet_a_gpu_online
 GRAPH=exp/tri5a
 
-modeldir=`dirname $0`/english/fisher_nnet_a_gpu_online
+modeldir=$(dirname "$0")/english/fisher_nnet_a_gpu_online
 
-mkdir -p $modeldir
+mkdir -p "$modeldir"
 
-cd $modeldir
+cd "$modeldir"
 
 wget -N $BASE_URL/$MODEL/final.mdl || exit 1
 (mkdir -p ivector_extractor; cd ivector_extractor; wget -N $BASE_URL/$MODEL/ivector_extractor/{final.ie,final.dubm,final.mat,global_cmvn.stats}) || exit 1
