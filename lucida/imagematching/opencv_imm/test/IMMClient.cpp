@@ -38,9 +38,10 @@ DEFINE_string(hostname,
 		"Hostname of the server (default: localhost)");
 
 void saveToMongoDb(DBClientConnection &conn, const string &LUCID,
-		const string &image_id, const string &data) {
-	BSONObj p = BSONObjBuilder().append("image_id", image_id).append("data", data)
-			.append("size", (int) data.size()).obj();
+		const string &label, const string &data) {
+	BSONObj p = BSONObjBuilder().append("image_id", label)
+	.append("label", label).append("data", data)
+	.append("size", (int) data.size()).obj();
 	conn.insert("lucida.images_" + LUCID, p); // insert the image data
 }
 
