@@ -67,7 +67,7 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
   This will spawn a terminal window (`gnome-terminal`) for each service as well as the command center.
   Once they all start running,
   open your browser and visit `http://localhost:3000/`.
-  Check out the [`tutorial`](tutorial.pdf) for usgae and sample questions.
+  Check out the [`tutorial`](tutorial.pdf) for usage and sample questions.
   
   Currently, the command center receives the user input in the form of HTTP requests sent from your browser,
   but in future we can support other forms of input. 
