@@ -33,10 +33,10 @@ fi;
 
 if [ "$MASTER" == "localhost" ] ; then
   # start a local master
-  python /kaldigstserver/master_server.py --port=$PORT 2>> master.log &
+  python /kaldigstserver/master_server.py --port="$PORT" 2>> master.log &
 fi
 
 #start worker and connect it to the master
 export GST_PLUGIN_PATH=kaldi/tools/gst-kaldi-nnet2-online/src/:kaldi/src/gst-plugin/
 
-python kaldigstserver/worker.py -c $YAML -u ws://$MASTER:$PORT/worker/ws/speech 2>> worker.log &
+python kaldigstserver/worker.py -c "$YAML" -u ws://"$MASTER:$PORT"/worker/ws/speech 2>> worker.log &

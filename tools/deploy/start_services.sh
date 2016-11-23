@@ -1,38 +1,39 @@
+#!/bin/bash
 echo "Assume that the local cluster is set up."
 
 kubectl cluster-info
 
 kubectl describe node
 
-filelist=$(ls *-controller.yaml)
+filelist=$(ls ./*-controller.yaml)
 if [ "${filelist}" != "" ]; then
     for d in ${filelist}; do
         echo "***** ${d}"
-        kubectl delete -f ${d}
+        kubectl delete -f "${d}"
     done
 fi
 
-filelist=$(ls *-service.yaml)
+filelist=$(ls ./*-service.yaml)
 if [ "${filelist}" != "" ]; then
     for d in ${filelist}; do
         echo "***** ${d}"
-        kubectl delete -f ${d}
+        kubectl delete -f "${d}"
     done
 fi
 
-filelist=$(ls *-service.yaml)
+filelist=$(ls ./*-service.yaml)
 if [ "${filelist}" != "" ]; then
     for d in ${filelist}; do
         echo "***** ${d}"
-        kubectl create -f ${d} --validate=false
+        kubectl create -f "${d}" --validate=false
     done
 fi
 
-filelist=$(ls *-controller.yaml)
+filelist=$(ls ./*-controller.yaml)
 if [ "${filelist}" != "" ]; then
     for d in ${filelist}; do
         echo "***** ${d}"
-        kubectl create -f ${d} --validate=false
+        kubectl create -f "${d}" --validate=false
     done
 fi
 

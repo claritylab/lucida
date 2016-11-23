@@ -1,3 +1,4 @@
+#!/bin/bash
 export PROTOBUF_VERSION=2.5.0
 
 if [ -z "$THREADS" ]; then

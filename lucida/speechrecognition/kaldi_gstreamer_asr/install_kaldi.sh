@@ -1,3 +1,4 @@
+#!/bin/bash
 LUCIDAROOT=$(pwd)/../../
 git clone https://github.com/kaldi-asr/kaldi.git
 cd kaldi

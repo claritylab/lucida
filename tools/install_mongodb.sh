@@ -1,3 +1,4 @@
+#!/bin/bash
 export MONGO_C_DRIVER_VERSION=1.3.0
 
 installCheck () {
@@ -13,7 +14,7 @@ installCheck () {
   fi
 }
 
-if installCheck $0; then
+if installCheck "$0"; then
   echo "MongoDB and C++ driver installed";
   exit 0;
 fi
@@ -62,7 +63,7 @@ sudo scons --prefix=/usr/local --c++11=on --ssl install
 rm -rf .git
 cd ..
 
-if installCheck $0; then
+if installCheck "$0"; then
   echo "MongoDB and C++ driver installed"; 
   exit 0;
 else 
