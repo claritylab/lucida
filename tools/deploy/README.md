@@ -3,6 +3,7 @@
 1. Prerequisites:
   Docker is installed, port 8080 is not in use,
   and you have at least 18 GB of disk space and 7 GB of memory.
+  If you deploy on [OS X](http://kubernetes.io/docs/getting-started-guides/minikube/), Virtualbox or VMWare Fusion must be installed.
   The Docker image contains all the compiled dependencies, ASR models, DNN models,
   Stanford CoreNLP packagesetc.,
   and make sure your docker allows you to pull an image of 18 GB.
