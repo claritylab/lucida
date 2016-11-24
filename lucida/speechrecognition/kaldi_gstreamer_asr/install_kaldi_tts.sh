@@ -1,3 +1,4 @@
+#!/bin/bash
 LUCIDAROOT=$(pwd)/../../
 git clone https://github.com/bpotard/idlak.git
 mv idlak kaldi_tts

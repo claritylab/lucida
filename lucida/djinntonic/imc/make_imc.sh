@@ -1,3 +1,4 @@
+#!/bin/bash
 cd ..
 python -mthrift_compiler.main --gen cpp2 lucidaservice.thrift
 python -mthrift_compiler.main --gen cpp2 lucidatypes.thrift

@@ -1,3 +1,4 @@
+#!/bin/bash
 # Modify the paths below for a subset of services.
 declare -a services=(
 	"$(pwd)/../lucida/commandcenter"

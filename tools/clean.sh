@@ -1,3 +1,4 @@
+#!/bin/bash
 # Clean up script
 
 rm -rf caffe
@@ -11,7 +12,7 @@ rm -rf mongo-cxx-driver
 
 for tar in *.tar.gz;
 do
-  if [ -f $tar ]; then
-    rm $tar
+  if [ -f "$tar" ]; then
+    rm "$tar"
   fi
 done

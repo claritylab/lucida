@@ -1,3 +1,4 @@
+#!/bin/bash
 installCheck () {
   if [ ! -d fbthrift ]; then
     return 1
@@ -11,7 +12,7 @@ installCheck () {
   fi
 }
 
-if installCheck $0; then
+if installCheck "$0"; then
   echo "Facebook Thrift installed";
   exit 0;
 fi
@@ -51,7 +52,7 @@ cd ..
 # rm -rf .git
 cd ..
 
-if installCheck $0; then
+if installCheck "$0"; then
   echo "Facebook Thrift installed";
   exit 0;
 else

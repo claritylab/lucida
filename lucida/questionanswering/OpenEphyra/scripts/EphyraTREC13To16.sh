@@ -14,7 +14,7 @@ export ASSERT=$5
 cd ..
 
 java -server -Xms1000m -Xmx1400m -Djava.library.path=lib/search/ \
-     info.ephyra.trec.EphyraTREC13To16 res/testdata/trec/$1questions.xml \
-     tag=$1_$2_out log=log/$1_$2 lflags=$3 \
-     fp=res/testdata/trec/$1patterns_factoid \
-     lp=res/testdata/trec/$1patterns_list
+     info.ephyra.trec.EphyraTREC13To16 res/testdata/trec/"$1"questions.xml \
+     tag="$1_$2_out" log=log/"$1_$2" lflags="$3" \
+     fp=res/testdata/trec/"$1"patterns_factoid \
+     lp=res/testdata/trec/"$1"patterns_list

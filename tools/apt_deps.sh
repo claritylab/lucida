@@ -1,3 +1,4 @@
+#!/bin/bash
 ## Installs all package manager dependencies
 ## FROM ubuntu:14.04
 ## Run as sudo

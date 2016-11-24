@@ -1,3 +1,4 @@
+#!/bin/bash
 export JAVA_VERSION=8
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 
 

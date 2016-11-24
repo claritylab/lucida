@@ -1,6 +1,6 @@
 #!/bin/bash
 # Only run this script inside `kaldi_tts`.
-# This script attempts to automatically execute the instructions in 
+# This script attempts to automatically execute the instructions in
 # INSTALL_IDLAK.
 
 # (1) Install instructions for expat
@@ -53,9 +53,9 @@ echo "****(2) Installing pugixml"
     cd pugixml-1.2
     tar -xovzf ../pugixml-1.2.tar.gz || exit 1
     cd scripts
-    if [ "`uname`" == "Darwin"  ]; then
+    if [ "$(uname)" == "Darwin"  ]; then
       # OS X 10.9, 10.10 require CXXFLAGS += -stdlib=libstdc++ to compile pugixml
-      osx_ver=`sw_vers | grep ProductVersion | awk '{print $2}' | awk '{split($0,a,"\."); print a[1] "." a[2]; }'`
+      osx_ver=$(sw_vers | grep ProductVersion | awk '{print $2}' | awk '{split($0,a,"\."); print a[1] "." a[2]; }')
       echo "Configuring for OS X version $osx_ver ..."
       if [ "$osx_ver" == "10.9" ]; then
         cmake -DCMAKE_CXX_FLAGS=-stdlib=libstdc++
@@ -89,7 +89,7 @@ echo "****(3) Installing pcre with utf8 support"
   else
     tar -xovjf pcre-8.20.tar.bz2 || exit 1
     cd pcre-8.20
-    ./configure --enable-utf8 --enable-unicode-properties --enable-newline-is-anycrlf --prefix=`pwd` || exit 1
+    ./configure --enable-utf8 --enable-unicode-properties --enable-newline-is-anycrlf --prefix="$(pwd)" || exit 1
     sed -i "s/CPPFLAGS =/CPPFLAGS = -fPIC/g" Makefile
     make || exit 1
     make install || exit 1
@@ -113,7 +113,7 @@ echo "****(4) Installing SPTK"
 	mkdir -p SPTK
 	tar -xovzf SPTK-3.9.tar.gz || exit 1
 	cd SPTK-3.9
-	./configure --prefix=`pwd`/../SPTK || exit 1
+	./configure --prefix="$(pwd)"/../SPTK || exit 1
 	make || exit 1
 	make install || exit 1
     cd ..
