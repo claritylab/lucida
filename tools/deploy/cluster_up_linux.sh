@@ -1,3 +1,4 @@
+#!/bin/bash
 # Set up a local cluster via docker on a single machine.
 export K8S_VERSION=v1.3.0
 export ARCH=amd64

@@ -10,7 +10,7 @@
   If you need to set memory and CPU limits for Kubernetes,
   please refer to [this](http://kubernetes.io/docs/admin/limitrange/).
 
-2. Run `sudo ./cluster_up.sh` to create a Kubernetes cluster on a single machine via Docker.
+2. Run `sudo ./cluster_up_<your_os>.sh` to create a Kubernetes cluster on a single machine via Docker.
   If you want to create a cluster with more than one machines,
   please refer to [the official documentation](http://kubernetes.io/docs/).
 
@@ -47,9 +47,10 @@
 
 6. Run `sudo ./start_services.sh` to launch all Kubernetes services and pods.
   It assumes that a local cluster is set up.
-  To debug, you can run `kubectl get service` to check the services,
-  `kubectl get pod` and `kubectl describe pod` to check the pods,
-  `docker ps | grep <controller_name>` followed by `docker exec -it <running_container_id> bash` to check the running containers.
+  Pulling the images might take a while, and you may see an error status `ImagePullBackOff` if there is no space left on the device.
+  To debug, you can run `kubectl get service|pod` to check the services or pods,
+  `kubectl describe pod <pod_name>` to see the details (recommended),
+  `docker ps | grep <controller_name>` followed by `docker exec -it <running_container_id> bash` to go inside the running containers.
   For example, if you see "Internal Server Error", you should check the web container,
   and see the error logs in `/usr/local/lucida/lucida/commandcenter/apache/logs/`.
   Also, if MongoDB container is constantly being created without making progress, 
