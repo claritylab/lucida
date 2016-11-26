@@ -59,7 +59,7 @@ cd mongo-cxx-driver
 git checkout r3.0.0
 git checkout legacy
 sudo apt-get install scons
-sudo scons --prefix=/usr/local --c++11=on --ssl install
+sudo scons --prefix=/usr/local --c++11=on --ssl --disable-warnings-as-errors install
 rm -rf .git
 cd ..
 
