@@ -1,5 +1,9 @@
 # Deploy Lucida using Kubernetes
 
+[instructions.ipynb](instructions.ipynb) is a complete walkthrough for deplyoment of Lucida on Mac using a Ubuntu 14.04 virtual machine.
+
+## Steps
+
 1. Prerequisites:
   Docker is installed, port 8080 is not in use,
   and you have at least 18 GB of disk space and 7 GB of memory.
