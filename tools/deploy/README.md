@@ -1,6 +1,6 @@
 # Deploy Lucida using Kubernetes
 
-[instructions.ipynb](instructions.ipynb) is a complete walkthrough for deplyoment of Lucida on Mac using a Ubuntu 14.04 virtual machine.
+[instructions.ipynb](instructions.ipynb) is a complete walkthrough for deplyoment of Lucida on Mac using a Ubuntu 14.04 virtual machine. If you are familiar with Linux commands, however, the following steps should be enough.
 
 ## Steps
 
