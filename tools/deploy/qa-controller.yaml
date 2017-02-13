@@ -17,9 +17,8 @@ spec:
       containers:
       - image: claritylab/lucida:v2.2
         command: ['/bin/sh', '-c']
-        # Delete " && export wiki_indri_index=/usr/local/lucida/lucida/questionanswering/OpenEphyra/db/wiki_indri_index"
-        # if you don't want to use Wikipedia as an additional knowledge base.
-        args: ['cd $LUCIDAROOT/questionanswering/OpenEphyra/ && export wiki_indri_index=/usr/local/lucida/lucida/questionanswering/OpenEphyra/db/wiki_indri_index && ./start_server.sh']
+        # Add " && export wiki_indri_index=/usr/local/lucida/lucida/questionanswering/OpenEphyra/db/wiki_indri_index" if you want to use Wikipedia as an additional knowledge base.
+        args: ['cd $LUCIDAROOT/questionanswering/OpenEphyra/ && ./start_server.sh']
         name: qa
         ports:
         - containerPort: 8083
