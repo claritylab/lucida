@@ -1,0 +1,97 @@
+group 'edu.umich.sapphire.genericbackend'
+version '0.01'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.tkruse.gradle:gradle-groovysh-plugin:1.0.5'
+    }
+}
+
+apply {
+    plugin 'java'
+    plugin 'idea'
+    plugin 'groovy'
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+    }
+}
+
+configurations {
+    shell
+}
+dependencies {
+    shell 'commons-cli:commons-cli:1.2'
+    shell('jline:jline:2.11') {
+        exclude(group: 'junit', module: 'junit')
+    }
+    shell 'org.codehaus.groovy:groovy-groovysh:2.2.+'
+}
+task(shell, dependsOn: 'classes') << {
+    def classpath = sourceSets.main.runtimeClasspath + configurations.shell
+    def command = [
+            'java',
+            '-cp', classpath.collect().join(':'),
+            'org.codehaus.groovy.tools.shell.Main',
+            '--color',
+            '--terminal', 'unix']
+    def proc = new ProcessBuilder(command)
+            .redirectOutput(ProcessBuilder.Redirect.INHERIT)
+            .redirectInput(ProcessBuilder.Redirect.INHERIT)
+            .redirectError(ProcessBuilder.Redirect.INHERIT)
+            .start()
+    proc.waitFor()
+}
+
+task(runThriftBackend, type: JavaExec) {
+    main = 'edu.umich.sapphire.genericbackend.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    systemProperties System.getProperties()
+}
+
+task(runRestBackend, type: JavaExec) {
+    main = 'edu.umich.sapphire.genericbackend.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    systemProperties System.getProperties()
+    args = ["REST"]
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'lib'
+    }
+}
+
+dependencies {
+    compile group: 'org.glassfish.jersey.core',       name: 'jersey-server',                 version: '2.7'
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet-core', version: '2.7'
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-jetty-http',   version: '2.7'
+    compile group: 'org.glassfish.jersey.media',      name: 'jersey-media-moxy',             version: '2.7'
+
+    compile group: 'javax.ws.rs',                     name: 'javax.ws.rs-api',               version: '2.0.1'
+    compile group: 'org.eclipse.jetty.aggregate',     name: 'jetty-all',                     version: '9.3.6.v20151106'
+
+    compile group: 'commons-beanutils',               name: 'commons-beanutils',             version: '1.9.2'
+    compile group: 'commons-collections',             name: 'commons-collections',           version: '3.2.2'
+    compile group: 'commons-lang',                    name: 'commons-lang',                  version: '2.6'
+    compile group: 'commons-logging',                 name: 'commons-logging',               version: '1.2'
+
+
+    compile group: 'org.apache.thrift',               name: 'libthrift',                     version: '0.9.3'
+    compile group: 'org.eclipse.persistence',         name: 'javax.persistence',             version: '2.1.1'
+
+    // TODO: Currently, both gson and minimal-json are used - this should be consolidated in the near future
+    // gson comes from YodaQA, minimal json was chosen for its minimalism
+    // Jackson is another promising candidate, but heavyweight
+    compile group: 'com.eclipsesource.minimal-json',  name: 'minimal-json',                  version: '0.9.4'
+    compile group: 'com.google.code.gson',            name: 'gson',                          version: '2.6.2'
+
+    compile group: 'org.codehaus.groovy',             name: 'groovy-all',                    version: '2.4.6'
+    compile group: 'org.testng',                      name: 'testng',                        version: '6.9.10'
+}
