@@ -19,3 +19,9 @@ local:
 
 start_all:
 	cd tools && ./start_all.sh
+
+start_all_tmux:
+	cd tools && ./start_all_tmux.sh
+
+start_all_tmux_secure:
+	cd tools && ./start_all_tmux.sh secure
