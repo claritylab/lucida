@@ -12,7 +12,6 @@ from threading import Thread
 import logging
 
 
-
 # Initialize the Flask app with the template folder address.
 app = Flask(__name__, template_folder='templates')
 
@@ -31,12 +30,12 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 def flask_listener():
 
-    # For https
+    # For https (with ASR capability)
     if os.environ.get('SECURE_HOST'):
         print 'Starting secure flask'
         app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False,
                 threaded=True, ssl_context=('certs/server.crt', 'certs/server.key'))
-    # For http
+    # For http (without ASR capability)
     else:
         print 'Starting non-secure flask'
         app.run(host='0.0.0.0', port=3000, debug=True, use_reloader=False,
@@ -49,13 +48,13 @@ def web_socket_listener():
     logging.debug('Starting up server')
     WebSocket.tornado.options.parse_command_line()
 
-    # For wss
+    # For wss (with ASR capability)
     if os.environ.get('SECURE_HOST'):
         print 'Starting secure web socket'
         WebSocket.Application().listen(8081, ssl_options={
             "certfile":"certs/server.crt",
             "keyfile":"certs/server.key"})
-    # For ws
+    # For ws (without ASR capability)
     else:
         print 'Starting non-secure web socket'
         WebSocket.Application().listen(8081)
