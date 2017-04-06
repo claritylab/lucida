@@ -34,16 +34,6 @@ git checkout r1.3
 ./autogen.sh --prefix=/usr/local
 make
 sudo make install
-rm -rf .git
-cd ..
-
-git clone git://github.com/mongodb/libbson.git
-cd libbson/
-git checkout r1.3
-./autogen.sh
-make
-sudo make install
-rm -rf .git
 cd ..
 
 # Upgrade CMake.
@@ -64,8 +54,8 @@ rm -rf .git
 cd ..
 
 if installCheck "$0"; then
-  echo "MongoDB and C++ driver installed"; 
+  echo "MongoDB and C++ driver installed";
   exit 0;
-else 
-  echo "Faile to install MongoDB and C++ driver"; 
+else
+  echo "Failed to install MongoDB and C++ driver";
 fi

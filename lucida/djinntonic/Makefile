@@ -12,7 +12,8 @@ all:
 		python -mthrift_compiler.main --gen cpp2 ../lucidatypes.thrift; \
 	fi; \
 	cd models; \
-	test ! -s face.caffemodel && wget http://web.eecs.umich.edu/~jahausw/download/${fname} && tar xvzf ${fname} && rm -rf ${fname}; \
+	test ! -s face.caffemodel && wget -c http://web.eecs.umich.edu/~jahausw/download/${fname} && tar xvzf ${fname} && rm -rf ${fname}; \
+        export CXXFLAGS="-I/usr/include/hdf5/serial"; \
 	cd ../imc; \
 	make; \
 	cd ../dig; \

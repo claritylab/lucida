@@ -10,7 +10,7 @@ if [ -d protobuf-$PROTOBUF_VERSION ]; then
   exit
 fi
 
-wget "https://github.com/google/protobuf/releases/download/v$PROTOBUF_VERSION/protobuf-$PROTOBUF_VERSION.tar.gz" \
+wget -c "https://github.com/google/protobuf/releases/download/v$PROTOBUF_VERSION/protobuf-$PROTOBUF_VERSION.tar.gz" \
   && tar xf protobuf-$PROTOBUF_VERSION.tar.gz \
   && cd protobuf-$PROTOBUF_VERSION \
   && ./configure \

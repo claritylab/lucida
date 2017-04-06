@@ -1,7 +1,7 @@
 CXX = g++
 
-CXXFLAGS = 		-std=c++11 \
-				-fPIC 
+CXXFLAGS = 		-std=c++14 \
+				-fPIC
 
 LINKFLAGS =     -lopencv_core \
 				-lopencv_highgui \

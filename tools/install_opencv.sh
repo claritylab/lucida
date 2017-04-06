@@ -1,6 +1,4 @@
 #!/bin/bash
-export OPENCV_VERSION=2.4.9
-
 installCheck () {
   g++ check_opencv.cpp -o check_opencv
   if [[ $? -ne 0 ]]; then
@@ -16,9 +14,9 @@ if installCheck "$0"; then
   exit 0
 fi
 
-git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
-  && cd "opencv-$OPENCV_VERSION" \
-  && git checkout "$OPENCV_VERSION" \
+git clone https://github.com/opencv/opencv.git opencv-2.4 \
+  && cd "opencv-2.4" \
+  && git checkout "2.4" \
   && mkdir build \
   && cd build \
   && cmake ..  \
@@ -29,9 +27,9 @@ git clone https://github.com/Itseez/opencv.git opencv-$OPENCV_VERSION \
   && cd ../
 
 if installCheck "$0"; then
-  echo "OpenCV installed"; 
+  echo "OpenCV installed";
   exit 0;
-else 
-  echo "Faile to install OpenCV";
+else
+  echo "Failed to install OpenCV";
   exit 1;
 fi

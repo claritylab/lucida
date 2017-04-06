@@ -2,7 +2,6 @@
 LUCIDAROOT=$(pwd)/../../
 git clone https://github.com/kaldi-asr/kaldi.git
 cd kaldi
-git checkout 526fcad0a8a739be27687097b29dc9055d03db29
 cd tools
 sudo ln -s -f bash /bin/sh
 sudo apt-get install -y zlib1g-dev automake autoconf libtool subversion
@@ -11,8 +10,8 @@ extras/check_dependencies.sh
 make
 cd ..
 cd src
-sed -i '7s/^/COMPILE_FLAGS += -fPIC\n/' Makefile
 ./configure --shared
+sed -i '7s/^/COMPILE_FLAGS += -fPIC\n/' Makefile
 make depend
 make
 make ext
@@ -28,7 +27,6 @@ cd ../../
 cd tools
 git clone https://github.com/alumae/gst-kaldi-nnet2-online.git
 cd gst-kaldi-nnet2-online
-git checkout 3bd16b03e8659090dbdf5db51f5cf30a20ec3d90
 sudo add-apt-repository -y ppa:gstreamer-developers/ppa
 sudo apt-get -y update
 sudo apt-get install -y libjansson-dev
