@@ -17,15 +17,21 @@ if installCheck "$0"; then
   exit 0;
 fi
 
-git clone https://github.com/facebook/fbthrift.git
-cd fbthrift/thrift/
-git checkout d811b530a4f5e11a520f5fb416a5a3a8a5f42ef8
-./build/deps_ubuntu_14.04.sh
-autoreconf -ivf
-./configure
-sudo make
-sudo make install
-cd ../..
+if [ ! -d fbthrift ]; then
+  git clone https://github.com/facebook/fbthrift.git
+  if [ $? -ne 0 ]; then
+    echo "Could not clone FBThrift!!! Please try again later..."
+    exit 1
+  fi
+fi
+
+cd fbthrift/thrift \
+ && ./build/deps_ubuntu_14.04.sh \
+ && autoreconf -ivf \
+ && ./configure \
+ && make \
+ && make install \
+ && cd ../..
 
 if installCheck "$0"; then
   echo "Facebook Thrift installed";

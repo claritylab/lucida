@@ -1,7 +1,5 @@
 all:
-	@if [ ! -d "kaldi" ]; then \
-		./install_kaldi.sh; \
-	fi
+	./install_kaldi.sh
 
 start_master_server:
 	gnome-terminal -x bash -c "source ${PWD}/../../../tools/python_2_7_12/bin/activate && python kaldigstserver/master_server.py --port=8081; read -n1"

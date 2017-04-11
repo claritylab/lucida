@@ -10,5 +10,5 @@ all:
 	(sudo ./install_mongodb.sh) || (exit 1)
 
 clean:
-	./clean.sh
+	sudo ./clean.sh
 

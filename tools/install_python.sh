@@ -1,12 +1,12 @@
 #!/bin/bash
-if [ -d localpython2_7_12 ];
-then
-  echo "Virtual Python environment installed."
-  exit 0
+if [ ! -d Python-2.7.12 ]; then
+  wget -c http://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz && tar -zxvf Python-2.7.12.tgz
+  if [ $? -ne 0 ]; then
+    echo "Could not download Python!!! Please try again later..."
+    exit 1
+  fi
 fi
-wget http://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz
-mkdir localpython2_7_12
-tar -zxvf Python-2.7.12.tgz
+mkdir -p localpython2_7_12
 cd Python-2.7.12
 ./configure --prefix="$(pwd)"/../localpython2_7_12
 make
@@ -17,5 +17,4 @@ source python_2_7_12/bin/activate
 pip install --upgrade distribute
 pip install --upgrade pip
 pip install -r python_requirements.txt
-pip install --upgrade -r python_requirements.txt
 deactivate

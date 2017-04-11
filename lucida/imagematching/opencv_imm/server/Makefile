@@ -24,6 +24,7 @@ LINKFLAGS =     -lopencv_core \
 				-lthrift \
 				-lfolly \
 				-lwangle \
+				-lzstd \
 				-lglog \
 				-lthriftcpp2 \
 				-lgflags \
