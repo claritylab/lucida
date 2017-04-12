@@ -44,7 +44,7 @@ cd kaldi \
  && ./test/models/download-fisher-nnet2.sh \
  && export GST_PLUGIN_PATH=$LUCIDAROOT/speechrecognition/kaldi_gstreamer_asr/kaldi/tools/gst-kaldi-nnet2-online/src \
  && sudo pip install tornado \
- && sudo apt-get install -y python3.4-dev \
+ && sudo apt-get install -y python3-dev \
  && sudo apt-get install -y python2.7-dev \
  && sudo apt-get install -y libblas3 \
  && sudo apt-get install -y libblas-dev \
