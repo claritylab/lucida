@@ -29,4 +29,3 @@ results = client.infer(LUCID, query_spec)
 print "/////Result/////"
 print "%s" % results
 transport.close()
-

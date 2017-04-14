@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 
-port = 8088
-owm_api_key = "362537b891e6df03a316e82565fe4df3"
-wu_api_key = "ff76e8e80c802d46"
-
 import sys
 sys.path.append('../')
 
@@ -18,6 +14,10 @@ from thrift.server import TServer
 import urllib2
 import json
 import urllib
+
+port = 8088
+owm_api_key = "362537b891e6df03a316e82565fe4df3"
+wu_api_key = "ff76e8e80c802d46"
 
 class WeatherHandler(LucidaService.Iface):
     """
