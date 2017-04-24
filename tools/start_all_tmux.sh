@@ -12,6 +12,13 @@
 
 SESSION_NAME="lucida"
 
+# CHeck if session exists
+tmux has-session -t $SESSION_NAME
+if [ $? -eq 0 ]; then
+    echo "Session $SESSION_NAME already exists."
+    exit 0;
+fi
+
 # Check to see if we should run on http/ws (non-secure) or https/wss (secure)
 if [ "$1" == "secure" ]; then
     echo "Enabling secure host"
@@ -38,6 +45,7 @@ declare -a speechrecognition=("ASR" "$(pwd)/../lucida/speechrecognition/kaldi_gs
 declare -a imageclassification=("IMC" "$(pwd)/../lucida/djinntonic/imc/")
 declare -a digitrecognition=("DIG" "$(pwd)/../lucida/djinntonic/dig/")
 declare -a facerecognition=("FACE" "$(pwd)/../lucida/djinntonic/face")
+declare -a weather=("WE" "$(pwd)/../lucida/weather")
 
 declare -a services=(
     commandcenter
@@ -47,7 +55,8 @@ declare -a services=(
     speechrecognition
     imageclassification
     digitrecognition
-    facerecognition)
+    facerecognition
+    weather)
 
 # Create the session
 tmux new-session -s ${SESSION_NAME} -n vim -d
