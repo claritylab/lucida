@@ -12,7 +12,7 @@
 
 SESSION_NAME="lucida"
 
-# CHeck if session exists
+# Check if session already exists
 tmux has-session -t $SESSION_NAME
 if [ $? -eq 0 ]; then
     echo "Session $SESSION_NAME already exists."
