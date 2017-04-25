@@ -13,18 +13,23 @@
 SESSION_NAME="lucida"
 
 # Check if session already exists
-tmux has-session -t $SESSION_NAME
+tmux has-session -t ${SESSION_NAME}
 if [ $? -eq 0 ]; then
-    echo "Session $SESSION_NAME already exists."
+    echo "Session ${SESSION_NAME} already exists."
     exit 0;
+else
+    echo "Session ${SESSION_NAME} does not exit. Creating a ${SESSION_NAME} session."
+    # Create the session
+    tmux new-session -s ${SESSION_NAME} -n vim -d
+
 fi
 
 # Check to see if we should run on http/ws (non-secure) or https/wss (secure)
 if [ "$1" == "secure" ]; then
     echo "Enabling secure host"
     # Getting the host IP address
-    export ASR_ADDR_PORT="wss://$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'):8081"
-    export SECURE_HOST=true
+    tmux set-environment -t ${SESSION_NAME} ASR_ADDR_PORT "wss://$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'):8081"
+    tmux set-environment -t ${SESSION_NAME} SECURE_HOST true
 
     # Generate self-signed certificates
     cd $(pwd)/../lucida/commandcenter/
@@ -33,8 +38,7 @@ if [ "$1" == "secure" ]; then
     cd $(pwd)/../../tools
 else
     echo "Enabling non-secure host"
-    export ASR_ADDR_PORT="ws://localhost:8081"
-    unset SECURE_HOST
+    tmux set-environment -t ${SESSION_NAME} ASR_ADDR_PORT "ws://localhost:8081"
 fi
 
 declare -a commandcenter=("CMD" "$(pwd)/../lucida/commandcenter/")
@@ -45,7 +49,6 @@ declare -a speechrecognition=("ASR" "$(pwd)/../lucida/speechrecognition/kaldi_gs
 declare -a imageclassification=("IMC" "$(pwd)/../lucida/djinntonic/imc/")
 declare -a digitrecognition=("DIG" "$(pwd)/../lucida/djinntonic/dig/")
 declare -a facerecognition=("FACE" "$(pwd)/../lucida/djinntonic/face")
-declare -a weather=("WE" "$(pwd)/../lucida/weather")
 
 declare -a services=(
     commandcenter
@@ -55,11 +58,8 @@ declare -a services=(
     speechrecognition
     imageclassification
     digitrecognition
-    facerecognition
-    weather)
+    facerecognition)
 
-# Create the session
-tmux new-session -s ${SESSION_NAME} -n vim -d
 # First window (0) -- vim
 tmux send-keys -t ${SESSION_NAME} 'vim' C-m
 
