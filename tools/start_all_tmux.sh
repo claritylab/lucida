@@ -17,11 +17,13 @@ tmux has-session -t ${SESSION_NAME}
 if [ $? -eq 0 ]; then
     echo "Session ${SESSION_NAME} already exists."
     exit 0;
+elif [ -n "$TMUX" ]; then
+    echo "Already in a tmux session"
+    exit 0;
 else
     echo "Session ${SESSION_NAME} does not exit. Creating a ${SESSION_NAME} session."
     # Create the session
     tmux new-session -s ${SESSION_NAME} -n vim -d
-
 fi
 
 # Check to see if we should run on http/ws (non-secure) or https/wss (secure)
