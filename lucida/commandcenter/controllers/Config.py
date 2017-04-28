@@ -40,3 +40,11 @@ CLASSIFIER_DESCRIPTIONS = {
                      'class_IMC' : Graph([Node('IMC')]),
                      'class_FACE' : Graph([Node('FACE')]),
                      'class_DIG' : Graph([Node('DIG')]) } }
+
+# Structure used to save the state/context across requests in a session
+# example:
+# SESSION = { <user>:
+#                   'graph': <Graph>,
+#                   'data': <response_data>
+# }
+SESSION = {}
