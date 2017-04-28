@@ -49,6 +49,7 @@ declare -a speechrecognition=("ASR" "$(pwd)/../lucida/speechrecognition/kaldi_gs
 declare -a imageclassification=("IMC" "$(pwd)/../lucida/djinntonic/imc/")
 declare -a digitrecognition=("DIG" "$(pwd)/../lucida/djinntonic/dig/")
 declare -a facerecognition=("FACE" "$(pwd)/../lucida/djinntonic/face")
+declare -a weather=("WE" "$(pwd)/../lucida/weather")
 
 declare -a services=(
     commandcenter
@@ -58,7 +59,8 @@ declare -a services=(
     speechrecognition
     imageclassification
     digitrecognition
-    facerecognition)
+    facerecognition
+    weather)
 
 # Create the session
 tmux new-session -s ${SESSION_NAME} -d
