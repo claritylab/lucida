@@ -1,4 +1,4 @@
-from Service import Service, WokerService
+from Service import Service, WorkerService
 from Graph import Graph, Node
 from Decision import*
 
@@ -24,8 +24,8 @@ SERVICES = {
     'DIG' : Service('DIG', 8087, 'image', None),
     'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None),
     'WE' : Service('WE', 8088, 'text', None),
-    'DCM_WE' : Service('DCM', Decision().class_WE_DCM),
-    'DCM_IMM' : Service('DCM', Decision().class_IMM_DCM)
+    'DCM_WE' : WorkerService('DCM', Decision().class_WE_DCM),
+    'DCM_IMM' : WorkerService('DCM', Decision().class_IMM_DCM)
     }
 
 # Map from input type to query classes and services needed by each class.
@@ -43,7 +43,7 @@ CLASSIFIER_DESCRIPTIONS = {
                      'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')]),
                      'class_IMC' : Graph([Node('IMC')]),
                      'class_FACE' : Graph([Node('FACE')]),
-                     'class_DIG' : Graph([Node('DIG')])
+                     'class_DIG' : Graph([Node('DIG')]),
                      'class_IMM_DCM_QA_WE' : Graph([Node('IMM', [1]), Node('DCM_IMM', [0,2]), Node('QA', [3]), Node('WE')]) }
     }
 
