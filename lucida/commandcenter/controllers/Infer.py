@@ -34,7 +34,7 @@ def infer_route():
                 speech_input = form['speech_input'] if 'speech_input' in form \
                     else ''
                 print '@@@@@@@@@@', speech_input
-                image_input = upload_file.read() if upload_file else None
+                image_input = [upload_file.read()] if upload_file else None
                 lucida_id = session['username']
                 # Check if context is saved for Lucida user
                 # If not, classify query, otherwise restore session
@@ -46,7 +46,7 @@ def infer_route():
                     services_needed = Config.SESSION[lucida_id]['graph']
                     Config.SESSION[lucida_id]['data']['text'].append(speech_input)
                     speech_input = Config.SESSION[lucida_id]['data']['text']
-                options['result'] = thrift_client.infer(lucida_id,
+                options['result'] = thrift_client.infer(lucida_id, \
                     services_needed, speech_input, image_input)
                 log('Result ' + options['result'])
                 # Check if Calendar service is needed.

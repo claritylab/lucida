@@ -22,6 +22,8 @@ class Graph(object):
     def __init__(self, node_list):
         self.node_list = node_list
         # Start index is always initialized to 0
+        # TODO: get rid of start_index and pass it into ThriftClient.infer()
+        # since it is only used when traversing through the graph
         self.start_index = 0
         # Validate.
         global_has_seen = set()
@@ -56,11 +58,11 @@ class Graph(object):
         else:
             return self.node_list[index]
 
-    def get_next_index(self, curr_node, service_name):
+    def get_next_index(self, curr_node, next_service_name):
         for index in curr_node.to_indices:
-            if self.get_node(index).service_name == service_name:
+            if self.get_node(index).service_name == next_service_name:
                     return index
-        print 'Invalid next service ' + service_name
+        print 'Invalid next service ' + next_service_name
         exit()
 
     def to_string(self):

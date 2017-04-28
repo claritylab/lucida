@@ -14,7 +14,7 @@ docker:
 ## build local environment
 export LD_LIBRARY_PATH=/usr/local/lib
 
-local: 
+local:
 	cd tools && make && cd ../lucida && make
 
 start_all:

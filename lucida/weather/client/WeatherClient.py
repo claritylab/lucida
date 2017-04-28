@@ -12,7 +12,6 @@ from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
-
 LUCID = "Clinc"
 query_input_data = "What's the weather in Ann Arbor, MI?"
 query_input = QueryInput(type="query", data=[query_input_data])

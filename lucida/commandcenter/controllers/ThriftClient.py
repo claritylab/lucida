@@ -50,6 +50,7 @@ class ThriftClient(object):
         transport.close()
         return result
 
+# TODO: If SESSION is within its own file move this function there
     def clear_context(self, LUCID, service_graph):
         if LUCID in Config.SESSION:
             # Initialize workflow back to the beginning
@@ -76,10 +77,10 @@ class ThriftClient(object):
                 self.create_query_spec('knowledge', [knowledge_input]))
             transport.close()
 
+# TODO: I need help trying to make this method look less scary
     def infer(self, LUCID, service_graph, text_data, image_data):
         # Create the list of QueryInput.
         query_input_list = []
-        # Text is a list and image is a string
         response_data = { 'text': text_data, 'image': image_data }
         end_of_workflow = False
         start_index = service_graph.start_index
@@ -92,7 +93,8 @@ class ThriftClient(object):
                 result = self.send_query(LUCID, service_graph, start_index, query_input_list)
                 response_data['text'].append(result)
                 # Make a decision using the DCM logic method
-                start_index, lucida_response = service.logic_method(response_data, service_graph, node)
+                start_index, lucida_response = \
+                        service.logic_method(response_data, service_graph, node)
                 # If no start/next index, display latest response to user
                 if start_index == None:
                     # Remove saved state/context for user
@@ -110,7 +112,8 @@ class ThriftClient(object):
             # Service nodes
             else:
                 # Create QueryInput list
-                data = response_data['text'] if service.input_type == 'text' else [response_data['image']]
+                data = response_data['text'] if service.input_type == 'text' \
+                        else response_data['image']
                 host, port = service.get_host_port()
                 tag_list = [host, str(port)]
                 # Only Worker Service nodes can have multiple to_indices

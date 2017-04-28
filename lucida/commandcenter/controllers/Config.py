@@ -47,6 +47,7 @@ CLASSIFIER_DESCRIPTIONS = {
                      'class_IMM_DCM_QA_WE' : Graph([Node('IMM', [1]), Node('DCM_IMM', [0,2]), Node('QA', [3]), Node('WE')]) }
     }
 
+# TODO: Should I have this in its own Config file?
 # Structure used to save the state/context across requests in a session
 # example:
 # SESSION = { <user>:
