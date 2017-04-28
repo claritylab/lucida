@@ -1,5 +1,6 @@
-from Service import Service
+from Service import Service, WokerService
 from Graph import Graph, Node
+from Decision import*
 
 # The maximum number of texts or images for each user.
 # This is to prevent the server from over-loading.
@@ -22,14 +23,17 @@ SERVICES = {
     'FACE' : Service('FACE', 8086, 'image', None),
     'DIG' : Service('DIG', 8087, 'image', None),
     'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None),
-    'WE' : Service('WE', 8088, 'text', None)
+    'WE' : Service('WE', 8088, 'text', None),
+    'DCM_WE' : Service('DCM', Decision().class_WE_DCM),
+    'DCM_IMM' : Service('DCM', Decision().class_IMM_DCM)
     }
 
 # Map from input type to query classes and services needed by each class.
 CLASSIFIER_DESCRIPTIONS = {
     'text' : { 'class_QA' :  Graph([Node('QA')]),
                'class_CA' : Graph([Node('CA')]),
-               'class_WE' : Graph([Node('WE')]) },
+               'class_WE' : Graph([Node('WE')]),
+               'class_WE_DCM' : Graph([Node('WE', [1]), Node('DCM_WE', [0])]) },
     'image' : { 'class_IMM' : Graph([Node('IMM')]),
                 'class_IMC' : Graph([Node('IMC')]),
                 'class_FACE' : Graph([Node('FACE')]),
@@ -39,7 +43,9 @@ CLASSIFIER_DESCRIPTIONS = {
                      'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')]),
                      'class_IMC' : Graph([Node('IMC')]),
                      'class_FACE' : Graph([Node('FACE')]),
-                     'class_DIG' : Graph([Node('DIG')]) } }
+                     'class_DIG' : Graph([Node('DIG')])
+                     'class_IMM_DCM_QA_WE' : Graph([Node('IMM', [1]), Node('DCM_IMM', [0,2]), Node('QA', [3]), Node('WE')]) }
+    }
 
 # Structure used to save the state/context across requests in a session
 # example:
