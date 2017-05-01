@@ -23,7 +23,7 @@ elif [ -n "$TMUX" ]; then
 else
     echo "Session ${SESSION_NAME} does not exit. Creating a ${SESSION_NAME} session."
     # Create the session
-    tmux new-session -s ${SESSION_NAME} -n vim -d
+    tmux new-session -s ${SESSION_NAME} -d
 fi
 
 # Check to see if we should run on http/ws (non-secure) or https/wss (secure)
@@ -62,16 +62,17 @@ declare -a services=(
     digitrecognition
     facerecognition)
 
-# First window (0) -- vim
-tmux send-keys -t ${SESSION_NAME} 'vim' C-m
-
 # Create the service windows
-TMUX_WIN=1
+TMUX_WIN=0
 for i in "${services[@]}"
 do
     NAME=$i[0]
     SERV_PATH=$i[1]
-    tmux new-window -n ${!NAME} -t ${SESSION_NAME}
+    if [ $TMUX_WIN == 0 ]; then
+        tmux rename-window -t ${SESSION_NAME}:$TMUX_WIN ${!NAME}
+    else
+        tmux new-window -n ${!NAME} -t ${SESSION_NAME}
+    fi
     tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "cd ${!SERV_PATH}" C-m
     tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "make start_server" C-m
     ((TMUX_WIN++))
