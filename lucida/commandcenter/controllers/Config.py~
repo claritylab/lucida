@@ -28,8 +28,7 @@ SERVICES = {
 # Map from input type to query classes and services needed by each class.
 CLASSIFIER_DESCRIPTIONS = { 
 	'text' : { 'class_QA' :  Graph([Node('QA')]) ,
-			   'class_CA' : Graph([Node('CA')]),
-			   'class_MS' : Graph([Node('MS')]) },
+			   'class_CA' : Graph([Node('CA')]) },
 	'image' : { 'class_IMM' : Graph([Node('IMM')]),
 				'class_IMC' : Graph([Node('IMC')]),
 				'class_FACE' : Graph([Node('FACE')]),
