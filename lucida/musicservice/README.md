@@ -1,21 +1,21 @@
-#Music Service (MS)
+# Music Service (MS)
 
-##Build
+## Build
 ```
 make all
 ```
 
-##Run
+## Run
 ```
 make start_server
 ```
 
-##Test
+## Test
 ```
 make start_test
 ```
 
-##Clean
+## Clean
 ```
 make clean
 ```
