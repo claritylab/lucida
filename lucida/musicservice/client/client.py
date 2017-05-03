@@ -3,7 +3,6 @@
 import sys
 sys.path.append('../')
 
-
 from MusicConfig import PORT
 from lucidatypes.ttypes import QueryInput, QuerySpec
 from lucidaservice import LucidaService
@@ -13,12 +12,11 @@ from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
-# Setup a templete input query
+# Setup a template input query
 LUCID = "Clinc"
 query_input_data = "I want a happy song."
 query_input = QueryInput(type="query", data=[query_input_data])
 query_spec = QuerySpec(content=[query_input])
-
 
 try:
   transport = TSocket.TSocket('localhost', PORT)
@@ -27,7 +25,7 @@ try:
   client = LucidaService.Client(protocol)
   transport.open()
 
-
+  # Test the server
   print "----Test client----\nQuery: ", query_input_data
   msg = client.infer(LUCID, query_spec)
   print "------Result:------\n", msg
