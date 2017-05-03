@@ -31,6 +31,6 @@ class Service(object):
 
 class WorkerService(object):
     # Constructor
-    def __init__(self, name, logic_method):
+    def __init__(self, name, decision):
         self.name = name
-        self.logic_method = logic_method
+        self.decision = decision

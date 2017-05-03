@@ -1,6 +1,6 @@
 from Service import Service, WorkerService
 from Graph import Graph, Node
-from Decision import*
+from dcm import*
 
 # The maximum number of texts or images for each user.
 # This is to prevent the server from over-loading.
@@ -22,10 +22,9 @@ SERVICES = {
     'IMC' : Service('IMC', 8085, 'image', None),
     'FACE' : Service('FACE', 8086, 'image', None),
     'DIG' : Service('DIG', 8087, 'image', None),
-    'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None),
     'WE' : Service('WE', 8088, 'text', None),
-    'DCM_WE' : WorkerService('DCM', Decision().class_WE_DCM),
-    'DCM_IMM' : WorkerService('DCM', Decision().class_IMM_DCM)
+    'DCM_WE' : WorkerService('DCM', WEDCM.WEDCM()),
+    'DCM_IMM' : WorkerService('DCM', IMMDCM.IMMDCM())
     }
 
 # Map from input type to query classes and services needed by each class.

@@ -1,6 +1,6 @@
 from lucidatypes.ttypes import QueryInput, QuerySpec
 from lucidaservice import LucidaService
-from Decision import*
+from dcm import*
 from flask import*
 
 from thrift.transport import TSocket
@@ -93,18 +93,18 @@ class ThriftClient(object):
                 result = self.send_query(LUCID, service_graph, start_index, query_input_list)
                 response_data['text'].append(result)
                 # Make a decision using the DCM logic method
-                start_index, lucida_response = \
-                        service.logic_method(response_data, service_graph, node)
+                service.decision.logic_method(response_data, service_graph, node)
+                start_index = service.decision.next_node
                 # If no start/next index, display latest response to user
                 if start_index == None:
                     # Remove saved state/context for user
                     self.clear_context(LUCID, service_graph)
                     return response_data['text'][-1]
                 # If lucida response, gather more info from user
-                elif lucida_response:
+                elif service.decision.lucida_response:
                     Config.SESSION[LUCID] = {'graph': service_graph, 'data': response_data }
                     service_graph.start_index = start_index
-                    return lucida_response
+                    return service.decision.lucida_response
                 # Set up to go to the next service
                 else:
                     node = service_graph.get_node(start_index)
