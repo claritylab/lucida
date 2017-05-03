@@ -7,7 +7,7 @@ This is a mood-indexed music scanning service.
 
 ## Build
 - get API key for [Gracenote Music API](https://developer.gracenote.com/user/me/apps)
-- place client ID and key in `MusicConfig.py`
+- place client ID in `MusicConfig.py`
 ```
 make all
 ```
