@@ -2,7 +2,6 @@
 
 import re
 
-
 # Mood invert index
 mood_dic = {
 "peaceful" : "65322",

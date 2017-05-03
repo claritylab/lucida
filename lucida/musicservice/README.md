@@ -5,14 +5,9 @@ This is a mood-indexed music scanning service.
 - [pygn python library](https://github.com/cweichen/pygn)
 - [Gracenote Music API](https://www.gracenote.com/)
 
-This is a mood-indexed music scanning service. 
 ## Build
-<<<<<<< HEAD
 - get API key for [Gracenote Music API](https://developer.gracenote.com/user/me/apps)
 - place client ID and key in `MusicConfig.py`
-=======
-To build the service before running
->>>>>>> adf3a29df533e6d4f0f31ad4ca6d90c95f473b32
 ```
 make all
 ```
