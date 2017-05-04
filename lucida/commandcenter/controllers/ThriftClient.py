@@ -60,7 +60,7 @@ class ThriftClient(object):
     def learn_image(self, LUCID, image_type, image_data, image_id):
         for service in Config.Service.LEARNERS['image']: # add concurrency?
             knowledge_input = self.create_query_input(
-                image_type, image_data, [image_id])
+                image_type, [image_data], [image_id])
             client, transport = self.get_client_transport(service)
             log('Sending learn_image request to IMM')
             client.learn(str(LUCID),
@@ -70,7 +70,7 @@ class ThriftClient(object):
     def learn_text(self, LUCID, text_type, text_data, text_id):
         for service in Config.Service.LEARNERS['text']: # add concurrency?
             knowledge_input = self.create_query_input(
-                text_type, text_data, [text_id])
+                text_type, [text_data], [text_id])
             client, transport = self.get_client_transport(service)
             log('Sending learn_text request to QA')
             client.learn(str(LUCID),
