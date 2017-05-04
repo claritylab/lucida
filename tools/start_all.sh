@@ -6,6 +6,7 @@ declare -a services=(
 	"$(pwd)/../lucida/imagematching/opencv_imm"
 	"$(pwd)/../lucida/questionanswering/OpenEphyra"
 	"$(pwd)/../lucida/calendar"
+	"$(pwd)/../lucida/musicservice"
 	"$(pwd)/../lucida/djinntonic/dig"
 	"$(pwd)/../lucida/djinntonic/face"
 	"$(pwd)/../lucida/djinntonic/imc")
