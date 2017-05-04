@@ -22,15 +22,15 @@ import re
 
 class MusicHandler:
 	def create(self, LUCID, spec):
-		'''
+		"""
 		Do nothing
-		'''
+		"""
 		return 
 
 	def learn(self, LUCID, knowledge):
-		'''
+		"""
 		Do nothing
-		'''
+		"""
 		return
 
 	def infer(self, LUCID, query):
