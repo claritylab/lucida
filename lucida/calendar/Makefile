@@ -24,7 +24,7 @@ corenlp:
 	fi
 
 start_server: 
-	gnome-terminal -x bash -c "./gradlew run $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+	./gradlew run
 
 start_test: 
 	gnome-terminal -x bash -c "cd CalendarClient; ./start-Calendar-client.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"
