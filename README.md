@@ -45,7 +45,7 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
   If you want to make contributions to Lucida, please build it locally:
 
 - From this directory, type: `make local`. This will run scripts in `tools/` to
-  install all the required depedencies. After that, it will compile back-end services
+  install all the required dependencies. After that, it will compile back-end services
   in `lucida/`.
 
 - Important note for Ubuntu 16.04 users: please read [note #1](tools/README.md).
@@ -82,7 +82,7 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 
 - Navigate to [`tools/deploy/`](tools/deploy) and follow the instructions there.
 
-- Once done, check out the [`tutorial`](tutorial.pdf) for usgae and sample questions.
+- Once done, check out the [`tutorial`](tutorial.pdf) for usage and sample questions.
 
 ## Design Notes -- How to Add Your Own Service into Lucida?
 
@@ -119,7 +119,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     }
     ```
     
-    The basic funtionalities that your service needs to provide are called `create`, `learn`, and `infer`. 
+    The basic functionalities that your service needs to provide are called `create`, `learn`, and `infer`. 
     They all take in the same type of parameters, a `string` representing the Lucida user ID (`LUCID`),
     and a `QuerySpec` defined in `lucida/lucidatypes.thrift`. 
     The command center invokes these three procedures implemented by your service,
@@ -151,7 +151,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     if your service cannot learn new knowledge. For example, it may be hard to retrain a DNN model, so the facial recognition
     service simply prints a message when it receives a learn request.
     Otherwise, consider using a database system to store the new knowledge.
-    Currently we use MongoDB to store the text and image knowledge.
+    Currently, we use MongoDB to store the text and image knowledge.
     You need to tell the command center whether to send a learn request
     to your service or not, which is detailed in step 2.
     
@@ -398,7 +398,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     refer to the next section on how to add training data.
     
     Notice that a service `Graph` object is constructed with a list of `Node`
-    Each `Node` is constructed with the servide name and an optional list of node indices in the list
+    Each `Node` is constructed with the service name and an optional list of node indices in the list
     that the current node points to. By default, it is an empty list.
     For example, `'class_IMM_QA' : Graph([Node('IMM', [1]), Node('QA')])` means that the prediction result `class_IMM_QA`
     needs the following services:
@@ -409,7 +409,7 @@ in order to add your own service into Lucida. Let's break it down into two steps
     
     Notice that we do not define which nodes the current node is pointed to by, so we do not know which node is pointed to
     by the command center. Thus, we need to specify the starting nodes separately.
-    This is done by an optional second paramater in the constructor of `Graph`:
+    This is done by an optional second parameter in the constructor of `Graph`:
     
     ```
     def __init__(self, node_list, starting_indices=[0]):
