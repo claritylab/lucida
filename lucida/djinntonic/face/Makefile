@@ -23,7 +23,8 @@ $(TARGET): $(OBJECTS)
 	$(CXX) -Wall $(CXXFLAGS) -c $< -o $@
 
 start_server: 
-	./FACEServer
+	gnome-terminal -x bash -c "./FACEServer $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+
 start_test: 
 	gnome-terminal -x bash -c "./run-test.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"
 

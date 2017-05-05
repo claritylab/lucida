@@ -14,7 +14,7 @@ thrift:
     fi
 
 start_server: 
-	chmod +x start_server.sh && ./start_server.sh
+	gnome-terminal -x bash -c "chmod +x start_server.sh && ./start_server.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"
 
 start_test: 
 	gnome-terminal -x bash -c "chmod +x start_test.sh && ./start_test.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"
