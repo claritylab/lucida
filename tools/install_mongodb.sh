@@ -36,7 +36,7 @@ fi
 
 # C driver.
 apt-get install git gcc automake autoconf libtool
-if [ -d mongo-c-driver ]; then
+if [ ! -d mongo-c-driver ]; then
   git clone https://github.com/mongodb/mongo-c-driver.git
   if [ $? -ne 0 ]; then
     echo "Could not clone mongo-c-driver!!! Please try again later..."
@@ -66,7 +66,7 @@ fi
 apt-get -y upgrade
 
 # C++ driver.
-if [ -d mongo-cxx-driver ]; then
+if [ ! -d mongo-cxx-driver ]; then
   git clone -b master https://github.com/mongodb/mongo-cxx-driver
   if [ $? -ne 0 ]; then
     echo "Could not clone mongo-cxx-driver!!! Please try again later..."
