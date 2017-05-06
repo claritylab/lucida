@@ -4,6 +4,7 @@ if [ -z $THREADS ]; then
 fi
 
 export THRIFT_VERSION=0.9.3
+THREADS=1
 
 installCheck () {
   if [ ! -d thrift-$THRIFT_VERSION ]; then
@@ -34,7 +35,7 @@ if [ ! -d thrift-$THRIFT_VERSION ]; then
 fi
 
 cd thrift-$THRIFT_VERSION \
-  && ./configure --with-qt4=no --with-qt5=no \
+  && ./configure --with-lua=no --with-ruby=no --with-go=no --with-erlang=no --with-nodejs=no --with-qt4=no --with-qt5=no \
   && make -j$THREADS \
   && make -j$THREADS install \
   && cd lib/py/ \
