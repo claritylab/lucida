@@ -84,6 +84,59 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 
 - Once done, check out the [`tutorial`](tutorial.pdf) for usage and sample questions.
 
+## REST API for command center
+
+The REST API is in active development and may change drastically. It currently supports only infer. Other features will be added as they are developed.
+Clients should handle their own user authentication. This requirement will be removed later. An [example client](lucida/botframework-interface) for botframework is available.
+
+### Connect client user to Lucida user
+
+This is a one time requiremnt. To connect client user to Lucida user is necessary before the API can process any messages. The flow is as follows
+
+* User logs into Lucida command center (default: http://localhost:3000)
+* User clicks on username and is redirected to profile page. This page lists all connected clients and has a verification message.
+* The client should call `api/add_interface` endpoint with a form containing following fields
+
+```
+interface:        Name of the client. This may contain lower case alphanumeric characters and underscores. This should be fixed for a given client.
+username:         Client specific username for the concerned user. Not the Lucida username.
+token:            Verification token is contained in the verification message. The message is of the form 'Verify <token>'
+```
+
+* The response status and their meanings are as follows
+
+```
+200 OK:           Client successfully connected.
+401 Unauthorized: Expired token. Ask user to regenerate token.
+403 Forbidden:    Incorrect token. Ask user to verify/regenerate token.
+```
+
+Example
+```
+curl -i -X POST -F "interface=facebook" -F "token=eyJhb...jpQ" -F "username=lucida_fb" http://localhost:3000/api/add_interface
+```
+
+### Infer messages
+
+This works the same as infer endpoint on the web interface except that speech input is not supported. The client should call `api/infer` endpoint with a form containing following fields
+
+```
+interface:        Name of the client. This may contain lower case alphanumeric characters and underscores. This should be fixed for a given client.
+username:         Client specific username for the concerned user. NOT the Lucida username.
+text_input:       The text input for infer.
+file:             Image input for infer. (Optional)
+```
+The response status and their meanings are as follows
+```
+200 OK:           A JSON string is returned with result and dates fields.
+403 Forbidden:    User is not recognized. Have you connected the user to client?
+```
+
+Example
+```
+curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "text_input=Who is this famous celebrity?" -F "file=@/path/to/file/celeb.jpg" http://localhost:3000/api/infer
+```
+
 ## Design Notes -- How to Add Your Own Service into Lucida?
 
 ### Back-end Communication

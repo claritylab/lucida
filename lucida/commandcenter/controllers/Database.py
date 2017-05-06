@@ -44,6 +44,19 @@ class Database(object):
 		# which auto-expire after 60 seconds.
 		memcached.client.set(username, hashed_password, time=60)
 	
+	# Adds a new interface for a user.
+	def add_interface(self, username, interface, interface_uid):
+		interface += "_interface"
+		self.users.update({'username' : username},
+			{'$set': {interface: interface_uid}}, upsert=False)
+	
+	# List interface for a user.
+	def list_interfaces(self, username):
+		if not self.username_exists(username):
+			return []
+		row = self.users.find_one({'username': username})
+		return [key for key,value in row.items() if key.endswith("_interface")]
+	
 	# Returns true if password of the user is correct
 	def check_password(self, username, input_password):
 		# Try memcached first.
@@ -69,6 +82,14 @@ class Database(object):
 	#Returns true if the username already exists.
 	def username_exists(self, username):
 		return not self.users.find_one({'username': username}) is None
+	
+	#Returns true if the username already exists.
+	def get_username(self, interface, interface_uid):
+		interface += "_interface"
+		row = self.users.find_one({interface: interface_uid});
+		if not row is None:
+			return row['username']
+		return None
 	
 	# Adds the uploaded image.
 	def add_image(self, username, image_data, label, image_id):
