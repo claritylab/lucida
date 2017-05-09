@@ -8,7 +8,8 @@ declare -a services=(
 	"$(pwd)/../lucida/calendar"
 	"$(pwd)/../lucida/djinntonic/dig"
 	"$(pwd)/../lucida/djinntonic/face"
-	"$(pwd)/../lucida/djinntonic/imc")
+	"$(pwd)/../lucida/djinntonic/imc"
+	"$(pwd)/../lucida/musicservice")
 
 for i in "${services[@]}"
 do
