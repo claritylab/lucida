@@ -86,10 +86,14 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 
 ## REST API for command center
 
-The REST API is in active development and may change drastically. It currently supports only infer. Other features will be added as they are developed.
-Clients should handle their own user authentication. This requirement will be removed later. An [example client](lucida/botframework-interface) for botframework is available.
+The REST API is in active development and may change drastically. It currently supports only infer and learn. Other features may be added later.
+An [example client](lucida/botframework-interface) for botframework is available.
 
-### Connect client user to Lucida user
+### Authentication Flow
+
+Clients should handle their own user authentication. This requirement will be removed later.
+
+#### Connect client user to Lucida user
 
 This is a one time requiremnt. To connect client user to Lucida user is necessary before the API can process any messages. The flow is as follows
 
@@ -98,41 +102,176 @@ This is a one time requiremnt. To connect client user to Lucida user is necessar
 * The client should call `api/add_interface` endpoint with a form containing following fields
 
 ```
-interface:        Name of the client. This may contain lower case alphanumeric characters and underscores. This should be fixed for a given client.
-username:         Client specific username for the concerned user. Not the Lucida username.
-token:            Verification token is contained in the verification message. The message is of the form 'Verify <token>'
+interface:     Name of the client. This may contain lower case alphanumeric characters and underscores. This should be fixed for a given client.
+username:      Client specific username for the concerned user. Not the Lucida username.
+token:         Verification token is contained in the verification message. The message is of the form 'Verify <token>'
 ```
 
 * The response status and their meanings are as follows
 
 ```
-200 OK:           Client successfully connected.
-401 Unauthorized: Expired token. Ask user to regenerate token.
-403 Forbidden:    Incorrect token. Ask user to verify/regenerate token.
+HTTP 200:      Client successfully connected.
+HTTP 401:      Expired token. Ask user to regenerate token.
+HTTP 403:      Incorrect token. Ask user to verify/regenerate token.
 ```
 
 Example
+
 ```
 curl -i -X POST -F "interface=facebook" -F "token=eyJhb...jpQ" -F "username=lucida_fb" http://localhost:3000/api/add_interface
 ```
 
-### Infer messages
+### Interaction Endpoints
 
-This works the same as infer endpoint on the web interface except that speech input is not supported. The client should call `api/infer` endpoint with a form containing following fields
+The following endpoints require user to be connected to the interface. The requests to these endpoints should contain a form with following fields apart from endpoint specific fields.
 
 ```
-interface:        Name of the client. This may contain lower case alphanumeric characters and underscores. This should be fixed for a given client.
-username:         Client specific username for the concerned user. NOT the Lucida username.
-text_input:       The text input for infer.
-file:             Image input for infer. (Optional)
+interface:     Name of the client. This may contain lower case alphanumeric characters and underscores. This should be fixed for a given client.
+username:      Client specific username for the concerned user. NOT the Lucida username.
 ```
-The response status and their meanings are as follows
+
+The response status and their meanings are as follows.
+
 ```
-200 OK:           A JSON string is returned with result and dates fields.
-403 Forbidden:    User is not recognized. Have you connected the user to client?
+HTTP 200 :     Successfully completed. Response will be a JSON string. Details are provided with each endpoint.
+HTTP 403 :     User is not recognized. Have you connected the user to client?
+HTTP 500 :     Internal Server Error. Response may be a JSON string. In that case further error information can be found in 'error' field.
+```
+
+### Query Knowledge Data (/api/learn/query)
+
+This endpoint lists data learnt through web interface or API. The client should call the endpoint with a form containing following fields.
+
+```
+type:          'image' or 'text' (Optional. If the field is not 'image' or 'text' or is not defined both image and text will be returned).
+```
+
+The response JSON on success will contain the following fields.
+
+```
+pictures:      An array of pictures containing 'image_id' (identifier of the image), 'data' (base64 encoded image data), 'label' (image label)
+text:          An array of pictures containing 'text_id' (identifier of the text data), 'text_data' (text/url data), 'type' ('text' or 'url')
+```
+
+NOTE: This endpoint may return large amount of data. Pagination will be added later.
+
+Example
+
+```
+curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" http://localhost:3000/api/learn/query
+```
+
+### Learn Image Data (/api/learn/add_image)
+
+This works the same as add image knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields.
+
+```
+label:         Image label.
+file:          Image input.
+```
+
+The response JSON on success will contain the following fields.
+
+```
+image_id:      Identifier of the image data. This is required to delete or fetch the image.
 ```
 
 Example
+
+```
+curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "label=Some Label" -F "file=@/path/to/file" http://localhost:3000/api/learn/add_image
+```
+
+### Unlearn Image Data (/api/learn/delete_image)
+
+This works the same as delete image knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields
+
+```
+image_id:      Image id returned from knowledge query or add image.
+```
+
+The response on success will be an empty JSON.
+
+Example
+
+```
+curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "image_id=image_id" http://localhost:3000/api/learn/delete_image
+```
+
+### Learn Text Data (/api/learn/add_text)
+
+This works the same as add text knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields.
+
+```
+knowledge:     Text data.
+```
+
+The response JSON on success will contain the following fields.
+
+```
+text_id:       Identifier of the text data. This is required to delete or fetch the text data.
+```
+
+Example
+
+```
+curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "text_data=The capital of Italy is Rome" http://localhost:3000/api/learn/add_text
+```
+
+### Learn URL Data (/api/learn/add_url)
+
+This works the same as add URL knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields.
+
+```
+knowledge:     URL.
+```
+
+The response JSON on success will contain the following fields.
+
+```
+text_id:       Identifier of the text data. This is required to delete or fetch the URL.
+```
+
+Example
+
+```
+curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "text_data=https://en.wikipedia.org/wiki/lucida" http://localhost:3000/api/learn/add_url
+```
+
+### Unlearn Text/URL Data (/api/learn/delete_text)
+
+This works the same as delete text/url knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields
+
+```
+text_id:       Image id returned from knowledge query or add text or add url.
+```
+
+The response on success will be an empty JSON.
+
+Example
+
+```
+curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "text_id=image_id" http://localhost:3000/api/learn/delete_text
+```
+
+### Infer messages (/api/infer)
+
+This works the same as infer endpoint on the web interface except that speech input is not supported. The client should call the endpoint with a form containing following fields
+
+```
+speech_input:  The text input for infer.
+file:          Image input for infer. (Optional)
+```
+
+The response JSON on success will contain the following fields
+
+```
+result:        The result of query
+date:          Date in case of calendar query
+```
+
+Example
+
 ```
 curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "text_input=Who is this famous celebrity?" -F "file=@/path/to/file/celeb.jpg" http://localhost:3000/api/infer
 ```
