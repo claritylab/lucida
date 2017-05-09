@@ -21,13 +21,15 @@ SERVICES = {
 	'IMC' : Service('IMC', 8085, 'image', None),
 	'FACE' : Service('FACE', 8086, 'image', None),
 	'DIG' : Service('DIG', 8087, 'image', None),
-	'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None) 
+	'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None),
+	'MS' : Service('MS', 8089, 'text', None)
 	}
 
 # Map from input type to query classes and services needed by each class.
 CLASSIFIER_DESCRIPTIONS = { 
 	'text' : { 'class_QA' :  Graph([Node('QA')]) ,
-			   'class_CA' : Graph([Node('CA')]) },
+			   'class_CA' : Graph([Node('CA')]),
+			   'class_MS' : Graph([Node('MS')]) },
 	'image' : { 'class_IMM' : Graph([Node('IMM')]),
 				'class_IMC' : Graph([Node('IMC')]),
 				'class_FACE' : Graph([Node('FACE')]),
