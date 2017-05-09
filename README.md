@@ -138,7 +138,7 @@ HTTP 403 :     User is not recognized. Have you connected the user to client?
 HTTP 500 :     Internal Server Error. Response may be a JSON string. In that case further error information can be found in 'error' field.
 ```
 
-### Query Knowledge Data (/api/learn/query)
+#### Query Knowledge Data (/api/learn/query)
 
 This endpoint lists data learnt through web interface or API. The client should call the endpoint with a form containing following fields.
 
@@ -161,7 +161,7 @@ Example
 curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" http://localhost:3000/api/learn/query
 ```
 
-### Learn Image Data (/api/learn/add_image)
+#### Learn Image Data (/api/learn/add_image)
 
 This works the same as add image knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields.
 
@@ -182,7 +182,7 @@ Example
 curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "label=Some Label" -F "file=@/path/to/file" http://localhost:3000/api/learn/add_image
 ```
 
-### Unlearn Image Data (/api/learn/delete_image)
+#### Unlearn Image Data (/api/learn/delete_image)
 
 This works the same as delete image knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields
 
@@ -198,7 +198,7 @@ Example
 curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "image_id=image_id" http://localhost:3000/api/learn/delete_image
 ```
 
-### Learn Text Data (/api/learn/add_text)
+#### Learn Text Data (/api/learn/add_text)
 
 This works the same as add text knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields.
 
@@ -218,7 +218,7 @@ Example
 curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "text_data=The capital of Italy is Rome" http://localhost:3000/api/learn/add_text
 ```
 
-### Learn URL Data (/api/learn/add_url)
+#### Learn URL Data (/api/learn/add_url)
 
 This works the same as add URL knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields.
 
@@ -238,7 +238,7 @@ Example
 curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "text_data=https://en.wikipedia.org/wiki/lucida" http://localhost:3000/api/learn/add_url
 ```
 
-### Unlearn Text/URL Data (/api/learn/delete_text)
+#### Unlearn Text/URL Data (/api/learn/delete_text)
 
 This works the same as delete text/url knowledge endpoint on the web interface. The client should call the endpoint with a form containing following fields
 
@@ -254,7 +254,7 @@ Example
 curl -i -X POST -F "interface=facebook" -F "username=lucida_fb" -F "text_id=image_id" http://localhost:3000/api/learn/delete_text
 ```
 
-### Infer messages (/api/infer)
+#### Infer messages (/api/infer)
 
 This works the same as infer endpoint on the web interface except that speech input is not supported. The client should call the endpoint with a form containing following fields
 
