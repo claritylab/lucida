@@ -8,6 +8,7 @@ if [ ! -d kaldi ]; then
   fi
 fi
 cd kaldi \
+ && git checkout 01576867802ae5c499f9a4b66591ce35499e28f5 \
  && cd tools \
  && ( sudo ln -s -f bash /bin/sh || : ) \
  && sudo apt-get install -y zlib1g-dev automake autoconf libtool subversion \
@@ -33,6 +34,7 @@ cd kaldi \
  && cd tools \
  && if [ ! -d gst-kaldi-nnet2-online ]; then git clone https://github.com/alumae/gst-kaldi-nnet2-online.git; if [ $? -ne 0 ]; then echo "Could not download gst-kaldi-nnet2-online!!! Please try again later..."; exit 1; fi; fi \
  && cd gst-kaldi-nnet2-online \
+ && git checkout 2d395396c5bf88628a1af0127eebe0a84bd02923 \
  && ( sudo add-apt-repository -y ppa:gstreamer-developers/ppa || : ) \
  && ( sudo apt-get -y update || : ) \
  && sudo apt-get install -y libjansson-dev \

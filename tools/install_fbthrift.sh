@@ -26,6 +26,9 @@ if [ ! -d fbthrift ]; then
 fi
 
 cd fbthrift/thrift \
+ && git checkout b2c1f8ed2937c04d9d7de6b07fc6303aec67fb46 \
+ && echo "d6cd4a4a1502a57022ecfd83a988b87512613c06" > ./build/FOLLY_VERSION \
+ && echo "cfb38af8c1e4b27e4405c3953212379b13521e5a" > ./build/WANGLE_VERSION \
  && ./build/deps_ubuntu_14.04.sh \
  && autoreconf -ivf \
  && ./configure \

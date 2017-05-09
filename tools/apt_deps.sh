@@ -72,4 +72,6 @@ apt-get install -y zlib1g-dev \
                    vim \
                    memcached \
                    libyaml-dev \
-                   libffi-dev
+                   libffi-dev \
+                   libbz2-dev \
+&& pip install virtualenv ws4py
