@@ -1,5 +1,6 @@
 from Service import Service, WorkerService
 from Graph import Graph, Node
+from Parser import port_dic
 from dcm import*
 
 # The maximum number of texts or images for each user.
@@ -16,13 +17,14 @@ TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 # Host IP addresses are resolved dynamically:
 # either set by Kubernetes or localhost.
 SERVICES = {
-    'IMM' : Service('IMM', 8082, 'image', 'image'),
-    'QA' : Service('QA', 8083, 'text', 'text'),
-    'CA' : Service('CA', 8084, 'text', None),
-    'IMC' : Service('IMC', 8085, 'image', None),
-    'FACE' : Service('FACE', 8086, 'image', None),
-    'DIG' : Service('DIG', 8087, 'image', None),
-    'WE' : Service('WE', 8088, 'text', None),
+    'IMM' : Service('IMM', int(port_dic["imm_port"]), 'image', 'image'),
+    'QA' : Service('QA', int(port_dic["qa_port"]), 'text', 'text'),
+    'CA' : Service('CA', int(port_dic["ca_port"]), 'text', None),
+    'IMC' : Service('IMC', int(port_dic["imc_port"]), 'image', None),
+    'FACE' : Service('FACE', int(port_dic["face_port"]), 'image', None),
+    'DIG' : Service('DIG', int(port_dic["dig_port"]), 'image', None),
+    'WE' : Service('WE', int(port_dic["we_port"]), 'text', None),
+    'MS' : Service('MS', int(port_dic["ms_port"]), 'text', None),
     'DCM_WE' : WorkerService('DCM', WEDCM.WEDCM()),
     'DCM_IMM' : WorkerService('DCM', IMMDCM.IMMDCM())
     }
@@ -32,6 +34,7 @@ CLASSIFIER_DESCRIPTIONS = {
     'text' : { 'class_QA' :  Graph([Node('QA')]),
                'class_CA' : Graph([Node('CA')]),
                'class_WE' : Graph([Node('WE')]),
+               'class_MS' : Graph([Node('MS')]),
                'class_WE_DCM' : Graph([Node('WE', [1]), Node('DCM_WE', [0])]) },
     'image' : { 'class_IMM' : Graph([Node('IMM')]),
                 'class_IMC' : Graph([Node('IMC')]),

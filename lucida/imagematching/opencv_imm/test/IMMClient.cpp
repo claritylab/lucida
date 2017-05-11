@@ -9,6 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+#include <string> 
 
 #include <folly/futures/Future.h>
 #include "gen-cpp2/LucidaService.h"
@@ -16,6 +17,7 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include <folly/init/Init.h>
+#include "Parser.h"
 
 using namespace folly;
 using namespace apache::thrift;
@@ -29,10 +31,6 @@ using mongo::BSONObj;
 using mongo::BSONObjBuilder;
 
 namespace fs = boost::filesystem;
-
-DEFINE_int32(port,
-		8082,
-		"Port for IMM service (default: 8082)");
 
 DEFINE_string(hostname,
 		"127.0.0.1",
@@ -75,8 +73,20 @@ int main(int argc, char* argv[]) {
 
 	folly::init(&argc, &argv);
 	EventBase event_base;
+
+	Properties props;
+	props.Read("../../../config.properties");
+	string portVal;
+	int port;
+	if (!props.GetValue("IMM_PORT", portVal)) {
+		cout << "IMM port not defined" << endl;
+		return -1;
+	} else {
+		port = atoi(portVal.c_str());
+	}
+
 	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(
-			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, FLAGS_port));
+			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, port));
 	LucidaServiceAsyncClient client(
 			std::unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>(
 					new HeaderClientChannel(socket_t)));
@@ -124,10 +134,10 @@ int main(int argc, char* argv[]) {
 		query_input.type = "image";
 		query_input.data.push_back(image);
 		query_input.tags.push_back("localhost");
-		query_input.tags.push_back("8082");
+		query_input.tags.push_back(to_string(port));
 		query_input.tags.push_back("0");
 		query_spec.content.push_back(query_input);
-		cout << i << " Sending request to IMM at 8082" << endl;
+		cout << i << " Sending request to IMM at " << port << endl;
 		auto result = client.future_infer("Johann", std::move(query_spec)).then(
 				[=](folly::Try<std::string>&& t) mutable {
 			cout << i << " result: " << t.value() << endl;

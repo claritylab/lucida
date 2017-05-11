@@ -33,7 +33,7 @@ start_server:
 	./IMCServer
 
 start_test: 
-	gnome-terminal -x bash -c "./run-test.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+	./run-test.sh 
 
 
 clean:
