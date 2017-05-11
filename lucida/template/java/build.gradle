@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'template.TemplateDaemon'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+version = '1.0'
+
+run {
+    if( project.hasProperty('args')) {
+        args project.args.split('\\s')
+    }
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+       dirs 'lib'
+   	}
+}
+
+// TODO: Add the dependencies your service needs
+dependencies {
+    compile 'org.apache.thrift:libthrift:0.9.3'
+}
