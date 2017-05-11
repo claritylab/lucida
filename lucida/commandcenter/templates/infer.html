@@ -46,8 +46,8 @@
 		<table style="width:800px" align="center">
 			<tr>
 				<td>
-					<div id="recbutton" class="disabled" onclick="clearTranscription(); toggleListening();"></div>
-				</td>
+                    <!-- TODO: add for kaldi  <div id="recbutton" class="disabled" onclick="clearTranscription(); toggleListening();"></div>-->
+                </td>
 				<td><div class="wrap">
 						<textarea id="trans" name="speech_input" form="infer_form"></textarea>
 					</div>
@@ -77,6 +77,12 @@
 			</div>
 		</form>
 
+            <!-- TODO: remove if using kaldi -->
+            <div id="divStart">
+                <button id="startButton" onclick="startButtonFunc()">
+                    <img alt="Start" id="startImg"
+                        src="static/image/microphone.png"></button>
+            </div>
 
 				<center>
 					Powered by <a href="http://lucida.ai">Lucida</a>
@@ -114,6 +120,7 @@
 	</div>
 </div>
 
+<script src="{{ url_for('static', filename='js/speech-streamer.js')}}"></script>
 <script src="{{ url_for('static', filename='js/dictate.js')}}"></script>
 <script src="{{ url_for('static', filename='js/recorder.js')}}"></script>
 <script src="{{ url_for('static', filename='js/recorderWorker.js')}}"></script>
