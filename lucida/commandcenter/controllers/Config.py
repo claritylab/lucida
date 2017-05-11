@@ -23,6 +23,7 @@ SERVICES = {
     'FACE' : Service('FACE', 8086, 'image', None),
     'DIG' : Service('DIG', 8087, 'image', None),
     'WE' : Service('WE', 8088, 'text', None),
+    'MS' : Service('MS', 8089, 'text', None),
     'DCM_WE' : WorkerService('DCM', WEDCM.WEDCM()),
     'DCM_IMM' : WorkerService('DCM', IMMDCM.IMMDCM())
     }
@@ -32,6 +33,7 @@ CLASSIFIER_DESCRIPTIONS = {
     'text' : { 'class_QA' :  Graph([Node('QA')]),
                'class_CA' : Graph([Node('CA')]),
                'class_WE' : Graph([Node('WE')]),
+               'class_MS' : Graph([Node('MS')]),
                'class_WE_DCM' : Graph([Node('WE', [1]), Node('DCM_WE', [0])]) },
     'image' : { 'class_IMM' : Graph([Node('IMM')]),
                 'class_IMC' : Graph([Node('IMC')]),

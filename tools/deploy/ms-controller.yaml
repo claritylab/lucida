@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: ms
+  name: ms-controller
+spec:
+  replicas: 1
+  selector:
+    name: ms
+  template:
+    metadata:
+      labels:
+        name: ms
+    spec:
+      containers:
+      - image: claritylab/lucida:v2.2
+        command: ['/bin/sh', '-c']
+        args: ['cd $LUCIDAROOT/musicservice/server/ && python server.py']
+        name: ms
+        ports:
+        - containerPort: 8089
+          name: thrift
