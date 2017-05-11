@@ -53,13 +53,20 @@ sudo apt-get -y update
 sudo apt-get install -y cmake
 sudo apt-get -y upgrade
 
+# Install gcc-4.8 on ubuntu 16.04
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt-get install gcc-4.8
+# force use it
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
+
 # C++ driver.
 git clone -b master https://github.com/mongodb/mongo-cxx-driver
 cd mongo-cxx-driver
 git checkout r3.0.0
 git checkout legacy
 sudo apt-get install scons
-sudo scons --prefix=/usr/local --c++11=on --ssl install
+sudo scons --prefix=/usr/local --c++11=on --ssl --disable-warnings-as-errors install
 rm -rf .git
 cd ..
 
