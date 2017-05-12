@@ -23,8 +23,8 @@ corenlp:
 		mv stanford-corenlp-full-2016-10-31 lib; \
 	fi
 
-start_server:
-	gnome-terminal -x bash -c "./gradlew run $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+start_server: 
+	./gradlew run
 
 start_test:
 	gnome-terminal -x bash -c "cd CalendarClient; ./start-Calendar-client.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"

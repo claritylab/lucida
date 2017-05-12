@@ -30,7 +30,7 @@ $(TARGET): $(OBJECTS)
 	$(CXX) -Wall $(CXXFLAGS) -c $< -o $@
 
 start_server: 
-	gnome-terminal -x bash -c "./IMCServer $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+	./IMCServer
 
 start_test: 
 	gnome-terminal -x bash -c "./run-test.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"
