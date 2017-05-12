@@ -74,4 +74,5 @@ apt-get install -y zlib1g-dev \
                    libyaml-dev \
                    libffi-dev \
                    libbz2-dev \
+                   python-yaml \
 && pip install virtualenv ws4py

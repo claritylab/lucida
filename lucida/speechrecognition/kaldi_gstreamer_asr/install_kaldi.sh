@@ -53,4 +53,5 @@ cd kaldi \
  && sudo apt-get install -y liblapack3 \
  && sudo apt-get install -y liblapack-dev \
  && sudo apt-get install -y gfortran \
- && sudo apt-get install -y libc6
+ && sudo apt-get install -y libc6 \
+ && sudo ldconfig

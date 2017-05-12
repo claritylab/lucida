@@ -14,7 +14,7 @@ else
 endif
 LDFLAGS += $(CAFFE)/build/lib/libcaffe.so
 
-CXXFLAGS += -std=c++14
+CXXFLAGS += $(shell if [ `lsb_release -a 2>/dev/null | grep -Poe "(?<=\s)\d+(?=[\d\.]+$$)"` -gt 14 ]; then echo "-std=c++14"; fi;)
 LDFLAGS += -ljpeg -lzstd
 
 TARGET  = FACEServer 
