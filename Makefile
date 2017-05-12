@@ -14,8 +14,11 @@ docker:
 ## build local environment
 export LD_LIBRARY_PATH=/usr/local/lib
 
-local: 
+local:
 	cd tools && make && cd ../lucida && make
 
 start_all:
-	cd tools && ./start_all.sh
+	cd tools && ./start_all_tmux.sh
+
+start_all_secure:
+	cd tools && ./start_all_tmux.sh secure

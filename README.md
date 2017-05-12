@@ -16,8 +16,6 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
   "ASR" (automatic speech recognition), "IMM" (image matching), "QA" (question answering),
   "CA" (calendar events retrieval), "IMC" (image classification), "FACE" (facial recognition),
   and "DIG" (digit recognition).
-  There is another service called "ENSEMBLE" (ensemble-style question answering) which is not part of this repo.
-  We will provide instructions on how to set it up soon.
 
   You can delete or replace these services with your own, or you can simply add a new service.
   For example, if you know some better ASR implementation,

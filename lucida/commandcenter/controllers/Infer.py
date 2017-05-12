@@ -4,6 +4,7 @@ from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
 from Utilities import log, check_image_extension
+import Config
 import os
 import json
 
@@ -25,11 +26,19 @@ def generic_infer_route(form, upload_file):
 			speech_input = form['speech_input'] if 'speech_input' in form \
 				else ''
 			print '@@@@@@@@@@', speech_input
-			services_needed = \
-				query_classifier.predict(speech_input, upload_file)
-			options['result'] = thrift_client.infer(session['username'], 
-				services_needed, speech_input, upload_file.read()
-				if upload_file else None)
+      image_input = [upload_file.read()] if upload_file else None
+      lucida_id = session['username']
+      # Check if context is saved for Lucida user
+      # If not, classify query, otherwise restore session
+      if lucida_id not in Config.SESSION:
+        services_needed = query_classifier.predict(speech_input, upload_file)
+        speech_input = [speech_input]
+      else:
+        services_needed = Config.SESSION[lucida_id]['graph']
+        Config.SESSION[lucida_id]['data']['text'].append(speech_input)
+        speech_input = Config.SESSION[lucida_id]['data']['text']
+			options['result'] = thrift_client.infer(lucida_id, 
+				services_needed, speech_input, image_input)
 			log('Result ' + options['result'])
 			# Check if Calendar service is needed.
 			# If so, JavaScript needs to receive the parsed dates.
