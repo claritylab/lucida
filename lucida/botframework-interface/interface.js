@@ -1,11 +1,9 @@
-start_time = process.hrtime()
-var time_offset = Date.now() / 1000 - start_time[0] - start_time[1] / 1000000000;
-delete start_time;
-
-function time() {
-  var hr_time = process.hrtime()
-  return time_offset + hr_time[0] + hr_time[1] / 1000000000;
-}
+/*-----------------------------------------------------------------------------
+Filename    : interface.js
+Author      : Kamal Galrani
+Description : This file handles dialogs from bot framework, forwards messages
+		to Lucida and forwards response to users
+-----------------------------------------------------------------------------*/
 
 var restify = require('restify');
 var builder = require('botbuilder');

@@ -50,6 +50,7 @@ declare -a imageclassification=("IMC" "$(pwd)/../lucida/djinntonic/imc/")
 declare -a digitrecognition=("DIG" "$(pwd)/../lucida/djinntonic/dig/")
 declare -a facerecognition=("FACE" "$(pwd)/../lucida/djinntonic/face")
 declare -a weather=("WE" "$(pwd)/../lucida/weather")
+declare -a botframework=("BFI" "$(pwd)/../lucida/botframework-interface")
 
 declare -a services=(
     commandcenter
@@ -60,7 +61,8 @@ declare -a services=(
     imageclassification
     digitrecognition
     facerecognition
-    weather)
+    weather
+    botframework)
 
 # Create the session
 tmux new-session -s ${SESSION_NAME} -d
