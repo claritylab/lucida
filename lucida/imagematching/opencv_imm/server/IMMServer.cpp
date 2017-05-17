@@ -12,6 +12,7 @@ DEFINE_int32(num_of_threads,
 		"Number of threads (default: 4)");
 
 #include "IMMHandler.h"
+#include <folly/init/Init.h>
 
 using namespace folly;
 using namespace apache::thrift;
@@ -26,8 +27,7 @@ using std::to_string;
 
 
 int main(int argc, char* argv[]) {
-	google::InitGoogleLogging(argv[0]);
-	google::ParseCommandLineFlags(&argc, &argv, true);
+	folly::init(&argc, &argv);
 
 	auto handler = std::make_shared<IMMHandler>();
 	auto server = folly::make_unique<ThriftServer>();

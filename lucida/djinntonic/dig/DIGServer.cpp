@@ -4,6 +4,7 @@
 #include <thrift/lib/cpp2/server/ThriftServer.h>
 
 #include "DIGHandler.h"
+#include <folly/init/Init.h>
 
 DEFINE_int32(port,
              8087,
@@ -20,8 +21,7 @@ using namespace cpp2;
 //using namespace facebook::windtunnel::treadmill::services::dig;
 
 int main(int argc, char* argv[]) {
-  google::InitGoogleLogging(argv[0]);
-  google::ParseCommandLineFlags(&argc, &argv, true);
+  folly::init(&argc, &argv);
 
   auto handler = std::make_shared<DIGHandler>();
   auto server = folly::make_unique<ThriftServer>();

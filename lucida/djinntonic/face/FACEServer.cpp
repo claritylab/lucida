@@ -4,6 +4,7 @@
 #include <thrift/lib/cpp2/server/ThriftServer.h>
 
 #include "FACEHandler.h"
+#include <folly/init/Init.h>
 
 DEFINE_int32(port,
              8086,
@@ -19,8 +20,7 @@ using namespace apache::thrift::async;
 using namespace cpp2;
 
 int main(int argc, char* argv[]) {
-  google::InitGoogleLogging(argv[0]);
-  google::ParseCommandLineFlags(&argc, &argv, true);
+  folly::init(&argc, &argv);
 
   auto handler = std::make_shared<FACEHandler>();
   auto server = folly::make_unique<ThriftServer>();
