@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ -z $THREADS ]; then
+  THREADS=`nproc`
+fi
+
 export THRIFT_VERSION=0.9.3
 THREADS=1
 
@@ -22,14 +26,20 @@ fi
 
 sudo apt-get remove -y thrift-compiler
 
-wget "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" \
-  && tar xf thrift-$THRIFT_VERSION.tar.gz \
-  && cd thrift-$THRIFT_VERSION \
+if [ ! -d thrift-$THRIFT_VERSION ]; then
+  wget -c "http://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz" && tar xf thrift-$THRIFT_VERSION.tar.gz
+  if [ $? -ne 0 ]; then
+    echo "Could not download Thrift!!! Please try again later..."
+    exit 1
+  fi
+fi
+
+cd thrift-$THRIFT_VERSION \
   && ./configure --with-lua=no --with-ruby=no --with-go=no --with-erlang=no --with-nodejs=no --with-qt4=no --with-qt5=no \
-  && make -j $THREADS\
-  && sudo make -j $THREADS install \
+  && make -j$THREADS \
+  && make -j$THREADS install \
   && cd lib/py/ \
-  && sudo python setup.py install \
+  && python setup.py install \
   && cd ../../lib/java/ \
   && ant \
   && cd ../../..

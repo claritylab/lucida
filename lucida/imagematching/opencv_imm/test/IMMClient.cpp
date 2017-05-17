@@ -15,6 +15,7 @@
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
+#include <folly/init/Init.h>
 
 using namespace folly;
 using namespace apache::thrift;
@@ -72,8 +73,7 @@ int main(int argc, char* argv[]) {
 		cout << "Caught " << e.what() << endl;
 	}
 
-	google::InitGoogleLogging(argv[0]);
-	google::ParseCommandLineFlags(&argc, &argv, true);
+	folly::init(&argc, &argv);
 	EventBase event_base;
 	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(
 			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, FLAGS_port));

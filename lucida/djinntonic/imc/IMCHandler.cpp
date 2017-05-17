@@ -1,5 +1,6 @@
 #include "IMCHandler.h"
 #include <folly/futures/Future.h>
+#include <folly/MoveWrapper.h>
 
 #include <sstream>
 #include <string>

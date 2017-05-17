@@ -6,6 +6,7 @@
 #include <iostream>
 #include <utility>
 #include <folly/futures/Future.h>
+#include <folly/MoveWrapper.h>
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
 #include <thrift/lib/cpp2/server/ThriftServer.h>
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
