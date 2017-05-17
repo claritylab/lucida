@@ -6,9 +6,7 @@ import info.ephyra.search.Result;
 import info.ephyra.io.MsgPrinter;
 
 // Java packages
-import java.util.List;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 

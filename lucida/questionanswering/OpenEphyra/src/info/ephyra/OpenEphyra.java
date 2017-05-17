@@ -13,7 +13,7 @@ import info.ephyra.answerselection.filters.ScoreNormalizationFilter;
 import info.ephyra.answerselection.filters.ScoreSorterFilter;
 import info.ephyra.answerselection.filters.StopwordFilter;
 import info.ephyra.answerselection.filters.TruncationFilter;
-import info.ephyra.answerselection.filters.WebDocumentFetcherFilter;
+//import info.ephyra.answerselection.filters.WebDocumentFetcherFilter;
 import info.ephyra.io.Logger;
 import info.ephyra.io.MsgPrinter;
 import info.ephyra.nlp.LingPipe;
@@ -41,7 +41,7 @@ import info.ephyra.questionanalysis.QuestionInterpreter;
 import info.ephyra.questionanalysis.QuestionNormalizer;
 import info.ephyra.search.Result;
 import info.ephyra.search.Search;
-import info.ephyra.search.searchers.BingKM;
+//import info.ephyra.search.searchers.BingKM;
 import info.ephyra.search.searchers.IndriKM;
 
 import java.util.ArrayList;
