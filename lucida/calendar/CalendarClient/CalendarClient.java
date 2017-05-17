@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-//Thrift java libraries 
+//Thrift java libraries
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
@@ -16,9 +16,9 @@ import org.apache.thrift.transport.TTransport;
 //Generated code
 import thrift.*;
 
-/** 
-* A Calendar Client that get the upcoming events from Calendar Server and prints the results.
-*/
+/**
+ * A Calendar Client that get the upcoming events from Calendar Server and prints the results.
+ */
 public class CalendarClient {
 	public static void main(String [] args) 
 			throws IOException {
@@ -44,7 +44,7 @@ public class CalendarClient {
 		QuerySpec query_spec = new QuerySpec();
 		query_spec.content = new ArrayList<QueryInput>();
 		query_spec.content.add(query_input);
-	 
+
 		// Initialize thrift objects.
 		// TTransport transport = new TSocket("clarity08.eecs.umich.edu", port);
 		TTransport transport = new TSocket("localhost", port);
@@ -62,7 +62,5 @@ public class CalendarClient {
 		} catch (TException e) {
 			e.printStackTrace();
 		}
-		
-		return;
 	}
 }

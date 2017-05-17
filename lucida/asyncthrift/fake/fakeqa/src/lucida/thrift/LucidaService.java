@@ -94,7 +94,6 @@ public class LucidaService {
     {
       create_result result = new create_result();
       receiveBase(result, "create");
-      return;
     }
 
     public void learn(String LUCID, QuerySpec knowledge) throws org.apache.thrift.TException
