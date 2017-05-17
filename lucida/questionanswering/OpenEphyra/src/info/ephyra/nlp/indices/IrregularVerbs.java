@@ -36,7 +36,7 @@ public class IrregularVerbs {
 		String[] list = words.split("/");
 		
 		for (String elem : list)
-			if (elem.toLowerCase().equals(word.toLowerCase())) return true;
+			if (elem.equalsIgnoreCase(word)) return true;
 		return false;
 	}
 	

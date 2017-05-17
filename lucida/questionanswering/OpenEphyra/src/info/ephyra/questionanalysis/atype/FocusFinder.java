@@ -175,7 +175,7 @@ public class FocusFinder {
         nodes = new ArrayList<Tree>(); 
         for (ListIterator<Tree> it = tags.listIterator(); it.hasNext();) {
             Tree tag = it.next();
-            if (tag.getHeadWord().toLowerCase().equals("how") &&
+            if (tag.getHeadWord().equalsIgnoreCase("how") &&
                     it.next().getHeadWord().toLowerCase().matches("many|much")) {
                 for (ListIterator<Tree> it2 = tags.listIterator(it.nextIndex()); 
                     it2.hasNext() && it2.next().getLabel().matches("NN.?");) {
