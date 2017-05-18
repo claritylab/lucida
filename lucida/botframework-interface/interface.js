@@ -39,7 +39,7 @@ bot.dialog('/', [
     request.post({
       headers: {'content-type' : 'application/x-www-form-urlencoded'},
       url:     'http://localhost:3000/api/infer',
-      form:    { interface: session.message.address.channelId, username: session.message.address.user.id, text_input: session.message.text }
+      form:    { interface: session.message.address.channelId, username: session.message.address.user.id, speech_input: session.message.text }
     }, function(error, response, body){
       address = addresses[session.message.address.channelId];
       address['user'] = { id: session.message.address.user.id };
