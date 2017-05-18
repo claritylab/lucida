@@ -108,7 +108,6 @@ public class LucidaService {
     {
       learn_result result = new learn_result();
       receiveBase(result, "learn");
-      return;
     }
 
     public String infer(String LUCID, QuerySpec query) throws org.apache.thrift.TException
