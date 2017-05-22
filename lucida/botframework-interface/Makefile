@@ -2,6 +2,6 @@ all:
 	npm install
 
 start_server:
-	node interface.js
+	bash start_interface.sh
 
 .PHONY:	all start_server
