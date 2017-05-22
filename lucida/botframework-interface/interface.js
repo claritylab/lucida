@@ -95,8 +95,9 @@ bot.dialog('/', [
     addresses[address.channelId] = {channelId: address.channelId, bot: {id: address.bot.id, name: address.bot.name}, serviceUrl: address.serviceUrl, useAuth: address.useAuth}
     request.post({
       headers: {'content-type' : 'application/x-www-form-urlencoded'},
-      url:     bfw_host + '/api/infer',
       form:    { interface: session.message.address.channelId, username: session.message.address.user.id, text_input: session.message.text }
+      url:     bfw_host + '/api/infer',
+      form:    { interface: session.message.address.channelId, username: session.message.address.user.id, speech_input: session.message.text }
     }, function(error, response, body){
       address = addresses[session.message.address.channelId]
       address['user'] = { id: session.message.address.user.id }
