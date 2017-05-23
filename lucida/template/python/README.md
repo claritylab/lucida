@@ -51,5 +51,5 @@ Change the [test application](client) corresponding to your service. After that,
 
 ### Step 5: insert your service into Lucida
 
-Modify the top-level [`Makefile`](../../../Makefile) and [`lucida/Makefile`](../../Makefile) so that `make local` and `make start_all` include your service.
+Modify the [`tools/start_all_tmux.sh`](../../../tools/start_all_tmux.sh) and [`lucida/Makefile`](../../Makefile) so that `make local` and `make start_all` include your service.
 

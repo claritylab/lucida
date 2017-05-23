@@ -12,6 +12,7 @@ DEFINE_int32(num_of_threads,
 		"Number of threads (default: 4)");
 
 #include "TemplateHandler.h"
+#include <folly/init/Init.h>
 
 using namespace folly;
 using namespace apache::thrift;
@@ -25,6 +26,8 @@ using std::unique_ptr;
 using std::to_string;
 
 int main(int argc, char* argv[]) {
+	folly::init(&argc, &argv);
+
 	auto handler = std::make_shared<TemplateHandler>();
 	auto server = folly::make_unique<ThriftServer>();
 

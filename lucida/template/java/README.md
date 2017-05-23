@@ -17,7 +17,7 @@ To get started, place the directory under [`lucida/lucida`](../../) folder, and 
 
 ### Step 1: change the configuration
 
-Change the port number for your service (default is 8888) in [`src/main/java/template/TemplateDaemon.java`](src/main/java/template/TemplateDaemon.java).
+Change the port number for your service (default is 8888) in [`src/main/java/template/TemplateDaemon.java`](src/main/java/template/TemplateDaemon.java) and [`TemplateClient/TemplateClient.java`](TemplateClient/TemplateClient.java).
 
 ### Step 2: implement your own create/learn/infer methods
 
@@ -51,5 +51,5 @@ Change the [test application](TemplateClient) corresponding to your service. Aft
 
 ### Step 5: insert your service into Lucida
 
-Modify the top-level [`Makefile`](../../../Makefile) and [`lucida/Makefile`](../../Makefile) so that `make local` and `make start_all` include your service.
+Modify the [`tools/start_all_tmux.sh`](../../../tools/start_all_tmux.sh) and [`lucida/Makefile`](../../Makefile) so that `make local` and `make start_all` include your service.
 

@@ -12,6 +12,7 @@
 #include <folly/futures/Future.h>
 #include "gen-cpp2/LucidaService.h"
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
+#include <folly/init/Init.h>
 
 using namespace folly;
 using namespace apache::thrift;
@@ -29,6 +30,7 @@ DEFINE_string(hostname,
 		"Hostname of the server (default: localhost)");
 
 int main(int argc, char* argv[]) {
+	folly::init(&argc, &argv);
 	EventBase event_base;
 	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(
 			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, FLAGS_port));
