@@ -14,7 +14,7 @@ This interaface allows accessing LUCIDA services from BotFramework supported cha
 
 ## Start Interface
 * Change directory to $LUCIDAROOT/botframework-interface and run `make start_server`
-* First run will ask some questions. These can me modified later by editing 'config.sh'.
+* First run will ask some questions. These can be modified later by editing 'config.sh'.
 
 ## Add User
 * Add the bot to your channel. This can be done using 'Add to Skype' button for Skype channel and adding yourself as developer for corresponding Facebook bot for Facebook Messenger channel.
