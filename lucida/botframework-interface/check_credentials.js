@@ -114,6 +114,7 @@ setInterval( function() {
   if ( on_step == steps.length ) {
     phantom.exit()
   } else if ( !loading && typeof steps[on_step] == "function" ) {
+    console.log("[DEBUG] Executing step " + on_step);
     retval = steps[on_step]()
     if ( retval !== 0 ) { phantom.exit(retval) }
     on_step++

@@ -138,7 +138,7 @@ if [ -z $BFW_HND ]; then
     echo "Enter the handle of the bot you plan to use with Lucida. If you haven't created a bot do so at 'https://dev.botframework.com/bots/new'"
     printf "BFW_HND: "
     read BFW_HND
-    echo $BFW_HND | grep -Poe "^[A-Za-z0-9_]{3,16}$" > /dev/null
+    echo $BFW_HND | grep -Poe "^[A-Za-z0-9\-_]{3,16}$" > /dev/null
     if [ $? -ne 0 ]; then
       echo "[ERROR] Please enter a valid bot handle!!!"
     else
@@ -225,13 +225,13 @@ if [[ "$BFW_HOST" == "https://xxx.ngrok.io" ]]; then
   ps -ef | grep ngrok | grep http | grep $BFW_PORT > /dev/null
   if [ $? -eq 1 ]; then
     ngrok http $BFW_PORT > /dev/null & disown
+    echo "[INFO] Waiting for ngrok to go online..."
+    sleep 10
     ps -ef | grep ngrok | grep http | grep $BFW_PORT > /dev/null
     if [ $? -eq 1 ]; then
       echo "[ERROR] Could not start ngrok client!!! Please fix the issue"
       exit 500
     fi
-    echo "[INFO] Waiting for ngrok to go online..."
-    sleep 10
   fi
   while read line; do
     ngrok_pid=`echo $line | grep -Poe "\d+(?=/ngrok)"`
@@ -256,7 +256,7 @@ if [ ! -z $BFW_UPDATE_ENDPOINT ]; then
     export BFW_PWD
     export BFW_HOST
     export BFW_HND
-#    phantomjs set_endpoint.js
+    phantomjs set_endpoint.js
     exit_code=$?
     if [ $exit_code -eq 0 ]; then
       break
