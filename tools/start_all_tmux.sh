@@ -10,6 +10,9 @@
 # use the following command:
 # $tmux a -t lucida
 
+# source the port properties
+. ../lucida/config.properties
+
 SESSION_NAME="lucida"
 
 # Check if session already exists
@@ -28,7 +31,7 @@ fi
 if [ "$1" == "secure" ]; then
     echo "Enabling secure host"
     # Getting the host IP address
-    export ASR_ADDR_PORT="wss://$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'):8081"
+    export ASR_ADDR_PORT="wss://$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'):$CMD_PORT"
     export SECURE_HOST=true
 
     # Generate self-signed certificates
@@ -38,7 +41,7 @@ if [ "$1" == "secure" ]; then
     cd $(pwd)/../../tools
 else
     echo "Enabling non-secure host"
-    export ASR_ADDR_PORT="ws://localhost:8081"
+    export ASR_ADDR_PORT="ws://localhost:$CMD_PORT"
 fi
 
 declare -a commandcenter=("CMD" "$(pwd)/../lucida/commandcenter/")

@@ -60,10 +60,7 @@ public class QAClient {
 		InputStream input = new FileInputStream("../../config.properties");
 		port_cfg.load(input);
 		String port_str = port_cfg.getProperty("QA_PORT");
-		Integer port = Integer.valueOf(port_str);
-		if (args.length >= 1) {
-			port = Integer.parseInt(args[0]);
-		}
+		final Integer port = Integer.valueOf(port_str);
 
 		// User.
 		String LUCID = "Clinc";
@@ -104,7 +101,7 @@ public class QAClient {
 		}};
 		query_input.tags = new ArrayList<String>() {{
 			add("localhost");
-			add("8083");
+			add(Integer.toString(port));
 			add("0");
 		}};
 		final QuerySpec query = createQuerySpec(

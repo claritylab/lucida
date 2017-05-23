@@ -28,24 +28,11 @@ start_all_secure:
 start_test_all:
 	cd tools && chmod +x start_test.sh && ./start_test.sh
 
-clean_all_service:
-	cd lucida \
-	&& cd calendar && make clean \
-	&& cd ../commandcenter && make clean \
-	&& cd ../djinntonic && make clean \
-	&& cd ../imagematching/opencv_imm && make clean \
-	&& cd ../../musicservice && make clean \
-	&& cd ../questionanswering/OpenEphyra && make clean \
-	&& cd ../../weather && make clean \
-	&& cd ../..
-
 all_service:
-	cd lucida \
-	&& cd calendar && make all \
-	&& cd ../commandcenter && make all \
-	&& cd ../djinntonic && make all \
-	&& cd ../imagematching/opencv_imm && make all \
-	&& cd ../../musicservice && make all \
-	&& cd ../questionanswering/OpenEphyra && make all \
-	&& cd ../../weather && make all \
-	&& cd ../..
+	cd lucida && make all
+
+clean_all_service:
+	cd lucida && make clean
+
+clean_all_tools:
+	cd tools && make clean
