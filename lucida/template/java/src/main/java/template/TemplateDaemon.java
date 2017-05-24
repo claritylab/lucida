@@ -1,10 +1,13 @@
 package template;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.Properties;
 import org.apache.thrift.TProcessor;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.server.TNonblockingServer;
@@ -31,8 +34,11 @@ import thrift.*;
 public class TemplateDaemon {
 	public static void main(String [] args) 
 			throws TTransportException, IOException, InterruptedException {	
-		// TODO: Change the port into your server listening 
-		int port = 8888;
+		Properties port_cfg = new Properties();
+		InputStream input = new FileInputStream("../config.properties");
+		port_cfg.load(input);
+		String port_str = port_cfg.getProperty("XXX_PORT");
+		Integer port = Integer.valueOf(port_str);
 		TProcessor proc = new LucidaService.AsyncProcessor(
 				new TEServiceHandler.AsyncTEServiceHandler());
 		TNonblockingServerTransport transport = new TNonblockingServerSocket(port);
@@ -42,7 +48,7 @@ public class TemplateDaemon {
 		.transportFactory(new TFramedTransport.Factory());
 		final TThreadedSelectorServer server = new TThreadedSelectorServer(arguments);
 		// TODO: Change XXX into your service's acronym
-		System.out.println("XXX at port " + Integer.toString(port));
+		System.out.println("XXX at port " + port_str);
 		server.serve();
 	}
 }

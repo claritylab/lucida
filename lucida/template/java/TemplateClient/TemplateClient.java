@@ -1,5 +1,9 @@
 //Java packages
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Properties;
 
 //Thrift java libraries 
 import org.apache.thrift.TException;
@@ -16,9 +20,14 @@ import thrift.*;
 * A Template Client that get the upcoming events from Template Server and prints the results.
 */
 public class TemplateClient {
-	public static void main(String [] args) {
-		// TODO: Change the port into your client send
-		int port = 8888;
+	public static void main(String [] args) 
+			throws IOException{
+		// Collect the port number.
+		Properties port_cfg = new Properties();
+		InputStream input = new FileInputStream("../../config.properties");
+		port_cfg.load(input);
+		String port_str = port_cfg.getProperty("XXX_PORT");
+		Integer port = Integer.valueOf(port_str);
 		if (args.length == 1) {
 			port = Integer.parseInt(args[0]);
 		} else {

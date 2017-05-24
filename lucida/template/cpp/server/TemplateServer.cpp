@@ -3,15 +3,12 @@
 #include <thrift/lib/cpp2/server/ThriftServer.h>
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
 
-DEFINE_int32(port,
-		8889,
-		"Port for Template service (default: 8889)");
-
 DEFINE_int32(num_of_threads,
 		4,
 		"Number of threads (default: 4)");
 
 #include "TemplateHandler.h"
+#include "Parser.h"
 #include <folly/init/Init.h>
 
 using namespace folly;
@@ -28,16 +25,27 @@ using std::to_string;
 int main(int argc, char* argv[]) {
 	folly::init(&argc, &argv);
 
+	Properties props;
+	props.Read("../../config.properties");
+	string portVal;
+	int port;
+	if (!props.GetValue("XXX_PORT", portVal)) {
+		cout << "XXX port not defined" << endl;
+		return -1;
+	} else {
+		port = atoi(portVal.c_str());
+	}
+
 	auto handler = std::make_shared<TemplateHandler>();
 	auto server = folly::make_unique<ThriftServer>();
 
-	server->setPort(FLAGS_port);
+	server->setPort(port);
 	server->setNWorkerThreads(FLAGS_num_of_threads);
 	server->setInterface(std::move(handler));
 	server->setIdleTimeout(std::chrono::milliseconds(0));
 	server->setTaskExpireTime(std::chrono::milliseconds(0));
 
-	cout << "XXX at port " << to_string(FLAGS_port) << endl;
+	cout << "XXX at port " << to_string(port) << endl;
 	server->serve();
 
 	return 0;

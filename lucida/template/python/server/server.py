@@ -3,7 +3,7 @@
 import sys
 sys.path.append('../')
 
-from TemplateConfig import*
+from TemplateConfig import *
 
 from lucidatypes.ttypes import QuerySpec
 from lucidaservice import LucidaService
