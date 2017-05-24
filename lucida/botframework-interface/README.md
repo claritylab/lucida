@@ -27,12 +27,10 @@ While most users should be able to set endpoint automatically, some may face net
 set the endpoint manually by logging into https://dev.botframework.com/bots, selecting your bot, going to settings and following one of the following methods.
 
 #### If the BotFramework interface for Lucida is running on a https server
-* Type the address of the server followed port on which the interface is running and '/api/messages' ( e.g. `https://example.com:3728/api/message` ).
-* Save the changes.
+* Type the address of the server followed port on which the interface is running and '/api/messages' ( e.g. `https://example.com:3728/api/message` ) and save the changes.
 #### If you don't have a server
 * Type `ngrok http 3728` to start ngrok. The port 3728 should be changed if interface is running on a different port.
-* You'll see a `https://*.ngrok.io` address when ngrok goes online. Copy this appended with '/api/messages' to Messaging endpoint field.
-* Save the changes.
+* You'll see a `https://*.ngrok.io` address when ngrok goes online. Copy this appended with '/api/messages' to Messaging endpoint field and save the changes.
 * The endpoint will change everytime you restart ngrok. You'll need to change endpoint on https://dev.botframework.com/bots every time you restart ngrok.
 
 NOTE: The bot won't be available in bot directory unless you publish it. Till then only the people with 'Add to Skype' link (in case of Skype) and ones listed as developers/testers (in case of Facebook)
