@@ -13,7 +13,11 @@
 # source the port properties
 . ../lucida/config.properties
 
-SESSION_NAME="lucida"
+if [ "$1" == "test" ]; then
+    SESSION_NAME="lu-test"
+else
+    SESSION_NAME="lucida"
+fi
 
 # Check if session already exists
 tmux has-session -t ${SESSION_NAME}
@@ -55,12 +59,19 @@ declare -a facerecognition=("FACE" "$(pwd)/../lucida/djinntonic/face")
 declare -a weather=("WE" "$(pwd)/../lucida/weather")
 declare -a musicservice=("MS" "$(pwd)/../lucida/musicservice")
 
-declare -a services=(
-    commandcenter
+if [ "$1" == "test" ]; then
+    declare -a services=(
+        )
+else
+    declare -a services=(
+        commandcenter
+        speechrecognition)
+fi
+
+services+=(
     questionanswering
     imagematching
     calendar
-    speechrecognition
     imageclassification
     digitrecognition
     facerecognition
@@ -82,7 +93,11 @@ do
         tmux new-window -n ${!NAME} -t ${SESSION_NAME}
     fi
     tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "cd ${!SERV_PATH}" C-m
-    tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "make start_server" C-m
+    if [ "$1" == "test" ]; then
+        tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "make start_test" C-m
+    else
+        tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "make start_server" C-m
+    fi
     ((TMUX_WIN++))
 done
 
