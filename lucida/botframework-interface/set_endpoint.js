@@ -29,6 +29,7 @@ var page = require("webpage").create()
 page.settings.userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
 page.settings.javascriptEnabled = true
 page.settings.loadImages = false
+page.settings.resourceTimeout = 60000
 phantom.cookiesEnabled = true
 phantom.javascriptEnabled = true
 
@@ -61,17 +62,21 @@ page.onResourceRequested = function(requestData, networkRequest) {
   }
 }
 
+page.onResourceTimeout = function(request) {
+    console.log('[ERROR] Request timed out while waiting for response... (#' + request.id + '): ' + JSON.stringify(request));
+};
+
 var steps = [
   function() {
     loading = true
-    load_timeout = setTimeout(function(){ loading = false }, 10000)
+    load_timeout = setTimeout(function(){ console.log("[ERROR] Request timed out while sending request..."); loading = false }, 20000)
     console.log("[INFO] Connecting to https://login.microsoftonline.com...")
     page.open("https://login.microsoftonline.com/common/oauth2/authorize?response_type=id_token+code&redirect_uri=https%3A%2F%2Fdev.botframework.com%2F&client_id=abfa0a7c-a6b6-4736-8310-5855508787cd&resource=https%3A%2F%2Fmanagement.core.windows.net%2F&scope=user_impersonation+openid&nonce=8e87e9b7-db47-4187-08d4-9ce5cf4cd678&site_id=500879&response_mode=form_post&state=%2Flogin%3FrequestUrl%3D%252Fbots")
     return 0
   },
   function() {
     loading = true
-    load_timeout = setTimeout(function(){ loading = false }, 20000)
+    load_timeout = setTimeout(function(){ console.log("[ERROR] Request timed out while sending request..."); loading = false }, 20000)
     retval = page.evaluate(function(username, password) {
       userid = document.getElementById("cred_userid_inputtext")
       userpwd = document.getElementById("cred_password_inputtext")
@@ -92,7 +97,7 @@ var steps = [
   },
   function() {
     loading = true
-    load_timeout = setTimeout(function(){ loading = false }, 10000)
+    load_timeout = setTimeout(function(){ console.log("[ERROR] Request timed out while sending request..."); loading = false }, 20000)
     if ( page.url.indexOf("https://login.live.com") === 0 ) {
       retval = page.evaluate(function(password) {
         passwd = document.getElementById("i0118")
@@ -115,7 +120,7 @@ var steps = [
   },
   function() {
     loading = true
-    load_timeout = setTimeout(function(){ loading = false }, 10000)
+    load_timeout = setTimeout(function(){ console.log("[ERROR] Request timed out while sending request..."); loading = false }, 20000)
     if ( page.url.indexOf("https://login.microsoftonline.com/login.srf") !== 0 && page.url.indexOf("https://login.microsoftonline.com/common/login") !== 0 ) {
       console.log("[ERROR] Your account or password is incorrect. Please re-enter your password...")
       return 401
@@ -127,7 +132,7 @@ var steps = [
   },
   function() {
     loading = true
-    load_timeout = setTimeout(function(){ loading = false }, 10000)
+    load_timeout = setTimeout(function(){ console.log("[ERROR] Request timed out while sending request..."); loading = false }, 20000)
     if ( page.url.indexOf("https://dev.botframework.com/api/BotManager/Bots") !== 0 ) {
       console.log("[ERROR] No bot by the handle " + bothandle + " exists. Please create a bot or type a valid handle...")
       return 404
@@ -197,7 +202,6 @@ setInterval( function() {
   if ( on_step == steps.length ) {
     phantom.exit()
   } else if ( !loading && typeof steps[on_step] == "function" ) {
-    console.log("[DEBUG] Executing step " + on_step);
     retval = steps[on_step]()
     if ( retval !== 0 ) { phantom.exit(retval) }
     on_step++

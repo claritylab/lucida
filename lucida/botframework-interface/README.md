@@ -1,7 +1,7 @@
-Microsoft BotFramework interface to LUCIDA
+Microsoft BotFramework interface to Lucida
 ==========================================
 
-This interaface allows accessing LUCIDA services from BotFramework supported channels like Facebook, Skype, messaging etc. Currently only text infer queries are supported.
+This interaface allows accessing Lucida services from BotFramework supported channels like Facebook, Skype, messaging etc. Currently only text infer queries are supported.
 
 ## Installation
 * Change directory to $LUCIDAROOT/botframework-interface and run `make all`
@@ -22,4 +22,18 @@ This interaface allows accessing LUCIDA services from BotFramework supported cha
     - Sign in to the web interface of Lucida and click on your username.
     - Copy the verification message (Verify <token>) and send it using the channel you want to verify.
 
-NOTE: The bot won't be available in bot directory unless you publish it. Till then only the people with 'Add to Skype' link (in case of Skype) and ones listed as developers/testers (in case of Facebook) will be able to send messages to the bot.
+## Setting Message Endpoint Manually
+While most users should be able to set endpoint automatically, some may face network problems. Automatic update of endpoint will also break if Microsoft updates its website. For such scenarios you can
+set the endpoint manually by logging into https://dev.botframework.com/bots, selecting your bot, going to settings and following one of the following methods.
+
+#### If the BotFramework interface for Lucida is running on a https server
+* Type the address of the server followed port on which the interface is running and `/api/messages' ( e.g. `https://example.com:3728/api/message' ).
+* Save the changes.
+#### If you don't have a server
+* Type `ngrok http 3728` to start ngrok. The port 3728 should be replaced by appropriate port if interface is running on a different port.
+* You'll see a https://*.ngrok.io address when ngrok goes online. This address will change everytime you restart ngrok. Copy this appended with /api/messages to Messaging endpoint field.
+* Save the changes.
+NOTE: You'll need to change this field every time you restart ngrok.
+
+NOTE: The bot won't be available in bot directory unless you publish it. Till then only the people with 'Add to Skype' link (in case of Skype) and ones listed as developers/testers (in case of Facebook)
+will be able to send messages to the bot.
