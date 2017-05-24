@@ -96,7 +96,7 @@ bot.dialog('/', [
     request.post({
       headers: {'content-type' : 'application/x-www-form-urlencoded'},
       form:    { interface: session.message.address.channelId, username: session.message.address.user.id, text_input: session.message.text },
-      url:     bfw_host + '/api/infer',
+      url:     cc_host + '/api/infer',
       form:    { interface: session.message.address.channelId, username: session.message.address.user.id, speech_input: session.message.text }
     }, function(error, response, body){
       address = addresses[session.message.address.channelId]
@@ -112,7 +112,7 @@ bot.dialog('/', [
         if ( result ) {
           request.post({
             headers: {'content-type' : 'application/x-www-form-urlencoded'},
-            url:     bfw_host + '/api/add_interface',
+            url:     cc_host + '/api/add_interface',
             form:    { interface: session.message.address.channelId, token: result[1], username: session.message.address.user.id }
           }, function(error, response, body){
             if (error) {
