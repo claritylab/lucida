@@ -29,7 +29,6 @@ var page = require("webpage").create()
 page.settings.userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
 page.settings.javascriptEnabled = true
 page.settings.loadImages = false
-page.settings.resourceTimeout = 60000
 phantom.cookiesEnabled = true
 phantom.javascriptEnabled = true
 
@@ -61,10 +60,6 @@ page.onResourceRequested = function(requestData, networkRequest) {
     networkRequest.abort()
   }
 }
-
-page.onResourceTimeout = function(request) {
-    console.log('[ERROR] Request timed out while waiting for response... (#' + request.id + '): ' + JSON.stringify(request));
-};
 
 var steps = [
   function() {
@@ -114,24 +109,19 @@ var steps = [
       }
       return retval
     } else {
-      console.log("[ERROR] The email address you entered is not associated with a Microsoft account!!! Please type a valid email address...")
+      console.log("[ERROR] Your account or password is incorrect!!! Please re-enter your credentials...")
       return 401
     }
   },
   function() {
     loading = true
     load_timeout = setTimeout(function(){ console.log("[ERROR] Request timed out while sending request..."); loading = false }, 20000)
-    if ( page.url.indexOf("https://login.microsoftonline.com/login.srf") !== 0 && page.url.indexOf("https://login.microsoftonline.com/common/login") !== 0 ) {
-      if ( page.url.indexOf("https://account.live.com/identity/confirm") == 0 ) {
-        console.log("[ERROR] Microsoft needs additional information to sign you in. This is probably because this server is in a different country than the one in which you usually use your Microsoft account. A workaround is to sign into your account from a browser via this server then run this script again.")
-        return 403
-      } else {
-        console.log("[ERROR] Your account or password is incorrect. Please re-enter your password...")
-        return 401
-      }
+    if ( page.url.indexOf("https://account.live.com/identity/confirm") == 0 ) {
+      console.log("[ERROR] Microsoft needs additional information to sign you in. This is probably because this server is in a different country than the one in which you usually use your Microsoft account. A workaround is to sign into your account from a browser via this server then run this script again.")
+      return 403
     }
-    console.log("[INFO] Fetching bot data...")
-    page.customHeaders = { "Accept": "application/json, text/javascript, */*; q=0.01" }
+    console.log("[INFO] Trying to fetch bot data...")
+    page.customHeaders = { "Accept": "application/json, text/javascript, */*; q=0.01" } /**/
     page.open("https://dev.botframework.com/api/BotManager/Bots?id=" + bothandle)
     return 0
   },
@@ -139,17 +129,18 @@ var steps = [
     loading = true
     load_timeout = setTimeout(function(){ console.log("[ERROR] Request timed out while sending request..."); loading = false }, 20000)
     if ( page.url.indexOf("https://dev.botframework.com/api/BotManager/Bots") !== 0 ) {
-      console.log("[ERROR] No bot by the handle " + bothandle + " exists. Please create a bot or type a valid handle...")
+      console.log("[ERROR] No bot with handle " + bothandle + " exists!!! Please enter a valid bot handle...")
       return 404
     }
 
+    password=undefined
     var cookies = page.cookies
     for(var i in cookies) {
       if ( "Csrf-Token" == cookies[i].name ) { password = cookies[i].value }
     }
     if ( password == undefined ) {
-      console.log("[ERROR] Could not connect to Microsoft!!! Will try again in a second...")
-      return 500
+      console.log("[ERROR] Your account or password is incorrect!!! Please re-enter your credentials...")
+      return 401
     } else {
       console.log("[INFO] Logged in to Microsoft Bot Framework :D")
     }
@@ -186,6 +177,7 @@ var steps = [
     return 0
   },
   function() {
+    botdata=undefined
     try {
       botdata = JSON.parse(page.plainText)
     } catch(err) {
