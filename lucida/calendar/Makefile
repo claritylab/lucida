@@ -26,11 +26,11 @@ corenlp:
 start_server: 
 	./gradlew run
 
-start_test:
-	gnome-terminal -x bash -c "cd CalendarClient; ./start-Calendar-client.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+start_test: 
+	cd CalendarClient; ./start-Calendar-client.sh 
 
 clean:
-	rm -rf src/main/java/thrift && rm -rf CalendarClient/thrift && rm CalendarClient/*.class
+	rm -rf src/main/java/thrift && rm -rf CalendarClient/thrift && rm -rf CalendarClient/*.class && rm -rf build && rm -rf lib
 
 .PHONY:	all thrift gradle start_server start_test clean
 

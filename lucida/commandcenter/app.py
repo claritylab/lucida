@@ -7,6 +7,7 @@ sys.path.insert(0, glob.glob(os.path.abspath(os.path.dirname(__file__)) +
     '/../../tools/thrift-0.9.3/lib/py/build/lib*')[0])
 
 from controllers import *
+from controllers.Parser import cmd_port
 from flask import *
 from threading import Thread
 import logging
@@ -42,7 +43,7 @@ def flask_listener():
                 threaded=True)
 
 def web_socket_listener():
-    print 'Start web socket at 8081'
+    print 'Start web socket at ' + str(cmd_port)
     logging.basicConfig(level=logging.DEBUG,
             format="%(levelname)8s %(asctime)s %(message)s ")
     logging.debug('Starting up server')
@@ -51,13 +52,13 @@ def web_socket_listener():
     # For wss (with ASR capability)
     if os.environ.get('SECURE_HOST'):
         print 'Starting secure web socket'
-        WebSocket.Application().listen(8081, ssl_options={
+        WebSocket.Application().listen(cmd_port, ssl_options={
             "certfile":"certs/server.crt",
             "keyfile":"certs/server.key"})
     # For ws (without ASR capability)
     else:
         print 'Starting non-secure web socket'
-        WebSocket.Application().listen(8081)
+        WebSocket.Application().listen(cmd_port)
 
     WebSocket.tornado.ioloop.IOLoop.instance().start()
 

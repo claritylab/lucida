@@ -1,6 +1,10 @@
 package lucida.test;
 
 //Java packages
+import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -49,13 +53,14 @@ public class QAClient {
 		return rtn;
 	}
 
-	public static void main(String [] args) {
+	public static void main(String [] args) 
+		throws IOException {
 		// Collect the port number.
-		int port = 8083;
-
-		if (args.length >= 1) {
-			port = Integer.parseInt(args[0]);
-		}
+		Properties port_cfg = new Properties();
+		InputStream input = new FileInputStream("../../config.properties");
+		port_cfg.load(input);
+		String port_str = port_cfg.getProperty("QA_PORT");
+		final Integer port = Integer.valueOf(port_str);
 
 		// User.
 		String LUCID = "Clinc";
@@ -89,10 +94,16 @@ public class QAClient {
 				}});
 
 		// Query.
-		final QueryInput query_input = createQueryInput(
-				"text",
-				"Who created Clinc?",
-				"");
+		final QueryInput query_input = new QueryInput();
+		query_input.type = "text";
+		query_input.data = new ArrayList<String>() {{
+			add("Who created Clinc?");
+		}};
+		query_input.tags = new ArrayList<String>() {{
+			add("localhost");
+			add(Integer.toString(port));
+			add("0");
+		}};
 		final QuerySpec query = createQuerySpec(
 				"query",
 				new ArrayList<QueryInput>() {{
@@ -124,7 +135,7 @@ public class QAClient {
 			answer = client.infer(LUCID, query);
 			// Print the answer.
 			System.out.println("///// Answer: /////");
-			System.out.println(answer);			
+			System.out.println(answer);	
 			transport.close();
 		} catch (TException x) {
 			x.printStackTrace();

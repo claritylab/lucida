@@ -5,7 +5,7 @@ start_server:
 	cd server; ./imm_server
 
 start_test: 
-	gnome-terminal -x bash -c "cd test; ./imm_test $(filter-out $@,$(MAKECMDGOALS)); read -n1"
+	cd test; ./imm_test 
 
 docker:
 	cp ../../lucidaservice.thrift .; \
