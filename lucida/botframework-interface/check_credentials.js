@@ -107,8 +107,13 @@ var steps = [
     loading = true
     load_timeout = setTimeout(function(){ console.log("[ERROR] Request timed out while sending request..."); loading = false }, 20000)
     if ( page.url.indexOf("https://login.microsoftonline.com/login.srf") !== 0 && page.url.indexOf("https://login.microsoftonline.com/common/login") !== 0 ) {
-      console.log("[ERROR] Your account or password is incorrect. Please re-enter your password...")
-      return 401
+      if ( page.url.indexOf("https://account.live.com/identity/confirm") == 0 ) {
+        console.log("[ERROR] Microsoft needs additional information to sign you in. This is probably because this server is in a different country than the one in which you usually use your Microsoft account. A workaround is to sign into your account from a browser via this server then run this script again.")
+        return 403
+      } else {
+        console.log("[ERROR] Your account or password is incorrect. Please re-enter your password...")
+        return 401
+      }
     }
     console.log("[INFO] Logged into Micrsoft Account :D")
     return 0

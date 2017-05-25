@@ -104,9 +104,12 @@ if [ -z $BFW_UID ] && [ $BFW_SKIP_UPDATE -eq 0 ]; then
         fi
         sleep 1
         continue
-      else
-        break
       fi
+      grep phantom.out -e "Microsoft needs additional information to sign you in" > /dev/null
+      if [ $? -eq 0 ]; then
+        exit 403
+      fi
+      break
     done
   done
 fi
@@ -342,22 +345,25 @@ if [ $BFW_UPDATE_ENDPOINT -eq 1 ] && [ $BFW_SKIP_UPDATE -eq 0 ]; then
       fi
       sleep 1
       continue
+    fi
+    grep phantom.out -e "Microsoft needs additional information to sign you in" > /dev/null
+    if [ $? -eq 0 ]; then
+      exit 403
+    fi
+    echo ""
+    echo "Seems like something went wrong while updating endpoint!!!"
+    printf "Do you want to skip automatic update of endpoint? This will require you to update endpoint manually as explained in README (y/n) "
+    read response
+    if [[ $response == "y" ]] || [[ $response == "Y" ]]; then
+      BFW_SKIP_UPDATE=1
+      sed s/BFW_UID=.*/BFW_UID=/ -i config.sh
+      sed s/BFW_PWD=.*/BFW_PWD=/ -i config.sh
+      sed s/BFW_SAVE_PWD=.*/BFW_SAVE_PWD=0/ -i config.sh
+      sed s/BFW_HOST=.*/BFW_HOST=/ -i config.sh
+      sed s/BFW_HND=.*/BFW_HND=/ -i config.sh
+      break
     else
-      echo ""
-      echo "Seems like something went wrong while updating endpoint!!!"
-      printf "Do you want to skip automatic update of endpoint? This will require you to update endpoint manually as explained in README (y/n) "
-      read response
-      if [[ $response == "y" ]] || [[ $response == "Y" ]]; then
-        BFW_SKIP_UPDATE=1
-        sed s/BFW_UID=.*/BFW_UID=/ -i config.sh
-        sed s/BFW_PWD=.*/BFW_PWD=/ -i config.sh
-        sed s/BFW_SAVE_PWD=.*/BFW_SAVE_PWD=0/ -i config.sh
-        sed s/BFW_HOST=.*/BFW_HOST=/ -i config.sh
-        sed s/BFW_HND=.*/BFW_HND=/ -i config.sh
-        break
-      else
-        exit 500
-      fi
+      exit 500
     fi
   done
 fi
