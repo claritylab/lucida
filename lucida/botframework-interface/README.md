@@ -34,6 +34,8 @@ set the endpoint manually by logging into https://dev.botframework.com/bots, sel
 * The endpoint will change everytime you restart ngrok. You'll need to change endpoint on https://dev.botframework.com/bots every time you restart ngrok.
 
 ## Troubleshooting
+#### First one or two messages not being received by command center
+This is more of a bug. This happens because the change in endpoint doesn't propagate as it should. I have mailed Microsoft team about this and am waiting for their reply. Don't expect this to be fixed soon as Microsoft doesn't encourage changing endpoint frequently.
 #### Microsoft needs additional information to sign you in
 This error usually occurs when you run interface on a remote server. Microsoft detects that you are signing in from a different region/PC and asks the interface questions that it cannot currently answer. To fix the error:
 * SSH into your remote server with `-D 8888` option passed to openssh (e.g. `ssh -D 8888 user@remote_host` ).
