@@ -22,5 +22,15 @@ all:
 	&& make \
 	&& cd ..
 
+clean:
+	cd dig \
+	&& make clean \
+	&& cd ../face \
+	&& make clean \
+	&& cd ../imc \
+	&& make clean \
+	&& cd .. \
+	&& rm -rf gen-cpp2
+
 %:
 	@:

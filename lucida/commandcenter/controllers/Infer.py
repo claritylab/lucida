@@ -4,6 +4,7 @@ from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
 from Utilities import log, check_image_extension
+from Parser import port_dic
 import Config
 import os
 import json
@@ -16,7 +17,7 @@ def generic_infer_route(form, upload_file):
 	if os.environ.get('ASR_ADDR_PORT'):
 		options['asr_addr_port'] = os.environ.get('ASR_ADDR_PORT')
 	else:
-		options['asr_addr_port'] = 'ws://localhost:8081'
+		options['asr_addr_port'] = 'ws://localhost:' + port_dic["cmd_port"]
 	try:
 		# Deal with POST requests.
 		if request.method == 'POST':

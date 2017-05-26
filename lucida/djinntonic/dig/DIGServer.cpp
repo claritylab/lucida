@@ -5,10 +5,8 @@
 
 #include "DIGHandler.h"
 #include <folly/init/Init.h>
-
-DEFINE_int32(port,
-             8087,
-             "Port for DIG server (default: 8087)");
+#include "Parser.h"
+#include <iostream>
 
 DEFINE_int32(num_of_threads,
              4,
@@ -23,10 +21,21 @@ using namespace cpp2;
 int main(int argc, char* argv[]) {
   folly::init(&argc, &argv);
 
+  Properties props;
+  props.Read("../../config.properties");
+  string portVal;
+  int port;
+  if (!props.GetValue("DIG_PORT", portVal)) {
+    cout << "DIG port not defined" << endl;
+    return -1;
+  } else {
+    port = atoi(portVal.c_str());
+  }
+
   auto handler = std::make_shared<DIGHandler>();
   auto server = folly::make_unique<ThriftServer>();
 
-  server->setPort(FLAGS_port);
+  server->setPort(port);
   server->setNWorkerThreads(FLAGS_num_of_threads);
   server->setInterface(std::move(handler));
   server->setIdleTimeout(std::chrono::milliseconds(0));

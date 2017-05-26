@@ -10,7 +10,14 @@
 # use the following command:
 # $tmux a -t lucida
 
-SESSION_NAME="lucida"
+# source the port properties
+. ../lucida/config.properties
+
+if [ "$1" == "test" ]; then
+    SESSION_NAME="lu-test"
+else
+    SESSION_NAME="lucida"
+fi
 
 # Check if session already exists
 tmux has-session -t ${SESSION_NAME}
@@ -28,7 +35,7 @@ fi
 if [ "$1" == "secure" ]; then
     echo "Enabling secure host"
     # Getting the host IP address
-    export ASR_ADDR_PORT="wss://$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'):8081"
+    export ASR_ADDR_PORT="wss://$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'):$CMD_PORT"
     export SECURE_HOST=true
 
     # Generate self-signed certificates
@@ -38,7 +45,7 @@ if [ "$1" == "secure" ]; then
     cd $(pwd)/../../tools
 else
     echo "Enabling non-secure host"
-    export ASR_ADDR_PORT="ws://localhost:8081"
+    export ASR_ADDR_PORT="ws://localhost:$CMD_PORT"
 fi
 
 declare -a commandcenter=("CMD" "$(pwd)/../lucida/commandcenter/")
@@ -53,12 +60,19 @@ declare -a weather=("WE" "$(pwd)/../lucida/weather")
 declare -a botframework=("BFI" "$(pwd)/../lucida/botframework-interface")
 declare -a musicservice=("MS" "$(pwd)/../lucida/musicservice")
 
-declare -a services=(
-    commandcenter
+if [ "$1" == "test" ]; then
+    declare -a services=(
+        )
+else
+    declare -a services=(
+        commandcenter
+        speechrecognition)
+fi
+
+services+=(
     questionanswering
     imagematching
     calendar
-    speechrecognition
     imageclassification
     digitrecognition
     facerecognition
@@ -81,7 +95,11 @@ do
         tmux new-window -n ${!NAME} -t ${SESSION_NAME}
     fi
     tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "cd ${!SERV_PATH}" C-m
-    tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "make start_server" C-m
+    if [ "$1" == "test" ]; then
+        tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "make start_test" C-m
+    else
+        tmux send-keys -t ${SESSION_NAME}:$TMUX_WIN "make start_server" C-m
+    fi
     ((TMUX_WIN++))
 done
 

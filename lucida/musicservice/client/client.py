@@ -26,9 +26,10 @@ try:
   transport.open()
 
   # Test the server
-  print "----Test client----\nQuery: ", query_input_data
+  print query_input_data
+  print "/////....Connecting to Musicservice.../////"
   msg = client.infer(LUCID, query_spec)
-  print "------Result:------\n", msg
+  print "/////Result/////\n", msg
 
   transport.close()
 

@@ -21,7 +21,7 @@ TARGET  = FACEServer
 SOURCES = $(wildcard *.cpp ../gen-cpp2/*.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
-all: $(TARGET)
+all: $(TARGET) client
 
 $(TARGET): $(OBJECTS)
 	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
@@ -31,11 +31,14 @@ $(TARGET): $(OBJECTS)
 
 start_server: 
 	./FACEServer
-start_test: 
-	gnome-terminal -x bash -c "./run-test.sh $(filter-out $@,$(MAKECMDGOALS)); read -n1"
 
+start_test: 
+	cd test && ./FACEClient && cd ..
+
+client:
+	cd test && make all && cd ..
 
 clean:
-	$(RM) $(OBJECTS) $(TARGET)
+	$(RM) $(OBJECTS) $(TARGET) && cd test && make clean && cd ..
 
 .PHONY: all start_server start_test clean
