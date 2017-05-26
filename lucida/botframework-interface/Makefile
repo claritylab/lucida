@@ -16,5 +16,4 @@ clean:
 	rm -f phantom.out
 	rm -f credentials.js
 	rm -rf deps/downloads
-	mv config.sh config.bak
-	echo "Backed up old config to config.bak"
+	mv config.sh config.bak && echo "Backed up old config to config.bak" || :
