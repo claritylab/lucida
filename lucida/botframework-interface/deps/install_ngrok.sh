@@ -1,4 +1,7 @@
-cd deps
+#!/bin/bash
+
+mkdir -p deps/downloads
+cd deps/downloads
 uname -a | grep "x86_64" > /dev/null
 if [ $? -eq 0 ]; then
   wget -c "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip" \

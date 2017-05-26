@@ -1,4 +1,7 @@
-cd deps
+#!/bin/bash
+
+mkdir -p deps/downloads
+cd deps/downloads
 uname -a | grep "x86_64" > /dev/null
 if [ $? -eq 0 ]; then
   wget -c "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2" \

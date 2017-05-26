@@ -33,5 +33,21 @@ set the endpoint manually by logging into https://dev.botframework.com/bots, sel
 * You'll see a `https://*.ngrok.io` address when ngrok goes online. Copy this appended with '/api/messages' to Messaging endpoint field and save the changes.
 * The endpoint will change everytime you restart ngrok. You'll need to change endpoint on https://dev.botframework.com/bots every time you restart ngrok.
 
+## Troubleshooting
+#### Microsoft needs additional information to sign you in
+This error usually occurs when you run interface on a remote server. Microsoft detects that you are signing in from a different region/PC and asks the interface questions that it cannot currently answer. To fix the error:
+* SSH into your remote server with `-D 8888` option passed to openssh (e.g. `ssh -D 8888 user@remote_host` ).
+* Open Firefox (not a private window) on your local machine and go to Edit->Preferences->Advanced->Network->Connection->Settings.
+* Fill the details as shown below
+![proxy_configuration.png](lucida/botframework-interface/proxy_configuration.png)
+* Old versions of Firefox do not have an option to 'Proxy DNS when using SOCKS v5'. If you are using one of those versions
+  - Navigate to 'about:config'
+  - Click on 'I accept the risk!'
+  - Type 'socks' in the search box
+  - Double click 'network.proxy.socks_remote_dns' to toggle it to true.
+* Navigate to 'https://dev.botframework.com/bots/' and sign in
+* Run `make start_server` in botframework directory of your remote host
+* If everything works fine undo the changes you made to your Firefox. Otherwise create an issue on the git repository.
+
 NOTE: The bot won't be available in bot directory unless you publish it. Till then only the people with 'Add to Skype' link (in case of Skype) and ones listed as developers/testers (in case of Facebook)
 will be able to send messages to the bot.
