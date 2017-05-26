@@ -15,5 +15,6 @@ clean:
 	rm -f config.tmp
 	rm -f phantom.out
 	rm -f credentials.js
+	rm -f last_pushed_host
 	rm -rf deps/downloads
 	mv config.sh config.bak 2>/dev/null && echo "Backed up old config to config.bak" || :
