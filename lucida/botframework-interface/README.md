@@ -39,7 +39,7 @@ This error usually occurs when you run interface on a remote server. Microsoft d
 * SSH into your remote server with `-D 8888` option passed to openssh (e.g. `ssh -D 8888 user@remote_host` ).
 * Open Firefox (not a private window) on your local machine and go to Edit->Preferences->Advanced->Network->Connection->Settings.
 * Fill the details as shown below
-![proxy_configuration.png](lucida/botframework-interface/proxy_configuration.png)
+![proxy_configuration.png](proxy_configuration.png)
 * Old versions of Firefox do not have an option to 'Proxy DNS when using SOCKS v5'. If you are using one of those versions
   - Navigate to 'about:config'
   - Click on 'I accept the risk!'
