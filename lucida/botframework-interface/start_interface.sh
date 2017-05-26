@@ -38,9 +38,11 @@ while [ $ASK_QUESTIONS -eq 1 ]; do
     echo ""
     echo "By default this script updates messaging endpoint automatically as and when required. You can also set endpoint manually as explained in README"
     echo "This feature is experimental and requires your Microsoft account password"
-    printf "Do you want to continue with automatic update of endpoint? (y/n) "
+    echo "Do you want to skip automatic update of endpoint? (y/n)"
+    printf "BFW_SKIP_UPDATE [n]: "
     read response
-    if [[ $response != "y" ]] && [[ $response != "Y" ]]; then
+    if [ -z $respone ]; then response="n"; fi
+    if [[ $response != "n" ]] && [[ $response != "N" ]]; then
       BFW_SKIP_UPDATE=1
       BFW_UID=
       BFW_PWD=
@@ -81,7 +83,7 @@ while [ $ASK_QUESTIONS -eq 1 ]; do
     done
   fi
   echo "" >> config.sh
-  echo "# Skip automatic endpoint update. You may need to update your endpoint at every run if you use ngrok (default). See README" >> config.sh
+  echo "# Skip automatic endpoint update (0/1). You may need to update your endpoint at every run if you use ngrok (default). See README" >> config.sh
   echo "BFW_SKIP_UPDATE=\"$BFW_SKIP_UPDATE\"" >> config.sh
   echo "" >> config.sh
   echo "# Microsoft account email address" >> config.sh
@@ -110,7 +112,7 @@ while [ $ASK_QUESTIONS -eq 1 ]; do
       BFW_SAVE_PWD=0
     else
       echo ""
-      echo "Do you want me to save password to file? It will be saved in plain text."
+      echo "Do you want me to save password to file? It will be saved in plain text. (y/n)"
       printf "BFW_SAVE_PWD [n]: "
       read BFW_SAVE_PWD
       if [ -z $BFW_SAVE_PWD ] || [[ $BFW_SAVE_PWD == "n" ]] || [[ $BFW_SAVE_PWD == "N" ]] || [[ $BFW_SAVE_PWD == "No" ]] || [[ $BFW_SAVE_PWD == "no" ]] || [[ $BFW_SAVE_PWD == "false" ]] || [[ $BFW_SAVE_PWD == "False" ]]; then
@@ -135,7 +137,7 @@ while [ $ASK_QUESTIONS -eq 1 ]; do
     while [ 1 ]; do
       echo ""
       echo "Enter the host:port on which command center is running (e.g. 'http://localhost:3000'). URLs with exclaimation marks ('!') are not allowed."
-      echo "If you have no idea what this is you may use default [http://localhost:3000]"
+      echo "If you have no idea what this is you may use default"
       printf "CC_HOST [http://localhost:3000]: "
       read CC_HOST
       if [ -z $CC_HOST ]; then CC_HOST="http://localhost:3000"; fi
@@ -178,7 +180,7 @@ while [ $ASK_QUESTIONS -eq 1 ]; do
     while [ 1 ]; do
       echo ""
       echo "Enter messaging endpoint (https only) on which Lucida's BotFramework interface is running (e.g. 'https://xxx.ngrok.io'). URLs with exclaimation marks ('!') are not allowed."
-      echo "If you have no idea what this is you may press enter. Doing so will require you to enter your account password everytime you launch BotFramework interface or save it to config.sh"
+      echo "If you have no idea what this is just press enter. Doing so will require you to enter your account password everytime you launch BotFramework interface or save it to config.sh"
       printf "BFW_HOST [https://xxx.ngrok.io]: "
       read BFW_HOST
       if [ -z $BFW_HOST ]; then BFW_HOST="https://xxx.ngrok.io"; USE_NGROK=1; fi
@@ -206,7 +208,7 @@ while [ $ASK_QUESTIONS -eq 1 ]; do
   if [ -z $BFW_PORT ]; then
     while [ 1 ]; do
       echo ""
-      echo "Enter the port on which Lucida BotFramework interface should run. Default is 3728."
+      echo "Enter the port on which Lucida BotFramework interface should run."
       printf "BFW_PORT [3728]: "
       read BFW_PORT
       if [ -z $BFW_PORT ]; then BFW_PORT=3728; fi
@@ -291,7 +293,6 @@ while [ $ASK_QUESTIONS -eq 1 ]; do
       export BFW_HOST
       export BFW_HND
       phantomjs set_endpoint.js | tee phantom.out
-#      echo "Successfully updated bot endpoint" | tee phantom.out
       grep phantom.out -e "Successfully updated bot endpoint" > /dev/null
       if [ $? -eq 0 ]; then
         echo $BFW_HOST > "last_pushed_host"
