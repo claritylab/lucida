@@ -46,13 +46,18 @@
 		<table style="width:800px" align="center">
 			<tr>
 				<td>
-                    <!-- TODO: add for kaldi  <div id="recbutton" class="disabled" onclick="clearTranscription(); toggleListening();"></div>-->
-                </td>
-				<td><div class="wrap">
+					<div id="recorder">
+						<button id="startButton" onclick="startButtonFunc()" type="button">
+						<img alt="Start" id="startImg" src="static/image/microphone.png"></button>
+					</div>
+				</td>
+				<td>
+					<div class="wrap">
 						<textarea id="trans" name="speech_input" form="infer_form"></textarea>
 					</div>
 				</td>
-				<td><div class="wrapr">
+				<td>
+					<div class="wrapr">
 						<textarea readonly id="clinc" style="margin-right: 10px">{% if result %}{{ result }}{% endif %}</textarea>
 					</div>
 				</td>
@@ -69,24 +74,14 @@
 			<tr>
 				<td></td>
 				<td colspan="2">
-				<br><br>
+					<br><br>
+					<div class="form-group">
+						<input id="file_submit" type="submit" value="Ask" class="btn btn-info">
+					</div>
 
-
-			<div class="form-group">
-				<input id="file_submit" type="submit" value="Ask" class="btn btn-info">
-			</div>
-		</form>
-
-            <!-- TODO: remove if using kaldi -->
-            <div id="divStart">
-                <button id="startButton" onclick="startButtonFunc()">
-                    <img alt="Start" id="startImg"
-                        src="static/image/microphone.png"></button>
-            </div>
-
-				<center>
-					Powered by <a href="http://lucida.ai">Lucida</a>
-				</center>
+					<center>
+						Powered by <a href="http://lucida.ai">Lucida</a>
+					</center>
 				</td>
 			</tr>
 			<tr>
@@ -119,17 +114,29 @@
 		<pre id="log"></pre>
 	</div>
 </div>
-
-<script src="{{ url_for('static', filename='js/speech-streamer.js')}}"></script>
-<script src="{{ url_for('static', filename='js/dictate.js')}}"></script>
-<script src="{{ url_for('static', filename='js/recorder.js')}}"></script>
-<script src="{{ url_for('static', filename='js/recorderWorker.js')}}"></script>
-<script src="{{ url_for('static', filename='js/mob.js')}}"></script>
 <script src="{{ url_for('static', filename='js/resultSpeaker.js')}}"></script>
 <script type="text/javascript">
 var speakable = "{{ result }}";
 if (speakable !== "" && speakable !== "None") {
 	textToVoice("{{ result }}");
+}
+function include(filename) {
+	var head = document.getElementsByTagName('head')[0];
+
+	var script = document.createElement('script');
+	script.async = false;
+	script.src = filename;
+	script.type = 'text/javascript';
+
+	head.appendChild(script)
+}
+if (!('webkitSpeechRecognition' in window)) {
+	include("{{ url_for('static', filename='js/dictate.js')}}");
+	include("{{ url_for('static', filename='js/recorder.js')}}");
+	include("{{ url_for('static', filename='js/recorderWorker.js')}}");
+	include("{{ url_for('static', filename='js/mob.js')}}");
+} else {
+	include("{{ url_for('static', filename='js/speech-streamer.js')}}");
 }
 </script>
 {% endblock %}

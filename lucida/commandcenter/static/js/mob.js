@@ -82,6 +82,7 @@ var dictate = new Dictate({
 	onReadyForSpeech : function() {
 		isConnected = true;
 		__message("READY FOR SPEECH");
+		document.getElementById('startImg').src = 'static/image/microphone_off.png';
 		$("#buttonToggleListening").html('Stop');
 		$("#buttonToggleListening").addClass('highlight');
 		$("#buttonToggleListening").prop("disabled", false);
@@ -99,6 +100,7 @@ var dictate = new Dictate({
 	},
 	onEndOfSpeech : function() {
 		__message("END OF SPEECH");
+		document.getElementById('startImg').src = 'static/image/microphone.png';
 		$("#buttonToggleListening").html('Stopping...');
 		$("#buttonToggleListening").prop("disabled", true);
 	},
@@ -197,11 +199,13 @@ function __updateTranscript(text) {
 }
 
 // Public methods (called from the GUI)
-function toggleListening() {
+function startButtonFunc() {
 	if (isConnected) {
 		dictate.stopListening();
 		$("#recbutton").addClass("disabled");
 	} else {
+		clearTranscription();
+		document.getElementById('startImg').src = 'static/image/microphone.png';
 		dictate.startListening();
 	}
 }
@@ -249,3 +253,4 @@ function readURL(input) {
 $("#file_input").change(function () {
 	readURL(this);
 });
+
