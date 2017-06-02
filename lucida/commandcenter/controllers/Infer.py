@@ -46,9 +46,6 @@ def infer_route():
                     Config.SESSION[lucida_id]['data']['text'].append(speech_input)
                     speech_input = Config.SESSION[lucida_id]['data']['text']
                 node = services_needed.get_node(0)
-#service = self.SERVICES[node.service_name]
-                log("And here again")
-                log(node.service_name)
                 options['result'] = thrift_client.infer(lucida_id, node.service_name, speech_input, image_input)
                 log('Result ' + options['result'])
                 # Check if Calendar service is needed.
