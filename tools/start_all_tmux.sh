@@ -57,6 +57,7 @@ declare -a imageclassification=("IMC" "$(pwd)/../lucida/djinntonic/imc/")
 declare -a digitrecognition=("DIG" "$(pwd)/../lucida/djinntonic/dig/")
 declare -a facerecognition=("FACE" "$(pwd)/../lucida/djinntonic/face")
 declare -a weather=("WE" "$(pwd)/../lucida/weather")
+declare -a botframework=("BFI" "$(pwd)/../lucida/botframework-interface")
 declare -a musicservice=("MS" "$(pwd)/../lucida/musicservice")
 
 if [ "$1" == "test" ]; then
@@ -76,6 +77,7 @@ services+=(
     digitrecognition
     facerecognition
     weather
+    botframework
     musicservice)
 
 # Create the session

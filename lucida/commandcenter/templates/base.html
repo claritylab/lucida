@@ -45,7 +45,7 @@
 		 	</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a>Logged in as {{ session['username'] }}</a></li>
+				<li><a href="{{ url_for('user.profile_route') }}">Logged in as {{ session['username'] }}</a></li>
 		 	</ul>
 		 	{% endif %}
 

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<p style="color:gray">Main » User</p>
+	</div>
+
+	<div class="page-header">
+		<h1>Hi {{ session['username'] }}</h1>
+	</div>
+
+	<div class="row">
+		{% if interfaces %}
+		<h3> You are registered on the following interfaces </h3>
+		<ul>
+			{% for i in interfaces %}
+			<li><p class="lead">{{ i }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+
+		{% if not interfaces %}
+		<h2> You are not registered on any interface </h2>
+		{% endif %}
+		<br/>
+		To register on an interface message <input id="token" type="text" name="token" value="Verify {{ token }}" readonly/> from the interface.<br/>
+		The token is valid only for 5 minutes. <span id="copy_hint">Click <a id="copy_token">here</a> to copy the message.</span>
+	</div>
+
+	<br><br>
+
+	<div class="row">
+		<a href="{{ url_for('main.main_route') }}" class="btn btn-default">Back to Main</a>
+	</div>
+
+	<br>
+	<script>
+		copy_token.onclick = function() {
+			document.getElementById("token").select();
+			document.execCommand("copy");
+			document.getElementById("copy_hint").innerHTML="Copied!!! Now paste the text in the interface and hit send..." 
+		};
+	</script>
+</div>
+{% endblock %}

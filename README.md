@@ -82,6 +82,11 @@ see [CONTRIBUTING](CONTRIBUTING.md) for more details.
 
 - Once done, check out the [`tutorial`](tutorial.pdf) for usage and sample questions.
 
+## REST API for command center
+
+The REST API is in active development and may change drastically. It currently supports only infer and learn. Other features may be added later.
+An [example client](lucida/botframework-interface) for botframework is available. Information on how to use the API can be found in the [wiki](https://github.com/claritylab/lucida/wiki/REST-API)
+
 ## Design Notes -- How to Add Your Own Service into Lucida?
 
 ### Back-end Communication
