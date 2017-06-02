@@ -140,20 +140,7 @@ WFList = {
 # The ThriftClient assumes that the following services are running.
 # Host IP addresses are resolved dynamically:
 # either set by Kubernetes or localhost.
-'''
-SERVICES = {
-    'IMM' : Service('IMM', int(port_dic["imm_port"]), 'image', 'image'),
-    'QA' : Service('QA', int(port_dic["qa_port"]), 'text', 'text'),
-    'CA' : Service('CA', int(port_dic["ca_port"]), 'text', None),
-    'IMC' : Service('IMC', int(port_dic["imc_port"]), 'image', None),
-    'FACE' : Service('FACE', int(port_dic["face_port"]), 'image', None),
-    'DIG' : Service('DIG', int(port_dic["dig_port"]), 'image', None),
-    'WE' : Service('WE', int(port_dic["we_port"]), 'text', None),
-    'MS' : Service('MS', int(port_dic["ms_port"]), 'text', None),
-    'DCM_WE' : WorkerService('DCM', WEDCM.WEDCM()),
-    'DCM_IMM' : WorkerService('DCM', IMMDCM.IMMDCM())
-    }
-      
+
 SERVICES = { 
 	'IMM' : Service('IMM', int(port_dic["imm_port"]), 'image', 'image'), 
 	'QA' : Service('QA', int(port_dic["qa_port"]), 'text', 'text'),
@@ -164,40 +151,12 @@ SERVICES = {
 	'WE' : Service('WE', int(port_dic["we_port"]), 'text', None),
 	'MS' : Service('MS', int(port_dic["ms_port"]), 'text', None),
 	}
-	
-	
-SERVICES = { 
-	'IMM' : Service('IMM', 8082, 'image', 'image'), 
-	'QA' : Service('QA', 8083, 'text', 'text'),
-	'CA' : Service('CA', 8084, 'text', None),
-	'IMC' : Service('IMC', 8085, 'image', None),
-	'FACE' : Service('FACE', 8086, 'image', None),
-	'DIG' : Service('DIG', 8087, 'image', None),
-	'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None),
-	'MS' : Service('MS', 8089, 'text', None),
-	}
-
-	
-	
-	'''
-SERVICES = { 
-	'IMM' : Service('IMM', 8082, 'image', 'image'), 
-	'QA' : Service('QA', 8083, 'text', 'text'),
-	'CA' : Service('CA', 8084, 'text', None),
-	'IMC' : Service('IMC', 8085, 'image', None),
-	'FACE' : Service('FACE', 8086, 'image', None),
-	'DIG' : Service('DIG', 8087, 'image', None),
-	'ENSEMBLE' : Service('ENSEMBLE', 9090, 'text', None),
-	'MS' : Service('MS', 8089, 'text', None),
-	}
 
 
-print("IMPORTANT:", int(port_dic["qa_port"]))
-# Map from input type to query classes and services needed by each class.
 
 
 CLASSIFIER_DESCRIPTIONS = {
-    'text' : { 'class_QA' :  Graph([Node('firstWorkFlow')]),
+    'text' : { 'class_QA' :  Graph([Node('QA')]),
                'class_CA' : Graph([Node('CAWF')]),
                'class_WE' : Graph([Node('WEWF')]),
                'class_MS' : Graph([Node('MSWF')]) },
