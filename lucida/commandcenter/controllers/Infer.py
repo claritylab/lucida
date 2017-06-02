@@ -62,6 +62,10 @@ def generic_infer_route(form, upload_file):
 @login_required
 def infer_route():
 	options = {}
+	if os.environ.get('ASR_ADDR_PORT'):
+		options['asr_addr_port'] = os.environ.get('ASR_ADDR_PORT')
+	else:
+		options['asr_addr_port'] = 'ws://localhost:' + port_dic["cmd_port"]
 	if request.method == 'POST':
 		options = generic_infer_route(request.form, request.files['file'] if 'file' in request.files else None)
 	return render_template('infer.html', **options)
