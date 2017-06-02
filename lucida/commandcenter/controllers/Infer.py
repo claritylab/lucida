@@ -3,7 +3,6 @@ from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
 from Utilities import log, check_image_extension
-from Parser import port_dic
 import Config
 import os
 
@@ -16,7 +15,7 @@ def infer_route():
     if os.environ.get('ASR_ADDR_PORT'):
         options['asr_addr_port'] = os.environ.get('ASR_ADDR_PORT')
     else:
-        options['asr_addr_port'] = 'ws://localhost:' + port_dic["cmd_port"]
+        options['asr_addr_port'] = 'ws://localhost:8081'
     try:
         form = request.form
         # Deal with POST requests.
@@ -40,15 +39,17 @@ def infer_route():
                 # Check if context is saved for Lucida user
                 # If not, classify query, otherwise restore session
                 if lucida_id not in Config.SESSION:
-                    services_needed = \
-                        query_classifier.predict(speech_input, upload_file)
+                    services_needed = query_classifier.predict(speech_input, upload_file)
                     speech_input = [speech_input]
                 else:
                     services_needed = Config.SESSION[lucida_id]['graph']
                     Config.SESSION[lucida_id]['data']['text'].append(speech_input)
                     speech_input = Config.SESSION[lucida_id]['data']['text']
-                options['result'] = thrift_client.infer(lucida_id, \
-                    services_needed, speech_input, image_input)
+                node = services_needed.get_node(0)
+#service = self.SERVICES[node.service_name]
+                log("And here again")
+                log(node.service_name)
+                options['result'] = thrift_client.infer(lucida_id, node.service_name, speech_input, image_input)
                 log('Result ' + options['result'])
                 # Check if Calendar service is needed.
                 # If so, JavaScript needs to receive the parsed dates.
