@@ -11,7 +11,7 @@ MAX_DOC_NUM_PER_USER = 30 # non-negative inetegr
 # If you set it to 'load', it is assumed that
 # models are already saved in `../models`.
 TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
-fghfdhdjfghj
+
 # Pre-configured services.
 # The ThriftClient assumes that the following services are running.
 # Host IP addresses are resolved dynamically:
