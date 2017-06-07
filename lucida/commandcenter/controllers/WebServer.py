@@ -23,6 +23,7 @@ import tornado.web
 import tornado.websocket
 import tornado.gen
 import tornado.concurrent
+import tornado.wsgi
 
 from Parser import cmd_port
 
@@ -43,23 +44,22 @@ STATUS_NOT_AVAILABLE = 9
 
 
 class Application(tornado.web.Application):
-	def __init__(self):
+	def __init__(self, flaskApp):
 		settings = dict(
 			cookie_secret="43oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
-			template_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), "templates"),
 			static_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), "static"),
 			xsrf_cookies=False,
-			autoescape=None,
+			autoescape=None
 		)
 
+		flaskWebHandler = tornado.wsgi.WSGIContainer(flaskApp)
 		handlers = [
-			(r"/", MainHandler),
 			(r"/client/ws/speech", DecoderSocketHandler),
 			(r"/client/ws/status", StatusSocketHandler),
-			(r"/client/dynamic/reference", ReferenceHandler),
 			(r"/client/dynamic/recognize", HttpChunkedRecognizeHandler),
 			(r"/worker/ws/speech", WorkerSocketHandler),
 			(r"/client/static/(.*)", tornado.web.StaticFileHandler, {'path': settings["static_path"]}),
+			(r".*", tornado.web.FallbackHandler, dict(fallback=flaskWebHandler))
 		]
 		tornado.web.Application.__init__(self, handlers, **settings)
 		self.available_workers = set()
@@ -73,26 +73,6 @@ class Application(tornado.web.Application):
 	def send_status_update(self):
 		for ws in self.status_listeners:
 			self.send_status_update_single(ws)
-
-	def save_reference(self, content_id, content):
-		refs = {}
-		try:
-			with open("reference-content.json") as f:
-				refs = json.load(f)
-		except:
-			pass
-		refs[content_id] = content
-		with open("reference-content.json", "w") as f:
-			json.dump(refs, f, indent=2)
-
-
-class MainHandler(tornado.web.RequestHandler):
-	def get(self):
-		current_directory = os.path.dirname(os.path.abspath(__file__))
-		parent_directory = os.path.join(current_directory, os.pardir)
-		readme = os.path.join(parent_directory, "README.md")
-		self.render(readme)
-
 
 def run_async(func):
 	@functools.wraps(func)
@@ -216,27 +196,6 @@ class HttpChunkedRecognizeHandler(tornado.web.RequestHandler):
 		self.final_result_queue.put(self.final_hyp)
 
 
-class ReferenceHandler(tornado.web.RequestHandler):
-	def post(self, *args, **kwargs):
-		content_id = self.request.headers.get("Content-Id")
-		if content_id:
-			content = codecs.decode(self.request.body, "utf-8")
-			user_id = self.request.headers.get("User-Id", "")
-			self.application.save_reference(content_id, dict(content=content, user_id=user_id, time=time.strftime("%Y-%m-%dT%H:%M:%S")))
-			logging.info("Received reference text for content %s and user %s" % (content_id, user_id))
-			self.set_header('Access-Control-Allow-Origin', '*')
-		else:
-			self.set_status(400)
-			self.finish("No Content-Id specified")
-
-	def options(self, *args, **kwargs):
-		self.set_header('Access-Control-Allow-Origin', '*')
-		self.set_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
-		self.set_header('Access-Control-Max-Age', 1000)
-		# note that '*' is not valid for Access-Control-Allow-Headers
-		self.set_header('Access-Control-Allow-Headers',  'origin, x-csrftoken, content-type, accept, User-Id, Content-Id')
-
-
 class StatusSocketHandler(tornado.websocket.WebSocketHandler):
 	# needed for Tornado 4.0
 	def check_origin(self, origin):
@@ -339,18 +298,3 @@ class DecoderSocketHandler(tornado.websocket.WebSocketHandler):
 			self.worker.write_message(message, binary=False)
 		else:
 			self.worker.write_message(message, binary=True)
-
-
-def main():
-	logging.basicConfig(level=logging.DEBUG, format="%(levelname)8s %(asctime)s %(message)s ")
-	logging.debug('Starting up server')
-	from tornado.options import options
-
-	tornado.options.parse_command_line()
-	app = Application()
-	app.listen(3000)
-	tornado.ioloop.IOLoop.instance().start()
-
-
-if __name__ == "__main__":
-	main()
