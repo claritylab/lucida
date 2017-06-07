@@ -107,6 +107,7 @@ var dictate = new Dictate({
 	onEndOfSession : function() {
 		isConnected = false;
 		__message("END OF SESSION");
+		document.getElementById('startImg').src = 'static/image/microphone.png';
 		$("#buttonToggleListening").html('Start');
 		$("#buttonToggleListening").removeClass('highlight');
 		$("#buttonToggleListening").prop("disabled", false);
@@ -168,6 +169,7 @@ var dictate = new Dictate({
 		doPrependSpace = (hypText.length > 0) && !(/\n *$/.test(hypText));
 	},
 	onError : function(code, data) {
+		document.getElementById('startImg').src = 'static/image/microphone.png';
 		dictate.cancel();
 		__error(code, data);
 		// TODO: show error in the GUI
