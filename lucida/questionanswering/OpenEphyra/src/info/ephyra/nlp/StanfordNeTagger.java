@@ -7,10 +7,6 @@ import java.util.HashMap;
 
 import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ie.crf.CRFClassifier;
-// import java.io.File;
-// import java.io.FileNotFoundException;
-// import java.io.FileOutputStream;
-// import java.io.PrintWriter;
 
 /**
  * Wrapper for the Stanford named entity recognizer.
@@ -108,13 +104,6 @@ public class StanfordNeTagger {
 				sentence.matches("\\W*+"))
 			return new HashMap<String, String[]>();
 
-               /* PrintWriter pw = null;   
-                try {
-                    pw = new PrintWriter(new FileOutputStream(new File("StanfordNeTagger_data.txt"),true));
-                } catch (FileNotFoundException ex) {
-                    System.out.println("File not found exception!!");
-                }*/
-                
 		String neString = "";
 		try {
 			neString = classifier.testString(sentence);
@@ -126,9 +115,6 @@ public class StanfordNeTagger {
 			MsgPrinter.printErrorMsg(e.toString());
 		}
                 
-                //pw.printf("%s ----- %s\n", sentence, neString);
-                //pw.close();
-		
 		String[] neTokens = neString.split("\\s");
 		String mark = "O";
 		String ne = "";

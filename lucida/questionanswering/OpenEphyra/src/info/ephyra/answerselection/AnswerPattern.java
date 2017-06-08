@@ -1,9 +1,5 @@
 package info.ephyra.answerselection;
 
-//import java.io.File;
-//import java.io.FileNotFoundException;
-//import java.io.FileOutputStream;
-//import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -364,16 +360,6 @@ public class AnswerPattern implements Comparable<AnswerPattern> {
 	 *         not match the pattern
 	 */
 	public String[] apply(String sentence) {
-            
-                /*PrintWriter pw = null;   
-                try {
-                    pw = new PrintWriter(new FileOutputStream(new File("regex_data.txt"),true));
-                } catch (FileNotFoundException ex) {
-                    System.out.println("File not found exception!!");
-                }*/
-                
-              //  pw.printf("%s ----- %s\n", pattern.pattern(), sentence);
-
 		Matcher m = pattern.matcher(sentence);
 		ArrayList<String> results = new ArrayList<String>();
 		
@@ -387,8 +373,6 @@ public class AnswerPattern implements Comparable<AnswerPattern> {
 			m.region(m.start() + 1, sentence.length());
 		}
                 
-               // pw.close();
-		
 		return results.toArray(new String[results.size()]);
 	}
 }
