@@ -9,8 +9,7 @@ fi
 
 FREE=`df -k --output=avail "$PWD" | tail -n1`
 if [[ $FREE -lt 11523524 ]]; then
-     echo "Enough space to download.: FAIL"
-     read -p "Not enough space. Do you want to continue (Y/n)? " -n 1 -r
+     read -p "Not enough space to download. Do you want to continue (Y/n)? " -n 1 -r
      if [[ ! $REPLY =~ ^[Yy]$ ]]
      then
         echo ""
