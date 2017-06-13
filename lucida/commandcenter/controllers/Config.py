@@ -74,7 +74,12 @@ class QAWF(workFlow):
 			self.isEnd = True;
 			return;
 
-
+class IMMWF(workFlow):
+	def processCurrentState(self,inputModifierText,inputModifierImage):
+		if(self.currentState==0):
+			self.batchedData = [serviceRequestData("IMM",inputModifierImage[0])];
+			self.isEnd = True;
+			return;
 
 class CAWF(workFlow):
 	def processCurrentState(self,inputModifierText,inputModifierImage):
@@ -86,21 +91,21 @@ class CAWF(workFlow):
 class IMCWF(workFlow):
 	def processCurrentState(self,inputModifierText,inputModifierImage):
 		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("IMC",inputModifierText[0])];
+			self.batchedData = [serviceRequestData("IMC",inputModifierImage[0])];
 			self.isEnd = True;
 			return;
 
 class FACEWF(workFlow):
 	def processCurrentState(self,inputModifierText,inputModifierImage):
 		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("FACE",inputModifierText[0])];
+			self.batchedData = [serviceRequestData("FACE",inputModifierImage[0])];
 			self.isEnd = True;
 			return;
 
 class DIGWF(workFlow):
 	def processCurrentState(self,inputModifierText,inputModifierImage):
 		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("DIG",inputModifierText[0])];
+			self.batchedData = [serviceRequestData("DIG",inputModifierImage[0])];
 			self.isEnd = True;
 			return;
 
@@ -121,7 +126,7 @@ class MSWF(workFlow):
 
 
 WFList = {
-
+	"IMMWF" : IMMWF(),
 	"firstWorkFlow" : firstWorkflow(),
 	"QAWF" : QAWF(),
 	"CAWF" : CAWF(),
@@ -141,19 +146,16 @@ WFList = {
 # Host IP addresses are resolved dynamically:
 # either set by Kubernetes or localhost.
 
-SERVICES = { 
-	'IMM' : Service('IMM', int(port_dic["imm_port"]), 'image', 'image'), 
-	'QA' : Service('QA', int(port_dic["qa_port"]), 'text', 'text'),
-	'CA' : Service('CA', int(port_dic["ca_port"]), 'text', None),
-	'IMC' : Service('IMC', int(port_dic["imc_port"]), 'image', None),
-	'FACE' : Service('FACE', int(port_dic["face_port"]), 'image', None),
-	'DIG' : Service('DIG', int(port_dic["dig_port"]), 'image', None),
-	'WE' : Service('WE', int(port_dic["we_port"]), 'text', None),
-	'MS' : Service('MS', int(port_dic["ms_port"]), 'text', None),
-	}
-
-
-
+SERVICES = {
+    'IMM' : Service('IMM', int(port_dic["imm_port"]), 'image', 'image'),
+    'QA' : Service('QA', int(port_dic["qa_port"]), 'text', 'text'),
+    'CA' : Service('CA', int(port_dic["ca_port"]), 'text', None),
+    'IMC' : Service('IMC', int(port_dic["imc_port"]), 'image', None),
+    'FACE' : Service('FACE', int(port_dic["face_port"]), 'image', None),
+    'DIG' : Service('DIG', int(port_dic["dig_port"]), 'image', None),
+    'WE' : Service('WE', int(port_dic["we_port"]), 'text', None),
+    'MS' : Service('MS', int(port_dic["ms_port"]), 'text', None),
+    }
 
 CLASSIFIER_DESCRIPTIONS = {
     'text' : { 'class_QA' :  Graph([Node('QAWF')]),
@@ -168,6 +170,7 @@ CLASSIFIER_DESCRIPTIONS = {
                      'class_IMM' : Graph([Node('IMMWF')]),
                      'class_IMC' : Graph([Node('IMCWF')]),
                      'class_FACE' : Graph([Node('FACEWF')]),
+                     'class_MS': Graph([Node('MSWF')]),
                      'class_DIG' : Graph([Node('DIGWF')]), }
     }
 

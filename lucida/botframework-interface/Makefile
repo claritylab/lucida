@@ -1,7 +1,7 @@
 .PHONY:	all start_server clean
 
 all:
-	ngrok version 2>/dev/null | grep -Pe "ngrok version 2\." 2>&1 1>/dev/null || sudo ./install_ngrok.sh
+	ngrok version 2>/dev/null | grep -Pe "ngrok version 2\." 2>&1 1>/dev/null || sudo ./deps/install_ngrok.sh
 	phantomjs -v 2>/dev/null  | grep -Pe "^2\." 2>&1 1>/dev/null || sudo ./deps/install_phantomjs.sh
 	which node || sudo ./deps/install_node.sh
 	which npm || sudo ./deps/install_node.sh

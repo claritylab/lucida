@@ -111,7 +111,8 @@ public class QAServiceHandler {
                 answer = askFactoidThrift(LUCID, answer);
                 // Getting the most recent request
                 MsgPrinter.printStatusMsg("Answer: " + answer);
-
+                
+/*
                 // Go to next node if applicable
                 if(!query.content.get(0).tags.get(2).equals("0")) {
                     query.content.remove(0);
@@ -128,6 +129,7 @@ public class QAServiceHandler {
                     answer = client.infer(LUCID, query);
                     transport.close();
                 }
+                * */
 
             } catch (Exception e) {
                 e.printStackTrace();

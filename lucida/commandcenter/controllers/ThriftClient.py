@@ -56,6 +56,7 @@ class ThriftClient(object):
 
     def get_client_transport(self, service):
         host, port = service.get_host_port()
+        host = "10.1.10.145"
         print (host,port)
         transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
         protocol = TBinaryProtocol.TBinaryProtocol(transport)
@@ -117,7 +118,7 @@ class ThriftClient(object):
 		# This acquires the workflow class.
         workflow = WFList[workflow_name]
         workflow.__init__()
-        resultText = [response_data['text']]
+        resultText = response_data['text']
         resultImage = [response_data['image']]
 
 
