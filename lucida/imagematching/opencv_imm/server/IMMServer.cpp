@@ -28,7 +28,7 @@ using std::to_string;
 
 int main(int argc, char* argv[]) {
 	folly::init(&argc, &argv);
-
+	
 	Properties props;
 	props.Read("../../../config.properties");
 	string portVal;
@@ -39,6 +39,7 @@ int main(int argc, char* argv[]) {
 	} else {
 		port = atoi(portVal.c_str());
 	}
+
 
 	auto handler = std::make_shared<IMMHandler>();
 	auto server = folly::make_unique<ThriftServer>();

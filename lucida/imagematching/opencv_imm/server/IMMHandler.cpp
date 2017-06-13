@@ -123,12 +123,14 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 				LUCID_save, images[best_index]->getImageId());
 			print("Result: " << IMM_result);
 			// Check if the query needs to be further sent to QA.
-			if (query_save.content[0].tags[2] == "0") {
+			//if (query_save.content[0].tags[2] == "0") {
 				promise->setValue(unique_ptr<string>(
 						new string(IMM_result)));
 				return;
-			}
+			//}
+			
 			// Ask QA.
+			/*
 			QuerySpec QA_spec;
 			string QA_addr = "";
 			int QA_port = 0;
@@ -152,7 +154,10 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 				promise->setValue(std::move(result));
 				return;
 			});
+
+			
 			event_base.loop();
+			*/
 		} catch (Exception &e) {
 			print(e.what()); // program aborted although exception is caught
 			promise->setValue(unique_ptr<string>(new string(e.what())));
@@ -162,7 +167,7 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 	);
 	return future;
 }
-
+/*
 void IMMHandler::getNextNode(QuerySpec &original_spec, const string &IMM_result,
 		int node_index, QuerySpec &new_spec, string &addr, int &port) {
 	if (node_index < 0 || node_index >= (int) original_spec.content.size()) {
@@ -179,7 +184,7 @@ void IMMHandler::getNextNode(QuerySpec &original_spec, const string &IMM_result,
 	}
 	port = stoi(original_spec.content[node_index].tags[1], nullptr);
 }
-
+*/
 int IMMHandler::countImages(const string &LUCID) {
 	auto_ptr<DBClientCursor> cursor = conn.query(
 			"lucida.images_" + LUCID, BSONObj());
