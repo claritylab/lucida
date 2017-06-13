@@ -1,7 +1,29 @@
 from Service import Service
 from Graph import Graph, Node
-from Parser import port_dic
+from pymongo import MongoClient
+import os, sys
 from dcm import*
+
+def load_config():
+    mongodb_addr = os.environ.get('MONGO_PORT_27017_TCP_ADDR')
+    if mongodb_addr:
+        db = MongoClient(mongodb_addr, 27017).lucida
+    else:
+        db = MongoClient().lucida
+    service_list = db["service_info"].find()
+    count = service_list.count()
+    for i in range(count):
+        service_obj = service_list[i]
+        acn = service_obj['acronym']
+        port = int(service_obj['port'])
+        input_type = service_obj['input']
+        learn_type = service_obj['learn']
+        if learn_type == 'none':
+            SERVICES[acn] = Service(acn, port, input_type, None)
+        else:
+            SERVICES[acn] = Service(acn, port, input_type, learn_type)
+        CLASSIFIER_DESCRIPTIONS[input_type]['class_' + acn] = Graph([Node(acn)])
+    return 0
 
 # The maximum number of texts or images for each user.
 # This is to prevent the server from over-loading.
@@ -140,14 +162,6 @@ WFList = {
 # either set by Kubernetes or localhost.
 
 SERVICES = {
-    'IMM' : Service('IMM', int(port_dic["imm_port"]), 'image', 'image'),
-    'QA' : Service('QA', int(port_dic["qa_port"]), 'text', 'text'),
-    'CA' : Service('CA', int(port_dic["ca_port"]), 'text', None),
-    'IMC' : Service('IMC', int(port_dic["imc_port"]), 'image', None),
-    'FACE' : Service('FACE', int(port_dic["face_port"]), 'image', None),
-    'DIG' : Service('DIG', int(port_dic["dig_port"]), 'image', None),
-    'WE' : Service('WE', int(port_dic["we_port"]), 'text', None),
-    'MS' : Service('MS', int(port_dic["ms_port"]), 'text', None),
     }
 
 CLASSIFIER_DESCRIPTIONS = {
@@ -165,6 +179,8 @@ CLASSIFIER_DESCRIPTIONS = {
                      'class_FACE' : Graph([Node('FACEWF')]),
                      'class_DIG' : Graph([Node('DIGWF')]), }
     }
+
+load_config()
 
 # TODO: Should I have this in its own Config file?
 # Structure used to save the state/context across requests in a session

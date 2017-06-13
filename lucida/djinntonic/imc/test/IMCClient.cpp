@@ -15,7 +15,7 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include <folly/init/Init.h>
-#include "../Parser.h"
+#include "mongo/client/dbclient.h"
 
 using namespace folly;
 using namespace apache::thrift;
@@ -45,15 +45,27 @@ int main(int argc, char* argv[]){
 	folly::init(&argc, &argv);
 	EventBase event_base;
 
-	Properties props;
-	props.Read("../../../config.properties");
-	string portVal;
-	int port;
-	if (!props.GetValue("IMC_PORT", portVal)) {
-	    cout << "IMC port not defined" << endl;
-	    return -1;
+	// Initialize MongoDB C++ driver.
+	mongo::client::initialize();
+	mongo::DBClientConnection conn;
+	string mongo_addr;
+	if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
+		cout << "MongoDB: " << env_p << endl;
+		mongo_addr = env_p;
 	} else {
-	    port = atoi(portVal.c_str());
+		cout << "MongoDB: localhost" << endl;
+		mongo_addr = "localhost";
+	}
+	conn.connect(mongo_addr);
+	cout << "Connection is ok" << endl;
+	auto_ptr<mongo::DBClientCursor> cursor = conn.query(
+		"lucida.service_info", MONGO_QUERY("name" << "imageclassification"));
+	mongo::BSONObj p;
+	int port = 0;
+	while (cursor->more()) {
+		p = cursor->next();
+		string port_str = p.getField("port").String();
+		port = atoi(port_str.c_str());
 	}
 
 	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(

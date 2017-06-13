@@ -83,5 +83,5 @@ tfactory = TTransport.TFramedTransportFactory()
 pfactory = TBinaryProtocol.TBinaryProtocolFactory()
 server = TServer.TSimpleServer(processor, transport, tfactory, pfactory)
 
-print 'WE at port  %d' % PORT
+print 'WE at port %d' % PORT
 server.serve()

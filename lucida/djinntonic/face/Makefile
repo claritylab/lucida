@@ -15,7 +15,7 @@ endif
 LDFLAGS += $(CAFFE)/build/lib/libcaffe.so
 
 CXXFLAGS += $(shell if [ `lsb_release -a 2>/dev/null | grep -Poe "(?<=\s)\d+(?=[\d\.]+$$)"` -gt 14 ]; then echo "-std=c++14"; fi;)
-LDFLAGS += -ljpeg -lzstd
+LDFLAGS += -ljpeg -lzstd -lmongoclient -lboost_system -lboost_thread -lssl -lcrypto -lboost_regex
 
 TARGET  = FACEServer 
 SOURCES = $(wildcard *.cpp ../gen-cpp2/*.cpp)

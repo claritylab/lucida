@@ -36,3 +36,9 @@ clean_all_service:
 
 clean_all_tools:
 	cd tools && make clean
+
+add_service:
+	cd tools && bash ms_register.sh add
+
+delete_service:
+	cd tools && bash ms_register.sh delete

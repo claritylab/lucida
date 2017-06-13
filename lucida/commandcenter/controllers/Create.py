@@ -1,7 +1,9 @@
 from flask import *
+from QueryClassifier import query_classifier
 from AccessManagement import login_required
 from ThriftClient import thrift_client
 from Service import Service
+import Config
 
 create = Blueprint('create', __name__, template_folder='templates')
 
@@ -9,6 +11,11 @@ create = Blueprint('create', __name__, template_folder='templates')
 @login_required
 def create_route():
     options = {}
+    if 'request' in request.args:
+        if request.args['request'] == 'Update':
+            Config.load_config()
+            query_classifier.__init__(Config.TRAIN_OR_LOAD, Config.CLASSIFIER_DESCRIPTIONS)
+    
     try:
         # Retrieve pre-configured services.
         services_list = []
