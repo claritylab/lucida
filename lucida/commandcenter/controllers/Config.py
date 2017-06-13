@@ -170,7 +170,6 @@ CLASSIFIER_DESCRIPTIONS = {
                      'class_IMM' : Graph([Node('IMMWF')]),
                      'class_IMC' : Graph([Node('IMCWF')]),
                      'class_FACE' : Graph([Node('FACEWF')]),
-                     'class_MS': Graph([Node('MSWF')]),
                      'class_DIG' : Graph([Node('DIGWF')]), }
     }
 

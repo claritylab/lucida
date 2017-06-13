@@ -56,7 +56,6 @@ class ThriftClient(object):
 
     def get_client_transport(self, service):
         host, port = service.get_host_port()
-        host = "10.1.10.145"
         print (host,port)
         transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
         protocol = TBinaryProtocol.TBinaryProtocol(transport)
