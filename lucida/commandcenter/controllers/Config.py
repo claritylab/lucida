@@ -14,7 +14,7 @@ TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 
 
 
-
+####################### How does a workflow work? Reference firstWorkFlow as a walkthrough example.
 
 #Contains serviceName and data to pass. Needed for batch (and thereby parallel) processing.
 class serviceRequestData(object):
@@ -42,28 +42,21 @@ class firstWorkflow(workFlow):
 		
 		if(self.currentState==0):
 			print "State 0";
-			self.currentState = 1;
-			self.batchedData = [serviceRequestData("QA",[unicode("How old is Johann")]),serviceRequestData("QA",[unicode("What color is a pug?")])];
+			self.currentState = 1; # This decides what state to go to next
+			# batchedData contains a list of service Requests. The function parameter is serviceRequestData(serviceName,dataToPassToService).
+			# Eg. "QA",inputModifierText[0]) means to pass to QA microservice with whatever was in the inputModifierText[0] (The text from the Lucida prompt))
+			self.batchedData = [serviceRequestData("QA",[unicode("How old is Johann")]),serviceRequestData("QA",inputModifierText[0])];
 			return;
 		
 		if(self.currentState==1):
-			self.currentState = 2
 			print "State 1";
-			self.batchedData = [serviceRequestData("QA",[unicode("How old is Johann")])]
-			self.isEnd = True
+			# [1] is being passed as the input. This value came from: serviceRequestData("QA",inputModifierText[0])
+			# It is based on the positioning of the previous serviceRequestData batch.
+			# Eg. [0] = serviceRequestData("QA",[unicode("How old is Johann")], [1] = serviceRequestData("QA",inputModifierText[0])
+			#That means the second entry from state0 is being passed to it.
+			self.batchedData = [serviceRequestData("QA",inputModifierText[1])] 
+			self.isEnd = True # This indicates the workflow is complete
 			return;
-		if(self.currentState==2):
-			self.currentState = 3;
-			print "State 2";
-			self.batchedData = [serviceRequestData("DU",inputModifierText[0])]
-			return;
-						
-		if(self.currentState==3):
-			print "State 3";
-			self.isEnd = True;
-			self.batchedData = [serviceRequestData("QA",inputModifierText[0]),serviceRequestData("DU",inputModifierText[0])]
-			return;
-				
 
 
 
