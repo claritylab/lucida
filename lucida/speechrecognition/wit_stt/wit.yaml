@@ -1,0 +1,13 @@
+
+wit-access-token: ''
+wit-api-version:  14/06/201
+
+partial-results:  True
+max-result-rate:  1
+
+silence-timeout:  5
+connect-timeout:  5
+request-timeout:  5
+response-timeout: 5
+
+post-processor: perl -npe 'BEGIN {use IO::Handle; STDOUT->autoflush(1);} s/(.*)/\1./;'
