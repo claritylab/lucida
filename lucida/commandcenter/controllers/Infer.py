@@ -38,8 +38,8 @@ def generic_infer_route(form, upload_file):
 				services_needed = Config.SESSION[lucida_id]['graph']
 				Config.SESSION[lucida_id]['data']['text'].append(speech_input)
 				speech_input = Config.SESSION[lucida_id]['data']['text']
-			options['result'] = thrift_client.infer(lucida_id, 
-				services_needed, speech_input, image_input)
+			node = services_needed.get_node(0)
+			options['result'] = thrift_client.infer(lucida_id, node.service_name, speech_input, image_input)
 			log('Result ' + options['result'])
 			# Check if Calendar service is needed.
 			# If so, JavaScript needs to receive the parsed dates.

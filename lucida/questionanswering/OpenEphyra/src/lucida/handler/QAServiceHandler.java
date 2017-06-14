@@ -112,23 +112,6 @@ public class QAServiceHandler {
                 // Getting the most recent request
                 MsgPrinter.printStatusMsg("Answer: " + answer);
 
-                // Go to next node if applicable
-                if(!query.content.get(0).tags.get(2).equals("0")) {
-                    query.content.remove(0);
-                    query.content.get(0).data.add(answer);
-                    String next_addr = query.content.get(0).tags.get(0);
-                    int next_port = Integer.parseInt(query.content.get(0).tags.get(1));
-
-                    // Call next node
-                    TTransport transport = new TSocket(next_addr, next_port);
-                    transport.open();
-                    TProtocol protocol = new TBinaryProtocol(new TFramedTransport(transport));
-                    LucidaService.Client client = new LucidaService.Client(protocol);
-                    MsgPrinter.printStatusMsg("Sending to " + next_addr + " " + next_port);
-                    answer = client.infer(LUCID, query);
-                    transport.close();
-                }
-
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new RuntimeException((e.toString() != null) ? e.toString() : "");
