@@ -9,4 +9,13 @@ python service_mongo.py add digitrecognition DIG localhost 8087 image none "$PWD
 python service_mongo.py add weather WE localhost 8088 text none "$PWD"/../lucida/weather/class.txt
 python service_mongo.py add musicservice MS localhost 8089 text none "$PWD"/../lucida/musicservice/class.txt
 
+python workflow_mongo.py add QA text\&text_image code
+python workflow_mongo.py add IMM image\&text_image code
+python workflow_mongo.py add CA text code
+python workflow_mongo.py add IMC image\&text_image code
+python workflow_mongo.py add FACE image\&text_image code
+python workflow_mongo.py add DIG image\&text_image code
+python workflow_mongo.py add WE text code
+python workflow_mongo.py add MS text code
+
 echo "All service installed successfully!"

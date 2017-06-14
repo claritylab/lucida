@@ -1,7 +1,7 @@
 from Service import Service
 from Graph import Graph, Node
 from pymongo import MongoClient
-import os, sys
+import os, sys, re
 from dcm import*
 
 def load_config():
@@ -10,9 +10,11 @@ def load_config():
         db = MongoClient(mongodb_addr, 27017).lucida
     else:
         db = MongoClient().lucida
+
+    # Update service list
     service_list = db["service_info"].find()
-    count = service_list.count()
-    for i in range(count):
+    count_service = service_list.count()
+    for i in range(count_service):
         service_obj = service_list[i]
         acn = service_obj['acronym']
         port = int(service_obj['port'])
@@ -22,8 +24,21 @@ def load_config():
             SERVICES[acn] = Service(acn, port, input_type, None)
         else:
             SERVICES[acn] = Service(acn, port, input_type, learn_type)
-        CLASSIFIER_DESCRIPTIONS[input_type]['class_' + acn] = Graph([Node(acn)])
+    
+    # Update workflow list, current only support single service workflow
+    workflow_list = db["workflow_info"].find()
+    count_workflow = workflow_list.count()
+    for i in range(count_workflow):
+    	workflow_obj = workflow_list[i]
+    	name = workflow_obj['name']
+    	input_type = workflow_obj['input']
+    	input_list = input_type.strip().split('&')
+    	code = workflow_obj['code']
+    	for input_t in input_list:
+    		CLASSIFIER_DESCRIPTIONS[input_t]['class_'+name] = Graph([Node(name+'WF')])
+    	WFList[name+'WF'] = eval(name+'WF()')
     return 0
+
 
 # The maximum number of texts or images for each user.
 # This is to prevent the server from over-loading.
@@ -51,8 +66,6 @@ class workFlow(object):
 			self.currentState = 0; # What state on the state graph
 			self.isEnd = False;
 			self.batchedData = []
-	
-	
 	
 	
 
@@ -139,17 +152,16 @@ class MSWF(workFlow):
 			self.isEnd = True;
 			return;
 
+class WEWF(workFlow):
+	def processCurrentState(self,inputModifierText,inputModifierImage):
+		if(self.currentState==0):
+			self.batchedData = [serviceRequestData("WE",inputModifierText[0])];
+			self.isEnd = True;
+			return;
+
+
 
 WFList = {
-	"IMMWF" : IMMWF(),
-	"firstWorkFlow" : firstWorkflow(),
-	"QAWF" : QAWF(),
-	"CAWF" : CAWF(),
-	"IMCWF" : IMCWF(),
-	"FACEWF" : FACEWF(),
-	"DIGWF" : DIGWF(),
-	"ENSEMBLEWF" : ENSEMBLEWF(),
-	"MSWF" : MSWF()
 
 }
 
@@ -165,19 +177,9 @@ SERVICES = {
     }
 
 CLASSIFIER_DESCRIPTIONS = {
-    'text' : { 'class_QA' :  Graph([Node('QAWF')]),
-               'class_CA' : Graph([Node('CAWF')]),
-               'class_WE' : Graph([Node('WEWF')]),
-               'class_MS' : Graph([Node('MSWF')]) },
-    'image' : { 'class_IMM' : Graph([Node('IMMWF')]),
-                'class_IMC' : Graph([Node('IMCWF')]),
-                'class_FACE' : Graph([Node('FACEWF')]),
-                'class_DIG' : Graph([Node('DIGWF')]) },
-    'text_image' : { 'class_QA': Graph([Node('QAWF')]),
-                     'class_IMM' : Graph([Node('IMMWF')]),
-                     'class_IMC' : Graph([Node('IMCWF')]),
-                     'class_FACE' : Graph([Node('FACEWF')]),
-                     'class_DIG' : Graph([Node('DIGWF')]), }
+    'text' : { },
+    'image' : { },
+    'text_image' : { }
     }
 
 load_config()

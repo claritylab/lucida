@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 """
-Insert the service information into MongoDB
+Insert the workflow information into MongoDB
 Zhexuan Chen 6/6/2017
 """
 
@@ -25,14 +25,14 @@ def main():
 		db = MongoClient('localhost', 27017).lucida
 
 	# get collection for service information
-	collection = db.service_info
+	collection = db.workflow_info
 
 	# get the operation type
 	op = sys.argv[1]
 
 	if op == 'add':
 		# check valid argument
-		if len(sys.argv) != 9:
+		if len(sys.argv) != 5:
 			print('[python error] wrong number of argument.')
 			exit(-1)
 
@@ -40,53 +40,19 @@ def main():
 		count = collection.count({'name': sys.argv[2]})
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
-			print('[python error] service already in MongoDB.')
+			print('[python error] workflow already in MongoDB.')
 			exit(1)
 
 		# list the attributes for the interface
 		post = {
 			"name": sys.argv[2],
-			"acronym": sys.argv[3],
-			"host": sys.argv[4],
-			"port": sys.argv[5],
-			"input": sys.argv[6],
-			"learn": sys.argv[7],
-			"class_path": sys.argv[8]
+			"input": sys.argv[3],
+			"code": sys.argv[4]
 		}
 
 		# insert the service information into MongoDB
 		post_id = collection.insert_one(post).inserted_id
 		return 0
-
-	elif op == 'check':
-		# check valid argument
-		if len(sys.argv) != 4:
-			print('[python error] wrong number of argument.')
-			exit(-1)
-
-		# check if current service is in MongoDB
-		count = collection.count({sys.argv[2]: sys.argv[3]})
-		if count != 0:
-			print('[python info] service already in MongoDB.')
-			exit(1)
-		else:
-			print('[python info] service ' + sys.argv[2] + ' check pass.')
-			return 0
-
-	elif op == 'check_host_port':
-		# check valid argument
-		if len(sys.argv) != 4:
-			print('[python error] wrong number of argument.')
-			exit(-1)
-
-		# check if current service is in MongoDB
-		count = collection.count({'host': sys.argv[2], 'port': sys.argv[3]})
-		if count != 0:
-			print('[python info] service already in MongoDB.')
-			exit(1)
-		else:
-			print('[python info] service host/port check pass.')
-			return 0
 
 	elif op == 'delete':
 		# check valid argument
@@ -97,7 +63,7 @@ def main():
 		# check if current service is in MongoDB
 		count = collection.count({'name': sys.argv[2]})
 		if count == 0:
-			print('[python error] service not exists in MongoDB.')
+			print('[python error] workflow not exists in MongoDB.')
 			exit(1)
 
 		collection.remove({'name': sys.argv[2]})
