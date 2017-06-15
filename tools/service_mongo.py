@@ -32,7 +32,7 @@ def main():
 
 	if op == 'add':
 		# check valid argument
-		if len(sys.argv) != 9:
+		if len(sys.argv) != 8:
 			print('[python error] wrong number of argument.')
 			exit(-1)
 
@@ -51,7 +51,6 @@ def main():
 			"port": sys.argv[5],
 			"input": sys.argv[6],
 			"learn": sys.argv[7],
-			"class_path": sys.argv[8]
 		}
 
 		# insert the service information into MongoDB

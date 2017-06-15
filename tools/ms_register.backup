@@ -22,6 +22,7 @@ check_valid () {
 create_folder () {
 	cp -rf template/$1 .
 	mv $1 $2
+	CLASS_PATH="$PWD"/"$2"/class.txt
 	cd $2
 	find ./ -type f -exec sed -i "s/template/$2/g" {} \;
 	find ./ -type f -exec sed -i "s/TPL/$3/g" {} \;
@@ -40,7 +41,6 @@ else
 	echo "### Specify what you want to do (add or delete)"
 	printf "### Enter you want to do: "
 	read OP
-	echo ""
 fi
 
 if [ "$OP" = "add" ]; then
@@ -78,6 +78,15 @@ if [ "$OP" = "add" ]; then
 	done
 
 	echo ""
+	echo "### Specify the programming language you want to you in your programming. If C++/Java/Python, then template will be provided."
+	printf "### Enter the programming language: "
+	read LAN
+	LAN="$(tr [A-Z] [a-z] <<< "$LAN")"
+	if [ "$LAN" = "c++" ]; then
+		LAN="cpp"
+	fi
+
+	echo ""
 	HOST_PORT_VALID=1
 	while [ $HOST_PORT_VALID -ne 0 ]; do
 		HOST_VALID=1
@@ -113,7 +122,7 @@ if [ "$OP" = "add" ]; then
 	echo ""
 	INPUT_VALID=1
 	while [ $INPUT_VALID -ne -0 ]; do
-		echo "### Specify the input type of your service (text, image or text_image)"
+		echo "Specify the input type of your service (text, image or text_image)"
 		printf "### Enter the input type: "
 		read INPUT
 		if [ "$INPUT" = "" ]; then
@@ -126,7 +135,7 @@ if [ "$OP" = "add" ]; then
 	echo ""
 	LEARN_VALID=1
 	while [ $LEARN_VALID -ne -0 ]; do
-		echo "### Specify the learn type of your service (text, image or none)"
+		echo "Specify the learn type of your service (text, image or none)"
 		printf "### Enter the learn type: "
 		read LEARN
 		if [ "$LEARN" = "" ]; then
@@ -136,39 +145,9 @@ if [ "$OP" = "add" ]; then
 		fi
 	done
 
-	python service_mongo.py add $NAME $ACN $HOST $PORT $INPUT $LEARN
-	if [ $? = 0 ]; then
-		echo "[Info] Service registration succeed!"
-	else
-		echo "[Error] Service registration fail!"
-	fi
-
-	echo ""
-	TEMP_VALID=1
-	while [ $TEMP_VALID -ne -0 ]; do
-		echo "### Specify if you want to generate the folder for your service automatically."
-		printf "### Enter if you want the folder [y/n]: "
-		read TEMP
-		if [ "$TEMP" = "y" ]; then
-			TEMP_VALID=0
-		elif [ "$TEMP" = "n" ]; then
-			exit 0
-		else
-			echo "Please input y/n for generating folder!"
-		fi
-	done
-
-	echo ""
-	echo "### Specify the programming language you want to you in your programming. If C++/Java/Python, then template will be provided."
-	printf "### Enter the programming language: "
-	read LAN
-	LAN="$(tr [A-Z] [a-z] <<< "$LAN")"
-	if [ "$LAN" = "c++" ]; then
-		LAN="cpp"
-	fi
-
 	if [ "$LAN" = "cpp" -o "$LAN" = "java" -o "$LAN" = "python" ]; then
 		# do copy template folder of cpp to lucida
+		cd ../lucida ; \
 		if [ -d $NAME ]; then
 			echo "[Error] service already exists!"
 			exit 1
@@ -177,13 +156,25 @@ if [ "$OP" = "add" ]; then
 		fi
 	else
 		# create an empty folder
+		cd ../lucida ; \
 		if [ -d $NAME ]; then
 			echo "[Error] service already exists!"
 			exit 1
 		else
 			mkdir $NAME
+			touch "$NAME"/class.txt
+			CLASS_PATH="$PWD"/"$NAME"/class.txt
 			echo "[Info] Template folder is ready!"
 		fi
+	fi
+
+	cd ../tools
+	python service_mongo.py add $NAME $ACN $HOST $PORT $INPUT $LEARN $CLASS_PATH
+	if [ $? = 0 ]; then
+		echo "[Info] Service registration succeed!"
+	else
+		rm -rf ../lucida/"$NAME"
+		echo "[Error] Service registration fail!"
 	fi
 
 elif [ "$OP" = "delete" ]; then
@@ -205,9 +196,12 @@ elif [ "$OP" = "delete" ]; then
 
 	python service_mongo.py delete $NAME
 
-	if [ $? = 0 ]; then
-		echo "[Info] Service deleted!"
+	cd ../lucida
+	if [ -d $NAME ]; then
+		rm -rf $NAME
+		echo "[Info] service already deleted!"
 	else
-		echo "[Error] Service not exists!"
+		echo "[Error] service not exists!"
 	fi
 fi
+

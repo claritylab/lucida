@@ -9,13 +9,13 @@ python service_mongo.py delete digitrecognition
 python service_mongo.py delete weather
 python service_mongo.py delete musicservice
 
-python workflow_mongo.py delete QA
-python workflow_mongo.py delete CA
-python workflow_mongo.py delete IMM
-python workflow_mongo.py delete IMC
-python workflow_mongo.py delete FACE
-python workflow_mongo.py delete DIG
-python workflow_mongo.py delete WE
-python workflow_mongo.py delete MS
+python workflow_mongo.py delete QAWF
+python workflow_mongo.py delete CAWF
+python workflow_mongo.py delete IMMWF
+python workflow_mongo.py delete IMCWF
+python workflow_mongo.py delete FACEWF
+python workflow_mongo.py delete DIGWF
+python workflow_mongo.py delete WEWF
+python workflow_mongo.py delete MSWF
 
 echo "All service deleted successfully!"

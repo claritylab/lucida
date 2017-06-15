@@ -32,7 +32,7 @@ def main():
 
 	if op == 'add':
 		# check valid argument
-		if len(sys.argv) != 5:
+		if len(sys.argv) != 4:
 			print('[python error] wrong number of argument.')
 			exit(-1)
 
@@ -43,16 +43,36 @@ def main():
 			print('[python error] workflow already in MongoDB.')
 			exit(1)
 
+		lines = sys.stdin.readlines()
+		code = ""
+		for line in lines:
+			code = code + line
+
 		# list the attributes for the interface
 		post = {
 			"name": sys.argv[2],
 			"input": sys.argv[3],
-			"code": sys.argv[4]
+			"code": code
 		}
 
 		# insert the service information into MongoDB
 		post_id = collection.insert_one(post).inserted_id
 		return 0
+
+	elif op == 'check':
+		# check valid argument
+		if len(sys.argv) != 4:
+			print('[python error] wrong number of argument.')
+			exit(-1)
+
+		# check if current service is in MongoDB
+		count = collection.count({sys.argv[2]: sys.argv[3]})
+		if count != 0:
+			print('[python info] service already in MongoDB.')
+			exit(1)
+		else:
+			print('[python info] service ' + sys.argv[2] + ' check pass.')
+			return 0
 
 	elif op == 'delete':
 		# check valid argument

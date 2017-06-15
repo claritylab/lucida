@@ -27,6 +27,10 @@ class DummyClassifier(object):
 		
 	def predict(self, speech_input):
 		return [self.query_class_name]
+
+class EmptyClassifier(object):
+	def predict(self, speech_input):
+		return []
 	
 class QueryClassifier(object):
 	# Constructor.
@@ -54,7 +58,9 @@ class QueryClassifier(object):
 		current_dir = os.path.abspath(os.path.dirname(__file__))
 		# If there is no or only one possible outcomes for the input type, 
 		# there is no need to train any classifier.
-		if len(query_classes) <= 1:
+		if len(query_classes) == 0:
+			return EmptyClassifier()
+		if len(query_classes) == 1:
 			return DummyClassifier(query_classes.keys()[0])
 		# Build DataFrame by going through all data files.
 		data = DataFrame({'text': [], 'class': []})
@@ -133,6 +139,8 @@ class QueryClassifier(object):
 				raise RuntimeError('Text and image cannot be both empty')      
 		# Convert speech_input to a single-element list.
 		class_predicted = self.classifiers[input_type].predict([speech_input])
+		if len(class_predicted) == 0:
+			raise RuntimeError('Input type has no service available')
 		class_predicted = class_predicted[0] # ndarray to string
 		log('Query classified as ' + class_predicted)
 		return self.CLASSIFIER_DESCRIPTIONS[input_type][class_predicted]

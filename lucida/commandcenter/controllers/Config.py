@@ -12,6 +12,7 @@ def load_config():
         db = MongoClient().lucida
 
     # Update service list
+    SERVICES.clear()
     service_list = db["service_info"].find()
     count_service = service_list.count()
     for i in range(count_service):
@@ -25,7 +26,11 @@ def load_config():
         else:
             SERVICES[acn] = Service(acn, port, input_type, learn_type)
     
+
     # Update workflow list, current only support single service workflow
+    for input_t in CLASSIFIER_DESCRIPTIONS:
+    	CLASSIFIER_DESCRIPTIONS[input_t].clear()
+    WFList.clear()
     workflow_list = db["workflow_info"].find()
     count_workflow = workflow_list.count()
     for i in range(count_workflow):
@@ -34,9 +39,10 @@ def load_config():
     	input_type = workflow_obj['input']
     	input_list = input_type.strip().split('&')
     	code = workflow_obj['code']
+    	exec(code)
     	for input_t in input_list:
-    		CLASSIFIER_DESCRIPTIONS[input_t]['class_'+name] = Graph([Node(name+'WF')])
-    	WFList[name+'WF'] = eval(name+'WF()')
+    		CLASSIFIER_DESCRIPTIONS[input_t]['class_'+name] = Graph([Node(name)])
+    	WFList[name] = eval(name+"()")
     return 0
 
 
@@ -94,78 +100,7 @@ class firstWorkflow(workFlow):
 			return;
 
 
-
-class QAWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("QA",inputModifierText[0])];
-			self.isEnd = True;
-			return;
-
-class IMMWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("IMM",inputModifierImage[0])];
-			self.isEnd = True;
-			return;
-
-class CAWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("CA",inputModifierText[0])];
-			self.isEnd = True;
-			return;
-
-class IMCWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("IMC",inputModifierImage[0])];
-			self.isEnd = True;
-			return;
-
-class FACEWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("FACE",inputModifierImage[0])];
-			self.isEnd = True;
-			return;
-
-class DIGWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("DIG",inputModifierImage[0])];
-			self.isEnd = True;
-			return;
-
-class ENSEMBLEWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("ENSEMBLE",inputModifierText[0])];
-			self.isEnd = True;
-			return;
-
-
-class MSWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("MS",inputModifierText[0])];
-			self.isEnd = True;
-			return;
-
-class WEWF(workFlow):
-	def processCurrentState(self,inputModifierText,inputModifierImage):
-		if(self.currentState==0):
-			self.batchedData = [serviceRequestData("WE",inputModifierText[0])];
-			self.isEnd = True;
-			return;
-
-
-
-WFList = {
-
-}
-
-
+WFList = {}
 
 
 # Pre-configured services.
@@ -173,8 +108,7 @@ WFList = {
 # Host IP addresses are resolved dynamically:
 # either set by Kubernetes or localhost.
 
-SERVICES = {
-    }
+SERVICES = {}
 
 CLASSIFIER_DESCRIPTIONS = {
     'text' : { },
