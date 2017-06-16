@@ -8,7 +8,7 @@ echo ""
 
 check_valid () {
 	if [ "$1" = "NAME" ]; then
-		python workflow_mongo.py check name $2
+		python wf_mongo.py check name $2
 		return $?
 	fi
 }
@@ -61,21 +61,21 @@ if [ "$OP" = "add" ]; then
 	while [ $CODE_VALID -ne -0 ]; do
 		echo "### Specify the path of your workflow class code"
 		printf "### Enter the path: "
-		read PATH
-		if [ "$PATH" = "" ]; then
+		read PA
+		if [ "$PA" = "" ]; then
 			echo "[Error] Path cannot be empty! Please try another one!"
 		else
-			if [ -f $PATH ]; then
-				CODE="$(cat $PATH)"
+			if [ -f $PA ]; then
+				CODE=$(<$PA)
 				CODE_VALID=0
 			else
 				echo "[Error] File not found! Please try another one!"
 			fi
 		fi
 	done
-
 	
-	python workflow_mongo.py check name FACEWF
+	echo "$CODE" | python wf_mongo.py add $NAME $INPUT
+	
 	if [ $? = 0 ]; then
 		echo "[Info] Workflow registration succeed!"
 	else
@@ -99,7 +99,7 @@ elif [ "$OP" = "delete" ]; then
 		fi
 	done
 
-	python workflow_mongo.py delete $NAME
+	python wf_mongo.py delete $NAME
 
 	if [ $? = 0 ]; then
 		echo "[Info] Workflow deleted!"

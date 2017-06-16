@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 """
-Insert the service information into MongoDB
+Insert the micro service information into MongoDB
 Zhexuan Chen 6/6/2017
 """
 

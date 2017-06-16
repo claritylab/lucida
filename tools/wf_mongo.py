@@ -68,10 +68,10 @@ def main():
 		# check if current service is in MongoDB
 		count = collection.count({sys.argv[2]: sys.argv[3]})
 		if count != 0:
-			print('[python info] service already in MongoDB.')
+			print('[python info] workflow already in MongoDB.')
 			exit(1)
 		else:
-			print('[python info] service ' + sys.argv[2] + ' check pass.')
+			print('[python info] workflow ' + sys.argv[2] + ' check pass.')
 			return 0
 
 	elif op == 'delete':

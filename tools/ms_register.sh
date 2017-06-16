@@ -8,13 +8,13 @@ echo ""
 
 check_valid () {
 	if [ "$1" = "NAME" ]; then
-		python service_mongo.py check name $2
+		python ms_mongo.py check name $2
 		return $?
 	elif [ "$1" = "ACN" ]; then
-		python service_mongo.py check acronym $2
+		python ms_mongo.py check acronym $2
 		return $?
 	elif [ "$1" = "HOST_PORT" ]; then
-		python service_mongo.py check_host_port $2 $3
+		python ms_mongo.py check_host_port $2 $3
 		return $?
 	fi
 }
@@ -113,7 +113,7 @@ if [ "$OP" = "add" ]; then
 	echo ""
 	INPUT_VALID=1
 	while [ $INPUT_VALID -ne -0 ]; do
-		echo "### Specify the input type of your service (text, image or text_image)"
+		echo "### Specify the input type of your service (text, image)"
 		printf "### Enter the input type: "
 		read INPUT
 		if [ "$INPUT" = "" ]; then
@@ -136,7 +136,7 @@ if [ "$OP" = "add" ]; then
 		fi
 	done
 
-	python service_mongo.py add $NAME $ACN $HOST $PORT $INPUT $LEARN
+	python ms_mongo.py add $NAME $ACN $HOST $PORT $INPUT $LEARN
 	if [ $? = 0 ]; then
 		echo "[Info] Service registration succeed!"
 	else
@@ -203,7 +203,7 @@ elif [ "$OP" = "delete" ]; then
 		fi
 	done
 
-	python service_mongo.py delete $NAME
+	python ms_mongo.py delete $NAME
 
 	if [ $? = 0 ]; then
 		echo "[Info] Service deleted!"
