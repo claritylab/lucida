@@ -55,6 +55,22 @@ if [ "$OP" = "add" ]; then
 		fi
 	done
 
+	echo ""
+	CLASSIFIER_VALID=1
+	while [ $CLASSIFIER_VALID -ne -0 ]; do
+		echo "### Specify the path of your workflow classifier data"
+		printf "### Enter the path: "
+		read CLASSIFIER
+		if [ "$CLASSIFIER" = "" ]; then
+			echo "[Error] Path cannot be empty! Please try another one!"
+		else
+			if [ -f $CLASSIFIER ]; then
+				CLASSIFIER_VALID=0
+			else
+				echo "[Error] File not found! Please try another one!"
+			fi
+		fi
+	done
 
 	echo ""
 	CODE_VALID=1
@@ -74,7 +90,7 @@ if [ "$OP" = "add" ]; then
 		fi
 	done
 	
-	echo "$CODE" | python wf_mongo.py add $NAME $INPUT
+	echo "$CODE" | python wf_mongo.py add $NAME $INPUT $PWD/$CLASSIFIER
 	
 	if [ $? = 0 ]; then
 		echo "[Info] Workflow registration succeed!"

@@ -14,48 +14,48 @@ echo "class QAWF(workFlow):
 		if(self.currentState==0):
 			self.batchedData = [serviceRequestData(\"QA\",inputModifierText[0])] 
 			self.isEnd = True
-			return" | python wf_mongo.py add QAWF text\&text_image
+			return" | python wf_mongo.py add QAWF text\&text_image $PWD/../lucida/commandcenter/data/class_QAWF.txt
 echo "class IMMWF(workFlow): 
 	def processCurrentState(self,inputModifierText,inputModifierImage): 
 		if(self.currentState==0):
 			self.batchedData = [serviceRequestData(\"IMM\",inputModifierText[0])] 
 			self.isEnd = True
-			return" | python wf_mongo.py add IMMWF image\&text_image
+			return" | python wf_mongo.py add IMMWF image\&text_image $PWD/../lucida/commandcenter/data/class_IMMWF.txt
 echo "class CAWF(workFlow): 
 	def processCurrentState(self,inputModifierText,inputModifierImage): 
 		if(self.currentState==0):
 			self.batchedData = [serviceRequestData(\"CA\",inputModifierText[0])] 
 			self.isEnd = True
-			return" | python wf_mongo.py add CAWF text
+			return" | python wf_mongo.py add CAWF text $PWD/../lucida/commandcenter/data/class_CAWF.txt
 echo "class IMCWF(workFlow): 
 	def processCurrentState(self,inputModifierText,inputModifierImage): 
 		if(self.currentState==0):
 			self.batchedData = [serviceRequestData(\"IMC\",inputModifierText[0])] 
 			self.isEnd = True
-			return" | python wf_mongo.py add IMCWF image\&text_image
+			return" | python wf_mongo.py add IMCWF image\&text_image $PWD/../lucida/commandcenter/data/class_IMCWF.txt
 echo "class FACEWF(workFlow): 
 	def processCurrentState(self,inputModifierText,inputModifierImage): 
 		if(self.currentState==0):
 			self.batchedData = [serviceRequestData(\"FACE\",inputModifierText[0])] 
 			self.isEnd = True
-			return" | python wf_mongo.py add FACEWF image\&text_image
+			return" | python wf_mongo.py add FACEWF image\&text_image $PWD/../lucida/commandcenter/data/class_FACEWF.txt
 echo "class DIGWF(workFlow): 
 	def processCurrentState(self,inputModifierText,inputModifierImage): 
 		if(self.currentState==0):
 			self.batchedData = [serviceRequestData(\"DIG\",inputModifierText[0])] 
 			self.isEnd = True
-			return" | python wf_mongo.py add DIGWF image\&text_image
+			return" | python wf_mongo.py add DIGWF image\&text_image $PWD/../lucida/commandcenter/data/class_DIGWF.txt
 echo "class WEWF(workFlow): 
 	def processCurrentState(self,inputModifierText,inputModifierImage): 
 		if(self.currentState==0):
 			self.batchedData = [serviceRequestData(\"WE\",inputModifierText[0])] 
 			self.isEnd = True
-			return" | python wf_mongo.py add WEWF text
+			return" | python wf_mongo.py add WEWF text $PWD/../lucida/commandcenter/data/class_WEWF.txt
 echo "class MSWF(workFlow): 
 	def processCurrentState(self,inputModifierText,inputModifierImage): 
 		if(self.currentState==0):
 			self.batchedData = [serviceRequestData(\"MS\",inputModifierText[0])] 
 			self.isEnd = True
-			return" | python wf_mongo.py add MSWF text
+			return" | python wf_mongo.py add MSWF text $PWD/../lucida/commandcenter/data/class_MSWF.txt
 
 echo "All service installed successfully!"

@@ -32,7 +32,7 @@ def main():
 
 	if op == 'add':
 		# check valid argument
-		if len(sys.argv) != 4:
+		if len(sys.argv) != 5:
 			print('[python error] wrong number of argument.')
 			exit(-1)
 
@@ -52,6 +52,7 @@ def main():
 		post = {
 			"name": sys.argv[2],
 			"input": sys.argv[3],
+			"classifier": sys.argv[4],
 			"code": code
 		}
 

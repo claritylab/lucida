@@ -136,6 +136,7 @@ if [ "$OP" = "add" ]; then
 		fi
 	done
 
+	echo "[Info] Waiting......"
 	python ms_mongo.py add $NAME $ACN $HOST $PORT $INPUT $LEARN
 	if [ $? = 0 ]; then
 		echo "[Info] Service registration succeed!"

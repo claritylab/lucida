@@ -65,7 +65,7 @@ class QueryClassifier(object):
 		# Build DataFrame by going through all data files.
 		data = DataFrame({'text': [], 'class': []})
 		for query_class_name in query_classes:
-			path = current_dir + '/../data/' + query_class_name + '.txt'
+			path = Config.CLASSIFIER_PATH[query_class_name]
 			log('Opening ' + path)
 			lines = [line.rstrip('\n') for line in open(path)]
 			rows = []
