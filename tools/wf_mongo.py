@@ -58,7 +58,6 @@ def main():
 
 		# insert the service information into MongoDB
 		post_id = collection.insert_one(post).inserted_id
-		return 0
 
 	elif op == 'check':
 		# check valid argument
@@ -73,7 +72,6 @@ def main():
 			exit(1)
 		else:
 			print('[python info] workflow ' + sys.argv[2] + ' check pass.')
-			return 0
 
 	elif op == 'delete':
 		# check valid argument
@@ -88,11 +86,15 @@ def main():
 			exit(1)
 
 		collection.remove({'name': sys.argv[2]})
-		return 0
 
+	elif op == 'delete_all':
+		collection.remove()
+	
 	else:
 		print('[python error] invalid operation for MongoDB.')
 		exit(-1)
+
+	return 0
 
 if __name__ == '__main__':
 	main()
