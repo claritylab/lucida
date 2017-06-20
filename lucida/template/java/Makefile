@@ -17,10 +17,15 @@ client:
 	cd templateClient/ && ./compile-template-client.sh
 
 start_server: 
-	./gradlew run 
+	@if [ "$(port)" != "" ]; then \
+		./gradlew run -Pargs=$(port); \
+	fi
 
 start_test: 
-	cd templateClient; ./start-template-client.sh 
+	@if [ "$(port)" != "" ]; then \
+		cd templateClient; \
+		./start-template-client.sh $(port); \
+	fi
 
 clean:
 	rm -rf src/main/java/thrift ; \

@@ -16,7 +16,13 @@ clean:
 	rm -rf *.pyc; 
 
 start_server:
-	cd server; python server.py 
+	@if [ "$(port)" != "" ]; then \
+		cd server; \
+		python server.py $(port); \
+	fi
 
-start_test:
-	cd client; python client.py 
+start_test: 
+	@if [ "$(port)" != "" ]; then \
+		cd client; \
+		python client.py $(port); \
+	fi

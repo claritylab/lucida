@@ -15,6 +15,11 @@ from thrift.server import TServer
 
 # TODO: Adding modules your services needed
 
+if len(sys.argv) != 2:
+    print('Wrong arguments!')
+    exit(1)
+PORT = int(sys.argv[1])
+
 class templateHandler(LucidaService.Iface):
     def create(self, LUCID, spec):
         # TODO: Adding your own infer function. Check the top-level README to 

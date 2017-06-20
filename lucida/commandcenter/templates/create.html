@@ -19,6 +19,7 @@
 					<th>Service name</th>
 					<th>Host</th>
 					<th>Port</th>
+					<th>Availablity</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,6 +28,7 @@
 					<td>{{ i[0] }}</td>
 					<td>{{ i[1] }}</td>
 					<td>{{ i[2] }}</td>
+					<td>{{ i[3] }}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
@@ -35,7 +37,7 @@
 
 	<div class="container">
 		<div class="row">
-			<form method="get">
+			<form method="post">
 				<input type="submit" name="request" value="Update">
 			</form>
 		</div>

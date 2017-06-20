@@ -1,6 +1,5 @@
 #include <cstdlib>
 #include <iostream>
-#include "mongo/client/dbclient.h"
 
 #include <unistd.h>
 #include <gflags/gflags.h>
@@ -14,7 +13,6 @@
 #include "gen-cpp2/LucidaService.h"
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
 #include <folly/init/Init.h>
-#include "mongo/client/dbclient.h"
 
 using namespace folly;
 using namespace apache::thrift;
@@ -22,39 +20,16 @@ using namespace apache::thrift::async;
 using namespace cpp2;
 using namespace std;
 
-using mongo::DBClientConnection;
-using mongo::DBClientBase;
-using mongo::BSONObj;
-using mongo::BSONObjBuilder;
-
 DEFINE_string(hostname,
 		"127.0.0.1",
 		"Hostname of the server (default: localhost)");
 
 int main(int argc, char* argv[]) {
-	// Initialize MongoDB C++ driver.
-	mongo::client::initialize();
-	mongo::DBClientConnection conn;
-	string mongo_addr;
-	if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
-		cout << "MongoDB: " << env_p << endl;
-		mongo_addr = env_p;
-	} else {
-		cout << "MongoDB: localhost" << endl;
-		mongo_addr = "localhost";
+	if (argc != 2){
+		cerr << "Wrong argument!" << endl;
+		exit(EXIT_FAILURE);
 	}
-	conn.connect(mongo_addr);
-	cout << "Connection is ok" << endl;
-	// TODO: change your service name
-	auto_ptr<mongo::DBClientCursor> cursor = conn.query(
-			"lucida.service_info", MONGO_QUERY("name" << "template"));
-	BSONObj q;
-	int port = 0;
-	while (cursor->more()) {
-		q = cursor->next();
-		string port_str = q.getField("port").String();
-		port = atoi(port_str.c_str());
-	}
+	int port = atoi(argv[1]);
 
 	folly::init(&argc, &argv);
 	EventBase event_base;

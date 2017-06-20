@@ -5,11 +5,17 @@ all:
 	make all ; \
 	cd ..;
 
-start_server: 
-	cd server; ./template_server 
+start_server:
+	@if [ "$(port)" != "" ]; then \
+		cd server; \
+		./template_server $(port); \
+	fi
 
 start_test: 
-	cd test; ./template_test 
+	@if [ "$(port)" != "" ]; then \
+		cd test; \
+		./template_test $(port); \
+	fi
 
 clean:
 	cd server ; \

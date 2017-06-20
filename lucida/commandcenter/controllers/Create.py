@@ -4,6 +4,7 @@ from AccessManagement import login_required
 from ThriftClient import thrift_client
 from Service import Service
 import Config
+import socket
 
 create = Blueprint('create', __name__, template_folder='templates')
 
@@ -11,18 +12,25 @@ create = Blueprint('create', __name__, template_folder='templates')
 @login_required
 def create_route():
     options = {}
-    if 'request' in request.args:
-        if request.args['request'] == 'Update':
-            Config.load_config()
-            query_classifier.__init__(Config.TRAIN_OR_LOAD, Config.CLASSIFIER_DESCRIPTIONS)
+    if request.method == 'POST':
+        if 'request' in request.form:
+            if request.form['request'] == 'Update':
+                Config.load_config()
+                query_classifier.__init__(Config.TRAIN_OR_LOAD, Config.CLASSIFIER_DESCRIPTIONS)
     
     try:
         # Retrieve pre-configured services.
         services_list = []
         for service in thrift_client.SERVICES.values():
             if isinstance(service, Service):
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 host, port = service.get_host_port()
-                services_list.append((service.name, host, port))
+                result = sock.connect_ex((host, port))
+                if result == 0:
+                    services_list.append((service.name, host, port, "running"))
+                else:
+                    services_list.append((service.name, host, port, "stop"))
+                sock.close()
         options['service_list']= sorted(services_list, key=lambda i: i[0])
     except Exception as e:
         log(e)

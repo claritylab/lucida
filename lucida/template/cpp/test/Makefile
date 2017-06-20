@@ -8,12 +8,9 @@ LINKFLAGS =     -lrt \
 				-lprotobuf \
 				-ltesseract \
 				-pthread \
-				-lmongoclient \
 				-lboost_program_options \
 				-lboost_filesystem \
 				-lboost_system \
-				-lboost_thread \
-				-lboost_regex \
 				-lthrift \
 				-lfolly \
 				-lwangle \
@@ -22,7 +19,6 @@ LINKFLAGS =     -lrt \
 				-lthriftcpp2 \
 				-lgflags \
 				-lthriftprotocol \
-				-lssl \
 				-lcrypto
 
 TARGET  = template_test
