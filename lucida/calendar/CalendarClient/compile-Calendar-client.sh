@@ -17,7 +17,7 @@ mv gen-java thrift
 printdivision
 
 # Add jar files to class path
-export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:lib/libthrift-0.9.3.jar:lib/slf4j-api-1.7.13.jar:lib/slf4j-simple-1.7.13.jar:lib/mongo-java-driver-3.2.2.jar
+export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:lib/libthrift-0.9.3.jar:lib/slf4j-api-1.7.13.jar:lib/slf4j-simple-1.7.13.jar
 
 # Use cp flag to avoid cluttering up the CLASSPATH environment variable
 echo -e "javac -cp $JAVA_CLASS_PATH CalendarClient.java thrift/LucidaService.java thrift/QueryInput.java thrift/QuerySpec.java 

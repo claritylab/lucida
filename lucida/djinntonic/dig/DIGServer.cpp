@@ -5,8 +5,8 @@
 
 #include "DIGHandler.h"
 #include <folly/init/Init.h>
-#include "mongo/client/dbclient.h"
 #include <iostream>
+#include <cstdlib>
 
 DEFINE_int32(num_of_threads,
              4,
@@ -16,35 +16,17 @@ using namespace apache::thrift;
 using namespace apache::thrift::async;
 
 using namespace cpp2;
-using namespace mongo;
 using namespace std;
 //using namespace facebook::windtunnel::treadmill::services::dig;
 
 int main(int argc, char* argv[]) {
   folly::init(&argc, &argv);
 
-  // Initialize MongoDB C++ driver.
-  client::initialize();
-  DBClientConnection conn;
-  string mongo_addr;
-  if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
-    cout << "MongoDB: " << env_p << endl;
-    mongo_addr = env_p;
-  } else {
-    cout << "MongoDB: localhost" << endl;
-    mongo_addr = "localhost";
+  if (argc != 2){
+    cerr << "Wrong argument!" << endl;
+    exit(EXIT_FAILURE);
   }
-  conn.connect(mongo_addr);
-  cout << "Connection is ok" << endl;
-  auto_ptr<DBClientCursor> cursor = conn.query(
-      "lucida.service_info", MONGO_QUERY("name" << "digitrecognition"));
-  BSONObj p;
-  int port = 0;
-  while (cursor->more()) {
-    p = cursor->next();
-    string port_str = p.getField("port").String();
-    port = atoi(port_str.c_str());
-  }
+  int port = atoi(argv[1]);
 
   auto handler = std::make_shared<DIGHandler>();
   auto server = folly::make_unique<ThriftServer>();

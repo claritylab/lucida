@@ -16,6 +16,11 @@ from thrift.server import TServer
 import json
 import urllib
 
+if len(sys.argv) != 2:
+    print('Wrong arguments!')
+    exit(1)
+PORT = int(sys.argv[1])
+
 class WeatherHandler(LucidaService.Iface):
     def create(self, LUCID, spec):
         """

@@ -15,7 +15,6 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include <folly/init/Init.h>
-#include "mongo/client/dbclient.h"
 
 using namespace folly;
 using namespace apache::thrift;
@@ -45,28 +44,11 @@ int main(int argc, char* argv[]){
 	folly::init(&argc, &argv);
 	EventBase event_base;
 
-	// Initialize MongoDB C++ driver.
-	mongo::client::initialize();
-	mongo::DBClientConnection conn;
-	string mongo_addr;
-	if (const char* env_p = getenv("MONGO_PORT_27017_TCP_ADDR")) {
-		cout << "MongoDB: " << env_p << endl;
-		mongo_addr = env_p;
-	} else {
-		cout << "MongoDB: localhost" << endl;
-		mongo_addr = "localhost";
+	if (argc != 2){
+		cerr << "Wrong argument!" << endl;
+		exit(EXIT_FAILURE);
 	}
-	conn.connect(mongo_addr);
-	cout << "Connection is ok" << endl;
-	auto_ptr<mongo::DBClientCursor> cursor = conn.query(
-		"lucida.service_info", MONGO_QUERY("name" << "facerecognition"));
-	mongo::BSONObj p;
-	int port = 0;
-	while (cursor->more()) {
-		p = cursor->next();
-		string port_str = p.getField("port").String();
-		port = atoi(port_str.c_str());
-	}
+	int port = atoi(argv[1]);
 
 	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(
 			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, port));

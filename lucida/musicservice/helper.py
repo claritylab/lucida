@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-import ConfigParser, sys, re, os
-from pymongo import *
+import re
 
 # Mood invert index
 mood_dic = {
@@ -86,14 +85,3 @@ def keyword_scan(question):
 	else:
 		return output[0]
 
-mongodb_addr = os.environ.get('MONGO_PORT_27017_TCP_ADDR')
-if mongodb_addr:
-    print('MongoDB: ' + mongodb_addr)
-    db = MongoClient(mongodb_addr, 27017).lucida
-else:
-    print('MongoDb: localhost')
-    db = MongoClient().lucida
-
-collection = db.service_info
-result = collection.find_one({"name" : "musicservice"})
-port = result["port"]

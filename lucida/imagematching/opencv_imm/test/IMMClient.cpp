@@ -56,6 +56,12 @@ string getImageData(const string &image_path) {
 }
 
 int main(int argc, char* argv[]) {
+	if (argc != 2){
+		cerr << "Wrong argument!" << endl;
+		exit(EXIT_FAILURE);
+	}
+	int port = atoi(argv[1]);
+
 	// Initialize MongoDB C++ driver.
 	mongo::client::initialize();
 	mongo::DBClientConnection conn;
@@ -68,17 +74,6 @@ int main(int argc, char* argv[]) {
 		cout << "Connection is ok" << endl;
 	} catch(const mongo::DBException &e) {
 		cout << "Caught " << e.what() << endl;
-	}
-
-	// Get the port ID
-	auto_ptr<mongo::DBClientCursor> cursor = conn.query(
-			"lucida.service_info", MONGO_QUERY("name" << "imagematching"));
-	BSONObj q;
-	int port = 0;
-	while (cursor->more()) {
-		q = cursor->next();
-		string port_str = q.getField("port").String();
-		port = atoi(port_str.c_str());
 	}
 
 	folly::init(&argc, &argv);
@@ -120,9 +115,6 @@ int main(int argc, char* argv[]) {
 	// Infer.
 	// Make request.
 	int num_tests = 3;
-	if (argc == 2) {
-		num_tests = atoi(argv[1]);
-	}
 	for (int i = 0; i < num_tests; ++i) {
 		string image = getImageData("test" + to_string(i) + ".jpg");
 		// Create a QuerySpec.

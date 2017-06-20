@@ -15,7 +15,7 @@ endif
 LDFLAGS += $(CAFFE)/build/lib/libcaffe.so
 
 CXXFLAGS += $(shell if [ `lsb_release -a 2>/dev/null | grep -Poe "(?<=\s)\d+(?=[\d\.]+$$)"` -gt 14 ]; then echo "-std=c++14"; fi;)
-LDFLAGS += -ljpeg -lzstd -lmongoclient -lboost_system -lboost_thread -lssl -lcrypto -lboost_regex
+LDFLAGS += -ljpeg -lzstd
 
 TARGET  = DIGServer
 SOURCES = $(wildcard *.cpp ../gen-cpp2/*.cpp)
@@ -30,10 +30,15 @@ $(TARGET): $(OBJECTS)
 	$(CXX) -Wall $(CXXFLAGS) -c $< -o $@
 
 start_server: 
-	./DIGServer
+	@if [ "$(port)" != "" ]; then \
+		./DIGServer $(port); \
+	fi
 
 start_test: 
-	cd test && ./DIGClient && cd ..
+	@if [ "$(port)" != "" ]; then \
+		cd test; \
+		./DIGClient $(port); \
+	fi
 
 client:
 	cd test && make all && cd ..
