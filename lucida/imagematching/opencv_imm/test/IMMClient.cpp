@@ -17,7 +17,6 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include <folly/init/Init.h>
-#include "Parser.h"
 
 using namespace folly;
 using namespace apache::thrift;
@@ -71,20 +70,19 @@ int main(int argc, char* argv[]) {
 		cout << "Caught " << e.what() << endl;
 	}
 
-	folly::init(&argc, &argv);
-	EventBase event_base;
-
-	Properties props;
-	props.Read("../../../config.properties");
-	string portVal;
-	int port;
-	if (!props.GetValue("IMM_PORT", portVal)) {
-		cout << "IMM port not defined" << endl;
-		return -1;
-	} else {
-		port = atoi(portVal.c_str());
+	// Get the port ID
+	auto_ptr<mongo::DBClientCursor> cursor = conn.query(
+			"lucida.service_info", MONGO_QUERY("name" << "imagematching"));
+	BSONObj q;
+	int port = 0;
+	while (cursor->more()) {
+		q = cursor->next();
+		string port_str = q.getField("port").String();
+		port = atoi(port_str.c_str());
 	}
 
+	folly::init(&argc, &argv);
+	EventBase event_base;
 	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(
 			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, port));
 	LucidaServiceAsyncClient client(

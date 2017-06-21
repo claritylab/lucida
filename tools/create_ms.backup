@@ -1,0 +1,67 @@
+#!/bin/bash
+
+echo "============================================="
+echo "     Lucida Micro Template create Tools"
+echo "          made in May 31, 2017"
+echo "============================================="
+echo ""
+
+create_folder () {
+	cp -rf template/$1 .
+	mv $1 $2
+	cd $2
+	find ./ -type f -exec sed -i "s/template/$2/g" {} \;
+	find ./ -type f -exec sed -i "s/TPL/$3/g" {} \;
+	find . -depth -name '*template*' -execdir rename "s/template/$2/g" {} \;
+	find . -depth -name '*TPL*' -execdir rename "s/TPL/$3/g" {} \;
+	cd ..
+	echo "[Info] Template folder is ready!"
+}
+
+NAME_VALID=1
+while [ $NAME_VALID -ne 0 ]; do
+	echo "### Specify your service name (e.g. musicservice)."
+	printf "### Enter your service name: "
+	read NAME
+	if [ "$NAME" = "" ]; then
+		echo "[Error] Service name cannot be empty! Please try another one!"
+	else
+		cd ../lucida
+		if [ -d $NAME ]; then
+			echo "[Error] Service already exists! Please try another one!"
+		else
+			NAME_VALID=0
+			echo "[Info] Service ready to be created!"
+		fi
+	fi
+done
+
+echo ""
+echo "### Specify the programming language you want to you in your programming. If C++/Java/Python, then template will be provided."
+printf "### Enter the programming language: "
+read LAN
+LAN="$(tr [A-Z] [a-z] <<< "$LAN")"
+if [ "$LAN" = "c++" ]; then
+	LAN="cpp"
+fi
+
+if [ "$LAN" = "cpp" -o "$LAN" = "java" -o "$LAN" = "python" ]; then
+	# do copy template folder of cpp to lucida
+	cd ../lucida ; \
+	if [ -d $NAME ]; then
+		echo "[Error] service already exists!"
+		exit 1
+	else
+		create_folder $LAN $NAME $ACN
+	fi
+else
+	# create an empty folder
+	cd ../lucida ; \
+	if [ -d $NAME ]; then
+		echo "[Error] service already exists!"
+		exit 1
+	else
+		mkdir $NAME
+		echo "[Info] Template folder is ready!"
+	fi
+fi

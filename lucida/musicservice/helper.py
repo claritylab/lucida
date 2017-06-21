@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-import ConfigParser, sys, re
+import ConfigParser, sys, re, os
+from pymongo import *
 
 # Mood invert index
 mood_dic = {
@@ -85,20 +86,14 @@ def keyword_scan(question):
 	else:
 		return output[0]
 
-class FakeSecHead(object):
-    def __init__(self, fp):
-        self.fp = fp
-        self.sechead = '[asection]\n'
+mongodb_addr = os.environ.get('MONGO_PORT_27017_TCP_ADDR')
+if mongodb_addr:
+    print('MongoDB: ' + mongodb_addr)
+    db = MongoClient(mongodb_addr, 27017).lucida
+else:
+    print('MongoDb: localhost')
+    db = MongoClient().lucida
 
-    def readline(self):
-        if self.sechead:
-            try: 
-                return self.sechead
-            finally: 
-                self.sechead = None
-        else: 
-            return self.fp.readline()
-
-cp = ConfigParser.SafeConfigParser()
-cp.readfp(FakeSecHead(open("../../config.properties")))
-port_dic = dict(cp.items('asection'))
+collection = db.service_info
+result = collection.find_one({"name" : "musicservice"})
+port = result["port"]

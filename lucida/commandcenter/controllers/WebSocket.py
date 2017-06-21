@@ -24,10 +24,8 @@ import tornado.websocket
 import tornado.gen
 import tornado.concurrent
 
-from Parser import cmd_port
-
 from tornado.options import define
-define("port", default=cmd_port, help="run on the given port", type=int)
+define("port", default=8081, help="run on the given port", type=int)
 
 STATUS_EOS = -1
 STATUS_SUCCESS = 0
