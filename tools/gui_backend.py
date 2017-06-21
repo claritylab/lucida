@@ -79,3 +79,5 @@ class MongoDB(object):
 		collection.remove({'name': name})
 
 
+#the active service
+

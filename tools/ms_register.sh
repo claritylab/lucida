@@ -20,6 +20,7 @@ check_valid () {
 }
 
 create_folder () {
+	cd ../lucida
 	cp -rf template/$1 .
 	mv $1 $2
 	cd $2
