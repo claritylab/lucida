@@ -8,7 +8,7 @@
 
 	<div class="container">
 		<div class="row">
-			<p><h3>List of Services</h3></p>
+			<p><h3>List of Service instances</h3></p>
 		</div>
 	</div>
 
@@ -17,6 +17,7 @@
 			<thead>
 				<tr>
 					<th>Service name</th>
+					<th>No.</th>
 					<th>Host</th>
 					<th>Port</th>
 					<th>Availablity</th>
@@ -29,6 +30,7 @@
 					<td>{{ i[1] }}</td>
 					<td>{{ i[2] }}</td>
 					<td>{{ i[3] }}</td>
+					<td>{{ i[4] }}</td>
 				</tr>
 				{% endfor %}
 			</tbody>

@@ -54,8 +54,7 @@ class ThriftClient(object):
         query_spec.content = query_input_list
         return query_spec
 
-    def get_client_transport(self, service):
-        host, port = service.get_host_port()
+    def get_client_transport(self, service, host, port):
         print (host,port)
         transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
         protocol = TBinaryProtocol.TBinaryProtocol(transport)
@@ -65,7 +64,9 @@ class ThriftClient(object):
     def send_query(self, LUCID, service_name, query_input_list):
         query_spec = self.create_query_spec('query', query_input_list)
         service = self.SERVICES[service_name]
-        client, transport = self.get_client_transport(service)
+        host = query_input_list[0].tags[0]
+        port = int(query_input_list[0].tags[1])
+        client, transport = self.get_client_transport(service, host, port)
         log('Sending infer request to ' + service.name)
         result = client.infer(str(LUCID), query_spec)
         transport.close()

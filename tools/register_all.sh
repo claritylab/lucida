@@ -1,13 +1,13 @@
 #!/bin/bash
 
-python ms_mongo.py add questionanswering QA localhost 8082 text text $PWD/../lucida/questionanswering/OpenEphyra
-python ms_mongo.py add imagematching IMM localhost 8083 image image $PWD/../lucida/imagematching/opencv_imm
-python ms_mongo.py add calendar CA localhost 8084 text none $PWD/../lucida/calendar
-python ms_mongo.py add imageclassification IMC localhost 8085 image none $PWD/../lucida/djinntonic/imc
-python ms_mongo.py add facerecognition FACE localhost 8086 image none $PWD/../lucida/djinntonic/face
-python ms_mongo.py add digitrecognition DIG localhost 8087 image none $PWD/../lucida/djinntonic/dig
-python ms_mongo.py add weather WE localhost 8088 text none $PWD/../lucida/weather
-python ms_mongo.py add musicservice MS localhost 8089 text none $PWD/../lucida/musicservice
+python ms_mongo.py add questionanswering QA 2 localhost\&localhost 8082\&7082 text text $PWD/../lucida/questionanswering/OpenEphyra
+python ms_mongo.py add imagematching IMM 1 localhost 8083 image image $PWD/../lucida/imagematching/opencv_imm
+python ms_mongo.py add calendar CA 1 localhost 8084 text none $PWD/../lucida/calendar
+python ms_mongo.py add imageclassification IMC 1 localhost 8085 image none $PWD/../lucida/djinntonic/imc
+python ms_mongo.py add facerecognition FACE 1 localhost 8086 image none $PWD/../lucida/djinntonic/face
+python ms_mongo.py add digitrecognition DIG 1 localhost 8087 image none $PWD/../lucida/djinntonic/dig
+python ms_mongo.py add weather WE 1 localhost 8088 text none $PWD/../lucida/weather
+python ms_mongo.py add musicservice MS 1 localhost 8089 text none $PWD/../lucida/musicservice
 
 echo "class QAWF(workFlow): 
 	def processCurrentState(self,inputModifierText,inputModifierImage): 

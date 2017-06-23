@@ -29,6 +29,7 @@ class MongoDB(object):
 		post = {
 			"name": name,
 			"acronym": acronym,
+			"num": num,
 			"host": host,
 			"port": port,
 			"input": input_type,

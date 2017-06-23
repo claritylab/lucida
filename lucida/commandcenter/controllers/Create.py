@@ -3,6 +3,7 @@ from QueryClassifier import query_classifier
 from AccessManagement import login_required
 from ThriftClient import thrift_client
 from Service import Service
+from Utilities import log
 import Config
 import socket
 
@@ -23,14 +24,16 @@ def create_route():
         services_list = []
         for service in thrift_client.SERVICES.values():
             if isinstance(service, Service):
-                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                host, port = service.get_host_port()
-                result = sock.connect_ex((host, port))
-                if result == 0:
-                    services_list.append((service.name, host, port, "running"))
-                else:
-                    services_list.append((service.name, host, port, "stop"))
-                sock.close()
+                for i in range(service.num):
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    host = service.host_list[i]
+                    port = service.port_list[i]
+                    result = sock.connect_ex((host, port))
+                    if result == 0:
+                        services_list.append((service.name, i, host, port, "running"))
+                    else:
+                        services_list.append((service.name, i, host, port, "stop"))
+                    sock.close()
         options['service_list']= sorted(services_list, key=lambda i: i[0])
     except Exception as e:
         log(e)
