@@ -1,6 +1,8 @@
 #!/usr/bin/env python2
 
 # Standard import
+import os
+import sys
 from pymongo import *
 
 class MongoDB(object):
@@ -78,6 +80,26 @@ class MongoDB(object):
 
 		collection.remove({'name': name})
 
+	# import this module and call start_server(name) to start
+	def start_server(self, name):
+		location, port = search_path(name)
+		wrapper_begin = 'gnome-terminal -x bash -c "'
+		wrapper_end = '"'
+		code = 'cd ' + location + "; "
+		code = code + "make start_server port=" + port
+		os.system(wrapper_begin + code + wrapper_end)
 
-#the active service
+	def search_path(self, name):
+		# get collection for service information
+		collection = self.db.service_info
 
+		result = collection.find({'name': name})
+
+		# check if current service is in MongoDB
+		count = result.count()
+		if count != 1:
+			#collection.delete_many({"name" : sys.argv[2]})
+			print('[python error] service not in MongoDB.')
+			exit(1)
+
+		return result[0]['location'], result[0]['port']

@@ -137,56 +137,81 @@ if [ "$OP" = "add" ]; then
 		fi
 	done
 
-	echo "[Info] Waiting......"
-	python ms_mongo.py add $NAME $ACN $HOST $PORT $INPUT $LEARN
-	if [ $? = 0 ]; then
-		echo "[Info] Service registration succeed!"
-	else
-		echo "[Error] Service registration fail!"
-	fi
-
 	echo ""
 	TEMP_VALID=1
 	while [ $TEMP_VALID -ne -0 ]; do
 		echo "### Specify if you want to generate the folder for your service automatically."
 		printf "### Enter if you want the folder [y/n]: "
 		read TEMP
-		if [ "$TEMP" = "y" ]; then
+		if [ "$TEMP" = "y" -o "$TEMP" = "n" ]; then
 			TEMP_VALID=0
-		elif [ "$TEMP" = "n" ]; then
-			exit 0
 		else
 			echo "Please input y/n for generating folder!"
 		fi
 	done
 
-	echo ""
-	echo "### Specify the programming language you want to you in your programming. If C++/Java/Python, then template will be provided."
-	printf "### Enter the programming language: "
-	read LAN
-	LAN="$(tr [A-Z] [a-z] <<< "$LAN")"
-	if [ "$LAN" = "c++" ]; then
-		LAN="cpp"
-	fi
+	if [ "$TEMP" = "y" ]; then
+		echo ""
+		echo "### Specify the programming language you want to you in your programming. If C++/Java/Python, then template will be provided."
+		printf "### Enter the programming language: "
+		read LAN
+		LAN="$(tr [A-Z] [a-z] <<< "$LAN")"
+		if [ "$LAN" = "c++" ]; then
+			LAN="cpp"
+		fi
 
-	if [ "$LAN" = "cpp" -o "$LAN" = "java" -o "$LAN" = "python" ]; then
-		# do copy template folder of cpp to lucida
-		if [ -d $NAME ]; then
-			echo "[Error] service already exists!"
-			exit 1
+		if [ "$LAN" = "cpp" -o "$LAN" = "java" -o "$LAN" = "python" ]; then
+			# do copy template folder of cpp to lucida
+			if [ -d $NAME ]; then
+				echo "[Error] service already exists!"
+				exit 1
+			else
+				create_folder $LAN $NAME $ACN
+			fi
 		else
-			create_folder $LAN $NAME $ACN
+			# create an empty folder
+			if [ -d $NAME ]; then
+				echo "[Error] service already exists!"
+				exit 1
+			else
+				mkdir $NAME
+				echo "[Info] Template folder is ready!"
+			fi
 		fi
-	else
-		# create an empty folder
-		if [ -d $NAME ]; then
-			echo "[Error] service already exists!"
-			exit 1
+
+		echo "[Info] Waiting......"
+		python ms_mongo.py add $NAME $ACN $HOST $PORT $INPUT $LEARN $PWD/../lucida/$NAME
+		if [ $? = 0 ]; then
+			echo "[Info] Service registration succeed!"
 		else
-			mkdir $NAME
-			echo "[Info] Template folder is ready!"
+			echo "[Error] Service registration fail!"
 		fi
-	fi
+
+	elif [ "$TEMP" = "n" ]; then
+		echo ""
+		LOCATION_VALID=1
+		while [ $LOCATION_VALID -ne -0 ]; do
+			echo "### Specify the path of your service"
+			printf "### Enter the path: "
+			read LOCATION
+			if [ "$LOCATION" = "" ]; then
+				echo "[Error] Path cannot be empty! Please try another one!"
+			else
+				if [ -d $LOCATION ]; then
+					LOCATION_VALID=0
+				else
+					echo "[Error] File not found! Please try another one!"
+				fi
+			fi
+		done
+
+		echo "[Info] Waiting......"
+		python ms_mongo.py add $NAME $ACN $HOST $PORT $INPUT $LEARN $PWD/$LOCATION
+		if [ $? = 0 ]; then
+			echo "[Info] Service registration succeed!"
+		else
+			echo "[Error] Service registration fail!"
+		fi
 
 elif [ "$OP" = "delete" ]; then
 	NAME_VALID=0
