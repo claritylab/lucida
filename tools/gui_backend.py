@@ -15,7 +15,7 @@ class MongoDB(object):
 			log('MongoDB: localhost')
 			self.db = MongoClient().lucida
 
-	def add_service(self, name, acronym, host, port, input_type, learn_type):
+	def add_service(self, name, acronym, num, host, port, input_type, learn_type, location):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
@@ -32,7 +32,8 @@ class MongoDB(object):
 			"host": host,
 			"port": port,
 			"input": input_type,
-			"learn": learn_type
+			"learn": learn_type,
+			"location": location
 		}
 
 		# insert the service information into MongoDB
@@ -103,3 +104,24 @@ class MongoDB(object):
 			exit(1)
 
 		return result[0]['location'], result[0]['port']
+
+def validate_ip_port(s, p):
+	"""
+	Check if ip/port is valid with ipv4 
+	"""
+
+	a = s.split('.')
+	if len(a) != 4:
+		return False
+	for x in a:
+		if not x.isdigit():
+			return False
+		i = int(x)
+		if i < 0 or i > 255:
+			return False
+	port = int(p)
+	if p < 0 or p > 65535:
+		return False
+	return True
+
+db = MongoDB()
