@@ -6,14 +6,10 @@ import time
 import thread
 import argparse
 from subprocess import Popen, PIPE
-from gi.repository import GObject
 import yaml
 import json
 import sys
-import locale
-import codecs
-import zlib
-import base64
+import os
 import time
 
 from ws4py.client.threadedclient import WebSocketClient
@@ -21,8 +17,6 @@ import ws4py.messaging
 
 from decoder import DecoderPipeline
 import common
-
-import os
 
 empty_response = ''
 
@@ -150,9 +144,6 @@ class ServerWebsocket(WebSocketClient):
 
 	def _on_result(self, result, final):
 		if final:
-			# final results are handled by _on_full_result()
-			transcript = result.decode('utf8')
-			self.coachtranscript += ' ' + transcript
 			return
 		self.last_decoder_message = time.time()
 		if self.last_partial_result == result:
