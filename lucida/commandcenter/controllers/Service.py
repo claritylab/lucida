@@ -4,7 +4,7 @@ from Utilities import log
 class Service(object):
     LEARNERS = { 'audio' : [], 'image' : [], 'text' : [] }
     # Constructor.
-    def __init__(self, name, input_type, learn_type, num, host_list, port_list):
+    def __init__(self, name, input_type, learn_type, num, host_port):
         self.name = name
         self.num = num
         self.count = 0
@@ -17,15 +17,14 @@ class Service(object):
                 print 'Unrecognized learn_type'
                 exit()
             Service.LEARNERS[learn_type].append(self)
-        self.host_list = host_list
-        self.port_list = port_list
+        self.host_port = host_port
 
     def get_host_port(self):
         try:
             if self.num <= 0:
                 raise RuntimeError('No available instance for service ' + self.name)
-            cur_host = self.host_list[self.count]
-            cur_port = self.port_list[self.count]
+            cur_host = self.host_port[self.count]['host']
+            cur_port = self.host_port[self.count]['port']
             self.count = (self.count + 1)%self.num
             log('loop ' + str(self.count))
             return cur_host, cur_port

@@ -9,13 +9,11 @@ class MongoDB(object):
 	def __init__(self):
 		mongodb_addr = os.environ.get('MONGO_PORT_27017_TCP_ADDR')
 		if mongodb_addr:
-			log('MongoDB: ' + mongodb_addr)
 			self.db = MongoClient(mongodb_addr, 27017).lucida
 		else:
-			log('MongoDB: localhost')
 			self.db = MongoClient().lucida
 
-	def add_service(self, name, acronym, num, host, port, input_type, learn_type, location):
+	def add_service(self, name, acronym, num, hostport, input_type, learn_type, location):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
@@ -27,14 +25,13 @@ class MongoDB(object):
 
 		# list the attributes for the interface
 		post = {
-			"name": name,
-			"acronym": acronym,
-			"num": num,
-			"host": host,
-			"port": port,
-			"input": input_type,
-			"learn": learn_type,
-			"location": location
+			"name": name, # name of service
+			"acronym": acronym, # acronym of service
+			"num": int(num), # number of instance
+			"host_port": hostport, # host/port pair of instances
+			"input": input_type, # input type
+			"learn": learn_type, # learn type
+			"location": location # location of service in local
 		}
 
 		# insert the service information into MongoDB
@@ -63,10 +60,10 @@ class MongoDB(object):
 
 		# list the attributes for the interface
 		post = {
-			"name": name,
-			"input": input_type,
-			"classifier": classifier_path,
-			"code": class_code
+			"name": name, # name of workflow
+			"input": input_type, # allowed input type
+			"classifier": classifier_path, # classifier data path
+			"code": class_code # code for implementation of the workflow class
 		}
 
 		collection.insert_one(post)
@@ -82,14 +79,52 @@ class MongoDB(object):
 
 		collection.remove({'name': name})
 
+	def add_instance(self, name, host, port):
+		collection = self.db.service_info
+
+		if not validate_ip_port(host, port):
+			print('[python error] service not exists in MongoDB.')
+			exit(1)
+
+		# check if current service is in MongoDB
+		count = collection.count({'name': name})
+		if count != 1:
+			print('[python error] service not exists in MongoDB.')
+			exit(1)
+
+		collection.update_one({'name': name}, {'$inc': {'num': 1}})
+		collection.update_one({'name': name}, {'$push': {'host_port': {
+			'host': host,
+			'port': port
+		}}})
+
+	def delete_instance(self, name, host, port):
+		collection = self.db.service_info
+
+		# check if current service is in MongoDB
+		count = collection.count({'name': name})
+		if count != 1:
+			print('[python error] workflow not exists in MongoDB.')
+			exit(1)
+
+		collection.update_one({'name': name}, {'$inc': {'num': -1}})
+		collection.update_one({'name': name}, {'$pullAll': {'host_port': [{
+			'host': host,
+			'port': port
+		}]}})
+
 	# import this module and call start_server(name) to start
 	def start_server(self, name):
-		location, port = search_path(name)
-		wrapper_begin = 'gnome-terminal -x bash -c "'
-		wrapper_end = '"'
-		code = 'cd ' + location + "; "
-		code = code + "make start_server port=" + port
-		os.system(wrapper_begin + code + wrapper_end)
+		location, host_port = self.search_path(name)
+
+		# start each instance
+		for pair in host_port:
+			port = pair['port']
+			wrapper_begin = 'gnome-terminal -x bash -c "'
+			wrapper_end = '"'
+			code = 'cd ' + location + "; "
+			code = code + "make start_server port=" + str(port)
+			os.system(wrapper_begin + code + wrapper_end)
 
 	def search_path(self, name):
 		# get collection for service information
@@ -104,7 +139,7 @@ class MongoDB(object):
 			print('[python error] service not in MongoDB.')
 			exit(1)
 
-		return result[0]['location'], result[0]['port']
+		return result[0]['location'], result[0]['host_port']
 
 def validate_ip_port(s, p):
 	"""

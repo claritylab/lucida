@@ -26,8 +26,8 @@ def create_route():
             if isinstance(service, Service):
                 for i in range(service.num):
                     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                    host = service.host_list[i]
-                    port = service.port_list[i]
+                    host = service.host_port[i]['host']
+                    port = service.host_port[i]['port']
                     result = sock.connect_ex((host, port))
                     if result == 0:
                         services_list.append((service.name, i, host, port, "running"))

@@ -117,17 +117,13 @@ def load_config():
         service_obj = service_list[i]
         acn = service_obj['acronym']
         num = int(service_obj['num'])
-        host = service_obj['host']
-        host_list = host.split('&')
-        port = service_obj['port']
-        port_list = port.split('&')
-        port_list = map(int, port_list)
+        host_port = service_obj['host_port']
         input_type = service_obj['input']
         learn_type = service_obj['learn']
         if learn_type == 'none':
-            SERVICES[acn] = Service(acn, input_type, None, num, host_list, port_list)
+            SERVICES[acn] = Service(acn, input_type, None, num, host_port)
         else:
-            SERVICES[acn] = Service(acn, input_type, learn_type, num, host_list, port_list)
+            SERVICES[acn] = Service(acn, input_type, learn_type, num, host_port)
     
     # Update workflow list, current only support single service workflow
     for input_t in CLASSIFIER_DESCRIPTIONS:
