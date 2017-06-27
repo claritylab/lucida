@@ -134,8 +134,7 @@ def load_config():
     for i in range(count_workflow):
     	workflow_obj = workflow_list[i]
     	name = workflow_obj['name']
-    	input_type = workflow_obj['input']
-    	input_list = input_type.strip().split('&')
+    	input_list = workflow_obj['input']
     	classifier = workflow_obj['classifier']
         CLASSIFIER_PATH['class_'+name] = classifier
         code = workflow_obj['code']
