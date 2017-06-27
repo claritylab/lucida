@@ -20,8 +20,13 @@ def create_route():
                 query_classifier.__init__(Config.TRAIN_OR_LOAD, Config.CLASSIFIER_DESCRIPTIONS)
     
     try:
-        # Retrieve pre-configured services.
         services_list = []
+        for service in thrift_client.SERVICES.values():
+            if isinstance(service, Service):
+                services_list.append(service.name)
+        options['service_list'] = sorted(services_list, key=lambda i: i[0])
+        # Retrieve pre-configured services.
+        instances_list = []
         for service in thrift_client.SERVICES.values():
             if isinstance(service, Service):
                 for i in range(service.num):
@@ -30,11 +35,11 @@ def create_route():
                     port = service.host_port[i]['port']
                     result = sock.connect_ex((host, port))
                     if result == 0:
-                        services_list.append((service.name, i, host, port, "running"))
+                        instances_list.append((service.name, i, host, port, "running"))
                     else:
-                        services_list.append((service.name, i, host, port, "stop"))
+                        instances_list.append((service.name, i, host, port, "stop"))
                     sock.close()
-        options['service_list']= sorted(services_list, key=lambda i: i[0])
+        options['instance_list'] = sorted(instances_list, key=lambda i: i[0])
     except Exception as e:
         log(e)
         options['error'] = e

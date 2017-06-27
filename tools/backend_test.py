@@ -1,14 +1,14 @@
 from gui_backend import *
 
 def main():
-	db.add_service('questionanswering', 'QA', 1, [{'host': 'localhost', 'port': 8082}], 'text', 'text', '/home/zhexuan/Documents/lucida/lucida/questionanswering/OpenEphyra')
-	db.add_service('imagematching', 'IMM', 1, [{'host': 'localhost', 'port': 8083}], 'image', 'image', '/home/zhexuan/Documents/lucida/lucida/imagematching/opencv_imm')
-	db.add_service('calendar', 'CA', 1, [{'host': 'localhost', 'port': 8084}], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/calendar')
-	db.add_service('imageclassification', 'IMC', 1, [{'host': 'localhost', 'port': 8085}], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/imc')
-	db.add_service('facerecognition', 'FACE', 1, [{'host': 'localhost', 'port': 8086}], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/face')
-	db.add_service('digitrecognition', 'DIG', 1, [{'host': 'localhost', 'port': 8087}], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/dig')
-	db.add_service('weather', 'WE', 1, [{'host': 'localhost', 'port': 8088}], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/weather')
-	db.add_service('musicservice', 'MS', 1, [{'host': 'localhost', 'port': 8089}], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/musicservice')
+	db.add_service('questionanswering', 'QA', 0, [], 'text', 'text', '/home/zhexuan/Documents/lucida/lucida/questionanswering/OpenEphyra')
+	db.add_service('imagematching', 'IMM', 0, [], 'image', 'image', '/home/zhexuan/Documents/lucida/lucida/imagematching/opencv_imm')
+	db.add_service('calendar', 'CA', 0, [], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/calendar')
+	db.add_service('imageclassification', 'IMC', 0, [], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/imc')
+	db.add_service('facerecognition', 'FACE', 0, [], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/face')
+	db.add_service('digitrecognition', 'DIG', 0, [], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/dig')
+	db.add_service('weather', 'WE', 0, [], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/weather')
+	db.add_service('musicservice', 'MS', 0, [], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/musicservice')
 	
 	QAWF_code = 'class QAWF(workFlow): \n\tdef processCurrentState(self,inputModifierText,inputModifierImage): \n\t\tif(self.currentState==0):'
 	QAWF_code = QAWF_code + '\n\t\t\tself.batchedData = [serviceRequestData("QA",inputModifierText[0])] \n\t\t\tself.isEnd = True\n\t\t\treturn'
