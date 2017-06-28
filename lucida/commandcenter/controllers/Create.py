@@ -31,13 +31,14 @@ def create_route():
             if isinstance(service, Service):
                 for i in range(service.num):
                     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                    host = service.host_port[i]['host']
-                    port = service.host_port[i]['port']
+                    name = service.instance[i]['name']
+                    host = service.instance[i]['host']
+                    port = service.instance[i]['port']
                     result = sock.connect_ex((host, port))
                     if result == 0:
-                        instances_list.append((service.name, i, host, port, "running"))
+                        instances_list.append((service.name, name, host, port, "running"))
                     else:
-                        instances_list.append((service.name, i, host, port, "stop"))
+                        instances_list.append((service.name, name, host, port, "stop"))
                     sock.close()
         options['instance_list'] = sorted(instances_list, key=lambda i: i[0])
     except Exception as e:

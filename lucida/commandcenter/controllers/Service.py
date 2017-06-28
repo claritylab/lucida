@@ -6,7 +6,6 @@ class Service(object):
     # Constructor.
     def __init__(self, name, input_type, learn_type, num, instance):
         self.name = name
-        self.num = num
         self.count = 0
         if not (input_type == 'text' or input_type == 'image'):
             print 'Can only process text and image'
@@ -17,14 +16,15 @@ class Service(object):
                 print 'Unrecognized learn_type'
                 exit()
             Service.LEARNERS[learn_type].append(self)
-        self.host_port = host_port
+        self.instance = instance
+        self.num = len(self.instance)
 
     def get_host_port(self):
         try:
             if self.num <= 0:
                 raise RuntimeError('No available instance for service ' + self.name)
-            cur_host = self.host_port[self.count]['host']
-            cur_port = self.host_port[self.count]['port']
+            cur_host = self.instance[self.count]['host']
+            cur_port = self.instance[self.count]['port']
             self.count = (self.count + 1)%self.num
             log('loop ' + str(self.count))
             return cur_host, cur_port
