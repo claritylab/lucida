@@ -4,6 +4,7 @@
 import os
 import sys
 from pymongo import *
+from bson.objectid import ObjectId
 
 class MongoDB(object):
 	def __init__(self):
@@ -30,14 +31,14 @@ class MongoDB(object):
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service name already used.')
-			return 1
+			return 1, ObjectId('')
 
 		# check if current service acronym is used
 		count = collection.count({'acronym': acronym})
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service acronym already used.')
-			return 2
+			return 2, ObjectId('')
 
 		# list the attributes for the interface
 		post = {
@@ -51,10 +52,10 @@ class MongoDB(object):
 		}
 
 		# insert the service information into MongoDB
-		collection.insert_one(post)
-		return 0
+		post_id = collection.insert_one(post).inserted_id
+		return 0, post_id
 
-	def update_service(self, name, op, value):
+	def update_service(self, _id, op, value):
 		"""
 		op: field of what you want to update
 		value: update value for the field
@@ -65,15 +66,15 @@ class MongoDB(object):
 
 		collection = self.db.service_info
 
-		count = collection.count({'name': name})
+		count = collection.count({'_id': _id})
 		if count == 0:
 			print('[python error] service not exists in MongoDB.')
 			return 1
 
-		collection.update({'name': name}, {'$set': {op: value }})
+		collection.update({'_id': _id}, {'$set': {op: value }})
 		return 0
 
-	def delete_service(self, name):
+	def delete_service(self, _id):
 		"""
 		return code:
 		0: success
@@ -83,12 +84,12 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
-		count = collection.count({'name': name})
+		count = collection.count({'_id': _id})
 		if count == 0:
 			print('[python error] service not exists in MongoDB.')
 			return 1
 
-		collection.remove({'name': name})
+		collection.remove({'_id': _id})
 		return 0
 
 	def add_workflow(self, name, input_type, classifier_path, class_code):
@@ -105,7 +106,7 @@ class MongoDB(object):
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service already in MongoDB.')
-			return 1
+			return 1, ObjectId('')
 
 		# list the attributes for the interface
 		post = {
@@ -115,10 +116,10 @@ class MongoDB(object):
 			"code": class_code # code for implementation of the workflow class
 		}
 
-		collection.insert_one(post)
-		return 0
+		post_id = collection.insert_one(post).inserted_id
+		return 0, post_id
 
-	def update_workflow(self, name, op, value):
+	def update_workflow(self, _id, op, value):
 		"""
 		op: field of what you want to update
 		value: update value for the field
@@ -129,15 +130,15 @@ class MongoDB(object):
 
 		collection = self.db.workflow_info
 
-		count = collection.count({'name': name})
+		count = collection.count({'_id': _id})
 		if count == 0:
 			print('[python error] service not exists in MongoDB.')
 			return 1
 
-		collection.update({'name': name}, {'$set': {op: value }})
+		collection.update({'_id': _id}, {'$set': {op: value }})
 		return 0
 
-	def delete_workflow(self, name):
+	def delete_workflow(self, _id):
 		"""
 		return code:
 		0: success
@@ -147,57 +148,61 @@ class MongoDB(object):
 		collection = self.db.workflow_info
 
 		# check if current workflow is in MongoDB
-		count = collection.count({'name': name})
+		count = collection.count({'_id': _id})
 		if count == 0:
 			print('[python error] workflow not exists in MongoDB.')
 			return 1
 
-		collection.remove({'name': name})
+		collection.remove({'_id': _id})
 		return 0
 
-	def add_instance(self, service_name, name, host, port):
+	def add_instance(self, _id, name, host, port):
 		"""
 		return code:
 		0: success
 		1: host/port not valid
 		2: service name not exist
-		3: instance name already exists
-		4: host/port already used
+		3: host/port already used
 		"""
 
 		collection = self.db.service_info
 
 		if not validate_ip_port(host, port):
 			print('[python error] Host/port pair is not valid.')
-			return 1
+			return 1, 0
 
 		# check if current service is in MongoDB
-		count = collection.count({'name': service_name})
+		count = collection.count({'_id': _id})
 		if count != 1:
 			print('[python error] service not exists in MongoDB.')
-			return 2
+			return 2, 0
 
+		"""
 		# check if name is used
 		result = collection.find({'name': service_name, 'instance.name': name})
 		if result.count() != 0:
 			print('[python error] Instance name has already been used.')
 			return 3
+		"""
 
 		# check if host and port is used
 		result = collection.find({'instance' : { '$elemMatch': { 'host': host, 'port': port}}})
 		if result.count() != 0:
 			print('[python error] Host/port has already been used.')
-			return 4
+			return 3, ObjectId('')
 
-		collection.update_one({'name': service_name}, {'$inc': {'num': 1}})
-		collection.update_one({'name': service_name}, {'$push': {'instance': {
+		result = collection.find({'_id': _id})
+		instance_id = result[0]['num']
+		collection.update_one({'_id': _id}, {'$inc': {'num': 1}})
+		collection.update_one({'_id': _id}, {'$push': {'instance': {
 			'name': name,
 			'host': host,
-			'port': port
+			'port': port,
+			'id': instance_id
 		}}})
-		return 0
+		return 0, instance_id
 
-	def update_instance(self, service_name, name, op, value):
+	def update_instance(self, _id, instance_id, op, value):
 		"""
 		op: field of what you want to update
 		value: update value for the field
@@ -209,16 +214,16 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
-		result = collection.find({'name': service_name, 'instance.name': name})
+		result = collection.find({'_id': _id, 'instance.id': instance_id})
 		if result.count() != 1:
 			print('[python error] Instance name not exists.')
 			return 1
 
 		op = 'instance.$.'+op
-		collection.update({'name': service_name, 'instance.name': name}, {'$set': {op: value }})
+		collection.update({'_id': _id, 'instance.id': instance_id}, {'$set': {op: value}})
 		return 0
 
-	def delete_instance(self, service_name, name):
+	def delete_instance(self, _id, instance_id):
 		"""
 		return code:
 		0: success
@@ -227,15 +232,13 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
-		result = collection.find({'name': service_name, 'instance.name': name})
+		result = collection.find({'_id': _id, 'instance.id': instance_id})
 		if result.count() != 1:
 			print('[python error] Instance name not exists.')
 			return 1
 
-		collection.update_one({'name': service_name}, {'$inc': {'num': -1}})
-		collection.update({'name':service_name}, {'$pull': {'instance': {'name': name }}})
+		collection.update({'_id':_id}, {'$pull': {'instance': {'id': instance_id}}})
 		return 0
-
 	"""
 	# import this module and call start_server(name) to start
 	def start_server(self, name):

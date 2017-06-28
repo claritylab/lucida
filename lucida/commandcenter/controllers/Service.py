@@ -4,7 +4,7 @@ from Utilities import log
 class Service(object):
     LEARNERS = { 'audio' : [], 'image' : [], 'text' : [] }
     # Constructor.
-    def __init__(self, name, input_type, learn_type, num, host_port):
+    def __init__(self, name, input_type, learn_type, num, instance):
         self.name = name
         self.num = num
         self.count = 0
