@@ -1,14 +1,14 @@
 from gui_backend import *
 
 def main():
-	db.add_service('questionanswering', 'QA', 0, [], 'text', 'text', '/home/zhexuan/Documents/lucida/lucida/questionanswering/OpenEphyra')
-	db.add_service('imagematching', 'IMM', 0, [], 'image', 'image', '/home/zhexuan/Documents/lucida/lucida/imagematching/opencv_imm')
-	db.add_service('calendar', 'CA', 0, [], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/calendar')
-	db.add_service('imageclassification', 'IMC', 0, [], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/imc')
-	db.add_service('facerecognition', 'FACE', 0, [], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/face')
-	db.add_service('digitrecognition', 'DIG', 0, [], 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/dig')
-	db.add_service('weather', 'WE', 0, [], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/weather')
-	db.add_service('musicservice', 'MS', 0, [], 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/musicservice')
+	db.add_service('questionanswering', 'QA', 'text', 'text', '/home/zhexuan/Documents/lucida/lucida/questionanswering/OpenEphyra')
+	db.add_service('imagematching', 'IMM', 'image', 'image', '/home/zhexuan/Documents/lucida/lucida/imagematching/opencv_imm')
+	db.add_service('calendar', 'CA', 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/calendar')
+	db.add_service('imageclassification', 'IMC', 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/imc')
+	db.add_service('facerecognition', 'FACE', 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/face')
+	db.add_service('digitrecognition', 'DIG', 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/dig')
+	db.add_service('weather', 'WE', 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/weather')
+	db.add_service('musicservice', 'MS', 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/musicservice')
 	
 	QAWF_code = 'class QAWF(workFlow): \n\tdef processCurrentState(self,inputModifierText,inputModifierImage): \n\t\tif(self.currentState==0):'
 	QAWF_code = QAWF_code + '\n\t\t\tself.batchedData = [serviceRequestData("QA",inputModifierText[0])] \n\t\t\tself.isEnd = True\n\t\t\treturn'
@@ -34,15 +34,6 @@ def main():
 	MSWF_code = 'class MSWF(workFlow): \n\tdef processCurrentState(self,inputModifierText,inputModifierImage): \n\t\tif(self.currentState==0):'
 	MSWF_code = MSWF_code + '\n\t\t\tself.batchedData = [serviceRequestData("MS",inputModifierText[0])] \n\t\t\tself.isEnd = True\n\t\t\treturn'
 	db.add_workflow('MSWF', ['text'], '/home/zhexuan/Documents/lucida/lucida/commandcenter/data/class_MSWF.txt', MSWF_code)
-	
-	db.start_server('questionanswering')
-	db.start_server('imagematching')
-	db.start_server('calendar')
-	db.start_server('imageclassification')
-	db.start_server('facerecognition')
-	db.start_server('digitrecognition')
-	db.start_server('weather')
-	db.start_server('musicservice')
 
 if __name__ == '__main__':
 	main()
