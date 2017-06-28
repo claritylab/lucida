@@ -1,14 +1,14 @@
 from gui_backend import *
 
 def main():
-	db.add_service('questionanswering', 'QA', 'text', 'text', '/home/zhexuan/Documents/lucida/lucida/questionanswering/OpenEphyra')
-	db.add_service('imagematching', 'IMM', 'image', 'image', '/home/zhexuan/Documents/lucida/lucida/imagematching/opencv_imm')
-	db.add_service('calendar', 'CA', 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/calendar')
-	db.add_service('imageclassification', 'IMC', 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/imc')
-	db.add_service('facerecognition', 'FACE', 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/face')
-	db.add_service('digitrecognition', 'DIG', 'image', 'none', '/home/zhexuan/Documents/lucida/lucida/djinntonic/dig')
-	db.add_service('weather', 'WE', 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/weather')
-	db.add_service('musicservice', 'MS', 'text', 'none', '/home/zhexuan/Documents/lucida/lucida/musicservice')
+	db.add_service('questionanswering', 'QA', 'text', 'text')
+	db.add_service('imagematching', 'IMM', 'image', 'image')
+	db.add_service('calendar', 'CA', 'text', 'none')
+	db.add_service('imageclassification', 'IMC', 'image', 'none')
+	db.add_service('facerecognition', 'FACE', 'image', 'none')
+	db.add_service('digitrecognition', 'DIG', 'image', 'none')
+	db.add_service('weather', 'WE', 'text', 'none')
+	db.add_service('musicservice', 'MS', 'text', 'none')
 	
 	QAWF_code = 'class QAWF(workFlow): \n\tdef processCurrentState(self,inputModifierText,inputModifierImage): \n\t\tif(self.currentState==0):'
 	QAWF_code = QAWF_code + '\n\t\t\tself.batchedData = [serviceRequestData("QA",inputModifierText[0])] \n\t\t\tself.isEnd = True\n\t\t\treturn'

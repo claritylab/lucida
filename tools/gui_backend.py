@@ -13,7 +13,7 @@ class MongoDB(object):
 		else:
 			self.db = MongoClient().lucida
 
-	def add_service(self, name, acronym, input_type, learn_type, location):
+	def add_service(self, name, acronym, input_type, learn_type):
 		"""
 		return code:
 		0: success
@@ -46,8 +46,8 @@ class MongoDB(object):
 			"num": num, # number of instance
 			"instance": instance, # host/port pair of instances
 			"input": input_type, # input type
-			"learn": learn_type, # learn type
-			"location": location # location of service in local
+			"learn": learn_type # learn type
+			# "location": location # location of service in local
 		}
 
 		# insert the service information into MongoDB
@@ -118,7 +118,7 @@ class MongoDB(object):
 		collection.insert_one(post)
 		return 0
 
-	def update_service(self, name, op, value):
+	def update_workflow(self, name, op, value):
 		"""
 		op: field of what you want to update
 		value: update value for the field
