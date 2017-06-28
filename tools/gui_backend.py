@@ -178,7 +178,7 @@ class MongoDB(object):
 			return 2
 
 		# check if name is used
-		result = collection.find({'instance.name': name})
+		result = collection.find({'name': service_name, 'instance.name': name})
 		if result.count() != 0:
 			print('[python error] Instance name has already been used.')
 			return 3
@@ -197,7 +197,7 @@ class MongoDB(object):
 		}}})
 		return 0
 
-	def update_instance(self, name, op, value):
+	def update_instance(self, service_name, name, op, value):
 		"""
 		op: field of what you want to update
 		value: update value for the field
@@ -209,17 +209,16 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
-		result = collection.find({'instance.name': name})
+		result = collection.find({'name': service_name, 'instance.name': name})
 		if result.count() != 1:
 			print('[python error] Instance name not exists.')
 			return 1
 
-		service_name = result[0]['name']
 		op = 'instance.$.'+op
-		collection.update({'instance.name': name}, {'$set': {op: value }})
+		collection.update({'name': service_name, 'instance.name': name}, {'$set': {op: value }})
 		return 0
 
-	def delete_instance(self, name):
+	def delete_instance(self, service_name, name):
 		"""
 		return code:
 		0: success
@@ -228,14 +227,13 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
-		result = collection.find({'instance.name': name})
+		result = collection.find({'name': service_name, 'instance.name': name})
 		if result.count() != 1:
 			print('[python error] Instance name not exists.')
 			return 1
 
-		service_name = result[0]['name']
 		collection.update_one({'name': service_name}, {'$inc': {'num': -1}})
-		collection.update({}, {'$pull': {'instance': {'name': name }}})
+		collection.update({'name':service_name}, {'$pull': {'instance': {'name': name }}})
 		return 0
 
 	"""
