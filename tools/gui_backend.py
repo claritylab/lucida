@@ -18,6 +18,7 @@ class MongoDB(object):
 		count_service = service_list.count()
 		for i in range(count_service):
 			document = service_list[i]
+			document['_id'] = str(document['_id'])
 			dictReturn.append(document)
 		
 		return dictReturn
@@ -286,17 +287,16 @@ def validate_ip_port(s, p):
 	Check if ip/port is valid with ipv4 
 	"""
 	if s == 'localhost':
-		pass
-	else:
-		a = s.split('.')
-		if len(a) != 4:
+		s = '127.0.0.1'
+	a = s.split('.')
+	if len(a) != 4:
+		return False
+	for x in a:
+		if not x.isdigit():
 			return False
-		for x in a:
-			if not x.isdigit():
-				return False
-			i = int(x)
-			if i < 0 or i > 255:
-				return False
+		i = int(x)
+		if i < 0 or i > 255:
+			return False
 	if p < 0 or p > 65535:
 		return False
 	return True
