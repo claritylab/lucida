@@ -1,6 +1,3 @@
-#!/usr/bin/env python2
-
-# Standard import
 import os
 import sys
 from pymongo import *
@@ -13,6 +10,18 @@ class MongoDB(object):
 			self.db = MongoClient(mongodb_addr, 27017).lucida
 		else:
 			self.db = MongoClient().lucida
+
+	def get_services(self):
+		dictReturn = []
+
+		service_list = self.db["service_info"].find()
+		count_service = service_list.count()
+		for i in range(count_service):
+			document = service_list[i]
+			dictReturn.append(document)
+		
+		return dictReturn
+
 
 	def add_service(self, name, acronym, input_type, learn_type):
 		"""
@@ -31,14 +40,14 @@ class MongoDB(object):
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service name already used.')
-			return 1, ObjectId()
+			return 1, ''
 
 		# check if current service acronym is used
 		count = collection.count({'acronym': acronym})
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service acronym already used.')
-			return 2, ObjectId()
+			return 2, ''
 
 		# list the attributes for the interface
 		post = {
@@ -53,7 +62,7 @@ class MongoDB(object):
 
 		# insert the service information into MongoDB
 		post_id = collection.insert_one(post).inserted_id
-		return 0, post_id
+		return 0, str(post_id)
 
 	def update_service(self, _id, op, value):
 		"""
@@ -66,12 +75,12 @@ class MongoDB(object):
 
 		collection = self.db.service_info
 
-		count = collection.count({'_id': _id})
+		count = collection.count({'_id': ObjectId(_id)})
 		if count == 0:
 			print('[python error] service not exists in MongoDB.')
 			return 1
 
-		collection.update({'_id': _id}, {'$set': {op: value }})
+		collection.update({'_id': ObjectId(_id)}, {'$set': {op: value }})
 		return 0
 
 	def delete_service(self, _id):
@@ -84,12 +93,12 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
-		count = collection.count({'_id': _id})
+		count = collection.count({'_id': ObjectId(_id)})
 		if count == 0:
 			print('[python error] service not exists in MongoDB.')
 			return 1
 
-		collection.remove({'_id': _id})
+		collection.remove({'_id': ObjectId(_id)})
 		return 0
 
 	def add_workflow(self, name, input_type, classifier_path, class_code):
@@ -106,7 +115,7 @@ class MongoDB(object):
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service already in MongoDB.')
-			return 1, ObjectId()
+			return 1, ''
 
 		# list the attributes for the interface
 		post = {
@@ -117,7 +126,7 @@ class MongoDB(object):
 		}
 
 		post_id = collection.insert_one(post).inserted_id
-		return 0, post_id
+		return 0, str(post_id)
 
 	def update_workflow(self, _id, op, value):
 		"""
@@ -130,12 +139,12 @@ class MongoDB(object):
 
 		collection = self.db.workflow_info
 
-		count = collection.count({'_id': _id})
+		count = collection.count({'_id': ObjectId(_id)})
 		if count == 0:
 			print('[python error] service not exists in MongoDB.')
 			return 1
 
-		collection.update({'_id': _id}, {'$set': {op: value }})
+		collection.update({'_id': ObjectId(_id)}, {'$set': {op: value }})
 		return 0
 
 	def delete_workflow(self, _id):
@@ -148,12 +157,12 @@ class MongoDB(object):
 		collection = self.db.workflow_info
 
 		# check if current workflow is in MongoDB
-		count = collection.count({'_id': _id})
+		count = collection.count({'_id': ObjectId(_id)})
 		if count == 0:
 			print('[python error] workflow not exists in MongoDB.')
 			return 1
 
-		collection.remove({'_id': _id})
+		collection.remove({'_id': ObjectId(_id)})
 		return 0
 
 	def add_instance(self, _id, name, host, port):
@@ -172,7 +181,8 @@ class MongoDB(object):
 			return 1, 0
 
 		# check if current service is in MongoDB
-		count = collection.count({'_id': _id})
+		object_id = ObjectId(_id)
+		count = collection.count({'_id': object_id})
 		if count != 1:
 			print('[python error] service not exists in MongoDB.')
 			return 2, 0
@@ -191,10 +201,10 @@ class MongoDB(object):
 			print('[python error] Host/port has already been used.')
 			return 3, 0
 
-		result = collection.find({'_id': _id})
+		result = collection.find({'_id': object_id})
 		instance_id = result[0]['num']
-		collection.update_one({'_id': _id}, {'$inc': {'num': 1}})
-		collection.update_one({'_id': _id}, {'$push': {'instance': {
+		collection.update_one({'_id': object_id}, {'$inc': {'num': 1}})
+		collection.update_one({'_id': object_id}, {'$push': {'instance': {
 			'name': name,
 			'host': host,
 			'port': port,
@@ -214,13 +224,14 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
-		result = collection.find({'_id': _id, 'instance.id': instance_id})
+		object_id = ObjectId(_id)
+		result = collection.find({'_id': object_id, 'instance.id': instance_id})
 		if result.count() != 1:
 			print('[python error] Instance name not exists.')
 			return 1
 
 		op = 'instance.$.'+op
-		collection.update({'_id': _id, 'instance.id': instance_id}, {'$set': {op: value}})
+		collection.update({'_id': object_id, 'instance.id': instance_id}, {'$set': {op: value}})
 		return 0
 
 	def delete_instance(self, _id, instance_id):
@@ -232,12 +243,13 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
-		result = collection.find({'_id': _id, 'instance.id': instance_id})
+		object_id = ObjectId(_id)
+		result = collection.find({'_id': object_id, 'instance.id': instance_id})
 		if result.count() != 1:
 			print('[python error] Instance name not exists.')
 			return 1
 
-		collection.update({'_id':_id}, {'$pull': {'instance': {'id': instance_id}}})
+		collection.update({'_id':object_id}, {'$pull': {'instance': {'id': instance_id}}})
 		return 0
 	"""
 	# import this module and call start_server(name) to start
@@ -273,16 +285,18 @@ def validate_ip_port(s, p):
 	"""
 	Check if ip/port is valid with ipv4 
 	"""
-
-	a = s.split('.')
-	if len(a) != 4:
-		return False
-	for x in a:
-		if not x.isdigit():
+	if s == 'localhost':
+		pass
+	else:
+		a = s.split('.')
+		if len(a) != 4:
 			return False
-		i = int(x)
-		if i < 0 or i > 255:
-			return False
+		for x in a:
+			if not x.isdigit():
+				return False
+			i = int(x)
+			if i < 0 or i > 255:
+				return False
 	if p < 0 or p > 65535:
 		return False
 	return True

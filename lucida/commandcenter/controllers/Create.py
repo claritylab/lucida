@@ -34,7 +34,10 @@ def create_route():
                     name = service.instance[i]['name']
                     host = service.instance[i]['host']
                     port = service.instance[i]['port']
+                    result = 1
+                    sock.settimeout(2)
                     result = sock.connect_ex((host, port))
+                    sock.settimeout(None)
                     if result == 0:
                         instances_list.append((service.name, name, host, port, "running"))
                     else:
