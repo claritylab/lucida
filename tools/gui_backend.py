@@ -31,14 +31,14 @@ class MongoDB(object):
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service name already used.')
-			return 1, ObjectId('')
+			return 1, ObjectId()
 
 		# check if current service acronym is used
 		count = collection.count({'acronym': acronym})
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service acronym already used.')
-			return 2, ObjectId('')
+			return 2, ObjectId()
 
 		# list the attributes for the interface
 		post = {
@@ -106,7 +106,7 @@ class MongoDB(object):
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
 			print('[python error] service already in MongoDB.')
-			return 1, ObjectId('')
+			return 1, ObjectId()
 
 		# list the attributes for the interface
 		post = {
@@ -189,7 +189,7 @@ class MongoDB(object):
 		result = collection.find({'instance' : { '$elemMatch': { 'host': host, 'port': port}}})
 		if result.count() != 0:
 			print('[python error] Host/port has already been used.')
-			return 3, ObjectId('')
+			return 3, 0
 
 		result = collection.find({'_id': _id})
 		instance_id = result[0]['num']
