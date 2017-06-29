@@ -35,7 +35,7 @@ def create_route():
                     host = service.instance[i]['host']
                     port = service.instance[i]['port']
                     result = 1
-                    sock.settimeout(2)
+                    sock.settimeout(1)
                     result = sock.connect_ex((host, port))
                     sock.settimeout(None)
                     if result == 0:

@@ -11,6 +11,18 @@ class MongoDB(object):
 		else:
 			self.db = MongoClient().lucida
 
+	def get_services(self):
+		dictReturn = []
+
+		service_list = self.db["service_info"].find()
+		count_service = service_list.count()
+		for i in range(count_service):
+			document = service_list[i]
+			document['_id'] = str(document['_id'])
+			dictReturn.append(document)
+		
+		return dictReturn
+
 	def add_service(self, name, acronym, input_type, learn_type):
 		"""
 		return code:
@@ -273,7 +285,8 @@ def validate_ip_port(s, p):
 	"""
 	Check if ip/port is valid with ipv4 
 	"""
-
+	if s == 'localhost':
+		s = '127.0.0.1'
 	a = s.split('.')
 	if len(a) != 4:
 		return False
