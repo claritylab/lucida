@@ -7,6 +7,7 @@ sys.path.insert(0, glob.glob(os.path.abspath(os.path.dirname(__file__)) +
     '/../../tools/thrift-0.9.3/lib/py/build/lib*')[0])
 
 from controllers import *
+from api import *
 from flask import *
 from threading import Thread
 import logging

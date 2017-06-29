@@ -3,9 +3,9 @@ from pymongo import MongoClient
 from base64 import b64encode
 from Utilities import log
 import os
-import Config
 from Memcached import memcached
 
+MAX_DOC_NUM_PER_USER = 30
 
 class Database(object):
 	# Name of the algorithm to use for password encryption.
@@ -110,9 +110,9 @@ class Database(object):
 	# Checks whether the user can add one more image.
 	def check_add_image(self, username):
 		if self.get_image_collection(username).count() >= \
-			Config.MAX_DOC_NUM_PER_USER:
+			MAX_DOC_NUM_PER_USER:
 			raise RuntimeError('Sorry. You can only add ' + 
-				str(Config.MAX_DOC_NUM_PER_USER) + \
+				str(MAX_DOC_NUM_PER_USER) + \
 				' images at most')
 	# Returns the number of images by username.
 	def count_images(self, username):
@@ -138,9 +138,9 @@ class Database(object):
 	# Checks whether the user can add one more piece of text.
 	def check_add_text(self, username):
 		if self.get_text_collection(username).count() >= \
-			Config.MAX_DOC_NUM_PER_USER:
+			MAX_DOC_NUM_PER_USER:
 			raise RuntimeError('Sorry. You can only add ' + 
-				str(Config.MAX_DOC_NUM_PER_USER) + \
+				str(MAX_DOC_NUM_PER_USER) + \
 				' pieces of text at most')
 
 database = Database()

@@ -5,10 +5,10 @@ from Graph import Graph, Node
 from pymongo import MongoClient
 from Database import database
 import os, sys, re
-from dcm import*
+from dcm import *
 
-MAX_DOC_NUM_PER_USER = 30 # non-negative integer
 """
+MAX_DOC_NUM_PER_USER = 30 # non-negative integer
 The maximum number of texts or images for each user.
 This is to prevent the server from over-loading.
 """
@@ -103,11 +103,8 @@ def load_config():
     Update the config needed for Lucida
     """
 
-    mongodb_addr = os.environ.get('MONGO_PORT_27017_TCP_ADDR')
-    if mongodb_addr:
-        db = MongoClient(mongodb_addr, 27017).lucida
-    else:
-        db = MongoClient().lucida
+    # Load mongodb
+    db = database.db
 
     # Update service list
     SERVICES.clear()
