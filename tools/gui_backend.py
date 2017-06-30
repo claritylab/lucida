@@ -176,6 +176,9 @@ class MongoDB(object):
 
 		collection = self.db.service_info
 
+		if host == 'localhost':
+			host = '127.0.0.1'
+
 		if not validate_ip_port(host, port):
 			print('[python error] Host/port pair is not valid.')
 			return 1, 0
@@ -240,6 +243,7 @@ class MongoDB(object):
 		0: success
 		1: instance name not exist
 		"""
+		
 		collection = self.db.service_info
 
 		# check if current service is in MongoDB
@@ -285,8 +289,7 @@ def validate_ip_port(s, p):
 	"""
 	Check if ip/port is valid with ipv4 
 	"""
-	if s == 'localhost':
-		s = '127.0.0.1'
+
 	a = s.split('.')
 	if len(a) != 4:
 		return False

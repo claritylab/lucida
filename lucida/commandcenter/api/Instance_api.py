@@ -57,16 +57,22 @@ def instance_api_route():
 			if ret == 1:
 				error = {'error': 'Instance not exists'}
 				return jsonify(error), 422
+			elif ret == 2:
+				error = {'error': 'Host/port pair is not valid'}
+				return jsonify(error), 422
+			elif ret == 3:
+				error = {'error': 'Updated host/port has already been used'}
+				return jsonify(error), 422
 			elif ret == 0:
 				success = {'success': 'Instance successfully updated!'}
 				return jsonify(success), 200
 
 		elif option == 'delete':
-			if '_id' not in requestFields or instance_id not in requestFields:
+			if '_id' not in requestFields or 'instance_id' not in requestFields:
 				error = {'error': 'Field missing for deleting instance'}
 				return jsonify(error), 422
 
-			ret = db.delete_instance(requestFields['_id'])
+			ret = db.delete_instance(requestFields['_id'], requestFields['instance_id'])
 
 			if ret == 1:
 				error = {'error': 'Instance not exists'}

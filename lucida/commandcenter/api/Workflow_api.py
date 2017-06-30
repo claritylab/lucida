@@ -49,6 +49,9 @@ def workflow_api_route():
 			if ret == 1:
 				error = {'error': 'Workflow not exists'}
 				return jsonify(error), 422
+			elif ret == 2:
+				error = {'error': 'Updated name already used'}
+				return jsonify(error), 422
 			elif ret == 0:
 				success = {'success': 'Workflow successfully updated!'}
 				return jsonify(success), 200

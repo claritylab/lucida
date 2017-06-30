@@ -80,6 +80,23 @@ class MongoDB(object):
 			print('[python error] service not exists in MongoDB.')
 			return 1
 
+		# check if update no difference return success
+		result = collection.find({'_id': ObjectId(_id)})[0]
+		if result[op] == value:
+			return 0
+
+		if op == 'name':
+			count = collection.count({'name': value})
+			if count != 0:
+				print('[python error] Updated name already used')
+				return 2
+
+		if op == 'acronym':
+			count = collection.count({'acronym': value})
+			if count != 0:
+				print('[python error] Updated acronym already used')
+				return 3
+
 		collection.update({'_id': ObjectId(_id)}, {'$set': {op: value }})
 		return 0
 
@@ -114,7 +131,7 @@ class MongoDB(object):
 		count = collection.count({'name': name})
 		if count != 0:
 			#collection.delete_many({"name" : sys.argv[2]})
-			print('[python error] service already in MongoDB.')
+			print('[python error] workflow name already used.')
 			return 1, ''
 
 		# list the attributes for the interface
@@ -141,8 +158,19 @@ class MongoDB(object):
 
 		count = collection.count({'_id': ObjectId(_id)})
 		if count == 0:
-			print('[python error] service not exists in MongoDB.')
+			print('[python error] workflow not exists')
 			return 1
+
+		# check if update no difference return success
+		result = collection.find({'_id': ObjectId(_id)})[0]
+		if result[op] == value:
+			return 0
+
+		if op == 'name':
+			count = collection.count({'name': value})
+			if count != 0:
+				print('[python error] Updated name already used')
+				return 2
 
 		collection.update({'_id': ObjectId(_id)}, {'$set': {op: value }})
 		return 0
@@ -159,7 +187,7 @@ class MongoDB(object):
 		# check if current workflow is in MongoDB
 		count = collection.count({'_id': ObjectId(_id)})
 		if count == 0:
-			print('[python error] workflow not exists in MongoDB.')
+			print('[python error] workflow not exists')
 			return 1
 
 		collection.remove({'_id': ObjectId(_id)})
@@ -175,6 +203,8 @@ class MongoDB(object):
 		"""
 
 		collection = self.db.service_info
+		if host == 'localhost':
+			host = '127.0.0.1'
 
 		if not validate_ip_port(host, port):
 			print('[python error] Host/port pair is not valid.')
@@ -222,6 +252,9 @@ class MongoDB(object):
 		"""
 
 		collection = self.db.service_info
+		if op == 'host':
+			if value == 'localhost':
+				value = '127.0.0.1'
 
 		# check if current service is in MongoDB
 		object_id = ObjectId(_id)
@@ -229,6 +262,39 @@ class MongoDB(object):
 		if result.count() != 1:
 			print('[python error] Instance name not exists.')
 			return 1
+
+		# check update nothing
+		cur_instance = {}
+		instance_result = result[0]['instance']
+		for instance in instance_result:
+			if instance['id'] == instance_id:
+				cur_instance = instance
+				if instance[op] == value:
+					return 0
+
+		if op == 'host':
+			old_port = cur_instance['port']
+
+			if not validate_ip_port(value, old_port):
+				print('[python error] Host/port pair is not valid.')
+				return 2
+
+			result = collection.find({'instance': {'$elemMatch': {'host': value, 'port': old_port}}})
+			if result.count() != 0:
+				print('[python error] Updated host/port has already been used')
+				return 3
+
+		if op == 'port':
+			old_host = cur_instance['host']
+
+			if not validate_ip_port(old_host, value):
+				print('[python error] Host/port pair is not valid.')
+				return 2
+
+			result = collection.find({'instance': {'$elemMatch': {'host': old_host, 'port': value}}})
+			if result.count() != 0:
+				print('[python error] Updated host/port has already been used')
+				return 3
 
 		op = 'instance.$.'+op
 		collection.update({'_id': object_id, 'instance.id': instance_id}, {'$set': {op: value}})
