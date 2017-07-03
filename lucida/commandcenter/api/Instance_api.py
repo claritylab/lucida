@@ -26,7 +26,7 @@ def instance_api_route():
 		if option == 'add':
 			if '_id' not in requestFields or 'name' not in requestFields or \
 					'host' not in requestFields or 'port' not in requestFields:
-				error = {'error': 'Field missing for adding service'}
+				error = {'error': 'Field missing for adding instance'}
 				return jsonify(error), 422
 
 			ret, instance_id = db.add_instance(requestFields['_id'], requestFields['name'], 
@@ -42,6 +42,17 @@ def instance_api_route():
 				error = {'error': 'Host/port pair already used'}
 				return jsonify(error), 422
 			elif ret == 0:
+				result = {'success': 'Instance successfully added!', 'instance_id': instance_id}
+				return jsonify(result), 200
+
+		elif option == 'add_empty':
+			if '_id' not in requestFields:
+				error = {'error': 'Field missing for updating instance'}
+				return jsonify(error), 422
+
+			ret, instance_id = db.add_empty_instance(requestFields['_id'])
+
+			if ret == 0:
 				result = {'success': 'Instance successfully added!', 'instance_id': instance_id}
 				return jsonify(result), 200
 

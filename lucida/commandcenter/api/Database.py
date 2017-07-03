@@ -64,6 +64,30 @@ class MongoDB(object):
 		post_id = collection.insert_one(post).inserted_id
 		return 0, str(post_id)
 
+	def add_empty_service(self):
+		collection = self.db.service_info
+
+		name = ''
+		acronym = ''
+		input_type = ''
+		learn_type = ''
+		num = 0
+		instance = []
+
+		post = {
+			"name": name, # name of service
+			"acronym": acronym, # acronym of service
+			"num": num, # number of instance
+			"instance": instance, # host/port pair of instances
+			"input": input_type, # input type
+			"learn": learn_type # learn type
+			# "location": location # location of service in local
+		}
+
+		post_id = collection.insert_one(post).inserted_id
+		return 0, str(post_id)
+
+
 	def update_service(self, _id, op, value):
 		"""
 		op: field of what you want to update
@@ -135,6 +159,25 @@ class MongoDB(object):
 			return 1, ''
 
 		# list the attributes for the interface
+		post = {
+			"name": name, # name of workflow
+			"input": input_type, # allowed input type
+			"classifier": classifier_path, # classifier data path
+			"code": class_code # code for implementation of the workflow class
+		}
+
+		post_id = collection.insert_one(post).inserted_id
+		return 0, str(post_id)
+
+	def add_empty_workflow(self):
+
+		collection = self.db.workflow_info
+
+		name = ''
+		input_type = ''
+		classifier_path = ''
+		class_code = ''
+
 		post = {
 			"name": name, # name of workflow
 			"input": input_type, # allowed input type
@@ -230,6 +273,25 @@ class MongoDB(object):
 		if result.count() != 0:
 			print('[python error] Host/port has already been used.')
 			return 3, 0
+
+		result = collection.find({'_id': object_id})
+		instance_id = result[0]['num']
+		collection.update_one({'_id': object_id}, {'$inc': {'num': 1}})
+		collection.update_one({'_id': object_id}, {'$push': {'instance': {
+			'name': name,
+			'host': host,
+			'port': port,
+			'id': instance_id
+		}}})
+		return 0, instance_id
+
+	def add_empty_instance(self, _id):
+		collection = self.db.service_info
+
+		name = ''
+		host = ''
+		port = 0
+		object_id = ObjectId(_id)
 
 		result = collection.find({'_id': object_id})
 		instance_id = result[0]['num']

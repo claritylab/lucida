@@ -39,6 +39,13 @@ def workflow_api_route():
 				result = {'success': 'Workflow successfully added!', '_id': _id}
 				return jsonify(result), 200
 
+		elif option == 'add_empty':
+			ret, _id = db.add_empty_workflow()
+
+			if ret == 0:
+				result = {'success': 'Workflow successfully added!', '_id': _id}
+				return jsonify(result), 200
+
 		elif option == 'update':
 			if '_id' not in requestFields or 'option' not in requestFields or 'value' not in requestFields:
 				error = {'error': 'Field missing for updating workflow'}

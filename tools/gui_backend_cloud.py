@@ -23,7 +23,7 @@ class MongoDB(object):
 		
 		return dictReturn
 
-	def add_service(self, name, acronym, input_type, learn_type):
+	def add_service(self):
 		"""
 		return code:
 		0: success
@@ -31,18 +31,9 @@ class MongoDB(object):
 		2: acronym has already used
 		"""
 
-		num = 0
-		instance = []
-
 		# list the attributes for the interface
 		post = {
-			"option": "add",
-			"name": name, # name of service
-			"acronym": acronym, # acronym of service
-			"num": num, # number of instance
-			"instance": instance, # host/port pair of instances
-			"input": input_type, # input type
-			"learn": learn_type # learn type
+			"option": "add_empty"
 			# "location": location # location of service in local
 		}
 
@@ -54,13 +45,7 @@ class MongoDB(object):
 		if ret_status == 200:
 			return 0, ret_JSON['_id']
 		else:
-			error = ret_JSON['error']
-			if error == 'Service name has already existed':
-				return 1, ''
-			elif error == 'Service acronym has already used':
-				return 2, ''
-			else:
-				return -1, ''
+			return -1, ''
 
 	def update_service(self, _id, op, value):
 		"""
@@ -122,7 +107,7 @@ class MongoDB(object):
 			else:
 				return -1
 
-	def add_workflow(self, name, input_type, classifier_path, class_code):
+	def add_workflow(self):
 		"""
 		return code:
 		0: success
@@ -131,12 +116,7 @@ class MongoDB(object):
 
 		# list the attributes for the interface
 		post = {
-			"option": "add",
-			"name": name, # name of service
-			"input": input_type, # acronym of service
-			"classifier": classifier_path, # number of instance
-			"code": class_code # host/port pair of instances
-			# "location": location # location of service in local
+			"option": "add_empty"
 		}
 
 		url = 'http://127.0.0.1:3000/api/v1/workflow'
@@ -147,11 +127,7 @@ class MongoDB(object):
 		if ret_status == 200:
 			return 0, ret_JSON['_id']
 		else:
-			error = ret_JSON['error']
-			if error == 'Workflow name has already existed':
-				return 1, ''
-			else:
-				return -1, ''
+			return -1, ''
 
 	def update_workflow(self, _id, op, value):
 		"""
@@ -211,7 +187,7 @@ class MongoDB(object):
 			else:
 				return -1
 
-	def add_instance(self, _id, name, host, port):
+	def add_instance(self, _id):
 		"""
 		return code:
 		0: success
@@ -222,12 +198,8 @@ class MongoDB(object):
 
 		# list the attributes for the interface
 		post = {
-			"option": "add",
-			"_id": _id, # name of service
-			"name": name, # acronym of service
-			"host": host, # number of instance
-			"port": port # host/port pair of instances
-			# "location": location # location of service in local
+			"option": "add_empty",
+			"_id": _id
 		}
 
 		url = 'http://127.0.0.1:3000/api/v1/instance'
@@ -239,14 +211,7 @@ class MongoDB(object):
 			return 0, ret_JSON['instance_id']
 		else:
 			error = ret_JSON['error']
-			if error == 'Host/port pair not valid':
-				return 1, 0
-			elif error == 'Service not exists':
-				return 2, 0
-			elif error == 'Host/port pair already used':
-				return 3, 0
-			else:
-				return -1, 0
+			return -1, 0
 
 	def update_instance(self, _id, instance_id, op, value):
 		"""
