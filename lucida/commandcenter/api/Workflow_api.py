@@ -12,7 +12,9 @@ def workflow_api_route():
 	}
 	"""
 	if request.method == 'GET':
-		pass
+		result = db.get_workflows()
+		JSON_obj = {'workflow_list': result}
+		return jsonify(JSON_obj), 200
 
 	elif request.method == 'POST':
 		requestFields = request.get_json()

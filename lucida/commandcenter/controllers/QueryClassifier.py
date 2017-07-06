@@ -66,6 +66,8 @@ class QueryClassifier(object):
 		data = DataFrame({'text': [], 'class': []})
 		for query_class_name in query_classes:
 			path = Config.CLASSIFIER_PATH[query_class_name]
+			if not os.path.isfile(path):
+				raise RuntimeError('Query classifer data file cannot found!')
 			log('Opening ' + path)
 			lines = [line.rstrip('\n') for line in open(path)]
 			rows = []

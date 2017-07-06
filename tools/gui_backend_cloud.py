@@ -107,6 +107,16 @@ class MongoDB(object):
 			else:
 				return -1
 
+	def get_workflows(self):
+		dictReturn = []
+
+		url = 'http://127.0.0.1:3000/api/v1/workflow'
+		r = requests.get(url)
+		ret_JSON = r.json()
+		dictReturn = ret_JSON['workflow_list']
+		
+		return dictReturn
+
 	def add_workflow(self):
 		"""
 		return code:

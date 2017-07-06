@@ -69,8 +69,8 @@ class MongoDB(object):
 
 		name = ''
 		acronym = ''
-		input_type = ''
-		learn_type = ''
+		input_type = 'text'
+		learn_type = 'none'
 		num = 0
 		instance = []
 
@@ -141,6 +141,18 @@ class MongoDB(object):
 
 		collection.remove({'_id': ObjectId(_id)})
 		return 0
+
+	def get_workflows(self):
+		dictReturn = []
+
+		workflow_list = self.db["workflow_info"].find()
+		count_workflow = workflow_list.count()
+		for i in range(count_workflow):
+			document = workflow_list[i]
+			document['_id'] = str(document['_id'])
+			dictReturn.append(document)
+		
+		return dictReturn
 
 	def add_workflow(self, name, input_type, classifier_path, class_code):
 		"""
@@ -289,7 +301,7 @@ class MongoDB(object):
 		collection = self.db.service_info
 
 		name = ''
-		host = ''
+		host = '127.0.0.1'
 		port = 0
 		object_id = ObjectId(_id)
 

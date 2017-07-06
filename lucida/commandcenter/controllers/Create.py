@@ -23,6 +23,9 @@ def create_route():
         services_list = []
         for service in thrift_client.SERVICES.values():
             if isinstance(service, Service):
+                if service.name == '':
+                    services_list.append('(not defined)')
+                    continue
                 services_list.append(service.name)
         options['service_list'] = sorted(services_list, key=lambda i: i[0])
         # Retrieve pre-configured services.
@@ -34,6 +37,9 @@ def create_route():
                     name = service.instance[i]['name']
                     host = service.instance[i]['host']
                     port = service.instance[i]['port']
+                    if name == '':
+                        instances_list.append((service.name, 'instance not initialized', '', '', ''))
+                        continue
                     result = 1
                     sock.settimeout(1)
                     result = sock.connect_ex((host, port))
