@@ -6,6 +6,11 @@ import os
 from Memcached import memcached
 
 MAX_DOC_NUM_PER_USER = 30
+"""
+MAX_DOC_NUM_PER_USER = 30 # non-negative integer
+The maximum number of texts or images for each user.
+This is to prevent the server from over-loading.
+"""
 
 class Database(object):
 	# Name of the algorithm to use for password encryption.

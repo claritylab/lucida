@@ -73,24 +73,23 @@ class ThriftClient(object):
         return result
 
 
-    def learn_image(self, LUCID, image_type, image_data, image_id):
-        for service in Config.Service.LEARNERS['image']: # add concurrency?
-            knowledge_input = self.create_query_input(
-                image_type, [image_data], [image_id])
-            host, port = service.get_host_port()
-            client, transport = self.get_client_transport(service, host, port)
-            log('Sending learn_image request to IMM')
-            client.learn(str(LUCID),
-                self.create_query_spec('knowledge', [knowledge_input]))
-            transport.close()
+    def learn_image(self, LUCID, image_type, image_data, image_id, _id, instance_id):
+        knowledge_input = self.create_query_input(
+            image_type, [image_data], [image_id])
+        host, port = self.SERVICES[Config.LEARNERS['image'][_id]].get_host_port()
+        client, transport = self.get_client_transport(self.SERVICES[service], host, port)
+        log('Sending learn_image request to ' + service)
+        client.learn(str(LUCID),
+            self.create_query_spec('knowledge', [knowledge_input]))
+        transport.close()
 
     def learn_text(self, LUCID, text_type, text_data, text_id):
-        for service in Config.Service.LEARNERS['text']: # add concurrency?
+        for service in Config.LEARNERS['text']: # add concurrency?
             knowledge_input = self.create_query_input(
                 text_type, [text_data], [text_id])
-            host, port = service.get_host_port()
-            client, transport = self.get_client_transport(service, host, port)
-            log('Sending learn_text request to QA')
+            host, port = self.SERVICES[service].get_host_port()
+            client, transport = self.get_client_transport(self.SERVICES[service], host, port)
+            log('Sending learn_text request to ' + service)
             client.learn(str(LUCID),
                 self.create_query_spec('knowledge', [knowledge_input]))
             transport.close()

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- https://www.imagely.com/wordpress-gallery-plugin/ -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/thumbnail.css')}}" type="text/css" media="all">
+
+<div class="container">
+	<div class="row">
+		<p style="color:gray">Main » Learn</p>
+	</div>
+
+	{% if error %}
+	<strong class=text-danger><p class="error">{{ error }}</p></strong>
+	{% endif %}
+
+	
+	
+</div>
+
+<br><br>
+{% endblock %}

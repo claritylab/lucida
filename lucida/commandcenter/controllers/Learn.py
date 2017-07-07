@@ -5,6 +5,7 @@ from AccessManagement import login_required
 from Database import database
 from ThriftClient import thrift_client
 from Utilities import log, check_image_extension, check_text_input
+import Config
 import re
 
 learn = Blueprint('learn', __name__, template_folder='templates')
@@ -17,6 +18,8 @@ def generic_learn_route(op, form, upload_file):
 		if op == 'add_image':
 			image_type = 'image'
 			label = form['label']
+			_id = form['_id']
+			instance_id = form['instance_id']
 			# Check the uploaded image.
 			if upload_file.filename == '':
 				raise RuntimeError('Empty file is not allowed')
@@ -32,9 +35,9 @@ def generic_learn_route(op, form, upload_file):
 			# Send the image to IMM.
 			upload_file.close()
 			thrift_client.learn_image(username, image_type, image_data,
-				image_id)
+				image_id, _id, instance_id)
 			# Add the image into the database.
-			database.add_image(username, image_data, label, image_id)
+			database.add_image(username, image_data, label, image_id, _id, instance_id)
 		# Delete image knowledge.
 		elif op == 'delete_image':
 			image_type = 'unlearn'
@@ -96,7 +99,59 @@ def learn_route():
 		log(e)
 		options['errno'] = 500
 		options['error'] = str(e)
+	return render_template('learn_home.html', **options)
+
+@learn.route('/learn', methods=['GET', 'POST'])
+@login_required
+def learn_service_route():
+	options = {}
+	
+	# Deal with POST requests.
+	if requests.method == 'POST':
+		options = generic_learn_route(request.form['op'], request.form, request.files['file'] if 'file' in request.files else None)
+	
+	# home page
+	if '_id' not in request.args and 'instance_id' not in request.args:
+		options['text_list'] = []
+		options['image_list'] = []
+		for _id in Config.LEARNERS['text']:
+			service_name = Config.LEARNERS['text']['_id']
+			options['text_list'].append({'name': service_name, '_id': _id, 'instance': Config.SERVICES[service_name].instance})
+		for _id in Config.LEARNERS['image']:
+			service_name = Config.LEARNERS['image']['_id']
+			options['image_list'].append({'name': service_name, '_id': _id, 'instance': Config.SERVICES[service_name].instance})
+		return render_template('learn_home.html', **options)
+	
+	# instance page
+	if '_id' not in request.args or 'instance_id' not in request.args:
+		abort(404)		
+	try:
+		_id = request.args['_id']
+		instance_id = request.args['instance_id']
+				
+		if _id in LEARNERS['text']:
+			options['text_able'] = 1
+		else:
+			options['text_able'] = 0
+
+		# check if text field is necessary
+		if _id in LEARNERS['image']:
+			options['image_able'] = 1
+		else:
+			options['image_able'] = 0
+
+		if options['text_able'] == 0 and options['image_able'] == 0:
+			abort(404)
+
+		options['pictures'] = database.get_images(session['username'], _id, instance_id)
+		options['text'] = database.get_text(session['username'], _id, instance_id)
+	except Exception as e:
+		log(e)
+		options['errno'] = 500
+		options['error'] = str(e)
 	return render_template('learn.html', **options)
+
+
 
 allowed_endpoints = ['add_image','delete_image','add_text','add_url','delete_text','query']
 @learn.route('/api/learn/<string:op>', methods=['POST'])

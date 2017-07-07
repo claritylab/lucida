@@ -7,12 +7,6 @@ from Database import database
 import os, sys, re
 from dcm import *
 
-"""
-MAX_DOC_NUM_PER_USER = 30 # non-negative integer
-The maximum number of texts or images for each user.
-This is to prevent the server from over-loading.
-"""
-
 TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 """
 Train or load the query classifier.
@@ -55,6 +49,8 @@ SESSION = { <user>:
                   'data': <response_data>
 }
 """
+
+LEARNERS = { 'audio' : [], 'image' : [], 'text' : [] }
 
 class serviceRequestData(object):
     """
@@ -105,7 +101,8 @@ def load_config():
 
     # Load mongodb
     db = database.db
-
+    for input_t in LEARNERS:
+        del LEARNERS[input_t][:]
     # Update service list
     SERVICES.clear()
     service_list = db["service_info"].find()
@@ -117,10 +114,20 @@ def load_config():
         instance = service_obj['instance']
         input_type = service_obj['input']
         learn_type = service_obj['learn']
+        _id = str(service_obj['_id'])
+        # check if uninitialized
+        if acn == '':
+            if acn not in SERVICES:
+                SERVICES[acn] = 1
+            else:
+                SERVICES[acn] += 1
+            continue
+        SERVICES[acn] = Service(acn, input_type, learn_type, num, instance, _id)
+        # update learners
         if learn_type == 'none':
-            SERVICES[acn] = Service(acn, input_type, None, num, instance)
+            pass
         else:
-            SERVICES[acn] = Service(acn, input_type, learn_type, num, instance)
+            LEARNERS[learn_type][_id] = acn
     
     # Update workflow list, current only support single service workflow
     for input_t in CLASSIFIER_DESCRIPTIONS:
@@ -133,6 +140,9 @@ def load_config():
     	name = workflow_obj['name']
     	input_list = workflow_obj['input']
     	classifier = workflow_obj['classifier']
+        # check if uninitialized
+        if name == '':
+            continue
         CLASSIFIER_PATH['class_'+name] = classifier
         code = workflow_obj['code']
     	exec(code)
@@ -140,5 +150,8 @@ def load_config():
     		CLASSIFIER_DESCRIPTIONS[input_t]['class_'+name] = Graph([Node(name)])
     	WFList[name] = eval(name+"()")
     return 0
+
+def get_service_withid(_id):
+
 
 load_config()

@@ -13,6 +13,7 @@
 	<strong class=text-danger><p class="error">{{ error }}</p></strong>
 	{% endif %}
 
+	{% if text_able == 1 %}	
 	<div class="container">
 		<div class="row">
 			<p><h3>Add text knowledge:</h3></p>
@@ -67,7 +68,9 @@
 		</form>
 	{% endfor %}
 	</ul>
+	{% endif %}
 
+	{% if image_able == 1 %}
 	<div class="container">
 		<div class="row">
 			<p><h3>Add image knowledge:</h3></p>
@@ -110,6 +113,7 @@
 		</form>
 	</div>
 	{% endfor %}
+	{% endif %}
 	
 </div>
 

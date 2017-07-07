@@ -186,7 +186,7 @@ class MongoDB(object):
 		collection = self.db.workflow_info
 
 		name = ''
-		input_type = ''
+		input_type = []
 		classifier_path = ''
 		class_code = ''
 

@@ -15,9 +15,14 @@
 	<div class="container">
 		<table class="table table-striped table-hover">
 			<tbody>
-				{% for i in service_list %}
-					<td>{{ i }}</td>
+				<tr>
+				{% for i in range(service_list|length) %}
+					<td>{{ service_list[i] }}</td>
+					{% if i%4 == 3 %}
+						</tr><tr>
+					{% endif %}
 				{% endfor %}
+				</tr>
 			</tbody>
 		</table>
 	</div>
