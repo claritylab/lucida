@@ -1,9 +1,6 @@
 //Java packages
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Properties;
 
 //Thrift java libraries 
 import org.apache.thrift.TException;
@@ -22,17 +19,11 @@ import thrift.*;
 public class CalendarClient {
 	public static void main(String [] args) 
 			throws IOException {
-		// Collect the port number.
-		Properties port_cfg = new Properties();
-		InputStream input = new FileInputStream("../../config.properties");
-		port_cfg.load(input);
-		String port_str = port_cfg.getProperty("CA_PORT");
-		Integer port = Integer.valueOf(port_str);
-		if (args.length == 1) {
-			port = Integer.parseInt(args[0]);
-		} else {
-			System.out.println("Using default port for Calendar Client: " + port);
+		if (args.length != 1){
+			System.out.println("Wrong arguments!");
+			System.exit(1);
 		}
+		Integer port = Integer.valueOf(args[0]);
 
 		// Query.
 		String LUCID = "Clinc";

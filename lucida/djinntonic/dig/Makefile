@@ -30,10 +30,15 @@ $(TARGET): $(OBJECTS)
 	$(CXX) -Wall $(CXXFLAGS) -c $< -o $@
 
 start_server: 
-	./DIGServer
+	@if [ "$(port)" != "" ]; then \
+		./DIGServer $(port); \
+	fi
 
 start_test: 
-	cd test && ./DIGClient && cd ..
+	@if [ "$(port)" != "" ]; then \
+		cd test; \
+		./DIGClient $(port); \
+	fi
 
 client:
 	cd test && make all && cd ..

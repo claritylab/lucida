@@ -2,9 +2,6 @@ package lucida.test;
 
 //Java packages
 import java.io.IOException;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Properties;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -55,12 +52,11 @@ public class QAClient {
 
 	public static void main(String [] args) 
 		throws IOException {
-		// Collect the port number.
-		Properties port_cfg = new Properties();
-		InputStream input = new FileInputStream("../../config.properties");
-		port_cfg.load(input);
-		String port_str = port_cfg.getProperty("QA_PORT");
-		final Integer port = Integer.valueOf(port_str);
+		if (args.length != 1){
+			System.out.println("Wrong arguments!");
+			System.exit(1);
+		}
+		final Integer port = Integer.valueOf(args[0]);
 
 		// User.
 		String LUCID = "Clinc";

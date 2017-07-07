@@ -17,7 +17,6 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include <folly/init/Init.h>
-#include "Parser.h"
 
 using namespace folly;
 using namespace apache::thrift;
@@ -57,6 +56,12 @@ string getImageData(const string &image_path) {
 }
 
 int main(int argc, char* argv[]) {
+	if (argc != 2){
+		cerr << "Wrong argument!" << endl;
+		exit(EXIT_FAILURE);
+	}
+	int port = atoi(argv[1]);
+
 	// Initialize MongoDB C++ driver.
 	mongo::client::initialize();
 	mongo::DBClientConnection conn;
@@ -73,18 +78,6 @@ int main(int argc, char* argv[]) {
 
 	folly::init(&argc, &argv);
 	EventBase event_base;
-
-	Properties props;
-	props.Read("../../../config.properties");
-	string portVal;
-	int port;
-	if (!props.GetValue("IMM_PORT", portVal)) {
-		cout << "IMM port not defined" << endl;
-		return -1;
-	} else {
-		port = atoi(portVal.c_str());
-	}
-
 	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(
 			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, port));
 	LucidaServiceAsyncClient client(
@@ -122,9 +115,6 @@ int main(int argc, char* argv[]) {
 	// Infer.
 	// Make request.
 	int num_tests = 3;
-	if (argc == 2) {
-		num_tests = atoi(argv[1]);
-	}
 	for (int i = 0; i < num_tests; ++i) {
 		string image = getImageData("test" + to_string(i) + ".jpg");
 		// Create a QuerySpec.

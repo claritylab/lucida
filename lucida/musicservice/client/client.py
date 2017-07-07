@@ -3,7 +3,6 @@
 import sys
 sys.path.append('../')
 
-from MusicConfig import PORT
 from lucidatypes.ttypes import QueryInput, QuerySpec
 from lucidaservice import LucidaService
 
@@ -11,6 +10,11 @@ from thrift import Thrift
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
+
+if len(sys.argv) != 2:
+  print('Wrong arguments!')
+  exit(1)
+PORT = int(sys.argv[1])
 
 # Setup a template input query
 LUCID = "Clinc"

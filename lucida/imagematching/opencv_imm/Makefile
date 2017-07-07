@@ -1,11 +1,17 @@
 SUBDIRS=server test
 include ../../../Makefile.common
 
-start_server: 
-	cd server; ./imm_server
+start_server:
+	@if [ "$(port)" != "" ]; then \
+		cd server; \
+		./imm_server $(port); \
+	fi
 
 start_test: 
-	cd test; ./imm_test 
+	@if [ "$(port)" != "" ]; then \
+		cd test; \
+		./imm_test $(port); \
+	fi
 
 docker:
 	cp ../../lucidaservice.thrift .; \

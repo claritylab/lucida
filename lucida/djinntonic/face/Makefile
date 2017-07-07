@@ -30,10 +30,15 @@ $(TARGET): $(OBJECTS)
 	$(CXX) -Wall $(CXXFLAGS) -c $< -o $@
 
 start_server: 
-	./FACEServer
+	@if [ "$(port)" != "" ]; then \
+		./FACEServer $(port); \
+	fi
 
 start_test: 
-	cd test && ./FACEClient && cd ..
+	@if [ "$(port)" != "" ]; then \
+		cd test; \
+		./FACEClient $(port); \
+	fi
 
 client:
 	cd test && make all && cd ..

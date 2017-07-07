@@ -11,10 +11,7 @@ import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
 
 import java.io.IOException;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Properties;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.TProcessor;
@@ -40,11 +37,12 @@ public class QADaemon {
 	 */
 	public static void main(String [] args) 
 			throws TTransportException, IOException, InterruptedException {	
-		Properties port_cfg = new Properties();
-		InputStream input = new FileInputStream("../../config.properties");
-		port_cfg.load(input);
-		String port_str = port_cfg.getProperty("QA_PORT");
-		Integer port = Integer.valueOf(port_str);
+		if (args.length != 1){
+			System.out.println("Wrong arguments!");
+			System.exit(1);
+		}
+		Integer port = Integer.valueOf(args[0]);
+		
 		TProcessor proc = new LucidaService.AsyncProcessor(
 				new QAServiceHandler.AsyncQAServiceHandler());
 		TNonblockingServerTransport transport = new TNonblockingServerSocket(port);
@@ -53,7 +51,7 @@ public class QADaemon {
 		.protocolFactory(new TBinaryProtocol.Factory())
 		.transportFactory(new TFramedTransport.Factory());
 		final TThreadedSelectorServer server = new TThreadedSelectorServer(arguments);
-		System.out.println("QA at port " + port_str);
+		System.out.println("QA at port " + port);
 		server.serve();
 	}
 }

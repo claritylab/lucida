@@ -14,23 +14,51 @@
 
 	<div class="container">
 		<table class="table table-striped table-hover">
+			<tbody>
+				{% for i in service_list %}
+					<td>{{ i }}</td>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<p><h3>List of Service Instances</h3></p>
+		</div>
+	</div>
+
+	<div class="container">
+		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
 					<th>Service name</th>
+					<th>Name</th>
 					<th>Host</th>
 					<th>Port</th>
+					<th>Availablity</th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for i in service_list %}
+				{% for i in instance_list %}
 				<tr>
 					<td>{{ i[0] }}</td>
 					<td>{{ i[1] }}</td>
 					<td>{{ i[2] }}</td>
+					<td>{{ i[3] }}</td>
+					<td>{{ i[4] }}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
 		</table>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<form method="post">
+				<input type="submit" name="request" value="Update">
+			</form>
+		</div>
 	</div>
 
 </div>
