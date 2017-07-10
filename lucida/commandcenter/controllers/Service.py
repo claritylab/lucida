@@ -20,8 +20,7 @@ class Service(object):
     def get_host_port(self):
         try:
             host = 'localhost'
-            tcp_addr = os.environ.get(
-                self.name + '_PORT_' + str(self.port) + '_TCP_ADDR')
+            tcp_addr = os.environ.get(self.name + '_PORT_' + str(self.port) + '_TCP_ADDR')
             if tcp_addr:
                 log('TCP address is resolved to ' + tcp_addr)
                 host = tcp_addr
@@ -29,8 +28,3 @@ class Service(object):
         except Exception:
             raise RuntimeError('Cannot access service ' + self.name)
 
-class WorkerService(object):
-    # Constructor
-    def __init__(self, name, decision):
-        self.name = name
-        self.decision = decision

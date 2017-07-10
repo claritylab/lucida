@@ -3,6 +3,8 @@ from lucidaservice import LucidaService
 from dcm import*
 from flask import*
 
+from Config import  WFList
+
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
@@ -14,6 +16,24 @@ import os
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8') # to solve the unicode error
+
+
+import threading
+
+
+
+
+
+#This is basically the thread starter function
+class FuncThread(threading.Thread):
+    def __init__(self, target, *args):
+        self._target = target
+        self._args = args
+        threading.Thread.__init__(self)
+    def run(self):
+        self._target(*self._args)
+ 
+
 
 class ThriftClient(object):
     # Constructor.
@@ -36,26 +56,21 @@ class ThriftClient(object):
 
     def get_client_transport(self, service):
         host, port = service.get_host_port()
+        print (host,port)
         transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
         protocol = TBinaryProtocol.TBinaryProtocol(transport)
         transport.open()
         return LucidaService.Client(protocol), transport
 
-    def send_query(self, LUCID, service_graph, start_index, query_input_list):
+    def send_query(self, LUCID, service_name, query_input_list):
         query_spec = self.create_query_spec('query', query_input_list)
-        service = self.SERVICES[service_graph.get_node(start_index).service_name]
+        service = self.SERVICES[service_name]
         client, transport = self.get_client_transport(service)
         log('Sending infer request to ' + service.name)
         result = client.infer(str(LUCID), query_spec)
         transport.close()
         return result
 
-# TODO: If SESSION is within its own file move this function there
-    def clear_context(self, LUCID, service_graph):
-        if LUCID in Config.SESSION:
-            # Initialize workflow back to the beginning
-            service_graph.start_index = 0
-            del Config.SESSION[LUCID]
 
     def learn_image(self, LUCID, image_type, image_data, image_id):
         for service in Config.Service.LEARNERS['image']: # add concurrency?
@@ -76,68 +91,71 @@ class ThriftClient(object):
             client.learn(str(LUCID),
                 self.create_query_spec('knowledge', [knowledge_input]))
             transport.close()
+            
+            
+            # Example usage
+    def executeThreadServiceRequest(self,service_name, inputData, LUCID, threadIDValue):
+		print("Thread ", threadIDValue, "executing", service_name, "with input", inputData)
+		service = self.SERVICES[service_name]
+		host, port = service.get_host_port()
+		tag_list = [host, str(port)]
+		query_input_list = [self.create_query_input(service.input_type, inputData, tag_list)]
+		resultText = self.send_query(LUCID, service_name, query_input_list)
+		self.threadResults.insert(threadIDValue, resultText)
+		
+ 
+
 
 # TODO: split function into separate functions (DCM, creating QuerySpec)
-    def infer(self, LUCID, service_graph, text_data, image_data):
-        # Create the list of QueryInput.
-        query_input_list = []
+    def infer(self, LUCID, workflow_name, text_data, image_data):
+
+
         response_data = { 'text': text_data, 'image': image_data }
-        end_of_workflow = False
-        start_index = service_graph.start_index
-        node = service_graph.get_node(start_index)
-        while not end_of_workflow:
-            service = self.SERVICES[node.service_name]
-            # Worker Service nodes
-            if service.name == "DCM":
-                # Call DAG until DCM node
-                result = self.send_query(LUCID, service_graph, start_index, query_input_list)
-                response_data['text'].append(result)
-                # Make a decision using the DCM logic method
-                service.decision.logic_method(response_data, service_graph, node)
-                start_index = service.decision.next_node
-                # If no start/next index, display latest response to user
-                if start_index == None:
-                    # Remove saved state/context for user
-                    self.clear_context(LUCID, service_graph)
-                    return response_data['text'][-1]
-                # If lucida response, gather more info from user
-                elif service.decision.lucida_response:
-                    Config.SESSION[LUCID] = {'graph': service_graph, 'data': response_data }
-                    service_graph.start_index = start_index
-                    return service.decision.lucida_response
-                # Set up to go to the next service
-                else:
-                    node = service_graph.get_node(start_index)
-                    query_input_list = []
-            # Service nodes
-            else:
-                # Create QueryInput list
-                data = response_data['text'] if service.input_type == 'text' \
-                        else response_data['image']
-                host, port = service.get_host_port()
-                tag_list = [host, str(port)]
-                # Only Worker Service nodes can have multiple to_indices
-                if len(node.to_indices) > 1:
-                   print 'Invalid to_indices for Node ' + node.service_name
-                   exit()
-                elif len(node.to_indices) == 1:
-                    to_index = node.to_indices[0]
-                    node = service_graph.get_node(to_index)
-                    # If node points to DCM, end the path
-                    if 'DCM' in node.service_name:
-                        tag_list.append('0')
-                    else:
-                        tag_list.append('1')
-                        tag_list.append(str(to_index))
-                else:
-                    tag_list.append('0')
-                    end_of_workflow = True
-                query_input_list.append(self.create_query_input(
-                    service.input_type, data, tag_list))
-        # Send last QuerySpec
-        # Remove saved state/context for user
-        self.clear_context(LUCID, service_graph)
-        result = self.send_query(LUCID, service_graph, start_index, query_input_list)
-        return result
+        self.threadResults = []
+
+		# workflow_name contains the name of the workflow, NOT the microservice.
+		# This acquires the workflow class.
+        workflow = WFList[workflow_name]
+        workflow.__init__()
+        resultText = response_data['text']
+        resultImage = [response_data['image']]
+
+
+        while not workflow.isEnd:
+			
+			i = 0
+			for x in resultText:
+				resultText[i] = [unicode(resultText)] # Text information must be unicode'd and array'd to be properly passed. IMAGE DATA DOES NOT HAVE THIS DONE TO IT.
+				i+= 1
+				
+			# Processes the current workflow state, and in the process finds if this is the final stage or if next stage exists.
+			workflow.processCurrentState(resultText,resultImage)
+
+			resultText = []
+			resultImage = []
+			self.threadResults = []
+			threadList = []
+			threadID = 0
+			#This is where batched execution initalizes and begins
+			for x in workflow.batchedData:
+				print "_____Thread" + str(threadID) + "," +  str(x.serviceName) + "," + str(x.argumentData)
+				#Execute the desired microservice
+				threadList.append(FuncThread(self.executeThreadServiceRequest, x.serviceName, x.argumentData, LUCID,threadID))
+				threadList[threadID].start()
+				threadID+=1
+
+			threadID = 0
+			#This is where batched execution joins together
+			for x in workflow.batchedData:
+				threadList[threadID].join()
+				print "============ThreadID" + str(threadID)
+				print "Output:" + self.threadResults[threadID]
+				resultText.insert(threadID, self.threadResults[threadID])
+				threadID+=1
+
+
+
+                
+        return resultText[0]
 
 thrift_client = ThriftClient(Config.SERVICES)

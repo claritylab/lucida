@@ -61,6 +61,6 @@ class RegistrationForm(Form):
 
 	email = TextField('Email Address', 
 					  [validators.Length(
-					  max=20,
-					  message=too_long_error_msg('Email', 20)),
+					  max=255,
+					  message=too_long_error_msg('Email', 255)),
 					  email_check])
