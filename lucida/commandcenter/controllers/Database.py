@@ -97,20 +97,20 @@ class Database(object):
 		return None
 
 	# Adds the uploaded image.
-	def add_image(self, username, image_data, label, image_id):
+	def add_image(self, username, image_data, label, image_id, _id):
 		self.get_image_collection(username).insert_one(
 			{'label': label, 'data': b64encode(image_data), # encoded
-			 'image_id': image_id})
+			 'image_id': image_id, 'service_id': _id})
 
 	# Deletes the specified image.
-	def delete_image(self, username, image_id):
-		self.get_image_collection(username).remove({'image_id': image_id})
+	def delete_image(self, username, image_id, _id):
+		self.get_image_collection(username).remove({'image_id': image_id, 'service_id': _id})
 
 	# Returns all the images by username.
-	def get_images(self, username):
+	def get_images(self, username, _id):
 		log('Retrieving all images from images_' + username)
 		# Notice image['data'] was encoded using Base64.
-		return [image for image in self.get_image_collection(username).find({}, { '_id': 0 })]
+		return [image for image in self.get_image_collection(username).find({'service_id': _id}, { '_id': 0 })]
 
 	# Checks whether the user can add one more image.
 	def check_add_image(self, username):
@@ -125,20 +125,20 @@ class Database(object):
 		return self.get_image_collection(username).count()
 
 	# Adds the knowledge text.
-	def add_text(self, username, text_type, text_data, text_id):
+	def add_text(self, username, text_type, text_data, text_id, _id):
 		self.get_text_collection(username).insert_one(
 			{'type': text_type, 'text_data': text_data,
-			 'text_id': text_id})
+			 'text_id': text_id, 'service_id': _id})
 
 	# Deletes the knowledge text.
-	def delete_text(self, username, text_id):
+	def delete_text(self, username, text_id, _id):
 		self.get_text_collection(username).delete_one(
-			{'text_id': text_id})
+			{'text_id': text_id, 'service_id': _id})
 
 	# Returns the knowledge text by username.
-	def get_text(self, username):
+	def get_text(self, username, _id):
 		log('Retrieving text from text_' + username)
-		return [text for text in self.get_text_collection(username).find({}, { '_id': 0 })]
+		return [text for text in self.get_text_collection(username).find({'service_id': _id}, { '_id': 0 })]
 
 	# Checks whether the user can add one more piece of text.
 	def check_add_text(self, username):

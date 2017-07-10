@@ -1,4 +1,4 @@
-from gui_backend_cloud import *
+from gui_backend import *
 
 def main():
 	db.add_service('questionanswering', 'QA', 'text', 'text')

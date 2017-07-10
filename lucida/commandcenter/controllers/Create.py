@@ -37,9 +37,6 @@ def create_route():
                     name = service.instance[i]['name']
                     host = service.instance[i]['host']
                     port = service.instance[i]['port']
-                    if name == '':
-                        instances_list.append((service.name, '(undef)', '', '', ''))
-                        continue
                     result = 1
                     sock.settimeout(1)
                     result = sock.connect_ex((host, port))
@@ -49,6 +46,8 @@ def create_route():
                     else:
                         instances_list.append((service.name, name, host, port, "stop"))
                     sock.close()
+                for i in range(service.unini):
+                    instances_list.append((service.name, '(undef)', '', '', ''))
         options['instance_list'] = sorted(instances_list, key=lambda i: i[0])
     except Exception as e:
         log(e)

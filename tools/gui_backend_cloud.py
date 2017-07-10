@@ -221,7 +221,7 @@ class MongoDB(object):
 			return 0, ret_JSON['instance_id']
 		else:
 			error = ret_JSON['error']
-			return -1, 0
+			return -1, ''
 
 	def update_instance(self, _id, instance_id, op, value):
 		"""

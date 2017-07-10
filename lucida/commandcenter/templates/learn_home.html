@@ -13,7 +13,47 @@
 	<strong class=text-danger><p class="error">{{ error }}</p></strong>
 	{% endif %}
 
-	
+	<div class="container">
+		<div class="row">
+			<p><h3>Text:</h3></p>
+		</div>
+	</div>
+
+	<div class="container">
+		<table class="table table-striped table-hover">
+			<tbody>
+				<tr>
+				{% for i in range(text_list|length) %}
+					<td><a href="{{ url_for('learn.learn_route', _id=text_list[i]['_id'])}}">{{ text_list[i]["name"] }}</a></td>
+					{% if i%4 == 3 %}
+						</tr><tr>
+					{% endif %}
+				{% endfor %}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<p><h3>Image:</h3></p>
+		</div>
+	</div>
+
+	<div class="container">
+		<table class="table table-striped table-hover">
+			<tbody>
+				<tr>
+				{% for i in range(image_list|length) %}
+					<td><a href="{{ url_for('learn.learn_route', _id=image_list[i]['_id'])}}">{{ image_list[i]["name"] }}</a></td>
+					{% if i%4 == 3 %}
+						</tr><tr>
+					{% endif %}
+				{% endfor %}
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	
 </div>
 

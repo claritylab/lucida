@@ -263,14 +263,14 @@ class MongoDB(object):
 
 		if not validate_ip_port(host, port):
 			print('[python error] Host/port pair is not valid.')
-			return 1, 0
+			return 1, ''
 
 		# check if current service is in MongoDB
 		object_id = ObjectId(_id)
 		count = collection.count({'_id': object_id})
 		if count != 1:
 			print('[python error] service not exists in MongoDB.')
-			return 2, 0
+			return 2, ''
 
 		"""
 		# check if name is used
@@ -284,10 +284,10 @@ class MongoDB(object):
 		result = collection.find({'instance' : { '$elemMatch': { 'host': host, 'port': port}}})
 		if result.count() != 0:
 			print('[python error] Host/port has already been used.')
-			return 3, 0
+			return 3, ''
 
 		result = collection.find({'_id': object_id})
-		instance_id = result[0]['num']
+		instance_id = str(result[0]['num'])
 		collection.update_one({'_id': object_id}, {'$inc': {'num': 1}})
 		collection.update_one({'_id': object_id}, {'$push': {'instance': {
 			'name': name,
@@ -306,7 +306,7 @@ class MongoDB(object):
 		object_id = ObjectId(_id)
 
 		result = collection.find({'_id': object_id})
-		instance_id = result[0]['num']
+		instance_id = str(result[0]['num'])
 		collection.update_one({'_id': object_id}, {'$inc': {'num': 1}})
 		collection.update_one({'_id': object_id}, {'$push': {'instance': {
 			'name': name,

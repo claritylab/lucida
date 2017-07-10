@@ -110,7 +110,6 @@ def load_config():
     for i in range(count_service):
         service_obj = service_list[i]
         acn = service_obj['acronym']
-        num = int(service_obj['num'])
         instance = service_obj['instance']
         input_type = service_obj['input']
         learn_type = service_obj['learn']
@@ -122,12 +121,17 @@ def load_config():
             else:
                 SERVICES[acn] += 1
             continue
-        SERVICES[acn] = Service(acn, input_type, learn_type, num, instance, _id)
+        # get num of available and uninitialized instance
+        num = len(instance)
+        avail_instance = [x for x in instance if x['name'] != '']
+        avail = len(avail_instance)
+        unini = num-avail
+        SERVICES[acn] = Service(acn, input_type, learn_type, unini, avail, avail_instance, _id)
         # update learners
         if learn_type == 'none':
             pass
         else:
-            LEARNERS[learn_type][_id] = acn
+            LEARNERS[learn_type].append(_id)
     
     # Update workflow list, current only support single service workflow
     for input_t in CLASSIFIER_DESCRIPTIONS:
@@ -152,6 +156,10 @@ def load_config():
     return 0
 
 def get_service_withid(_id):
-
+    for service in SERVICES:
+        if service == '':
+            continue
+        if SERVICES[service]._id == _id:
+            return SERVICES[service]
 
 load_config()

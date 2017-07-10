@@ -19,7 +19,6 @@ def generic_learn_route(op, form, upload_file):
 			image_type = 'image'
 			label = form['label']
 			_id = form['_id']
-			instance_id = form['instance_id']
 			# Check the uploaded image.
 			if upload_file.filename == '':
 				raise RuntimeError('Empty file is not allowed')
@@ -35,21 +34,23 @@ def generic_learn_route(op, form, upload_file):
 			# Send the image to IMM.
 			upload_file.close()
 			thrift_client.learn_image(username, image_type, image_data,
-				image_id, _id, instance_id)
+				image_id, _id)
 			# Add the image into the database.
-			database.add_image(username, image_data, label, image_id, _id, instance_id)
+			database.add_image(username, image_data, label, image_id, _id)
 		# Delete image knowledge.
 		elif op == 'delete_image':
 			image_type = 'unlearn'
 			image_id = form['image_id']
+			_id = form['_id']
 			# Send the unlearn request to IMM.
-			thrift_client.learn_image(username, image_type, '', image_id)
+			thrift_client.learn_image(username, image_type, '', image_id, _id)
 			# Delete the image from the database.
-			database.delete_image(username, image_id)
+			database.delete_image(username, image_id, _id)
 		# Add text knowledge.
 		elif op == 'add_text' or op == 'add_url':
 			text_type = 'text' if op == 'add_text' else 'url'
 			text_data = form['knowledge']
+			_id = form['_id']
 			# Check the text knowledge.
 			check_text_input(text_data)
 			# Check whether the user can add one more piece of text.
@@ -59,17 +60,18 @@ def generic_learn_route(op, form, upload_file):
 				str(datetime.datetime.now())).hexdigest()
 			# Send the text to QA.
 			thrift_client.learn_text(username, text_type,
-					text_data, text_id)
+					text_data, text_id, _id)
 			# Add the text knowledge into the database.
-			database.add_text(username, text_type, text_data, text_id)
+			database.add_text(username, text_type, text_data, text_id, _id)
 		# Delete text knowledge.
 		elif op == 'delete_text':
 			text_type = 'unlearn'
 			text_id = form['text_id']
+			_id = form['_id']
 			# Send the unlearn request to QA.
-			thrift_client.learn_text(username, text_type, '', text_id)
+			thrift_client.learn_text(username, text_type, '', text_id, _id)
 			# Delete the text from into the database.
-			database.delete_text(username, text_id)
+			database.delete_text(username, text_id, _id)
 		else:
 			raise RuntimeError('Did you click the button?')
 	except Exception as e:
@@ -83,7 +85,7 @@ def generic_learn_route(op, form, upload_file):
 		if str(e).startswith('Could not connect to'):
 			options['error'] = 'Back-end service is not running'
 	return options
-
+'''
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
 def learn_route():
@@ -100,42 +102,42 @@ def learn_route():
 		options['errno'] = 500
 		options['error'] = str(e)
 	return render_template('learn_home.html', **options)
-
+'''
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
-def learn_service_route():
+def learn_route():
 	options = {}
 	
 	# Deal with POST requests.
-	if requests.method == 'POST':
+	if request.method == 'POST':
 		options = generic_learn_route(request.form['op'], request.form, request.files['file'] if 'file' in request.files else None)
 	
 	# home page
-	if '_id' not in request.args and 'instance_id' not in request.args:
+	if '_id' not in request.args:
 		options['text_list'] = []
 		options['image_list'] = []
 		for _id in Config.LEARNERS['text']:
-			service_name = Config.LEARNERS['text']['_id']
-			options['text_list'].append({'name': service_name, '_id': _id, 'instance': Config.SERVICES[service_name].instance})
+			service = Config.get_service_withid(_id)
+			options['text_list'].append({'name': service.name, '_id': _id})
 		for _id in Config.LEARNERS['image']:
-			service_name = Config.LEARNERS['image']['_id']
-			options['image_list'].append({'name': service_name, '_id': _id, 'instance': Config.SERVICES[service_name].instance})
-		return render_template('learn_home.html', **options)
+			service = Config.get_service_withid(_id)
+			options['image_list'].append({'name': service.name, '_id': _id})
+		return render_template('learn_home.html', **options)	
 	
-	# instance page
-	if '_id' not in request.args or 'instance_id' not in request.args:
-		abort(404)		
 	try:
 		_id = request.args['_id']
-		instance_id = request.args['instance_id']
+		service = Config.get_service_withid(_id)
+
+		options['_id'] = _id
+		options['service_name'] = service.name
 				
-		if _id in LEARNERS['text']:
+		if _id in Config.LEARNERS['text']:
 			options['text_able'] = 1
 		else:
 			options['text_able'] = 0
 
 		# check if text field is necessary
-		if _id in LEARNERS['image']:
+		if _id in Config.LEARNERS['image']:
 			options['image_able'] = 1
 		else:
 			options['image_able'] = 0
@@ -143,8 +145,10 @@ def learn_service_route():
 		if options['text_able'] == 0 and options['image_able'] == 0:
 			abort(404)
 
-		options['pictures'] = database.get_images(session['username'], _id, instance_id)
-		options['text'] = database.get_text(session['username'], _id, instance_id)
+		if options['text_able'] == 0:
+			options['pictures'] = database.get_images(session['username'], _id)
+		else:
+			options['text'] = database.get_text(session['username'], _id)
 	except Exception as e:
 		log(e)
 		options['errno'] = 500

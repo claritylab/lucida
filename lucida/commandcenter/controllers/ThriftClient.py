@@ -54,7 +54,7 @@ class ThriftClient(object):
         query_spec.content = query_input_list
         return query_spec
 
-    def get_client_transport(self, service, host, port):
+    def get_client_transport(self, host, port):
         print (host,port)
         transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
         protocol = TBinaryProtocol.TBinaryProtocol(transport)
@@ -66,30 +66,39 @@ class ThriftClient(object):
         service = self.SERVICES[service_name]
         host = query_input_list[0].tags[0]
         port = int(query_input_list[0].tags[1])
-        client, transport = self.get_client_transport(service, host, port)
+        client, transport = self.get_client_transport(host, port)
         log('Sending infer request to ' + service.name)
         result = client.infer(str(LUCID), query_spec)
         transport.close()
         return result
 
 
-    def learn_image(self, LUCID, image_type, image_data, image_id, _id, instance_id):
+    def learn_image(self, LUCID, image_type, image_data, image_id, _id):
         knowledge_input = self.create_query_input(
             image_type, [image_data], [image_id])
-        host, port = self.SERVICES[Config.LEARNERS['image'][_id]].get_host_port()
-        client, transport = self.get_client_transport(self.SERVICES[service], host, port)
-        log('Sending learn_image request to ' + service)
-        client.learn(str(LUCID),
-            self.create_query_spec('knowledge', [knowledge_input]))
-        transport.close()
+        service = Config.get_service_withid(_id)
+        if service.num == 0:
+            raise RuntimeError('No available instance to learn knowledge')
+        for obj in service.instance:
+            instance_id = obj['id']
+            host, port = service.get_host_port_withid(instance_id)
+            client, transport = self.get_client_transport(host, port)
+            log('Sending learn_image request to ' + service.name)
+            client.learn(str(LUCID),
+                self.create_query_spec('knowledge', [knowledge_input]))
+            transport.close()
 
-    def learn_text(self, LUCID, text_type, text_data, text_id):
-        for service in Config.LEARNERS['text']: # add concurrency?
-            knowledge_input = self.create_query_input(
-                text_type, [text_data], [text_id])
-            host, port = self.SERVICES[service].get_host_port()
-            client, transport = self.get_client_transport(self.SERVICES[service], host, port)
-            log('Sending learn_text request to ' + service)
+    def learn_text(self, LUCID, text_type, text_data, text_id, _id):
+        knowledge_input = self.create_query_input(
+            text_type, [text_data], [text_id])
+        service = Config.get_service_withid(_id)
+        if service.num == 0:
+            raise RuntimeError('No available instance to learn knowledge')
+        for obj in service.instance:
+            instance_id = obj['id']
+            host, port = service.get_host_port_withid(instance_id)
+            client, transport = self.get_client_transport(host, port)
+            log('Sending learn_text request to ' + service.name)
             client.learn(str(LUCID),
                 self.create_query_spec('knowledge', [knowledge_input]))
             transport.close()
