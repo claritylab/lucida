@@ -189,12 +189,14 @@ class MongoDB(object):
 		input_type = []
 		classifier_path = ''
 		class_code = ''
+		stategraph = ''
 
 		post = {
 			"name": name, # name of workflow
 			"input": input_type, # allowed input type
 			"classifier": classifier_path, # classifier data path
-			"code": class_code # code for implementation of the workflow class
+			"code": class_code, # code for implementation of the workflow class
+			"stategraph": stategraph
 		}
 
 		post_id = collection.insert_one(post).inserted_id

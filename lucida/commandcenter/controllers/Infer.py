@@ -13,10 +13,6 @@ infer = Blueprint('infer', __name__, template_folder='templates')
 @login_required
 def generic_infer_route(form, upload_file):
 	options = {}
-	if os.environ.get('ASR_ADDR_PORT'):
-		options['asr_addr_port'] = os.environ.get('ASR_ADDR_PORT')
-	else:
-		options['asr_addr_port'] = 'ws://localhost:8081'
 	try:
 		# Deal with POST requests.
 		if request.method == 'POST':
@@ -46,15 +42,15 @@ def generic_infer_route(form, upload_file):
 				options['dates'] = options['result']
 				options['result'] = None
 	except Exception as e:
-                log(e)
-                options['errno'] = 500
-                options['error'] = str(e)
-                if 'code' in e and re.match("^4\d\d$", str(e.code)):
-                        options['errno'] = e.code
-                if str(e) == 'TSocket read 0 bytes':
-                        options['error'] = 'Back-end service encountered a problem'
-                if str(e).startswith('Could not connect to'):
-                        options['error'] = 'Back-end service is not running'
+		log(e)
+		options['errno'] = 500
+		options['error'] = str(e)
+		if 'code' in e and re.match("^4\d\d$", str(e.code)):
+			options['errno'] = e.code
+		if str(e) == 'TSocket read 0 bytes':
+			options['error'] = 'Back-end service encountered a problem'
+		if str(e).startswith('Could not connect to'):
+			options['error'] = 'Back-end service is not running'
 	return options
 
 @infer.route('/infer', methods=['GET', 'POST'])
@@ -81,5 +77,5 @@ def api_infer_route():
 	options = generic_infer_route(request.form, request.files['file'] if 'file' in request.files else None)
 
         if 'errno' in options:
-                return json.dumps(options), options['errno']
+            return json.dumps(options), options['errno']
 	return json.dumps(options), 200
