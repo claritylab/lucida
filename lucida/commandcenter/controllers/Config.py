@@ -52,14 +52,20 @@ SESSION = { <user>:
 
 LEARNERS = { 'audio' : [], 'image' : [], 'text' : [] }
 
-class serviceRequestData(object):
-    """
-    Contains serviceName and data to pass. Needed for batch (and thereby parallel) processing.
-    """
 
-    def __init__(self,nameOfService,argData):
-        self.argumentData = argData
-        self.serviceName = nameOfService
+
+def appendServiceRequest(data,arg1,arg2,arg3):
+	print(data,arg1,arg2,arg3)
+	data.append(serviceRequestData(arg1,arg2,[unicode(arg3)]))
+	return data
+
+class serviceRequestData(object):
+#Contains serviceName and data to pass. Needed for batch (and thereby parallel) processing.
+
+	def __init__(self,batchedDataName,nameOfService,argData):
+		self.argumentData = argData
+		self.serviceName = nameOfService
+		self.batchedDataName = batchedDataName
     
 class workFlow(object): 
     
@@ -71,6 +77,8 @@ class workFlow(object):
 class firstWorkflow(workFlow):
     """
     How does a workflow work? Reference firstWorkFlow as a walkthrough example.
+    This really should not be used anymore as its too difficult to generate a workflow by hand.
+    Instead, use the GUI tool which will automatically compile this
     """
 
     def processCurrentState(self,inputModifierText,inputModifierImage):

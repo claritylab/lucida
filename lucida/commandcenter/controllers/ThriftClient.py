@@ -114,7 +114,7 @@ class ThriftClient(object):
 		resultText = self.send_query(LUCID, service_name, query_input_list)
 		self.threadResults.insert(threadIDValue, resultText)
 		
- 
+
 
 
 # TODO: split function into separate functions (DCM, creating QuerySpec)
@@ -131,16 +131,18 @@ class ThriftClient(object):
         resultText = response_data['text']
         resultImage = [response_data['image']]
 
-
+        passArgs = dict()
         while not workflow.isEnd:
-			
+			batchedDataReturn = dict()
+			print "-------------NEXT ITERATION:STATE" + str(workflow.currentState)
 			i = 0
 			for x in resultText:
 				resultText[i] = [unicode(resultText)] # Text information must be unicode'd and array'd to be properly passed. IMAGE DATA DOES NOT HAVE THIS DONE TO IT.
 				i+= 1
 				
 			# Processes the current workflow state, and in the process finds if this is the final stage or if next stage exists.
-			workflow.processCurrentState(resultText,resultImage)
+			print("Acquiring Batch Request")
+			workflow.processCurrentState(1,batchedDataReturn,passArgs,resultText,resultImage)
 
 			resultText = []
 			resultImage = []
@@ -154,6 +156,8 @@ class ThriftClient(object):
 				threadList.append(FuncThread(self.executeThreadServiceRequest, x.serviceName, x.argumentData, LUCID,threadID))
 				threadList[threadID].start()
 				threadID+=1
+				
+			print("Executed batch request")
 
 			threadID = 0
 			#This is where batched execution joins together
@@ -161,11 +165,16 @@ class ThriftClient(object):
 				threadList[threadID].join()
 				print "============ThreadID" + str(threadID)
 				print "Output:" + self.threadResults[threadID]
+				batchedDataReturn[x.batchedDataName] = self.threadResults[threadID] 
 				resultText.insert(threadID, self.threadResults[threadID])
 				threadID+=1
+			
+			
+			print("Do stuff after batch request")
 
+			workflow.processCurrentState(0,batchedDataReturn,passArgs,resultText,resultImage)
 
-
+			
                 
         return resultText[0]
 
