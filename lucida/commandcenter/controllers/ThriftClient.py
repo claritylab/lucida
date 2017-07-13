@@ -1,28 +1,22 @@
-from lucidatypes.ttypes import QueryInput, QuerySpec
-from lucidaservice import LucidaService
-from dcm import*
 from flask import*
-
-from Config import  WFList
+import threading
+import os
+import sys
 
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
+from lucidatypes.ttypes import QueryInput, QuerySpec
+from lucidaservice import LucidaService
+from dcm import*
+from Config import WFList
 from Utilities import log
 from Database import database
 import Config
-import os
-import sys
+
 reload(sys)
 sys.setdefaultencoding('utf8') # to solve the unicode error
-
-
-import threading
-
-
-
-
 
 #This is basically the thread starter function
 class FuncThread(threading.Thread):
@@ -33,8 +27,6 @@ class FuncThread(threading.Thread):
     def run(self):
         self._target(*self._args)
  
-
-
 class ThriftClient(object):
     # Constructor.
     def __init__(self, SERVICES):
@@ -72,7 +64,6 @@ class ThriftClient(object):
         transport.close()
         return result
 
-
     def learn_image(self, LUCID, image_type, image_data, image_id, _id):
         knowledge_input = self.create_query_input(
             image_type, [image_data], [image_id])
@@ -102,8 +93,7 @@ class ThriftClient(object):
             client.learn(str(LUCID),
                 self.create_query_spec('knowledge', [knowledge_input]))
             transport.close()
-            
-            
+                        
             # Example usage
     def executeThreadServiceRequest(self,service_name, inputData, LUCID, threadIDValue):
 		print("Thread ", threadIDValue, "executing", service_name, "with input", inputData)
@@ -113,13 +103,8 @@ class ThriftClient(object):
 		query_input_list = [self.create_query_input(service.input_type, inputData, tag_list)]
 		resultText = self.send_query(LUCID, service_name, query_input_list)
 		self.threadResults.insert(threadIDValue, resultText)
-		
-
-
-
-# TODO: split function into separate functions (DCM, creating QuerySpec)
+	
     def infer(self, LUCID, workflow_name, text_data, image_data):
-
 
         response_data = { 'text': text_data, 'image': image_data }
         self.threadResults = []
@@ -168,14 +153,10 @@ class ThriftClient(object):
 				batchedDataReturn[x.batchedDataName] = self.threadResults[threadID] 
 				resultText.insert(threadID, self.threadResults[threadID])
 				threadID+=1
-			
-			
+
 			print("Do stuff after batch request")
-
 			workflow.processCurrentState(0,batchedDataReturn,passArgs,resultText,resultImage)
-
-			
-                
+			                
         return resultText[0]
 
 thrift_client = ThriftClient(Config.SERVICES)

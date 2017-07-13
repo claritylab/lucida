@@ -51,8 +51,9 @@ SESSION = { <user>:
 """
 
 LEARNERS = { 'audio' : [], 'image' : [], 'text' : [] }
-
-
+"""
+Store all service supporting learn
+"""
 
 def appendServiceRequest(data,arg1,arg2,arg3):
 	print(data,arg1,arg2,arg3)
@@ -160,6 +161,8 @@ def load_config():
     	exec(code)
     	for input_t in input_list:
     		CLASSIFIER_DESCRIPTIONS[input_t]['class_'+name] = Graph([Node(name)])
+        if len(input_list) == 2:
+            CLASSIFIER_DESCRIPTIONS['text_image']['class_'+name] = Graph([Node(name)])
     	WFList[name] = eval(name+"()")
     return 0
 

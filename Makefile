@@ -19,15 +19,6 @@ export LD_LIBRARY_PATH=/usr/local/lib
 local:
 	cd tools && sudo make && cd ../lucida && make
 
-start_all:
-	cd tools && ./start_all_tmux.sh
-
-start_all_secure:
-	cd tools && ./start_all_tmux.sh secure
-
-start_test_all:
-	cd tools && ./start_all_tmux.sh test
-
 all_service:
 	cd lucida && make all
 
@@ -36,9 +27,3 @@ clean_all_service:
 
 clean_all_tools:
 	cd tools && make clean
-
-add_service:
-	cd tools && bash ms_register.sh add
-
-delete_service:
-	cd tools && bash ms_register.sh delete

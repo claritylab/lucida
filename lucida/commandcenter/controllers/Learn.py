@@ -85,24 +85,7 @@ def generic_learn_route(op, form, upload_file):
 		if str(e).startswith('Could not connect to'):
 			options['error'] = 'Back-end service is not running'
 	return options
-'''
-@learn.route('/learn', methods=['GET', 'POST'])
-@login_required
-def learn_route():
-	options = {}
-	# Deal with POST requests.
-	if request.method == 'POST':
-		options = generic_learn_route(request.form['op'], request.form, request.files['file'] if 'file' in request.files else None)
-	try:
-		# Retrieve knowledge.
-		options['pictures'] = database.get_images(session['username'])
-		options['text'] = database.get_text(session['username'])
-	except Exception as e:
-		log(e)
-		options['errno'] = 500
-		options['error'] = str(e)
-	return render_template('learn_home.html', **options)
-'''
+
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
 def learn_route():
@@ -155,33 +138,25 @@ def learn_route():
 		options['error'] = str(e)
 	return render_template('learn.html', **options)
 
-
-
 allowed_endpoints = ['add_image','delete_image','add_text','add_url','delete_text','query']
 @learn.route('/api/learn/<string:op>', methods=['POST'])
 def api_learn_add_del_route(op):
 	if not op in allowed_endpoints:
 		abort(404)
-        session['username'] = database.get_username(request.form['interface'], request.form['username'])
-        if session['username'] == None:
-                abort (403)
-
-        session['logged_in'] = True
-        print '@@@@@@@@', session['username']
 
 	options = {}
 	if not op == 'query':
 		options = generic_learn_route(op, request.form, request.files['file'] if 'file' in request.files else None)
 	else:
 		try:
-			# Retrieve knowledge.
+			# Retrieve knowledge.	
 			if 'type' in request.form and request.form['type'] == 'text':
-				options['text'] = database.get_text(session['username'])
+				options['text'] = database.get_text(session['username'], request.form['_id'])
 			elif 'type' in request.form and request.form['type'] == 'image':
-				options['pictures'] = database.get_images(session['username'])
+				options['pictures'] = database.get_images(session['username'], request.form['_id'])
 			else:
-				options['pictures'] = database.get_images(session['username'])
-				options['text'] = database.get_text(session['username'])
+				options['pictures'] = database.get_images(session['username'], request.form['_id'])
+				options['text'] = database.get_text(session['username'], request.form['_id'])
 		except Exception as e:
 			log(e)
 			options['errno'] = 500
