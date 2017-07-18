@@ -27,8 +27,6 @@ class MongoDB(object):
 		"""
 		return code:
 		0: success
-		1: name has already exists
-		2: acronym has already used
 		"""
 
 		# list the attributes for the interface
@@ -54,6 +52,8 @@ class MongoDB(object):
 		return code:
 		0: success
 		1: service name not found
+		2: name already used
+		3: acronym already used
 		"""
 
 		post = {
@@ -121,7 +121,6 @@ class MongoDB(object):
 		"""
 		return code:
 		0: success
-		1: workflow name already exists
 		"""
 
 		# list the attributes for the interface
@@ -146,6 +145,7 @@ class MongoDB(object):
 		return code:
 		0: success
 		1: workflow name not found
+		2: updated name already used
 		"""
 
 		post = {
@@ -201,9 +201,7 @@ class MongoDB(object):
 		"""
 		return code:
 		0: success
-		1: host/port not valid
-		2: service name not exist
-		3: host/port already used
+		1: service not valid
 		"""
 
 		# list the attributes for the interface
@@ -221,7 +219,10 @@ class MongoDB(object):
 			return 0, ret_JSON['instance_id']
 		else:
 			error = ret_JSON['error']
-			return -1, ''
+			if error == 'Service not exists':
+				return 1, ''
+			else:
+				return -1, ''
 
 	def update_instance(self, _id, instance_id, op, value):
 		"""
@@ -229,15 +230,17 @@ class MongoDB(object):
 		value: update value for the field
 		return code:
 		0: success
-		1: instance name not found
+		1: instance not found
+		2: host/port not valid
+		3: host/port already used
 		"""
 
 		post = {
 			"option": "update",
-			"_id": _id, # name of service
-			"instance_id": instance_id, # acronym of service
-			"op": op, # number of instance
-			"value": value # host/port pair of instances
+			"_id": _id,
+			"instance_id": instance_id,
+			"op": op,
+			"value": value 
 		}
 
 		url = 'http://127.0.0.1:3000/api/v1/instance'
@@ -262,13 +265,13 @@ class MongoDB(object):
 		"""
 		return code:
 		0: success
-		1: instance name not exist
+		1: instance not exist
 		"""
 		
 		post = {
 			"option": "delete",
-			"_id": _id, # name of service
-			"instance_id": instance_id # acronym of service
+			"_id": _id, 
+			"instance_id": instance_id 
 		}
 
 		url = 'http://127.0.0.1:3000/api/v1/instance'

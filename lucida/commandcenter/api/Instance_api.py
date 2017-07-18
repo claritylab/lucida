@@ -6,7 +6,7 @@ instance_api = Blueprint('instance_api', __name__, template_folder='templates')
 @instance_api.route('/api/v1/instance', methods = ['GET', 'POST'])
 def instance_api_route():
 	"""
-	request json object:
+	request json object (see detail in documents of API):
 	{
 		'option': add/update/delete
 	}
@@ -47,12 +47,15 @@ def instance_api_route():
 
 		elif option == 'add_empty':
 			if '_id' not in requestFields:
-				error = {'error': 'Field missing for updating instance'}
+				error = {'error': 'Field missing for adding instance'}
 				return jsonify(error), 422
 
 			ret, instance_id = db.add_empty_instance(requestFields['_id'])
 
-			if ret == 0:
+			if ret == 1:
+				error = {'error': 'Service not exists'}
+				return jsonify(error), 422
+			elif ret == 0:
 				result = {'success': 'Instance successfully added!', 'instance_id': instance_id}
 				return jsonify(result), 200
 

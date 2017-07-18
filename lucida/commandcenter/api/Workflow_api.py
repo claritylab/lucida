@@ -6,7 +6,7 @@ workflow_api = Blueprint('workflow_api', __name__, template_folder='templates')
 @workflow_api.route('/api/v1/workflow', methods = ['GET', 'POST'])
 def workflow_api_route():
 	"""
-	request json object:
+	request json object (see detail in documents of API):
 	{
 		'option': add/update/delete
 	}
@@ -49,7 +49,7 @@ def workflow_api_route():
 				return jsonify(result), 200
 
 		elif option == 'update':
-			if '_id' not in requestFields or 'option' not in requestFields or 'value' not in requestFields:
+			if '_id' not in requestFields or 'op' not in requestFields or 'value' not in requestFields:
 				error = {'error': 'Field missing for updating workflow'}
 				return jsonify(error), 422
 

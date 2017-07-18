@@ -53,7 +53,7 @@ class MongoDB(object):
 		post = {
 			"name": name, # name of service
 			"acronym": acronym, # acronym of service
-			"num": num, # number of instance
+			"num": num, # biggest id of instance
 			"instance": instance, # host/port pair of instances
 			"input": input_type, # input type
 			"learn": learn_type # learn type
@@ -65,6 +65,11 @@ class MongoDB(object):
 		return 0, str(post_id)
 
 	def add_empty_service(self):
+		"""
+		return code:
+		0: success
+		"""
+
 		collection = self.db.service_info
 
 		name = ''
@@ -95,6 +100,8 @@ class MongoDB(object):
 		return code:
 		0: success
 		1: service name not found
+		2: updated name already used
+		3: updated acronym already used
 		"""
 
 		collection = self.db.service_info
@@ -154,7 +161,7 @@ class MongoDB(object):
 		
 		return dictReturn
 
-	def add_workflow(self, name, input_type, classifier_path, class_code):
+	def add_workflow(self, name, input_type, classifier_path, class_code, stategraph):
 		"""
 		return code:
 		0: success
@@ -175,13 +182,18 @@ class MongoDB(object):
 			"name": name, # name of workflow
 			"input": input_type, # allowed input type
 			"classifier": classifier_path, # classifier data path
-			"code": class_code # code for implementation of the workflow class
+			"code": class_code, # code for implementation of the workflow class
+			"stategraph": stategraph # metadata for state graph
 		}
 
 		post_id = collection.insert_one(post).inserted_id
 		return 0, str(post_id)
 
 	def add_empty_workflow(self):
+		"""
+		return code:
+		0: success
+		"""
 
 		collection = self.db.workflow_info
 
@@ -196,7 +208,7 @@ class MongoDB(object):
 			"input": input_type, # allowed input type
 			"classifier": classifier_path, # classifier data path
 			"code": class_code, # code for implementation of the workflow class
-			"stategraph": stategraph
+			"stategraph": stategraph # metadata for state graph
 		}
 
 		post_id = collection.insert_one(post).inserted_id
@@ -209,6 +221,7 @@ class MongoDB(object):
 		return code:
 		0: success
 		1: workflow name not found
+		2: updated name already used
 		"""
 
 		collection = self.db.workflow_info
@@ -255,7 +268,7 @@ class MongoDB(object):
 		return code:
 		0: success
 		1: host/port not valid
-		2: service name not exist
+		2: service not exist
 		3: host/port already used
 		"""
 
@@ -300,12 +313,22 @@ class MongoDB(object):
 		return 0, instance_id
 
 	def add_empty_instance(self, _id):
+		"""
+		return code:
+		0: success
+		1: service not exists
+		"""
+
 		collection = self.db.service_info
 
 		name = ''
 		host = '127.0.0.1'
 		port = 0
 		object_id = ObjectId(_id)
+		count = collection.count({'_id': object_id})
+		if count != 1:
+			print('[python error] service not exists in MongoDB.')
+			return 1, ''
 
 		result = collection.find({'_id': object_id})
 		instance_id = str(result[0]['num'])
@@ -324,7 +347,9 @@ class MongoDB(object):
 		value: update value for the field
 		return code:
 		0: success
-		1: instance name not found
+		1: instance not found
+		2: host/port pair not valid
+		3: host/port pair already used
 		"""
 
 		collection = self.db.service_info
@@ -380,7 +405,7 @@ class MongoDB(object):
 		"""
 		return code:
 		0: success
-		1: instance name not exist
+		1: instance not exist
 		"""
 		collection = self.db.service_info
 
@@ -393,35 +418,6 @@ class MongoDB(object):
 
 		collection.update({'_id':object_id}, {'$pull': {'instance': {'id': instance_id}}})
 		return 0
-	"""
-	# import this module and call start_server(name) to start
-	def start_server(self, name):
-		location, instance = self.search_path(name)
-
-		# start each instance
-		for pair in instance:
-			port = pair['port']
-			wrapper_begin = 'gnome-terminal -x bash -c "'
-			wrapper_end = '"'
-			code = 'cd ' + location + "; "
-			code = code + "make start_server port=" + str(port)
-			os.system(wrapper_begin + code + wrapper_end)
-
-	def search_path(self, name):
-		# get collection for service information
-		collection = self.db.service_info
-
-		result = collection.find({'name': name})
-
-		# check if current service is in MongoDB
-		count = result.count()
-		if count != 1:
-			#collection.delete_many({"name" : sys.argv[2]})
-			print('[python error] service not in MongoDB.')
-			exit(1)
-
-		return result[0]['location'], result[0]['instance']
-	"""
 
 def validate_ip_port(s, p):
 	"""

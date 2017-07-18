@@ -6,7 +6,7 @@ service_api = Blueprint('service_api', __name__, template_folder='templates')
 @service_api.route('/api/v1/service', methods = ['GET', 'POST'])
 def service_api_route():
 	"""
-	request json object:
+	request json object (see detail in documents of API):
 	{
 		'option': add/update/delete
 	}
@@ -52,7 +52,7 @@ def service_api_route():
 				return jsonify(result), 200
 
 		elif option == 'update':
-			if '_id' not in requestFields or 'option' not in requestFields or 'value' not in requestFields:
+			if '_id' not in requestFields or 'op' not in requestFields or 'value' not in requestFields:
 				error = {'error': 'Field missing for updating service'}
 				return jsonify(error), 422
 
