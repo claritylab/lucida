@@ -781,13 +781,13 @@ def compileWorkflow(workflowID):
 			
 			workflowCompiled += "\n\t\t\telif(self.branchCheck"+workflowName+str(nodeCount)+"_"+str(linkCount)+"(condArgs,passArgs)):"
 			workflowCompiled += "\n\t\t\t\tself.currentState = " + str(linkObj.toNode)
-			
+			workflowCompiled += "\n\t\t\t\tself.pause = True"
 
 			
 			linkCount +=1
 		workflowCompiled += "\n\t\t\telse: self.isEnd = True"
 	
-		workflowCompiled += "\n\t\t\treturn"
+		workflowCompiled += "\n\t\t\treturn self.pause, self.ret"
 		nodeCount +=1
 	
 	return workflowCompiled
@@ -1144,10 +1144,29 @@ while True:
 		nodeData = WF.nodeList[nodeID]
 		
 		if(currentActiveNode==nodeID): # Click again to disable?
-			print("Unselect node")
-			currentActiveNode = -1
-			lucida.updateObjectImage(lucida.currentLevelName,nodeIMG)
-			nodeData.active = 0
+			if(keysPressed[108]==1):
+				nodeDataOriginal = WF.nodeList[currentActiveNode]
+				isLinked = 0
+				#Check for if already linked. If no link, link, if link, unlink.
+				for link in nodeDataOriginal.linkList:
+					if(link.toNode==nodeID):
+						isLinked = 1
+					
+					#Link them	
+				if(isLinked==0):
+					nodeDataOriginal.addLink("linkName",nodeID);
+					lucida.level(directoriesNames[-1],1);
+					pass
+				elif (isLinked==1): #TODO: Unlink
+					pass
+				
+				base64content = objToBase64(WF.nodeList)
+				db.update_workflow(workflowList[getWFID].dbData['_id'], "stategraph", base64content);
+			else:
+				print("Unselect node")
+				currentActiveNode = -1
+				lucida.updateObjectImage(lucida.currentLevelName,nodeIMG)
+				nodeData.active = 0
 		elif(currentActiveNode==-1): # No previous selected, so select
 			print("Select Node:", nodeID)
 			currentActiveNode = nodeID

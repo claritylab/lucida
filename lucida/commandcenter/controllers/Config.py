@@ -1,11 +1,9 @@
 #!/usr/bin/env python2
 
 from Service import Service
-from Graph import Graph, Node
 from pymongo import MongoClient
 from Database import database
 import os, sys, re
-from dcm import *
 
 TRAIN_OR_LOAD = 'train' # either 'train' or 'load'
 """
@@ -27,9 +25,9 @@ Workflow dict that store all available workflows dynamically
 """
 
 CLASSIFIER_DESCRIPTIONS = {
-    'text': {},
-    'image': {},
-    'text_image': {}
+    'text': [],
+    'image': [],
+    'text_image': []
 }
 """
 Classifier stored for each workflow
@@ -45,8 +43,6 @@ SESSION = {}
 Structure used to save the state/context across requests in a session
 example:
 SESSION = { <user>:
-                  'graph': <Graph>,
-                  'data': <response_data>
 }
 """
 
@@ -73,6 +69,7 @@ class workFlow(object):
     def __init__(self):
         self.currentState = 0 # What state on the state graph
         self.isEnd = False
+        self.pause = False
         self.batchedData = []
     
 class firstWorkflow(workFlow):
@@ -144,7 +141,7 @@ def load_config():
     
     # Update workflow list, current only support single service workflow
     for input_t in CLASSIFIER_DESCRIPTIONS:
-    	CLASSIFIER_DESCRIPTIONS[input_t].clear()
+        del CLASSIFIER_DESCRIPTIONS[input_t][:]
     WFList.clear()
     workflow_list = db["workflow_info"].find()
     count_workflow = workflow_list.count()
@@ -156,13 +153,13 @@ def load_config():
         # check if uninitialized
         if name == '':
             continue
-        CLASSIFIER_PATH['class_'+name] = classifier
+        CLASSIFIER_PATH[name] = classifier
         code = workflow_obj['code']
     	exec(code)
     	for input_t in input_list:
-    		CLASSIFIER_DESCRIPTIONS[input_t]['class_'+name] = Graph([Node(name)])
+    		CLASSIFIER_DESCRIPTIONS[input_t].append(name)
         if len(input_list) == 2:
-            CLASSIFIER_DESCRIPTIONS['text_image']['class_'+name] = Graph([Node(name)])
+            CLASSIFIER_DESCRIPTIONS['text_image'].append(name)
     	WFList[name] = eval(name+"()")
     return 0
 

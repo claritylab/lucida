@@ -9,7 +9,6 @@ from thrift.protocol import TBinaryProtocol
 
 from lucidatypes.ttypes import QueryInput, QuerySpec
 from lucidaservice import LucidaService
-from dcm import*
 from Config import WFList
 from Utilities import log
 from Database import database
@@ -104,28 +103,24 @@ class ThriftClient(object):
 		resultText = self.send_query(LUCID, service_name, query_input_list)
 		self.threadResults.insert(threadIDValue, resultText)
 	
-    def infer(self, LUCID, workflow_name, text_data, image_data):
+    def infer(self, LUCID, workflow, text_data, image_data):
 
         response_data = { 'text': text_data, 'image': image_data }
         self.threadResults = []
 
 		# workflow_name contains the name of the workflow, NOT the microservice.
 		# This acquires the workflow class.
-        workflow = WFList[workflow_name]
-        workflow.__init__()
-        resultText = response_data['text']
-        resultImage = [response_data['image']]
+        resultText = text_data
+        resultImage = image_data
 
         passArgs = dict()
-        while not workflow.isEnd:
+        pause = False
+        while not workflow.isEnd and not pause:
 			batchedDataReturn = dict()
 			print "-------------NEXT ITERATION:STATE" + str(workflow.currentState)
-			i = 0
-			for x in resultText:
-				resultText[i] = unicode(x) # Text information must be unicode'd and array'd to be properly passed. IMAGE DATA DOES NOT HAVE THIS DONE TO IT.
-				i+= 1
-				
-			# Processes the current workflow state, and in the process finds if this is the final stage or if next stage exists.
+			resultText = [ unicode(x) for x in resultText ]
+
+            # Processes the current workflow state, and in the process finds if this is the final stage or if next stage exists.
 			print("Acquiring Batch Request")
 			workflow.processCurrentState(1,batchedDataReturn,passArgs,resultText,resultImage)
 
@@ -155,8 +150,22 @@ class ThriftClient(object):
 				threadID+=1
 
 			print("Do stuff after batch request")
-			workflow.processCurrentState(0,batchedDataReturn,passArgs,resultText,resultImage)
-			                
-        return resultText[0]
+			pause, ret= workflow.processCurrentState(0,batchedDataReturn,passArgs,resultText,resultImage)
+			print("after processstate")
+			
+			# store info into session
+			if pause:
+				if LUCID not in Config.SESSION:
+					Config.SESSION[LUCID] = {}
+				Config.SESSION[LUCID]['workflow'] = workflow
+				Config.SESSION[LUCID]['resulttext'] = resultText
+			
+			# pop session when workflow ends
+			if workflow.isEnd:
+				if LUCID in Config.SESSION:
+					Config.SESSION.pop(LUCID, None)
+
+        print("successful return")
+        return ret
 
 thrift_client = ThriftClient(Config.SERVICES)

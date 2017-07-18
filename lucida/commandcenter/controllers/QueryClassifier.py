@@ -61,7 +61,7 @@ class QueryClassifier(object):
 		if len(query_classes) == 0:
 			return EmptyClassifier()
 		if len(query_classes) == 1:
-			return DummyClassifier(query_classes.keys()[0])
+			return DummyClassifier(query_classes[0])
 		# Build DataFrame by going through all data files.
 		data = DataFrame({'text': [], 'class': []})
 		for query_class_name in query_classes:
@@ -145,7 +145,7 @@ class QueryClassifier(object):
 			raise RuntimeError('Input type has no service available')
 		class_predicted = class_predicted[0] # ndarray to string
 		log('Query classified as ' + class_predicted)
-		return self.CLASSIFIER_DESCRIPTIONS[input_type][class_predicted]
+		return class_predicted
 
 
 query_classifier = QueryClassifier(Config.TRAIN_OR_LOAD,
