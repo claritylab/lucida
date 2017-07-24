@@ -229,6 +229,7 @@ class windowInformation(object):
 # Load the image types
 yellowBG = pygame.image.load(os.path.join("images/yellowBG.png"))
 grayBG = pygame.image.load(os.path.join("images/grayBG.png"))
+dead = pygame.image.load(os.path.join("images/dead.png"))
 		
 nodeActiveIMG = pygame.image.load(os.path.join("images/nodeActive.png"))
 nodeIMG = pygame.image.load(os.path.join("images/node.png"))
@@ -276,12 +277,13 @@ class lucidaGUI(object):
 		y = ID
 		return [x*0.1,y*0.1]
 		
-	def goUpDir(self):
+	def goUpDir(self, time):
 		countArr = len(directoriesNames)
 		
 		if countArr>1:
 			upDirName = directoriesNames.pop()
-			upDirName = directoriesNames.pop()
+			for count in range(time):
+				upDirName = directoriesNames.pop()
 			self.level(upDirName,0)
 
 			
@@ -342,14 +344,15 @@ class lucidaGUI(object):
 			
 	#Level function draws the level display and the level click functions
 	def level(self,levelName,directClick):
-		
+		print("start")
+		print(directoriesNames)
 		#print("Hit level", levelName)
 		if(directClick==1):
 			self.currentLevelName = levelName
 			
 			
 		didHit = 0
-		goUpDir = 0
+		goUpDirtime = 0
 		self.undisplayCurrentLevel();
 		### Front: CMD/MS buttons
 		if(levelName=="root"):
@@ -395,13 +398,12 @@ class lucidaGUI(object):
 			self.addToLevel(0.25,0.25,0.35,0.10,0,"WorkflowNameThing:"+str(getWFID),yellowBG,"WF: " + wfName)
 			self.addToLevel(0.60,0.25,0.25,0.10,0,"wfListThing"+str(getWFID),yellowBG,"State Graph")
 			
-			inputTypes = workflowList[getWFID].dbData['input'][0];
-			try:
-				inputTypes += "," + workflowList[getWFID].dbData['input'][1];
-			except:
-				pass
+
+			inputTypes = ', '.join(workflowList[getWFID].dbData['input'])
+
 			self.addToLevel(0.25,0.35,0.60,0.10,0,"wfType:"+str(getWFID),yellowBG,"Type:"  + inputTypes)
 			self.addToLevel(0.25,0.45,0.60,0.25,0,"classPath:"+str(getWFID),yellowBG,"ClassPath:" + workflowList[getWFID].dbData['classifier'])
+			self.addToLevel(0.25,0.70,0.60,0.10,0,"DeleteWorkflow"+str(getWFID),dead,"Delete "+wfName)
 				
 				
 				
@@ -461,11 +463,13 @@ class lucidaGUI(object):
 			self.addToLevel(0.25,0.25,0.25,0.10,0,"MicroservicesNameThing:"+str(getMSID),yellowBG,"MS: " + msName)
 			self.addToLevel(0.50,0.25,0.25,0.10,0,"newServer"+str(getMSID),yellowBG,"New")
 			self.addToLevel(0.25,0.35,0.50,0.05,0,"LearnType:"+str(getMSID),yellowBG,"LearnType: " + microServiceList[getMSID].dbData['learn'])
-			
+			self.addToLevel(0.25,0.40,0.50,0.05,0,"InputType:"+str(getMSID),yellowBG,"InputType: " + microServiceList[getMSID].dbData['input'])
+			self.addToLevel(0.25,0.45,0.50,0.10,0,"DeleteService"+str(getMSID),dead,"Delete "+msName)
+
 			countServices = 0
 			for server in microServiceList[getMSID].serverList:
 				XY = self.getXYPositionEntry(countServices)
-				self.addToLevel(0.25+XY[0],0.40+XY[1],0.10,0.10,0,"serverBB" + str(getMSID) + "serverBB"+str(countServices),grayBG,server.name)
+				self.addToLevel(0.25+XY[0],0.55+XY[1],0.10,0.10,0,"serverBB" + str(getMSID) + "serverBB"+str(countServices),grayBG,server.name)
 				countServices+= 1
 		
 		# An instance of the service
@@ -483,8 +487,32 @@ class lucidaGUI(object):
 			self.addToLevel(0.25,0.25,0.50,0.10,0,"MS:" + msName,yellowBG,"MS: " + msName)
 			self.addToLevel(0.25,0.35,0.50,0.10,0,"BoxNameSet:" +str(msID) + "BoxNameSet:" + str(boxID),yellowBG,"Box: " + boxName)
 			self.addToLevel(0.25,0.45,0.50,0.10,0,"IP:PORT"+str(msID)+"IP:PORT"+str(boxID),yellowBG,"IP:PORT:" + str(box.IP) + ":" + str(box.port))
-
+			self.addToLevel(0.25,0.55,0.50,0.10,0,"DeleteInstance"+str(msID)+"DeleteInstance"+str(boxID),dead,"Delete Instance")
 			
+		if "DeleteInstance" in levelName:
+			didHit = 1
+			goUpDirtime=2
+			idList = levelName.split("DeleteInstance")
+			msID = int(idList[1])
+			boxID = int(idList[2])
+			box = microServiceList[msID].serverList[boxID]
+			status = db.delete_instance(microServiceList[msID].dbData['_id'], box.dbData['id'])
+			generateMicroServiceList()
+
+		if "DeleteService" in levelName:
+			didHit = 1
+			goUpDirtime=2
+			getMSID = int(filter(str.isdigit, levelName))
+			status = db.delete_service(microServiceList[getMSID].dbData['_id'])
+			generateMicroServiceList()
+
+		if "DeleteWorkflow" in levelName:
+			didHit = 1
+			goUpDirtime=2
+			getWFID = int(filter(str.isdigit, levelName))
+			status = db.delete_workflow(workflowList[getWFID].dbData['_id'])
+			generateWorkflowList()
+
 			
 		#Change the name of a microservice
 		if "MicroservicesNameThing:" in levelName:
@@ -551,7 +579,7 @@ class lucidaGUI(object):
 			#Toggles a service between learn types
 		if "LearnType:" in levelName:
 			didHit=1
-			goUpDir=1
+			goUpDirtime=1
 			getMSID = int(filter(str.isdigit, levelName))
 			if(microServiceList[getMSID].dbData['learn']=='text'):
 				status = db.update_service( microServiceList[getMSID].dbData['_id'], "learn", "image")
@@ -560,26 +588,38 @@ class lucidaGUI(object):
 			if(microServiceList[getMSID].dbData['learn']=='none'):
 				status = db.update_service( microServiceList[getMSID].dbData['_id'], "learn", "text")
 			generateMicroServiceList()
+
+		if "InputType:" in levelName:
+			didHit=1
+			goUpDirtime=1
+			getMSID = int(filter(str.isdigit, levelName))
+			if(microServiceList[getMSID].dbData['input']=='text'):
+				status = db.update_service( microServiceList[getMSID].dbData['_id'], "input", "image")
+			if(microServiceList[getMSID].dbData['input']=='image'):
+				status = db.update_service( microServiceList[getMSID].dbData['_id'], "input", "text")	
+			generateMicroServiceList()
 	
 			#Toggles a workflow between input types
 		if "wfType:" in levelName:
 			didHit=1
-			goUpDir=1
+			goUpDirtime=1
 			getWFID = int(filter(str.isdigit, levelName))
-			doneSomething = 0
 			
-			try:
-				if((workflowList[getWFID].dbData['input'][0]=='text' and workflowList[getWFID].dbData['input'][1]=='image') or (workflowList[getWFID].dbData['input'][1]=='text' and workflowList[getWFID].dbData['input'][0]=='image')):
-					 status = db.update_workflow( workflowList[getWFID].dbData['_id'], "input", ['image'])
-					 doneSomething = 1
-			except:
-				pass
-			
-			if(workflowList[getWFID].dbData['input'][0]=='image' and doneSomething==0):
+			if(set(workflowList[getWFID].dbData['input'])==set(['text', 'image', 'text_image'])):
+				status = db.update_workflow( workflowList[getWFID].dbData['_id'], "input", ['image'])			
+			elif(workflowList[getWFID].dbData['input']==['image']):
 				status = db.update_workflow( workflowList[getWFID].dbData['_id'], "input", ['text'])
-				doneSomething = 1
-			if(workflowList[getWFID].dbData['input'][0]=='text' and doneSomething==0):
+			elif(workflowList[getWFID].dbData['input']==['text']):
+				status = db.update_workflow( workflowList[getWFID].dbData['_id'], "input", ['text_image'])
+			elif(workflowList[getWFID].dbData['input']==['text_image']):
+				status = db.update_workflow( workflowList[getWFID].dbData['_id'], "input", ['text','text_image'])
+			elif(set(workflowList[getWFID].dbData['input'])==set(['text', 'text_image'])):
+				status = db.update_workflow( workflowList[getWFID].dbData['_id'], "input", ['image','text_image'])
+			elif(set(workflowList[getWFID].dbData['input'])==set(['image', 'text_image'])):
 				status = db.update_workflow( workflowList[getWFID].dbData['_id'], "input", ['text','image'])
+			elif(set(workflowList[getWFID].dbData['input'])==set(['text', 'image'])):
+				status = db.update_workflow( workflowList[getWFID].dbData['_id'], "input", ['text','image','text_image'])
+				
 
 				
 			generateWorkflowList()
@@ -590,7 +630,7 @@ class lucidaGUI(object):
 		#New blackbox service registry
 		if "newServer" in levelName:
 			didHit=1
-			goUpDir=1
+			goUpDirtime=1
 			microserviceNameOfServerID = int(levelName.split("newServer",1)[1])
 			print(microServiceList[microserviceNameOfServerID].dbData['_id'])
 			db.add_instance(microServiceList[microserviceNameOfServerID].dbData['_id'])
@@ -599,7 +639,7 @@ class lucidaGUI(object):
 		#A new workflow
 		if "newWF:" in levelName:
 			didHit=1
-			goUpDir=1
+			goUpDirtime=1
 			status,idWF = db.add_workflow()
 			
 			db.update_workflow(idWF, "name", "WFTaco");
@@ -611,7 +651,7 @@ class lucidaGUI(object):
 		#Add a new micro service
 		if(levelName=="newMicroService"):
 			didHit=1
-			goUpDir=1
+			goUpDirtime=1
 			returnVal = 1;
 			newAppend = 0;
 			
@@ -632,12 +672,14 @@ class lucidaGUI(object):
 					directoriesNames.append(levelName)
 			if(countArr==0):
 				directoriesNames.append(levelName)
-			
+
+			print("mid")
+			print(directoriesNames)
 			#directoriesNames.append(levelName)
 			self.displayCurrentLevel();
 		
-		if goUpDir==1:
-			self.goUpDir()
+		if goUpDirtime>=1:
+			self.goUpDir(goUpDirtime)
 
 			
 			#HIt nothing, so need to refresh previous state
@@ -647,6 +689,9 @@ class lucidaGUI(object):
 		
 		if(not "wfListThing" in directoriesNames[-1]):
 			currentActiveNode = -1
+
+		print("end")
+		print(directoriesNames)
 
 
 
@@ -677,7 +722,7 @@ class linkObj(object):
 	def __init__(self,name,toNode):
 		self.name = name
 		self.toNode = toNode
-		self.code = "if(condArgs['pug']=='25 years'):\r\n\treturn True;"
+		self.code = "if(condArgs['pug']=='25 years'):\r\n\tself.pause = False\r\n\treturn True;"
 		
 
 class node(object):
@@ -687,7 +732,7 @@ class node(object):
 		self.x = 0.0;
 		self.y = 0.0
 		self.active = 0
-		self.code = "exeMS('pug',\"QA\",\"How old is Johann?\")\nEXE_BATCHED #THIS STATEMENT MUST EXIST AFTER ALL exeMS STATEMENTS. No exeMS is executed UNTIL AFTER THIS STATEMENT\ncondArgs['pug'] = batchedDataReturn['pug']"
+		self.code = "exeMS('pug',\"QA\",\"How old is Johann?\")\nEXE_BATCHED #THIS STATEMENT MUST EXIST AFTER ALL exeMS STATEMENTS. No exeMS is executed UNTIL AFTER THIS STATEMENT\ncondArgs['pug'] = batchedDataReturn['pug']\nself.ret = condArgs['pug']"
 		
 	def addLink(self,linkName,toNode):
 		problemHere = linkObj(linkName,toNode)
@@ -781,7 +826,6 @@ def compileWorkflow(workflowID):
 			
 			workflowCompiled += "\n\t\t\telif(self.branchCheck"+workflowName+str(nodeCount)+"_"+str(linkCount)+"(condArgs,passArgs)):"
 			workflowCompiled += "\n\t\t\t\tself.currentState = " + str(linkObj.toNode)
-			workflowCompiled += "\n\t\t\t\tself.pause = True"
 
 			
 			linkCount +=1
@@ -947,7 +991,7 @@ while True:
 			currentActiveNode = -1
 			lucida.updateObjectImage(lucida.currentLevelName,nodeIMG)
 			nodeData.active = 0
-		lucida.goUpDir()
+		lucida.goUpDir(1)
 		 
 
 		 

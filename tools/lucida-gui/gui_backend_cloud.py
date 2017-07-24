@@ -5,6 +5,8 @@ import json
 from pymongo import *
 from bson.objectid import ObjectId
 
+url_pfx = 'http://127.0.0.1:3000' # url that the index page is hosted
+
 class MongoDB(object):
 	def __init__(self):
 		mongodb_addr = os.environ.get('MONGO_PORT_27017_TCP_ADDR')
@@ -16,7 +18,7 @@ class MongoDB(object):
 	def get_services(self):
 		dictReturn = []
 
-		url = 'http://127.0.0.1:3000/api/v1/service'
+		url = url_pfx + '/api/v1/service'
 		r = requests.get(url)
 		ret_JSON = r.json()
 		dictReturn = ret_JSON['service_list']
@@ -35,7 +37,7 @@ class MongoDB(object):
 			# "location": location # location of service in local
 		}
 
-		url = 'http://127.0.0.1:3000/api/v1/service'
+		url = url_pfx + '/api/v1/service'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()
@@ -63,7 +65,7 @@ class MongoDB(object):
 			"value": value
 		}
 		
-		url = 'http://127.0.0.1:3000/api/v1/service'
+		url = url_pfx + '/api/v1/service'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()
@@ -93,7 +95,7 @@ class MongoDB(object):
 			"_id": _id
 		}
 		
-		url = 'http://127.0.0.1:3000/api/v1/service'
+		url = url_pfx + '/api/v1/service'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()
@@ -110,7 +112,7 @@ class MongoDB(object):
 	def get_workflows(self):
 		dictReturn = []
 
-		url = 'http://127.0.0.1:3000/api/v1/workflow'
+		url = url_pfx + '/api/v1/workflow'
 		r = requests.get(url)
 		ret_JSON = r.json()
 		dictReturn = ret_JSON['workflow_list']
@@ -128,7 +130,7 @@ class MongoDB(object):
 			"option": "add_empty"
 		}
 
-		url = 'http://127.0.0.1:3000/api/v1/workflow'
+		url = url_pfx + '/api/v1/workflow'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()
@@ -155,7 +157,7 @@ class MongoDB(object):
 			"value": value
 		}
 		
-		url = 'http://127.0.0.1:3000/api/v1/workflow'
+		url = url_pfx + '/api/v1/workflow'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()
@@ -183,7 +185,7 @@ class MongoDB(object):
 			"_id": _id
 		}
 		
-		url = 'http://127.0.0.1:3000/api/v1/workflow'
+		url = url_pfx + '/api/v1/workflow'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()
@@ -210,7 +212,7 @@ class MongoDB(object):
 			"_id": _id
 		}
 
-		url = 'http://127.0.0.1:3000/api/v1/instance'
+		url = url_pfx + '/api/v1/instance'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()
@@ -243,7 +245,7 @@ class MongoDB(object):
 			"value": value 
 		}
 
-		url = 'http://127.0.0.1:3000/api/v1/instance'
+		url = url_pfx + '/api/v1/instance'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()
@@ -274,7 +276,7 @@ class MongoDB(object):
 			"instance_id": instance_id 
 		}
 
-		url = 'http://127.0.0.1:3000/api/v1/instance'
+		url = url_pfx + '/api/v1/instance'
 		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
 		r = requests.post(url, data=json.dumps(post), headers=headers)
 		ret_JSON = r.json()

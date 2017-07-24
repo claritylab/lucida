@@ -52,8 +52,7 @@ Store all service supporting learn
 """
 
 def appendServiceRequest(data,arg1,arg2,arg3):
-	print(data,arg1,arg2,arg3)
-	data.append(serviceRequestData(arg1,arg2,[unicode(arg3)]))
+	data.append(serviceRequestData(arg1,arg2,[arg3]))
 	return data
 
 class serviceRequestData(object):
@@ -71,34 +70,6 @@ class workFlow(object):
         self.isEnd = False
         self.pause = False
         self.batchedData = []
-    
-class firstWorkflow(workFlow):
-    """
-    How does a workflow work? Reference firstWorkFlow as a walkthrough example.
-    This really should not be used anymore as its too difficult to generate a workflow by hand.
-    Instead, use the GUI tool which will automatically compile this
-    """
-
-    def processCurrentState(self,inputModifierText,inputModifierImage):
-        print "Executing state logic"
-        
-        if(self.currentState==0):
-            print "State 0"
-            self.currentState = 1; # This decides what state to go to next
-            # batchedData contains a list of service Requests. The function parameter is serviceRequestData(serviceName,dataToPassToService).
-            # Eg. "QA",inputModifierText[0]) means to pass to QA microservice with whatever was in the inputModifierText[0] (The text from the Lucida prompt))
-            self.batchedData = [serviceRequestData("QA",[unicode("How old is Johann")]),serviceRequestData("QA",inputModifierText[0])]
-            return
-        
-        if(self.currentState==1):
-            print "State 1"
-            # [1] is being passed as the input. This value came from: serviceRequestData("QA",inputModifierText[0])
-            # It is based on the positioning of the previous serviceRequestData batch.
-            # Eg. [0] = serviceRequestData("QA",[unicode("How old is Johann")], [1] = serviceRequestData("QA",inputModifierText[0])
-            #That means the second entry from state0 is being passed to it.
-            self.batchedData = [serviceRequestData("QA",inputModifierText[1])] 
-            self.isEnd = True # This indicates the workflow is complete
-            return
 
 def load_config():
     """
@@ -109,6 +80,7 @@ def load_config():
     db = database.db
     for input_t in LEARNERS:
         del LEARNERS[input_t][:]
+    SESSION.clear()
     # Update service list
     SERVICES.clear()
     service_list = db["service_info"].find()
@@ -158,8 +130,6 @@ def load_config():
     	exec(code)
     	for input_t in input_list:
     		CLASSIFIER_DESCRIPTIONS[input_t].append(name)
-        if len(input_list) == 2:
-            CLASSIFIER_DESCRIPTIONS['text_image'].append(name)
     	WFList[name] = eval(name+"()")
     return 0
 

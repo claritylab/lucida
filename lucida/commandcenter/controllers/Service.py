@@ -7,7 +7,7 @@ class Service(object):
         self.name = name
         self.count = 0
         if not (input_type == 'text' or input_type == 'image'):
-            print 'Can only process text and image'
+            log('Can only process text and image')
             exit()
         self.input_type = input_type
         self.learn_type = learn_type
@@ -23,7 +23,6 @@ class Service(object):
             cur_host = self.instance[self.count]['host']
             cur_port = self.instance[self.count]['port']
             self.count = (self.count + 1)%self.num
-            log('loop ' + str(self.count))
             return cur_host, cur_port
         except Exception:
             raise RuntimeError('Cannot access service ' + self.name)
@@ -32,5 +31,3 @@ class Service(object):
         for obj in self.instance:
             if obj['id'] == instance_id:
                 return obj['host'], obj['port']
-
-

@@ -24,7 +24,7 @@ def generic_infer_route(form, upload_file):
 			speech_input = form['speech_input'] if 'speech_input' in form \
 				else ''
 			print '@@@@@@@@@@', speech_input
-			image_input = [upload_file.read()] if upload_file else None
+			image_input = [upload_file.read()] if upload_file else []
 			lucida_id = session['username']
 			# Check if context is saved for Lucida user
 			# If not, classify query, otherwise restore session
@@ -34,10 +34,17 @@ def generic_infer_route(form, upload_file):
 				workflow = deepcopy(WFList[workflow_needed])
 				options['result'] = thrift_client.infer(lucida_id, workflow, text_input, image_input)			
 			else:
-				workflow = Config.SESSION[lucida_id]['workflow']
-				text_input = Config.SESSION[lucida_id]['resulttext']
-				text_input.insert(0, speech_input)
-				options['result'] = thrift_client.infer(lucida_id, workflow, text_input, image_input)
+				if 'workflow' in Config.SESSION[lucida_id]:
+					workflow = Config.SESSION[lucida_id]['workflow']
+					text_input = Config.SESSION[lucida_id]['resulttext']
+					text_input.insert(0, speech_input)
+					options['result'] = thrift_client.infer(lucida_id, workflow, text_input, image_input)
+				else:
+					workflow_needed = query_classifier.predict(speech_input, upload_file)
+					text_input = Config.SESSION[lucida_id]['resulttext']
+					text_input.insert(0, speech_input)
+					workflow = deepcopy(WFList[workflow_needed])
+					options['result'] = thrift_client.infer(lucida_id, workflow, text_input, image_input)		
 			log('Result ' + options['result'])
 			'''
 			# Check if Calendar service is needed.
