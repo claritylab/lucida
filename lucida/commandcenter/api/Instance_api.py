@@ -25,12 +25,13 @@ def instance_api_route():
 
 		if option == 'add':
 			if '_id' not in requestFields or 'name' not in requestFields or \
-					'host' not in requestFields or 'port' not in requestFields:
+					'host' not in requestFields or 'port' not in requestFields or \
+					'location' not in requestFields:
 				error = {'error': 'Field missing for adding instance'}
 				return jsonify(error), 422
 
 			ret, instance_id = db.add_instance(requestFields['_id'], requestFields['name'], 
-				requestFields['host'], requestFields['port'])
+				requestFields['host'], requestFields['port'], requestFields['location'])
 
 			if ret == 1:
 				error = {'error': 'Host/port pair not valid'}

@@ -1,1 +1,1 @@
-__all__ = ['Database', 'Service_api', 'Workflow_api', 'Instance_api']
+__all__ = ['Database', 'Service_api', 'Workflow_api', 'Instance_api', 'Blackbox_api']

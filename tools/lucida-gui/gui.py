@@ -376,19 +376,50 @@ class lucidaGUI(object):
 				
 		
 		## bbList has not been implemented in the GUI yet
-		'''
 		if(levelName=="bbList"):
 			didHit = 1
 			countServices = 0;
 			
-			self.addToLevel(0.25,0.25,0.25,0.10,0,"bbListHeader:",yellowBG,"Blackboxes:")
-			self.addToLevel(0.50,0.25,0.25,0.10,0,"newWF:",yellowBG,"New")
-			for WF in workflowList:
+			self.addToLevel(0.25,0.25,0.50,0.10,0,"bbListHeader:",yellowBG,"Microservices:")
+			for MS in microServiceList:
 				XY = self.getXYPositionEntry(countServices)
-				self.addToLevel(0.25+XY[0],0.35+XY[1],0.10,0.10,0,"wfListThing:"+str(countServices),grayBG,WF.name)
+				self.addToLevel(0.25+XY[0],0.35+XY[1],0.10,0.10,0,"bbListThing"+str(countServices),grayBG,MS.name)
 				countServices+= 1
-		'''	
-				
+
+		if "bbListThing" in levelName:
+			didHit = 1
+			getMSID = int(filter(str.isdigit, levelName))
+			msName = microServiceList[getMSID].name
+			self.addToLevel(0.25,0.25,0.50,0.10,0,"MicroservicesNameThing:"+str(getMSID),yellowBG,"MS: " + msName)
+			countServices = 0
+			for server in microServiceList[getMSID].serverList:
+				XY = self.getXYPositionEntry(countServices)
+				self.addToLevel(0.25+XY[0],0.35+XY[1],0.10,0.10,0,"bbinstance" + str(getMSID) + "bbinstance"+str(countServices),grayBG,server.name)
+				countServices+= 1
+
+		if "bbinstance" in levelName:
+			didHit = 1
+			print("BELOW THIS LINE")
+			idList = levelName.split("bbinstance")
+			msID = int(idList[1])
+			boxID = int(idList[2])
+			print(levelName.split("bbinstance"))
+			box = microServiceList[msID].serverList[boxID]
+			msName = microServiceList[msID].name
+			boxName = box.name
+			
+			self.addToLevel(0.25,0.25,0.25,0.10,0,"MS:" + msName,yellowBG,"MS: " + msName)
+			self.addToLevel(0.50,0.25,0.25,0.10,0,"BoxNameSet:" +str(msID) + "BoxNameSet:" + str(boxID),yellowBG,"Box: " + boxName)
+			self.addToLevel(0.25,0.35,0.50,0.10,0,"StartServer:" +str(msID) + "StartServer:" + str(boxID),yellowBG,"Start!")
+			
+		if "StartServer:" in levelName:
+			idList = levelName.split("StartServer:")
+			msID = int(idList[1])
+			boxID = int(idList[2])
+			box = microServiceList[msID].serverList[boxID]
+			status = db.start_server(microServiceList[msID].dbData['_id'], box.dbData['id'])
+			self.refreshCurrent()		
+
 				
 		#List a specific workflow
 		if "wfThing:" in levelName:
@@ -464,12 +495,12 @@ class lucidaGUI(object):
 			self.addToLevel(0.50,0.25,0.25,0.10,0,"newServer"+str(getMSID),yellowBG,"New")
 			self.addToLevel(0.25,0.35,0.50,0.05,0,"LearnType:"+str(getMSID),yellowBG,"LearnType: " + microServiceList[getMSID].dbData['learn'])
 			self.addToLevel(0.25,0.40,0.50,0.05,0,"InputType:"+str(getMSID),yellowBG,"InputType: " + microServiceList[getMSID].dbData['input'])
-			self.addToLevel(0.25,0.45,0.50,0.10,0,"DeleteService"+str(getMSID),dead,"Delete "+msName)
+			self.addToLevel(0.75,0.75,0.20,0.10,0,"DeleteService"+str(getMSID),dead,"Delete "+msName)
 
 			countServices = 0
 			for server in microServiceList[getMSID].serverList:
 				XY = self.getXYPositionEntry(countServices)
-				self.addToLevel(0.25+XY[0],0.55+XY[1],0.10,0.10,0,"serverBB" + str(getMSID) + "serverBB"+str(countServices),grayBG,server.name)
+				self.addToLevel(0.25+XY[0],0.45+XY[1],0.10,0.10,0,"serverBB" + str(getMSID) + "serverBB"+str(countServices),grayBG,server.name)
 				countServices+= 1
 		
 		# An instance of the service
@@ -484,11 +515,22 @@ class lucidaGUI(object):
 			msName = microServiceList[msID].name
 			boxName = box.name
 			
-			self.addToLevel(0.25,0.25,0.50,0.10,0,"MS:" + msName,yellowBG,"MS: " + msName)
-			self.addToLevel(0.25,0.35,0.50,0.10,0,"BoxNameSet:" +str(msID) + "BoxNameSet:" + str(boxID),yellowBG,"Box: " + boxName)
-			self.addToLevel(0.25,0.45,0.50,0.10,0,"IP:PORT"+str(msID)+"IP:PORT"+str(boxID),yellowBG,"IP:PORT:" + str(box.IP) + ":" + str(box.port))
-			self.addToLevel(0.25,0.55,0.50,0.10,0,"DeleteInstance"+str(msID)+"DeleteInstance"+str(boxID),dead,"Delete Instance")
-			
+			self.addToLevel(0.25,0.25,0.25,0.10,0,"MS:" + msName,yellowBG,"MS: " + msName)
+			self.addToLevel(0.50,0.25,0.25,0.10,0,"BoxNameSet:" +str(msID) + "BoxNameSet:" + str(boxID),yellowBG,"Box: " + boxName)
+			self.addToLevel(0.25,0.35,0.50,0.05,0,"IP:PORT"+str(msID)+"IP:PORT"+str(boxID),yellowBG,"IP:PORT:" + str(box.IP) + ":" + str(box.port))
+			self.addToLevel(0.25,0.40,0.50,0.35,0,"LOCATION"+str(msID)+"LOCATION"+str(boxID),yellowBG,"Location:"+str(box.location))
+			self.addToLevel(0.25,0.75,0.50,0.10,0,"DeleteInstance"+str(msID)+"DeleteInstance"+str(boxID),dead,"Delete "+boxName)
+		
+		if "LOCATION" in levelName:
+			idList = levelName.split("LOCATION")
+			msID = int(idList[1])
+			boxID = int(idList[2])
+			box = microServiceList[msID].serverList[boxID]
+			returnText = getUserInputText()
+			status = db.update_instance(microServiceList[msID].dbData['_id'], box.dbData['id'], "location", returnText)
+			generateMicroServiceList()
+			self.refreshCurrent()
+
 		if "DeleteInstance" in levelName:
 			didHit = 1
 			goUpDirtime=2
@@ -597,7 +639,7 @@ class lucidaGUI(object):
 				status = db.update_service( microServiceList[getMSID].dbData['_id'], "input", "image")
 			if(microServiceList[getMSID].dbData['input']=='image'):
 				status = db.update_service( microServiceList[getMSID].dbData['_id'], "input", "text")	
-			generateMicroServiceList()
+			generateMicroServiceList() 
 	
 			#Toggles a workflow between input types
 		if "wfType:" in levelName:
@@ -701,8 +743,9 @@ class lucidaGUI(object):
 class server(object):
 	def __init__(self,name):
 		self.name = name
-		self.IP = "localhost"
+		self.IP = "127.0.0.1"
 		self.port = 0
+		self.location = ""
 		
 
 
@@ -712,11 +755,12 @@ class microService(object):
 		self.serverList = []
 		
 		
-	def addServer(self,name,ip="",port=0):
+	def addServer(self,name,ip="",port=0,location=""):
 		serverThing = server(name)
 		self.serverList.append(serverThing)
 		serverThing.IP = ip
 		serverThing.port = port
+		serverThing.location = location
 		
 class linkObj(object):
 	def __init__(self,name,toNode):
@@ -891,7 +935,7 @@ def generateMicroServiceList():
 		countInst = 0
 		for instance in service['instance']:
 			if(instance['name']==""): instance['name'] = "NULL"
-			microServiceList[count].addServer(instance['name'],instance['host'],instance['port'])
+			microServiceList[count].addServer(instance['name'],instance['host'],instance['port'],instance['location'])
 			microServiceList[count].serverList[countInst].dbData = instance
 			countInst+=1
 		count+= 1

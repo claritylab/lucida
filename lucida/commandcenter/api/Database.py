@@ -263,7 +263,7 @@ class MongoDB(object):
 		collection.remove({'_id': ObjectId(_id)})
 		return 0
 
-	def add_instance(self, _id, name, host, port):
+	def add_instance(self, _id, name, host, port, location):
 		"""
 		return code:
 		0: success
@@ -308,6 +308,7 @@ class MongoDB(object):
 			'name': name,
 			'host': host,
 			'port': port,
+			'location': location,
 			'id': instance_id
 		}}})
 		return 0, instance_id
@@ -324,6 +325,7 @@ class MongoDB(object):
 		name = ''
 		host = '127.0.0.1'
 		port = 0
+		location = ''
 		object_id = ObjectId(_id)
 		count = collection.count({'_id': object_id})
 		if count != 1:
@@ -337,6 +339,7 @@ class MongoDB(object):
 			'name': name,
 			'host': host,
 			'port': port,
+			'location': location,
 			'id': instance_id
 		}}})
 		return 0, instance_id
@@ -417,6 +420,33 @@ class MongoDB(object):
 			return 1
 
 		collection.update({'_id':object_id}, {'$pull': {'instance': {'id': instance_id}}})
+		return 0
+
+	def start_server(self, _id, instance_id):
+		collection = self.db.service_info
+
+		# check if current service is in MongoDB
+		object_id = ObjectId(_id)
+		result = collection.find({'_id': object_id, 'instance.id': instance_id})
+		if result.count() != 1:
+			print('[python error] Instance name not exists.')
+			return 1
+
+		cur_instance = {}
+		instance_result = result[0]['instance']
+		for instance in instance_result:
+			if instance['id'] == instance_id:
+				cur_instance = instance
+
+		port = cur_instance['port']
+		location = cur_instance['location']
+
+		# following code may change depend on how to start server
+		wrapper_begin = 'gnome-terminal -x bash -c "'
+		wrapper_end = '"'
+		code = 'cd ' + location + "; "
+		code = code + "make start_server port=" + str(port)
+		os.system(wrapper_begin + code + wrapper_end)
 		return 0
 
 def validate_ip_port(s, p):

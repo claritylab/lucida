@@ -289,35 +289,27 @@ class MongoDB(object):
 				return 1
 			else:
 				return -1
-	"""
-	# import this module and call start_server(name) to start
-	def start_server(self, name):
-		location, instance = self.search_path(name)
 
-		# start each instance
-		for pair in instance:
-			port = pair['port']
-			wrapper_begin = 'gnome-terminal -x bash -c "'
-			wrapper_end = '"'
-			code = 'cd ' + location + "; "
-			code = code + "make start_server port=" + str(port)
-			os.system(wrapper_begin + code + wrapper_end)
+	def start_server(self, _id, instance_id):
+		post = {
+			"option": "start",
+			"_id": _id, 
+			"instance_id": instance_id 
+		}
 
-	def search_path(self, name):
-		# get collection for service information
-		collection = self.db.service_info
-
-		result = collection.find({'name': name})
-
-		# check if current service is in MongoDB
-		count = result.count()
-		if count != 1:
-			#collection.delete_many({"name" : sys.argv[2]})
-			print('[python error] service not in MongoDB.')
-			exit(1)
-
-		return result[0]['location'], result[0]['instance']
-	"""
+		url = url_pfx + '/api/v1/blackbox'
+		headers = {'Content-type':'application/json', 'Accept': 'text/plain'}
+		r = requests.post(url, data=json.dumps(post), headers=headers)
+		ret_JSON = r.json()
+		ret_status = r.status_code
+		if ret_status == 200:
+			return 0
+		else:
+			error = ret_JSON['error']
+			if error == 'Instance not exists':
+				return 1
+			else:
+				return -1
 
 def validate_ip_port(s, p):
 	"""
