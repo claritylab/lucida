@@ -409,7 +409,7 @@ class lucidaGUI(object):
 			boxName = box.name
 			
 			self.addToLevel(0.25,0.25,0.25,0.10,0,"MS:" + msName,yellowBG,"MS: " + msName)
-			self.addToLevel(0.50,0.25,0.25,0.10,0,"BoxNameSet:" +str(msID) + "BoxNameSet:" + str(boxID),yellowBG,"Box: " + boxName)
+			self.addToLevel(0.50,0.25,0.25,0.10,0,"BoxNameBB:",yellowBG,"Box: " + boxName)
 			self.addToLevel(0.25,0.35,0.50,0.10,0,"StartServer:" +str(msID) + "StartServer:" + str(boxID),yellowBG,"Start!")
 			
 		if "StartServer:" in levelName:

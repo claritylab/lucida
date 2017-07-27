@@ -1,4 +1,5 @@
 #!/bin/bash
+THREADS=1
 if [ -z $THREADS ]; then
   THREADS=`nproc`
 fi
