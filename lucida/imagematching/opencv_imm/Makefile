@@ -1,4 +1,4 @@
-SUBDIRS=server test
+SUBDIRS=tools server test
 include ../../../Makefile.common
 
 start_server:
