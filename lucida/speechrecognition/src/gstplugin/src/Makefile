@@ -131,7 +131,9 @@ am__installdirs = "$(DESTDIR)$(plugindir)"
 LTLIBRARIES = $(plugin_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 libgstasrplugin_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
-am_libgstasrplugin_la_OBJECTS = libgstasrplugin_la-gstasrplugin.lo
+am_libgstasrplugin_la_OBJECTS = libgstasrplugin_la-gstasrplugin.lo \
+	libgstasrplugin_la-a_s_r_thrift_service.lo \
+	libgstasrplugin_la-asrthriftservice_types.lo
 libgstasrplugin_la_OBJECTS = $(am_libgstasrplugin_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -204,13 +206,13 @@ ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/plugin/missing aclocal-1.15
+ACLOCAL = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/plugin/missing autoconf
-AUTOHEADER = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/plugin/missing autoheader
-AUTOMAKE = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/plugin/missing automake-1.15
+AUTOCONF = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin/missing autoconf
+AUTOHEADER = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin/missing autoheader
+AUTOMAKE = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin/missing automake-1.15
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -249,7 +251,7 @@ LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
 MAINT = 
-MAKEINFO = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/plugin/missing makeinfo
+MAKEINFO = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -275,10 +277,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 1.0.0
-abs_builddir = /usr/local/src/lucida/lucida/speechrecognition/plugin/src
-abs_srcdir = /usr/local/src/lucida/lucida/speechrecognition/plugin/src
-abs_top_builddir = /usr/local/src/lucida/lucida/speechrecognition/plugin
-abs_top_srcdir = /usr/local/src/lucida/lucida/speechrecognition/plugin
+abs_builddir = /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin/src
+abs_srcdir = /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin/src
+abs_top_builddir = /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin
+abs_top_srcdir = /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -307,7 +309,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/plugin/install-sh
+install_sh = ${SHELL} /usr/local/src/lucida/lucida/speechrecognition/src/gstplugin/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -334,12 +336,12 @@ top_srcdir = ..
 plugin_LTLIBRARIES = libgstasrplugin.la
 
 # sources used to compile this plug-in
-libgstasrplugin_la_SOURCES = gstasrplugin.c gstasrplugin.h
+libgstasrplugin_la_SOURCES = gstasrplugin.c gstasrplugin.h ../../../include/gen-c_glib/a_s_r_thrift_service.h ../../../include/gen-c_glib/asrthriftservice_types.h ../../../include/gen-c_glib/a_s_r_thrift_service.c ../../../include/gen-c_glib/asrthriftservice_types.c
 
 # compiler and linker flags used to compile this plugin, set in configure.ac
-libgstasrplugin_la_CFLAGS = $(GST_CFLAGS)
+libgstasrplugin_la_CFLAGS = $(GST_CFLAGS) -I ../../../include -I ../../../include/gen-c_glib -I/usr/local/include/thrift
 libgstasrplugin_la_LIBADD = $(GST_LIBS)
-libgstasrplugin_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS)
+libgstasrplugin_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS) -L/usr/local/lib -lthrift -lthrift_c_glib -lthriftprotocol
 libgstasrplugin_la_LIBTOOLFLAGS = --tag=disable-static
 
 # headers we need but don't want installed
@@ -422,6 +424,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/libgstasrplugin_la-a_s_r_thrift_service.Plo
+include ./$(DEPDIR)/libgstasrplugin_la-asrthriftservice_types.Plo
 include ./$(DEPDIR)/libgstasrplugin_la-gstasrplugin.Plo
 
 .c.o:
@@ -451,6 +455,20 @@ libgstasrplugin_la-gstasrplugin.lo: gstasrplugin.c
 #	$(AM_V_CC)source='gstasrplugin.c' object='libgstasrplugin_la-gstasrplugin.lo' libtool=yes \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(libgstasrplugin_la_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgstasrplugin_la_CFLAGS) $(CFLAGS) -c -o libgstasrplugin_la-gstasrplugin.lo `test -f 'gstasrplugin.c' || echo '$(srcdir)/'`gstasrplugin.c
+
+libgstasrplugin_la-a_s_r_thrift_service.lo: ../../../include/gen-c_glib/a_s_r_thrift_service.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(libgstasrplugin_la_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgstasrplugin_la_CFLAGS) $(CFLAGS) -MT libgstasrplugin_la-a_s_r_thrift_service.lo -MD -MP -MF $(DEPDIR)/libgstasrplugin_la-a_s_r_thrift_service.Tpo -c -o libgstasrplugin_la-a_s_r_thrift_service.lo `test -f '../../../include/gen-c_glib/a_s_r_thrift_service.c' || echo '$(srcdir)/'`../../../include/gen-c_glib/a_s_r_thrift_service.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libgstasrplugin_la-a_s_r_thrift_service.Tpo $(DEPDIR)/libgstasrplugin_la-a_s_r_thrift_service.Plo
+#	$(AM_V_CC)source='../../../include/gen-c_glib/a_s_r_thrift_service.c' object='libgstasrplugin_la-a_s_r_thrift_service.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(libgstasrplugin_la_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgstasrplugin_la_CFLAGS) $(CFLAGS) -c -o libgstasrplugin_la-a_s_r_thrift_service.lo `test -f '../../../include/gen-c_glib/a_s_r_thrift_service.c' || echo '$(srcdir)/'`../../../include/gen-c_glib/a_s_r_thrift_service.c
+
+libgstasrplugin_la-asrthriftservice_types.lo: ../../../include/gen-c_glib/asrthriftservice_types.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(libgstasrplugin_la_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgstasrplugin_la_CFLAGS) $(CFLAGS) -MT libgstasrplugin_la-asrthriftservice_types.lo -MD -MP -MF $(DEPDIR)/libgstasrplugin_la-asrthriftservice_types.Tpo -c -o libgstasrplugin_la-asrthriftservice_types.lo `test -f '../../../include/gen-c_glib/asrthriftservice_types.c' || echo '$(srcdir)/'`../../../include/gen-c_glib/asrthriftservice_types.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libgstasrplugin_la-asrthriftservice_types.Tpo $(DEPDIR)/libgstasrplugin_la-asrthriftservice_types.Plo
+#	$(AM_V_CC)source='../../../include/gen-c_glib/asrthriftservice_types.c' object='libgstasrplugin_la-asrthriftservice_types.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(libgstasrplugin_la_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgstasrplugin_la_CFLAGS) $(CFLAGS) -c -o libgstasrplugin_la-asrthriftservice_types.lo `test -f '../../../include/gen-c_glib/asrthriftservice_types.c' || echo '$(srcdir)/'`../../../include/gen-c_glib/asrthriftservice_types.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -50,17 +50,14 @@
 #include <pthread.h>
 #include <gst/gst.h>
 
+#include <thrift/c_glib/protocol/thrift_binary_protocol.h>
+#include <thrift/c_glib/transport/thrift_buffered_transport.h>
+#include <thrift/c_glib/transport/thrift_socket.h>
+#include "a_s_r_thrift_service.h"
+
 G_BEGIN_DECLS
 
 /* #defines don't like whitespacey bits */
-#define MIN_SILENCE_TIMEOUT 1.0f
-#define MAX_SILENCE_TIMEOUT 5.0f
-#define DEFAULT_SILENCE_TIMEOUT 2.0f
-#define DEFAULT_INITIAL_SILENCE_TIMEOUT 5.0f
-
-#define MIN_SILENCE_THRESHOLD 100
-#define MAX_SILENCE_THRESHOLD 10000
-#define DEFAULT_SILENCE_THRESHOLD 2000
 
 #define GST_TYPE_ASRPLUGIN \
   (gst_asrplugin_get_type())
@@ -82,17 +79,15 @@ struct _Gstasrplugin
 
   GstPad *sinkpad, *srcpad;
 
+  gint count;
   gboolean shutting_down;
-  gint decoder_data;
-  FILE* decoder_ctrl;
+  ThriftSocket *socket;
+  ThriftTransport *transport;
+  ThriftProtocol *protocol;
+  ASRThriftServiceIf *client;
+  GError *error;
   FILE* decoder_out;
-  gchar decoder_data_name[32];
-  gchar decoder_ctrl_name[32];
   gfloat segment_length;
-  gfloat silence_timeout;
-  gfloat initial_silence_timeout;
-  gfloat silent_for;
-  guint silence_threshold;
   pthread_t tid;
 };
 

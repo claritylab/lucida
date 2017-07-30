@@ -9,6 +9,7 @@ import json
 from ws4py.client.threadedclient import WebSocketClient
 import ws4py.messaging
 
+sys.path.insert(0, os.getcwd() + "/include")
 import common
 
 logger = logging.getLogger(__name__)
@@ -18,6 +19,7 @@ class SocketHandler(WebSocketClient):
         STATE_CONNECTED = 1
         STATE_INITIALIZED = 2
         STATE_PROCESSING = 3
+        STATE_EOP_RECEIVED = 6
         STATE_EOS_RECEIVED = 7
         STATE_CANCELLING = 8
         STATE_FINISHED = 100
@@ -47,7 +49,7 @@ class SocketHandler(WebSocketClient):
                                 logger.warning("%s: More than %d seconds since last message from master, pushing EOS to pipeline" % (self.request_id, self.silence_timeout))
                                 self.pipeline.end_request()
                                 self.state = self.STATE_EOS_RECEIVED
-                                event = dict(status=common.STATUS_MASTER_TIMED_OUT)
+                                event = dict(status=common.WARN_TIMEOUT)
                                 try:
                                         self.send(json.dumps(event))
                                 except:
@@ -63,10 +65,12 @@ class SocketHandler(WebSocketClient):
                 if self.state == self.STATE_CONNECTED:
                         if isinstance(message, ws4py.messaging.TextMessage):
                             props = json.loads(str(message))
-                            context = props['context']
-                            caps_str = props['caps']
+                            self.context = props['context']
+                            self.caps_str = props['caps']
                             self.request_id = props['id']
-                            self.pipeline.init_request(self.request_id, caps_str, context)
+                            self.user = props['user']
+                            self.in_call = props['in_call']
+                            self.pipeline.init_request(self.request_id, self.caps_str, self.context)
                             self.state = self.STATE_INITIALIZED
                             self.last_master_message = time.time() + self.initial_silence_timeout - self.silence_timeout
                             thread.start_new_thread(self.master_timeout, ())
@@ -76,18 +80,17 @@ class SocketHandler(WebSocketClient):
                             self.finish_request()
                 elif message.data == "EOS":
                         if self.state != self.STATE_CANCELLING and self.state != self.STATE_EOS_RECEIVED and self.state != self.STATE_FINISHED:
-                                self.decoder_pipeline.end_request()
+                                self.pipeline.end_request()
                                 self.state = self.STATE_EOS_RECEIVED
                         else:
                                 logger.info("%s: Ignoring EOS, worker already in state %d" % (self.request_id, self.state))
                 else:
                         if self.state != self.STATE_CANCELLING and self.state != self.STATE_EOS_RECEIVED and self.state != self.STATE_FINISHED:
                                 if isinstance(message, ws4py.messaging.BinaryMessage):
-                                        self.decoder_pipeline.process_data(message.data)
+                                        self.pipeline.process_data(message.data)
                                         self.state = self.STATE_PROCESSING
                                 else:
                                     logger.info("Non-binary message received while waiting for audio!!! Ignoring message...")
-                                    self.finish_request()
                         else:
                                 logger.info("%s: Ignoring data, worker already in state %d" % (self.request_id, self.state))
 
@@ -125,7 +128,7 @@ class SocketHandler(WebSocketClient):
         def _on_interim_result(self, result, duration):
                 logger.debug("%s: Received interim result." % (self.request_id))
 
-                event = dict(id=self.request_id, status=common.STATUS_SUCCESS, result=dict(hypotheses=[dict(transcript=result)], final=False), total_length=duration)
+                event = dict(id=self.request_id, status=common.SUCCESS_OK, result=dict(hypotheses=[dict(transcript=result)], final=False), total_length=duration)
                 try:
                         self.send(json.dumps(event))
                 except:
@@ -135,7 +138,10 @@ class SocketHandler(WebSocketClient):
         def _on_final_result(self, result, duration, context):
                 logger.debug("%s: Received final result" % (self.request_id))
 
-                event = dict(id=self.request_id, status=common.STATUS_SUCCESS, result=dict(hypotheses=[dict(transcript=result, context=context)], final=True), total_length=duration)
+                event = dict(id=self.request_id, status=common.SUCCESS_OK, result=dict(hypotheses=[dict(transcript=result, context=context)], final=True), total_length=duration)
+                self.cntxt = context
+                if self.in_call:
+                        event['next_id'] = str(uuid.uuid4())
                 try:
                         self.send(json.dumps(event))
                 except:
@@ -143,12 +149,20 @@ class SocketHandler(WebSocketClient):
                         logger.warning("Failed to send event to master: %s" % e)
 
         def _on_eos(self, data=None):
-                self.state = self.STATE_FINISHED
-                self.close()
+                if self.in_call:
+                        self.state = self.STATE_INITIALIZED
+                        logger.info("%s: Started new request" % self.request_id)
+                        self.pipeline.init_request(self.request_id, self.caps_str, self.context)
+                        self.last_master_message = time.time() + self.initial_silence_timeout - self.silence_timeout
+                        thread.start_new_thread(self.master_timeout, ())
+                        logger.info("%s: Started master timeout thread" % self.request_id)
+                else:
+                        self.state = self.STATE_FINISHED
+                        self.close()
 
         def _on_error(self, error):
                 self.state = self.STATE_FINISHED
-                event = dict(status=common.STATUS_GENERIC_ERROR, message=error)
+                event = dict(status=common.ERROR_GENERIC, message=error)
                 try:
                         self.send(json.dumps(event))
                 except:

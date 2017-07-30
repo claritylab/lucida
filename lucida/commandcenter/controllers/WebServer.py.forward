@@ -164,7 +164,8 @@ class DecoderAPIHandler(tornado.web.RequestHandler):
 		result = yield tornado.gen.Task(self.get_final_result)
 		if self.error_status == 0:
 			logging.info("%s: Final result: %s" % (self.id, result))
-			self.write(result)
+			response = {"status" : 0, "id": self.id, "hypotheses": [{"utterance" : result}]}
+			self.write(response)
 		else:
 			logging.info("%s: Error (status=%d) processing HTTP request: %s" % (self.id, self.error_status, self.error_message))
 			response = {"status" : self.error_status, "id": self.id, "message": self.error_message}
@@ -174,7 +175,7 @@ class DecoderAPIHandler(tornado.web.RequestHandler):
 		self.finish()
 		logging.info("API::SPEECH Everything done")
 
-	def send_event(self, event):
+	def send_event(self, event):											###########################
 		event_str = str(event)
 		if len(event_str) > 100:
 			event_str = event_str[:97] + "..."
@@ -182,7 +183,7 @@ class DecoderAPIHandler(tornado.web.RequestHandler):
 		if event["status"] == 0 and ("result" in event):
 			try:
 				if len(event["result"]["hypotheses"]) > 0 and event["result"]["final"]:
-					self.final_result = str(event)
+					self.final_result = event["result"]["hypotheses"][0]["transcript"]
 			except:
 				e = sys.exc_info()[0]
 				logging.warn("Failed to extract hypothesis from recognition result:" + e)
@@ -214,6 +215,101 @@ class StatusSocketHandler(tornado.websocket.WebSocketHandler):
                 logging.info("Status listener left")
                 self.application.status_listeners.remove(self)
 
+class ControlSocketHandler(tornado.websocket.WebSocketHandler):
+	# needed for Tornado 4.0
+	def check_origin(self, origin):
+		return True
+
+	def open(self):
+		logging.info("CTRL: Opened new control channel to client. Waiting for authentication...")
+                self.set_nodelay(True)
+		self.status = STATUS_NOT_AUTHENTICATED
+
+	def authenticate(self, message):
+		self.status = STATUS_CONNECTED
+		self.application.status_listeners.add(self)
+		message = dict(status= 200, message= "Client successfully authenticated...")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: Client successfully authenticated...")
+
+	def online(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: A user has come online...")
+
+	def offline(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: A user has gone offline...")
+
+	def query(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: Received query command...")
+
+	def add_image(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: Received add_image command...")
+
+	def delete_image(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: Received delete_image command...")
+
+	def add_text(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: Received add_text command...")
+
+	def add_url(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: Received add_url command...")
+
+	def delete_text(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: Received delete_text command...")
+
+	def infer(self, message):
+		message = dict(status= 501, message= "Method not implemented!!!")
+       	        self.write_message(json.dumps(message))
+		logging.info("CTRL: Received infer command...")
+
+
+	# map commands to functions
+	execute = {
+		    'authenticate' : authenticate,
+		    'online' : online,
+		    'offline' : offline,
+		    'query' : query,
+		    'add_image' : add_image,
+		    'delete_image' : delete_image,
+		    'add_text' : add_text,
+		    'add_url' : add_url,
+		    'delete_text' : delete_text,
+		    'infer' : infer
+	}
+
+	def on_message(self, message):
+		try:
+			logging.info("CTRL: Received %s" % message)
+			message = json.loads(message)
+	                if self.status == STATUS_NOT_AUTHENTICATED and message['command'] != "authenticate":
+				message = dict(status= 400, message= "Data received before authentication!!1 Please raise an issue with the interface maintainer...")
+	        	        self.write_message(json.dumps(message))
+				return
+			self.execute[message['command']](self, message)
+		except:
+			message = dict(status= 400, message= "Invalid message received!!1 Please raise an issue with the interface maintainer...")
+        	        self.write_message(json.dumps(message))
+
+	def on_close(self):
+		logging.info("Status listener left")
+		self.application.status_listeners.remove(self)
+
+
 class WorkerSocketHandler(tornado.websocket.WebSocketHandler):
 	def __init__(self, application, request, **kwargs):
 		tornado.websocket.WebSocketHandler.__init__(self, application, request, **kwargs)
@@ -240,8 +336,6 @@ class WorkerSocketHandler(tornado.websocket.WebSocketHandler):
 		assert self.client_socket is not None
 		event = json.loads(message)
 		self.client_socket.send_event(event)
-		if 'next_id' in event:
-			self.client_socket.set_id(event['id'])
 
 	def set_client_socket(self, client_socket):
 		self.client_socket = client_socket
@@ -251,9 +345,6 @@ class DecoderSocketHandler(tornado.websocket.WebSocketHandler):
 	# needed for Tornado 4.0
 	def check_origin(self, origin):
 		return True
-
-	def set_id(self, id):
-		self.id = id
 
 	def send_event(self, event):
 		event["id"] = self.id
@@ -267,15 +358,8 @@ class DecoderSocketHandler(tornado.websocket.WebSocketHandler):
 		self.id = str(uuid.uuid4())
 		logging.info("%s: OPEN" % (self.id))
 		logging.info("%s: Request arguments: %s" % (self.id, " ".join(["%s=\"%s\"" % (a, self.get_argument(a)) for a in self.request.arguments])))
-		user = self.get_argument("user", None, True)
-		interface = self.get_argument("interface", None, True)
-		user = database.get_username(interface, user)
-                if user == None:
-			logging.warn("Not authorised")
-			event = dict(status=STATUS_NOT_AVAILABLE, message="User not authorised!!!")
-			self.send_event(event)
-			self.close()
-                        return
+		self.user_id = self.get_argument("user-id", "none", True)
+		self.content_id = self.get_argument("content-id", "none", True)
 		self.worker = None
 		try:
 			self.worker = self.application.available_workers.pop()
@@ -283,13 +367,11 @@ class DecoderSocketHandler(tornado.websocket.WebSocketHandler):
 			logging.info("%s: Using worker %s" % (self.id, self.__str__()))
 			self.worker.set_client_socket(self)
 
-			context = self.get_argument("context", None, True)
-			self.isCall = self.get_argument("isCall", False, True)
 			content_type = self.get_argument("content-type", None, True)
 			if content_type:
 				logging.info("%s: Using content type: %s" % (self.id, content_type))
 
-                        self.worker.write_message(json.dumps(dict(id=self.id, caps=content_type, context=context, user=user, isCall=self.isCall)))
+                        self.worker.write_message(json.dumps(dict(id=self.id, caps=content_type, context="{}", user=self.user_id)))
 		except KeyError:
 			logging.warn("%s: No worker available for client request" % self.id)
 			event = dict(status=STATUS_NOT_AVAILABLE, message="No decoder available, try again later")

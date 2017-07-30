@@ -1,12 +1,17 @@
+import os, sys
+if os.path.basename(os.getcwd()) != "speechrecognition":
+    print "This script should be run using `make start_server` command in speechrecognition directory"
+    sys.exit(1)
+
 import logging
 import logging.handlers
-import os
+import os, sys
 import click
-import configuration
 from gi.repository import GObject
 import threading
 import time
 
+import configuration
 from decoder_pipeline import DecoderPipeline
 from worker_socket import SocketHandler
 logger = logging.getLogger(__name__)
@@ -15,11 +20,13 @@ SILENCE_TIMEOUT = 2
 INITIAL_SILENCE_TIMEOUT = 5
 RESPONSE_TIMEOUT = 30
 CONNECT_TIMEOUT = 5
-MAX_DURATION = 1800
+MAX_CALL_DURATION = 3600
+MAX_SEGMENT_DURATION = 600
+
 
 DECODERS = []
-for decoder in next(os.walk(os.path.dirname(os.path.realpath(__file__)) + "/decoders/"))[1]:
-    if os.path.isfile(os.path.dirname(os.path.realpath(__file__)) + "/decoders/" + decoder + "/decoder") and os.access(os.path.dirname(os.path.realpath(__file__)) + "/decoders/" + decoder + "/decoder", os.X_OK):
+for decoder in next(os.walk("decoders/"))[1]:
+    if os.path.isfile("decoders/" + decoder + "/decoder") and os.access("decoders/" + decoder + "/decoder", os.X_OK):
         DECODERS.append(decoder)
 
 @click.command()
@@ -34,20 +41,21 @@ def main(decoder, threads):
     INITIAL_SILENCE_TIMEOUT = conf['initial_silence_timeout']
     global RESPONSE_TIMEOUT
     RESPONSE_TIMEOUT = conf['response_timeout']
-#    global CONNECT_TIMEOUT
-#    CONNECT_TIMEOUT = conf['connect_timeout']
-#    global MAX_DURATION
-#    MAX_DURATION = conf['max_duration']
+    global CONNECT_TIMEOUT
+    CONNECT_TIMEOUT = conf['retry_after']
+    global MAX_CALL_DURATION
+    MAX_CALL_DURATION = conf['max_call_duration']
+    global MAX_SEGMENT_DURATION
+    MAX_SEGMENT_DURATION = conf['max_segment_duration']
 
     logger.setLevel(conf['worker_verbosity'])
-    os.environ['GST_DEBUG'] = conf['gstreamer_verbosity']
 
     conf['decoder'] = decoder
 
     if threads > 1:
         import tornado.process
         logging.info("Forking into %d processes" % threads)
-        tornado.process.fork_processes(args.fork)
+        tornado.process.fork_processes(threads)
 
     pipeline = DecoderPipeline(conf)
 

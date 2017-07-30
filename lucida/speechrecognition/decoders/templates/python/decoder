@@ -1,23 +1,23 @@
 #!/usr/bin/env python
 
 """
-Created on Jun 14 2017
+Created on Jul 13 2017
 
 @author: kamal1210
 """
 from __future__ import print_function
 
 import os, sys, time
-import threading, json, uuid
-import requests, click
+import threading, json
+import click
 
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 from thrift.server import TServer
 
-sys.path.insert(0, "include")
-sys.path.insert(0, "include/gen-py")
+sys.path.insert(0, "../../include")
+sys.path.insert(0, "../../include/gen-py")
 
 from asrthriftservice import ASRThriftService
 import common
@@ -30,6 +30,7 @@ STATE_WAITING      = 4
 
 class SpeechDecoder(object):
 
+    # Writes event messages to output. See README in speechrecognition/decoders for list of all available events.
     def _send_event(self, type, status, data):
         message = json.dumps({'event': type, 'status': status, 'data': data})
         try:
@@ -38,49 +39,37 @@ class SpeechDecoder(object):
         except IOError:
             pass
 
-    def _post_data_gen(self):
-        self._send_event("debug", common.SUCCESS_OK, "Opened post data stream")
-        while self.state == STATE_LISTENING:
-            if len(self.input_buffer) > 0:
-                yield self.input_buffer.pop(0)
-        while len(self.input_buffer) > 0:
-            yield self.input_buffer.pop(0)
-        self.state = STATE_WAITING
-        self._send_event("debug", common.SUCCESS_OK, "Closed post data stream. Waiting for response...")
-
-    def _post_req_gen(self):
+    # Processes audio data. This function reads audio data from input_buffer and processes it
+    def processor(self):
         self.state = STATE_LISTENING
         id = self.id
-        self._send_event("debug", common.SUCCESS_OK, "Initiating post request to WIT.AI")
-        try:
-            response = requests.post(self.api_host, headers=self.headers, data=self._post_data_gen(), timeout=( 5, self.request_timeout))
-            message = json.loads(response.text)
-            response.raise_for_status()
-        except requests.exceptions.ConnectionError:
-            if id == self.id:
-                self._send_event("error", common.ERROR_INTERNET, "Could not connect to WIT.AI!!! Are you connected to the internet?")
-            return
-        except requests.exceptions.Timeout:
-            if id == self.id:
-                self._send_event("error", common.ERROR_TIMEOUT, "Connection to WIT.AI timed out!!!")
-            return
-        except requests.exceptions.HTTPError:
-            if id == self.id:
-                self._send_event("error", common.ERROR_GENERIC, message['error'])
-            return
-        except Exception as e:
-            if id == self.id:
-                self._send_event("error", common.ERROR_CRITICAL, "Something went terribly wrong while configuring decoder!!! Please raise an issue with the maintainer... Exception: %s" % e.message)
-            return
+        self._send_event("debug", common.SUCCESS_OK, "Starting to process audio data")
 
+        # Read continously while listeneing
+        while self.state == STATE_LISTENING:
+            if len(self.input_buffer) > 0:
+                # TODO: process self.input_buffer.pop(0) and send interim results if the thread is not aborted
+                if id == self.id:
+                    self._send_event("interim_result", common.SUCCESS_OK, "INTERIM_TRANSCRIPT_GOES_HERE")
+
+        # Read till end once EOS received
+        while len(self.input_buffer) > 0:
+            # TODO: process self.input_buffer.pop(0) and send interim results if the thread is not aborted
+            if id == self.id:
+                self._send_event("interim_result", common.SUCCESS_OK, "INTERIM_TRANSCRIPT_GOES_HERE")
+            break
+
+        # Check if this thread has been aborted
         if not id == self.id:
-            self._send_event("debug", common.SUCCESS_OK, "An old post request thread was aborted succesfully")
+            self._send_event("debug", common.SUCCESS_OK, "An old decoder thread was aborted succesfully")
             return
 
-        self._send_event("final_result", common.SUCCESS_OK, message['_text'])
-        self._send_event("debug", common.SUCCESS_OK, "Finished post request to WIT.AI")
+        self.state = STATE_WAITING
+        self._send_event("final_result", common.SUCCESS_OK, json.dumps(dict(transcript="FINAL_TRANSCRIPT_GOES_HERE",entities="OPTIONAL. SEE README",response="OPTIONAL. SEE README")))
+        self._send_event("debug", common.SUCCESS_OK, "Closed post data stream. Waiting for response...")
         self.state = STATE_READY
 
+    # This function aborts processing discarding all pending output
     def abort(self):
         if self.state == STATE_READY :
             self._send_event("warn", common.WARN_GENERIC, "Abort message received when decoder is idle!!! Ignoring message...")
@@ -91,16 +80,18 @@ class SpeechDecoder(object):
         self.id = ""
         self.state = STATE_READY
         self.input_buffer = []
-        self.cntxt = ""
-        self._send_event("warn", common.WARN_ABORT, "Decoder was reset!!! All data cleared")
+        self.context = ""
+        self._send_event("warn", common.WARN_ABORTED, "Decoder was reset!!! All data cleared")
 
+    # Class constructor
     def __init__(self):
         self.send_event_lock = threading.Lock()
         self.input_buffer = []
         self.state = STATE_CREATED
-        self.cntxt = ""
+        self.context = ""
         self.id = ""
 
+    # EOS handler
     def stop(self):
         if self.state == STATE_LISTENING :
             self._send_event("debug", common.SUCCESS_OK, "Received End-Of-Stream. Finishing up...")
@@ -108,6 +99,7 @@ class SpeechDecoder(object):
             return
         self._send_event("warn", common.WARN_GENERIC, "End-Of-Stream message received while not listening!!! Ignoring message...")
 
+    # Receives audio data. This should just store data in input_buffer and return
     def push(self, data):
         if self.state == STATE_LISTENING :
             self._send_event("debug", common.SUCCESS_OK, "Pushing audio chunk of size %d to post buffer..." % len(data))
@@ -115,63 +107,44 @@ class SpeechDecoder(object):
             return
         self._send_event("warn", common.WARN_GENERIC, "Push message received while not listening!!! Ignoring message...")
 
+    # This should start decoder thread and update current content id
     def start(self):
         if self.state == STATE_READY :
             self.id = uuid.uuid4()
-            self.request_generator = threading.Thread(target=self._post_req_gen)
-            self.request_generator.daemon = True
-            self.request_generator.start()
+            self.decoder_thread = threading.Thread(target=self.processor)
+            self.decoder_thread.daemon = True
+            self.decoder_thread.start()
             return
         if self.state == STATE_CREATED :
             self._send_event("warn", common.WARN_GENERIC, "Start requested before configuration!!! Ignoring message...")
             return
         self._send_event("warn", common.WARN_GENERIC, "Start message received while decoding!!! Ignoring message...")
 
+    # This should handle update context. For those who need it.
     def context(self, cntxt):
         if self.state == STATE_READY :
-            self.cntxt = cntxt
+            self.context = cntxt
         if self.state == STATE_CREATED :
             self._send_event("warn", common.WARN_GENERIC, "Context received before configuration!!! Ignoring message...")
             return
         self._send_event("warn", common.WARN_GENERIC, "Context received while decoding!!! Ignoring message...")
 
-    def conf(self, message, retry=0):
+    # This handles decoder configuration. Whatever conf executable prints is passed onto this function as message. Return True or False based on whether configuration was successful
+    def conf(self, message):
         if self.state == STATE_CREATED or self.state == STATE_READY :
             try:
                 msg = json.loads(message)
-                response = requests.get("https://api.wit.ai/message?q=hello&v=" + msg['api_version'], headers={'Authorization': 'Bearer ' + msg['api_token'], 'Accept': 'application/json'}, timeout=(5,30))
-                message = json.loads(response.text)
-                response.raise_for_status()
-            except requests.exceptions.ConnectionError:
-                self._send_event("warn", common.WARN_INTERNET, "Could not connect to WIT.AI!!! Are you connected to the internet? Will try after five seconds")
-                if retry > 1:
-                    self._send_event("error", common.ERROR_MAX_RETRIES, "Giving up while trying to configure decoder!!!")
-                    return False
-                time.sleep(5)
-                return self.conf(message, retry=retry+1)
-            except requests.exceptions.Timeout:
-                self._send_event("warn", common.WARN_TIMEOUT, "Connection to WIT.AI timed out!!! Will try after five seconds...")
-                if retry > 1:
-                    self._send_event("error", common.ERROR_MAX_RETRIES, "Giving up while trying to configure decoder!!!")
-                    return False
-                time.sleep(5)
-                return self.conf(message, retry=retry+1)
-            except requests.exceptions.HTTPError:
-                self._send_event("error", common.ERROR_GENERIC, message['error'])
-                return False
+                # TODO: Configure Decoder
             except Exception as e:
                 self._send_event("error", common.ERROR_CRITICAL, "Something went terribly wrong while configuring decoder!!! Please raise an issue with the maintainer... Exception: %s" % e.message)
                 return False
-
-            self.headers         = {'Authorization': 'Bearer ' + msg['api_token'], 'Content-Type': 'audio/raw;encoding=signed-integer;bits=16;rate=16000;endian=little', 'Accept': 'application/json', 'Transfer-Encoding': 'chunked'}
-            self.api_host        = "https://api.wit.ai/speech?v=" + msg['api_version']
-            self.request_timeout = msg.get('request_timeout', 30)
             self.state           = STATE_READY
             self._send_event("debug", common.SUCCESS_OK, "Decoder successfully configured")
             return True
         self._send_event("warn", common.WARN_GENERIC, "Configuration message received while decoding!!! Ignoring message...")
         return False
 
+# Main function starts thrift server on specified port
 @click.command()
 @click.option('--port', '-p', required=True, type=click.INT, metavar='<port>', help='Port on which we should run thrift server')
 def main(port):
@@ -186,3 +159,4 @@ def main(port):
 
 if __name__ == "__main__":
     main()
+

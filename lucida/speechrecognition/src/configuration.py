@@ -1,16 +1,11 @@
 # configuration.py
 
-# Add max_audio_duration, silence_threshold, connect_timeout
-
-
 import logging, logging.config, yaml
 import os, sys, errno
 import click
 import re
 from urlparse import urlparse
 import json
-
-os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)7s: %(name)10s: %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
@@ -24,7 +19,7 @@ CONFIG = dict(
     max_call_duration = 3600,
     silence_timeout = 2,
     initial_silence_timeout = 5,
-    silence_threshold = 2000,
+    silence_threshold = -20,
     response_timeout = 30,
     worker_verbosity = "info",
     gstreamer_verbosity = "none",
@@ -37,7 +32,7 @@ CONFIG = dict(
         max_call_duration_prompt = "Maximum length of audio segment in seconds", max_call_duration_min = 60, max_call_duration_max = 18000,
         silence_timeout_prompt = "Maximum silence (in seconds) that should be tolerated", silence_timeout_min = 1, silence_timeout_max = 10,
         initial_silence_timeout_prompt = "Maximum initial silence (in seconds) that should be tolerated", initial_silence_timeout_min = 1, initial_silence_timeout_max = 30,
-        silence_threshold_prompt = "Audio segments with RMS below this value will be considered silent", silence_threshold_min = 50, silence_threshold_max = 50000,
+        silence_threshold_prompt = "Audio segments with RMS below this value will be considered silent", silence_threshold_min = -100, silence_threshold_max = 100,
         response_timeout_prompt = "Maximum time (in seconds) between end of speech and receiving of transcription that should be tolerated", response_timeout_min = 5, response_timeout_max = 60,
         worker_verbosity_prompt = "Verbosity level for worker", worker_verbosity_choices = ["critical", "error", "warning", "info", "debug"],
         gstreamer_verbosity_prompt = "Verbosity level for GStreamer", gstreamer_verbosity_choices = ["none", "error", "warning", "fixme", "info", "debug", "log", "trace", "memdump"]
