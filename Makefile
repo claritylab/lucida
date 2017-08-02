@@ -27,3 +27,9 @@ clean_all_service:
 
 clean_all_tools:
 	cd tools && make clean
+
+dep_core:
+	cd tools && sudo make && cd ../lucida/commandcenter && make
+
+start_lucida:
+	cd ($PWD)/lucida/commandcenter && make start_server
