@@ -1,5 +1,6 @@
 DOCKER_CONTAINER=lucida
 VERSION=latest
+CUR_DIR=$(shell pwd)
 
 ifeq ($(THREADS),)
   THREADS=$(shell grep -c ^processor /proc/cpuinfo)
@@ -32,4 +33,4 @@ dep_core:
 	cd tools && sudo make && cd ../lucida/commandcenter && make
 
 start_lucida:
-	cd ($PWD)/lucida/commandcenter && make start_server
+	cd $(CUR_DIR)/lucida/commandcenter && make start_server
