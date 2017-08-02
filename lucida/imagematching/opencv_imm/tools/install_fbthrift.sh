@@ -1,8 +1,5 @@
 #!/bin/bash
 installCheck () {
-  if [ ! -d fbthrift ]; then
-    return 1
-  fi
   python -mthrift_compiler.main --gen cpp2 check_thrift.thrift
   if [ -d gen-cpp2 ]; then
     rm -rf gen-cpp2
