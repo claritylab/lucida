@@ -357,6 +357,12 @@ class lucidaGUI(object):
 		### Front: CMD/MS buttons
 		if(levelName=="root"):
 			didHit = 1
+			self.addToLevel(0.25,0.4,0.5,0.1,0,"choosemode",yellowBG,"Please choose mode!")
+			self.addToLevel(0.25,0.5,0.25,0.1,0,"root_local",grayBG,"Local")
+			self.addToLevel(0.5,0.5,0.25,0.1,0,"root_docker",grayBG,"Docker")
+
+		if(levelName=="root_local"):
+			didHit = 1
 			self.addToLevel(0.25,0.4,0.5,0.1,0,"wfList",yellowBG,"Workflows")
 			self.addToLevel(0.25,0.5,0.5,0.1,0,"msList",yellowBG,"Microservices")
 			self.addToLevel(0.25,0.6,0.5,0.1,0,"bbList",yellowBG,"Blackboxes")

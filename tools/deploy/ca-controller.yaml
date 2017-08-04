@@ -14,9 +14,9 @@ spec:
         name: ca
     spec:
       containers:
-      - image: claritylab/lucida:v2.2
+      - image: czx5049/lucida_services:v1.2
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/calendar/ && ./gradlew run']
+        args: ['cd $LUCIDAROOT/calendar/ && make start_server port=8084']
         name: ca
         ports:
         - containerPort: 8084

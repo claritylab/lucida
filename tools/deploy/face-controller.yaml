@@ -14,9 +14,9 @@ spec:
         name: face
     spec:
       containers:
-      - image: claritylab/lucida:v2.2
+      - image: czx5049/lucida_services:v1.2
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/djinntonic/face && ./FACEServer']
+        args: ['cd $LUCIDAROOT/djinntonic/face && make start_server port=8086']
         name: face
         ports:
         - containerPort: 8086

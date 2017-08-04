@@ -14,9 +14,9 @@ spec:
         name: ms
     spec:
       containers:
-      - image: claritylab/lucida:v2.2
+      - image: czx5049/lucida_services:v1.2
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/musicservice/server/ && python server.py']
+        args: ['cd $LUCIDAROOT/musicservice/ && make start_server port=8089']
         name: ms
         ports:
         - containerPort: 8089

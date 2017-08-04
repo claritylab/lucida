@@ -14,9 +14,9 @@ spec:
         name: web
     spec:
       containers:
-      - image: claritylab/lucida:v2.2
+      - image: czx5049/lucida_core:v1.2
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/commandcenter/apache/ && export ASR_ADDR_PORT=ws://localhost:30001 && env > envs.txt && sudo chown -R www-data:www-data /usr/local/lucida && sudo /usr/sbin/apache2ctl -D FOREGROUND']
+        args: ['cd $LUCIDAROOT/commandcenter/ && make start_server']
         name: web
         ports:
         - containerPort: 80

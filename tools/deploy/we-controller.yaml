@@ -14,9 +14,9 @@ spec:
         name: we
     spec:
       containers:
-      - image: claritylab/lucida:v2.2
+      - image: czx5049/lucida_services:v1.2
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/weather/server/ && python WeatherServer.py']
+        args: ['cd $LUCIDAROOT/weather/ && make start_server port=8088']
         name: we
         ports:
         - containerPort: 8088

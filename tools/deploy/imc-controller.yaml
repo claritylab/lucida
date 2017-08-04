@@ -14,9 +14,9 @@ spec:
         name: imc
     spec:
       containers:
-      - image: claritylab/lucida:v2.2
+      - image: czx5049/lucida_services:v1.2
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/djinntonic/imc && ./IMCServer']
+        args: ['cd $LUCIDAROOT/djinntonic/imc && make start_server port=8085']
         name: imc
         ports:
         - containerPort: 8085
