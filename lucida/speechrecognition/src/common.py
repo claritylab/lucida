@@ -1,3 +1,4 @@
+
 SUCCESS_OK = 0
 
 ERROR_GENERIC     = 1

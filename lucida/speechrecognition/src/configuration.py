@@ -7,14 +7,14 @@ import re
 from urlparse import urlparse
 import json
 
-logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)7s: %(name)10s: %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+from logger import *
+
+logger = logging.getLogger("CONFIG")
 
 GST_DEBUG = os.environ.get('GST_DEBUG')
 CONFIG = dict(
     master = "http://localhost:8081",
     retry_after = 5,
-    data_directory = "/tmp/lucida/speech",
     max_segment_duration = 180,
     max_call_duration = 3600,
     silence_timeout = 2,
@@ -27,7 +27,6 @@ CONFIG = dict(
     config_options = dict(
         master_prompt  = "URL for Lucida commandcenter",
         retry_after_prompt = "Number of seconds to wait between subsequent reconnects to master", retry_after_min = 1, retry_after_max = 30,
-        data_directory_prompt = "Directory to store speech transcriptions and raw audio",
         max_segment_duration_prompt = "Maximum length of audio segment in seconds", max_segment_duration_min = 10, max_segment_duration_max = 300,
         max_call_duration_prompt = "Maximum length of audio segment in seconds", max_call_duration_min = 60, max_call_duration_max = 18000,
         silence_timeout_prompt = "Maximum silence (in seconds) that should be tolerated", silence_timeout_min = 1, silence_timeout_max = 10,
@@ -68,37 +67,12 @@ def validate_master(ctx, param, value):
         raise click.BadParameter("Unrecognized scheme '%s' while parsing URL for Lucida commandcenter!!!" % (value.scheme))
     return url
 
-def validate_directory(ctx, param, value):
-    if not os.path.isdir(value):
-        mkdir = raw_input("Specified data directory doesn't exist! Do you want to create it? [y/N]: ")
-        if mkdir == "y" or mkdir == "Y":
-            try:
-                os.makedirs(value, 0700)
-            except Exception as e:
-                if ctx == None:
-                    logger.error("Error while creating data directory!!! %s" % (e))
-                    return False
-                raise click.BadParameter("Error while creating data directory!!! %s" % (e))
-        else:
-            if ctx == None:
-                logger.error("Aborting...")
-                return False
-            raise click.BadParameter("Please enter a valid data directory...")
-    elif not os.access(value, os.R_OK) or not os.access(value, os.W_OK) or not os.access(value, os.X_OK):
-        if ctx == None:
-            logger.log("Permission denied while accessing data directory!!!")
-            return False
-        raise click.BadParameter("Permission denied while accessing data directory!!! Please try again...")
-    return value
-
 @click.command()
 @click.option("--master", prompt=CONFIG['config_options']['master_prompt'],
     default=CONFIG['master'], type=click.STRING, callback=validate_master, required=True, show_default=True, help=CONFIG['config_options']['master_prompt'])
 @click.option("--retry-after", prompt=CONFIG['config_options']['retry_after_prompt'],
     default=CONFIG['retry_after'], type=click.IntRange(min=CONFIG['config_options']['retry_after_min'], max=CONFIG['config_options']['retry_after_max']),
     required=True, show_default=True, help=CONFIG['config_options']['retry_after_prompt'])
-@click.option("--data-directory", prompt=CONFIG['config_options']['data_directory_prompt'],
-    default=CONFIG['data_directory'], type=click.STRING, callback=validate_directory, required=True, show_default=True, help=CONFIG['config_options']['data_directory_prompt'])
 @click.option("--max-segment-duration", prompt=CONFIG['config_options']['max_segment_duration_prompt'],
     default=CONFIG['max_segment_duration'], type=click.IntRange(min=CONFIG['config_options']['max_segment_duration_min'], max=CONFIG['config_options']['max_segment_duration_max']),
     required=True, show_default=True, help=CONFIG['config_options']['max_segment_duration_prompt'])
@@ -123,11 +97,10 @@ def validate_directory(ctx, param, value):
 @click.option("--gstreamer-verbosity", prompt=(CONFIG['config_options']['gstreamer_verbosity_prompt'] + " " + str(CONFIG['config_options']['gstreamer_verbosity_choices'])),
     default=CONFIG['gstreamer_verbosity'], type=click.Choice(CONFIG['config_options']['gstreamer_verbosity_choices']), required=True,
     show_default=True, help=CONFIG['config_options']['gstreamer_verbosity_prompt'])
-def first_run(master, retry_after, data_directory, max_segment_duration, max_call_duration, silence_timeout, initial_silence_timeout, silence_threshold, response_timeout, worker_verbosity, gstreamer_verbosity):
+def first_run(master, retry_after, max_segment_duration, max_call_duration, silence_timeout, initial_silence_timeout, silence_threshold, response_timeout, worker_verbosity, gstreamer_verbosity):
     conf = dict(
         master = master,
         retry_after = retry_after,
-        data_directory = data_directory,
         max_segment_duration = max_segment_duration,
         max_call_duration = max_call_duration,
         silence_timeout = silence_timeout,
@@ -143,8 +116,6 @@ def first_run(master, retry_after, data_directory, max_segment_duration, max_cal
                  "master: '" + conf['master'] + "'\n\n"
                  "# " + CONFIG['config_options']['retry_after_prompt'] + "\n"
                  "retry_after: " + str(conf['retry_after']) + "\n\n"
-                 "# " + CONFIG['config_options']['data_directory_prompt'] + "\n"
-                 "data_directory: '" + conf['data_directory'] + "'\n\n"
                  "# " + CONFIG['config_options']['max_segment_duration_prompt'] + "\n"
                  "max_segment_duration: " + str(conf['max_segment_duration']) + "\n\n"
                  "# " + CONFIG['config_options']['max_call_duration_prompt'] + "\n"
@@ -170,11 +141,11 @@ def first_run(master, retry_after, data_directory, max_segment_duration, max_cal
 def process(conf):
     conf['worker_verbosity'] = logging.getLevelName(conf['worker_verbosity'].upper())
     if GST_DEBUG == None:
-        conf['gstreamer_verbosity'] = str(CONFIG['config_options']['gstreamer_verbosity_choices'].index(conf['gstreamer_verbosity']))
+        conf['gstreamer_verbosity'] = "asrplugin:" + str(CONFIG['config_options']['gstreamer_verbosity_choices'].index(conf['gstreamer_verbosity']))
     else:
         logger.warning("Using GST_DEBUG='%s' value from environment. If you don't want this unset GST_DEBUG before running this script" % GST_DEBUG)
         conf['gstreamer_verbosity'] = GST_DEBUG
-    if ( not validate_master(None, None, conf['master']) or not validate_directory(None, None, conf['data_directory']) or
+    if ( not validate_master(None, None, conf['master']) or
       not isinstance( conf['silence_timeout'], int ) or not isinstance( conf['initial_silence_timeout'], int ) or
       not isinstance( conf['response_timeout'], int ) or not isinstance( conf['worker_verbosity'], int ) or
       not isinstance( conf['silence_threshold'], int ) or not isinstance( conf['retry_after'], int ) or
@@ -191,8 +162,8 @@ def process(conf):
 
 def load():
     try:
-        with open("logger_config.yaml") as f:
-            logging.config.dictConfig(yaml.safe_load(f))
+#        with open("logger_config.yaml") as f:
+#            logging.config.dictConfig(yaml.safe_load(f))
         logger.info("Loaded logger configuration from logger_config.yaml")
     except Exception as e:
         logger.error("Error while loading configuration from logger_config.yaml: %s" % (e))

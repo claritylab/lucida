@@ -89,13 +89,15 @@ struct _Gstasrplugin
   FILE* decoder_out;
   gfloat segment_length;
   pthread_t tid;
+  gchar request_id[64];
+  gchar decoder_executable[512];
 };
 
 struct _GstasrpluginClass
 {
   GstElementClass parent_class;
-  void (*interim_result)(GstElement *element, const gchar *result_str, const gfloat duration);
-  void (*final_result)(GstElement *element, const gchar *result_str, const gfloat duration, const gchar *context_str);
+  void (*interim_result)(GstElement *element, const gchar *result_str);
+  void (*final_result)(GstElement *element, const gchar *result_str);
 };
 
 GType gst_asrplugin_get_type (void);

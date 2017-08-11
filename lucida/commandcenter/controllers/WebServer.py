@@ -25,6 +25,8 @@ import tornado.gen
 import tornado.concurrent
 import tornado.wsgi
 
+from Database import database
+
 from Parser import cmd_port
 
 from tornado.options import define
