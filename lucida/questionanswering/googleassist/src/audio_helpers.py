@@ -18,27 +18,12 @@
 import logging
 import threading
 import time
-import wave
 import math
 import array
-
-import click
-import sounddevice as sd
-
-from thrift.transport import TSocket
-from thrift.transport import TTransport
-from thrift.protocol import TBinaryProtocol
-from thrift.server import TServer
-
-from asrthriftservice import ASRThriftService
-from lucidatypes.ttypes import QuerySpec
-from lucidaservice import LucidaService
 
 DEFAULT_AUDIO_SAMPLE_RATE = 16000
 DEFAULT_AUDIO_SAMPLE_WIDTH = 2
 DEFAULT_AUDIO_ITER_SIZE = 3200
-DEFAULT_AUDIO_DEVICE_BLOCK_SIZE = 6400
-DEFAULT_AUDIO_DEVICE_FLUSH_SIZE = 25600
 
 
 def normalize_audio_buffer(buf, volume_percentage, sample_width=2):
@@ -75,8 +60,8 @@ def align_buf(buf, sample_width):
     return buf
 
 
-class WaveSource(object):
-    """Audio source that reads audio data from a WAV file.
+class RawSource(object):
+    """Audio source that reads audio data from a PCM audio file.
 
     Reads are throttled to emulate the given sample rate and silence
     is returned when the end of the file is reached.
@@ -86,15 +71,9 @@ class WaveSource(object):
       sample_rate: sample rate in hertz.
       sample_width: size of a single sample in bytes.
     """
-    def __init__(self, fp, sample_rate, sample_width):
+    def __init__(self, fp, sample_rate=DEFAULT_AUDIO_SAMPLE_RATE, sample_width=DEFAULT_AUDIO_SAMPLE_WIDTH):
         self._fp = fp
-        try:
-            self._wavep = wave.open(self._fp, 'r')
-        except wave.Error as e:
-            logging.warning('error opening WAV file: %s, '
-                            'falling back to RAW format', e)
-            self._fp.seek(0)
-            self._wavep = None
+        self._fp.seek(0)
         self._sample_rate = sample_rate
         self._sample_width = sample_width
         self._sleep_until = 0
@@ -110,9 +89,7 @@ class WaveSource(object):
         if missing_dt > 0:
             time.sleep(missing_dt)
         self._sleep_until = time.time() + self._sleep_time(size)
-        data = (self._wavep.readframes(size)
-                if self._wavep
-                else self._fp.read(size))
+        data = self._fp.read(size)
         #  When reach end of audio stream, pad remainder with silence (zeros).
         if not data:
             return b'\x00' * size
@@ -120,8 +97,6 @@ class WaveSource(object):
 
     def close(self):
         """Close the underlying stream."""
-        if self._wavep:
-            self._wavep.close()
         self._fp.close()
 
     def _sleep_time(self, size):
@@ -140,20 +115,16 @@ class WaveSource(object):
         return self._sample_rate
 
 
-class WaveSink(object):
-    """Audio sink that writes audio data to a WAV file.
+class RawSink(object):
+    """Audio sink that writes audio data to a PCM audio file.
 
     Args:
       fp: file-like stream object to write data to.
       sample_rate: sample rate in hertz.
       sample_width: size of a single sample in bytes.
     """
-    def __init__(self, fp, sample_rate, sample_width):
+    def __init__(self, fp, sample_rate=DEFAULT_AUDIO_SAMPLE_RATE, sample_width=DEFAULT_AUDIO_SAMPLE_WIDTH):
         self._fp = fp
-        self._wavep = wave.open(self._fp, 'wb')
-        self._wavep.setsampwidth(sample_width)
-        self._wavep.setnchannels(1)
-        self._wavep.setframerate(sample_rate)
 
     def write(self, data):
         """Write bytes to the stream.
@@ -161,11 +132,10 @@ class WaveSink(object):
         Args:
           data: frame data to write.
         """
-        self._wavep.writeframes(data)
+        self._fp.write(data)
 
     def close(self):
         """Close the underlying stream."""
-        self._wavep.close()
         self._fp.close()
 
     def start(self):
@@ -173,73 +143,6 @@ class WaveSink(object):
 
     def stop(self):
         pass
-
-
-class SoundDeviceStream(object):
-    """Audio stream based on an underlying sound device.
-
-    It can be used as an audio source (read) and a audio sink (write).
-
-    Args:
-      sample_rate: sample rate in hertz.
-      sample_width: size of a single sample in bytes.
-      block_size: size in bytes of each read and write operation.
-      flush_size: size in bytes of silence data written during flush operation.
-    """
-    def __init__(self, sample_rate, sample_width, block_size, flush_size):
-        if sample_width == 2:
-            audio_format = 'int16'
-        else:
-            raise Exception('unsupported sample width:', sample_width)
-        self._audio_stream = sd.RawStream(
-            samplerate=sample_rate, dtype=audio_format, channels=1,
-            blocksize=int(block_size/2),  # blocksize is in number of frames.
-        )
-        self._block_size = block_size
-        self._flush_size = flush_size
-        self._sample_rate = sample_rate
-
-    def read(self, size):
-        """Read bytes from the stream."""
-        buf, overflow = self._audio_stream.read(size)
-        if overflow:
-            logging.warning('SoundDeviceStream read overflow (%d, %d)',
-                            size, len(buf))
-        return bytes(buf)
-
-    def write(self, buf):
-        """Write bytes to the stream."""
-        underflow = self._audio_stream.write(buf)
-        if underflow:
-            logging.warning('SoundDeviceStream write underflow (size: %d)',
-                            len(buf))
-        return len(buf)
-
-    def flush(self):
-        if self._flush_size > 0:
-            self._audio_stream.write(b'\x00' * self._flush_size)
-
-    def start(self):
-        """Start the underlying stream."""
-        if not self._audio_stream.active:
-            self._audio_stream.start()
-
-    def stop(self):
-        """Stop the underlying stream."""
-        if self._audio_stream.active:
-            self.flush()
-            self._audio_stream.stop()
-
-    def close(self):
-        """Close the underlying stream and audio interface."""
-        if self._audio_stream:
-            self.stop()
-            self._audio_stream.close()
-            self._audio_stream = None
-
-    @property
-    def sample_rate(self):
-        return self._sample_rate
 
 
 class ConversationStream(object):
@@ -268,7 +171,7 @@ class ConversationStream(object):
       iter_size: read size in bytes for each iteration.
       sample_width: size of a single sample in bytes.
     """
-    def __init__(self, source, sink, iter_size, sample_width):
+    def __init__(self, source, sink, iter_size=DEFAULT_AUDIO_ITER_SIZE, sample_width=DEFAULT_AUDIO_SAMPLE_WIDTH):
         self._source = source
         self._sink = sink
         self._iter_size = iter_size
@@ -338,71 +241,3 @@ class ConversationStream(object):
     @property
     def sample_rate(self):
         return self._source._sample_rate
-
-
-@click.command()
-@click.option('--record-time', default=5,
-              metavar='<record time>', show_default=True,
-              help='Record time in secs')
-@click.option('--audio-sample-rate',
-              default=DEFAULT_AUDIO_SAMPLE_RATE,
-              metavar='<audio sample rate>', show_default=True,
-              help='Audio sample rate in hertz.')
-@click.option('--audio-sample-width',
-              default=DEFAULT_AUDIO_SAMPLE_WIDTH,
-              metavar='<audio sample width>', show_default=True,
-              help='Audio sample width in bytes.')
-@click.option('--audio-iter-size',
-              default=DEFAULT_AUDIO_ITER_SIZE,
-              metavar='<audio iter size>', show_default=True,
-              help='Size of each read during audio stream iteration in bytes.')
-@click.option('--audio-block-size',
-              default=DEFAULT_AUDIO_DEVICE_BLOCK_SIZE,
-              metavar='<audio block size>', show_default=True,
-              help=('Block size in bytes for each audio device '
-                    'read and write operation..'))
-@click.option('--audio-flush-size',
-              default=DEFAULT_AUDIO_DEVICE_FLUSH_SIZE,
-              metavar='<audio flush size>', show_default=True,
-              help=('Size of silence data in bytes written '
-                    'during flush operation'))
-def main(record_time, audio_sample_rate, audio_sample_width,
-         audio_iter_size, audio_block_size, audio_flush_size):
-    """Helper command to test audio stream processing.
-
-    - Record 5 seconds of 16-bit samples at 16khz.
-    - Playback the recorded samples.
-    """
-    end_time = time.time() + record_time
-    audio_device = SoundDeviceStream(sample_rate=audio_sample_rate,
-                                     sample_width=audio_sample_width,
-                                     block_size=audio_block_size,
-                                     flush_size=audio_flush_size)
-    stream = ConversationStream(source=audio_device,
-                                sink=audio_device,
-                                iter_size=audio_iter_size,
-                                sample_width=audio_sample_width)
-    samples = []
-    logging.basicConfig(level=logging.INFO)
-    logging.info('Starting audio test.')
-
-    stream.start_recording()
-    logging.info('Recording samples.')
-    while time.time() < end_time:
-        samples.append(stream.read(audio_block_size))
-    logging.info('Finished recording.')
-    stream.stop_recording()
-
-    stream.start_playback()
-    logging.info('Playing back samples.')
-    while len(samples):
-        stream.write(samples.pop(0))
-    logging.info('Finished playback.')
-    stream.stop_playback()
-
-    logging.info('audio test completed.')
-    stream.close()
-
-
-if __name__ == '__main__':
-    main()
