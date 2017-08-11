@@ -9,8 +9,7 @@ import logging
 import thread
 import subprocess
 
-
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("PIPELINE")
 
 class DecoderPipeline(object):
     def __init__(self, conf):
@@ -25,8 +24,9 @@ class DecoderPipeline(object):
         self.silence_timeout = conf['silence_timeout']
         self.silence_timeout_diff = conf['silence_timeout'] - conf['initial_silence_timeout']
         self.silent_for = self.silence_timeout_diff
+        self.data_directory = "/tmp/lucida/speech"
 
-        self.request_id = "<undefined>"
+        self.request_id = "00000000-0000-0000-0000-000000000000"
 
         self._create_pipeline(conf)
 
@@ -34,7 +34,7 @@ class DecoderPipeline(object):
         Gst.Registry.get().scan_path(os.getcwd() + "/src/gstplugin/src")
         Gst.debug_set_threshold_from_string(conf['gstreamer_verbosity'], True)
 
-        conf = self._load_configuration(conf)
+        self.asr = Gst.ElementFactory.make("asrplugin", "asr")
         self.appsrc = Gst.ElementFactory.make("appsrc", "appsrc")
         self.decodebin = Gst.ElementFactory.make("decodebin", "decodebin")
         self.audioconvert = Gst.ElementFactory.make("audioconvert", "audioconvert")
@@ -44,27 +44,22 @@ class DecoderPipeline(object):
         self.level = Gst.ElementFactory.make("level", "level")
         self.audiosink = Gst.ElementFactory.make("filesink", "audiosink")
         self.queue2 = Gst.ElementFactory.make("queue", "queue2")
-        self.asr = Gst.ElementFactory.make("asrplugin", "asr")
-        self.datasink = Gst.ElementFactory.make("filesink", "datasink")
+        self.datasink = Gst.ElementFactory.make("fakesink", "datasink")
 
-        self.asr.set_property("decoder_executable", conf['decoder_executable'])
-        self.asr.set_property("decoder_configuration", conf['decoder_configuration'])
+        self.asr.set_property("decoder_executable", os.getcwd() + "/decoders/" + conf['decoder'] + "/decoder")
 
         self.level.set_property("post-messages", True)
         self.appsrc.set_property("is-live", True)
         self.audiosink.set_property("location", "/dev/null")
-        self.datasink.set_property("location", "/dev/null")
 
-        self.data_directory = conf['data_directory']
-
-        logger.info('Created GStreamer elements')
+        logger.info("Created GStreamer elements")
 
         self.pipeline = Gst.Pipeline()
         for element in [self.appsrc, self.decodebin, self.audioconvert, self.audioresample, self.tee, self.queue1, self.level, self.audiosink, self.queue2, self.asr, self.datasink]:
-            logger.debug("Adding %s to the pipeline" % element)
+            logger.debug("Adding element %s to the pipeline" % element.__class__.__name__)
             self.pipeline.add(element)
 
-        logger.info('Linking GStreamer elements')
+        logger.info("Linking GStreamer elements")
 
         self.appsrc.link(self.decodebin)
         self.decodebin.connect('pad-added', self._connect_audio_converter)
@@ -94,14 +89,6 @@ class DecoderPipeline(object):
         self.pipeline.set_state(Gst.State.READY)
         logger.info("Set pipeline to READY")
 
-    def _load_configuration(self, conf):
-        conf['decoder_executable'] = os.getcwd() + "/decoders/" + conf['decoder'] + "/decoder"
-        if os.path.isfile("decoders/" + conf['decoder'] + "/conf") and os.access("decoders/" + conf['decoder'] + "/conf", os.X_OK):
-            conf['decoder_configuration'] = subprocess.check_output(["decoders/" + conf['decoder'] + "/conf"])
-        else:
-            conf['decoder_configuration'] = "{}"
-        return conf
-
     def _connect_audio_converter(self, element, pad):
         logger.info("%s: Connecting audio converter" % self.request_id)
         pad.link(self.audioconvert.get_static_pad("sink"))
@@ -117,7 +104,7 @@ class DecoderPipeline(object):
     def _on_error(self, bus, msg):
         error = msg.parse_error()
         logger.error(error)
-        self.finish_request()
+        self.cancel()
         if self.error_handler:
             self.error_handler(error[0].message)
 
@@ -134,29 +121,26 @@ class DecoderPipeline(object):
                 self.appsrc.emit("end-of-stream")
             logger.info("%s: Silent for %s seconds...." % (self.request_id, str(self.silent_for)))
 
-    def _on_interim_result(self, asr, hyp, duration):
-        logger.info("%s: Received interim result from decoder" % (self.request_id))
+    def _on_interim_result(self, asr, hyp):
+        logger.debug("%s: Received interim result from decoder" % (self.request_id))
         if self.interim_result_handler:
-            self.interim_result_handler(hyp, duration)
+            self.interim_result_handler(hyp)
 
-    def _on_final_result(self, asr, hyp, duration, context):
-        logger.info("%s: Received final result from decoder %s" % (self.request_id, hyp))
+    def _on_final_result(self, asr, hyp):
+        logger.debug("%s: Received final result from decoder %s" % (self.request_id, hyp))
         if self.final_result_handler:
-            self.final_result_handler(hyp, duration, context)
+            self.final_result_handler(hyp)
 
     def finish_request(self):
         logger.info("%s: Resetting decoder state" % self.request_id)
         self.audiosink.set_state(Gst.State.NULL)
         self.audiosink.set_property("location", "/dev/null")
         self.audiosink.set_state(Gst.State.PLAYING)
-        self.datasink.set_state(Gst.State.NULL)
-        self.datasink.set_property("location", "/dev/null")
-        self.datasink.set_state(Gst.State.PLAYING)
         self.pipeline.set_state(Gst.State.NULL)
-        self.request_id = "<undefined>"
+        self.request_id = "00000000-0000-0000-0000-000000000000"
         self.silent_for = 0.0
 
-    def init_request(self, id, caps_str, context="{}"):
+    def init_request(self, id, caps_str, user, context=""):
         self.pipeline.set_state(Gst.State.PAUSED)
         self.request_id = id
         self.silent_for = self.silence_timeout_diff
@@ -168,19 +152,16 @@ class DecoderPipeline(object):
         else:
             self.appsrc.set_property("caps", None)
 
+        self.asr.set_property("request_id", self.request_id)
+        self.asr.set_property("lucida_user", user)
         self.asr.set_property("message_context", context)
 
         self.audiosink.set_state(Gst.State.NULL)
         self.audiosink.set_property('location', "%s/%s.raw" % (self.data_directory, id))
         self.audiosink.set_state(Gst.State.PLAYING)
 
-        self.datasink.set_state(Gst.State.NULL)
-        self.datasink.set_property('location', "%s/%s.transcript" % (self.data_directory, id))
-        self.datasink.set_state(Gst.State.PLAYING)
-
         self.pipeline.set_state(Gst.State.PLAYING)
         self.audiosink.set_state(Gst.State.PLAYING)
-        self.datasink.set_state(Gst.State.PLAYING)
 
     def process_data(self, data):
         logger.debug('%s: Pushing buffer of size %d to decoder' % (self.request_id, len(data)))
@@ -211,6 +192,5 @@ class DecoderPipeline(object):
         self.finish_request()
         try:
             os.remove("%s/%s.raw" % (self.data_directory, id))
-            os.remove("%s/%s.transcript" % (self.data_directory, id))
-        finally:
+        except:
             pass

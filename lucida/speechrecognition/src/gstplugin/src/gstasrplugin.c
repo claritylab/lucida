@@ -72,6 +72,9 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <string.h>
+#include <time.h>
+#include <ctype.h>
+#include <stdarg.h>
 
 #include <glib-object.h>
 
@@ -79,6 +82,8 @@
 #include <thrift/c_glib/transport/thrift_buffered_transport.h>
 #include <thrift/c_glib/transport/thrift_socket.h>
 #include "a_s_r_thrift_service.h"
+
+#include <defs.h>
 
 /* JSON_REAL_PRECISION is a macro from libjansson 2.7. Ubuntu 12.04 only has 2.2.1-1 */
 #ifndef JSON_REAL_PRECISION
@@ -100,7 +105,8 @@ enum
 {
   PROP_0,
   PROP_DECODER_EXECUTABLE,
-  PROP_DECODER_CONFIGURATION,
+  PROP_REQUEST_ID,
+  PROP_LUCIDA_USER,
   PROP_MESSAGE_CONTEXT
 };
 
@@ -113,13 +119,13 @@ static GstStaticPadTemplate sink_factory = GST_STATIC_PAD_TEMPLATE ("sink",
     GST_PAD_SINK,
     GST_PAD_ALWAYS,
     GST_STATIC_CAPS ("audio/x-raw, format = (string) S16LE, channels = (int) 1, rate = (int) 16000")
-    );
+);
 
 static GstStaticPadTemplate src_factory = GST_STATIC_PAD_TEMPLATE ("src",
     GST_PAD_SRC,
     GST_PAD_ALWAYS,
     GST_STATIC_CAPS ("text/x-raw, format= { utf8 }")
-    );
+);
 
 static guint gst_asrplugin_signals[LAST_SIGNAL];
 
@@ -128,7 +134,7 @@ G_DEFINE_TYPE (Gstasrplugin, gst_asrplugin, GST_TYPE_ELEMENT);
 
 static void gst_asrplugin_set_property (GObject * object, guint prop_id, const GValue * value, GParamSpec * pspec);
 
-static void gst_asrplugin_get_property (GObject * object, guint prop_id, GValue * value, GParamSpec * pspec);
+//static void gst_asrplugin_get_property (GObject * object, guint prop_id, GValue * value, GParamSpec * pspec);
 
 static gboolean gst_asrplugin_sink_event (GstPad * pad, GstObject * parent, GstEvent * event);
 
@@ -154,7 +160,6 @@ static void gst_asrplugin_class_init (GstasrpluginClass * klass)
   gstelement_class = (GstElementClass *) klass;
 
   gobject_class->set_property = gst_asrplugin_set_property;
-  gobject_class->get_property = gst_asrplugin_get_property;
 
   gobject_class->finalize = gst_asrplugin_finalize;
 
@@ -162,23 +167,27 @@ static void gst_asrplugin_class_init (GstasrpluginClass * klass)
       g_param_spec_string ("decoder_executable", "Decoder Executable", "Path to decoder executable either absolute or relative to speechrecognition/decoder directory.",
           "", G_PARAM_WRITABLE));
 
-  g_object_class_install_property (gobject_class, PROP_DECODER_CONFIGURATION,
-      g_param_spec_string ("decoder_configuration", "Decoder Configuration", "I will forward this as it is to control channel of the decoder. Any consequences are your own doing ;).",
-          "{}", G_PARAM_WRITABLE));
+  g_object_class_install_property (gobject_class, PROP_REQUEST_ID,
+      g_param_spec_string ("request_id", "Request ID", "Identifier of the request. Should be unique at least for the clear interval set in speech recognition settings.",
+          "", G_PARAM_WRITABLE));
+
+  g_object_class_install_property (gobject_class, PROP_LUCIDA_USER,
+      g_param_spec_string ("lucida_user", "Lucida user", "User name of the user stored in Lucida database. This is required for some decoders optional for others.",
+          "", G_PARAM_WRITABLE));
 
   g_object_class_install_property (gobject_class, PROP_MESSAGE_CONTEXT,
       g_param_spec_string ("message_context", "Message Context", "Context of the message. This typically will contain user name and decoder specific context received during last request.",
-          "{}", G_PARAM_WRITABLE));
+          "", G_PARAM_WRITABLE));
 
   gst_asrplugin_signals[INTERIM_RESULT_SIGNAL] = g_signal_new(
       "interim-result", G_TYPE_FROM_CLASS(klass), G_SIGNAL_RUN_LAST,
       G_STRUCT_OFFSET(GstasrpluginClass, interim_result),
-      NULL, NULL, NULL, G_TYPE_NONE, 2, G_TYPE_STRING, G_TYPE_FLOAT);
+      NULL, NULL, NULL, G_TYPE_NONE, 1, G_TYPE_STRING);
 
   gst_asrplugin_signals[FINAL_RESULT_SIGNAL] = g_signal_new(
       "final-result", G_TYPE_FROM_CLASS(klass), G_SIGNAL_RUN_LAST,
       G_STRUCT_OFFSET(GstasrpluginClass, final_result),
-      NULL, NULL, NULL, G_TYPE_NONE, 3, G_TYPE_STRING, G_TYPE_FLOAT, G_TYPE_STRING);
+      NULL, NULL, NULL, G_TYPE_NONE, 1, G_TYPE_STRING);
 
   gst_element_class_set_details_simple (gstelement_class,
     "asrplugin",
@@ -213,6 +222,116 @@ static void gst_asrplugin_init (Gstasrplugin * filter)
   filter->segment_length = 0.0;
   filter->shutting_down = false;
   filter->count = 0;
+  g_strlcpy(filter->request_id, "00000000-0000-0000-0000-000000000000", 64);
+  g_strlcpy(filter->decoder_executable, "", 512);
+}
+
+/* handle_error function
+ * Forwards errors and does the needful
+ */
+static void GST_ASRPLUGIN_HANDLE_ERROR(Gstasrplugin * filter, int type, const gchar* message, ...)
+{
+  gchar buffer[1024];
+  va_list args;
+  vsnprintf(buffer, sizeof(buffer), message, args);
+  va_end(args);
+  GST_ERROR_OBJECT (filter, "%s", buffer);
+  GST_ERROR_OBJECT (filter, "%d", type);
+
+  json_t *root = json_object();
+
+  json_object_set_new( root, "error", json_string (buffer) );
+  json_object_set_new( root, "type", json_integer (type));
+
+  g_signal_emit (filter, gst_asrplugin_signals[FINAL_RESULT_SIGNAL], 0, json_dumps(root, 0));
+  json_decref(root);
+
+  gst_pad_push_event(filter->srcpad, gst_event_new_eos());
+}
+
+/* load_decoder function
+ * Loadss decoder
+ */
+static void gst_asrplugin_load_decoder(Gstasrplugin * filter, const gchar* executable)
+{
+  gchar decoder_command[512];
+  FILE *fp;
+  guint port;
+  fp = popen("./src/get_free_port 2>/dev/null", "r");
+  if (fp == NULL || fscanf(fp, "%u", &port) != 1 ) {
+    GST_ASRPLUGIN_HANDLE_ERROR(filter, TRY_AGAIN, "I couldn't find a free port to run decoder on!!! Please try again later...");
+    return;
+  }
+  pclose(fp);
+
+  sprintf (decoder_command, "%s --port %u", executable, port);
+
+  GST_DEBUG_OBJECT (filter, "Loading decoder with command: %s", decoder_command);
+  filter->decoder_out = popen (decoder_command, "r");
+
+  if (G_UNLIKELY (filter->decoder_out == NULL)) {
+    GST_ASRPLUGIN_HANDLE_ERROR(filter, FATAL, "Something went wrong while loading decoder!!! Please check the log...");
+    return;
+  }
+
+  sleep(1);
+
+  #if (!GLIB_CHECK_VERSION (2, 36, 0))
+    g_type_init ();
+  #endif
+
+  filter->socket = g_object_new (THRIFT_TYPE_SOCKET, "hostname",  "localhost", "port", port, NULL);
+  filter->transport = g_object_new (THRIFT_TYPE_BUFFERED_TRANSPORT, "transport", filter->socket, NULL);
+  filter->protocol  = g_object_new (THRIFT_TYPE_BINARY_PROTOCOL, "transport", filter->transport, NULL);
+  thrift_transport_open (filter->transport, &(filter->error));
+
+  if (filter->error) {
+    GST_ASRPLUGIN_HANDLE_ERROR(filter, FATAL, "Could not initiate thrift transport to decoder!!! Please check the log...");
+    g_clear_error (&(filter->error));
+    pclose (filter->decoder_out);
+    filter->decoder_out = NULL;
+    return;
+  }
+
+  filter->client = g_object_new (TYPE_A_S_R_THRIFT_SERVICE_CLIENT, "input_protocol",  filter->protocol, "output_protocol", filter->protocol, NULL);
+
+  filter->shutting_down = false;
+  if (G_UNLIKELY (pthread_create(&filter->tid, NULL, gst_asrplugin_read_decoder, (void *) filter) != 0)) {
+    GST_ASRPLUGIN_HANDLE_ERROR(filter, FATAL, "Something went wrong while trying to start decoder read thread!!! Please check the log...");
+    filter->shutting_down = true;
+    pclose(filter->decoder_out);
+    filter->decoder_out = NULL;
+    return;
+  }
+
+  GST_DEBUG_OBJECT (filter, "Successfully loaded decoder: %s", executable);
+  g_strlcpy(filter->decoder_executable, executable, 512);
+}
+
+/* unload_decoder function
+ * Unloads decoder
+ */
+static void gst_asrplugin_unload_decoder(Gstasrplugin * filter)
+{
+  filter->shutting_down = true;
+
+  GST_DEBUG_OBJECT (filter, "Stopping decoder if it is running...");
+  a_s_r_thrift_service_if_abort(filter->client, &(filter->error));
+
+  GST_DEBUG_OBJECT (filter, "Closing thrift transports...");
+  thrift_transport_close (filter->transport, NULL);
+
+  g_object_unref (filter->client);
+  g_object_unref (filter->protocol);
+  g_object_unref (filter->transport);
+  g_object_unref (filter->socket);
+
+  GST_DEBUG_OBJECT (filter, "Waiting for decoder read thread to join...");
+  pthread_join (filter->tid, NULL);
+
+  GST_DEBUG_OBJECT (filter, "Shutting down decoder subprocess...");
+  pclose(filter->decoder_out);
+  filter->decoder_out = NULL;
 }
 
 /* set_property function
@@ -224,80 +343,33 @@ static void gst_asrplugin_set_property (GObject * object, guint prop_id, const G
 
   switch (prop_id) {
     case PROP_DECODER_EXECUTABLE:
-//      if (G_UNLIKELY (filter->decoder_out != NULL || filter->decoder_ctrl != NULL || filter->decoder_data != -1 ) {
       if (G_UNLIKELY (filter->decoder_out != NULL)) {
-        GST_ELEMENT_ERROR (filter, RESOURCE, OPEN_READ_WRITE, (NULL), ("Either a decoder is already loaded or it is in a unrecoverable state!!!"));
-        break;
+        GST_WARNING_OBJECT (filter, "A decoder is already loaded while trying to load decoder!!! I'll try to unload existing decoder...");
+        gst_asrplugin_unload_decoder(filter);
       }
-
-      gchar decoder_command[512];
-      FILE *fp;
-      guint port;
-
-      fp = popen("./src/get_free_port 2>/dev/null", "r");
-      if (fp == NULL) {
-        printf("Failed to run com\n" );
-        exit(1);
-      }
-      fscanf(fp, "%u", &port);
-      pclose(fp);
-
-      sprintf (decoder_command, "%s --port %u", g_value_get_string (value), port);
-      GST_DEBUG_OBJECT (filter, "DECODER: %s\n\n\n", decoder_command);
-      filter->decoder_out = popen (decoder_command, "r");
-
-      if (G_UNLIKELY (filter->decoder_out == NULL)) {
-          GST_ELEMENT_ERROR (filter, RESOURCE, OPEN_READ, (NULL), ("Could not load decoder!!! Is decoder executable a valid executable file?"));
-      }
-
-      sleep(1);
-
-      #if (!GLIB_CHECK_VERSION (2, 36, 0))
-          g_type_init ();
-      #endif
-
-      filter->socket = g_object_new (THRIFT_TYPE_SOCKET, "hostname",  "localhost", "port", port, NULL);
-      filter->transport = g_object_new (THRIFT_TYPE_BUFFERED_TRANSPORT, "transport", filter->socket, NULL);
-      filter->protocol  = g_object_new (THRIFT_TYPE_BINARY_PROTOCOL, "transport", filter->transport, NULL);
-      thrift_transport_open (filter->transport, &(filter->error));
-
-      if (filter->error) {
-          GST_ELEMENT_ERROR (filter, RESOURCE, OPEN_WRITE, (NULL), ("Could not initiate thrift transport to decoder!!! %s", filter->error->message));
-          g_clear_error (&(filter->error));
-      }
-
-      filter->client = g_object_new (TYPE_A_S_R_THRIFT_SERVICE_CLIENT, "input_protocol",  filter->protocol, "output_protocol", filter->protocol, NULL);
-
-      if (G_UNLIKELY (pthread_create(&filter->tid, NULL, gst_asrplugin_read_decoder, (void *) filter) != 0)) {
-          GST_ELEMENT_ERROR (filter, RESOURCE, OPEN_WRITE, (NULL), ("Could not load decoder!!! Failed to start read decoder thread"));
-      }
-
-      GST_DEBUG_OBJECT (filter, "Successfully loaded decoder: %s", g_value_get_string (value));
+      gst_asrplugin_load_decoder(filter, g_value_get_string (value));
       break;
-    case PROP_DECODER_CONFIGURATION:
-//      if (G_UNLIKELY (filter->decoder_data != -1)) {
-//        GST_ELEMENT_WARNING (filter, RESOURCE, BUSY, (NULL), ("Configuration load requested when decoder is running!!! Ignoring request..."));
-//        break;
-//      }
+    case PROP_REQUEST_ID:
       if (G_UNLIKELY (filter->decoder_out == NULL)) {
-        GST_ELEMENT_ERROR (filter, RESOURCE, NOT_FOUND, (NULL), ("Configuration load requested before decoder was loaded!!!"));
+        GST_ASRPLUGIN_HANDLE_ERROR(filter, NOT_IN_ORDER, "Setting request identifier before loading decoder makes no sense!!! Trying to restart worker...");
         break;
       }
-      gboolean success;
-      a_s_r_thrift_service_if_conf(filter->client, &success, g_value_get_string (value), &(filter->error));
-      GST_DEBUG_OBJECT (filter, "Successfully pushed configuration to decoder");
+      a_s_r_thrift_service_if_request_id(filter->client, g_value_get_string (value), &(filter->error));
+      g_strlcpy(filter->request_id, g_value_get_string (value), 64);
+      break;
+    case PROP_LUCIDA_USER:
+      if (G_UNLIKELY (filter->decoder_out == NULL)) {
+        GST_ASRPLUGIN_HANDLE_ERROR(filter, NOT_IN_ORDER, "Setting user details before loading decoder makes no sense!!! Trying to restart worker...");
+        break;
+      }
+      a_s_r_thrift_service_if_user(filter->client, g_value_get_string (value), &(filter->error));
       break;
     case PROP_MESSAGE_CONTEXT:
-//      if (G_UNLIKELY (filter->decoder_data != -1)) {
-//        GST_ELEMENT_WARNING (filter, RESOURCE, BUSY, (NULL), ("Context load requested when decoder is running!!! Ignoring request..."));
-//        break;
-//      }
       if (G_UNLIKELY (filter->decoder_out == NULL)) {
-        GST_ELEMENT_ERROR (filter, RESOURCE, NOT_FOUND, (NULL), ("Context load requested before decoder was loaded!!!"));
+        GST_ASRPLUGIN_HANDLE_ERROR(filter, NOT_IN_ORDER, "Setting message context before loading decoder makes no sense!!! Trying to restart worker...");
         break;
       }
       a_s_r_thrift_service_if_context(filter->client, g_value_get_string (value), &(filter->error));
-      GST_DEBUG_OBJECT (filter, "Successfully pushed context to decoder");
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -305,30 +377,16 @@ static void gst_asrplugin_set_property (GObject * object, guint prop_id, const G
   }
 }
 
-/* get_property function
- * Get properties of plugin.
- */
-static void gst_asrplugin_get_property (GObject * object, guint prop_id, GValue * value, GParamSpec * pspec)
-{
-  Gstasrplugin *filter = GST_ASRPLUGIN (object);
-  G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-}
-
 /* stop_decoder function
  * Stop decoder by closing data FIFO
  */
 static gboolean gst_asrplugin_stop_decoder (Gstasrplugin * filter)
 {
-  GST_DEBUG_OBJECT (filter, "Sending stop command to decoder...");
   if (G_UNLIKELY (filter->decoder_out == NULL)) {
-    GST_ELEMENT_ERROR (filter, RESOURCE, NOT_FOUND, (NULL), ("Decoder stop requested before it was loaded!!!"));
+    GST_ASRPLUGIN_HANDLE_ERROR(filter, NOT_IN_ORDER, "Stopping decoder before loading it makes no sense!!! Trying to restart worker...");
     return false;
   }
-//  if (G_UNLIKELY (filter->decoder_data == -1)) {
-//    GST_ELEMENT_WARNING (filter, RESOURCE, CLOSE, (NULL), ("Decoder stop requested when it is not running!!! Ignoring request..."));
-//    gst_pad_push_event(filter->srcpad, gst_event_new_eos());
-//    return true;
-//  }
+  GST_DEBUG_OBJECT (filter, "%s: Sending stop command to decoder...", filter->request_id);
   a_s_r_thrift_service_if_stop(filter->client, &(filter->error));
   filter->segment_length = 0;
   return true;
@@ -339,25 +397,20 @@ static gboolean gst_asrplugin_stop_decoder (Gstasrplugin * filter)
  */
 static gboolean gst_asrplugin_start_decoder (Gstasrplugin * filter)
 {
-  GST_DEBUG_OBJECT (filter, "Sending start command to decoder...");
   if (G_UNLIKELY (filter->decoder_out == NULL)) {
-    GST_ELEMENT_ERROR (filter, RESOURCE, NOT_FOUND, (NULL), ("Decoder start requested before it was loaded!!!"));
+    GST_ASRPLUGIN_HANDLE_ERROR(filter, NOT_IN_ORDER, "Starting decoder before loading it makes no sense!!! Trying to restart worker...");
     return false;
   }
-//  if (G_UNLIKELY (filter->decoder_data != -1)) {
-//    GST_ELEMENT_WARNING (filter, RESOURCE, BUSY, (NULL), ("Decoder start requested when it is already running!!! Ignoring request..."));
-//    return true;
-//  }
+  GST_DEBUG_OBJECT (filter, "%s: Sending start command to decoder...", filter->request_id);
   a_s_r_thrift_service_if_start(filter->client, &(filter->error));
   filter->segment_length = 0;
-  GST_DEBUG_OBJECT (filter, "Succesfully started decoder");
   return true;
 }
 
 static void *gst_asrplugin_read_decoder( void *ptr )
 {
   Gstasrplugin *filter =  (Gstasrplugin *) ptr;
-  GST_DEBUG_OBJECT (filter, "Starting decoder listener thread...");
+  GST_DEBUG_OBJECT (filter, "%s: Starting decoder listener thread...", filter->request_id);
   gchar * line = NULL;
   size_t dummy = 0;
   ssize_t bytes;
@@ -365,8 +418,7 @@ static void *gst_asrplugin_read_decoder( void *ptr )
   while ( ! filter->shutting_down ) {
     bytes = getline(&line, &dummy, filter->decoder_out);
     if (G_UNLIKELY (bytes == -1)) {
-      GST_ELEMENT_ERROR (filter, RESOURCE, READ, (NULL), ("Decoder crashed!!! Cleaning up..."));
-      // TODO: Clean up, send EOS, quit worker
+      GST_ASRPLUGIN_HANDLE_ERROR(filter, FATAL, "Decoder crashed while processing data!!! Trying to restart worker...");
       break;
     }
 
@@ -374,81 +426,60 @@ static void *gst_asrplugin_read_decoder( void *ptr )
     json_t *event;
     json_t *status;
     json_t *data;
-    json_t *duration;
-    json_t *context;
     json_error_t error;
     root = json_loads (line, 0, &error);
     if ( !root ) {
-      GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("Received invalid JSON message from decoder!!! Ignoring message..."));
+      GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("%s: Received invalid JSON message from decoder!!! Ignoring message...", filter->request_id));
       continue;
     }
     event = json_object_get (root, "event");
     status = json_object_get (root, "status");
     data = json_object_get (root, "data");
-    context = json_object_get (root, "context");
-    duration = json_object_get (root, "duration");
     if ( !json_is_string (event) ) {
-      GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("Received invalid JSON message from decoder: No field 'event' found. Ignoring message..."));
+      GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("%s: Received invalid JSON message from decoder: No field 'event' found. Ignoring message...", filter->request_id));
       json_decref(root);
       continue;
     }
     if ( !json_is_integer (status) ) {
-      GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("Received invalid JSON message from decoder: No field 'status' found. Ignoring message..."));
+      GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("%s: Received invalid JSON message from decoder: No field 'status' found. Ignoring message...", filter->request_id));
       json_decref(root);
       continue;
     }
     if ( !json_is_string (data) ) {
-      GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("Received invalid JSON message from decoder: No field 'data' found. Ignoring message..."));
+      GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("%s: Received invalid JSON message from decoder: No field 'data' found. Ignoring message...", filter->request_id));
       json_decref(root);
       continue;
     }
 
     if (strcmp(json_string_value (event), "interim_result") == 0) {
-      GST_DEBUG_OBJECT (filter, "Interim results received from decoder");
-      gfloat duration_value = 0.0;
-      if ( !json_is_real (duration) ) {
-        GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("No field 'duration' found while parsing interim results. Using 0.0..."));
-      } else {
-        duration_value = json_real_value (duration);
-      }
-      g_signal_emit (filter, gst_asrplugin_signals[INTERIM_RESULT_SIGNAL], 0, json_string_value (data), duration_value);
+      GST_DEBUG_OBJECT (filter, "%s: Interim results received from decoder", filter->request_id);
+      g_signal_emit (filter, gst_asrplugin_signals[INTERIM_RESULT_SIGNAL], 0, json_string_value (data));
     } else if (strcmp(json_string_value (event), "final_result") == 0) {
-      GST_DEBUG_OBJECT (filter, "Final results received from decoder");
+      GST_DEBUG_OBJECT (filter, "%s: Final results received from decoder", filter->request_id);
 
       GstBuffer *buffer = gst_buffer_new_and_alloc (strlen (json_string_value (data)) + 1);
       gst_buffer_fill (buffer, 0, json_string_value (data), strlen (json_string_value (data)));
       gst_buffer_memset (buffer, strlen (json_string_value (data)) , '\n', 1);
       gst_pad_push(filter->srcpad, buffer);
 
-      gfloat duration_value = 0.0;
-      if ( !json_is_real (duration) ) {
-        GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("No field 'duration' found while parsing final results. Using 0.0..."));
-      } else {
-        duration_value = json_real_value (duration);
-      }
-      if ( !json_is_string (context) ) {
-        GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("No field 'context' found while parsing interim results. Using empty context..."));
-        g_signal_emit (filter, gst_asrplugin_signals[FINAL_RESULT_SIGNAL], 0, json_string_value (data), duration_value, "{}");
-      } else {
-        g_signal_emit (filter, gst_asrplugin_signals[FINAL_RESULT_SIGNAL], 0, json_string_value (data), duration_value, json_string_value (context));
-      }
+      g_signal_emit (filter, gst_asrplugin_signals[FINAL_RESULT_SIGNAL], 0, json_string_value (data));
       gst_pad_push_event(filter->srcpad, gst_event_new_eos());
     } else if (strcmp(json_string_value (event), "eos") == 0) {
-      GST_DEBUG_OBJECT (filter, "End-of-Stream received from decoder");
+      GST_DEBUG_OBJECT (filter, "%s: End of stream received from decoder", filter->request_id);
+      g_strlcpy(filter->request_id, "00000000-0000-0000-0000-000000000000", 64);
       gst_pad_push_event(filter->srcpad, gst_event_new_eos());
     } else if (strcmp(json_string_value (event), "error") == 0) {
-      GST_ELEMENT_ERROR (filter, STREAM, DECODE, (NULL), ("DECODER: %s", json_string_value (data)));
+      GST_ASRPLUGIN_HANDLE_ERROR(filter, json_integer_value (status), "%s: %s", filter->request_id, json_string_value (data));
     } else if (strcmp(json_string_value (event), "warn") == 0) {
-      GST_ELEMENT_WARNING (filter, STREAM, DECODE, (NULL), ("DECODER: %s", json_string_value (data)));
+      GST_WARNING_OBJECT (filter, "%s: %s", filter->request_id, json_string_value (data));
     } else if (strcmp(json_string_value (event), "info") == 0) {
-      GST_ELEMENT_INFO (filter, STREAM, DECODE, (NULL), ("DECODER: %s", json_string_value (data)));
+      GST_INFO_OBJECT (filter, "%s: %s", filter->request_id, json_string_value (data));
     } else if (strcmp(json_string_value (event), "debug") == 0) {
-      GST_DEBUG_OBJECT (filter, "DECODER: %s", json_string_value (data));
+      GST_DEBUG_OBJECT (filter, "%s: %s", filter->request_id, json_string_value (data));
     }
     json_decref(root);
   }
 
-  g_free(line);
   GST_DEBUG_OBJECT (filter, "Terminating decoder listener thread...");
   return NULL;
 }
@@ -489,7 +520,7 @@ static gboolean gst_asrplugin_sink_event (GstPad * pad, GstObject * parent, GstE
   Gstasrplugin *filter;
   filter = GST_ASRPLUGIN (parent);
 
-  GST_DEBUG_OBJECT(filter, "Handling %s event", GST_EVENT_TYPE_NAME(event));
+  GST_DEBUG_OBJECT(filter, "%s: Handling %s event", filter->request_id, GST_EVENT_TYPE_NAME(event));
 
   switch (GST_EVENT_TYPE (event)) {
     case GST_EVENT_SEGMENT:
@@ -516,52 +547,29 @@ static GstFlowReturn gst_asrplugin_sink_chain (GstPad * pad, GstObject * parent,
   if (G_UNLIKELY (filter->decoder_out == NULL)) {
     goto decoder_not_loaded;
   }
-//  if (G_UNLIKELY (filter->decoder_data == -1)) {
-//    goto decoder_not_started;
-//  }
-  GST_DEBUG_OBJECT (filter, "Pushing chunk to decoder... %ld", map.size);
+  GST_DEBUG_OBJECT (filter, "%s: Pushing chunk to decoder... %ld", filter->request_id, map.size);
 
-//  guchar data[29];
-//  sprintf ((char*)data, "%02dABCDEFGHIJKLMNOPQRSTUVWXYZ", filter->count);
-//  filter->count = filter->count + 1;
-//  guint8 data[5];
-//  data[0] = 0;
-//  data[1] = 1;
-//  data[2] = 2;
-//  data[3] = 3;
-//  data[4] = 4;
   GByteArray* chunk = g_byte_array_new_take (map.data, map.size);
-  FILE *fp;
-  fp = fopen("/home/singularity/out.bin","ab");
-  fwrite (map.data,map.size,1,fp);
-  fflush (fp);
-  fclose (fp);
 
   a_s_r_thrift_service_if_push(filter->client, chunk, &(filter->error));
   filter->segment_length = filter->segment_length + (float) map.size / 32000.0;
 
   gst_buffer_unmap (buf, &map);
   gst_buffer_unref (buf);
-  GST_DEBUG_OBJECT (filter, "Pushed chunk to decoder... %ld", map.size);
+
+  GST_DEBUG_OBJECT (filter, "%s: Pushed chunk to decoder... %ld", filter->request_id, map.size);
   return GST_FLOW_OK;
 
   /* special cases */
   memory_map_issue: {
-    GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("Error while reading data from buffer!!! Ignoring chunk..."));
+    GST_ELEMENT_WARNING (filter, RESOURCE, READ, (NULL), ("%s: Error while reading data from buffer!!! Ignoring chunk...", filter->request_id));
 
     gst_buffer_unmap (buf, &map);
     gst_buffer_unref (buf);
     return GST_FLOW_OK;
   }
-  decoder_not_started: {
-    GST_ELEMENT_ERROR (filter, CORE, PAD, (NULL), ("Data recieved before decoder was started!!!"));
-
-    gst_buffer_unmap (buf, &map);
-    gst_buffer_unref (buf);
-    return GST_FLOW_EOS;
-  }
   decoder_not_loaded: {
-    GST_ELEMENT_ERROR (filter, CORE, PAD, (NULL), ("Data recieved before decoder was loaded!!!"));
+    GST_ASRPLUGIN_HANDLE_ERROR(filter, FATAL, "Data recieved before decoder was loaded!!! Trying to restart worker...");
 
     gst_buffer_unmap (buf, &map);
     gst_buffer_unref (buf);
@@ -574,31 +582,44 @@ static void gst_asrplugin_finalize (GObject * object)
   Gstasrplugin *filter;
   filter = GST_ASRPLUGIN (object);
 
-  GST_DEBUG_OBJECT (filter, "Shutting down ASR Plugin...");
-  filter->shutting_down = true;
-
-  GST_DEBUG_OBJECT (filter, "Stopping decoder if it is running...");
-//  if (G_UNLIKELY (filter->decoder_data != -1)) {
-//    gst_asrplugin_stop_decoder (filter);
-//  }
-
-  GST_DEBUG_OBJECT (filter, "Waiting for decoder read thread to join...");
-//  fclose(filter->decoder_ctrl);
-//  filter->decoder_ctrl = NULL;
-  pthread_join (filter->tid, NULL);
-
-  GST_DEBUG_OBJECT (filter, "Shutting down decoder subprocess...");
-  pclose(filter->decoder_out);
-  filter->decoder_out = NULL;
-
-  thrift_transport_close (filter->transport, NULL);
-
-  g_object_unref (filter->client);
-  g_object_unref (filter->protocol);
-  g_object_unref (filter->transport);
-  g_object_unref (filter->socket);
+  GST_WARNING_OBJECT (filter, "Shutting down ASR Plugin...");
+  gst_asrplugin_unload_decoder(filter);
 
   G_OBJECT_CLASS(parent_class)->finalize(object);
+}
+
+void G_GNUC_NO_INSTRUMENT gst_lucida_logger (GstDebugCategory *category, GstDebugLevel level, const gchar *file, const gchar *function, gint line, GObject *object, GstDebugMessage *message, gpointer user_data) {
+  time_t t = time(NULL);
+  struct tm tm = * localtime (&t);
+  if (level <= gst_debug_category_get_threshold (category)) {
+    gchar* level_str;
+    if (level == GST_LEVEL_ERROR) {
+      level_str = "\033[31m  ERROR";
+    } else if (level == GST_LEVEL_WARNING) {
+      level_str = "\033[33m   WARN";
+    } else if (level == GST_LEVEL_FIXME) {
+      level_str = "\033[43m  FIXME";
+    } else if (level == GST_LEVEL_INFO) {
+      level_str = "\033[36m   INFO";
+    } else if (level == GST_LEVEL_DEBUG) {
+      level_str = "\033[37m  DEBUG";
+    } else if (level == GST_LEVEL_LOG) {
+      level_str = "    LOG";
+    } else if (level == GST_LEVEL_TRACE) {
+      level_str = "  TRACE";
+    } else if (level == GST_LEVEL_MEMDUMP) {
+      level_str = "MEMDUMP";
+    }
+    gchar category_str[32];
+    gchar* category_ptr;
+    g_strlcpy(category_str, category->name, 32);
+    category_ptr = &category_str[0];
+    while (*category_ptr) {
+      *category_ptr = toupper((unsigned char) *category_ptr);
+      category_ptr++;
+    }
+    printf ("%04d-%02d-%02d %02d:%02d:%02d - \033[1m%7s\033[0m: \033[1m%10s\033[0m: %s\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, level_str, category_str, gst_debug_message_get(message));
+  }
 }
 
 /* entry point to initialize the plug-in
@@ -608,7 +629,8 @@ static void gst_asrplugin_finalize (GObject * object)
 static gboolean asrplugin_init (GstPlugin * asrplugin)
 {
   GST_DEBUG_CATEGORY_INIT (gst_asrplugin_debug, "asrplugin", 0, DESCRIPTION);
-
+  gst_debug_remove_log_function (gst_debug_log_default);
+  gst_debug_add_log_function(&gst_lucida_logger, NULL, NULL);
   return gst_element_register (asrplugin, "asrplugin", GST_RANK_NONE, GST_TYPE_ASRPLUGIN);
 }
 

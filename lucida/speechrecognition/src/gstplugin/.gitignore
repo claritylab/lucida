@@ -1,16 +1,16 @@
-aclocal.m4
-autom4te.cache
-autoregen.sh
-config.*
-configure
-libtool
-INSTALL
-Makefile.in
-depcomp
-install-sh
-ltmain.sh
-missing
-stamp-*
-my-plugin-*.tar.*
-*~
+# Ignore everything
+*
 
+# But not these files...
+!.gitignore
+!AUTHORS
+!autogen.sh
+!ChangeLog
+!configure.ac
+!COPYING
+!Makefile.am
+!NEWS
+!README
+!src/Makefile.am
+!src/gstasrplugin.c
+!src/gstasrplugin.h

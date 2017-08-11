@@ -1,0 +1,378 @@
+#!/usr/bin/env python
+
+"""
+Created on Jun 14 2017
+
+@author: kamal1210
+"""
+from __future__ import print_function
+
+from configuration import *
+
+import os, sys, time, base64
+import threading, json
+import requests, click
+
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+from thrift.server import TServer
+
+import grpc
+import google.auth.transport.grpc
+import google.auth.transport.requests
+import google.oauth2.credentials
+
+from google.assistant.embedded.v1alpha1 import embedded_assistant_pb2
+from google.rpc import code_pb2
+from tenacity import retry, stop_after_attempt, retry_if_exception, wait_random
+
+sys.path.insert(0, "include")
+sys.path.insert(0, "include/gen-py")
+
+from asrthriftservice import ASRThriftService
+import defs
+
+STATE_CREATED      = 0
+STATE_READY        = 1
+STATE_LISTENING    = 2
+STATE_EOS_RECEIVED = 3
+STATE_WAITING      = 4
+
+DEFAULT_AUDIO_SAMPLE_RATE = 16000
+DEFAULT_AUDIO_SAMPLE_WIDTH = 2
+DEFAULT_AUDIO_ITER_SIZE = 3200
+
+ASSISTANT_API_ENDPOINT = "embeddedassistant.googleapis.com"
+END_OF_UTTERANCE = embedded_assistant_pb2.ConverseResponse.END_OF_UTTERANCE
+DIALOG_FOLLOW_ON = embedded_assistant_pb2.ConverseResult.DIALOG_FOLLOW_ON
+CLOSE_MICROPHONE = embedded_assistant_pb2.ConverseResult.CLOSE_MICROPHONE
+DEFAULT_GRPC_DEADLINE = 60 * 3 + 5
+
+SPEECH_TMPDIR = "/tmp/lucida/speech"
+DEFAULT_VOLUME_PERCENTAGE = 50
+
+class SpeechDecoder(object):
+
+    def _send_event(self, type, status, data, id=None):
+        if id:
+            if not id == self.id:
+                return False
+        if not (type == "final_result" or type == "eos"):
+            data = "[GA] " + data
+        message = json.dumps({'event': type, 'status': status, 'data': data})
+        try:
+            print(message)
+            sys.stdout.flush()
+            return True
+        except IOError:
+            pass
+        return False
+
+    def _log_converse_request(self, req, id):
+        req_copy = embedded_assistant_pb2.ConverseRequest()
+        req_copy.CopyFrom(req)
+        if len(req_copy.audio_in) > 0:
+            size = len(req_copy.audio_in)
+            self._send_event('debug', defs.SUCCESS_OK, "Sending conversation request with %d bytes of audio" % (size), id)
+            return
+        self._send_event('debug', defs.SUCCESS_OK, "Sending configuration request : %s" % (str(req_copy)), id)
+
+    def _log_converse_response(self, resp, id):
+        resp_copy = embedded_assistant_pb2.ConverseResponse()
+        resp_copy.CopyFrom(resp)
+        size = 0
+        if resp_copy.HasField('audio_out') and len(resp_copy.audio_out.audio_data) > 0:
+            size = len(resp_copy.audio_out.audio_data)
+            resp_copy.audio_out.ClearField('audio_data')
+            if resp_copy.audio_out.ListFields():
+                self._send_event('debug', defs.SUCCESS_OK, "resp_copy.audio_out.ListFields: True", id)
+            if resp_copy.ListFields():
+                self._send_event('debug', defs.SUCCESS_OK, "resp_copy.ListFields: True", id)
+        self._send_event('debug', defs.SUCCESS_OK, "Received conversation response with %d bytes of audio: %s" % (size, str(resp_copy)), id)
+
+    def _converse_data_gen(self, id):
+        converse_state = None
+        if self.cntxt:
+            self._send_event('debug', defs.SUCCESS_OK, "Sending conversation state: %s" % self.cntxt, id)
+            converse_state = embedded_assistant_pb2.ConverseState(conversation_state=self.cntxt)
+
+        config = embedded_assistant_pb2.ConverseConfig(
+            audio_in_config = embedded_assistant_pb2.AudioInConfig(
+                encoding = 'LINEAR16',
+                sample_rate_hertz = DEFAULT_AUDIO_SAMPLE_RATE
+            ),
+            audio_out_config = embedded_assistant_pb2.AudioOutConfig(
+                encoding = 'LINEAR16',
+                sample_rate_hertz = DEFAULT_AUDIO_SAMPLE_RATE,
+                volume_percentage = DEFAULT_VOLUME_PERCENTAGE
+            ),
+            converse_state = converse_state
+        )
+
+        # The first ConverseRequest must contain the ConverseConfig
+        # and no audio data.
+        req = embedded_assistant_pb2.ConverseRequest(config=config)
+        self._log_converse_request(req, id)
+        yield req
+
+        self._send_event('debug', defs.SUCCESS_OK, "Opened data stream for request audio.", id)
+
+        # Subsequent requests need audio data, but not config.
+        while self.state == STATE_LISTENING:
+            if len(self.input_buffer) > 0:
+                req = embedded_assistant_pb2.ConverseRequest(audio_in=self.input_buffer.pop(0))
+                self._log_converse_request(req, id)
+                yield req
+        while len(self.input_buffer) > 0 and self.state == STATE_EOS_RECEIVED:
+            req = embedded_assistant_pb2.ConverseRequest(audio_in=self.input_buffer.pop(0))
+            self._log_converse_request(req, id)
+            yield req
+        self.state = STATE_WAITING
+        self._send_event('debug', defs.SUCCESS_OK, "Closed data stream for request audio. Waiting for transcript...", id)
+
+    def _response_data_gen(self, id):
+        config = embedded_assistant_pb2.ConverseConfig(
+            audio_in_config = embedded_assistant_pb2.AudioInConfig(
+                encoding = 'LINEAR16',
+                sample_rate_hertz = DEFAULT_AUDIO_SAMPLE_RATE
+            ),
+            audio_out_config = embedded_assistant_pb2.AudioOutConfig(
+                encoding = 'LINEAR16',
+                sample_rate_hertz = DEFAULT_AUDIO_SAMPLE_RATE,
+                volume_percentage = DEFAULT_VOLUME_PERCENTAGE
+            ),
+            converse_state = None
+        )
+
+        # The first ConverseRequest must contain the ConverseConfig
+        # and no audio data.
+        req = embedded_assistant_pb2.ConverseRequest(config=config)
+        self._log_converse_request(req, id)
+        yield req
+
+        self._send_event('debug', defs.SUCCESS_OK, "Opened data stream for response audio", id)
+
+        # Subsequent requests need audio data, but not config.
+        with open(SPEECH_TMPDIR + "/" + str(id) + "_out.raw", 'rb') as fp:
+            while True:
+                data = fp.read(DEFAULT_AUDIO_ITER_SIZE)
+                if not data:
+                    break
+                req = embedded_assistant_pb2.ConverseRequest(audio_in=data)
+                self._log_converse_request(req, id)
+                yield req
+
+        self._send_event('debug', defs.SUCCESS_OK, "Closed data stream for response audio. Waiting for transcript...", id)
+
+    def _converse_req_gen(self):
+        self.state = STATE_LISTENING
+        data = {'id': self.id, 'result': {'hypotheses': [], 'final': True}, 'context_in': self.cntxt, 'response': "", 'service': "GA", 'service_type': "QA", 'dialog_follow_on': False}
+
+        self._send_event('debug', defs.SUCCESS_OK, "Initiating dialogue with Google Assitant (STT) for decoding request audio", data['id'])
+        fp = open(SPEECH_TMPDIR + "/" + str(data['id']) + "_out.raw", 'wb')
+        try:
+            # This generator yields ConverseResponse proto messages
+            # received from the gRPC Google Assistant API.
+            for resp in self.assistant.Converse(self._converse_data_gen(data['id']), DEFAULT_GRPC_DEADLINE):
+                if not data['id'] == self.id:
+                    self._send_event('debug', defs.SUCCESS_OK, "[%s] Converse request for aborted request successfully terminated" % data['id'])
+                    try:
+                        fp.close()
+                        os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
+                    except:
+                        pass
+                    return
+                self._log_converse_response(resp, id)
+                if resp.error.code != code_pb2.OK:
+                    try:
+                        fp.close()
+                        os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
+                    except:
+                       pass
+                    self._send_event('error', defs.TRY_AGAIN, "Error occured while decoding request audio: %s" % resp.error.message, data['id'])
+                    return
+                if resp.event_type == END_OF_UTTERANCE:
+                    self._send_event('debug', defs.OTHER, 'End of audio request detected', data['id'])
+                    if self.state == STATE_LISTENING:
+                        self.stop()
+                    if self.state == STATE_EOS_RECEIVED:
+                        self.state = STATE_WAITING
+                if resp.result.spoken_request_text:
+                    self._send_event('debug', defs.SUCCESS_OK, "Received final transcript from Google Assistant", data['id'])
+                    self.result = {'hypotheses': [{'transcript': resp.result.spoken_request_text, 'confidence': 1}], 'final': True}
+                if len(resp.audio_out.audio_data) > 0:
+                    self._send_event('debug', defs.SUCCESS_OK, "Received response audio of length %u" % len(resp.audio_out.audio_data), data['id'])
+                    fp.write(resp.audio_out.audio_data)
+                if resp.result.spoken_response_text:
+                    self._send_event('debug', defs.SUCCESS_OK, "Received response text", data['id'])
+                    data['response'] = resp.result.spoken_response_text
+                if resp.result.conversation_state:
+                    self._send_event('debug', defs.SUCCESS_OK, "Received response context", data['id'])
+                    self.cntxt = resp.result.conversation_state
+                if resp.result.microphone_mode == DIALOG_FOLLOW_ON:
+                    data['dialog_follow_on'] = True
+                    self._send_event('info', defs.SUCCESS_OK, "Expecting follow-on query from user", data['id'])
+                elif resp.result.microphone_mode == CLOSE_MICROPHONE:
+                    data['dialog_follow_on'] = False
+            self.result['hypotheses'][0]['context'] = base64.b64encode(self.cntxt)
+            data['result'] = self.result
+            self._send_event('info', defs.SUCCESS_OK, "Dialogue with Google Assistant (STT) terminated (request audio)", data['id'])
+            try:
+                fp.close()
+            except:
+                pass
+        except Exception as e:
+            try:
+                fp.close()
+                os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
+            except:
+                pass
+            self._send_event('error', defs.TRY_AGAIN, "Something went terribly wrong while decoding speech!!! Exception: %s" % e.message, data['id'])
+            return
+
+        # Convert Google Assistant response to text if asked for
+        self._send_event('debug', defs.SUCCESS_OK, "Initiating dialogue with Google Assitant (STT) for decoding response audio", data['id'])
+        if FORCE_RESPONSE_STT:
+            try:
+                for resp in self.assistant.Converse(self._response_data_gen(data['id']), DEFAULT_GRPC_DEADLINE):
+                    if not data['id'] == self.id:
+                        self._send_event('debug', defs.SUCCESS_OK, "[%s] Converse request for aborted request successfully terminated" % data['id'])
+                        return
+                    self._log_converse_response(resp, id)
+                    if resp.error.code != code_pb2.OK:
+                        self._send_event('warn', defs.TRY_AGAIN, "Error occurred while decoding response audio: %s" % resp.error.message, data['id'])
+                        break
+                    if resp.result.spoken_request_text:
+                        self._send_event('debug', defs.SUCCESS_OK, "Received response transcript from Google Assistant", data['id'])
+                        data['response'] = resp.result.spoken_request_text
+                        break
+                self._send_event('info', defs.SUCCESS_OK, "Dialogue with Google Assistant (STT) terminated (response audio)", data['id'])
+            except Exception as e:
+                self._send_event('warn', defs.TRY_AGAIN, "Something went terribly wrong while decoding assistant response!!! Exception: %s" % e.message, data['id'])
+
+        if self._send_event('final_result', defs.SUCCESS_OK, json.dumps(data), data['id']):
+            self.abort(verbose=False, eos=True)
+
+    def abort(self, verbose=True, eos=True):
+        self.state = STATE_CREATED
+        self.input_buffer = []
+        self.cntxt = None
+        if eos:
+            self._send_event('eos', defs.SUCCESS_OK, str(self.id))
+        if verbose:
+            self._send_event('warn', defs.DECODER_ABORTED, "Decoder was reset and all data was cleared!!!")
+        self.id = None
+
+    def __init__(self):
+        self.send_event_lock = threading.Lock()
+        self.id = None
+        self.abort(verbose=False, eos=False)
+
+    def stop(self):
+        if self.state == STATE_LISTENING :
+            self._send_event('debug', defs.SUCCESS_OK, "Received end of stream. Finishing up...")
+            self.state = STATE_EOS_RECEIVED
+            return
+        if self.state == STATE_CREATED or self.state == STATE_READY:
+            self._send_event('warn', defs.NOT_IN_ORDER, "End of stream received before decoding was started!!! Ignoring message...")
+            return
+        self._send_event('warn', defs.DATA_AFTER_EOS, "Duplicate end of stream received!!! Ignoring message...")
+
+    def push(self, data):
+        if self.state == STATE_LISTENING :
+            self._send_event('debug', defs.SUCCESS_OK, "Pushing audio chunk of size %d to buffer..." % len(data))
+            self.input_buffer.append(data)
+            return
+        if self.state == STATE_CREATED or self.state == STATE_READY:
+            self._send_event('warn', defs.NOT_IN_ORDER, "Audio data received before decoding was started!!! Ignoring data...")
+            return
+        self._send_event('warn', defs.DATA_AFTER_EOS, "Audio data received after end of stream!!! Ignoring data...")
+        return
+
+    def start(self):
+        if self.state == STATE_READY :
+            self.request_generator = threading.Thread(target=self._converse_req_gen)
+            self.request_generator.daemon = True
+            self.request_generator.start()
+            return
+        if self.state == STATE_CREATED :
+            self._send_event('warn', defs.NOT_IN_ORDER, "Recieved start decoding command before user details!!! Ignoring command...")
+            return
+        self._send_event('warn', defs.NOT_IN_ORDER, "Received start decoding command while decoding!!! Ignoring command...", self.id)
+
+    @retry(reraise=True, stop=stop_after_attempt(3), wait=wait_random(min=1, max=3))
+    def _authorise(self, credentials):
+        # Refresh OAuth 2.0 access token.
+        self._send_event('debug', defs.SUCCESS_OK, "Refreshing user access token...")
+        http_request = google.auth.transport.requests.Request()
+        credentials.refresh(http_request)
+
+        # Create an authorized gRPC channel.
+        self._send_event('debug', defs.SUCCESS_OK, "Connecting to %s..." % ASSISTANT_API_ENDPOINT)
+        grpc_channel = google.auth.transport.grpc.secure_authorized_channel(credentials, http_request, ASSISTANT_API_ENDPOINT)
+
+        # Create Google Assistant API gRPC client.
+        self.assistant =  embedded_assistant_pb2.EmbeddedAssistantStub(grpc_channel)
+
+    def request_id(self, id):
+        self.id = id
+
+    def user(self, user):
+        if not self.id:
+            self._send_event('warn', defs.NOT_IN_ORDER, "Received user details before request identifier!!! Ignoring user details...")
+            return
+        if self.state == STATE_READY or self.state == STATE_CREATED :
+            self.assistant = None
+            # Load OAuth 2.0 credentials.
+            self._send_event('debug', defs.SUCCESS_OK, "Loading user credentials...")
+            try:
+                with open(CREDENTIALS_DIR + "/" + user + ".json", 'r') as f:
+                    credentials = google.oauth2.credentials.Credentials(token=None, **json.load(f))
+            except Exception as e:
+                try:
+                   os.remove(CREDENTIALS_DIR + "/" + user + ".json")
+                except:
+                    pass
+                self._send_event('error', defs.NOT_AUTHORISED, "User not connected with Google Assistant!!! Exception: %s" % str(e))
+                return
+
+            self._send_event('debug', defs.SUCCESS_OK, "Authenticating user...")
+            try:
+                self._authorise(credentials)
+                self.state = STATE_READY
+            except Exception as e:
+                self._send_event('error', defs.AUTH_FAILED, "Error occurred while authenticating user!!! Exception: %s" % str(e))
+            return
+        self._send_event('warn', defs.NOT_IN_ORDER, "Received user details while decoding audio!!! Ignoring user details...")
+
+    def context(self, cntxt):
+        if self.state == STATE_READY or self.state == STATE_CREATED :
+            if not cntxt:
+                self.cntxt = None
+                self._send_event('debug', defs.SUCCESS_OK, "Succesfully cleared context...", self.id)
+                return
+            if cntxt.endswith("="):
+                self.cntxt = base64.b64decode(cntxt)
+                self._send_event('debug', defs.SUCCESS_OK, "Succesfully set context...", self.id)
+                return
+            self._send_event('warn', defs.NOT_IN_ORDER, "Invalid context!!! Ignoring message context", self.id)
+        self._send_event('warn', defs.NOT_IN_ORDER, "Received message context while decoding audio!!! Ignoring message context...", self.id)
+        return
+
+@click.command()
+@click.option('--port', '-p', required=True, type=click.INT, metavar='<port>', help='Port on which we should run thrift server')
+def main(port):
+    handler = SpeechDecoder()
+    processor = ASRThriftService.Processor(handler)
+    transport = TSocket.TServerSocket(port=port)
+    tfactory = TTransport.TBufferedTransportFactory()
+    pfactory = TBinaryProtocol.TBinaryProtocolFactory()
+
+    server = TServer.TSimpleServer(processor, transport, tfactory, pfactory)
+
+    handler._send_event('debug', defs.SUCCESS_OK, "Starting Google Assistant speech decoder on port %u..." % port)
+    server.serve()
+
+if __name__ == "__main__":
+    main()

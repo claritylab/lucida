@@ -1,5 +1,6 @@
 service ASRThriftService {
-    bool conf(1:string message)
+    void request_id(1:string id)
+    void user(1:string user)
     void context(1:string cntxt)
     void start()
     void push(1:binary data)
