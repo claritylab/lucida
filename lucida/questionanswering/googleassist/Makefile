@@ -1,34 +1,30 @@
-.PHONY:	all start_server clean test
+.PHONY:	thrift all setup start_server clean distclean
 
 thrift:
 	@if [ ! -d "lucidaservice" ] || [ ! -d "lucidatypes" ] || [ ! -d "asrthriftservice" ]; then \
 		rm -rf lucidaservice lucidatypes; \
 		thrift -out ./src/ --gen py ../../lucidaservice.thrift && \
-		thrift -out ./src/ --gen py ../../lucidatypes.thrift && \
-		thrift -out ./src/ --gen py ../../speechrecognition/thrift/asrthriftservice.thrift || exit 1; \
-		rm -rf __init__.py; \
+		thrift -out ./src/ --gen py ../../lucidatypes.thrift || exit 1; \
+		rm -rf src/__init__.py; \
 	fi
 
 all: thrift
-	sudo apt-get install python3 python3-venv portaudio19-dev libffi-dev libssl-dev
-	if [ ! -d env ]; then python3 -m venv env; fi
-	env/bin/python -m pip install --upgrade pip setuptools
-	. ./env/bin/activate && pip install --upgrade -r requirements.txt && deactivate
+	sudo apt-get install python portaudio19-dev libffi-dev libssl-dev python-pip
+	sudo -H pip install --upgrade pip setuptools
+	sudo -H pip install --upgrade -r requirements.txt
 
-test:
-	python -m audio_helpers
+setup:
+	./setup.sh
 
-start_server:
-	bash start_server.sh
+start_server: setup
+	python src/ga_server.py
 
 clean:
-	deactivate 2>/dev/null || :
 	rm -rf lucidaservice
 	rm -rf lucidatypes
 	rm -rf *.pyc
-	rm -rf config.tmp
-	mv config.sh config.bak 2>/dev/null && echo "Backed up old config to config.bak" || :
+	rm -rf .config
+	mv configuration.py configuration.bak 2>/dev/null && echo "Backed up old config to configuration.bak" || :
 
 distclean: clean
-	deactivate 2>/dev/null || :
-	rm -rf env
+	rm -rf auth

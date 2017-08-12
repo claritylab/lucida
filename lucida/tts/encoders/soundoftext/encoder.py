@@ -18,13 +18,13 @@ def tts(text, lang='en'):
                 raise
         if len(text.decode('utf-8')) > 100:
             return {'status': 'error', 'message': 'Text interface for Google Assitant currently supports only upto 100 characters. Please split your question or ask your administrator to upgrade to paid TTS engine...'}
-        response = requests.post("http://soundoftext.com/sounds", data={'lang': lang, 'text': text}, timeout=( 10, 10))
+        response = requests.post("http://soundoftext.com/sounds", data={'lang': lang, 'text': text}, timeout=( 30, 30 ))
         print response.text
         data = json.loads(response.text)
         if not data['success']:
             raise Exception(json.dumps(data))
-        response = requests.get("http://soundoftext.com/sounds/" + str(data['id']), timeout=( 10, 10))
-        response = requests.get("http://soundoftext.com" + response.text[ (response.text.find("src=\"/static/sounds") + 5) : (response.text.find(".mp3") + 4) ])
+        response = requests.get("http://soundoftext.com/sounds/" + str(data['id']), timeout=( 30, 30 ))
+        response = requests.get("http://soundoftext.com" + response.text[ (response.text.find("src=\"/static/sounds") + 5) : (response.text.find(".mp3") + 4) ], timeout=( 30, 30 ))
         if response.encoding:
             raise Exception("Could not download audio file...")
         id = str(uuid.uuid4())

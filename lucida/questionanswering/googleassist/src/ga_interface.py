@@ -2,6 +2,10 @@
 
 import json
 
+import os, sys
+sys.path.append(os.getcwd())
+import configuration
+
 import grpc
 import google.auth.transport.grpc
 import google.auth.transport.requests
@@ -47,7 +51,7 @@ class GAInterface(object):
 
     def __init__(self, user):
         # Load OAuth 2.0 credentials.
-        with open("../auth/" + user + ".json", 'r') as f:
+        with open(configuration.CREDENTIALS_DIR + "/" + user + ".json", 'r') as f:
             credentials = google.oauth2.credentials.Credentials(token=None, **json.load(f))
         self._authorise(credentials)
         self.deadline = DEFAULT_GRPC_DEADLINE
@@ -105,8 +109,8 @@ class GAInterface(object):
                                             self.deadline):
             assistant_helpers.log_converse_response_without_audio(resp)
             if resp.error.code != code_pb2.OK:
-                logging.error('server error: %s', resp.error.message)
-                break
+                self.conversation_stream.stop_playback()
+                return  {'request_id': request_id, 'error': 'Server error: %s' % resp.error.message}
             if resp.event_type == END_OF_UTTERANCE:
                 logging.debug('End of audio request detected')
                 self.conversation_stream.stop_recording()
@@ -136,9 +140,7 @@ class GAInterface(object):
                 continue_conversation = False
         logging.debug('Finished playing assistant response.')
         self.conversation_stream.stop_playback()
-        if not conversation_response:
-            
-        return  {'request_id': request_id, 'continue_conversation': continue_conversation, 'context': self.conversation_state}
+        return  {'request_id': request_id, 'dialog_follow_on': continue_conversation, 'context': self.conversation_state}
 
     def gen_converse_requests(self):
         """Yields: ConverseRequest messages to send to the API."""
