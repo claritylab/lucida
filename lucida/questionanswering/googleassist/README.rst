@@ -20,9 +20,10 @@ Start microservice
 Add user
 -----------
 
-This microservice uses Google Assistant and requires user's consent for the same. There are two methods to provide consent::
-    - Ask a question (e.g. What is Taj Mahal?) using any valid text interface and follow the instructions.
-    - Visit the settings section on Lucida's web interface (under development)
+This microservice uses Google Assistant and requires user's consent for the same. There are two methods to provide consent:
+
+- Ask a question (e.g. What is Taj Mahal?) using any valid text interface and follow the instructions.
+- Visit the settings section on Lucida's web interface (under development)
 
 License
 -------
