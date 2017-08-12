@@ -1,5 +1,5 @@
-Google Assistant microservice for Lucida
-========================================
+Google Assistant speechrecognition for Lucida
+=============================================
 
 NOTE: By default this microservice is for personal use only. For commercial usage contact Google for a commercial client secret.
 
