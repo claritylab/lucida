@@ -169,71 +169,75 @@ class SpeechDecoder(object):
         self.state = STATE_LISTENING
         data = {'id': self.id, 'result': {'hypotheses': [], 'final': True}, 'context_in': self.cntxt, 'response': "", 'service': "GA", 'service_type': "QA", 'dialog_follow_on': False}
 
-        self._send_event('debug', defs.SUCCESS_OK, "Initiating dialogue with Google Assitant (STT) for decoding request audio", data['id'])
-        fp = open(SPEECH_TMPDIR + "/" + str(data['id']) + "_out.raw", 'wb')
-        try:
-            # This generator yields ConverseResponse proto messages
-            # received from the gRPC Google Assistant API.
-            for resp in self.assistant.Converse(self._converse_data_gen(data['id']), DEFAULT_GRPC_DEADLINE):
-                if not data['id'] == self.id:
-                    self._send_event('debug', defs.SUCCESS_OK, "[%s] Converse request for aborted request successfully terminated" % data['id'])
-                    try:
-                        fp.close()
-                        os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
-                    except:
-                        pass
-                    return
-                self._log_converse_response(resp, id)
-                if resp.error.code != code_pb2.OK:
-                    try:
-                        fp.close()
-                        os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
-                    except:
-                       pass
-                    self._send_event('error', defs.TRY_AGAIN, "Error occured while decoding request audio: %s" % resp.error.message, data['id'])
-                    return
-                if resp.event_type == END_OF_UTTERANCE:
-                    self._send_event('debug', defs.OTHER, 'End of audio request detected', data['id'])
-                    if self.state == STATE_LISTENING:
-                        self.stop()
-                    if self.state == STATE_EOS_RECEIVED:
-                        self.state = STATE_WAITING
-                if resp.result.spoken_request_text:
-                    self._send_event('debug', defs.SUCCESS_OK, "Received final transcript from Google Assistant", data['id'])
-                    self.result = {'hypotheses': [{'transcript': resp.result.spoken_request_text, 'confidence': 1}], 'final': True}
-                if len(resp.audio_out.audio_data) > 0:
-                    self._send_event('debug', defs.SUCCESS_OK, "Received response audio of length %u" % len(resp.audio_out.audio_data), data['id'])
-                    fp.write(resp.audio_out.audio_data)
-                if resp.result.spoken_response_text:
-                    self._send_event('debug', defs.SUCCESS_OK, "Received response text", data['id'])
-                    data['response'] = resp.result.spoken_response_text
-                if resp.result.conversation_state:
-                    self._send_event('debug', defs.SUCCESS_OK, "Received response context", data['id'])
-                    self.cntxt = resp.result.conversation_state
-                if resp.result.microphone_mode == DIALOG_FOLLOW_ON:
-                    data['dialog_follow_on'] = True
-                    self._send_event('info', defs.SUCCESS_OK, "Expecting follow-on query from user", data['id'])
-                elif resp.result.microphone_mode == CLOSE_MICROPHONE:
-                    data['dialog_follow_on'] = False
-            self.result['hypotheses'][0]['context'] = base64.b64encode(self.cntxt)
-            data['result'] = self.result
-            self._send_event('info', defs.SUCCESS_OK, "Dialogue with Google Assistant (STT) terminated (request audio)", data['id'])
+        response_stt = False
+        if not os.path.isfile(SPEECH_TMPDIR + "/" + str(data['id']) + "_out.raw"):
+            self._send_event('debug', defs.SUCCESS_OK, "Initiating dialogue with Google Assitant (STT) for decoding request audio", data['id'])
+            fp = open(SPEECH_TMPDIR + "/" + str(data['id']) + "_out.raw", 'wb')
             try:
-                fp.close()
-            except:
-                pass
-        except Exception as e:
-            try:
-                fp.close()
-                os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
-            except:
-                pass
-            self._send_event('error', defs.TRY_AGAIN, "Something went terribly wrong while decoding speech!!! Exception: %s" % e.message, data['id'])
-            return
+                # This generator yields ConverseResponse proto messages
+                # received from the gRPC Google Assistant API.
+                for resp in self.assistant.Converse(self._converse_data_gen(data['id']), DEFAULT_GRPC_DEADLINE):
+                    if not data['id'] == self.id:
+                        self._send_event('debug', defs.SUCCESS_OK, "[%s] Converse request for aborted request successfully terminated" % data['id'])
+                        try:
+                            fp.close()
+                            os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
+                        except:
+                            pass
+                        return
+                    self._log_converse_response(resp, id)
+                    if resp.error.code != code_pb2.OK:
+                        try:
+                            fp.close()
+                            os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
+                        except:
+                           pass
+                        self._send_event('error', defs.TRY_AGAIN, "Error occured while decoding request audio: %s" % resp.error.message, data['id'])
+                        return
+                    if resp.event_type == END_OF_UTTERANCE:
+                        self._send_event('debug', defs.OTHER, 'End of audio request detected', data['id'])
+                        if self.state == STATE_LISTENING:
+                            self.stop()
+                        if self.state == STATE_EOS_RECEIVED:
+                            self.state = STATE_WAITING
+                    if resp.result.spoken_request_text:
+                        self._send_event('debug', defs.SUCCESS_OK, "Received final transcript from Google Assistant", data['id'])
+                        self.result = {'hypotheses': [{'transcript': resp.result.spoken_request_text, 'confidence': 1}], 'final': True}
+                    if len(resp.audio_out.audio_data) > 0:
+                        self._send_event('debug', defs.SUCCESS_OK, "Received response audio of length %u" % len(resp.audio_out.audio_data), data['id'])
+                        fp.write(resp.audio_out.audio_data)
+                    if resp.result.spoken_response_text:
+                        self._send_event('debug', defs.SUCCESS_OK, "Received response text", data['id'])
+                        data['response'] = resp.result.spoken_response_text
+                    if resp.result.conversation_state:
+                        self._send_event('debug', defs.SUCCESS_OK, "Received response context", data['id'])
+                        self.cntxt = resp.result.conversation_state
+                    if resp.result.microphone_mode == DIALOG_FOLLOW_ON:
+                        data['dialog_follow_on'] = True
+                        self._send_event('info', defs.SUCCESS_OK, "Expecting follow-on query from user", data['id'])
+                    elif resp.result.microphone_mode == CLOSE_MICROPHONE:
+                        data['dialog_follow_on'] = False
+                self.result['hypotheses'][0]['context'] = base64.b64encode(self.cntxt)
+                data['result'] = self.result
+                self._send_event('info', defs.SUCCESS_OK, "Dialogue with Google Assistant (STT) terminated (request audio)", data['id'])
+                try:
+                    fp.close()
+                except:
+                    pass
+            except Exception as e:
+                try:
+                    fp.close()
+                    os.remove(SPEECH_TMPDIR + "/" + str(id) + "_out.raw")
+                except:
+                    pass
+                self._send_event('error', defs.TRY_AGAIN, "Something went terribly wrong while decoding speech!!! Exception: %s" % e.message, data['id'])
+                return
+        else:
+            response_stt = True
 
         # Convert Google Assistant response to text if asked for
-        self._send_event('debug', defs.SUCCESS_OK, "Initiating dialogue with Google Assitant (STT) for decoding response audio", data['id'])
-        if FORCE_RESPONSE_STT:
+        if FORCE_RESPONSE_STT or response_stt:
+            self._send_event('debug', defs.SUCCESS_OK, "Initiating dialogue with Google Assitant (STT) for decoding response audio", data['id'])
             try:
                 for resp in self.assistant.Converse(self._response_data_gen(data['id']), DEFAULT_GRPC_DEADLINE):
                     if not data['id'] == self.id:
@@ -249,8 +253,13 @@ class SpeechDecoder(object):
                         break
                 self._send_event('info', defs.SUCCESS_OK, "Dialogue with Google Assistant (STT) terminated (response audio)", data['id'])
             except Exception as e:
-                self._send_event('warn', defs.TRY_AGAIN, "Something went terribly wrong while decoding assistant response!!! Exception: %s" % e.message, data['id'])
+                if response_stt:
+                    self._send_event('error', defs.TRY_AGAIN, "Something went terribly wrong while decoding assistant response!!! Exception: %s" % e.message, data['id'])
+                else:
+                    self._send_event('warn', defs.TRY_AGAIN, "Something went terribly wrong while decoding assistant response!!! Exception: %s" % e.message, data['id'])
 
+        if response_stt:
+            data['result']['hypotheses'] = [{'transcript': data['response'], 'confidence': 1}]
         if self._send_event('final_result', defs.SUCCESS_OK, json.dumps(data), data['id']):
             self.abort(verbose=False, eos=True)
 
