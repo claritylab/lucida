@@ -1,7 +1,3 @@
-"""
-GA microservice configuration details
-"""
-
 import ConfigParser, sys
 
 class FakeSecHead(object):
