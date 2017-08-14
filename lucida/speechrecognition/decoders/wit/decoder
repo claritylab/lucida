@@ -59,7 +59,7 @@ class SpeechDecoder(object):
 
     def _post_req_gen(self):
         self.state = STATE_LISTENING
-        data = {'id': self.id, 'result': {'hypotheses': [], 'final': True}, 'context_in': self.cntxt}
+        data = {'user': self.user_id, 'id': self.id, 'result': {'hypotheses': [], 'final': True}, 'context_in': self.cntxt}
 
         self._send_event("debug", defs.SUCCESS_OK, "Initiating post request to WIT.AI", data['id'])
         try:
@@ -99,6 +99,7 @@ class SpeechDecoder(object):
         self.api_host        = "https://api.wit.ai/speech?v=" + WIT_API_VERSION
         self.request_timeout = WIT_REQUEST_TIMEOUT
         self.id = None
+        self.user_id = None
         self.abort(verbose=False, eos=False)
 
     def stop(self):
@@ -141,7 +142,7 @@ class SpeechDecoder(object):
             self._send_event('warn', defs.NOT_IN_ORDER, "Received user details before request identifier!!! Ignoring user details...")
             return
         if self.state == STATE_READY or self.state == STATE_CREATED :
-            self.user = user
+            self.user_id = user
             self.state = STATE_READY
             return
         self._send_event('warn', defs.NOT_IN_ORDER, "Received user details while decoding audio!!! Ignoring user details...")

@@ -76,6 +76,7 @@ function prettyfyHyp(text, doCapFirst, doPrependSpace) {
 }	
 
 var dictate = new Dictate({
+  user_id: $("a:contains(Logged in as)")[0].innerHTML.substring(13),
   server : $("#servers").val().split('|')[0],
 	serverStatus : $("#servers").val().split('|')[1],
 	recorderWorkerPath : 'static/js/recorderWorker.js',

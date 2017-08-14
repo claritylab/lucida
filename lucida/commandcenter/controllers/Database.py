@@ -5,7 +5,7 @@ from Utilities import log
 import os
 import Config
 from Memcached import memcached
-
+import time
 
 class Database(object):
 	# Name of the algorithm to use for password encryption.
@@ -145,5 +145,18 @@ class Database(object):
 			raise RuntimeError('Sorry. You can only add ' + 
 				str(Config.MAX_DOC_NUM_PER_USER) + \
 				' pieces of text at most')
+
+	# Google Assistant hack. Will be removed in due course
+	def add_answer(self, user, query, response):
+		self.db["last_ga_query_" + user].remove( { } )
+		self.db["last_ga_query_" + user].insert_one({'time': time.time(), 'query': query, 'response': response})
+
+	# Google Assistant hack. Will be removed in due course
+	def check_if_answered(self, user, query):
+		row = self.db["last_ga_query_" + user].find_one({'query': query})
+                if row:
+			return row['response']
+		return None
+
 
 database = Database()

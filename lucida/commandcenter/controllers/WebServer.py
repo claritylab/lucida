@@ -242,8 +242,11 @@ class WorkerSocketHandler(tornado.websocket.WebSocketHandler):
 		assert self.client_socket is not None
 		event = json.loads(message)
 		self.client_socket.send_event(event)
-		if 'next_id' in event:
-			self.client_socket.set_id(event['id'])
+		if 'result' in event and 'response' in event:
+			logging.info("Writing to database %s, %s, %s" % (event['user'], event['result']['hypotheses'][0]['transcript'], event['response']))
+			database.add_answer(event['user'], event['result']['hypotheses'][0]['transcript'], event['response'])
+#		if 'next_id' in event:
+#			self.client_socket.set_id(event['id'])
 
 	def set_client_socket(self, client_socket):
 		self.client_socket = client_socket
@@ -272,13 +275,13 @@ class DecoderSocketHandler(tornado.websocket.WebSocketHandler):
 		user = self.get_argument("user", None, True)
 		interface = self.get_argument("interface", None, True)
 		user = database.get_username(interface, user)
+		self.worker = None
                 if user == None:
 			logging.warn("Not authorised")
 			event = dict(status=STATUS_NOT_AVAILABLE, message="User not authorised!!!")
 			self.send_event(event)
 			self.close()
                         return
-		self.worker = None
 		try:
 			self.worker = self.application.available_workers.pop()
 			self.application.send_status_update()

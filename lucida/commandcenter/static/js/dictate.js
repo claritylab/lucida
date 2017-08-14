@@ -288,7 +288,7 @@
 			//var ws = new WebSocket("ws://127.0.0.1:8081", "echo-protocol");
 			var url = config.server + '?' + config.contentType;
 			if (config["user_id"]) {
-				url += '&user-id=' + config["user_id"]
+				url += '&user=' + config["user_id"]
 			}
 			if (config["content_id"]) {
 				url += '&content-id=' + config["content_id"]

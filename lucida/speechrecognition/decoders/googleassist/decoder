@@ -167,7 +167,7 @@ class SpeechDecoder(object):
 
     def _converse_req_gen(self):
         self.state = STATE_LISTENING
-        data = {'id': self.id, 'result': {'hypotheses': [], 'final': True}, 'context_in': self.cntxt, 'response': "", 'service': "GA", 'service_type': "QA", 'dialog_follow_on': False}
+        data = {'user': self.user_id, 'id': self.id, 'result': {'hypotheses': [], 'final': True}, 'context_in': self.cntxt, 'response': "", 'service': "GA", 'service_type': "QA", 'dialog_follow_on': False}
 
         response_stt = False
         if not os.path.isfile(SPEECH_TMPDIR + "/" + str(data['id']) + "_out.raw"):
@@ -276,6 +276,7 @@ class SpeechDecoder(object):
     def __init__(self):
         self.send_event_lock = threading.Lock()
         self.id = None
+        self.user_id = None
         self.abort(verbose=False, eos=False)
 
     def stop(self):
@@ -349,6 +350,7 @@ class SpeechDecoder(object):
             self._send_event('debug', defs.SUCCESS_OK, "Authenticating user...")
             try:
                 self._authorise(credentials)
+                self.user_id = user
                 self.state = STATE_READY
             except Exception as e:
                 self._send_event('error', defs.AUTH_FAILED, "Error occurred while authenticating user!!! Exception: %s" % str(e))
