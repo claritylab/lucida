@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Interface to Google Assistant""""
+"""Interface to Google Assistant"""
 
 import json
 

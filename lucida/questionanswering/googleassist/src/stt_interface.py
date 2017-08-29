@@ -86,6 +86,18 @@ class STTInterface():
         self.completed.set()
 
     def process(self):
+        # Make socket
+        tsocket = TSocket.TSocket('localhost', self.port)
+
+        # Buffering is critical. Raw sockets are very slow
+        self.transport = TTransport.TBufferedTransport(tsocket)
+
+        # Wrap in a protocol
+        protocol = TBinaryProtocol.TBinaryProtocol(self.transport)
+
+        # Create a client to use the protocol encoder
+        self.asr = ASRThriftService.Client(protocol)
+
         with open("/tmp/lucida/speech/%s_out.raw" % self.id, 'rb') as fp:
             self.transport.open()
             self.asr.request_id(self.id)
@@ -111,24 +123,12 @@ class STTInterface():
         self.id = id
         self.user = user
 
-        port = int(check_output(['./src/get_free_port', '2>/dev/null']))
+        self.port = int(check_output(['./src/get_free_port', '2>/dev/null']))
 
-        self.decoder = Popen([configuration.LUCIDA_ROOT + "/speechrecognition/decoders/" + configuration.STT_ENGINE + "/decoder", "--port", str(port)], stdout=PIPE, cwd=configuration.LUCIDA_ROOT + "/speechrecognition")
+        self.decoder = Popen([configuration.LUCIDA_ROOT + "/speechrecognition/decoders/" + configuration.STT_ENGINE + "/decoder", "--port", str(self.port)], stdout=PIPE, cwd=configuration.LUCIDA_ROOT + "/speechrecognition")
         self.decoder_read_thread = threading.Thread(target=self.read_decoder)
         self.decoder_read_thread.daemon = True
         self.decoder_read_thread.start()
-
-        # Make socket
-        tsocket = TSocket.TSocket('localhost', port)
-
-        # Buffering is critical. Raw sockets are very slow
-        self.transport = TTransport.TBufferedTransport(tsocket)
-
-        # Wrap in a protocol
-        protocol = TBinaryProtocol.TBinaryProtocol(self.transport)
-
-        # Create a client to use the protocol encoder
-        self.asr = ASRThriftService.Client(protocol)
 
     def clean(self):
        try:
