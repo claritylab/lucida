@@ -4,10 +4,9 @@
 #include <thrift/lib/cpp2/server/ThriftServer.h>
 
 #include "IMCHandler.h"
-
-DEFINE_int32(port,
-             8085,
-             "Port for IMC service (default: 8085)");
+#include <folly/init/Init.h>
+#include "Parser.h"
+#include <iostream>
 
 DEFINE_int32(num_of_threads,
              4,
@@ -20,13 +19,23 @@ using namespace cpp2;
 //using namespace facebook::windtunnel::treadmill::services::imc;
 
 int main(int argc, char* argv[]) {
-  google::InitGoogleLogging(argv[0]);
-  google::ParseCommandLineFlags(&argc, &argv, true);
+  folly::init(&argc, &argv);
+
+  Properties props;
+  props.Read("../../config.properties");
+  string portVal;
+  int port;
+  if (!props.GetValue("IMC_PORT", portVal)) {
+    cout << "IMC port not defined" << endl;
+    return -1;
+  } else {
+    port = atoi(portVal.c_str());
+  }
 
   auto handler = std::make_shared<IMCHandler>();
   auto server = folly::make_unique<ThriftServer>();
 
-  server->setPort(FLAGS_port);
+  server->setPort(port);
   server->setNWorkerThreads(FLAGS_num_of_threads);
   server->setInterface(std::move(handler));
   server->setIdleTimeout(std::chrono::milliseconds(0));

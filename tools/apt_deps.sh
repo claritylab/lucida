@@ -1,11 +1,10 @@
 #!/bin/bash
 ## Installs all package manager dependencies
 ## FROM ubuntu:14.04
-## Run as sudo
 
 apt-get update
 ln -s -f bash /bin/sh
-sudo ln -s /usr/bin/pip2 /usr/local/bin/pip
+ln -s /usr/bin/pip2 /usr/local/bin/pip
 apt-get install -y zlib1g-dev \
                    libatlas3-base \
                    python2.7-dev \
@@ -71,7 +70,9 @@ apt-get install -y zlib1g-dev \
                    python-gobject \
                    python-gobject-2 \
                    vim \
-                   memcached
-pip install --upgrade distribute
-pip install --upgrade pip
-pip install -r python_requirements.txt
+                   memcached \
+                   libyaml-dev \
+                   libffi-dev \
+                   libbz2-dev \
+                   python-yaml \
+&& pip install virtualenv ws4py

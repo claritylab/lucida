@@ -1,6 +1,7 @@
 #include "FACEHandler.h"
 //#include "opencv2/opencv.hpp"
 #include <folly/futures/Future.h>
+#include <folly/MoveWrapper.h>
 
 #include <sstream>
 #include <string>

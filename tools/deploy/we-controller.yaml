@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: we
+  name: we-controller
+spec:
+  replicas: 1
+  selector:
+    name: we
+  template:
+    metadata:
+      labels:
+        name: we
+    spec:
+      containers:
+      - image: claritylab/lucida:v2.2
+        command: ['/bin/sh', '-c']
+        args: ['cd $LUCIDAROOT/weather/server/ && python WeatherServer.py']
+        name: we
+        ports:
+        - containerPort: 8088
+          name: thrift

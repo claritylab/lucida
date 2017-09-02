@@ -6,6 +6,7 @@
 #include <iostream>
 #include <utility>
 #include <folly/futures/Future.h>
+#include <folly/MoveWrapper.h>
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
 #include <thrift/lib/cpp2/server/ThriftServer.h>
 #include <thrift/lib/cpp2/async/HeaderClientChannel.h>
@@ -121,37 +122,12 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 			string IMM_result = getImageLabelFromId(
 				LUCID_save, images[best_index]->getImageId());
 			print("Result: " << IMM_result);
-			// Check if the query needs to be further sent to QA.
-			if (query_save.content[0].tags[2] == "0") {
 				promise->setValue(unique_ptr<string>(
 						new string(IMM_result)));
 				return;
-			}
-			// Ask QA.
-			QuerySpec QA_spec;
-			string QA_addr = "";
-			int QA_port = 0;
-			getNextNode(query_save, IMM_result, 1, QA_spec, QA_addr, QA_port);
-			print("Sending to QA at " << QA_addr << " " << QA_port);
-			print("Query to QA " << QA_spec.content[0].data[0]);
-			EventBase event_base;
-			std::shared_ptr<TAsyncSocket> socket(
-					TAsyncSocket::newSocket(&event_base, QA_addr, QA_port));
-			unique_ptr<HeaderClientChannel, DelayedDestruction::Destructor>
-			channel(new HeaderClientChannel(socket));
-			channel->setClientType(THRIFT_FRAMED_DEPRECATED);
-			LucidaServiceAsyncClient client(std::move(channel));
-			client.future_infer(LUCID_save, QA_spec).then(
-					[this, LUCID_save, query_save, IMM_result, promise]
-					 (folly::Try<string>&& t) mutable {
-				print("QA result: " << t.value());
-				unique_ptr<string> result = folly::make_unique<std::string>(
-						"IMM: " + IMM_result
-						+ "; QA: " + t.value());
-				promise->setValue(std::move(result));
-				return;
-			});
-			event_base.loop();
+
+			
+
 		} catch (Exception &e) {
 			print(e.what()); // program aborted although exception is caught
 			promise->setValue(unique_ptr<string>(new string(e.what())));
@@ -160,23 +136,6 @@ folly::Future<unique_ptr<string>> IMMHandler::future_infer
 	}
 	);
 	return future;
-}
-
-void IMMHandler::getNextNode(QuerySpec &original_spec, const string &IMM_result,
-		int node_index, QuerySpec &new_spec, string &addr, int &port) {
-	if (node_index < 0 || node_index >= (int) original_spec.content.size()) {
-		throw runtime_error("Invalid node_index " + to_string(node_index));
-	}
-	QueryInput new_input = original_spec.content[node_index];
-	new_input.data[0] += " ";
-	new_input.data[0] += IMM_result;
-	new_spec.name = "query";
-	new_spec.content.push_back(new_input);
-	addr = original_spec.content[node_index].tags[0];
-	if (addr =="localhost") {
-		addr = "127.0.0.1"; // cannot be "localhost"
-	}
-	port = stoi(original_spec.content[node_index].tags[1], nullptr);
 }
 
 int IMMHandler::countImages(const string &LUCID) {

@@ -1,7 +1,8 @@
 CXX = g++
 
 CXXFLAGS = 		-std=c++11 \
-				-fPIC 
+				-fPIC
+CXXFLAGS += $(shell if [ `lsb_release -a 2>/dev/null | grep -Poe "(?<=\s)\d+(?=[\d\.]+$$)"` -gt 14 ]; then echo "-std=c++14"; fi;)
 
 LINKFLAGS =     -lopencv_core \
 				-lopencv_highgui \
@@ -24,6 +25,7 @@ LINKFLAGS =     -lopencv_core \
 				-lthrift \
 				-lfolly \
 				-lwangle \
+				-lzstd \
 				-lglog \
 				-lthriftcpp2 \
 				-lgflags \
