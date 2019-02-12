@@ -1,0 +1,53 @@
+--- # devspaces.yml
+name: lucida
+description:  Development environment for lucida
+
+# If you want to use a different Dockerfile for your DevSpace, provide the path
+# here.
+docker-file: Dockerfile
+
+ports:
+- protocol: http # can be udp|tcp|http
+  port-number: 3000
+  description: web app http port
+
+# If you need additional files when building your Dockerfile, such as some
+# application binaries that your Dockerfile references, list the glob paths to
+# include here. They are relative to this devspaces.yml file.
+docker-build-includes: |
+  **/*
+
+# generic `build` filter cannot be used once we have a source package named `build`.
+sync-ignore: |
+  .git
+  .idea
+  .DS_Store  
+  tools/caffe/
+  tools/opencv-2.4.9/
+  tools/protobuf-2.5.0/
+  tools/thrift-0.9.3/
+  tools/fbthrift/
+  tools/mongo-c-driver-1.3.0/
+  tools/mongo-cxx-driver/
+  *.slo
+  *.lo
+  *.o
+  *.obj
+  *.class
+  *.gch
+  *.pch
+  *.so
+  !libindri_jni.so
+  *.dylib
+  *.dll
+  *.mod
+  *.lai
+  *.la
+  *.a
+  *.lib
+  *.exe
+  *.out
+  *.app
+  *.log
+  *.pyc
+  *.swp
