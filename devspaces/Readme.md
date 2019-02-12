@@ -30,39 +30,35 @@ The following commands should be issued from **project directory**.
 $ cd devspaces
 $ devspaces create
 $ cd ..
-
 ```
 
 2 - Start containers
-
 ```bash
 devspaces start ds-lucida
 ```
 
-3 - Start containers synchronization
-
-```bash
-devspaces bind ds-lucida
-```
-
-4 - Grab some container info
+3 - Grab some container info
 
 ```bash
 devspaces info ds-lucida
 ```
 
-5 - Connect to development container
+4 - Connect to development container
 
 ```bash
 devspaces exec ds-lucida
 ```
 
-6 - Build 
+5 - Clone
+```bash
+cd /data && https://github.com/trilogy-group/lucida .
+```
+5 - Build 
 
 ```bash
 make local
 ```
-7 - Run
+6 - Run
 
 ```bash
 make start_all
