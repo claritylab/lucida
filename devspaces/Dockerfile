@@ -1,4 +1,4 @@
-FROM claritylab/lucida
+FROM devspaces/lucida
 
 LABEL description="Devspaces base implementation for Lucida"
 
