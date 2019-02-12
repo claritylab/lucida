@@ -36,25 +36,25 @@ $ cd ..
 2 - Start containers
 
 ```bash
-devspaces start lucida
+devspaces start ds-lucida
 ```
 
 3 - Start containers synchronization
 
 ```bash
-devspaces bind lucida
+devspaces bind ds-lucida
 ```
 
 4 - Grab some container info
 
 ```bash
-devspaces info lucida
+devspaces info ds-lucida
 ```
 
 5 - Connect to development container
 
 ```bash
-devspaces exec lucida
+devspaces exec ds-lucida
 ```
 
 6 - Build 
