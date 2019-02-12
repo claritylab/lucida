@@ -32,14 +32,14 @@ $ devspaces create
 $ cd ..
 ```
 
-2 - Start containers
+2 - Start container
 ```bash
 devspaces start ds-lucida
 ```
 
-3 - Start containers
+3 - Bind folder
 ```bash
-devspaces start ds-lucida
+devspaces bind ds-lucida
 ```
 
 4 - Grab some container info
