@@ -51,7 +51,7 @@ devspaces exec ds-lucida
 
 5 - Clone
 ```bash
-cd /data && https://github.com/trilogy-group/lucida .
+cd /data && git clone https://github.com/trilogy-group/lucida
 ```
 5 - Build 
 
