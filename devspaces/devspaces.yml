@@ -1,5 +1,5 @@
 --- # devspaces.yml
-name: lucida
+name: ds-lucida
 description:  Development environment for lucida
 
 # If you want to use a different Dockerfile for your DevSpace, provide the path
@@ -10,6 +10,9 @@ ports:
 - protocol: http # can be udp|tcp|http
   port-number: 3000
   description: web app http port
+- protocol: tcp # can be udp|tcp|http
+  port-number: 27017
+  description: web app http port  
 
 # If you need additional files when building your Dockerfile, such as some
 # application binaries that your Dockerfile references, list the glob paths to

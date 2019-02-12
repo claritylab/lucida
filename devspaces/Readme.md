@@ -26,41 +26,44 @@ The following commands should be issued from **project directory**.
 
 1 - Create Devspaces
 
-    - Go to https://devspaces.io/devspaces/list , click `Add Devspace`
-    - Select Create from a public Docker image
-    - Search for `lucida` and select the repository. You need to have devspaces running on your local machine for this to work.
-    - For devspace name enter `df-lucida`
-    - For docker Image search for `devspaces/lucida`
-    - For ports select 3000 and 27017 with HTTP
-    - Don't add any ENV variables
-    - Wait for validation
+```bash
+$ cd devspaces
+$ devspaces create
+$ cd ../lucida
+
+```
 
 2 - Start containers
 
 ```bash
-devspaces start df-lucida
+devspaces start lucida
 ```
 
-
-3 - Grab some container info
+3 - Start containers synchronization
 
 ```bash
-devspaces info df-lucida
+devspaces bind lucida
 ```
 
-4 - Connect to development container
+4 - Grab some container info
 
 ```bash
-devspaces exec df-lucida
+devspaces info lucida
 ```
 
-5 - Build 
+5 - Connect to development container
 
 ```bash
-cd /data/lucida && make local
+devspaces exec lucida
 ```
-6 - Start
+
+6 - Build 
 
 ```bash
-cd /data/lucida && make start_all
+make local
+```
+7 - Run
+
+```bash
+make start_all
 ```
