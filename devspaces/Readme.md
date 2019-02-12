@@ -32,14 +32,14 @@ $ devspaces create
 $ cd ..
 ```
 
-2 - Start container
+2 - Start containers
 ```bash
 devspaces start ds-lucida
 ```
 
-3 - Bind folder
+3 - Start containers
 ```bash
-devspaces bind ds-lucida
+devspaces start ds-lucida
 ```
 
 4 - Grab some container info
@@ -57,7 +57,7 @@ devspaces exec ds-lucida
 6 - Build 
 
 ```bash
-cd /data && chmod -R +x ./tools && make local
+cd /data && chmod -R +x . && make local
 ```
 6 - Run
 
