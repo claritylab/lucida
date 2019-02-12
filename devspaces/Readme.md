@@ -47,16 +47,12 @@ devspaces info ds-lucida
 
 ```bash
 devspaces exec ds-lucida
-```
 
-5 - Clone
-```bash
-cd /data && git clone https://github.com/trilogy-group/lucida
 ```
 5 - Build 
 
 ```bash
-make local
+cd /data && chmod -R +x ./tools && make local
 ```
 6 - Run
 
