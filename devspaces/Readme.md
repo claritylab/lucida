@@ -29,7 +29,7 @@ The following commands should be issued from **project directory**.
 ```bash
 $ cd devspaces
 $ devspaces create
-$ cd ../lucida
+$ cd ..
 
 ```
 
