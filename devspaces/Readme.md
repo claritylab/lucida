@@ -37,19 +37,24 @@ $ cd ..
 devspaces start ds-lucida
 ```
 
-3 - Grab some container info
+3 - Start containers
+```bash
+devspaces start ds-lucida
+```
+
+4 - Grab some container info
 
 ```bash
 devspaces info ds-lucida
 ```
 
-4 - Connect to development container
+5 - Connect to development container
 
 ```bash
 devspaces exec ds-lucida
 
 ```
-5 - Build 
+6 - Build 
 
 ```bash
 cd /data && chmod -R +x ./tools && make local
