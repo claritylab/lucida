@@ -3,7 +3,6 @@
 import sys
 sys.path.append('../')
 
-from WeatherConfig import PORT
 from lucidatypes.ttypes import QueryInput, QuerySpec
 from lucidaservice import LucidaService
 
@@ -11,6 +10,11 @@ from thrift import Thrift
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
+
+if len(sys.argv) != 2:
+	print('Wrong arguments!')
+	exit(1)
+PORT = int(sys.argv[1])
 
 LUCID = "Clinc"
 query_input_data = "What's the weather in Ann Arbor, MI?"

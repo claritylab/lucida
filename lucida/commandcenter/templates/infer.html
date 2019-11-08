@@ -2,11 +2,13 @@
 
 {% block content %}
 
+<!--
 {% if dates %}
-<meta id="dates" data-name="{{ dates }}"> <!-- passed to calendar.js -->
+<meta id="dates" data-name="{{ dates }}"> passed to calendar.js
 <script src="https://apis.google.com/js/client.js?onload=checkAuth&output=embed"></script>
 <script src="{{ url_for('static', filename='js/calendar.js')}}"></script>
 {% endif %}
+-->
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/asr.css')}}">
 

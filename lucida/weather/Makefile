@@ -15,7 +15,13 @@ clean:
 	rm -rf lucidaservice lucidatypes
 
 start_server:
-	cd server; python WeatherServer.py
+	@if [ "$(port)" != "" ]; then \
+		cd server; \
+		python WeatherServer.py $(port); \
+	fi
 
-start_test:
-	cd client; python WeatherClient.py
+start_test: 
+	@if [ "$(port)" != "" ]; then \
+		cd client; \
+		python WeatherClient.py $(port); \
+	fi

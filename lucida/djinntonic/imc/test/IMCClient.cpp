@@ -15,7 +15,6 @@
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"
 #include <folly/init/Init.h>
-#include "../Parser.h"
 
 using namespace folly;
 using namespace apache::thrift;
@@ -45,16 +44,11 @@ int main(int argc, char* argv[]){
 	folly::init(&argc, &argv);
 	EventBase event_base;
 
-	Properties props;
-	props.Read("../../../config.properties");
-	string portVal;
-	int port;
-	if (!props.GetValue("IMC_PORT", portVal)) {
-	    cout << "IMC port not defined" << endl;
-	    return -1;
-	} else {
-	    port = atoi(portVal.c_str());
+	if (argc != 2){
+		cerr << "Wrong argument!" << endl;
+		exit(EXIT_FAILURE);
 	}
+	int port = atoi(argv[1]);
 
 	std::shared_ptr<apache::thrift::async::TAsyncSocket> socket_t(
 			TAsyncSocket::newSocket(&event_base, FLAGS_hostname, port));

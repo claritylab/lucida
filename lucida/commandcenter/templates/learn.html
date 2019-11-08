@@ -15,6 +15,13 @@
 
 	<div class="container">
 		<div class="row">
+			<p><h3>Service: {{ service_name }}</h3></p>
+		</div>
+	</div>
+
+	{% if text_able == 1 %}	
+	<div class="container">
+		<div class="row">
 			<p><h3>Add text knowledge:</h3></p>
 		</div>
 	</div>
@@ -22,7 +29,8 @@
 	<div class="container">
 		<form action="" method="post" enctype="multipart/form-data">
 			<input name="op" type="hidden" value="add_text"></input>
-
+			<input name="_id" type="hidden" value={{ _id }}></input>
+			
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Text: </label>
 				<div class="col-sm-8">
@@ -39,7 +47,8 @@
 	<div class="container">
 		<form action="" method="post" enctype="multipart/form-data">
 			<input name="op" type="hidden" value="add_url"></input>
-
+			<input name="_id" type="hidden" value={{ _id }}></input>
+			
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Url: </label>
 				<div class="col-sm-8">
@@ -58,6 +67,8 @@
 		<form action="" method="post" enctype="multipart/form-data">
 			<input name="op" type="hidden" value="delete_text"></input>
 			<input name="text_id" type="hidden" value={{ i['text_id'] }}></input>
+			<input name="_id" type="hidden" value={{ _id }}></input>
+			
 			<div class="col-sm-10">
 				<li>{% if i['type'] == 'url' %}<a href={{ i['text_data'] }}>{% endif %}{{ i['text_data'] }}{% if i['type'] == 'url' %}</a>{% endif %}</li>
 			</div>
@@ -67,7 +78,9 @@
 		</form>
 	{% endfor %}
 	</ul>
+	{% endif %}
 
+	{% if image_able == 1 %}
 	<div class="container">
 		<div class="row">
 			<p><h3>Add image knowledge:</h3></p>
@@ -77,7 +90,8 @@
 	<div class="container">
 		<form action="" method=post enctype=multipart/form-data>
 			<input name="op" type="hidden" value="add_image"></input>
-
+			<input name="_id" type="hidden" value={{ _id }}></input>
+			
 			<div class="form-group">
 				<input id="file_input" type="file" name="file" size="60">
 				<p class="help-block">Upload your picture!</p>
@@ -102,6 +116,8 @@
 			<input name="op" type="hidden" value="delete_image"></input>
 			<input name="label" type="hidden" value={{ i['label'] }}></input>
 			<input name="image_id" type="hidden" value={{ i['image_id'] }}></input>
+			<input name="_id" type="hidden" value={{ _id }}></input>
+			
 			<div class="ngg-gallery-thumbnail">
 				<img src="data:;base64,{{ i['data'] }}" style="max-width:none;" height="90"></img>
 			</div>
@@ -110,8 +126,13 @@
 		</form>
 	</div>
 	{% endfor %}
+	{% endif %}
 	
 </div>
+	
+	<div class="container">
+		<a href="{{ url_for('learn.learn_route') }}" class="btn btn-danger btn-sm">Back</a>
+	</div>
 
 <br><br>
 {% endblock %}

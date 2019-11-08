@@ -24,18 +24,10 @@ RUN apt-get install -y make
 ## install lucida
 RUN mkdir -p /usr/local/lucida
 ADD . /usr/local/lucida
-WORKDIR "/usr/local/lucida/tools"
-RUN /bin/bash apt_deps.sh
-RUN /bin/bash install_python.sh
-RUN /bin/bash install_java.sh
-RUN /bin/bash install_opencv.sh
-RUN /bin/bash install_thrift.sh
-RUN /bin/bash install_fbthrift.sh
-RUN /bin/bash install_mongodb.sh
-WORKDIR "/usr/local/lucida/lucida"
-RUN /usr/bin/make
-RUN /bin/bash commandcenter/apache/install_apache.sh
-RUN mkdir -p /etc/letsencrypt/live/host
+WORKDIR "/usr/local/lucida/"
+RUN make dep_core \
+    && /bin/bash commandcenter/apache/install_apache.sh \
+    && mkdir -p /etc/letsencrypt/live/host
 
 ### function docker-flush(){
 ###     dockerlist=$(docker ps -a -q)

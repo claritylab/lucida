@@ -20,6 +20,11 @@ import socket
 import json
 import re
 
+if len(sys.argv) != 2:
+	print('Wrong arguments!')
+	exit(1)
+PORT = int(sys.argv[1])
+
 class MusicHandler:
 	def create(self, LUCID, spec):
 		'''

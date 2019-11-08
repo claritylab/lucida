@@ -24,10 +24,15 @@ corenlp:
 	fi
 
 start_server: 
-	./gradlew run
+	@if [ "$(port)" != "" ]; then \
+		./gradlew run -Pargs=$(port); \
+	fi
 
 start_test: 
-	cd CalendarClient; ./start-Calendar-client.sh 
+	@if [ "$(port)" != "" ]; then \
+		cd CalendarClient; \
+		./start-Calendar-client.sh $(port); \
+	fi
 
 clean:
 	rm -rf src/main/java/thrift && rm -rf CalendarClient/thrift && rm -rf CalendarClient/*.class && rm -rf build && rm -rf lib

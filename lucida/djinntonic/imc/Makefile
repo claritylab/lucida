@@ -30,10 +30,15 @@ $(TARGET): $(OBJECTS)
 	$(CXX) -Wall $(CXXFLAGS) -c $< -o $@
 
 start_server: 
-	./IMCServer
+	@if [ "$(port)" != "" ]; then \
+		./IMCServer $(port); \
+	fi
 
 start_test: 
-	cd test && ./IMCClient && cd ..
+	@if [ "$(port)" != "" ]; then \
+		cd test; \
+		./IMCClient $(port); \
+	fi
 
 client:
 	cd test && make all && cd ..

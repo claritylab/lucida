@@ -14,9 +14,9 @@ spec:
         name: imm
     spec:
       containers:
-      - image: claritylab/lucida:v2.2
+      - image: czx5049/lucida_services:v1.2
         command: ['/bin/sh', '-c']
-        args: ['cd $LUCIDAROOT/imagematching/opencv_imm/server/ && ./imm_server']
+        args: ['cd $LUCIDAROOT/imagematching/opencv_imm/ && make start_server port=8082']
         name: imm
         ports:
         - containerPort: 8082

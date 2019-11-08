@@ -14,10 +14,16 @@ thrift:
     fi
 
 start_server: 
-	chmod +x start_server.sh && ./start_server.sh
+	@if [ "$(port)" != "" ]; then \
+		chmod +x start_server.sh; \
+		./start_server.sh $(port); \
+	fi
 
 start_test: 
-	chmod +x start_test.sh && ./start_test.sh 
+	@if [ "$(port)" != "" ]; then \
+		chmod +x start_test.sh; \
+		./start_test.sh $(port); \
+	fi
 
 clean:
 	rm -rf bin

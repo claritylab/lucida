@@ -8,8 +8,8 @@ spec:
   type: NodePort
   ports:
     - nodePort: 30000
-      port: 80
-      targetPort: 80
+      port: 3000
+      targetPort: 3000
       protocol: TCP
   selector:
     name: web

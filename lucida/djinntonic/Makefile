@@ -3,6 +3,7 @@ fname=djinn-weights-1.0.tar.gz
 
 all:
 	cd tools \
+	&& sudo bash install_fbthrift.sh \
 	&& sh install-protobuf.sh \
 	&& sh install-caffe.sh \
 	&& cp common.hpp caffe/distribute/include/caffe/common.hpp \
