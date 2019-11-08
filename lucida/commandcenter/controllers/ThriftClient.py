@@ -125,7 +125,7 @@ class ThriftClient(object):
 			
 			i = 0
 			for x in resultText:
-				resultText[i] = [unicode(resultText)] # Text information must be unicode'd and array'd to be properly passed. IMAGE DATA DOES NOT HAVE THIS DONE TO IT.
+				resultText[i] = [unicode(x)] # Text information must be unicode'd and array'd to be properly passed. IMAGE DATA DOES NOT HAVE THIS DONE TO IT.
 				i+= 1
 				
 			# Processes the current workflow state, and in the process finds if this is the final stage or if next stage exists.

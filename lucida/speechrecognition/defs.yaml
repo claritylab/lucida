@@ -1,0 +1,15 @@
+# Common include variables for decoders
+# NOTE: Currently you need to make speech recognition and all its modules again by typing make all followed by make decoders after modifying this file
+
+# Success status
+SUCCESS_OK     : 0
+
+# Types of errors/warnings
+OTHER          : 1
+TRY_AGAIN      : 2
+NOT_AUTHORISED : 3
+AUTH_FAILED    : 4
+NOT_IN_ORDER   : 5
+DATA_AFTER_EOS : 6
+FATAL          : 7
+DECODER_ABORTED: 8

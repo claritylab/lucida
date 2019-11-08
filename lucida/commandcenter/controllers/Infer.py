@@ -18,6 +18,7 @@ def generic_infer_route(form, upload_file):
 		options['asr_addr_port'] = os.environ.get('ASR_ADDR_PORT')
 	else:
 		options['asr_addr_port'] = 'ws://localhost:' + port_dic["cmd_port"]
+        services_needed = None
 	try:
 		# Deal with POST requests.
 		if request.method == 'POST':
@@ -38,14 +39,21 @@ def generic_infer_route(form, upload_file):
 				services_needed = Config.SESSION[lucida_id]['graph']
 				Config.SESSION[lucida_id]['data']['text'].append(speech_input)
 				speech_input = Config.SESSION[lucida_id]['data']['text']
-			node = services_needed.get_node(0)
-			options['result'] = thrift_client.infer(lucida_id, node.service_name, speech_input, image_input)
-			log('Result ' + options['result'])
-			# Check if Calendar service is needed.
-			# If so, JavaScript needs to receive the parsed dates.
-			if services_needed.has_service('CA'):
-				options['dates'] = options['result']
-				options['result'] = None
+			try:
+				if services_needed.to_string() == "['QAWF', '0'], and start index: 0":
+					options['result'] = database.check_if_answered(session['username'], speech_input[0])
+					print '@@@@@@@@@@ Using prefetched result', options['result']
+			except:
+				pass
+			if not options['result']:
+				node = services_needed.get_node(0)
+				options['result'] = thrift_client.infer(lucida_id, node.service_name, speech_input, image_input)
+				log('Result ' + options['result'])
+				# Check if Calendar service is needed.
+				# If so, JavaScript needs to receive the parsed dates.
+				if services_needed.has_service('CA'):
+					options['dates'] = options['result']
+					options['result'] = None
 	except Exception as e:
                 log(e)
                 options['errno'] = 500

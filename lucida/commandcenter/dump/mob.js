@@ -76,7 +76,6 @@ function prettyfyHyp(text, doCapFirst, doPrependSpace) {
 }	
 
 var dictate = new Dictate({
-  user_id: $("a:contains(Logged in as)")[0].innerHTML.substring(13),
   server : $("#servers").val().split('|')[0],
 	serverStatus : $("#servers").val().split('|')[1],
 	recorderWorkerPath : 'static/js/recorderWorker.js',
@@ -108,7 +107,6 @@ var dictate = new Dictate({
 	onEndOfSession : function() {
 		isConnected = false;
 		__message("END OF SESSION");
-		document.getElementById('startImg').src = 'static/image/microphone.png';
 		$("#buttonToggleListening").html('Start');
 		$("#buttonToggleListening").removeClass('highlight');
 		$("#buttonToggleListening").prop("disabled", false);
@@ -170,7 +168,6 @@ var dictate = new Dictate({
 		doPrependSpace = (hypText.length > 0) && !(/\n *$/.test(hypText));
 	},
 	onError : function(code, data) {
-		document.getElementById('startImg').src = 'static/image/microphone.png';
 		dictate.cancel();
 		__error(code, data);
 		// TODO: show error in the GUI
@@ -236,7 +233,7 @@ $(document).ready(function() {
 		dictate.cancel();
 		var servers = $("#servers").val().split('|');
 		dictate.setServer(servers[0]);
-		dictate.setServerStatus(servers[1]);
+//		dictate.setServerStatus(servers[1]);
 	});
 
 });

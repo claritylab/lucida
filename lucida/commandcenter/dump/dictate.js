@@ -190,6 +190,7 @@
 			config.rafCallback();
 
 			recorder = new Recorder(input, { workerPath : config.recorderWorkerPath });
+		this.recorder = recorder;
 			config.onEvent(MSG_INIT_RECORDER, 'Recorder initialized');
 		}
 
@@ -229,6 +230,7 @@
 				config.onEvent(MSG_STOP, 'Stopped recording');
 				// Push the remaining audio to the server
 				recorder.export16kMono(function(blob) {
+					console.log(blob)
 					socketSend(blob);
 					socketSend(TAG_END_OF_SENTENCE);
 					recorder.clear();
@@ -288,7 +290,7 @@
 			//var ws = new WebSocket("ws://127.0.0.1:8081", "echo-protocol");
 			var url = config.server + '?' + config.contentType;
 			if (config["user_id"]) {
-				url += '&user=' + config["user_id"]
+				url += '&user-id=' + config["user_id"]
 			}
 			if (config["content_id"]) {
 				url += '&content-id=' + config["content_id"]
@@ -332,6 +334,7 @@
 				intervalKey = setInterval(function() {
 					recorder.export16kMono(function(blob) {
 						socketSend(blob);
+						console.log(blob)
 						recorder.clear();
 					}, 'audio/x-raw');
 				}, config.interval);
