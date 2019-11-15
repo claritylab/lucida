@@ -85,8 +85,11 @@ class Database(object):
 
 	#Returns true if the username already exists.
 	def get_username(self, interface, interface_uid):
-		interface += "_interface"
-		row = self.users.find_one({interface: interface_uid});
+		if interface and interface != "web":
+			interface += "_interface"
+			row = self.users.find_one({interface: interface_uid})
+		else:
+			row = self.users.find_one({'username': interface_uid})
 		if not row is None:
 			return row['username']
 		return None

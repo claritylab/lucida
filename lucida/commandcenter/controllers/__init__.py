@@ -1,3 +1,3 @@
-__all__ = ['Main', 'AccessManagement', 'WebSocket', 'Service', 'Graph',
+__all__ = ['Main', 'AccessManagement', 'WebServer', 'Service', 'Graph',
            'ThriftClient', 'Create', 'Learn', 'Infer', 'Parser',
-           'QueryClassifier', 'Config', 'User', 'Utilities', 'Database', 'Memcached', 'Decision']
+           'QueryClassifier', 'Config', 'User', 'Utilities', 'Database', 'Memcached', 'Decision', 'FlaskApp']

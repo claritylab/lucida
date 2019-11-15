@@ -1,0 +1,162 @@
+#!/usr/bin/env python
+
+"""
+Created on Jul 13 2017
+
+@author: kamal1210
+"""
+from __future__ import print_function
+
+import os, sys, time
+import threading, json
+import click
+
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+from thrift.server import TServer
+
+sys.path.insert(0, "../../include")
+sys.path.insert(0, "../../include/gen-py")
+
+from asrthriftservice import ASRThriftService
+import common
+
+STATE_CREATED      = 0
+STATE_READY        = 1
+STATE_LISTENING    = 2
+STATE_EOS_RECEIVED = 3
+STATE_WAITING      = 4
+
+class SpeechDecoder(object):
+
+    # Writes event messages to output. See README in speechrecognition/decoders for list of all available events.
+    def _send_event(self, type, status, data):
+        message = json.dumps({'event': type, 'status': status, 'data': data})
+        try:
+            print(message)
+            sys.stdout.flush()
+        except IOError:
+            pass
+
+    # Processes audio data. This function reads audio data from input_buffer and processes it
+    def processor(self):
+        self.state = STATE_LISTENING
+        id = self.id
+        self._send_event("debug", common.SUCCESS_OK, "Starting to process audio data")
+
+        # Read continously while listeneing
+        while self.state == STATE_LISTENING:
+            if len(self.input_buffer) > 0:
+                # TODO: process self.input_buffer.pop(0) and send interim results if the thread is not aborted
+                if id == self.id:
+                    self._send_event("interim_result", common.SUCCESS_OK, "INTERIM_TRANSCRIPT_GOES_HERE")
+
+        # Read till end once EOS received
+        while len(self.input_buffer) > 0:
+            # TODO: process self.input_buffer.pop(0) and send interim results if the thread is not aborted
+            if id == self.id:
+                self._send_event("interim_result", common.SUCCESS_OK, "INTERIM_TRANSCRIPT_GOES_HERE")
+            break
+
+        # Check if this thread has been aborted
+        if not id == self.id:
+            self._send_event("debug", common.SUCCESS_OK, "An old decoder thread was aborted succesfully")
+            return
+
+        self.state = STATE_WAITING
+        self._send_event("final_result", common.SUCCESS_OK, json.dumps(dict(transcript="FINAL_TRANSCRIPT_GOES_HERE",entities="OPTIONAL. SEE README",response="OPTIONAL. SEE README")))
+        self._send_event("debug", common.SUCCESS_OK, "Closed post data stream. Waiting for response...")
+        self.state = STATE_READY
+
+    # This function aborts processing discarding all pending output
+    def abort(self):
+        if self.state == STATE_READY :
+            self._send_event("warn", common.WARN_GENERIC, "Abort message received when decoder is idle!!! Ignoring message...")
+            return
+        if self.state == STATE_CREATED :
+            self._send_event("warn", common.WARN_GENERIC, "Abort message received when decoder is not configured!!! Ignoring message...")
+            return
+        self.id = ""
+        self.state = STATE_READY
+        self.input_buffer = []
+        self.context = ""
+        self._send_event("warn", common.WARN_ABORTED, "Decoder was reset!!! All data cleared")
+
+    # Class constructor
+    def __init__(self):
+        self.send_event_lock = threading.Lock()
+        self.input_buffer = []
+        self.state = STATE_CREATED
+        self.context = ""
+        self.id = ""
+
+    # EOS handler
+    def stop(self):
+        if self.state == STATE_LISTENING :
+            self._send_event("debug", common.SUCCESS_OK, "Received End-Of-Stream. Finishing up...")
+            self.state = STATE_EOS_RECEIVED
+            return
+        self._send_event("warn", common.WARN_GENERIC, "End-Of-Stream message received while not listening!!! Ignoring message...")
+
+    # Receives audio data. This should just store data in input_buffer and return
+    def push(self, data):
+        if self.state == STATE_LISTENING :
+            self._send_event("debug", common.SUCCESS_OK, "Pushing audio chunk of size %d to post buffer..." % len(data))
+            self.input_buffer.append(data)
+            return
+        self._send_event("warn", common.WARN_GENERIC, "Push message received while not listening!!! Ignoring message...")
+
+    # This should start decoder thread and update current content id
+    def start(self):
+        if self.state == STATE_READY :
+            self.id = uuid.uuid4()
+            self.decoder_thread = threading.Thread(target=self.processor)
+            self.decoder_thread.daemon = True
+            self.decoder_thread.start()
+            return
+        if self.state == STATE_CREATED :
+            self._send_event("warn", common.WARN_GENERIC, "Start requested before configuration!!! Ignoring message...")
+            return
+        self._send_event("warn", common.WARN_GENERIC, "Start message received while decoding!!! Ignoring message...")
+
+    # This should handle update context. For those who need it.
+    def context(self, cntxt):
+        if self.state == STATE_READY :
+            self.context = cntxt
+        if self.state == STATE_CREATED :
+            self._send_event("warn", common.WARN_GENERIC, "Context received before configuration!!! Ignoring message...")
+            return
+        self._send_event("warn", common.WARN_GENERIC, "Context received while decoding!!! Ignoring message...")
+
+    # This handles decoder configuration. Whatever conf executable prints is passed onto this function as message. Return True or False based on whether configuration was successful
+    def conf(self, message):
+        if self.state == STATE_CREATED or self.state == STATE_READY :
+            try:
+                msg = json.loads(message)
+                # TODO: Configure Decoder
+            except Exception as e:
+                self._send_event("error", common.ERROR_CRITICAL, "Something went terribly wrong while configuring decoder!!! Please raise an issue with the maintainer... Exception: %s" % e.message)
+                return False
+            self.state           = STATE_READY
+            self._send_event("debug", common.SUCCESS_OK, "Decoder successfully configured")
+            return True
+        self._send_event("warn", common.WARN_GENERIC, "Configuration message received while decoding!!! Ignoring message...")
+        return False
+
+# Main function starts thrift server on specified port
+@click.command()
+@click.option('--port', '-p', required=True, type=click.INT, metavar='<port>', help='Port on which we should run thrift server')
+def main(port):
+    handler = SpeechDecoder()
+    processor = ASRThriftService.Processor(handler)
+    transport = TSocket.TServerSocket(port=port)
+    tfactory = TTransport.TBufferedTransportFactory()
+    pfactory = TBinaryProtocol.TBinaryProtocolFactory()
+
+    server = TServer.TSimpleServer(processor, transport, tfactory, pfactory)
+    server.serve()
+
+if __name__ == "__main__":
+    main()
+
