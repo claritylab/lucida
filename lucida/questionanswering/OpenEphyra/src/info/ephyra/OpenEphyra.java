@@ -13,7 +13,6 @@ import info.ephyra.answerselection.filters.ScoreNormalizationFilter;
 import info.ephyra.answerselection.filters.ScoreSorterFilter;
 import info.ephyra.answerselection.filters.StopwordFilter;
 import info.ephyra.answerselection.filters.TruncationFilter;
-import info.ephyra.answerselection.filters.WebDocumentFetcherFilter;
 import info.ephyra.io.Logger;
 import info.ephyra.io.MsgPrinter;
 import info.ephyra.nlp.LingPipe;
@@ -41,7 +40,6 @@ import info.ephyra.questionanalysis.QuestionInterpreter;
 import info.ephyra.questionanalysis.QuestionNormalizer;
 import info.ephyra.search.Result;
 import info.ephyra.search.Search;
-import info.ephyra.search.searchers.BingKM;
 import info.ephyra.search.searchers.IndriKM;
 
 import java.util.ArrayList;
@@ -274,9 +272,6 @@ public class OpenEphyra {
 		// search
 		// - knowledge miners for unstructured knowledge sources
 		Search.clearKnowledgeMiners();
-//		Search.addKnowledgeMiner(new BingKM());
-//		Search.addKnowledgeMiner(new GoogleKM());
-//		Search.addKnowledgeMiner(new YahooKM());
 		for (String[] indriIndices : IndriKM.getIndriIndices())
 			Search.addKnowledgeMiner(new IndriKM(indriIndices, false));
 //		for (String[] indriServers : IndriKM.getIndriServers())
@@ -290,7 +285,6 @@ public class OpenEphyra {
 		// - answer extraction filters
 		AnswerSelection.addFilter(new AnswerTypeFilter());
 		AnswerSelection.addFilter(new AnswerPatternFilter());
-		//AnswerSelection.addFilter(new WebDocumentFetcherFilter());
 		AnswerSelection.addFilter(new PredicateExtractionFilter());
 		AnswerSelection.addFilter(new FactoidsFromPredicatesFilter());
 		AnswerSelection.addFilter(new TruncationFilter());

@@ -11,8 +11,6 @@ import org.apache.thrift.scheme.StandardScheme;
 
 import org.apache.thrift.scheme.TupleScheme;
 import org.apache.thrift.protocol.TTupleProtocol;
-import org.apache.thrift.protocol.TProtocolException;
-import org.apache.thrift.EncodingUtils;
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;
 import org.apache.thrift.server.AbstractNonblockingServer.*;
@@ -21,13 +19,9 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.EnumMap;
-import java.util.Set;
-import java.util.HashSet;
 import java.util.EnumSet;
 import java.util.Collections;
 import java.util.BitSet;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
 import javax.annotation.Generated;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -94,7 +88,6 @@ public class LucidaService {
     {
       create_result result = new create_result();
       receiveBase(result, "create");
-      return;
     }
 
     public void learn(String LUCID, QuerySpec knowledge) throws org.apache.thrift.TException
@@ -115,7 +108,6 @@ public class LucidaService {
     {
       learn_result result = new learn_result();
       receiveBase(result, "learn");
-      return;
     }
 
     public String infer(String LUCID, QuerySpec query) throws org.apache.thrift.TException

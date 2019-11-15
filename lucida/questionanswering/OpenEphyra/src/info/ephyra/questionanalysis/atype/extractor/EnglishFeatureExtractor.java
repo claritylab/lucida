@@ -182,21 +182,20 @@ public class EnglishFeatureExtractor extends FeatureExtractor{
                 }
             }
         }
-        
+
         // FOCUS_ADJ
         Tree focusNode = TreeHelper.findFirstPreterminalWithPrecedingPreterminal(tree, "RB|JJ", "WRB");
-        if (focusNode != null) 
+        if (focusNode != null)
             instance.addBinary(new Feature("FOCUS_ADJ"+"."+focusNode.getHeadWord()));
-        
+
     }
-    
+
     private static void addSemanticFeatures(MutableInstance instance, Term focusTerm) {
         // FOCUS_TYPE
         String focusType = WordNetAnswerTypeMapping.getAnswerType(focusTerm);
-        if (focusType == null) 
+        if (focusType == null)
             focusType = "-";
         instance.addBinary(new Feature("FOCUS_TYPE"+"."+focusType));
-        return;   
     }
 
     /**

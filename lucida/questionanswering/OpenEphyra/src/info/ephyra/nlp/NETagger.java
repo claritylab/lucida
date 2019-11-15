@@ -7,11 +7,8 @@ import info.ephyra.util.StringUtils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -847,26 +844,15 @@ public class NETagger {
 		        
 		        nes[s][finders.length + allPatternNames.length + i] = neList.toArray(new String[neList.size()]);
 			}
-			
-                    /*    PrintWriter pw = null;   
-                        try {
-                            pw = new PrintWriter(new FileOutputStream(new File("StanfordNeTagger_data.txt"),true));
-                        } catch (FileNotFoundException ex) {
-                            System.out.println("File not found exception!!");
-                        }*/
 
 			//	apply stanford tagger
 			HashMap <String, String[]> allStanfordNEs = StanfordNeTagger.extractNEs(StringUtils.concatWithSpaces(sentences[s]));
-                        
-                        //pw.printf("%s\n", StringUtils.concatWithSpaces(sentences[s]));
-                      //  pw.printf("%s ----- %s\n", StringUtils.concatWithSpaces(sentences[s]), nes.toString());
                         
 			for (int i = 0; i < stanfordNames.length; i++) {
 				String[] stanfordNEs = allStanfordNEs.get(stanfordNames[i]);
 				if (stanfordNEs == null) stanfordNEs = new String[0];
 				nes[s][finders.length + allPatternNames.length + lists.length + i] = stanfordNEs;
 			}
-                        //pw.close();
 		}
 		
 		return nes;

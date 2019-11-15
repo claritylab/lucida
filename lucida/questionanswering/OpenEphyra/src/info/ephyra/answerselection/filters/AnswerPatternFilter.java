@@ -12,8 +12,6 @@ import info.ephyra.util.RegexConverter;
 import info.ephyra.util.StringUtils;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -284,26 +282,10 @@ public class AnswerPatternFilter extends Filter {
 			tokens[i] = NETagger.tokenize(originalSentences[i]);
 			sentences[i] = StringUtils.concatWithSpaces(tokens[i]);
 		}
-                
-             /*   PrintWriter pw = null;   
-                try {
-                    pw = new PrintWriter(new FileOutputStream(new File("netagger_data.txt"),true));
-                } catch (FileNotFoundException ex) {
-                    System.out.println("File not found exception!!");
-                }*/
-                
+
 		// extract named entities
 		String[][][] nes = NETagger.extractNes(tokens);
-                
-               // pw.printf("%s ----- %s\n", tokens.toString(), nes.toString());
-                
-                /*PrintWriter pw2 = null;   
-                try {
-                    pw2 = new PrintWriter(new FileOutputStream(new File("regex_data.txt"),true));
-                } catch (FileNotFoundException ex) {
-                    System.out.println("File not found exception!!");
-                }*/
-		
+
 		for (int i = 0; i < sentences.length; i++) {
 			// prepare sentence for answer extraction
 			sentences[i] = prepSentence(sentences[i], to, cos, nes[i]);
@@ -336,8 +318,6 @@ public class AnswerPatternFilter extends Filter {
 				}
 			}
 		}
-             //   pw.close();
-           //     pw2.close();
 	}
 	
 	/**

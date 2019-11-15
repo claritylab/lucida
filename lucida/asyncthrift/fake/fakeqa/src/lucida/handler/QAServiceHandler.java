@@ -1,9 +1,5 @@
 package lucida.handler;
 
-// Java packages
-import java.util.List;
-import java.util.ArrayList;
-
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;
 

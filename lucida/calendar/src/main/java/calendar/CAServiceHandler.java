@@ -1,9 +1,5 @@
 package calendar;
 
-import java.util.List;
-import java.io.File;
-import java.util.ArrayList;
-
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;
 
