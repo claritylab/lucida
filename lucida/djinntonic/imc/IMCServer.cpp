@@ -5,7 +5,7 @@
 
 #include "IMCHandler.h"
 #include <folly/init/Init.h>
-#include "Parser.h"
+#include <cstdlib>
 #include <iostream>
 
 DEFINE_int32(num_of_threads,
@@ -16,21 +16,17 @@ using namespace apache::thrift;
 using namespace apache::thrift::async;
 
 using namespace cpp2;
+using namespace std;
 //using namespace facebook::windtunnel::treadmill::services::imc;
 
 int main(int argc, char* argv[]) {
   folly::init(&argc, &argv);
 
-  Properties props;
-  props.Read("../../config.properties");
-  string portVal;
-  int port;
-  if (!props.GetValue("IMC_PORT", portVal)) {
-    cout << "IMC port not defined" << endl;
-    return -1;
-  } else {
-    port = atoi(portVal.c_str());
+  if (argc != 2){
+    cerr << "Wrong argument!" << endl;
+    exit(EXIT_FAILURE);
   }
+  int port = atoi(argv[1]);
 
   auto handler = std::make_shared<IMCHandler>();
   auto server = folly::make_unique<ThriftServer>();
@@ -40,6 +36,8 @@ int main(int argc, char* argv[]) {
   server->setInterface(std::move(handler));
   server->setIdleTimeout(std::chrono::milliseconds(0));
   server->setTaskExpireTime(std::chrono::milliseconds(0));
+
+  cout << "IMC at " << port << endl;
 
   server->serve();
 

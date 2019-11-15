@@ -1,28 +1,22 @@
-from lucidatypes.ttypes import QueryInput, QuerySpec
-from lucidaservice import LucidaService
-from dcm import*
 from flask import*
-
-from Config import  WFList
+import threading
+import os
+import sys
 
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
+from lucidatypes.ttypes import QueryInput, QuerySpec
+from lucidaservice import LucidaService
+from dcm import*
+from Config import WFList
 from Utilities import log
 from Database import database
 import Config
-import os
-import sys
+
 reload(sys)
 sys.setdefaultencoding('utf8') # to solve the unicode error
-
-
-import threading
-
-
-
-
 
 #This is basically the thread starter function
 class FuncThread(threading.Thread):
@@ -33,8 +27,6 @@ class FuncThread(threading.Thread):
     def run(self):
         self._target(*self._args)
  
-
-
 class ThriftClient(object):
     # Constructor.
     def __init__(self, SERVICES):
@@ -54,8 +46,7 @@ class ThriftClient(object):
         query_spec.content = query_input_list
         return query_spec
 
-    def get_client_transport(self, service):
-        host, port = service.get_host_port()
+    def get_client_transport(self, host, port):
         print (host,port)
         transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
         protocol = TBinaryProtocol.TBinaryProtocol(transport)
@@ -65,34 +56,44 @@ class ThriftClient(object):
     def send_query(self, LUCID, service_name, query_input_list):
         query_spec = self.create_query_spec('query', query_input_list)
         service = self.SERVICES[service_name]
-        client, transport = self.get_client_transport(service)
+        host = query_input_list[0].tags[0]
+        port = int(query_input_list[0].tags[1])
+        client, transport = self.get_client_transport(host, port)
         log('Sending infer request to ' + service.name)
         result = client.infer(str(LUCID), query_spec)
         transport.close()
         return result
 
-
-    def learn_image(self, LUCID, image_type, image_data, image_id):
-        for service in Config.Service.LEARNERS['image']: # add concurrency?
-            knowledge_input = self.create_query_input(
-                image_type, [image_data], [image_id])
-            client, transport = self.get_client_transport(service)
-            log('Sending learn_image request to IMM')
+    def learn_image(self, LUCID, image_type, image_data, image_id, _id):
+        knowledge_input = self.create_query_input(
+            image_type, [image_data], [image_id])
+        service = Config.get_service_withid(_id)
+        if service.num == 0:
+            raise RuntimeError('No available instance to learn knowledge')
+        for obj in service.instance:
+            instance_id = obj['id']
+            host, port = service.get_host_port_withid(instance_id)
+            client, transport = self.get_client_transport(host, port)
+            log('Sending learn_image request to ' + service.name)
             client.learn(str(LUCID),
                 self.create_query_spec('knowledge', [knowledge_input]))
             transport.close()
 
-    def learn_text(self, LUCID, text_type, text_data, text_id):
-        for service in Config.Service.LEARNERS['text']: # add concurrency?
-            knowledge_input = self.create_query_input(
-                text_type, [text_data], [text_id])
-            client, transport = self.get_client_transport(service)
-            log('Sending learn_text request to QA')
+    def learn_text(self, LUCID, text_type, text_data, text_id, _id):
+        knowledge_input = self.create_query_input(
+            text_type, [text_data], [text_id])
+        service = Config.get_service_withid(_id)
+        if service.num == 0:
+            raise RuntimeError('No available instance to learn knowledge')
+        for obj in service.instance:
+            instance_id = obj['id']
+            host, port = service.get_host_port_withid(instance_id)
+            client, transport = self.get_client_transport(host, port)
+            log('Sending learn_text request to ' + service.name)
             client.learn(str(LUCID),
                 self.create_query_spec('knowledge', [knowledge_input]))
             transport.close()
-            
-            
+                        
             # Example usage
     def executeThreadServiceRequest(self,service_name, inputData, LUCID, threadIDValue):
 		print("Thread ", threadIDValue, "executing", service_name, "with input", inputData)
@@ -102,13 +103,8 @@ class ThriftClient(object):
 		query_input_list = [self.create_query_input(service.input_type, inputData, tag_list)]
 		resultText = self.send_query(LUCID, service_name, query_input_list)
 		self.threadResults.insert(threadIDValue, resultText)
-		
- 
-
-
-# TODO: split function into separate functions (DCM, creating QuerySpec)
+	
     def infer(self, LUCID, workflow_name, text_data, image_data):
-
 
         response_data = { 'text': text_data, 'image': image_data }
         self.threadResults = []
@@ -120,16 +116,18 @@ class ThriftClient(object):
         resultText = response_data['text']
         resultImage = [response_data['image']]
 
-
+        passArgs = dict()
         while not workflow.isEnd:
-			
+			batchedDataReturn = dict()
+			print "-------------NEXT ITERATION:STATE" + str(workflow.currentState)
 			i = 0
 			for x in resultText:
-				resultText[i] = [unicode(resultText)] # Text information must be unicode'd and array'd to be properly passed. IMAGE DATA DOES NOT HAVE THIS DONE TO IT.
+				resultText[i] = unicode(x) # Text information must be unicode'd and array'd to be properly passed. IMAGE DATA DOES NOT HAVE THIS DONE TO IT.
 				i+= 1
 				
 			# Processes the current workflow state, and in the process finds if this is the final stage or if next stage exists.
-			workflow.processCurrentState(resultText,resultImage)
+			print("Acquiring Batch Request")
+			workflow.processCurrentState(1,batchedDataReturn,passArgs,resultText,resultImage)
 
 			resultText = []
 			resultImage = []
@@ -143,6 +141,8 @@ class ThriftClient(object):
 				threadList.append(FuncThread(self.executeThreadServiceRequest, x.serviceName, x.argumentData, LUCID,threadID))
 				threadList[threadID].start()
 				threadID+=1
+				
+			print("Executed batch request")
 
 			threadID = 0
 			#This is where batched execution joins together
@@ -150,12 +150,13 @@ class ThriftClient(object):
 				threadList[threadID].join()
 				print "============ThreadID" + str(threadID)
 				print "Output:" + self.threadResults[threadID]
+				batchedDataReturn[x.batchedDataName] = self.threadResults[threadID] 
 				resultText.insert(threadID, self.threadResults[threadID])
 				threadID+=1
 
-
-
-                
+			print("Do stuff after batch request")
+			workflow.processCurrentState(0,batchedDataReturn,passArgs,resultText,resultImage)
+			                
         return resultText[0]
 
 thrift_client = ThriftClient(Config.SERVICES)

@@ -8,10 +8,10 @@ DEFINE_int32(num_of_threads,
 		"Number of threads (default: 4)");
 
 #include "IMMHandler.h"
-#include "Parser.h"
 #include <string>
 #include <fstream>
 #include <folly/init/Init.h>
+#include <cstdlib>
 
 using namespace folly;
 using namespace apache::thrift;
@@ -28,18 +28,12 @@ using std::to_string;
 
 int main(int argc, char* argv[]) {
 	folly::init(&argc, &argv);
-	
-	Properties props;
-	props.Read("../../../config.properties");
-	string portVal;
-	int port;
-	if (!props.GetValue("IMM_PORT", portVal)) {
-		cout << "IMM port not defined" << endl;
-		return -1;
-	} else {
-		port = atoi(portVal.c_str());
-	}
 
+	if (argc != 2){
+		cerr << "Wrong argument!" << endl;
+		exit(EXIT_FAILURE);
+	}
+	int port = atoi(argv[1]);
 
 	auto handler = std::make_shared<IMMHandler>();
 	auto server = folly::make_unique<ThriftServer>();
