@@ -127,7 +127,7 @@ public class WorldFactbookKA extends KnowledgeAnnotator {
 			Matcher m = p.matcher(html);
 			if (m.matches()) {
 				// extract sentence
-				String sentence = SentenceExtractor.getSentencesFromHtml(m.group(1))[0];
+				String sentence = SentenceExtractor.getSentenceExtractorInstance().getSentencesFromHtml(m.group(1))[0];
 				
 				// create result from that sentence
 				return getResult(sentence, page.toString());

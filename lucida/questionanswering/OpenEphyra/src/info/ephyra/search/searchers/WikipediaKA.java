@@ -81,7 +81,7 @@ public class WikipediaKA extends KnowledgeAnnotator {
 				// line should contain the term
 				if (line.matches("(?i).*" + content + ".*")) {
 					// extract first sentence
-					sentence = SentenceExtractor.getSentencesFromHtml(line)[0];
+					sentence = SentenceExtractor.getSentenceExtractorInstance().getSentencesFromHtml(line)[0];
 					
 					// sentence is really a definition of the term
 					if (sentence.matches("(?i)(an? |the )?" + content +
