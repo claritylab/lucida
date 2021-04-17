@@ -9,12 +9,21 @@ import info.ephyra.util.HTMLConverter;
  * @version 2005-09-12
  */
 public class SentenceExtractor {
+
+    private static SentenceExtractor sentenceExtractorInstance = new SentenceExtractor();
+
+    private SentenceExtractor();
+
+    public static SentenceExtractor getSentenceExtractorInstance(){
+        return sentenceExtractorInstance;
+    } 
+
 	/**
 	 * Regular expression that describes non-structuring tags, i.e. tags that
 	 * appear within a sentence and that are not sentence delimiters. All other
 	 * tags are assumed to be sentence delimiters.
 	 */
-	private static final String NON_STRUC_TAGS = "(?i)" +
+	private final String NON_STRUC_TAGS = "(?i)" +
 		"<b( .*?)?>|</b>|<i( .*?)?>|</i>|<u( .*?)?>|</u>|<sup( .*?)?>|</sup>" +
 		"|<sub( .*?)?>|</sub>|<tt( .*?)?>|</tt>|<font( .*?)?>|</font>" +
 		"|<small( .*?)?>|</small>|<big( .*?)?>|</big>|<a( .*?)?>|</a>" +
@@ -26,7 +35,7 @@ public class SentenceExtractor {
 	 * @param html the HTML document
 	 * @return sentences extracted from the document
 	 */
-	public static String[] getSentencesFromHtml(String html) {
+	public String[] getSentencesFromHtml(String html) {
 		// handle special characters
 		html = HTMLConverter.replaceSpecialCharacters(html);
 		
