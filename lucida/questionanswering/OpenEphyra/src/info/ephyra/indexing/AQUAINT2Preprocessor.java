@@ -29,6 +29,25 @@ public class AQUAINT2Preprocessor {
 	/** Directory of the AQUAINT corpus */
 	private static String dir;
 	
+	public AQUAINT2Preprocessor() {
+		handleparagraphs();
+	}
+	 
+	public void handleparagraphs() {
+		// convert to 'trectext'
+		MsgPrinter.printStatusMsg("Converting to 'trectext' format:\n");
+		if (convertToTrectext())
+			MsgPrinter.printStatusMsg("Documents converted successfully.");
+		else {
+			MsgPrinter.printErrorMsg("Could not convert documents.");
+			System.exit(1);
+		} 		
+	}
+	
+	
+	
+	
+	
 	/**
 	 * Adds paragraph tags to documents of type 'multi', 'advis' and 'other'.
 	 * Documents of type 'story' are usually already tagged.
@@ -213,43 +232,5 @@ public class AQUAINT2Preprocessor {
 		}
 		
 		return true;
-	}
-	
-	/**
-	 * <p>Entry point of the program.</p>
-	 * 
-	 * <p>Preprocesses the AQUAINT-2 corpus.</p>
-	 * 
-	 * @param args argument 1: directory of the AQUAINT-2 corpus
-	 */
-	public static void main(String[] args) {
-		if (args.length < 1) {
-			MsgPrinter.printUsage("java AQUAINT2Preprocessor " +
-					"AQUAINT2_directory");
-			System.exit(1);
-		}
-		dir = args[0];
-		
-		// enable output of status and error messages
-		MsgPrinter.enableStatusMsgs(true);
-		MsgPrinter.enableErrorMsgs(true);
-		
-		// add paragraph tags if missing
-		MsgPrinter.printStatusMsg("Adding paragraph tags:\n");
-		if (addParagraphTags())
-			MsgPrinter.printStatusMsg("Paragraph tags added successfully.\n");
-		else {
-			MsgPrinter.printErrorMsg("Could not add paragraph tags.");
-			System.exit(1);
-		}
-		
-		// convert to 'trectext'
-		MsgPrinter.printStatusMsg("Converting to 'trectext' format:\n");
-		if (convertToTrectext())
-			MsgPrinter.printStatusMsg("Documents converted successfully.");
-		else {
-			MsgPrinter.printErrorMsg("Could not convert documents.");
-			System.exit(1);
-		}
 	}
 }
